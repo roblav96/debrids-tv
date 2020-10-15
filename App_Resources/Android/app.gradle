@@ -1,0 +1,9 @@
+android {
+	defaultConfig {
+		minSdkVersion 24
+		generatedDensities = []
+	}
+	aaptOptions {
+		additionalParameters "--no-version-vectors"
+	}
+}

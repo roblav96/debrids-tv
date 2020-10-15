@@ -1,0 +1,11 @@
+/hooks
+/node_modules
+/platforms
+/webpack.*.js
+
+*.keystore
+*.log
+.env*
+
+google-services.json
+GoogleService-Info.plist

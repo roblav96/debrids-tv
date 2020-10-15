@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"lib": ["esnext"],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"noEmitHelpers": true,
+		"paths": { "@/*": ["src/*"], "~/*": ["src/*"] },
+		"plugins": [{ "name": "ts-vue-plugin" }],
+		"preserveWatchOutput": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"target": "es2017"
+	},
+	"include": [
+		"node_modules/@nativescript/types-android/lib/android-29.d.ts",
+		"types/android/**/*.d.ts",
+		"src/**/*.d.ts",
+		"src/**/*.ts",
+		"src/**/*.vue"
+	],
+	"exclude": ["App_Resources", "hooks", "platforms"]
+}
