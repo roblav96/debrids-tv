@@ -1,11 +1,16 @@
-const path = require('path')
+const fs = require('fs')
+const R = require('rambdax')
+const webpack = require('webpack')
 const WebpackConfig = require('./webpack.config.js')
 
 module.exports = (env) => {
-	env = env || {}
-	if (env.android) {
-		env.appComponents = env.appComponents || []
-		env.appComponents.push(path.resolve(__dirname, 'src/android/RtpService'))
-	}
-	return WebpackConfig(env)
+	const config = WebpackConfig(env)
+
+	config.optimization.noEmitOnErrors = false
+
+	let dotenv = require('dotenv').parse(fs.readFileSync('.env'))
+	dotenv = R.mapKeys(key => `process.env.${key}`, dotenv)
+	config.plugins.unshift(new webpack.DefinePlugin(dotenv))
+
+	return config
 }

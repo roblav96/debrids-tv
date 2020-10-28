@@ -4,11 +4,11 @@ export default {
 	appPath: 'src',
 	appResourcesPath: 'App_Resources',
 	id: 'app.debrids.tv',
-	webpackConfigPath: 'webpack.config.js',
+	webpackConfigPath: 'custom.webpack.config.js',
 	android: {
 		discardUncaughtJsExceptions: false,
 		markingMode: 'none',
-		maxLogcatObjectSize: 1048576,
+		maxLogcatObjectSize: Number.MAX_SAFE_INTEGER,
 		suppressCallJSMethodExceptions: false,
 		v8Flags: '--expose_gc',
 	},

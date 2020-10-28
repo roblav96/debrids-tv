@@ -10,6 +10,7 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"noEmitHelpers": true,
+		"noEmitOnError": false,
 		"paths": { "@/*": ["src/*"], "~/*": ["src/*"] },
 		"plugins": [{ "name": "ts-vue-plugin" }],
 		"preserveWatchOutput": true,

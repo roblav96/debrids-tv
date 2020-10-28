@@ -1,7 +1,44 @@
+repositories {
+	google()
+	jcenter()
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	implementation 'androidx.legacy:legacy-support-v4:1.+'
+	implementation 'androidx.appcompat:appcompat:1.2.+'
+	implementation 'com.google.android.material:material:1.2.+'
+
+	implementation 'com.google.android.exoplayer:exoplayer:+'
+	implementation 'com.google.android.exoplayer:extension-leanback:+'
+	implementation 'com.google.android.exoplayer:extension-media2:+'
+	implementation 'com.google.android.exoplayer:extension-mediasession:+'
+	implementation 'com.google.android.exoplayer:extension-okhttp:+'
+
+	implementation 'com.squareup.okhttp3:okhttp:3.+'
+	implementation 'com.squareup.picasso:picasso:+'
+
+	implementation 'com.github.florent37:expectanim:+'
+	implementation 'com.github.florent37:viewanimator:+'
+
+	implementation 'com.yyl.ffmpeg:ffmpeg_cmd:+'
+
+	implementation 'com.tananaev:adblib:+'
+
+}
+
 android {
+	buildToolsVersion '29.0.3'
+	compileSdkVersion 29
 	defaultConfig {
 		minSdkVersion 24
+		targetSdkVersion 29
+		multiDexEnabled true
 		generatedDensities = []
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
 	}
 	aaptOptions {
 		additionalParameters "--no-version-vectors"
