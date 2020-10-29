@@ -25,7 +25,7 @@ ActionBar {
 .message {
 	vertical-align: center;
 	text-align: center;
-	font-size: 20;
+	font-size: 20px;
 	color: #333333;
 }
 </style>
