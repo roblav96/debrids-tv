@@ -1,23 +1,17 @@
-interface Env {
-	ALLDEBRID_AGENT: string
-	ALLDEBRID_KEY: string
-	OMDB_KEY: string
-	ORION_APP: string
-	ORION_KEY: string
-	PREMIUMIZE_ID: string
-	PREMIUMIZE_PIN: string
-	REALDEBRID_ID: string
-	REALDEBRID_SECRET: string
-	SIMKL_ID: string
-	SIMKL_SECRET: string
-	TMDB_KEY: string
-	TRAKT_CLIENT_ID: string
-	TRAKT_CLIENT_SECRET: string
-	TVDB_KEY: string
-	TVDB_TOKEN: string
-	TVMAZE_KEY: string
-}
-
-declare namespace NodeJS {
-	interface ProcessEnv extends Env {}
-}
+declare const ALLDEBRID_AGENT: string
+declare const ALLDEBRID_KEY: string
+declare const OMDB_KEY: string
+declare const ORION_APP: string
+declare const ORION_KEY: string
+declare const PREMIUMIZE_ID: string
+declare const PREMIUMIZE_PIN: string
+declare const REALDEBRID_ID: string
+declare const REALDEBRID_SECRET: string
+declare const SIMKL_ID: string
+declare const SIMKL_SECRET: string
+declare const TMDB_KEY: string
+declare const TRAKT_CLIENT_ID: string
+declare const TRAKT_CLIENT_SECRET: string
+declare const TVDB_KEY: string
+declare const TVDB_TOKEN: string
+declare const TVMAZE_KEY: string

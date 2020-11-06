@@ -18,8 +18,8 @@ dependencies {
 	implementation 'com.squareup.okhttp3:okhttp:3.+'
 	implementation 'com.squareup.picasso:picasso:+'
 
-	implementation 'com.github.florent37:expectanim:+'
-	implementation 'com.github.florent37:viewanimator:+'
+	// implementation 'com.github.florent37:expectanim:+'
+	// implementation 'com.github.florent37:viewanimator:+'
 
 	implementation 'com.yyl.ffmpeg:ffmpeg_cmd:+'
 

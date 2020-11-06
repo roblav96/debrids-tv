@@ -12,7 +12,8 @@ module.exports = (env) => {
 
 	config.plugins.push(
 		new webpack.DefinePlugin(
-			R.mapKeys((key) => `process.env.${key}`, dotenv.parse(fs.readFileSync('.env'))),
+			dotenv.parse(fs.readFileSync('.env')),
+			// R.mapKeys((key) => `process.env.${key}`, dotenv.parse(fs.readFileSync('.env'))),
 		),
 	)
 
