@@ -3,7 +3,7 @@
 		"baseUrl": ".",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"lib": ["esnext"],
+		"lib": ["es2017"],
 		"module": "esnext",
 		"moduleResolution": "node",
 		"noEmitHelpers": true,
@@ -19,6 +19,5 @@
 		"src/**/*.d.ts",
 		"src/**/*.ts",
 		"src/**/*.vue"
-	],
-	"exclude": ["App_Resources", "platforms"]
+	]
 }
