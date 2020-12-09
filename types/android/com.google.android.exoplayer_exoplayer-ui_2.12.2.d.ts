@@ -246,6 +246,9 @@ declare module com {
 						public static DEFAULT_SCRUBBER_COLOR: number;
 						public static DEFAULT_AD_MARKER_COLOR: number;
 						public static DEFAULT_PLAYED_AD_MARKER_COLOR: number;
+						public static BAR_GRAVITY_CENTER: number;
+						public static BAR_GRAVITY_BOTTOM: number;
+						public static BAR_GRAVITY_TOP: number;
 						public setKeyCountIncrement(count: number): void;
 						public setPosition(position: number): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
@@ -384,12 +387,13 @@ declare module com {
 						public setShowTimeoutMs(showTimeoutMs: number): void;
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
+						/** @deprecated */
+						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 						public getTextDirection(): number;
 						public getShowVrButton(): boolean;
-						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public setShowFastForwardButton(showFastForwardButton: boolean): void;
 						public getChildVisibleRect(child: globalAndroid.view.View, r: globalAndroid.graphics.Rect, offset: globalAndroid.graphics.Point): boolean;
 						public addView(child: globalAndroid.view.View, params: globalAndroid.view.ViewGroup.LayoutParams): void;
@@ -561,11 +565,13 @@ declare module com {
 						public static ACTION_REWIND: string;
 						public static ACTION_STOP: string;
 						public static EXTRA_INSTANCE_ID: string;
+						public setUseNextAction(useNextAction: boolean): void;
 						public getActions(player: com.google.android.exoplayer2.Player): java.util.List<string>;
 						public constructor(context: globalAndroid.content.Context, channelId: string, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, customActionReceiver: com.google.android.exoplayer2.ui.PlayerNotificationManager.CustomActionReceiver);
-						public setUseNavigationActionsInCompactView(useNavigationActionsInCompactView: boolean): void;
 						/** @deprecated */
 						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter): com.google.android.exoplayer2.ui.PlayerNotificationManager;
+						/** @deprecated */
+						public setUseNavigationActionsInCompactView(useNavigationActionsInCompactView: boolean): void;
 						public setPlayer(player: com.google.android.exoplayer2.Player): void;
 						/** @deprecated */
 						public setNotificationListener(notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): void;
@@ -573,12 +579,16 @@ declare module com {
 						public setUseChronometer(useChronometer: boolean): void;
 						public constructor(context: globalAndroid.content.Context, channelId: string, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener);
 						public setMediaSessionToken(token: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): void;
+						public setUsePreviousActionInCompactView(usePreviousActionInCompactView: boolean): void;
 						public setPriority(priority: number): void;
 						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, channelDescription: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter): com.google.android.exoplayer2.ui.PlayerNotificationManager;
+						/** @deprecated */
+						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public setBadgeIconType(badgeIconType: number): void;
 						public createNotification(player: com.google.android.exoplayer2.Player, builder: androidx.core.app.NotificationCompat.Builder, ongoing: boolean, largeIcon: globalAndroid.graphics.Bitmap): androidx.core.app.NotificationCompat.Builder;
+						/** @deprecated */
+						public setUseNavigationActions(useNavigationActions: boolean): void;
 						public setUseStopAction(useStopAction: boolean): void;
-						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public setControlDispatcher(controlDispatcher: com.google.android.exoplayer2.ControlDispatcher): void;
 						public setSmallIcon(smallIconResourceId: number): void;
 						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, channelDescription: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): com.google.android.exoplayer2.ui.PlayerNotificationManager;
@@ -588,8 +598,9 @@ declare module com {
 						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): com.google.android.exoplayer2.ui.PlayerNotificationManager;
 						/** @deprecated */
 						public setRewindIncrementMs(rewindMs: number): void;
+						public setUseNextActionInCompactView(useNextActionInCompactView: boolean): void;
 						public setUsePlayPauseActions(usePlayPauseActions: boolean): void;
-						public setUseNavigationActions(useNavigationActions: boolean): void;
+						public setUsePreviousAction(usePreviousAction: boolean): void;
 						public setColorized(colorized: boolean): void;
 						public invalidate(): void;
 						/** @deprecated */
@@ -750,10 +761,11 @@ declare module com {
 						public performClick(): boolean;
 						public setUseArtwork(useArtwork: boolean): void;
 						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
+						/** @deprecated */
+						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 						public getTextDirection(): number;
-						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public setShowFastForwardButton(showFastForwardButton: boolean): void;
 						public getChildVisibleRect(child: globalAndroid.view.View, r: globalAndroid.graphics.Rect, offset: globalAndroid.graphics.Point): boolean;
 						public addView(child: globalAndroid.view.View, params: globalAndroid.view.ViewGroup.LayoutParams): void;
@@ -986,13 +998,14 @@ declare module com {
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
 						public setProgressUpdateListener(listener: com.google.android.exoplayer2.ui.StyledPlayerControlView.ProgressUpdateListener): void;
+						/** @deprecated */
+						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						public setAnimationEnabled(animationEnabled: boolean): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 						public getTextDirection(): number;
 						public getShowVrButton(): boolean;
-						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public setShowFastForwardButton(showFastForwardButton: boolean): void;
 						public getChildVisibleRect(child: globalAndroid.view.View, r: globalAndroid.graphics.Rect, offset: globalAndroid.graphics.Point): boolean;
 						public addView(child: globalAndroid.view.View, params: globalAndroid.view.ViewGroup.LayoutParams): void;
@@ -1297,10 +1310,11 @@ declare module com {
 						public setUseArtwork(useArtwork: boolean): void;
 						public setControllerVisibilityListener(listener: com.google.android.exoplayer2.ui.StyledPlayerControlView.VisibilityListener): void;
 						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
+						/** @deprecated */
+						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 						public getTextDirection(): number;
-						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 						public setShowFastForwardButton(showFastForwardButton: boolean): void;
 						public getChildVisibleRect(child: globalAndroid.view.View, r: globalAndroid.graphics.Rect, offset: globalAndroid.graphics.Point): boolean;
 						public static switchTargetView(player: com.google.android.exoplayer2.Player, oldPlayerView: com.google.android.exoplayer2.ui.StyledPlayerView, newPlayerView: com.google.android.exoplayer2.ui.StyledPlayerView): void;

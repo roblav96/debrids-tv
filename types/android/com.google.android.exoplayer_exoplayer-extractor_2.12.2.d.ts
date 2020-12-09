@@ -1660,6 +1660,7 @@ declare module com {
 							public static TYPE_senc: number;
 							public static TYPE_pasp: number;
 							public static TYPE_TTML: number;
+							public static TYPE_m1v_: number;
 							public static TYPE_mp4v: number;
 							public static TYPE_stts: number;
 							public static TYPE_stss: number;

@@ -41,8 +41,9 @@ declare module com {
 							public getBufferedPosition(): number;
 							public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
 							public seekTo(positionInMs: number): void;
-							public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 							public getCurrentPosition(): number;
+							/** @deprecated */
+							public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
 							public setProgressUpdatingEnabled(enabled: boolean): void;
 							public seekTo(positionMs: number): void;
 							public getDuration(): number;

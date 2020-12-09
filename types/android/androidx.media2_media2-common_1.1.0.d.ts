@@ -70,19 +70,6 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module common {
-			export class CallbackMediaItemParcelizer extends java.lang.Object {
-				public static class: java.lang.Class<androidx.media2.common.CallbackMediaItemParcelizer>;
-				public static write(obj: androidx.media2.common.CallbackMediaItem, parcel: androidx.versionedparcelable.VersionedParcel): void;
-				public static read(parcel: androidx.versionedparcelable.VersionedParcel): androidx.media2.common.CallbackMediaItem;
-				public constructor();
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module common {
 			export abstract class DataSourceCallback extends java.lang.Object implements java.io.Closeable {
 				public static class: java.lang.Class<androidx.media2.common.DataSourceCallback>;
 				public readAt(long0: number, bytes1: native.Array<number>, int2: number, int3: number): number;
@@ -132,19 +119,6 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module common {
-			export class FileMediaItemParcelizer extends java.lang.Object {
-				public static class: java.lang.Class<androidx.media2.common.FileMediaItemParcelizer>;
-				public static write(obj: androidx.media2.common.FileMediaItem, parcel: androidx.versionedparcelable.VersionedParcel): void;
-				public static read(parcel: androidx.versionedparcelable.VersionedParcel): androidx.media2.common.FileMediaItem;
-				public constructor();
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module common {
 			export class MediaItem extends androidx.versionedparcelable.CustomVersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.common.MediaItem>;
 				public static POSITION_UNKNOWN: number;
@@ -173,10 +147,10 @@ declare module androidx {
 					 * Constructs a new instance of the androidx.media2.common.MediaItem$OnMetadataChangedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 					 */
 					public constructor(implementation: {
-						onMetadataChanged(mediaItem0: androidx.media2.common.MediaItem): void;
+						onMetadataChanged(mediaItem0: androidx.media2.common.MediaItem, mediaMetadata1: androidx.media2.common.MediaMetadata): void;
 					});
 					public constructor();
-					public onMetadataChanged(mediaItem0: androidx.media2.common.MediaItem): void;
+					public onMetadataChanged(mediaItem0: androidx.media2.common.MediaItem, mediaMetadata1: androidx.media2.common.MediaMetadata): void;
 				}
 			}
 		}
@@ -410,7 +384,6 @@ declare module androidx {
 				public static fromParcelableList(parcelList: java.util.List<any>): java.util.List<any>;
 				public static toParcelableList(items: java.util.List<any>): java.util.List<androidx.versionedparcelable.ParcelImpl>;
 				public static toParcelable(item: androidx.versionedparcelable.VersionedParcelable): androidx.versionedparcelable.ParcelImpl;
-				public constructor();
 			}
 			export module MediaParcelUtils {
 				export class MediaItemParcelImpl extends androidx.versionedparcelable.ParcelImpl {
@@ -461,7 +434,7 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module common {
-			export abstract class SessionPlayer extends java.lang.Object implements java.lang.AutoCloseable {
+			export abstract class SessionPlayer extends java.lang.Object implements java.io.Closeable {
 				public static class: java.lang.Class<androidx.media2.common.SessionPlayer>;
 				public static PLAYER_STATE_IDLE: number;
 				public static PLAYER_STATE_PAUSED: number;
@@ -485,12 +458,12 @@ declare module androidx {
 				public getCurrentMediaItem(): androidx.media2.common.MediaItem;
 				public getCurrentMediaItemIndex(): number;
 				public unregisterPlayerCallback(callback: androidx.media2.common.SessionPlayer.PlayerCallback): void;
-				public getTrackInfoInternal(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public getDuration(): number;
 				public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public getVideoSizeInternal(): androidx.media2.common.VideoSize;
 				public constructor();
 				public setPlaybackSpeed(float0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPreviousMediaItemIndex(): number;
@@ -498,30 +471,31 @@ declare module androidx {
 				public setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getBufferedPosition(): number;
 				public updatePlaylistMetadata(mediaMetadata0: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public deselectTrackInternal(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setMediaItem(mediaItem0: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getNextMediaItemIndex(): number;
 				public getCallbacks(): java.util.List<androidx.core.util.Pair<androidx.media2.common.SessionPlayer.PlayerCallback,java.util.concurrent.Executor>>;
+				public getSelectedTrack(trackType: number): androidx.media2.common.SessionPlayer.TrackInfo;
 				public registerPlayerCallback(executor: java.util.concurrent.Executor, callback: androidx.media2.common.SessionPlayer.PlayerCallback): void;
-				public selectTrackInternal(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setAudioAttributes(audioAttributesCompat0: androidx.media.AudioAttributesCompat): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaybackSpeed(): number;
 				public close(): void;
 				public skipToPreviousPlaylistItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public getSelectedTrackInternal(trackType: number): androidx.media2.common.SessionPlayer.TrackInfo;
+				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
 				public setPlaylist(list0: java.util.List<androidx.media2.common.MediaItem>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getCurrentPosition(): number;
 				public addPlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public skipToNextPlaylistItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public setSurfaceInternal(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getBufferingState(): number;
 				public removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
+				public deselectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
 				public getAudioAttributes(): androidx.media.AudioAttributesCompat;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 			}
 			export module SessionPlayer {
@@ -553,13 +527,13 @@ declare module androidx {
 					public onTrackDeselected(player: androidx.media2.common.SessionPlayer, trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): void;
 					public onBufferingStateChanged(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, buffState: number): void;
 					public onShuffleModeChanged(player: androidx.media2.common.SessionPlayer, shuffleMode: number): void;
-					public onTrackInfoChanged(player: androidx.media2.common.SessionPlayer, trackInfos: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
+					public onTracksChanged(player: androidx.media2.common.SessionPlayer, tracks: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
 					public onCurrentMediaItemChanged(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem): void;
 					public onPlayerStateChanged(player: androidx.media2.common.SessionPlayer, playerState: number): void;
 					public constructor();
 					public onPlaybackSpeedChanged(player: androidx.media2.common.SessionPlayer, playbackSpeed: number): void;
 					public onRepeatModeChanged(player: androidx.media2.common.SessionPlayer, repeatMode: number): void;
-					public onVideoSizeChangedInternal(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, size: androidx.media2.common.VideoSize): void;
+					public onVideoSizeChanged(player: androidx.media2.common.SessionPlayer, size: androidx.media2.common.VideoSize): void;
 					public onAudioAttributesChanged(player: androidx.media2.common.SessionPlayer, attributes: androidx.media.AudioAttributesCompat): void;
 				}
 				export class PlayerResult extends java.lang.Object implements androidx.media2.common.BaseResult {
@@ -647,18 +621,19 @@ declare module androidx {
 					public static MEDIA_TRACK_TYPE_AUDIO: number;
 					public static MEDIA_TRACK_TYPE_SUBTITLE: number;
 					public static MEDIA_TRACK_TYPE_METADATA: number;
-					public toString(): string;
 					public equals(obj: any): boolean;
-					public onPreParceling(isStream: boolean): void;
-					public constructor();
 					public getId(): number;
 					public getLanguage(): java.util.Locale;
-					public getMediaItem(): androidx.media2.common.MediaItem;
-					public constructor(id: number, item: androidx.media2.common.MediaItem, type: number, format: globalAndroid.media.MediaFormat);
+					public getFormat(): globalAndroid.media.MediaFormat;
+					public isSelectable(): boolean;
+					public toString(): string;
+					public onPreParceling(isStream: boolean): void;
+					public constructor();
+					public constructor(id: number, type: number, format: globalAndroid.media.MediaFormat, isSelectable: boolean);
 					public hashCode(): number;
 					public getTrackType(): number;
-					public getFormat(): globalAndroid.media.MediaFormat;
 					public onPostParceling(): void;
+					public constructor(id: number, type: number, format: globalAndroid.media.MediaFormat);
 				}
 				export module TrackInfo {
 					export class MediaTrackType extends java.lang.Object implements java.lang.annotation.Annotation {
@@ -689,9 +664,6 @@ declare module androidx {
 		export module common {
 			export class SubtitleData extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.common.SubtitleData>;
-				public static MIMETYPE_TEXT_CEA_608: string;
-				public static MIMETYPE_TEXT_CEA_708: string;
-				public static MIMETYPE_TEXT_VTT: string;
 				public getDurationUs(): number;
 				public getData(): native.Array<number>;
 				public equals(obj: any): boolean;
@@ -762,19 +734,6 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module common {
-			export class UriMediaItemParcelizer extends java.lang.Object {
-				public static class: java.lang.Class<androidx.media2.common.UriMediaItemParcelizer>;
-				public static read(parcel: androidx.versionedparcelable.VersionedParcel): androidx.media2.common.UriMediaItem;
-				public static write(obj: androidx.media2.common.UriMediaItem, parcel: androidx.versionedparcelable.VersionedParcel): void;
-				public constructor();
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module common {
 			export class VideoSize extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.common.VideoSize>;
 				public getWidth(): number;
@@ -801,97 +760,5 @@ declare module androidx {
 	}
 }
 
-declare module androidx {
-	export module media2 {
-		export module common {
-			export module futures {
-				export abstract class AbstractResolvableFuture<V>  extends com.google.common.util.concurrent.ListenableFuture<any> {
-					public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture<any>>;
-					public setException(throwable: java.lang.Throwable): boolean;
-					public isCancelled(): boolean;
-					public get(timeout: number, unit: java.util.concurrent.TimeUnit): any;
-					public set(value: any): boolean;
-					public pendingToString(): string;
-					public toString(): string;
-					public get(): any;
-					public isDone(): boolean;
-					public afterDone(): void;
-					public constructor();
-					public interruptTask(): void;
-					public setFuture(future: com.google.common.util.concurrent.ListenableFuture<any>): boolean;
-					public wasInterrupted(): boolean;
-					public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-					public cancel(mayInterruptIfRunning: boolean): boolean;
-				}
-				export module AbstractResolvableFuture {
-					export abstract class AtomicHelper extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.AtomicHelper>;
-					}
-					export class Cancellation extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.Cancellation>;
-					}
-					export class Failure extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.Failure>;
-					}
-					export class Listener extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.Listener>;
-					}
-					export class SafeAtomicHelper extends androidx.media2.common.futures.AbstractResolvableFuture.AtomicHelper {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.SafeAtomicHelper>;
-					}
-					export class SetFuture<V>  extends java.lang.Runnable {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.SetFuture<any>>;
-						public run(): void;
-					}
-					export class SynchronizedHelper extends androidx.media2.common.futures.AbstractResolvableFuture.AtomicHelper {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.SynchronizedHelper>;
-					}
-					export class Waiter extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.common.futures.AbstractResolvableFuture.Waiter>;
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module common {
-			export module futures {
-				export class DirectExecutor extends java.util.concurrent.Executor {
-					public static class: java.lang.Class<androidx.media2.common.futures.DirectExecutor>;
-					public static INSTANCE: androidx.media2.common.futures.DirectExecutor;
-					public toString(): string;
-					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
-					public static valueOf(name: string): androidx.media2.common.futures.DirectExecutor;
-					public execute(command: java.lang.Runnable): void;
-					public static values(): native.Array<androidx.media2.common.futures.DirectExecutor>;
-				}
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module common {
-			export module futures {
-				export class ResolvableFuture<V>  extends androidx.media2.common.futures.AbstractResolvableFuture<any> {
-					public static class: java.lang.Class<androidx.media2.common.futures.ResolvableFuture<any>>;
-					public setException(throwable: java.lang.Throwable): boolean;
-					public set(value: any): boolean;
-					public setFuture(future: com.google.common.util.concurrent.ListenableFuture<any>): boolean;
-					public static create(): androidx.media2.common.futures.ResolvableFuture<any>;
-					public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-				}
-			}
-		}
-	}
-}
-
 //Generics information:
-//androidx.media2.common.futures.AbstractResolvableFuture:1
-//androidx.media2.common.futures.AbstractResolvableFuture.SetFuture:1
-//androidx.media2.common.futures.ResolvableFuture:1
 

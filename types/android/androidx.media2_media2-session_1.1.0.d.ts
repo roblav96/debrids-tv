@@ -88,16 +88,18 @@ declare module androidx {
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public onPreParceling(isStream: boolean): void;
 				public getSelectedMetadataTrack(): androidx.media2.common.SessionPlayer.TrackInfo;
 				public getBufferedPositionMs(): number;
+				public getBufferingState(): number;
 				public getPlaylistSlice(): androidx.media2.common.ParcelImplListSlice;
 				public getSelectedVideoTrack(): androidx.media2.common.SessionPlayer.TrackInfo;
 				public getSelectedAudioTrack(): androidx.media2.common.SessionPlayer.TrackInfo;
 				public getVersion(): number;
 				public getSelectedSubtitleTrack(): androidx.media2.common.SessionPlayer.TrackInfo;
 				public getTokenExtras(): globalAndroid.os.Bundle;
+				public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 			}
 		}
 	}
@@ -211,6 +213,36 @@ declare module androidx {
 				public onChildrenChanged(int0: number, string1: string, int2: number, parcelImpl3: androidx.versionedparcelable.ParcelImpl): void;
 			}
 			export module IMediaController {
+				export class Default extends java.lang.Object implements androidx.media2.session.IMediaController {
+					public static class: java.lang.Class<androidx.media2.session.IMediaController.Default>;
+					public onTrackSelected(seq: number, trackInfo: androidx.versionedparcelable.ParcelImpl): void;
+					public onChildrenChanged(seq: number, parentId: string, itemCount: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public onBufferingStateChanged(seq: number, item: androidx.versionedparcelable.ParcelImpl, state: number, bufferedPositionMs: number, eventTimeMs: number, positionMs: number): void;
+					public onDisconnected(seq: number): void;
+					public onVideoSizeChanged(seq: number, item: androidx.versionedparcelable.ParcelImpl, videoSize: androidx.versionedparcelable.ParcelImpl): void;
+					public onShuffleModeChanged(seq: number, shuffleMode: number, currentIdx: number, previousIdx: number, nextIdx: number): void;
+					public constructor();
+					public onRepeatModeChanged(seq: number, repeatMode: number, currentIdx: number, previousIdx: number, nextIdx: number): void;
+					public onPlaybackInfoChanged(seq: number, playbackInfo: androidx.versionedparcelable.ParcelImpl): void;
+					public onSeekCompleted(seq: number, eventTimeMs: number, positionMs: number, seekPositionMs: number): void;
+					public onAllowedCommandsChanged(seq: number, commandGroup: androidx.versionedparcelable.ParcelImpl): void;
+					public onSetCustomLayout(seq: number, commandButtonlist: java.util.List<androidx.versionedparcelable.ParcelImpl>): void;
+					public onLibraryResult(seq: number, libraryResult: androidx.versionedparcelable.ParcelImpl): void;
+					public onConnected(seq: number, connectionResult: androidx.versionedparcelable.ParcelImpl): void;
+					public onSessionResult(seq: number, sessionResult: androidx.versionedparcelable.ParcelImpl): void;
+					public asBinder(): globalAndroid.os.IBinder;
+					public onPlaylistChanged(seq: number, listSlice: androidx.media2.common.ParcelImplListSlice, metadata: androidx.versionedparcelable.ParcelImpl, currentIdx: number, previousIdx: number, nextIdx: number): void;
+					public onPlaybackSpeedChanged(seq: number, eventTimeMs: number, positionMs: number, speed: number): void;
+					public onCurrentMediaItemChanged(seq: number, item: androidx.versionedparcelable.ParcelImpl, currentIdx: number, previousIdx: number, nextIdx: number): void;
+					public onPlayerStateChanged(seq: number, eventTimeMs: number, positionMs: number, state: number): void;
+					public onCustomCommand(seq: number, command: androidx.versionedparcelable.ParcelImpl, bundle2: globalAndroid.os.Bundle): void;
+					public onPlaybackCompleted(seq: number): void;
+					public onSearchResultChanged(seq: number, query: string, itemCount: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public onPlaylistMetadataChanged(seq: number, metadata: androidx.versionedparcelable.ParcelImpl): void;
+					public onTrackInfoChanged(seq: number, trackInfos: java.util.List<androidx.versionedparcelable.ParcelImpl>, selectedVideoTrack: androidx.versionedparcelable.ParcelImpl, selectedAudioTrack: androidx.versionedparcelable.ParcelImpl, selectedSubtitleTrack: androidx.versionedparcelable.ParcelImpl, selectedMetadataTrack: androidx.versionedparcelable.ParcelImpl): void;
+					public onSubtitleData(seq: number, item: androidx.versionedparcelable.ParcelImpl, track: androidx.versionedparcelable.ParcelImpl, data: androidx.versionedparcelable.ParcelImpl): void;
+					public onTrackDeselected(seq: number, trackInfo: androidx.versionedparcelable.ParcelImpl): void;
+				}
 				export abstract class Stub extends globalAndroid.os.Binder implements androidx.media2.session.IMediaController {
 					public static class: java.lang.Class<androidx.media2.session.IMediaController.Stub>;
 					public onSessionResult(int0: number, parcelImpl1: androidx.versionedparcelable.ParcelImpl): void;
@@ -222,6 +254,7 @@ declare module androidx {
 					public onTransact(code: number, data: globalAndroid.os.Parcel, reply: globalAndroid.os.Parcel, flags: number): boolean;
 					public onPlaybackCompleted(int0: number): void;
 					public onCustomCommand(int0: number, parcelImpl1: androidx.versionedparcelable.ParcelImpl, bundle2: globalAndroid.os.Bundle): void;
+					public static setDefaultImpl(impl: androidx.media2.session.IMediaController): boolean;
 					public onPlaylistChanged(int0: number, parcelImplListSlice1: androidx.media2.common.ParcelImplListSlice, parcelImpl2: androidx.versionedparcelable.ParcelImpl, int3: number, int4: number, int5: number): void;
 					public onBufferingStateChanged(int0: number, parcelImpl1: androidx.versionedparcelable.ParcelImpl, int2: number, long3: number, long4: number, long5: number): void;
 					public onDisconnected(int0: number): void;
@@ -229,6 +262,7 @@ declare module androidx {
 					public onPlaylistMetadataChanged(int0: number, parcelImpl1: androidx.versionedparcelable.ParcelImpl): void;
 					public constructor();
 					public getInterfaceDescriptor(): string;
+					public static getDefaultImpl(): androidx.media2.session.IMediaController;
 					public onSetCustomLayout(int0: number, list1: java.util.List<androidx.versionedparcelable.ParcelImpl>): void;
 					public pingBinder(): boolean;
 					public onTrackDeselected(int0: number, parcelImpl1: androidx.versionedparcelable.ParcelImpl): void;
@@ -257,6 +291,7 @@ declare module androidx {
 				export module Stub {
 					export class Proxy extends java.lang.Object implements androidx.media2.session.IMediaController {
 						public static class: java.lang.Class<androidx.media2.session.IMediaController.Stub.Proxy>;
+						public static sDefaultImpl: androidx.media2.session.IMediaController;
 						public onVideoSizeChanged(seq: number, item: androidx.versionedparcelable.ParcelImpl, videoSize: androidx.versionedparcelable.ParcelImpl): void;
 						public onSeekCompleted(seq: number, eventTimeMs: number, positionMs: number, seekPositionMs: number): void;
 						public onPlaybackCompleted(seq: number): void;
@@ -313,20 +348,16 @@ declare module androidx {
 					skipBackward(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 					seekTo(iMediaController0: androidx.media2.session.IMediaController, int1: number, long2: number): void;
 					onCustomCommand(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl, bundle3: globalAndroid.os.Bundle): void;
-					prepareFromUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
-					prepareFromSearch(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
-					prepareFromMediaId(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
-					playFromUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
-					playFromSearch(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
-					playFromMediaId(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 					setRating(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, parcelImpl3: androidx.versionedparcelable.ParcelImpl): void;
 					setPlaybackSpeed(iMediaController0: androidx.media2.session.IMediaController, int1: number, float2: number): void;
 					setPlaylist(iMediaController0: androidx.media2.session.IMediaController, int1: number, list2: java.util.List<string>, parcelImpl3: androidx.versionedparcelable.ParcelImpl): void;
 					setMediaItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string): void;
+					setMediaUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 					updatePlaylistMetadata(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
 					addPlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, string3: string): void;
 					removePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 					replacePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, string3: string): void;
+					movePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, int3: number): void;
 					skipToPlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 					skipToPreviousItem(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 					skipToNextItem(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
@@ -350,7 +381,6 @@ declare module androidx {
 				public rewind(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 				public pause(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 				public replacePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, string3: string): void;
-				public prepareFromSearch(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 				public getChildren(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, parcelImpl5: androidx.versionedparcelable.ParcelImpl): void;
 				public setSurface(iMediaController0: androidx.media2.session.IMediaController, int1: number, surface2: globalAndroid.view.Surface): void;
 				public asBinder(): globalAndroid.os.IBinder;
@@ -359,15 +389,12 @@ declare module androidx {
 				public removePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 				public skipToPreviousItem(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 				public subscribe(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, parcelImpl3: androidx.versionedparcelable.ParcelImpl): void;
+				public movePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, int3: number): void;
 				public release(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 				public setVolumeTo(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, int3: number): void;
-				public playFromSearch(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
-				public playFromUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 				public play(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
-				public prepareFromMediaId(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 				public getSearchResult(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, parcelImpl5: androidx.versionedparcelable.ParcelImpl): void;
 				public skipToNextItem(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
-				public prepareFromUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 				public setPlaylist(iMediaController0: androidx.media2.session.IMediaController, int1: number, list2: java.util.List<string>, parcelImpl3: androidx.versionedparcelable.ParcelImpl): void;
 				public unsubscribe(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string): void;
 				public seekTo(iMediaController0: androidx.media2.session.IMediaController, int1: number, long2: number): void;
@@ -380,7 +407,6 @@ declare module androidx {
 				public updatePlaylistMetadata(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
 				public skipForward(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 				public selectTrack(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
-				public playFromMediaId(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 				public skipToPlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 				public deselectTrack(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
 				public adjustVolume(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, int3: number): void;
@@ -388,10 +414,55 @@ declare module androidx {
 				public addPlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, string3: string): void;
 				public onCustomCommand(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl, bundle3: globalAndroid.os.Bundle): void;
 				public setRepeatMode(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
+				public setMediaUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 				public skipBackward(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 				public onControllerResult(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
 			}
 			export module IMediaSession {
+				export class Default extends java.lang.Object implements androidx.media2.session.IMediaSession {
+					public static class: java.lang.Class<androidx.media2.session.IMediaSession.Default>;
+					public setRepeatMode(caller: androidx.media2.session.IMediaController, seq: number, repeatMode: number): void;
+					public addPlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number, mediaId: string): void;
+					public seekTo(caller: androidx.media2.session.IMediaController, seq: number, pos: number): void;
+					public movePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, fromIndex: number, toIndex: number): void;
+					public setPlaybackSpeed(caller: androidx.media2.session.IMediaController, seq: number, speed: number): void;
+					public getLibraryRoot(caller: androidx.media2.session.IMediaController, seq: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public fastForward(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public skipForward(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public setMediaUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
+					public subscribe(caller: androidx.media2.session.IMediaController, seq: number, parentId: string, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public replacePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number, mediaId: string): void;
+					public deselectTrack(caller: androidx.media2.session.IMediaController, seq: number, trackInfo: androidx.versionedparcelable.ParcelImpl): void;
+					public pause(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public constructor();
+					public rewind(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public connect(caller: androidx.media2.session.IMediaController, seq: number, connectionRequest: androidx.versionedparcelable.ParcelImpl): void;
+					public setRating(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, rating: androidx.versionedparcelable.ParcelImpl): void;
+					public prepare(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public skipToNextItem(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public getItem(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string): void;
+					public getSearchResult(caller: androidx.media2.session.IMediaController, seq: number, query: string, page: number, pageSize: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public skipToPreviousItem(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public adjustVolume(caller: androidx.media2.session.IMediaController, seq: number, direction: number, flags: number): void;
+					public unsubscribe(caller: androidx.media2.session.IMediaController, seq: number, parentId: string): void;
+					public selectTrack(caller: androidx.media2.session.IMediaController, seq: number, trackInfo: androidx.versionedparcelable.ParcelImpl): void;
+					public getChildren(caller: androidx.media2.session.IMediaController, seq: number, parentId: string, page: number, pageSize: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public setSurface(caller: androidx.media2.session.IMediaController, seq: number, surface: globalAndroid.view.Surface): void;
+					public play(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public setShuffleMode(caller: androidx.media2.session.IMediaController, seq: number, shuffleMode: number): void;
+					public search(caller: androidx.media2.session.IMediaController, seq: number, query: string, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
+					public skipBackward(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public onControllerResult(caller: androidx.media2.session.IMediaController, seq: number, controllerResult: androidx.versionedparcelable.ParcelImpl): void;
+					public asBinder(): globalAndroid.os.IBinder;
+					public updatePlaylistMetadata(caller: androidx.media2.session.IMediaController, seq: number, metadata: androidx.versionedparcelable.ParcelImpl): void;
+					public onCustomCommand(caller: androidx.media2.session.IMediaController, seq: number, sessionCommand: androidx.versionedparcelable.ParcelImpl, bundle3: globalAndroid.os.Bundle): void;
+					public setPlaylist(caller: androidx.media2.session.IMediaController, seq: number, list: java.util.List<string>, metadata: androidx.versionedparcelable.ParcelImpl): void;
+					public setMediaItem(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string): void;
+					public removePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number): void;
+					public setVolumeTo(caller: androidx.media2.session.IMediaController, seq: number, value: number, flags: number): void;
+					public release(caller: androidx.media2.session.IMediaController, seq: number): void;
+					public skipToPlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number): void;
+				}
 				export abstract class Stub extends globalAndroid.os.Binder implements androidx.media2.session.IMediaSession {
 					public static class: java.lang.Class<androidx.media2.session.IMediaSession.Stub>;
 					public addPlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, string3: string): void;
@@ -403,27 +474,25 @@ declare module androidx {
 					public removePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 					public selectTrack(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
 					public onCustomCommand(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl, bundle3: globalAndroid.os.Bundle): void;
-					public playFromSearch(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 					public setSurface(iMediaController0: androidx.media2.session.IMediaController, int1: number, surface2: globalAndroid.view.Surface): void;
 					public deselectTrack(iMediaController0: androidx.media2.session.IMediaController, int1: number, parcelImpl2: androidx.versionedparcelable.ParcelImpl): void;
 					public constructor();
 					public release(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 					public getSearchResult(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, parcelImpl5: androidx.versionedparcelable.ParcelImpl): void;
-					public prepareFromMediaId(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 					public skipToPlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 					public getChildren(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, parcelImpl5: androidx.versionedparcelable.ParcelImpl): void;
-					public prepareFromSearch(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
+					public static setDefaultImpl(impl: androidx.media2.session.IMediaSession): boolean;
+					public setMediaUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 					public dumpAsync(fd: java.io.FileDescriptor, strings1: native.Array<string>): void;
 					public unsubscribe(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string): void;
-					public playFromMediaId(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, bundle3: globalAndroid.os.Bundle): void;
 					public pause(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
 					public setMediaItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string): void;
+					public movePlaylistItem(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, int3: number): void;
+					public static getDefaultImpl(): androidx.media2.session.IMediaSession;
 					public setPlaybackSpeed(iMediaController0: androidx.media2.session.IMediaController, int1: number, float2: number): void;
 					public onTransact(code: number, data: globalAndroid.os.Parcel, reply: globalAndroid.os.Parcel, flags: number): boolean;
-					public playFromUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 					public setRepeatMode(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 					public setVolumeTo(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number, int3: number): void;
-					public prepareFromUri(iMediaController0: androidx.media2.session.IMediaController, int1: number, uri2: globalAndroid.net.Uri, bundle3: globalAndroid.os.Bundle): void;
 					public setShuffleMode(iMediaController0: androidx.media2.session.IMediaController, int1: number, int2: number): void;
 					public unlinkToDeath(recipient: globalAndroid.os.IBinder.DeathRecipient, flags: number): boolean;
 					public skipForward(iMediaController0: androidx.media2.session.IMediaController, int1: number): void;
@@ -456,14 +525,13 @@ declare module androidx {
 				export module Stub {
 					export class Proxy extends java.lang.Object implements androidx.media2.session.IMediaSession {
 						public static class: java.lang.Class<androidx.media2.session.IMediaSession.Stub.Proxy>;
+						public static sDefaultImpl: androidx.media2.session.IMediaSession;
 						public getItem(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string): void;
-						public playFromSearch(caller: androidx.media2.session.IMediaController, seq: number, query: string, extras: globalAndroid.os.Bundle): void;
 						public skipBackward(caller: androidx.media2.session.IMediaController, seq: number): void;
 						public addPlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number, mediaId: string): void;
 						public removePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number): void;
 						public deselectTrack(caller: androidx.media2.session.IMediaController, seq: number, trackInfo: androidx.versionedparcelable.ParcelImpl): void;
 						public search(caller: androidx.media2.session.IMediaController, seq: number, query: string, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
-						public playFromUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 						public skipForward(caller: androidx.media2.session.IMediaController, seq: number): void;
 						public getInterfaceDescriptor(): string;
 						public setRepeatMode(caller: androidx.media2.session.IMediaController, seq: number, repeatMode: number): void;
@@ -474,7 +542,6 @@ declare module androidx {
 						public prepare(caller: androidx.media2.session.IMediaController, seq: number): void;
 						public onCustomCommand(caller: androidx.media2.session.IMediaController, seq: number, sessionCommand: androidx.versionedparcelable.ParcelImpl, bundle3: globalAndroid.os.Bundle): void;
 						public setVolumeTo(caller: androidx.media2.session.IMediaController, seq: number, value: number, flags: number): void;
-						public prepareFromSearch(caller: androidx.media2.session.IMediaController, seq: number, query: string, extras: globalAndroid.os.Bundle): void;
 						public asBinder(): globalAndroid.os.IBinder;
 						public skipToPlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number): void;
 						public subscribe(caller: androidx.media2.session.IMediaController, seq: number, parentId: string, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
@@ -484,6 +551,7 @@ declare module androidx {
 						public setShuffleMode(caller: androidx.media2.session.IMediaController, seq: number, shuffleMode: number): void;
 						public getSearchResult(caller: androidx.media2.session.IMediaController, seq: number, query: string, page: number, pageSize: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
 						public connect(caller: androidx.media2.session.IMediaController, seq: number, connectionRequest: androidx.versionedparcelable.ParcelImpl): void;
+						public setMediaUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 						public fastForward(caller: androidx.media2.session.IMediaController, seq: number): void;
 						public setSurface(caller: androidx.media2.session.IMediaController, seq: number, surface: globalAndroid.view.Surface): void;
 						public setPlaylist(caller: androidx.media2.session.IMediaController, seq: number, list: java.util.List<string>, metadata: androidx.versionedparcelable.ParcelImpl): void;
@@ -491,15 +559,13 @@ declare module androidx {
 						public replacePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number, mediaId: string): void;
 						public getLibraryRoot(caller: androidx.media2.session.IMediaController, seq: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
 						public setRating(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, rating: androidx.versionedparcelable.ParcelImpl): void;
+						public movePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, fromIndex: number, toIndex: number): void;
 						public rewind(caller: androidx.media2.session.IMediaController, seq: number): void;
-						public prepareFromUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
-						public prepareFromMediaId(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, extras: globalAndroid.os.Bundle): void;
 						public release(caller: androidx.media2.session.IMediaController, seq: number): void;
 						public skipToPreviousItem(caller: androidx.media2.session.IMediaController, seq: number): void;
 						public onControllerResult(caller: androidx.media2.session.IMediaController, seq: number, controllerResult: androidx.versionedparcelable.ParcelImpl): void;
 						public setMediaItem(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string): void;
 						public getChildren(caller: androidx.media2.session.IMediaController, seq: number, parentId: string, page: number, pageSize: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
-						public playFromMediaId(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, extras: globalAndroid.os.Bundle): void;
 						public seekTo(caller: androidx.media2.session.IMediaController, seq: number, pos: number): void;
 					}
 				}
@@ -525,8 +591,15 @@ declare module androidx {
 				public asBinder(): globalAndroid.os.IBinder;
 			}
 			export module IMediaSessionService {
+				export class Default extends java.lang.Object implements androidx.media2.session.IMediaSessionService {
+					public static class: java.lang.Class<androidx.media2.session.IMediaSessionService.Default>;
+					public constructor();
+					public connect(caller: androidx.media2.session.IMediaController, connectionRequest: androidx.versionedparcelable.ParcelImpl): void;
+					public asBinder(): globalAndroid.os.IBinder;
+				}
 				export abstract class Stub extends globalAndroid.os.Binder implements androidx.media2.session.IMediaSessionService {
 					public static class: java.lang.Class<androidx.media2.session.IMediaSessionService.Stub>;
+					public static setDefaultImpl(impl: androidx.media2.session.IMediaSessionService): boolean;
 					public isBinderAlive(): boolean;
 					public dump(fd: java.io.FileDescriptor, fout: java.io.PrintWriter, strings2: native.Array<string>): void;
 					public linkToDeath(recipient: globalAndroid.os.IBinder.DeathRecipient, flags: number): void;
@@ -543,10 +616,12 @@ declare module androidx {
 					public constructor();
 					public getInterfaceDescriptor(): string;
 					public pingBinder(): boolean;
+					public static getDefaultImpl(): androidx.media2.session.IMediaSessionService;
 				}
 				export module Stub {
 					export class Proxy extends java.lang.Object implements androidx.media2.session.IMediaSessionService {
 						public static class: java.lang.Class<androidx.media2.session.IMediaSessionService.Stub.Proxy>;
+						public static sDefaultImpl: androidx.media2.session.IMediaSessionService;
 						public getInterfaceDescriptor(): string;
 						public connect(caller: androidx.media2.session.IMediaController, connectionRequest: androidx.versionedparcelable.ParcelImpl): void;
 						public asBinder(): globalAndroid.os.IBinder;
@@ -657,16 +732,13 @@ declare module androidx {
 				}
 				export class Builder extends androidx.media2.session.MediaController.BuilderBase<androidx.media2.session.MediaBrowser,androidx.media2.session.MediaBrowser.Builder,androidx.media2.session.MediaBrowser.BrowserCallback> {
 					public static class: java.lang.Class<androidx.media2.session.MediaBrowser.Builder>;
-					public setSessionToken(token: androidx.media2.session.SessionToken): any;
 					public setConnectionHints(connectionHints: globalAndroid.os.Bundle): androidx.media2.session.MediaBrowser.Builder;
 					public setSessionCompatToken(compatToken: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): androidx.media2.session.MediaBrowser.Builder;
-					public setControllerCallback(executor: java.util.concurrent.Executor, callback: any): any;
 					public build(): androidx.media2.session.MediaBrowser;
 					public setConnectionHints(connectionHints: globalAndroid.os.Bundle): any;
 					public setSessionToken(token: androidx.media2.session.SessionToken): androidx.media2.session.MediaBrowser.Builder;
 					public setControllerCallback(executor: java.util.concurrent.Executor, callback: androidx.media2.session.MediaBrowser.BrowserCallback): androidx.media2.session.MediaBrowser.Builder;
 					public constructor(context: globalAndroid.content.Context);
-					public setSessionCompatToken(compatToken: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): any;
 				}
 				export class MediaBrowserImpl extends java.lang.Object implements androidx.media2.session.MediaController.MediaControllerImpl {
 					public static class: java.lang.Class<androidx.media2.session.MediaBrowser.MediaBrowserImpl>;
@@ -691,12 +763,6 @@ declare module androidx {
 						seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						playFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						playFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						playFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						prepareFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						prepareFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						prepareFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						setVolumeTo(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						adjustVolume(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getSessionActivity(): globalAndroid.app.PendingIntent;
@@ -713,11 +779,13 @@ declare module androidx {
 						getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
 						setPlaylist(list0: java.util.List<string>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						setMediaItem(string0: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+						setMediaUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						updatePlaylistMetadata(mediaMetadata0: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 						addPlaylistItem(int0: number, string1: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						replacePlaylistItem(int0: number, string1: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+						movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getCurrentMediaItem(): androidx.media2.common.MediaItem;
 						getCurrentMediaItemIndex(): number;
 						getPreviousMediaItemIndex(): number;
@@ -731,7 +799,7 @@ declare module androidx {
 						setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getVideoSize(): androidx.media2.common.VideoSize;
 						setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+						getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 						selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
@@ -739,8 +807,10 @@ declare module androidx {
 						getContext(): globalAndroid.content.Context;
 						getBrowserCompat(): globalAndroid.support.v4.media.MediaBrowserCompat;
 						close(): void;
+						close(): void;
 					});
 					public constructor();
+					public setMediaUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getSearchResult(string0: string, int1: number, int2: number, libraryParams3: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
@@ -748,7 +818,7 @@ declare module androidx {
 					public selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
 					public setVolumeTo(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public playFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+					public movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public subscribe(string0: string, libraryParams1: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 					public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
 					public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
@@ -756,7 +826,6 @@ declare module androidx {
 					public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getContext(): globalAndroid.content.Context;
 					public updatePlaylistMetadata(mediaMetadata0: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public prepareFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getPreviousMediaItemIndex(): number;
 					public setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -769,11 +838,9 @@ declare module androidx {
 					public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getCurrentMediaItem(): androidx.media2.common.MediaItem;
-					public prepareFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public setPlaylist(list0: java.util.List<string>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public skipToPreviousItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getCurrentMediaItemIndex(): number;
-					public playFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getVideoSize(): androidx.media2.common.VideoSize;
 					public getRepeatMode(): number;
 					public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -790,22 +857,20 @@ declare module androidx {
 					public getCurrentPosition(): number;
 					public setMediaItem(string0: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getShuffleMode(): number;
-					public prepareFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getPlayerState(): number;
 					public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 					public search(string0: string, libraryParams1: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 					public isConnected(): boolean;
 					public getLibraryRoot(libraryParams0: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 					public adjustVolume(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public replacePlaylistItem(int0: number, string1: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getSessionActivity(): globalAndroid.app.PendingIntent;
+					public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getBufferedPosition(): number;
 					public removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public playFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				}
 			}
 		}
@@ -826,11 +891,8 @@ declare module androidx {
 				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 				public isConnected(): boolean;
-				public playFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public removePlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public search(query: string, params: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
-				public playFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 				public setRating(mediaId: string, rating: androidx.media2.common.Rating): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getNextMediaItemIndex(): number;
@@ -839,12 +901,12 @@ declare module androidx {
 				public getSelectedTrack(trackType: number): androidx.media2.common.SessionPlayer.TrackInfo;
 				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackSpeed(): number;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public close(): void;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getContext(): globalAndroid.content.Context;
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getCurrentPosition(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setMediaItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -860,26 +922,25 @@ declare module androidx {
 				public getSessionActivity(): globalAndroid.app.PendingIntent;
 				public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPreviousMediaItemIndex(): number;
 				public setShuffleMode(shuffleMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public skipToPreviousItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferedPosition(): number;
 				public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public adjustVolume(direction: number, flags: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public sendCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public unsubscribe(parentId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
+				public setMediaUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public fastForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public updatePlaylistMetadata(metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferingState(): number;
 				public subscribe(parentId: string, params: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 				public setRepeatMode(repeatMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setPlaylist(list: java.util.List<string>, metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public replacePlaylistItem(index: number, mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 			}
@@ -914,11 +975,8 @@ declare module androidx {
 				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 				public isConnected(): boolean;
-				public playFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public removePlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public search(query: string, params: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
-				public playFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 				public setRating(mediaId: string, rating: androidx.media2.common.Rating): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getNextMediaItemIndex(): number;
@@ -928,11 +986,11 @@ declare module androidx {
 				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackSpeed(): number;
 				public close(): void;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getContext(): globalAndroid.content.Context;
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getCurrentPosition(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setMediaItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -948,26 +1006,25 @@ declare module androidx {
 				public getSessionActivity(): globalAndroid.app.PendingIntent;
 				public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPreviousMediaItemIndex(): number;
 				public setShuffleMode(shuffleMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public skipToPreviousItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferedPosition(): number;
 				public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public adjustVolume(direction: number, flags: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public sendCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public unsubscribe(parentId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
+				public setMediaUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public fastForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public updatePlaylistMetadata(metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferingState(): number;
 				public subscribe(parentId: string, params: androidx.media2.session.MediaLibraryService.LibraryParams): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.LibraryResult>;
 				public setRepeatMode(repeatMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setPlaylist(list: java.util.List<string>, metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public replacePlaylistItem(index: number, mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 			}
@@ -1002,6 +1059,14 @@ declare module androidx {
 		export module session {
 			export class MediaConstants extends java.lang.Object {
 				public static class: java.lang.Class<androidx.media2.session.MediaConstants>;
+				public static MEDIA_URI_SCHEME: string;
+				public static MEDIA_URI_AUTHORITY: string;
+				public static MEDIA_URI_PATH_PLAY_FROM_MEDIA_ID: string;
+				public static MEDIA_URI_PATH_PLAY_FROM_SEARCH: string;
+				public static MEDIA_URI_PATH_PREPARE_FROM_MEDIA_ID: string;
+				public static MEDIA_URI_PATH_PREPARE_FROM_SEARCH: string;
+				public static MEDIA_URI_QUERY_ID: string;
+				public static MEDIA_URI_QUERY_QUERY: string;
 			}
 		}
 	}
@@ -1010,35 +1075,32 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module session {
-			export class MediaController extends java.lang.Object implements java.lang.AutoCloseable {
+			export class MediaController extends java.lang.Object implements java.io.Closeable {
 				public static class: java.lang.Class<androidx.media2.session.MediaController>;
 				public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getCurrentMediaItem(): androidx.media2.common.MediaItem;
 				public skipToNextPlaylistItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public setPlaybackSpeed(speed: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getConnectedToken(): androidx.media2.session.SessionToken;
 				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+				public setPlaybackSpeed(playbackSpeed: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public isConnected(): boolean;
-				public playFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public removePlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 				public setRating(mediaId: string, rating: androidx.media2.common.Rating): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getNextMediaItemIndex(): number;
-				public seekTo(pos: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToPreviousPlaylistItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getSelectedTrack(trackType: number): androidx.media2.common.SessionPlayer.TrackInfo;
 				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackSpeed(): number;
 				public registerExtraCallback(executor: java.util.concurrent.Executor, callback: androidx.media2.session.MediaController.ControllerCallback): void;
 				public close(): void;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getCurrentPosition(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setMediaItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+				public seekTo(position: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public setVolumeTo(value: number, flags: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
@@ -1052,49 +1114,45 @@ declare module androidx {
 				public notifyAllControllerCallbacks(callbackRunnable: androidx.media2.session.MediaController.ControllerCallbackRunnable): void;
 				public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPreviousMediaItemIndex(): number;
 				public setShuffleMode(shuffleMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public getBufferedPosition(): number;
 				public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public adjustVolume(direction: number, flags: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public sendCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public setTimeDiff(timeDiff: java.lang.Long): void;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
+				public setMediaUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public fastForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public updatePlaylistMetadata(metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferingState(): number;
 				public unregisterExtraCallback(callback: androidx.media2.session.MediaController.ControllerCallback): void;
 				public setRepeatMode(repeatMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setPlaylist(list: java.util.List<string>, metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public replacePlaylistItem(index: number, mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 			}
 			export module MediaController {
 				export class Builder extends androidx.media2.session.MediaController.BuilderBase<androidx.media2.session.MediaController,androidx.media2.session.MediaController.Builder,androidx.media2.session.MediaController.ControllerCallback> {
 					public static class: java.lang.Class<androidx.media2.session.MediaController.Builder>;
-					public setSessionToken(token: androidx.media2.session.SessionToken): any;
 					public setSessionCompatToken(compatToken: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): androidx.media2.session.MediaController.Builder;
-					public setControllerCallback(executor: java.util.concurrent.Executor, callback: any): any;
+					public setConnectionHints(connectionHints: globalAndroid.os.Bundle): androidx.media2.session.MediaController.Builder;
+					public setConnectionHints(connectionHints: globalAndroid.os.Bundle): any;
 					public setControllerCallback(executor: java.util.concurrent.Executor, callback: androidx.media2.session.MediaController.ControllerCallback): androidx.media2.session.MediaController.Builder;
 					public constructor(context: globalAndroid.content.Context);
 					public setSessionToken(token: androidx.media2.session.SessionToken): androidx.media2.session.MediaController.Builder;
-					public setSessionCompatToken(compatToken: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): any;
 					public build(): androidx.media2.session.MediaController;
 				}
 				export abstract class BuilderBase<T, U, C>  extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.session.MediaController.BuilderBase<any,any,any>>;
-					public setSessionToken(token: androidx.media2.session.SessionToken): U;
-					public setSessionCompatToken(compatToken: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): U;
 					public setConnectionHints(connectionHints: globalAndroid.os.Bundle): U;
-					public setControllerCallback(executor: java.util.concurrent.Executor, callback: C): U;
 				}
 				export abstract class ControllerCallback extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.session.MediaController.ControllerCallback>;
+					public onVideoSizeChanged(controller: androidx.media2.session.MediaController, videoSize: androidx.media2.common.VideoSize): void;
 					public onPlaybackSpeedChanged(controller: androidx.media2.session.MediaController, speed: number): void;
 					public onTrackDeselected(controller: androidx.media2.session.MediaController, trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): void;
 					public onCustomCommand(controller: androidx.media2.session.MediaController, command: androidx.media2.session.SessionCommand, bundle2: globalAndroid.os.Bundle): androidx.media2.session.SessionResult;
@@ -1102,18 +1160,19 @@ declare module androidx {
 					public onTrackSelected(controller: androidx.media2.session.MediaController, trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): void;
 					public onPlaybackInfoChanged(controller: androidx.media2.session.MediaController, info: androidx.media2.session.MediaController.PlaybackInfo): void;
 					public onAllowedCommandsChanged(controller: androidx.media2.session.MediaController, commands: androidx.media2.session.SessionCommandGroup): void;
+					public onTracksChanged(controller: androidx.media2.session.MediaController, tracks: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
 					public onSubtitleData(controller: androidx.media2.session.MediaController, item: androidx.media2.common.MediaItem, track: androidx.media2.common.SessionPlayer.TrackInfo, data: androidx.media2.common.SubtitleData): void;
 					public onBufferingStateChanged(controller: androidx.media2.session.MediaController, item: androidx.media2.common.MediaItem, state: number): void;
 					public onPlaylistChanged(controller: androidx.media2.session.MediaController, list: java.util.List<androidx.media2.common.MediaItem>, metadata: androidx.media2.common.MediaMetadata): void;
 					public onConnected(controller: androidx.media2.session.MediaController, allowedCommands: androidx.media2.session.SessionCommandGroup): void;
 					public onPlaylistMetadataChanged(controller: androidx.media2.session.MediaController, metadata: androidx.media2.common.MediaMetadata): void;
-					public onVideoSizeChanged(controller: androidx.media2.session.MediaController, item: androidx.media2.common.MediaItem, videoSize: androidx.media2.common.VideoSize): void;
 					public onPlaybackCompleted(controller: androidx.media2.session.MediaController): void;
+					/** @deprecated */
+					public onVideoSizeChanged(controller: androidx.media2.session.MediaController, item: androidx.media2.common.MediaItem, videoSize: androidx.media2.common.VideoSize): void;
 					public constructor();
 					public onShuffleModeChanged(controller: androidx.media2.session.MediaController, shuffleMode: number): void;
 					public onDisconnected(controller: androidx.media2.session.MediaController): void;
 					public onSetCustomLayout(controller: androidx.media2.session.MediaController, layout: java.util.List<androidx.media2.session.MediaSession.CommandButton>): number;
-					public onTrackInfoChanged(controller: androidx.media2.session.MediaController, trackInfos: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
 					public onRepeatModeChanged(controller: androidx.media2.session.MediaController, repeatMode: number): void;
 					public onPlayerStateChanged(controller: androidx.media2.session.MediaController, state: number): void;
 					public onSeekCompleted(controller: androidx.media2.session.MediaController, position: number): void;
@@ -1129,7 +1188,7 @@ declare module androidx {
 					public constructor();
 					public run(controllerCallback0: androidx.media2.session.MediaController.ControllerCallback): void;
 				}
-				export class MediaControllerImpl extends java.lang.Object implements java.lang.AutoCloseable {
+				export class MediaControllerImpl extends java.lang.Object implements java.io.Closeable {
 					public static class: java.lang.Class<androidx.media2.session.MediaController.MediaControllerImpl>;
 					/**
 					 * Constructs a new instance of the androidx.media2.session.MediaController$MediaControllerImpl interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -1145,12 +1204,6 @@ declare module androidx {
 						seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						playFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						playFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						playFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						prepareFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						prepareFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						prepareFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						setVolumeTo(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						adjustVolume(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getSessionActivity(): globalAndroid.app.PendingIntent;
@@ -1167,11 +1220,13 @@ declare module androidx {
 						getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
 						setPlaylist(list0: java.util.List<string>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						setMediaItem(string0: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+						setMediaUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						updatePlaylistMetadata(mediaMetadata0: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 						addPlaylistItem(int0: number, string1: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						replacePlaylistItem(int0: number, string1: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+						movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getCurrentMediaItem(): androidx.media2.common.MediaItem;
 						getCurrentMediaItemIndex(): number;
 						getPreviousMediaItemIndex(): number;
@@ -1185,7 +1240,7 @@ declare module androidx {
 						setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getVideoSize(): androidx.media2.common.VideoSize;
 						setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-						getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+						getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 						selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
@@ -1193,22 +1248,23 @@ declare module androidx {
 						getContext(): globalAndroid.content.Context;
 						getBrowserCompat(): globalAndroid.support.v4.media.MediaBrowserCompat;
 						close(): void;
+						close(): void;
 					});
 					public constructor();
+					public setMediaUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
 					public setVolumeTo(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public playFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+					public movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
 					public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 					public close(): void;
 					public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getContext(): globalAndroid.content.Context;
 					public updatePlaylistMetadata(mediaMetadata0: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public prepareFromMediaId(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getPreviousMediaItemIndex(): number;
 					public setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -1218,11 +1274,9 @@ declare module androidx {
 					public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getCurrentMediaItem(): androidx.media2.common.MediaItem;
-					public prepareFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public setPlaylist(list0: java.util.List<string>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public skipToPreviousItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getCurrentMediaItemIndex(): number;
-					public playFromUri(uri0: globalAndroid.net.Uri, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getVideoSize(): androidx.media2.common.VideoSize;
 					public getRepeatMode(): number;
 					public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -1239,20 +1293,18 @@ declare module androidx {
 					public getCurrentPosition(): number;
 					public setMediaItem(string0: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getShuffleMode(): number;
-					public prepareFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getPlayerState(): number;
 					public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 					public isConnected(): boolean;
 					public adjustVolume(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public replacePlaylistItem(int0: number, string1: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getSessionActivity(): globalAndroid.app.PendingIntent;
+					public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 					public getBufferedPosition(): number;
 					public removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-					public playFromSearch(string0: string, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				}
 				export class PlaybackInfo extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 					public static class: java.lang.Class<androidx.media2.session.MediaController.PlaybackInfo>;
@@ -1316,10 +1368,7 @@ declare module androidx {
 				public getConnectedToken(): androidx.media2.session.SessionToken;
 				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public isConnected(): boolean;
-				public playFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public removePlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 				public setRating(mediaId: string, rating: androidx.media2.common.Rating): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getNextMediaItemIndex(): number;
@@ -1328,11 +1377,11 @@ declare module androidx {
 				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackSpeed(): number;
 				public close(): void;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getContext(): globalAndroid.content.Context;
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getCurrentPosition(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setMediaItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -1348,24 +1397,23 @@ declare module androidx {
 				public getSessionActivity(): globalAndroid.app.PendingIntent;
 				public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPreviousMediaItemIndex(): number;
 				public setShuffleMode(shuffleMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public skipToPreviousItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferedPosition(): number;
 				public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public adjustVolume(direction: number, flags: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public sendCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
+				public setMediaUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public fastForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public updatePlaylistMetadata(metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferingState(): number;
 				public setRepeatMode(repeatMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setPlaylist(list: java.util.List<string>, metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public replacePlaylistItem(index: number, mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 			}
@@ -1404,10 +1452,7 @@ declare module androidx {
 				public getConnectedToken(): androidx.media2.session.SessionToken;
 				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public isConnected(): boolean;
-				public playFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public removePlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getAllowedCommands(): androidx.media2.session.SessionCommandGroup;
 				public setRating(mediaId: string, rating: androidx.media2.common.Rating): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getNextMediaItemIndex(): number;
@@ -1416,11 +1461,11 @@ declare module androidx {
 				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackSpeed(): number;
 				public close(): void;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getContext(): globalAndroid.content.Context;
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getCurrentPosition(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setMediaItem(mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -1436,24 +1481,23 @@ declare module androidx {
 				public getSessionActivity(): globalAndroid.app.PendingIntent;
 				public skipBackward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public rewind(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPreviousMediaItemIndex(): number;
 				public setShuffleMode(shuffleMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public skipToPreviousItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferedPosition(): number;
 				public skipForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public prepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public adjustVolume(direction: number, flags: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public sendCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
+				public setMediaUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public fastForward(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
-				public playFromSearch(query: string, extras: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public updatePlaylistMetadata(metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getBufferingState(): number;
 				public setRepeatMode(repeatMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public setPlaylist(list: java.util.List<string>, metadata: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public replacePlaylistItem(index: number, mediaId: string): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 			}
@@ -1602,7 +1646,7 @@ declare module androidx {
 					public constructor(implementation: {
 						getVideoSize(): androidx.media2.common.VideoSize;
 						setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-						getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+						getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 						selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
@@ -1632,6 +1676,7 @@ declare module androidx {
 						addPlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+						movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getRepeatMode(): number;
 						setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getShuffleMode(): number;
@@ -1659,13 +1704,14 @@ declare module androidx {
 					public getPlayerState(): number;
 					public setPlaybackSpeed(float0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public setPlaylist(list0: java.util.List<androidx.media2.common.MediaItem>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-					public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public getNextMediaItemIndex(): number;
 					public skipToPlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getPlaybackSpeed(): number;
 					public setMediaItem(mediaItem0: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+					public movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+					public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 					public getBufferedPosition(): number;
 					public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
@@ -1696,6 +1742,7 @@ declare module androidx {
 						addPlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+						movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getRepeatMode(): number;
 						setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getShuffleMode(): number;
@@ -1710,6 +1757,7 @@ declare module androidx {
 					public setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public setMediaItem(mediaItem0: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+					public movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public skipToNextItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 					public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
@@ -1773,7 +1821,6 @@ declare module androidx {
 						public build(): androidx.media2.session.MediaLibraryService.MediaLibrarySession;
 						public setExtras(extras: globalAndroid.os.Bundle): androidx.media2.session.MediaLibraryService.MediaLibrarySession.Builder;
 						public setSessionActivity(pi: globalAndroid.app.PendingIntent): androidx.media2.session.MediaLibraryService.MediaLibrarySession.Builder;
-						public setExtras(extras: globalAndroid.os.Bundle): any;
 						public constructor(service: androidx.media2.session.MediaLibraryService, player: androidx.media2.common.SessionPlayer, callbackExecutor: java.util.concurrent.Executor, callback: androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback);
 					}
 					export class MediaLibrarySessionCallback extends androidx.media2.session.MediaSession.SessionCallback {
@@ -1821,6 +1868,7 @@ declare module androidx {
 							sendCustomCommand(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo, sessionCommand1: androidx.media2.session.SessionCommand, bundle2: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 							getInstance(): androidx.media2.session.MediaSession;
 							getSessionCompat(): globalAndroid.support.v4.media.session.MediaSessionCompat;
+							setLegacyControllerConnectionTimeoutMs(long0: number): void;
 							getContext(): globalAndroid.content.Context;
 							getCallbackExecutor(): java.util.concurrent.Executor;
 							getCallback(): androidx.media2.session.MediaSession.SessionCallback;
@@ -1829,10 +1877,10 @@ declare module androidx {
 							getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 							getSessionActivity(): globalAndroid.app.PendingIntent;
 							getLegacyBrowserServiceBinder(): globalAndroid.os.IBinder;
-							connectFromService(iMediaController0: androidx.media2.session.IMediaController, string1: string, int2: number, int3: number, bundle4: globalAndroid.os.Bundle): void;
+							connectFromService(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, bundle5: globalAndroid.os.Bundle): void;
 							getVideoSize(): androidx.media2.common.VideoSize;
 							setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-							getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+							getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 							selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
@@ -1863,10 +1911,12 @@ declare module androidx {
 							addPlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+							movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							getRepeatMode(): number;
 							setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							getShuffleMode(): number;
 							setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+							close(): void;
 						});
 						public constructor();
 						public onSubscribeOnExecutor(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo, string1: string, libraryParams2: androidx.media2.session.MediaLibraryService.LibraryParams): number;
@@ -1885,13 +1935,14 @@ declare module androidx {
 						public getPlayerState(): number;
 						public setPlaylist(list0: java.util.List<androidx.media2.common.MediaItem>, mediaMetadata1: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public getCallback(): androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback;
+						public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+						public movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public notifyChildrenChanged(string0: string, int1: number, libraryParams2: androidx.media2.session.MediaLibraryService.LibraryParams): void;
 						public getCallbackExecutor(): java.util.concurrent.Executor;
 						public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public getShuffleMode(): number;
 						public getSessionCompat(): globalAndroid.support.v4.media.session.MediaSessionCompat;
 						public createPlaybackStateCompat(): globalAndroid.support.v4.media.session.PlaybackStateCompat;
-						public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 						public replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public getSessionActivity(): globalAndroid.app.PendingIntent;
 						public setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
@@ -1907,7 +1958,6 @@ declare module androidx {
 						public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public getPlayer(): androidx.media2.common.SessionPlayer;
 						public onGetLibraryRootOnExecutor(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo, libraryParams1: androidx.media2.session.MediaLibraryService.LibraryParams): androidx.media2.session.LibraryResult;
-						public connectFromService(iMediaController0: androidx.media2.session.IMediaController, string1: string, int2: number, int3: number, bundle4: globalAndroid.os.Bundle): void;
 						public getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
 						public deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
@@ -1937,7 +1987,9 @@ declare module androidx {
 						public getLegacyBrowserServiceBinder(): globalAndroid.os.IBinder;
 						public notifyChildrenChanged(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo, string1: string, int2: number, libraryParams3: androidx.media2.session.MediaLibraryService.LibraryParams): void;
 						public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+						public setLegacyControllerConnectionTimeoutMs(long0: number): void;
 						public skipToPlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+						public connectFromService(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, bundle5: globalAndroid.os.Bundle): void;
 						public selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						public getCallback(): androidx.media2.session.MediaSession.SessionCallback;
 						public getCurrentPosition(): number;
@@ -1990,8 +2042,8 @@ declare module androidx {
 					public equals(obj: any): boolean;
 					public hashCode(): number;
 				}
-				export class BrowserLegacyCbForAll extends androidx.media2.session.MediaLibraryServiceLegacyStub.BaseBrowserLegacyCb {
-					public static class: java.lang.Class<androidx.media2.session.MediaLibraryServiceLegacyStub.BrowserLegacyCbForAll>;
+				export class BrowserLegacyCbForBroadcast extends androidx.media2.session.MediaLibraryServiceLegacyStub.BaseBrowserLegacyCb {
+					public static class: java.lang.Class<androidx.media2.session.MediaLibraryServiceLegacyStub.BrowserLegacyCbForBroadcast>;
 				}
 				export class SearchRequest extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.session.MediaLibraryServiceLegacyStub.SearchRequest>;
@@ -2015,6 +2067,7 @@ declare module androidx {
 				public getId(): string;
 				public notifyChildrenChanged(parentId: string, itemCount: number, params: androidx.media2.session.MediaLibraryService.LibraryParams): void;
 				public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public broadcastCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): void;
 				public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setCustomLayout(controller: androidx.media2.session.MediaSession.ControllerInfo, layout: java.util.List<androidx.media2.session.MediaSession.CommandButton>): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -2040,9 +2093,9 @@ declare module androidx {
 				public getInstance(): androidx.media2.session.MediaSession;
 				public isClosed(): boolean;
 				public onGetLibraryRootOnExecutor(controller: androidx.media2.session.MediaSession.ControllerInfo, params: androidx.media2.session.MediaLibraryService.LibraryParams): androidx.media2.session.LibraryResult;
+				public setLegacyControllerConnectionTimeoutMs(timeoutMs: number): void;
 				public addPlaylistItem(index: number, item: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getCurrentPosition(): number;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public replacePlaylistItem(index: number, item: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getCallback(): androidx.media2.session.MediaSession.SessionCallback;
 				public getToken(): androidx.media2.session.SessionToken;
@@ -2073,16 +2126,17 @@ declare module androidx {
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public getBufferedPosition(): number;
 				public setAllowedCommands(controller: androidx.media2.session.MediaSession.ControllerInfo, commands: androidx.media2.session.SessionCommandGroup): void;
+				public connectFromService(caller: androidx.media2.session.IMediaController, controllerVersion: number, packageName: string, pid: number, uid: number, connectionHints: globalAndroid.os.Bundle): void;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
 				public onUnsubscribeOnExecutor(controller: androidx.media2.session.MediaSession.ControllerInfo, parentId: string): number;
 				public getBufferingState(): number;
-				public connectFromService(caller: androidx.media2.session.IMediaController, packageName: string, pid: number, uid: number, connectionHints: globalAndroid.os.Bundle): void;
 				public onSearchOnExecutor(controller: androidx.media2.session.MediaSession.ControllerInfo, query: string, params: androidx.media2.session.MediaLibraryService.LibraryParams): number;
 				public notifySearchResultChanged(controller: androidx.media2.session.MediaSession.ControllerInfo, query: string, itemCount: number, params: androidx.media2.session.MediaLibraryService.LibraryParams): void;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setPlaybackSpeed(speed: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 			}
 		}
 	}
@@ -2096,7 +2150,6 @@ declare module androidx {
 				public onUpdateNotification(session: androidx.media2.session.MediaSession): androidx.media2.session.MediaSessionService.MediaNotification;
 				public onPlayerStateChanged(session: androidx.media2.session.MediaSession, state: number): void;
 				public onSessionClosed(session: androidx.media2.session.MediaSession): void;
-				public constructor(service: androidx.media2.session.MediaSessionService);
 			}
 		}
 	}
@@ -2105,20 +2158,22 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module session {
-			export class MediaSession extends java.lang.Object implements java.lang.AutoCloseable {
+			export class MediaSession extends java.lang.Object implements java.io.Closeable {
 				public static class: java.lang.Class<androidx.media2.session.MediaSession>;
-				public getToken(): androidx.media2.session.SessionToken;
-				public updatePlayer(player: androidx.media2.common.SessionPlayer): void;
+				public getSessionCompatToken(): globalAndroid.support.v4.media.session.MediaSessionCompat.Token;
 				public close(): void;
 				public getId(): string;
 				public getSessionCompat(): globalAndroid.support.v4.media.session.MediaSessionCompat;
 				public setAllowedCommands(controller: androidx.media2.session.MediaSession.ControllerInfo, commands: androidx.media2.session.SessionCommandGroup): void;
 				public isClosed(): boolean;
 				public getPlayer(): androidx.media2.common.SessionPlayer;
+				public broadcastCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): void;
+				public setLegacyControllerConnectionTimeoutMs(timeoutMs: number): void;
+				public setCustomLayout(controller: androidx.media2.session.MediaSession.ControllerInfo, layout: java.util.List<androidx.media2.session.MediaSession.CommandButton>): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+				public getToken(): androidx.media2.session.SessionToken;
+				public updatePlayer(player: androidx.media2.common.SessionPlayer): void;
 				public sendCustomCommand(controller: androidx.media2.session.MediaSession.ControllerInfo, command: androidx.media2.session.SessionCommand, bundle2: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 				public getConnectedControllers(): java.util.List<androidx.media2.session.MediaSession.ControllerInfo>;
-				public broadcastCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): void;
-				public setCustomLayout(controller: androidx.media2.session.MediaSession.ControllerInfo, layout: java.util.List<androidx.media2.session.MediaSession.CommandButton>): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 			}
 			export module MediaSession {
 				export class Builder extends androidx.media2.session.MediaSession.BuilderBase<androidx.media2.session.MediaSession,androidx.media2.session.MediaSession.Builder,androidx.media2.session.MediaSession.SessionCallback> {
@@ -2129,11 +2184,9 @@ declare module androidx {
 					public setId(id: string): androidx.media2.session.MediaSession.Builder;
 					public build(): androidx.media2.session.MediaSession;
 					public setSessionActivity(pi: globalAndroid.app.PendingIntent): androidx.media2.session.MediaSession.Builder;
-					public setExtras(extras: globalAndroid.os.Bundle): any;
 				}
 				export abstract class BuilderBase<T, U, C>  extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.session.MediaSession.BuilderBase<any,any,any>>;
-					public setExtras(extras: globalAndroid.os.Bundle): U;
 				}
 				export class CommandButton extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 					public static class: java.lang.Class<androidx.media2.session.MediaSession.CommandButton>;
@@ -2162,14 +2215,13 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.media2.session.MediaSession.ControllerInfo>;
 					public equals(obj: any): boolean;
 					public toString(): string;
-					public getRemoteUserInfo(): androidx.media.MediaSessionManager.RemoteUserInfo;
 					public isTrusted(): boolean;
 					public getPackageName(): string;
 					public getUid(): number;
 					public getConnectionHints(): globalAndroid.os.Bundle;
 					public hashCode(): number;
 				}
-				export class MediaSessionImpl extends java.lang.Object implements androidx.media2.session.MediaInterface.SessionPlayer, java.lang.AutoCloseable {
+				export class MediaSessionImpl extends java.lang.Object implements androidx.media2.session.MediaInterface.SessionPlayer, java.io.Closeable {
 					public static class: java.lang.Class<androidx.media2.session.MediaSession.MediaSessionImpl>;
 					/**
 					 * Constructs a new instance of the androidx.media2.session.MediaSession$MediaSessionImpl interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -2189,6 +2241,7 @@ declare module androidx {
 						sendCustomCommand(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo, sessionCommand1: androidx.media2.session.SessionCommand, bundle2: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
 						getInstance(): androidx.media2.session.MediaSession;
 						getSessionCompat(): globalAndroid.support.v4.media.session.MediaSessionCompat;
+						setLegacyControllerConnectionTimeoutMs(long0: number): void;
 						getContext(): globalAndroid.content.Context;
 						getCallbackExecutor(): java.util.concurrent.Executor;
 						getCallback(): androidx.media2.session.MediaSession.SessionCallback;
@@ -2197,10 +2250,10 @@ declare module androidx {
 						getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 						getSessionActivity(): globalAndroid.app.PendingIntent;
 						getLegacyBrowserServiceBinder(): globalAndroid.os.IBinder;
-						connectFromService(iMediaController0: androidx.media2.session.IMediaController, string1: string, int2: number, int3: number, bundle4: globalAndroid.os.Bundle): void;
+						connectFromService(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, bundle5: globalAndroid.os.Bundle): void;
 						getVideoSize(): androidx.media2.common.VideoSize;
 						setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-						getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
+						getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 						selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						deselectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
@@ -2231,14 +2284,16 @@ declare module androidx {
 						addPlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+						movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getRepeatMode(): number;
 						setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 						getShuffleMode(): number;
 						setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+						close(): void;
 					});
 					public constructor();
 					public getId(): string;
-					public connectFromService(iMediaController0: androidx.media2.session.IMediaController, string1: string, int2: number, int3: number, bundle4: globalAndroid.os.Bundle): void;
+					public setLegacyControllerConnectionTimeoutMs(long0: number): void;
 					public getSelectedTrack(int0: number): androidx.media2.common.SessionPlayer.TrackInfo;
 					public getCallbackExecutor(): java.util.concurrent.Executor;
 					public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
@@ -2256,6 +2311,7 @@ declare module androidx {
 					public isConnected(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo): boolean;
 					public replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getPlaybackSpeed(): number;
+					public movePlaylistItem(int0: number, int1: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 					public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getCurrentMediaItem(): androidx.media2.common.MediaItem;
@@ -2285,17 +2341,18 @@ declare module androidx {
 					public getShuffleMode(): number;
 					public getPlayerState(): number;
 					public updatePlayer(sessionPlayer0: androidx.media2.common.SessionPlayer): void;
-					public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public skipToPlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getInstance(): androidx.media2.session.MediaSession;
 					public setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public getSessionActivity(): globalAndroid.app.PendingIntent;
 					public setMediaItem(mediaItem0: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public sendCustomCommand(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo, sessionCommand1: androidx.media2.session.SessionCommand, bundle2: globalAndroid.os.Bundle): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
+					public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 					public getBufferedPosition(): number;
 					public getUri(): globalAndroid.net.Uri;
 					public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 					public setSurface(surface0: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+					public connectFromService(iMediaController0: androidx.media2.session.IMediaController, int1: number, string2: string, int3: number, int4: number, bundle5: globalAndroid.os.Bundle): void;
 					public selectTrack(trackInfo0: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				}
 				export abstract class SessionCallback extends java.lang.Object {
@@ -2303,15 +2360,10 @@ declare module androidx {
 					public onConnect(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo): androidx.media2.session.SessionCommandGroup;
 					public onPostConnect(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo): void;
 					public onSkipBackward(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo): number;
-					public onPrepareFromUri(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): number;
-					public onPrepareFromMediaId(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, mediaId: string, extras: globalAndroid.os.Bundle): number;
-					public onPrepareFromSearch(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, query: string, extras: globalAndroid.os.Bundle): number;
-					public onPlayFromUri(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): number;
+					public onSetMediaUri(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): number;
 					public onFastForward(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo): number;
 					public constructor();
 					public onSetRating(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, mediaId: string, rating: androidx.media2.common.Rating): number;
-					public onPlayFromMediaId(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, mediaId: string, extras: globalAndroid.os.Bundle): number;
-					public onPlayFromSearch(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, query: string, extras: globalAndroid.os.Bundle): number;
 					public onDisconnected(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo): void;
 					public onRewind(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo): number;
 					public onCommandRequest(session: androidx.media2.session.MediaSession, controller: androidx.media2.session.MediaSession.ControllerInfo, command: androidx.media2.session.SessionCommand): number;
@@ -2339,6 +2391,7 @@ declare module androidx {
 				public getCurrentMediaItem(): androidx.media2.common.MediaItem;
 				public getId(): string;
 				public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public broadcastCustomCommand(command: androidx.media2.session.SessionCommand, bundle1: globalAndroid.os.Bundle): void;
 				public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setCustomLayout(controller: androidx.media2.session.MediaSession.ControllerInfo, layout: java.util.List<androidx.media2.session.MediaSession.CommandButton>): com.google.common.util.concurrent.ListenableFuture<androidx.media2.session.SessionResult>;
@@ -2359,10 +2412,10 @@ declare module androidx {
 				public getVideoSize(): androidx.media2.common.VideoSize;
 				public getInstance(): androidx.media2.session.MediaSession;
 				public isClosed(): boolean;
+				public setLegacyControllerConnectionTimeoutMs(timeoutMs: number): void;
 				public addPlaylistItem(index: number, item: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getCurrentPosition(): number;
 				public replacePlaylistItem(index: number, item: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public getTrackInfo(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public getToken(): androidx.media2.session.SessionToken;
 				public setRepeatMode(repeatMode: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getCallback(): androidx.media2.session.MediaSession.SessionCallback;
@@ -2389,23 +2442,20 @@ declare module androidx {
 				public getPlaybackInfo(): androidx.media2.session.MediaController.PlaybackInfo;
 				public getBufferedPosition(): number;
 				public setAllowedCommands(controller: androidx.media2.session.MediaSession.ControllerInfo, commands: androidx.media2.session.SessionCommandGroup): void;
+				public connectFromService(caller: androidx.media2.session.IMediaController, controllerVersion: number, packageName: string, pid: number, uid: number, connectionHints: globalAndroid.os.Bundle): void;
 				public getRepeatMode(): number;
 				public getShuffleMode(): number;
 				public getBufferingState(): number;
-				public connectFromService(caller: androidx.media2.session.IMediaController, packageName: string, pid: number, uid: number, connectionHints: globalAndroid.os.Bundle): void;
 				public skipToPlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setPlaybackSpeed(speed: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
+				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 			}
 			export module MediaSessionImplBase {
-				export class CombinedCommandResultFuture<T>  extends androidx.media2.session.futures.AbstractResolvableFuture<any> {
+				export class CombinedCommandResultFuture<T>  extends androidx.concurrent.futures.AbstractResolvableFuture<any> {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionImplBase.CombinedCommandResultFuture<any>>;
 					public static create(executor: java.util.concurrent.Executor, futures: native.Array<com.google.common.util.concurrent.ListenableFuture>): androidx.media2.session.MediaSessionImplBase.CombinedCommandResultFuture<any>;
 					public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-				}
-				export class CurrentMediaItemListener extends java.lang.Object implements androidx.media2.common.MediaItem.OnMetadataChangedListener {
-					public static class: java.lang.Class<androidx.media2.session.MediaSessionImplBase.CurrentMediaItemListener>;
-					public onMetadataChanged(item: androidx.media2.common.MediaItem): void;
 				}
 				export class MediaButtonReceiver extends globalAndroid.content.BroadcastReceiver {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionImplBase.MediaButtonReceiver>;
@@ -2425,7 +2475,7 @@ declare module androidx {
 				}
 				export class PlaylistItemListener extends java.lang.Object implements androidx.media2.common.MediaItem.OnMetadataChangedListener {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionImplBase.PlaylistItemListener>;
-					public onMetadataChanged(item: androidx.media2.common.MediaItem): void;
+					public onMetadataChanged(item: androidx.media2.common.MediaItem, metadata: androidx.media2.common.MediaMetadata): void;
 				}
 				export class RemoteControllerTask extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionImplBase.RemoteControllerTask>;
@@ -2438,27 +2488,28 @@ declare module androidx {
 					public constructor();
 					public run(controllerCb0: androidx.media2.session.MediaSession.ControllerCb, int1: number): void;
 				}
-				export class SessionPlayerCallback extends androidx.media2.common.SessionPlayer.PlayerCallback {
+				export class SessionPlayerCallback extends androidx.media2.session.RemoteSessionPlayer.Callback implements androidx.media2.common.MediaItem.OnMetadataChangedListener {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback>;
 					public onTrackSelected(player: androidx.media2.common.SessionPlayer, trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): void;
 					public onPlaylistChanged(player: androidx.media2.common.SessionPlayer, list: java.util.List<androidx.media2.common.MediaItem>, metadata: androidx.media2.common.MediaMetadata): void;
 					public onSeekCompleted(player: androidx.media2.common.SessionPlayer, position: number): void;
+					public onMetadataChanged(currentMediaItem: androidx.media2.common.MediaItem, currentMediaItemMetadata: androidx.media2.common.MediaMetadata): void;
 					public onPlaybackCompleted(player: androidx.media2.common.SessionPlayer): void;
 					public onSubtitleData(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, track: androidx.media2.common.SessionPlayer.TrackInfo, data: androidx.media2.common.SubtitleData): void;
 					public onPlaylistMetadataChanged(player: androidx.media2.common.SessionPlayer, metadata: androidx.media2.common.MediaMetadata): void;
 					public onTrackDeselected(player: androidx.media2.common.SessionPlayer, trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): void;
 					public onBufferingStateChanged(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, buffState: number): void;
 					public onShuffleModeChanged(player: androidx.media2.common.SessionPlayer, shuffleMode: number): void;
-					public onTrackInfoChanged(player: androidx.media2.common.SessionPlayer, trackInfos: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
+					public onTracksChanged(player: androidx.media2.common.SessionPlayer, tracks: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
 					public onCurrentMediaItemChanged(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem): void;
 					public onBufferingStateChanged(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, state: number): void;
-					public onVideoSizeChangedInternal(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, videoSize: androidx.media2.common.VideoSize): void;
 					public onPlayerStateChanged(player: androidx.media2.common.SessionPlayer, playerState: number): void;
+					public onVolumeChanged(player: androidx.media2.session.RemoteSessionPlayer, volume: number): void;
 					public onPlaybackSpeedChanged(player: androidx.media2.common.SessionPlayer, playbackSpeed: number): void;
 					public onPlaybackSpeedChanged(player: androidx.media2.common.SessionPlayer, speed: number): void;
 					public onPlayerStateChanged(player: androidx.media2.common.SessionPlayer, state: number): void;
 					public onRepeatModeChanged(player: androidx.media2.common.SessionPlayer, repeatMode: number): void;
-					public onVideoSizeChangedInternal(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, size: androidx.media2.common.VideoSize): void;
+					public onVideoSizeChanged(player: androidx.media2.common.SessionPlayer, size: androidx.media2.common.VideoSize): void;
 					public onAudioAttributesChanged(player: androidx.media2.common.SessionPlayer, attributes: androidx.media.AudioAttributesCompat): void;
 				}
 			}
@@ -2491,9 +2542,11 @@ declare module androidx {
 				public onPlayFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public onSetRating(rating: globalAndroid.support.v4.media.RatingCompat, extras: globalAndroid.os.Bundle): void;
 				public onSeekTo(pos: number): void;
+				public onPlayFromUri(mediaUri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public onFastForward(): void;
 				/** @deprecated */
 				public onRemoveQueueItemAt(index: number): void;
+				public setLegacyControllerDisconnectTimeoutMs(timeoutMs: number): void;
 				public onSkipToNext(): void;
 				public onSetRating(rating: globalAndroid.support.v4.media.RatingCompat): void;
 				public onCommand(commandName: string, bundle1: globalAndroid.os.Bundle, cb: globalAndroid.os.ResultReceiver): void;
@@ -2501,17 +2554,23 @@ declare module androidx {
 				public onPrepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public onSkipToQueueItem(id: number): void;
 				public onCustomAction(action: string, extras: globalAndroid.os.Bundle): void;
+				public onPrepareFromUri(mediaUri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public onSetPlaybackSpeed(speed: number): void;
 				public onPlayFromSearch(query: string, extras: globalAndroid.os.Bundle): void;
 			}
 			export module MediaSessionLegacyStub {
+				export class ConnectionTimeoutHandler extends globalAndroid.os.Handler {
+					public static class: java.lang.Class<androidx.media2.session.MediaSessionLegacyStub.ConnectionTimeoutHandler>;
+					public disconnectControllerAfterTimeout(controller: androidx.media2.session.MediaSession.ControllerInfo, disconnectTimeoutMs: number): void;
+					public handleMessage(msg: globalAndroid.os.Message): void;
+				}
 				export class ControllerLegacyCb extends androidx.media2.session.MediaSession.ControllerCb {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionLegacyStub.ControllerLegacyCb>;
 					public equals(obj: any): boolean;
 					public hashCode(): number;
 				}
-				export class ControllerLegacyCbForAll extends androidx.media2.session.MediaSession.ControllerCb {
-					public static class: java.lang.Class<androidx.media2.session.MediaSessionLegacyStub.ControllerLegacyCbForAll>;
+				export class ControllerLegacyCbForBroadcast extends androidx.media2.session.MediaSession.ControllerCb {
+					public static class: java.lang.Class<androidx.media2.session.MediaSessionLegacyStub.ControllerLegacyCbForBroadcast>;
 				}
 				export class SessionTask extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionLegacyStub.SessionTask>;
@@ -2613,7 +2672,7 @@ declare module androidx {
 				public onBind(intent: globalAndroid.content.Intent): globalAndroid.os.IBinder;
 			}
 			export module MediaSessionServiceImplBase {
-				export class MediaSessionServiceStub extends androidx.media2.session.IMediaSessionService.Stub implements java.lang.AutoCloseable {
+				export class MediaSessionServiceStub extends androidx.media2.session.IMediaSessionService.Stub implements java.io.Closeable {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionServiceImplBase.MediaSessionServiceStub>;
 					public dumpAsync(fd: java.io.FileDescriptor, strings1: native.Array<string>): void;
 					public unlinkToDeath(recipient: globalAndroid.os.IBinder.DeathRecipient, flags: number): boolean;
@@ -2661,8 +2720,6 @@ declare module androidx {
 				public pause(caller: androidx.media2.session.IMediaController, seq: number): void;
 				public skipToPreviousItem(caller: androidx.media2.session.IMediaController, seq: number): void;
 				public getItem(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string): void;
-				public playFromSearch(caller: androidx.media2.session.IMediaController, seq: number, query: string, extras: globalAndroid.os.Bundle): void;
-				public playFromMediaId(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, extras: globalAndroid.os.Bundle): void;
 				public setRepeatMode(caller: androidx.media2.session.IMediaController, seq: number, repeatMode: number): void;
 				public connect(caller: androidx.media2.session.IMediaController, seq: number, connectionRequest: androidx.versionedparcelable.ParcelImpl): void;
 				public seekTo(caller: androidx.media2.session.IMediaController, seq: number, pos: number): void;
@@ -2672,7 +2729,6 @@ declare module androidx {
 				public updatePlaylistMetadata(caller: androidx.media2.session.IMediaController, seq: number, metadata: androidx.versionedparcelable.ParcelImpl): void;
 				public skipToNextItem(caller: androidx.media2.session.IMediaController, seq: number): void;
 				public prepare(caller: androidx.media2.session.IMediaController, seq: number): void;
-				public prepareFromMediaId(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, extras: globalAndroid.os.Bundle): void;
 				public setMediaItem(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string): void;
 				public skipForward(caller: androidx.media2.session.IMediaController, seq: number): void;
 				public unlinkToDeath(recipient: globalAndroid.os.IBinder.DeathRecipient, flags: number): boolean;
@@ -2683,12 +2739,12 @@ declare module androidx {
 				public removePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number): void;
 				public selectTrack(caller: androidx.media2.session.IMediaController, seq: number, trackInfoParcel: androidx.versionedparcelable.ParcelImpl): void;
 				public release(caller: androidx.media2.session.IMediaController, seq: number): void;
+				public setMediaUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public setVolumeTo(caller: androidx.media2.session.IMediaController, seq: number, value: number, flags: number): void;
 				public search(caller: androidx.media2.session.IMediaController, seq: number, query: string, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
 				public getInterfaceDescriptor(): string;
 				public pingBinder(): boolean;
 				public rewind(caller: androidx.media2.session.IMediaController, seq: number): void;
-				public playFromUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public adjustVolume(caller: androidx.media2.session.IMediaController, seq: number, direction: number, flags: number): void;
 				public getChildren(caller: androidx.media2.session.IMediaController, seq: number, parentId: string, page: number, pageSize: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
 				public onCustomCommand(caller: androidx.media2.session.IMediaController, seq: number, command: androidx.versionedparcelable.ParcelImpl, bundle3: globalAndroid.os.Bundle): void;
@@ -2697,7 +2753,6 @@ declare module androidx {
 				public linkToDeath(recipient: globalAndroid.os.IBinder.DeathRecipient, flags: number): void;
 				public subscribe(caller: androidx.media2.session.IMediaController, seq: number, parentId: string, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
 				public dump(fd: java.io.FileDescriptor, fout: java.io.PrintWriter, strings2: native.Array<string>): void;
-				public prepareFromUri(caller: androidx.media2.session.IMediaController, seq: number, uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 				public replacePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, index: number, mediaId: string): void;
 				public isBinderAlive(): boolean;
 				public deselectTrack(caller: androidx.media2.session.IMediaController, seq: number, trackInfoParcel: androidx.versionedparcelable.ParcelImpl): void;
@@ -2705,8 +2760,8 @@ declare module androidx {
 				public setSurface(caller: androidx.media2.session.IMediaController, seq: number, surface: globalAndroid.view.Surface): void;
 				public fastForward(caller: androidx.media2.session.IMediaController, seq: number): void;
 				public getLibraryRoot(caller: androidx.media2.session.IMediaController, seq: number, libraryParams: androidx.versionedparcelable.ParcelImpl): void;
-				public prepareFromSearch(caller: androidx.media2.session.IMediaController, seq: number, query: string, extras: globalAndroid.os.Bundle): void;
 				public setRating(caller: androidx.media2.session.IMediaController, seq: number, mediaId: string, ratingParcelable: androidx.versionedparcelable.ParcelImpl): void;
+				public movePlaylistItem(caller: androidx.media2.session.IMediaController, seq: number, fromIndex: number, toIndex: number): void;
 			}
 			export module MediaSessionStub {
 				export class Controller2Cb extends androidx.media2.session.MediaSession.ControllerCb {
@@ -2714,7 +2769,7 @@ declare module androidx {
 					public equals(obj: any): boolean;
 					public hashCode(): number;
 				}
-				export class LibrarySessionCallbackTask<T>  extends androidx.media2.session.MediaSessionStub.SessionTask<any> {
+				export class LibrarySessionCallbackTask<T>  extends androidx.media2.session.MediaSessionStub.SessionTask {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask<any>>;
 					/**
 					 * Constructs a new instance of the androidx.media2.session.MediaSessionStub$LibrarySessionCallbackTask interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -2725,7 +2780,7 @@ declare module androidx {
 					public constructor();
 					public run(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo): any;
 				}
-				export class SessionCallbackTask<T>  extends androidx.media2.session.MediaSessionStub.SessionTask<any> {
+				export class SessionCallbackTask<T>  extends androidx.media2.session.MediaSessionStub.SessionTask {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionStub.SessionCallbackTask<any>>;
 					/**
 					 * Constructs a new instance of the androidx.media2.session.MediaSessionStub$SessionCallbackTask interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -2736,7 +2791,7 @@ declare module androidx {
 					public constructor();
 					public run(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo): any;
 				}
-				export class SessionPlayerTask extends java.lang.Object implements androidx.media2.session.MediaSessionStub.SessionTask<any> {
+				export class SessionPlayerTask extends java.lang.Object implements androidx.media2.session.MediaSessionStub.SessionTask {
 					public static class: java.lang.Class<androidx.media2.session.MediaSessionStub.SessionPlayerTask>;
 					/**
 					 * Constructs a new instance of the androidx.media2.session.MediaSessionStub$SessionPlayerTask interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
@@ -2747,8 +2802,8 @@ declare module androidx {
 					public constructor();
 					public run(controllerInfo0: androidx.media2.session.MediaSession.ControllerInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				}
-				export class SessionTask<T>  extends java.lang.Object {
-					public static class: java.lang.Class<androidx.media2.session.MediaSessionStub.SessionTask<any>>;
+				export class SessionTask extends java.lang.Object {
+					public static class: java.lang.Class<androidx.media2.session.MediaSessionStub.SessionTask>;
 					/**
 					 * Constructs a new instance of the androidx.media2.session.MediaSessionStub$SessionTask interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 					 */
@@ -2770,6 +2825,7 @@ declare module androidx {
 				public static TRANSACTION_SIZE_LIMIT_IN_BYTES: number;
 				public static sDefaultBrowserRoot: androidx.media.MediaBrowserServiceCompat.BrowserRoot;
 				public static DIRECT_EXECUTOR: java.util.concurrent.Executor;
+				public static VERSION_UNKNOWN: number;
 				public static VERSION_0: number;
 				public static CURRENT_VERSION: number;
 				public static convertToMediaItem(item2: androidx.media2.common.MediaItem): globalAndroid.support.v4.media.MediaBrowserCompat.MediaItem;
@@ -2780,6 +2836,9 @@ declare module androidx {
 				public static convertToMediaItem(item: globalAndroid.support.v4.media.session.MediaSessionCompat.QueueItem): androidx.media2.common.MediaItem;
 				public static convertMediaItemListToParcelImplListSlice(mediaItemList: java.util.List<androidx.media2.common.MediaItem>): androidx.media2.common.ParcelImplListSlice;
 				public static toBufferingState(playbackStateCompatState: number): number;
+				public static convertToQueueItemId(mediaItemIndex: number): number;
+				public static upcastForPreparceling(size: androidx.media2.common.VideoSize): androidx.media2.common.VideoSize;
+				public static upcastForPreparceling(track: androidx.media2.common.SessionPlayer.TrackInfo): androidx.media2.common.SessionPlayer.TrackInfo;
 				public static isUnparcelableBundle(bundle: globalAndroid.os.Bundle): boolean;
 				public static removeNullElements(list: java.util.List<any>): java.util.List<any>;
 				public static convertToSessionCommandGroup(sessionFlags: number, state: globalAndroid.support.v4.media.session.PlaybackStateCompat): androidx.media2.session.SessionCommandGroup;
@@ -2790,6 +2849,7 @@ declare module androidx {
 				public static convertCommandButtonListToParcelImplList(commandButtonList: java.util.List<androidx.media2.session.MediaSession.CommandButton>): java.util.List<androidx.versionedparcelable.ParcelImpl>;
 				public static convertToMediaItem(metadataCompat: globalAndroid.support.v4.media.MediaMetadataCompat): androidx.media2.common.MediaItem;
 				public static convertToMediaMetadata(queueTitle: string): androidx.media2.common.MediaMetadata;
+				public static upcastForPreparceling(tracks: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
 				public static convertMediaItemListToMediaItemList(items: java.util.List<globalAndroid.support.v4.media.MediaBrowserCompat.MediaItem>): java.util.List<androidx.media2.common.MediaItem>;
 				public static truncateListBySize(list: java.util.List<any>, sizeLimitInBytes: number): java.util.List<any>;
 				public static upcastForPreparceling(item: androidx.media2.common.MediaItem): androidx.media2.common.MediaItem;
@@ -2935,7 +2995,7 @@ declare module androidx {
 declare module androidx {
 	export module media2 {
 		export module session {
-			export class SequencedFutureManager extends java.lang.Object implements java.lang.AutoCloseable {
+			export class SequencedFutureManager extends java.lang.Object implements java.io.Closeable {
 				public static class: java.lang.Class<androidx.media2.session.SequencedFutureManager>;
 				public setFutureResult(seq: number, result: any): void;
 				public close(): void;
@@ -2943,7 +3003,7 @@ declare module androidx {
 				public createSequencedFuture(resultWhenClosed: any): androidx.media2.session.SequencedFutureManager.SequencedFuture<any>;
 			}
 			export module SequencedFutureManager {
-				export class SequencedFuture<T>  extends androidx.media2.session.futures.AbstractResolvableFuture<any> {
+				export class SequencedFuture<T>  extends androidx.concurrent.futures.AbstractResolvableFuture<any> {
 					public static class: java.lang.Class<androidx.media2.session.SequencedFutureManager.SequencedFuture<any>>;
 					public getResultWhenClosed(): any;
 					public set(value: any): boolean;
@@ -2961,6 +3021,7 @@ declare module androidx {
 			export class SessionCommand extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.session.SessionCommand>;
 				public static COMMAND_VERSION_1: number;
+				public static COMMAND_VERSION_2: number;
 				public static COMMAND_VERSION_CURRENT: number;
 				public static COMMAND_CODE_CUSTOM: number;
 				public static COMMAND_CODE_PLAYER_PLAY: number;
@@ -2982,6 +3043,7 @@ declare module androidx {
 				public static COMMAND_CODE_PLAYER_GET_CURRENT_MEDIA_ITEM: number;
 				public static COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA: number;
 				public static COMMAND_CODE_PLAYER_SET_MEDIA_ITEM: number;
+				public static COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM: number;
 				public static COMMAND_CODE_PLAYER_SET_SURFACE: number;
 				public static COMMAND_CODE_PLAYER_SELECT_TRACK: number;
 				public static COMMAND_CODE_PLAYER_DESELECT_TRACK: number;
@@ -2991,13 +3053,8 @@ declare module androidx {
 				public static COMMAND_CODE_SESSION_REWIND: number;
 				public static COMMAND_CODE_SESSION_SKIP_FORWARD: number;
 				public static COMMAND_CODE_SESSION_SKIP_BACKWARD: number;
-				public static COMMAND_CODE_SESSION_PLAY_FROM_MEDIA_ID: number;
-				public static COMMAND_CODE_SESSION_PLAY_FROM_SEARCH: number;
-				public static COMMAND_CODE_SESSION_PLAY_FROM_URI: number;
-				public static COMMAND_CODE_SESSION_PREPARE_FROM_MEDIA_ID: number;
-				public static COMMAND_CODE_SESSION_PREPARE_FROM_SEARCH: number;
-				public static COMMAND_CODE_SESSION_PREPARE_FROM_URI: number;
 				public static COMMAND_CODE_SESSION_SET_RATING: number;
+				public static COMMAND_CODE_SESSION_SET_MEDIA_URI: number;
 				public static COMMAND_CODE_LIBRARY_GET_LIBRARY_ROOT: number;
 				public static COMMAND_CODE_LIBRARY_SUBSCRIBE: number;
 				public static COMMAND_CODE_LIBRARY_UNSUBSCRIBE: number;
@@ -3047,11 +3104,6 @@ declare module androidx {
 					public toString(): string;
 					public annotationType(): java.lang.Class<any>;
 					public hashCode(): number;
-				}
-				export class Range extends java.lang.Object {
-					public static class: java.lang.Class<androidx.media2.session.SessionCommand.Range>;
-					public lower: number;
-					public upper: number;
 				}
 			}
 		}
@@ -3388,95 +3440,6 @@ declare module androidx {
 	}
 }
 
-declare module androidx {
-	export module media2 {
-		export module session {
-			export module futures {
-				export abstract class AbstractResolvableFuture<V>  extends com.google.common.util.concurrent.ListenableFuture<any> {
-					public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture<any>>;
-					public setException(throwable: java.lang.Throwable): boolean;
-					public isCancelled(): boolean;
-					public get(timeout: number, unit: java.util.concurrent.TimeUnit): any;
-					public set(value: any): boolean;
-					public pendingToString(): string;
-					public toString(): string;
-					public get(): any;
-					public isDone(): boolean;
-					public afterDone(): void;
-					public constructor();
-					public interruptTask(): void;
-					public setFuture(future: com.google.common.util.concurrent.ListenableFuture<any>): boolean;
-					public wasInterrupted(): boolean;
-					public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-					public cancel(mayInterruptIfRunning: boolean): boolean;
-				}
-				export module AbstractResolvableFuture {
-					export abstract class AtomicHelper extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.AtomicHelper>;
-					}
-					export class Cancellation extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.Cancellation>;
-					}
-					export class Failure extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.Failure>;
-					}
-					export class Listener extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.Listener>;
-					}
-					export class SafeAtomicHelper extends androidx.media2.session.futures.AbstractResolvableFuture.AtomicHelper {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.SafeAtomicHelper>;
-					}
-					export class SetFuture<V>  extends java.lang.Runnable {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.SetFuture<any>>;
-						public run(): void;
-					}
-					export class SynchronizedHelper extends androidx.media2.session.futures.AbstractResolvableFuture.AtomicHelper {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.SynchronizedHelper>;
-					}
-					export class Waiter extends java.lang.Object {
-						public static class: java.lang.Class<androidx.media2.session.futures.AbstractResolvableFuture.Waiter>;
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module session {
-			export module futures {
-				export class DirectExecutor extends java.util.concurrent.Executor {
-					public static class: java.lang.Class<androidx.media2.session.futures.DirectExecutor>;
-					public static INSTANCE: androidx.media2.session.futures.DirectExecutor;
-					public static values(): native.Array<androidx.media2.session.futures.DirectExecutor>;
-					public toString(): string;
-					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
-					public static valueOf(name: string): androidx.media2.session.futures.DirectExecutor;
-					public execute(command: java.lang.Runnable): void;
-				}
-			}
-		}
-	}
-}
-
-declare module androidx {
-	export module media2 {
-		export module session {
-			export module futures {
-				export class ResolvableFuture<V>  extends androidx.media2.session.futures.AbstractResolvableFuture<any> {
-					public static class: java.lang.Class<androidx.media2.session.futures.ResolvableFuture<any>>;
-					public setException(throwable: java.lang.Throwable): boolean;
-					public set(value: any): boolean;
-					public setFuture(future: com.google.common.util.concurrent.ListenableFuture<any>): boolean;
-					public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-					public static create(): androidx.media2.session.futures.ResolvableFuture<any>;
-				}
-			}
-		}
-	}
-}
-
 //Generics information:
 //androidx.media2.session.ConnectedControllersManager:1
 //androidx.media2.session.MediaController.BuilderBase:3
@@ -3485,9 +3448,5 @@ declare module androidx {
 //androidx.media2.session.MediaSessionImplBase.PlayerTask:1
 //androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask:1
 //androidx.media2.session.MediaSessionStub.SessionCallbackTask:1
-//androidx.media2.session.MediaSessionStub.SessionTask:1
 //androidx.media2.session.SequencedFutureManager.SequencedFuture:1
-//androidx.media2.session.futures.AbstractResolvableFuture:1
-//androidx.media2.session.futures.AbstractResolvableFuture.SetFuture:1
-//androidx.media2.session.futures.ResolvableFuture:1
 

@@ -323,6 +323,7 @@ declare module com {
 					 * Constructs a new instance of the com.google.android.exoplayer2.ControlDispatcher interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
 					 */
 					public constructor(implementation: {
+						dispatchPrepare(player0: com.google.android.exoplayer2.Player): boolean;
 						dispatchSetPlayWhenReady(player0: com.google.android.exoplayer2.Player, boolean1: boolean): boolean;
 						dispatchSeekTo(player0: com.google.android.exoplayer2.Player, int1: number, long2: number): boolean;
 						dispatchPrevious(player0: com.google.android.exoplayer2.Player): boolean;
@@ -343,6 +344,7 @@ declare module com {
 					public dispatchPrevious(player0: com.google.android.exoplayer2.Player): boolean;
 					public dispatchFastForward(player0: com.google.android.exoplayer2.Player): boolean;
 					public dispatchSetShuffleModeEnabled(player0: com.google.android.exoplayer2.Player, boolean1: boolean): boolean;
+					public dispatchPrepare(player0: com.google.android.exoplayer2.Player): boolean;
 					public dispatchNext(player0: com.google.android.exoplayer2.Player): boolean;
 					public dispatchSetPlayWhenReady(player0: com.google.android.exoplayer2.Player, boolean1: boolean): boolean;
 					public dispatchRewind(player0: com.google.android.exoplayer2.Player): boolean;
@@ -371,6 +373,7 @@ declare module com {
 					public dispatchSetShuffleModeEnabled(player: com.google.android.exoplayer2.Player, shuffleModeEnabled: boolean): boolean;
 					public constructor();
 					public dispatchRewind(player: com.google.android.exoplayer2.Player): boolean;
+					public dispatchPrepare(player: com.google.android.exoplayer2.Player): boolean;
 					public dispatchSeekTo(player: com.google.android.exoplayer2.Player, windowIndex: number, positionMs: number): boolean;
 					/** @deprecated */
 					public setFastForwardIncrementMs(fastForwardMs: number): void;
@@ -1613,6 +1616,7 @@ declare module com {
 						preparePlayback(): void;
 					});
 					public constructor();
+					/** @deprecated */
 					public preparePlayback(): void;
 				}
 			}
@@ -4672,6 +4676,7 @@ declare module com {
 						public static class: java.lang.Class<com.google.android.exoplayer2.audio.Sonic>;
 						public queueEndOfStream(): void;
 						public queueInput(buffer: java.nio.ShortBuffer): void;
+						public getPendingInputBytes(): number;
 						public getOutput(buffer: java.nio.ShortBuffer): void;
 						public flush(): void;
 						public getOutputSize(): number;
@@ -4694,15 +4699,15 @@ declare module com {
 						public queueInput(inputBuffer: java.nio.ByteBuffer): void;
 						public constructor();
 						public queueEndOfStream(): void;
-						public scaleDurationForSpeedup(duration: number): number;
-						public setSpeed(speed: number): number;
 						public flush(): void;
-						public setPitch(pitch: number): number;
+						public getMediaDuration(playoutDuration: number): number;
+						public setPitch(pitch: number): void;
 						public configure(inputAudioFormat: com.google.android.exoplayer2.audio.AudioProcessor.AudioFormat): com.google.android.exoplayer2.audio.AudioProcessor.AudioFormat;
 						public getOutput(): java.nio.ByteBuffer;
 						public setOutputSampleRateHz(sampleRateHz: number): void;
 						public isEnded(): boolean;
 						public reset(): void;
+						public setSpeed(speed: number): void;
 						public isActive(): boolean;
 					}
 				}

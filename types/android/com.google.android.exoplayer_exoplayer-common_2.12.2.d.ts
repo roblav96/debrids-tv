@@ -54,7 +54,6 @@ declare module com {
 					public static STREAM_TYPE_RING: number;
 					public static STREAM_TYPE_SYSTEM: number;
 					public static STREAM_TYPE_VOICE_CALL: number;
-					public static STREAM_TYPE_USE_DEFAULT: number;
 					public static STREAM_TYPE_DEFAULT: number;
 					public static CONTENT_TYPE_MOVIE: number;
 					public static CONTENT_TYPE_MUSIC: number;
@@ -2372,6 +2371,19 @@ declare module com {
 							/** @deprecated */
 							public clearAllDefaultRequestProperties(): void;
 						}
+						export class CleartextNotPermittedException extends com.google.android.exoplayer2.upstream.HttpDataSource.HttpDataSourceException {
+							public static class: java.lang.Class<com.google.android.exoplayer2.upstream.HttpDataSource.CleartextNotPermittedException>;
+							public constructor();
+							public constructor(message: string, cause: java.lang.Throwable);
+							public constructor(cause: java.lang.Throwable);
+							public constructor(message: string);
+							public constructor(message: string, dataSpec: com.google.android.exoplayer2.upstream.DataSpec, type: number);
+							public constructor(message: string, cause: java.io.IOException, dataSpec: com.google.android.exoplayer2.upstream.DataSpec, type: number);
+							public constructor(cause: java.io.IOException, dataSpec: com.google.android.exoplayer2.upstream.DataSpec, type: number);
+							public constructor(dataSpec: com.google.android.exoplayer2.upstream.DataSpec, type: number);
+							public constructor(message: string, cause: java.lang.Throwable, enableSuppression: boolean, writableStackTrace: boolean);
+							public constructor(cause: java.io.IOException, dataSpec: com.google.android.exoplayer2.upstream.DataSpec);
+						}
 						export class Factory extends java.lang.Object implements com.google.android.exoplayer2.upstream.DataSource.Factory {
 							public static class: java.lang.Class<com.google.android.exoplayer2.upstream.HttpDataSource.Factory>;
 							/**
@@ -2820,9 +2832,11 @@ declare module com {
 						public static getTrackTypeOfCodec(codec: string): number;
 						public static isVideo(mimeType: string): boolean;
 						public static registerCustomMimeType(mimeType: string, codecPrefix: string, trackType: number): void;
+						public static getCodecsCorrespondingToMimeType(codecs: string, mimeType: string): string;
 						public static getMediaMimeType(codec: string): string;
 						public static getAudioMediaMimeType(codecs: string): string;
 						public static isAudio(mimeType: string): boolean;
+						public static containsCodecsCorrespondingToMimeType(codecs: string, mimeType: string): boolean;
 						public static getVideoMediaMimeType(codecs: string): string;
 						public static getTextMediaMimeType(codecs: string): string;
 						public static getMimeTypeFromMp4ObjectType(objectType: number): string;
@@ -3201,6 +3215,7 @@ declare module com {
 						public static getSystemLanguageCodes(): native.Array<string>;
 						public static scaleLargeTimestamp(timestamp: number, multiplier: number, divisor: number): number;
 						public static readExactly(dataSource: com.google.android.exoplayer2.upstream.DataSource, length: number): native.Array<number>;
+						public static getCodecCountOfType(codecs: string, trackType: number): number;
 						public static isEncodingHighResolutionPcm(encoding: number): boolean;
 						public static fixSmoothStreamingIsmManifestUri(uri: globalAndroid.net.Uri): globalAndroid.net.Uri;
 						public static getAudioContentTypeForStreamType(streamType: number): number;
