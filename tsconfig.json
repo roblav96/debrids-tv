@@ -7,15 +7,15 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"noEmitHelpers": true,
+		"noEmitOnError": false,
 		"paths": { "@/*": ["src/*"], "~/*": ["src/*"] },
 		"plugins": [{ "name": "ts-vue-plugin" }],
 		"skipLibCheck": true,
-		"sourceMap": true,
 		"target": "es2017"
 	},
 	"include": [
 		"node_modules/@nativescript/types-android/lib/android-29.d.ts",
-		"types/android/**/*.d.ts",
+		"types/**/*.d.ts",
 		"src/**/*.d.ts",
 		"src/**/*.ts",
 		"src/**/*.vue"

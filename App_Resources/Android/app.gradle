@@ -11,16 +11,21 @@ dependencies {
 	implementation 'androidx.media:media:1.2.+'
 	implementation 'com.google.android.material:material:1.2.+'
 
+	implementation 'androidx.tvprovider:tvprovider:1.0.+'
+	implementation 'androidx.constraintlayout:constraintlayout:2.0.+'
 	implementation 'androidx.media2:media2-common:+'
 	implementation 'androidx.media2:media2-session:+'
+
 	implementation 'com.google.android.exoplayer:exoplayer:+'
 	implementation 'com.google.android.exoplayer:extension-leanback:+'
 	implementation 'com.google.android.exoplayer:extension-media2:+'
 	implementation 'com.google.android.exoplayer:extension-mediasession:+'
 	implementation 'com.google.android.exoplayer:extension-okhttp:+'
+
 	implementation 'com.squareup.okhttp3:okhttp:3.+'
 	implementation 'com.squareup.okio:okio:1.+'
 	implementation 'com.squareup.picasso:picasso:+'
+
 	implementation 'com.yyl.ffmpeg:ffmpeg_cmd:+'
 	implementation 'com.tananaev:adblib:+'
 }

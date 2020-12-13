@@ -43,6 +43,16 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 				<category android:name="android.intent.category.LEANBACK_LAUNCHER" />
 			</intent-filter>
+			<intent-filter>
+				<action android:name="__PACKAGE__.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:scheme="http" />
+				<data android:scheme="https" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="__PACKAGE__.action.VIEW_LIST" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
 		</activity>
 		<activity android:name="com.tns.ErrorReportActivity" />
 	</application>

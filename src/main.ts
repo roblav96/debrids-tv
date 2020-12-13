@@ -6,12 +6,9 @@ Application.on('discardedError', function discardedError(args) {
 	console.error('████  DISCARDED ERROR  ████ ->', args.error)
 })
 
-import * as dayjs from 'dayjs'
-import * as relativeTime from 'dayjs/plugin/relativeTime'
-dayjs.extend(relativeTime)
-
-// import '@/devops/console'
-import '@/delegate/delegate.android'
+import '@/runtime/console'
+import '@/runtime/ns'
+import '@/runtime/delegate'
 
 import Vue from 'nativescript-vue'
 Object.assign(Vue.config, {
