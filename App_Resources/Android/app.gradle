@@ -14,8 +14,6 @@ dependencies {
 	implementation 'androidx.tvprovider:tvprovider:1.0.+'
 	implementation 'androidx.constraintlayout:constraintlayout:2.0.+'
 	implementation 'androidx.media2:media2-common:+'
-	implementation 'androidx.media2:media2-exoplayer:+'
-	implementation 'androidx.media2:media2-player:+'
 	implementation 'androidx.media2:media2-session:+'
 	implementation 'androidx.media2:media2-widget:+'
 
