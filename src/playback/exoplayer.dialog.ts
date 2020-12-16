@@ -65,11 +65,11 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		)
 		builder.setInitialBitrateEstimate(
 			com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-				.DEFAULT_INITIAL_BITRATE_ESTIMATE * 10,
+				.DEFAULT_INITIAL_BITRATE_ESTIMATE * 8,
 		)
 		builder.setSlidingWindowMaxWeight(
 			com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-				.DEFAULT_SLIDING_WINDOW_MAX_WEIGHT * 5,
+				.DEFAULT_SLIDING_WINDOW_MAX_WEIGHT * 4,
 		)
 		builder.setResetOnNetworkTypeChange(false)
 		this._bandwidthMeter = builder.build()
@@ -157,17 +157,36 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 			dataSourceFactory,
 			extractorsFactory,
 		)
+		// mediaSourceFactory.setContinueLoadingCheckIntervalBytes(
+		// 	com.google.android.exoplayer2.source.ProgressiveMediaSource
+		// 		.DEFAULT_LOADING_CHECK_INTERVAL_BYTES * 8,
+		// )
 
+		// let extractor = new android.media.MediaExtractor()
+		// for (let url of this.urls) {
+		// 	extractor.setDataSource(url)
+		// 	let count = extractor.getTrackCount()
+		// 	console.log('count ->', count)
+		// 	for (let i = 0; i < count; i++) {
+		// 		let track = extractor.getTrackFormat(i)
+		// 		console.log('track ->', track)
+		// 	}
+		// }
+
+		let trackSelector = this.getTrackSelector()
 		let builder = new com.google.android.exoplayer2.SimpleExoPlayer.Builder(
 			Application.android.foregroundActivity,
 			renderersFactory,
 			extractorsFactory,
 		)
 		builder.setBandwidthMeter(this.getBandwidthMeter())
-		builder.setTrackSelector(this.getTrackSelector())
+		builder.setTrackSelector(trackSelector)
 		builder.setMediaSourceFactory(mediaSourceFactory)
 		this.player = builder.build()
 		this.player.setPlayWhenReady(true)
+		this.player.addAnalyticsListener(
+			new com.google.android.exoplayer2.util.EventLogger(trackSelector),
+		)
 		this.playerView.setPlayer(this.player)
 		this.player.setMediaItems(this.getMediaItems())
 		this.player.prepare()
