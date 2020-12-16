@@ -145,6 +145,7 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		renderersFactory.setExtensionRendererMode(
 			com.google.android.exoplayer2.DefaultRenderersFactory.EXTENSION_RENDERER_MODE_OFF,
 		)
+		// renderersFactory.setMediaCodecSelector()
 
 		let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
 		let dataSourceFactory = new com.google.android.exoplayer2.upstream.DefaultDataSourceFactory(

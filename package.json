@@ -8,7 +8,9 @@
 		"au": "adb uninstall app.debrids.tv || true",
 		"del": "del hooks node_modules platforms",
 		"delp": "del platforms",
-		"postinstall": "run-p postinstall:*",
+		"postinstall": "run-s prepostinstall:* postinstall:*",
+		"prepostinstall:android-platform": "del node_modules/@nativescript/types-android/lib/android/android-platform-*.d.ts",
+		"prepostinstall:androidx": "del node_modules/@nativescript/types-android/lib/android/androidx-*.d.ts",
 		"postinstall:android-platform-29": "cpy ../android-dts-generator/out/android-platform-29.d.ts node_modules/@nativescript/types-android/lib/android",
 		"postinstall:androidx-29": "cpy ../android-dts-generator/out/androidx-29.d.ts node_modules/@nativescript/types-android/lib/android",
 		"postinstall:update-ns-webpack": "update-ns-webpack --configs"
