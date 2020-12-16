@@ -48,3 +48,13 @@ android {
 		additionalParameters "--no-version-vectors"
 	}
 }
+
+// println "\n================"
+// println "\nproject -> " + project.getProperties()
+// println "\nproject.ext -> " + project.ext.getProperties()
+// println "\ncompileSdk -> " + project.getProperty("compileSdk")
+// println "\ntargetSdk -> " + project.getProperty("targetSdk")
+// println "\nbuildToolsVersion -> " + project.getProperty("buildToolsVersion")
+// println "\nminSdkVersion -> " + android.defaultConfig.getProperty("minSdkVersion").mApiLevel
+// println "\nandroid.compileOptions -> " + android.compileOptions.getProperties()
+// println "\n================"
