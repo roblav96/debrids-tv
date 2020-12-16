@@ -21,9 +21,9 @@ Application.on('displayed', function displayed(args) {
 		console.log('process.env.TEST_MKV ->', process.env.TEST_MKV)
 		let dialog = new ExoPlayerDialog([process.env.TEST_MKV])
 		console.log('dialog ->', dialog)
-		// dialog.show()
-		// setTimeout(() => dialog.playerView.requestFocus(), 100)
+		dialog.show()
+		// setTimeout(() => dialog.playerView.requestFocus(), 300)
 	} catch (error) {
-		console.error('displayed -> %O', error)
+		console.error('displayed ->', error.stack)
 	}
 })

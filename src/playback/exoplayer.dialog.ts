@@ -1,4 +1,5 @@
 import * as Application from '@nativescript/core/application'
+import * as Types from '@nativescript/core/utils/types'
 
 @NativeClass
 class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
@@ -55,7 +56,7 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 	}
 
 	private _bandwidthMeter: com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-	get bandwidthMeter() {
+	getBandwidthMeter() {
 		if (this._bandwidthMeter) {
 			return this._bandwidthMeter
 		}
@@ -63,21 +64,20 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 			Application.android.foregroundActivity,
 		)
 		builder.setInitialBitrateEstimate(
-			com.google.android.exoplayer2.C.NETWORK_TYPE_ETHERNET,
 			com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-				.DEFAULT_INITIAL_BITRATE_ESTIMATE,
+				.DEFAULT_INITIAL_BITRATE_ESTIMATE * 10,
 		)
 		builder.setSlidingWindowMaxWeight(
 			com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-				.DEFAULT_SLIDING_WINDOW_MAX_WEIGHT * 3,
+				.DEFAULT_SLIDING_WINDOW_MAX_WEIGHT * 5,
 		)
-		builder.setResetOnNetworkTypeChange(true)
+		builder.setResetOnNetworkTypeChange(false)
 		this._bandwidthMeter = builder.build()
 		return this._bandwidthMeter
 	}
 
 	private _trackSelectorParameters: com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters
-	get trackSelectorParameters() {
+	getTrackSelectorParameters() {
 		if (this._trackSelectorParameters) {
 			return this._trackSelectorParameters
 		}
@@ -101,34 +101,33 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 	}
 
 	private _trackSelector: com.google.android.exoplayer2.trackselection.DefaultTrackSelector
-	get trackSelector() {
+	getTrackSelector() {
 		if (this._trackSelector) {
 			return this._trackSelector
 		}
-		let adaptiveTrackSelectionFactory = new com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.Factory(
-			com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.DEFAULT_MIN_DURATION_FOR_QUALITY_INCREASE_MS,
-			com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.DEFAULT_MAX_DURATION_FOR_QUALITY_DECREASE_MS,
-			com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.DEFAULT_MIN_DURATION_TO_RETAIN_AFTER_DISCARD_MS,
-			com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.DEFAULT_BANDWIDTH_FRACTION,
-		)
+		let adaptiveTrackSelectionFactory = new com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.Factory()
 		this._trackSelector = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector(
-			this.trackSelectorParameters,
+			this.getTrackSelectorParameters(),
 			adaptiveTrackSelectionFactory,
 		)
 		return this._trackSelector
 	}
 
 	private _mediaItems: java.util.ArrayList<com.google.android.exoplayer2.MediaItem>
-	get mediaItems() {
+	getMediaItems() {
 		if (this._mediaItems) {
 			return this._mediaItems
 		}
 		let mediaItems = new java.util.ArrayList<com.google.android.exoplayer2.MediaItem>()
 		for (let url of this.urls) {
-			let title = url.slice(url.lastIndexOf('/'), url.lastIndexOf('.'))
-			console.log('title ->', title)
+			let title = url.slice(url.lastIndexOf('/') + 1, url.lastIndexOf('.'))
 			let builder = new com.google.android.exoplayer2.MediaItem.Builder()
 			builder.setUri(url)
+			builder.setMimeType(
+				com.google.android.exoplayer2.util.Util.getAdaptiveMimeTypeForContentType(
+					com.google.android.exoplayer2.util.Util.inferContentType(url),
+				),
+			)
 			builder.setMediaMetadata(
 				new com.google.android.exoplayer2.MediaMetadata.Builder().setTitle(title).build(),
 			)
@@ -140,7 +139,6 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 
 	player: com.google.android.exoplayer2.SimpleExoPlayer
 	initializePlayer() {
-		// let extractorsFactory = new DefaultExtractorsFactory
 		let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
 			Application.android.foregroundActivity,
 		)
@@ -148,27 +146,30 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 			com.google.android.exoplayer2.DefaultRenderersFactory.EXTENSION_RENDERER_MODE_OFF,
 		)
 
+		let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
 		let dataSourceFactory = new com.google.android.exoplayer2.upstream.DefaultDataSourceFactory(
 			Application.android.foregroundActivity,
 			new com.google.android.exoplayer2.ext.okhttp.OkHttpDataSourceFactory(
 				new okhttp3.OkHttpClient.Builder().build(),
 			),
 		) as com.google.android.exoplayer2.upstream.DataSource.Factory
-		let mediaSourceFactory = new com.google.android.exoplayer2.source.DefaultMediaSourceFactory(
+		let mediaSourceFactory = new com.google.android.exoplayer2.source.ProgressiveMediaSource.Factory(
 			dataSourceFactory,
+			extractorsFactory,
 		)
 
 		let builder = new com.google.android.exoplayer2.SimpleExoPlayer.Builder(
 			Application.android.foregroundActivity,
 			renderersFactory,
+			extractorsFactory,
 		)
-		builder.setBandwidthMeter(this.bandwidthMeter)
-		builder.setTrackSelector(this.trackSelector)
+		builder.setBandwidthMeter(this.getBandwidthMeter())
+		builder.setTrackSelector(this.getTrackSelector())
 		builder.setMediaSourceFactory(mediaSourceFactory)
 		this.player = builder.build()
 		this.player.setPlayWhenReady(true)
 		this.playerView.setPlayer(this.player)
-		this.player.setMediaItems(this.mediaItems)
+		this.player.setMediaItems(this.getMediaItems())
 		this.player.prepare()
 	}
 
