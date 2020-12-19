@@ -66,7 +66,6 @@ class ExoPlayerDialog extends android.app.Dialog {
 		this.playerView.setShowBuffering(
 			com.google.android.exoplayer2.ui.PlayerView.SHOW_BUFFERING_ALWAYS,
 		)
-		this.playerView.requestFocus()
 
 		this.setContentView(this.playerView)
 	}
@@ -74,12 +73,7 @@ class ExoPlayerDialog extends android.app.Dialog {
 	onStart() {
 		super.onStart()
 		this.initializePlayer()
-		console.log('onStart this.isShowing() ->', this.isShowing())
 		this.playerView.requestFocus()
-		// if (!this.isShowing()) {
-		// 	this.show()
-		// 	this.playerView.requestFocus()
-		// }
 	}
 
 	onStop() {
@@ -171,6 +165,13 @@ class ExoPlayerDialog extends android.app.Dialog {
 		return this._mediaItems
 	}
 
+	private static randomSeekTo = R.once(function (
+		player: com.google.android.exoplayer2.SimpleExoPlayer,
+	) {
+		let duration = player.getDuration()
+		player.seekTo(R.random(duration * 0.2, duration * 0.8))
+	})
+
 	player: com.google.android.exoplayer2.SimpleExoPlayer
 	initializePlayer() {
 		let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
@@ -208,12 +209,10 @@ class ExoPlayerDialog extends android.app.Dialog {
 		// 		.DEFAULT_LOADING_CHECK_INTERVAL_BYTES * 24,
 		// )
 
-		// let extractor = new android.media.MediaExtractor()
 		// for (let url of this.urls) {
+		// 	let extractor = new android.media.MediaExtractor()
 		// 	extractor.setDataSource(url)
-		// 	let count = extractor.getTrackCount()
-		// 	console.log('count ->', count)
-		// 	for (let i = 0; i < count; i++) {
+		// 	for (let i = 0; i < extractor.getTrackCount(); i++) {
 		// 		let track = extractor.getTrackFormat(i)
 		// 		console.log('track ->', track)
 		// 	}
@@ -238,40 +237,34 @@ class ExoPlayerDialog extends android.app.Dialog {
 		builder.setMediaSourceFactory(mediaSourceFactory)
 		builder.setLoadControl(loadControl)
 		builder.setAudioAttributes(audioAttributes, true)
-		// builder.setAnalyticsCollector(
-		// 	new com.google.android.exoplayer2.analytics.AnalyticsCollector(
-		// 		com.google.android.exoplayer2.util.Clock.DEFAULT,
-		// 	),
-		// )
 		this.player = builder.build()
 		this.player.setPlayWhenReady(true)
 		this.player.addAnalyticsListener(
 			new com.google.android.exoplayer2.util.EventLogger(trackSelector),
 		)
 
-		this.player.addVideoListener(
-			new com.google.android.exoplayer2.video.VideoListener({
-				onVideoSizeChanged(
-					width,
-					height,
-					unappliedRotationDegrees,
-					pixelWidthHeightRatio,
-				) {},
-				onSurfaceSizeChanged(width, height) {},
-				onRenderedFirstFrame() {
-					console.log('onRenderedFirstFrame ->')
-				},
-			}),
-		)
+		// this.player.addVideoListener(
+		// 	new com.google.android.exoplayer2.video.VideoListener({
+		// 		onVideoSizeChanged(
+		// 			width,
+		// 			height,
+		// 			unappliedRotationDegrees,
+		// 			pixelWidthHeightRatio,
+		// 		) {},
+		// 		onSurfaceSizeChanged(width, height) {},
+		// 		onRenderedFirstFrame() {
+		// 			console.log('onRenderedFirstFrame ->')
+		// 		},
+		// 	}),
+		// )
 
 		// this.player.addListener(new EventListenerImpl())
 		this.player.addListener(
 			new com.google.android.exoplayer2.Player.EventListener(({
 				onPlaybackStateChanged: (state) => {
-					console.log('onPlaybackStateChanged ->', state)
+					// console.log('onPlaybackStateChanged ->', state)
 					if (state == com.google.android.exoplayer2.ExoPlayer.STATE_READY) {
-						// let duration = this.player.getDuration()
-						// this.player.seekTo(R.random(0, duration * 0.8))
+						ExoPlayerDialog.randomSeekTo(this.player)
 					}
 				},
 			} as com.google.android.exoplayer2.Player.EventListener) as any),
