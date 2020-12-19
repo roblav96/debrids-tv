@@ -31,13 +31,28 @@ class ExoPlayerDialog extends android.app.Dialog {
 
 	playerView: com.google.android.exoplayer2.ui.PlayerView
 	onCreate(savedInstanceState: android.os.Bundle) {
-		console.log('onCreate ->')
 		super.onCreate(savedInstanceState)
 		this.setCancelable(false)
+		this.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
 
 		let window = this.getWindow()
-		window.addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN)
 		window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+		window.addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN)
+		window.setLayout(
+			android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+			android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+		)
+		window.setBackgroundDrawable(
+			new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK),
+		)
+
+		let decor = window.getDecorView()
+		decor.setBackgroundColor(android.R.color.black)
+		decor.setSystemUiVisibility(
+			android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+				android.view.View.SYSTEM_UI_FLAG_FULLSCREEN |
+				android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY,
+		)
 
 		this.playerView = new com.google.android.exoplayer2.ui.PlayerView(
 			Application.android.foregroundActivity,
@@ -51,18 +66,19 @@ class ExoPlayerDialog extends android.app.Dialog {
 		this.playerView.setShowBuffering(
 			com.google.android.exoplayer2.ui.PlayerView.SHOW_BUFFERING_ALWAYS,
 		)
-		// this.playerView.requestFocus()
+		this.playerView.requestFocus()
 
-		console.log('setContentView ->')
 		this.setContentView(this.playerView)
 	}
 
 	onStart() {
-		console.log('onStart ->')
 		super.onStart()
 		this.initializePlayer()
+		console.log('onStart this.isShowing() ->', this.isShowing())
+		this.playerView.requestFocus()
 		// if (!this.isShowing()) {
 		// 	this.show()
+		// 	this.playerView.requestFocus()
 		// }
 	}
 
@@ -121,13 +137,13 @@ class ExoPlayerDialog extends android.app.Dialog {
 		if (this._trackSelector) {
 			return this._trackSelector
 		}
-		// let adaptiveTrackSelectionFactory = new com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.Factory()
+		let adaptiveTrackSelectionFactory = new com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.Factory()
 		this._trackSelector = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector(
-			Application.android.foregroundActivity,
-			// this.getTrackSelectorParameters(),
-			// adaptiveTrackSelectionFactory,
+			// Application.android.foregroundActivity,
+			this.getTrackSelectorParameters(),
+			adaptiveTrackSelectionFactory,
 		)
-		this._trackSelector.setParameters(this.getTrackSelectorParameters())
+		// this._trackSelector.setParameters(this.getTrackSelectorParameters())
 		return this._trackSelector
 	}
 
@@ -157,7 +173,6 @@ class ExoPlayerDialog extends android.app.Dialog {
 
 	player: com.google.android.exoplayer2.SimpleExoPlayer
 	initializePlayer() {
-		console.log('initializePlayer ->')
 		let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
 			Application.android.foregroundActivity,
 		)
@@ -166,7 +181,7 @@ class ExoPlayerDialog extends android.app.Dialog {
 		)
 		// let mediaCodecSelector = new com.google.android.exoplayer2.mediacodec.MediaCodecSelector({
 		// 	getDecoderInfos(mimeType: string, secure: boolean, tunneling: boolean) {
-		// 		console.log('getDecoderInfos mimeType ->', mimeType)
+		// 		console.log('getDecoderInfos ->', mimeType)
 		// 		let exoDefault = com.google.android.exoplayer2.mediacodec.MediaCodecSelector.DEFAULT
 		// 		let mediaCodecInfos = exoDefault.getDecoderInfos(mimeType, secure, tunneling)
 		// 		console.log('mediaCodecInfos ->', mediaCodecInfos)
@@ -177,7 +192,7 @@ class ExoPlayerDialog extends android.app.Dialog {
 		// })
 		// renderersFactory.setMediaCodecSelector(mediaCodecSelector)
 
-		// let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
+		let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
 		let dataSourceFactory = new com.google.android.exoplayer2.upstream.DefaultDataSourceFactory(
 			Application.android.foregroundActivity,
 			new com.google.android.exoplayer2.ext.okhttp.OkHttpDataSourceFactory(
@@ -186,7 +201,7 @@ class ExoPlayerDialog extends android.app.Dialog {
 		) as com.google.android.exoplayer2.upstream.DataSource.Factory
 		let mediaSourceFactory = new com.google.android.exoplayer2.source.ProgressiveMediaSource.Factory(
 			dataSourceFactory,
-			// extractorsFactory,
+			extractorsFactory,
 		)
 		// mediaSourceFactory.setContinueLoadingCheckIntervalBytes(
 		// 	com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -216,7 +231,7 @@ class ExoPlayerDialog extends android.app.Dialog {
 		let builder = new com.google.android.exoplayer2.SimpleExoPlayer.Builder(
 			Application.android.foregroundActivity,
 			renderersFactory,
-			// extractorsFactory,
+			extractorsFactory,
 		)
 		builder.setBandwidthMeter(this.getBandwidthMeter())
 		builder.setTrackSelector(trackSelector)

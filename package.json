@@ -4,9 +4,8 @@
 	"version": "1.0.0",
 	"main": "main.js",
 	"scripts": {
-		"a": "run-s delp android:uninstall android:run",
-		"android:uninstall": "adb uninstall app.debrids.tv 2>/dev/null || true",
-		"android:run": "env FORCE_COLOR=1 ns run android --no-hmr 2>&1 | sed -e 's/^JS: //'",
+		"a": "run-p delp au; env FORCE_COLOR=1 ns run android --no-hmr 2>&1 | sed -e 's/^JS: //'",
+		"au": "adb uninstall app.debrids.tv 2>/dev/null || true",
 		"del": "del hooks node_modules platforms",
 		"delp": "del platforms",
 		"postinstall": "run-s prepostinstall:* postinstall:*",
