@@ -33,7 +33,7 @@
 		android:usesCleartextTraffic="true"
 	>
 		<activity
-			android:configChanges="keyboard|keyboardHidden|navigation|screenSize|screenLayout|layoutDirection"
+			android:configChanges="keyboard|keyboardHidden|navigation"
 			android:label="@string/title_activity_kimera"
 			android:launchMode="singleTop"
 			android:name="com.tns.NativeScriptActivity"

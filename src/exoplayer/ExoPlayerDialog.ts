@@ -3,7 +3,7 @@ import * as R from 'rambdax'
 import * as Types from '@nativescript/core/utils/types'
 
 @NativeClass
-class ExoPlayerDialog extends android.app.Dialog {
+class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 	constructor(public urls: string[]) {
 		super(
 			Application.android.foregroundActivity,
@@ -67,13 +67,18 @@ class ExoPlayerDialog extends android.app.Dialog {
 			com.google.android.exoplayer2.ui.PlayerView.SHOW_BUFFERING_ALWAYS,
 		)
 
+		this.setOnShowListener(
+			new android.content.DialogInterface.OnShowListener({
+				onShow: R.once((dialog: ExoPlayerDialog) => dialog.playerView.requestFocus()),
+			}),
+		)
+
 		this.setContentView(this.playerView)
 	}
 
 	onStart() {
 		super.onStart()
 		this.initializePlayer()
-		this.playerView.requestFocus()
 	}
 
 	onStop() {
