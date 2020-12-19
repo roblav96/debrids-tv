@@ -15,12 +15,13 @@ Application.android.on('activityNewIntent', function activityNewIntent(args) {
 	let url = intent.getDataString()
 })
 
-import ExoPlayerDialog from '@/playback/exoplayer.dialog'
+import ExoPlayerDialog from '~/playback/exoplayer.dialog'
 Application.on('displayed', function displayed(args) {
 	try {
 		console.log('process.env.TEST_MKV ->', process.env.TEST_MKV)
 		let dialog = new ExoPlayerDialog([process.env.TEST_MKV])
-		console.log('dialog ->', dialog)
+		// console.log('dialog ->', dialog)
+		console.log('dialog.show ->')
 		dialog.show()
 		// setTimeout(() => dialog.playerView.requestFocus(), 300)
 	} catch (error) {

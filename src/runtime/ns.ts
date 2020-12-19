@@ -25,8 +25,8 @@ const NsAndroid = {
 	},
 }
 
-global.NS ?? Object.assign(global, { NS: {} })
-global.NS.android ?? Object.assign(global.NS, { android: NsAndroid })
+global.NS || Object.assign(global, { NS: {} })
+global.NS.android || Object.assign(global.NS, { android: NsAndroid })
 
 declare global {
 	export module NS {
@@ -49,9 +49,9 @@ declare global {
 // 	},
 // }
 
-// import { DefineProperty } from '@/utils/decorators'
-// global.ns ?? Object.assign(global, { ns: {} })
-// global.ns.android ?? Object.assign(global.ns, { android: {} })
+// import { DefineProperty } from '~/utils/decorators'
+// global.ns || Object.assign(global, { ns: {} })
+// global.ns.android || Object.assign(global.ns, { android: {} })
 // DefineProperty(global.ns.android, 'context', () => Application.android.context)
 // DefineProperty(global.ns.android, 'foregroundActivity', () => Application.android.foregroundActivity)
 // DefineProperty(global.ns.android, 'nativeApp', () => Application.android.nativeApp)

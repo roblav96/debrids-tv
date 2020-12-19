@@ -1,0 +1,20 @@
+/** @see https://docs.nativescript.org/ui/styling */
+
+@import '~@nativescript/theme/css/core.compat.css';
+@import '~@nativescript/theme/css/default.compat.css';
+
+*:focus {
+	animation-name: enlarge;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes enlarge {
+	from {
+		transform: scale(1, 1);
+	}
+
+	to {
+		transform: scale(1.2, 1.2);
+	}
+}

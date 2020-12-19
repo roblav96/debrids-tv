@@ -249,7 +249,6 @@ declare module com {
 							 */
 							public constructor(implementation: {
 								createExtractor(uri0: globalAndroid.net.Uri, format1: com.google.android.exoplayer2.Format, list2: java.util.List<com.google.android.exoplayer2.Format>, timestampAdjuster3: com.google.android.exoplayer2.util.TimestampAdjuster, map4: java.util.Map<string,java.util.List<string>>, extractorInput5: com.google.android.exoplayer2.extractor.ExtractorInput): com.google.android.exoplayer2.source.hls.HlsMediaChunkExtractor;
-								<clinit>(): void;
 							});
 							public constructor();
 							public static DEFAULT: com.google.android.exoplayer2.source.hls.HlsExtractorFactory;

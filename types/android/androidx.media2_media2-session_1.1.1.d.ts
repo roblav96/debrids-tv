@@ -2147,6 +2147,7 @@ declare module androidx {
 		export module session {
 			export class MediaNotificationHandler extends androidx.media2.session.MediaSession.SessionCallback.ForegroundServiceEventCallback {
 				public static class: java.lang.Class<androidx.media2.session.MediaNotificationHandler>;
+				public onNotificationUpdateNeeded(session: androidx.media2.session.MediaSession): void;
 				public onUpdateNotification(session: androidx.media2.session.MediaSession): androidx.media2.session.MediaSessionService.MediaNotification;
 				public onPlayerStateChanged(session: androidx.media2.session.MediaSession, state: number): void;
 				public onSessionClosed(session: androidx.media2.session.MediaSession): void;
@@ -2375,6 +2376,7 @@ declare module androidx {
 					export abstract class ForegroundServiceEventCallback extends java.lang.Object {
 						public static class: java.lang.Class<androidx.media2.session.MediaSession.SessionCallback.ForegroundServiceEventCallback>;
 						public onPlayerStateChanged(session: androidx.media2.session.MediaSession, state: number): void;
+						public onNotificationUpdateNeeded(session: androidx.media2.session.MediaSession): void;
 						public onSessionClosed(session: androidx.media2.session.MediaSession): void;
 					}
 				}

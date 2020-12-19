@@ -2335,7 +2335,6 @@ declare module com {
 							getResponseCode(): number;
 							getResponseHeaders(): java.util.Map<string,java.util.List<string>>;
 							lambda$static$0(contentType: string): boolean;
-							<clinit>(): void;
 							addTransferListener(transferListener0: com.google.android.exoplayer2.upstream.TransferListener): void;
 							open(dataSpec0: com.google.android.exoplayer2.upstream.DataSpec): number;
 							getUri(): globalAndroid.net.Uri;

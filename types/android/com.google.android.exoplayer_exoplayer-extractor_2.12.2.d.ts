@@ -381,7 +381,6 @@ declare module com {
 							track(int0: number, int1: number): com.google.android.exoplayer2.extractor.TrackOutput;
 							endTracks(): void;
 							seekMap(seekMap0: com.google.android.exoplayer2.extractor.SeekMap): void;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static PLACEHOLDER: com.google.android.exoplayer2.extractor.ExtractorOutput;
@@ -424,7 +423,6 @@ declare module com {
 							createExtractors(): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
 							createExtractors(uri: globalAndroid.net.Uri, responseHeaders: java.util.Map<string,java.util.List<string>>): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
 							lambda$static$0(): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static EMPTY: com.google.android.exoplayer2.extractor.ExtractorsFactory;

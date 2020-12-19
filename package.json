@@ -1,11 +1,12 @@
 {
 	"name": "debrids-tv",
+	"displayName": "Debrids TV",
 	"version": "1.0.0",
 	"main": "main.js",
 	"scripts": {
-		"a": "env FORCE_COLOR=1 ns run android --no-hmr --emulator 2>&1 | sed -e 's/^JS: //'",
-		"aa": "ns run android --no-hmr --emulator",
-		"au": "adb uninstall app.debrids.tv || true",
+		"a": "run-s delp android:uninstall android:run",
+		"android:uninstall": "adb uninstall app.debrids.tv || true",
+		"android:run": "env FORCE_COLOR=1 ns run android --no-hmr 2>&1 | sed -e 's/^JS: //'",
 		"del": "del hooks node_modules platforms",
 		"delp": "del platforms",
 		"postinstall": "run-s prepostinstall:* postinstall:*",
@@ -17,35 +18,30 @@
 	},
 	"dependencies": {
 		"@nativescript/core": "^7.0.13",
+		"@nativescript/theme": "^3.0.1",
 		"ansi-colors": "^4.1.1",
 		"dayjs": "^1.9.7",
-		"nativescript-vue": "^2.8.3",
 		"rambda": "^6.4.0",
 		"rambdax": "^7.1.0",
 		"shimmer": "^1.2.1",
 		"string-fn": "^3.1.0",
-		"vue-class-component": "^7.2.6",
-		"vue-property-decorator": "^9.1.2"
+		"svelte-native": "^0.9.5",
+		"tslib": "^2.0.3"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.12.10",
-		"@babel/preset-env": "^7.12.11",
 		"@nativescript/android": "7.0.1",
 		"@nativescript/types": "^7.0.4",
 		"@nativescript/webpack": "^3.0.8",
 		"@types/node": "^14.14.14",
-		"babel-loader": "^8.2.2",
 		"cpy-cli": "^3.1.1",
 		"del-cli": "^3.0.1",
 		"delay-cli": "^1.1.0",
 		"dotenv": "^8.2.0",
-		"nativescript-vue-template-compiler": "^2.8.3",
 		"npm-run-all": "^4.1.5",
-		"sass": "^1.30.0",
-		"ts-vue-plugin": "^0.1.3",
-		"typescript": "^4.1.3",
-		"vue": "^2.6.12",
-		"vue-loader": "^15.9.5",
-		"vue-template-compiler": "^2.6.12"
+		"svelte": "^3.31.0",
+		"svelte-loader-hot": "^0.3.1",
+		"svelte-native-preprocessor": "^0.2.0",
+		"svelte-preprocess": "^4.6.1",
+		"typescript": "^4.1.3"
 	}
 }

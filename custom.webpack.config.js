@@ -16,8 +16,7 @@ module.exports = (env) => {
 	/** @type { webpack.Configuration } */
 	const config = WebpackConfig(env)
 
-	config.stats = 'errors-warnings'
-	config.optimization.noEmitOnErrors = false
+	config.stats = 'errors-only'
 
 	config.plugins.push(
 		new webpack.DefinePlugin(

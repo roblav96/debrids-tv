@@ -71,7 +71,6 @@ declare module com {
 					maxSize(): number;
 					clear(): void;
 					clearKeyUri(string0: string): void;
-					<clinit>(): void;
 				});
 				public constructor();
 				public static NONE: com.squareup.picasso.Cache;
@@ -477,7 +476,6 @@ declare module com {
 					 */
 					public constructor(implementation: {
 						transformRequest(request0: com.squareup.picasso.Request): com.squareup.picasso.Request;
-						<clinit>(): void;
 					});
 					public constructor();
 					public static IDENTITY: com.squareup.picasso.Picasso.RequestTransformer;

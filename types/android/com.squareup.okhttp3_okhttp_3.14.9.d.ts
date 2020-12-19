@@ -29,7 +29,6 @@ declare module okhttp3 {
 		public constructor(implementation: {
 			authenticate(route0: okhttp3.Route, response1: okhttp3.Response): okhttp3.Request;
 			lambda$static$0(route: okhttp3.Route, response: okhttp3.Response): okhttp3.Request;
-			<clinit>(): void;
 		});
 		public constructor();
 		public static NONE: okhttp3.Authenticator;
@@ -460,7 +459,6 @@ declare module okhttp3 {
 		public constructor(implementation: {
 			saveFromResponse(httpUrl0: okhttp3.HttpUrl, list1: java.util.List<okhttp3.Cookie>): void;
 			loadForRequest(httpUrl0: okhttp3.HttpUrl): java.util.List<okhttp3.Cookie>;
-			<clinit>(): void;
 		});
 		public constructor();
 		public static NO_COOKIES: okhttp3.CookieJar;
@@ -505,7 +503,6 @@ declare module okhttp3 {
 		public constructor(implementation: {
 			lookup(string0: string): java.util.List<java.net.InetAddress>;
 			lambda$static$0(hostname: string): java.util.List<any>;
-			<clinit>(): void;
 		});
 		public constructor();
 		public static SYSTEM: okhttp3.Dns;
@@ -2247,7 +2244,6 @@ declare module okhttp3 {
 					onHeaders(int0: number, list1: java.util.List<okhttp3.internal.http2.Header>, boolean2: boolean): boolean;
 					onData(int0: number, bufferedSource1: okio.BufferedSource, int2: number, boolean3: boolean): boolean;
 					onReset(int0: number, errorCode1: okhttp3.internal.http2.ErrorCode): void;
-					<clinit>(): void;
 				});
 				public constructor();
 				public static CANCEL: okhttp3.internal.http2.PushObserver;
@@ -2305,7 +2301,6 @@ declare module okhttp3 {
 					size(file0: java.io.File): number;
 					rename(file0: java.io.File, file1: java.io.File): void;
 					deleteContents(file0: java.io.File): void;
-					<clinit>(): void;
 				});
 				public constructor();
 				public static SYSTEM: okhttp3.internal.io.FileSystem;

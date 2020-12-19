@@ -1,8 +1,9 @@
 import * as Application from '@nativescript/core/application'
+import * as R from 'rambdax'
 import * as Types from '@nativescript/core/utils/types'
 
 @NativeClass
-class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
+class ExoPlayerDialog extends android.app.Dialog {
 	constructor(public urls: string[]) {
 		super(
 			Application.android.foregroundActivity,
@@ -11,17 +12,26 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		return global.__native(this)
 	}
 
+	dispatchKeyEvent(event: android.view.KeyEvent) {
+		return this.playerView?.dispatchKeyEvent(event) || super.dispatchKeyEvent(event)
+	}
+
 	onBackPressed() {
-		Application.android.notify({
+		let args = {
 			eventName: 'activityBackPressed',
 			object: Application.android,
 			activity: Application.android.foregroundActivity,
 			cancel: false,
-		} as Application.AndroidActivityBackPressedEventData)
+		} as Application.AndroidActivityBackPressedEventData
+		Application.android.notify(args)
+		if (!args.cancel) {
+			super.onBackPressed()
+		}
 	}
 
 	playerView: com.google.android.exoplayer2.ui.PlayerView
 	onCreate(savedInstanceState: android.os.Bundle) {
+		console.log('onCreate ->')
 		super.onCreate(savedInstanceState)
 		this.setCancelable(false)
 
@@ -41,13 +51,19 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		this.playerView.setShowBuffering(
 			com.google.android.exoplayer2.ui.PlayerView.SHOW_BUFFERING_ALWAYS,
 		)
+		// this.playerView.requestFocus()
 
+		console.log('setContentView ->')
 		this.setContentView(this.playerView)
 	}
 
 	onStart() {
+		console.log('onStart ->')
 		super.onStart()
 		this.initializePlayer()
+		// if (!this.isShowing()) {
+		// 	this.show()
+		// }
 	}
 
 	onStop() {
@@ -105,11 +121,13 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		if (this._trackSelector) {
 			return this._trackSelector
 		}
-		let adaptiveTrackSelectionFactory = new com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.Factory()
+		// let adaptiveTrackSelectionFactory = new com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection.Factory()
 		this._trackSelector = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector(
-			this.getTrackSelectorParameters(),
-			adaptiveTrackSelectionFactory,
+			Application.android.foregroundActivity,
+			// this.getTrackSelectorParameters(),
+			// adaptiveTrackSelectionFactory,
 		)
+		this._trackSelector.setParameters(this.getTrackSelectorParameters())
 		return this._trackSelector
 	}
 
@@ -139,15 +157,27 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 
 	player: com.google.android.exoplayer2.SimpleExoPlayer
 	initializePlayer() {
+		console.log('initializePlayer ->')
 		let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
 			Application.android.foregroundActivity,
 		)
 		renderersFactory.setExtensionRendererMode(
 			com.google.android.exoplayer2.DefaultRenderersFactory.EXTENSION_RENDERER_MODE_OFF,
 		)
-		// renderersFactory.setMediaCodecSelector()
+		// let mediaCodecSelector = new com.google.android.exoplayer2.mediacodec.MediaCodecSelector({
+		// 	getDecoderInfos(mimeType: string, secure: boolean, tunneling: boolean) {
+		// 		console.log('getDecoderInfos mimeType ->', mimeType)
+		// 		let exoDefault = com.google.android.exoplayer2.mediacodec.MediaCodecSelector.DEFAULT
+		// 		let mediaCodecInfos = exoDefault.getDecoderInfos(mimeType, secure, tunneling)
+		// 		console.log('mediaCodecInfos ->', mediaCodecInfos)
+		// 		return java.util.Collections.unmodifiableList(
+		// 			new java.util.ArrayList(mediaCodecInfos),
+		// 		)
+		// 	},
+		// })
+		// renderersFactory.setMediaCodecSelector(mediaCodecSelector)
 
-		let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
+		// let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
 		let dataSourceFactory = new com.google.android.exoplayer2.upstream.DefaultDataSourceFactory(
 			Application.android.foregroundActivity,
 			new com.google.android.exoplayer2.ext.okhttp.OkHttpDataSourceFactory(
@@ -156,11 +186,11 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		) as com.google.android.exoplayer2.upstream.DataSource.Factory
 		let mediaSourceFactory = new com.google.android.exoplayer2.source.ProgressiveMediaSource.Factory(
 			dataSourceFactory,
-			extractorsFactory,
+			// extractorsFactory,
 		)
 		// mediaSourceFactory.setContinueLoadingCheckIntervalBytes(
 		// 	com.google.android.exoplayer2.source.ProgressiveMediaSource
-		// 		.DEFAULT_LOADING_CHECK_INTERVAL_BYTES * 8,
+		// 		.DEFAULT_LOADING_CHECK_INTERVAL_BYTES * 24,
 		// )
 
 		// let extractor = new android.media.MediaExtractor()
@@ -174,23 +204,83 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		// 	}
 		// }
 
+		let loadControl = new com.google.android.exoplayer2.DefaultLoadControl.Builder()
+			.setPrioritizeTimeOverSizeThresholds(false)
+			.build()
+		let audioAttributes = new com.google.android.exoplayer2.audio.AudioAttributes.Builder()
+			.setContentType(com.google.android.exoplayer2.C.CONTENT_TYPE_MOVIE)
+			.setUsage(com.google.android.exoplayer2.C.USAGE_MEDIA)
+			.build()
+
 		let trackSelector = this.getTrackSelector()
 		let builder = new com.google.android.exoplayer2.SimpleExoPlayer.Builder(
 			Application.android.foregroundActivity,
 			renderersFactory,
-			extractorsFactory,
+			// extractorsFactory,
 		)
 		builder.setBandwidthMeter(this.getBandwidthMeter())
 		builder.setTrackSelector(trackSelector)
 		builder.setMediaSourceFactory(mediaSourceFactory)
+		builder.setLoadControl(loadControl)
+		builder.setAudioAttributes(audioAttributes, true)
+		// builder.setAnalyticsCollector(
+		// 	new com.google.android.exoplayer2.analytics.AnalyticsCollector(
+		// 		com.google.android.exoplayer2.util.Clock.DEFAULT,
+		// 	),
+		// )
 		this.player = builder.build()
 		this.player.setPlayWhenReady(true)
 		this.player.addAnalyticsListener(
 			new com.google.android.exoplayer2.util.EventLogger(trackSelector),
 		)
+
+		this.player.addVideoListener(
+			new com.google.android.exoplayer2.video.VideoListener({
+				onVideoSizeChanged(
+					width,
+					height,
+					unappliedRotationDegrees,
+					pixelWidthHeightRatio,
+				) {},
+				onSurfaceSizeChanged(width, height) {},
+				onRenderedFirstFrame() {
+					console.log('onRenderedFirstFrame ->')
+				},
+			}),
+		)
+
+		// this.player.addListener(new EventListenerImpl())
+		this.player.addListener(
+			new com.google.android.exoplayer2.Player.EventListener(({
+				onPlaybackStateChanged: (state) => {
+					console.log('onPlaybackStateChanged ->', state)
+					if (state == com.google.android.exoplayer2.ExoPlayer.STATE_READY) {
+						// let duration = this.player.getDuration()
+						// this.player.seekTo(R.random(0, duration * 0.8))
+					}
+				},
+			} as com.google.android.exoplayer2.Player.EventListener) as any),
+		)
+
 		this.playerView.setPlayer(this.player)
 		this.player.setMediaItems(this.getMediaItems())
 		this.player.prepare()
+
+		// this.player.setAudioSessionId()
+		// this.player.addMetadataOutput(new com.google.android.exoplayer2.metadata.MetadataOutput({
+		// 	onMetadata(metadata) {
+		// 		console.log('metadata ->', metadata)
+		// 	}
+		// }))
+
+		// let mediaSession = new android.support.v4.media.session.MediaSessionCompat(
+		// 	Application.android.foregroundActivity,
+		// 	Application.android.packageName,
+		// )
+		// let mediaSessionConnector = new com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector(
+		// 	mediaSession,
+		// )
+		// mediaSessionConnector.setPlayer(this.player)
 	}
 
 	releasePlayer() {
@@ -201,3 +291,64 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 }
 
 export default ExoPlayerDialog
+
+// interface EventListenerImpl extends com.google.android.exoplayer2.Player.EventListener {}
+// @NativeClass()
+// @Interfaces([com.google.android.exoplayer2.Player.EventListener])
+// class EventListenerImpl extends java.lang.Object {
+// 	constructor() {
+// 		super()
+// 		return global.__native(this)
+// 	}
+// 	onTimelineChanged(timeline, reason) {
+// 		console.log('onTimelineChanged ->')
+// 	}
+// 	onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number) {
+// 		console.log('onMediaItemTransition ->')
+// 	}
+// 	onTracksChanged(
+// 		trackGroups: com.google.android.exoplayer2.source.TrackGroupArray,
+// 		trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray,
+// 	) {
+// 		console.log('onTracksChanged ->')
+// 	}
+// 	onIsLoadingChanged(isLoading: boolean) {
+// 		console.log('onIsLoadingChanged ->')
+// 	}
+// 	onLoadingChanged(isLoading: boolean) {
+// 		console.log('onLoadingChanged ->')
+// 	}
+// 	onPlayerStateChanged(playWhenReady: boolean, playbackState: number) {
+// 		console.log('onPlayerStateChanged ->')
+// 	}
+// 	onPlaybackStateChanged(state: number) {
+// 		console.log('onPlaybackStateChanged ->')
+// 	}
+// 	onPlayWhenReadyChanged(playWhenReady: boolean, reason: number) {
+// 		console.log('onPlayWhenReadyChanged ->')
+// 	}
+// 	onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number) {
+// 		console.log('onPlaybackSuppressionReasonChanged ->')
+// 	}
+// 	onIsPlayingChanged(isPlaying: boolean) {
+// 		console.log('onIsPlayingChanged ->')
+// 	}
+// 	onRepeatModeChanged(repeatMode: number) {
+// 		console.log('onRepeatModeChanged ->')
+// 	}
+// 	onShuffleModeEnabledChanged(shuffleModeEnabled: boolean) {
+// 		console.log('onShuffleModeEnabledChanged ->')
+// 	}
+// 	onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException) {
+// 		console.log('onPlayerError ->')
+// 	}
+// 	onPositionDiscontinuity(reason: number) {
+// 		console.log('onPositionDiscontinuity ->')
+// 	}
+// 	onPlaybackParametersChanged(playbackParameters) {
+// 		console.log('onPlaybackParametersChanged ->')
+// 	}
+// 	onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean) {
+// 		console.log('onExperimentalOffloadSchedulingEnabledChanged ->')
+// 	}
+// }

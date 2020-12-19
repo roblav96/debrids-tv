@@ -3852,7 +3852,6 @@ declare module com {
 							isEnded(): boolean;
 							flush(): void;
 							reset(): void;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static EMPTY_BUFFER: java.nio.ByteBuffer;
@@ -5479,7 +5478,6 @@ declare module com {
 							release(): void;
 							acquireSession(looper0: globalAndroid.os.Looper, eventDispatcher1: com.google.android.exoplayer2.drm.DrmSessionEventListener.EventDispatcher, format2: com.google.android.exoplayer2.Format): com.google.android.exoplayer2.drm.DrmSession;
 							getExoMediaCryptoType(format0: com.google.android.exoplayer2.Format): java.lang.Class<any>;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static DUMMY: com.google.android.exoplayer2.drm.DrmSessionManager;
@@ -6358,7 +6356,6 @@ declare module com {
 						 */
 						public constructor(implementation: {
 							getDecoderInfos(string0: string, boolean1: boolean, boolean2: boolean): java.util.List<com.google.android.exoplayer2.mediacodec.MediaCodecInfo>;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static DEFAULT: com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
@@ -6530,7 +6527,6 @@ declare module com {
 						public constructor(implementation: {
 							supportsFormat(format0: com.google.android.exoplayer2.Format): boolean;
 							createDecoder(format0: com.google.android.exoplayer2.Format): com.google.android.exoplayer2.metadata.MetadataDecoder;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static DEFAULT: com.google.android.exoplayer2.metadata.MetadataDecoderFactory;
@@ -10873,7 +10869,6 @@ declare module com {
 								getChunkStartTimeUs(): number;
 								getChunkEndTimeUs(): number;
 								reset(): void;
-								<clinit>(): void;
 							});
 							public constructor();
 							public static EMPTY: com.google.android.exoplayer2.source.chunk.MediaChunkIterator;
@@ -11266,7 +11261,6 @@ declare module com {
 						public constructor(implementation: {
 							supportsFormat(format0: com.google.android.exoplayer2.Format): boolean;
 							createDecoder(format0: com.google.android.exoplayer2.Format): com.google.android.exoplayer2.text.SubtitleDecoder;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static DEFAULT: com.google.android.exoplayer2.text.SubtitleDecoderFactory;
@@ -14798,7 +14792,6 @@ declare module com {
 							public constructor(implementation: {
 								buildCacheKey(dataSpec0: com.google.android.exoplayer2.upstream.DataSpec): string;
 								lambda$static$0(dataSpec: com.google.android.exoplayer2.upstream.DataSpec): string;
-								<clinit>(): void;
 							});
 							public constructor();
 							public static DEFAULT: com.google.android.exoplayer2.upstream.cache.CacheKeyFactory;
@@ -15373,7 +15366,6 @@ declare module com {
 							uptimeMillis(): number;
 							sleep(long0: number): void;
 							createHandler(looper0: globalAndroid.os.Looper, callback1: globalAndroid.os.Handler.Callback): com.google.android.exoplayer2.util.HandlerWrapper;
-							<clinit>(): void;
 						});
 						public constructor();
 						public static DEFAULT: com.google.android.exoplayer2.util.Clock;
