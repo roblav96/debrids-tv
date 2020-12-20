@@ -9,23 +9,41 @@ Application.android.on('activityCreated', function activityCreated(args) {
 
 Application.android.on('activityNewIntent', function activityNewIntent(args) {
 	let intent = args.intent as android.content.Intent
-	console.log('activityNewIntent intent ->', intent)
 	if (intent.getAction() != `${Application.android.packageName}.action.VIEW`) {
 		return
 	}
 	let url = intent.getDataString()
+	console.log('activityNewIntent action.VIEW ->', url)
 })
 
-import ExoPlayerDialog from '~/exoplayer/ExoPlayerDialog'
+import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.svelte'
+import { showModal } from 'svelte-native'
 Application.on('displayed', function displayed(args) {
-	// Application.getRootView()
-	// Frame.reloadPage
+	console.log('ExoPlayerModal ->', ExoPlayerModal)
 	try {
-		let dialog = new ExoPlayerDialog([process.env.TEST_MKV])
-		console.log('dialog ->', dialog)
-		console.log('dialog.show ->')
-		dialog.show()
+		console.log('showModal ->', showModal)
+		showModal({
+			page: ExoPlayerModal,
+			fullscreen: true,
+			stretched: true,
+			animated: true,
+			android: { cancelable: false },
+		})
 	} catch (error) {
-		console.error('displayed ->', error.stack)
+		console.error('displayed ->', error)
 	}
 })
+
+// import ExoPlayerDialog from '~/exoplayer/ExoPlayerDialog'
+// Application.on('displayed', function displayed(args) {
+// 	// Application.getRootView()
+// 	// Frame.reloadPage
+// 	try {
+// 		let dialog = new ExoPlayerDialog([process.env.TEST_MKV])
+// 		console.log('dialog ->', dialog)
+// 		console.log('dialog.show ->')
+// 		dialog.show()
+// 	} catch (error) {
+// 		console.error('displayed ->', error.stack)
+// 	}
+// })

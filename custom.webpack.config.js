@@ -7,10 +7,6 @@ const webpack = require('webpack')
 /** @type { (env: webpack.Configuration) => webpack.Configuration } */
 module.exports = (env) => {
 	env = env || {}
-	// if (env.android) {
-	// 	env.appComponents = env.appComponents || []
-	// 	env.appComponents.push(path.join(__dirname, 'src/playback/exoplayer.dialog.ts'))
-	// }
 
 	/** @type { webpack.Configuration } */
 	const config = require(path.join(__dirname, 'webpack.config.js'))(env)
@@ -25,7 +21,6 @@ module.exports = (env) => {
 			}
 		})
 	})
-	console.log('config.module.rules.slice(-1)[0].use ->', config.module.rules.slice(-1)[0].use)
 
 	config.plugins.push(
 		new webpack.DefinePlugin(
