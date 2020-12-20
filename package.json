@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"main": "main.js",
 	"scripts": {
-		"a": "run-p delp au; env FORCE_COLOR=1 ns run android --no-hmr 2>&1 | sed -e 's/^JS: //'",
+		"a": "run-p delp au; env FORCE_COLOR=1 ns run android --no-hmr --env.hmr 2>&1 | sed -e 's/^JS: //'",
 		"au": "adb uninstall app.debrids.tv 2>/dev/null || true",
 		"del": "del hooks node_modules platforms",
 		"delp": "del platforms",
@@ -37,7 +37,7 @@
 		"delay-cli": "^1.1.0",
 		"dotenv": "^8.2.0",
 		"npm-run-all": "^4.1.5",
-		"svelte": "^3.31.0",
+		"svelte": "^3.24.1",
 		"svelte-loader-hot": "^0.3.1",
 		"svelte-native-preprocessor": "^0.2.0",
 		"svelte-preprocess": "^4.6.1",

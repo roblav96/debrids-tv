@@ -1,6 +1,7 @@
 import * as Application from '@nativescript/core/application'
 import * as R from 'rambdax'
 import * as Types from '@nativescript/core/utils/types'
+import ExtractorsFactory from '~/exoplayer/ExtractorsFactory'
 
 @NativeClass
 class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
@@ -198,6 +199,7 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		// })
 		// renderersFactory.setMediaCodecSelector(mediaCodecSelector)
 
+		// let extractorsFactory = new ExtractorsFactory()
 		let extractorsFactory = new com.google.android.exoplayer2.extractor.DefaultExtractorsFactory()
 		let dataSourceFactory = new com.google.android.exoplayer2.upstream.DefaultDataSourceFactory(
 			Application.android.foregroundActivity,

@@ -1,4 +1,5 @@
 import * as Application from '@nativescript/core/application'
+import * as Frame from '@nativescript/core/ui/frame'
 
 Application.android.on('activityCreated', function activityCreated(args) {
 	android.os.StrictMode.setThreadPolicy(
@@ -17,6 +18,8 @@ Application.android.on('activityNewIntent', function activityNewIntent(args) {
 
 import ExoPlayerDialog from '~/exoplayer/ExoPlayerDialog'
 Application.on('displayed', function displayed(args) {
+	// Application.getRootView()
+	// Frame.reloadPage
 	try {
 		let dialog = new ExoPlayerDialog([process.env.TEST_MKV])
 		console.log('dialog ->', dialog)
