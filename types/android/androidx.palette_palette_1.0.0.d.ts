@@ -34,13 +34,13 @@ declare module androidx {
 				public getVibrantSwatch(): androidx.palette.graphics.Palette.Swatch;
 				public getLightMutedSwatch(): androidx.palette.graphics.Palette.Swatch;
 				public getLightVibrantColor(defaultColor: number): number;
-				public getMutedSwatch(): androidx.palette.graphics.Palette.Swatch;
 				public getDarkVibrantColor(defaultColor: number): number;
-				public getSwatches(): java.util.List<androidx.palette.graphics.Palette.Swatch>;
-				public getDarkMutedSwatch(): androidx.palette.graphics.Palette.Swatch;
-				public getSwatchForTarget(target: androidx.palette.graphics.Target): androidx.palette.graphics.Palette.Swatch;
+				public getMutedSwatch(): androidx.palette.graphics.Palette.Swatch;
 				public getColorForTarget(target: androidx.palette.graphics.Target, defaultColor: number): number;
+				public getDarkMutedSwatch(): androidx.palette.graphics.Palette.Swatch;
 				public getDominantSwatch(): androidx.palette.graphics.Palette.Swatch;
+				public getSwatchForTarget(target: androidx.palette.graphics.Target): androidx.palette.graphics.Palette.Swatch;
+				public getSwatches(): java.util.List<androidx.palette.graphics.Palette.Swatch>;
 				/** @deprecated */
 				public static generateAsync(bitmap: globalAndroid.graphics.Bitmap, numColors: number, listener: androidx.palette.graphics.Palette.PaletteAsyncListener): globalAndroid.os.AsyncTask<globalAndroid.graphics.Bitmap,java.lang.Void,androidx.palette.graphics.Palette>;
 				/** @deprecated */
@@ -89,8 +89,8 @@ declare module androidx {
 				}
 				export class Swatch extends java.lang.Object {
 					public static class: java.lang.Class<androidx.palette.graphics.Palette.Swatch>;
-					public toString(): string;
 					public equals(obj: any): boolean;
+					public toString(): string;
 					public getHsl(): native.Array<number>;
 					public getPopulation(): number;
 					public getTitleTextColor(): number;
@@ -110,16 +110,16 @@ declare module androidx {
 		export module graphics {
 			export class Target extends java.lang.Object {
 				public static class: java.lang.Class<androidx.palette.graphics.Target>;
-				public static LIGHT_VIBRANT: androidx.palette.graphics.Target;
-				public static VIBRANT: androidx.palette.graphics.Target;
+				public static DARK_MUTED: androidx.palette.graphics.Target;
 				public static DARK_VIBRANT: androidx.palette.graphics.Target;
 				public static LIGHT_MUTED: androidx.palette.graphics.Target;
+				public static LIGHT_VIBRANT: androidx.palette.graphics.Target;
 				public static MUTED: androidx.palette.graphics.Target;
-				public static DARK_MUTED: androidx.palette.graphics.Target;
+				public static VIBRANT: androidx.palette.graphics.Target;
 				public getPopulationWeight(): number;
-				public getTargetSaturation(): number;
-				public getTargetLightness(): number;
 				public getSaturationWeight(): number;
+				public getTargetLightness(): number;
+				public getTargetSaturation(): number;
 				public getMinimumLightness(): number;
 				public getMaximumSaturation(): number;
 				public getLightnessWeight(): number;
@@ -134,11 +134,11 @@ declare module androidx {
 					public build(): androidx.palette.graphics.Target;
 					public setTargetLightness(value: number): androidx.palette.graphics.Target.Builder;
 					public setSaturationWeight(weight: number): androidx.palette.graphics.Target.Builder;
+					public setExclusive(exclusive: boolean): androidx.palette.graphics.Target.Builder;
 					public setMaximumSaturation(value: number): androidx.palette.graphics.Target.Builder;
 					public setMinimumLightness(value: number): androidx.palette.graphics.Target.Builder;
-					public setExclusive(exclusive: boolean): androidx.palette.graphics.Target.Builder;
-					public setTargetSaturation(value: number): androidx.palette.graphics.Target.Builder;
 					public setMaximumLightness(value: number): androidx.palette.graphics.Target.Builder;
+					public setTargetSaturation(value: number): androidx.palette.graphics.Target.Builder;
 					public setPopulationWeight(weight: number): androidx.palette.graphics.Target.Builder;
 					public constructor();
 					public constructor(target: androidx.palette.graphics.Target);

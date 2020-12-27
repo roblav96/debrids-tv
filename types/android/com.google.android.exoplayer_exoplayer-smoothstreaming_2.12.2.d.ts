@@ -6,11 +6,11 @@ declare module com {
 					export module smoothstreaming {
 						export class BuildConfig extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.BuildConfig>;
-							public static DEBUG: boolean;
-							public static LIBRARY_PACKAGE_NAME: string;
 							public static APPLICATION_ID: string;
 							public static BUILD_TYPE: string;
+							public static DEBUG: boolean;
 							public static FLAVOR: string;
+							public static LIBRARY_PACKAGE_NAME: string;
 							public static VERSION_CODE: number;
 							public static VERSION_NAME: string;
 							public constructor();
@@ -138,10 +138,10 @@ declare module com {
 							public constructor(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, transferListener: com.google.android.exoplayer2.upstream.TransferListener, compositeSequenceableLoaderFactory: com.google.android.exoplayer2.source.CompositeSequenceableLoaderFactory, drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager, drmEventDispatcher: com.google.android.exoplayer2.drm.DrmSessionEventListener.EventDispatcher, loadErrorHandlingPolicy: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy, mediaSourceEventDispatcher: com.google.android.exoplayer2.source.MediaSourceEventListener.EventDispatcher, manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, allocator: com.google.android.exoplayer2.upstream.Allocator);
 							public isLoading(): boolean;
 							public release(): void;
-							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.TrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number): number;
 							public onContinueLoadingRequested(sampleStream: com.google.android.exoplayer2.source.chunk.ChunkSampleStream<com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource>): void;
-							public maybeThrowPrepareError(): void;
+							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.TrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number): number;
 							public getBufferedPositionUs(): number;
+							public maybeThrowPrepareError(): void;
 							public discardBuffer(positionUs: number, toKeyframe: boolean): void;
 							public getNextLoadPositionUs(): number;
 							public continueLoading(positionUs: number): boolean;
@@ -224,9 +224,9 @@ declare module com {
 								public setLoadErrorHandlingPolicy(loadErrorHandlingPolicy0: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public setDrmHttpDataSourceFactory(drmHttpDataSourceFactory: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								public constructor(dataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory);
-								public setDrmSessionManager(drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public createMediaSource(manifestUri: globalAndroid.net.Uri, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
+								public setDrmSessionManager(drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public createMediaSource(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 								public setDrmHttpDataSourceFactory(factory0: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.MediaSourceFactory;
@@ -234,11 +234,11 @@ declare module com {
 								public setDrmSessionManager(drmSessionManager0: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public createMediaSource(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 								/** @deprecated */
+								public createMediaSource(uri: globalAndroid.net.Uri): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
+								/** @deprecated */
 								public setMinLoadableRetryCount(minLoadableRetryCount: number): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
-								/** @deprecated */
-								public createMediaSource(uri: globalAndroid.net.Uri): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 								public setDrmUserAgent(userAgent: string): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 							}
 						}
@@ -259,14 +259,14 @@ declare module com {
 							export class SsManifest extends com.google.android.exoplayer2.offline.FilterableManifest<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest> {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest>;
 								public static UNSET_LOOKAHEAD: number;
-								public majorVersion: number;
-								public minorVersion: number;
-								public lookAheadCount: number;
-								public isLive: boolean;
-								public protectionElement: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.ProtectionElement;
-								public streamElements: native.Array<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.StreamElement>;
 								public durationUs: number;
 								public dvrWindowLengthUs: number;
+								public isLive: boolean;
+								public lookAheadCount: number;
+								public majorVersion: number;
+								public minorVersion: number;
+								public protectionElement: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.ProtectionElement;
+								public streamElements: native.Array<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.StreamElement>;
 								public copy(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest;
 								public constructor(majorVersion: number, minorVersion: number, timescale: number, duration: number, dvrWindowLength: number, lookAheadCount: number, isLive: boolean, protectionElement: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.ProtectionElement, streamElements: native.Array<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.StreamElement>);
 								public copy(list0: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): any;
@@ -274,24 +274,24 @@ declare module com {
 							export module SsManifest {
 								export class ProtectionElement extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.ProtectionElement>;
-									public uuid: java.util.UUID;
 									public data: native.Array<number>;
 									public trackEncryptionBoxes: native.Array<com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox>;
+									public uuid: java.util.UUID;
 									public constructor(uuid: java.util.UUID, data: native.Array<number>, trackEncryptionBoxes: native.Array<com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox>);
 								}
 								export class StreamElement extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.StreamElement>;
-									public type: number;
+									public chunkCount: number;
+									public displayHeight: number;
+									public displayWidth: number;
+									public formats: native.Array<com.google.android.exoplayer2.Format>;
+									public language: string;
+									public maxHeight: number;
+									public maxWidth: number;
+									public name: string;
 									public subType: string;
 									public timescale: number;
-									public name: string;
-									public maxWidth: number;
-									public maxHeight: number;
-									public displayWidth: number;
-									public displayHeight: number;
-									public language: string;
-									public formats: native.Array<com.google.android.exoplayer2.Format>;
-									public chunkCount: number;
+									public type: number;
 									public getStartTimeUs(chunkIndex: number): number;
 									public copy(formats: native.Array<com.google.android.exoplayer2.Format>): com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest.StreamElement;
 									public getChunkDurationUs(chunkIndex: number): number;
@@ -329,15 +329,15 @@ declare module com {
 									public handleChildInline(tagName: string): boolean;
 									public parseStartTag(xmlParser: org.xmlpull.v1.XmlPullParser): void;
 									public putNormalizedAttribute(key: string, value: any): void;
-									public parseText(xmlParser: org.xmlpull.v1.XmlPullParser): void;
 									public addChild(parsedChild: any): void;
+									public parseText(xmlParser: org.xmlpull.v1.XmlPullParser): void;
 									public parseEndTag(xmlParser: org.xmlpull.v1.XmlPullParser): void;
 									public build(): any;
 									public getNormalizedAttribute(key: string): any;
-									public parseRequiredString(parser: org.xmlpull.v1.XmlPullParser, key: string): string;
 									public parseInt(parser: org.xmlpull.v1.XmlPullParser, key: string, defaultValue: number): number;
 									public parseLong(parser: org.xmlpull.v1.XmlPullParser, key: string, defaultValue: number): number;
 									public parseRequiredLong(parser: org.xmlpull.v1.XmlPullParser, key: string): number;
+									public parseRequiredString(parser: org.xmlpull.v1.XmlPullParser, key: string): string;
 									public parseRequiredInt(parser: org.xmlpull.v1.XmlPullParser, key: string): number;
 									public parseBoolean(parser: org.xmlpull.v1.XmlPullParser, key: string, defaultValue: boolean): boolean;
 								}
@@ -352,13 +352,13 @@ declare module com {
 								}
 								export class ProtectionParser extends com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ProtectionParser>;
+									public static KEY_SYSTEM_ID: string;
 									public static TAG: string;
 									public static TAG_PROTECTION_HEADER: string;
-									public static KEY_SYSTEM_ID: string;
 									public handleChildInline(tag: string): boolean;
 									public parseStartTag(parser: org.xmlpull.v1.XmlPullParser): void;
-									public parseEndTag(parser: org.xmlpull.v1.XmlPullParser): void;
 									public build(): any;
+									public parseEndTag(parser: org.xmlpull.v1.XmlPullParser): void;
 									public constructor(parent: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser, baseUri: string, tag: string);
 									public constructor(parent: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser, baseUri: string);
 									public handleChildInline(tagName: string): boolean;

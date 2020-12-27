@@ -6,11 +6,11 @@ declare module com {
 					export module mediasession {
 						export class BuildConfig extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.mediasession.BuildConfig>;
-							public static DEBUG: boolean;
-							public static LIBRARY_PACKAGE_NAME: string;
 							public static APPLICATION_ID: string;
 							public static BUILD_TYPE: string;
+							public static DEBUG: boolean;
 							public static FLAVOR: string;
+							public static LIBRARY_PACKAGE_NAME: string;
 							public static VERSION_CODE: number;
 							public static VERSION_NAME: string;
 							public constructor();
@@ -41,9 +41,9 @@ declare module com {
 							public setCaptionCallback(captionCallback: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.CaptionCallback): void;
 							public invalidateMediaSessionMetadata(): void;
 							public setCustomErrorMessage(message: string, code: number): void;
+							public setCustomActionProviders(customActionProviders: native.Array<com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.CustomActionProvider>): void;
 							/** @deprecated */
 							public setRewindIncrementMs(rewindMs: number): void;
-							public setCustomActionProviders(customActionProviders: native.Array<com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.CustomActionProvider>): void;
 							public setMediaButtonEventHandler(mediaButtonEventHandler: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.MediaButtonEventHandler): void;
 							public setMediaMetadataProvider(mediaMetadataProvider: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.MediaMetadataProvider): void;
 							public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.PlaybackPreparer): void;
@@ -53,12 +53,12 @@ declare module com {
 							public constructor(mediaSession: globalAndroid.support.v4.media.session.MediaSessionCompat);
 							public invalidateMediaSessionPlaybackState(): void;
 							public invalidateMediaSessionQueue(): void;
-							public setEnabledPlaybackActions(enabledPlaybackActions: number): void;
 							public setCustomErrorMessage(message: string): void;
 							public setCustomErrorMessage(message: string, code: number, extras: globalAndroid.os.Bundle): void;
+							public setEnabledPlaybackActions(enabledPlaybackActions: number): void;
 							public setPlayer(player: com.google.android.exoplayer2.Player): void;
-							public setQueueEditor(queueEditor: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.QueueEditor): void;
 							public registerCustomCommandReceiver(commandReceiver: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.CommandReceiver): void;
+							public setQueueEditor(queueEditor: com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.QueueEditor): void;
 						}
 						export module MediaSessionConnector {
 							export class CaptionCallback extends java.lang.Object implements com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.CommandReceiver {
@@ -92,35 +92,35 @@ declare module com {
 								public onRewind(): void;
 								public onSetRating(rating: globalAndroid.support.v4.media.RatingCompat): void;
 								public onAddQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat): void;
-								public onRemoveQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat): void;
 								public onPlaybackStateChanged(state: number): void;
+								public onRemoveQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat): void;
 								public onCommand(command: string, extras: globalAndroid.os.Bundle, cb: globalAndroid.os.ResultReceiver): void;
 								public onPrepareFromSearch(query: string, extras: globalAndroid.os.Bundle): void;
 								public onPrepare(): void;
 								public onPlayFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 								/** @deprecated */
 								public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+								public onAddQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat, index: number): void;
 								public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 								public onSetRepeatMode(repeatMode: number): void;
-								public onAddQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat, index: number): void;
 								public onSeekTo(positionMs: number): void;
 								public onCustomAction(action: string, extras: globalAndroid.os.Bundle): void;
 								public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
-								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 								public onPlaybackStateChanged(playbackState: number): void;
+								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 								/** @deprecated */
 								public onLoadingChanged(isLoading: boolean): void;
 								public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
-								public onPrepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
-								public onPlayFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): void;
 								public onIsLoadingChanged(isLoading: boolean): void;
+								public onPlayFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): void;
+								public onPrepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
 								public onSetRepeatMode(mediaSessionRepeatMode: number): void;
 								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 								public onSeekTo(pos: number): void;
 								public onSetShuffleMode(shuffleMode: number): void;
+								public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 								public onSkipToNext(): void;
 								public onSkipToPrevious(): void;
-								public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 								public onRepeatModeChanged(repeatMode: number): void;
 								public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 								public onSkipToQueueItem(id: number): void;
@@ -133,10 +133,10 @@ declare module com {
 								public onPlayFromSearch(query: string, extras: globalAndroid.os.Bundle): void;
 								/** @deprecated */
 								public onSeekProcessed(): void;
-								public onPause(): void;
 								public onFastForward(): void;
-								public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
+								public onPause(): void;
 								public onPlay(): void;
+								public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 								public onPrepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): void;
 								public onSetRating(rating: globalAndroid.support.v4.media.RatingCompat, extras: globalAndroid.os.Bundle): void;
 								public onMediaButtonEvent(mediaButtonEvent: globalAndroid.content.Intent): boolean;
@@ -388,14 +388,14 @@ declare module com {
 						export abstract class TimelineQueueNavigator extends java.lang.Object implements com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.QueueNavigator {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.mediasession.TimelineQueueNavigator>;
 							public static DEFAULT_MAX_QUEUE_SIZE: number;
-							public onSkipToPrevious(player: com.google.android.exoplayer2.Player, controlDispatcher: com.google.android.exoplayer2.ControlDispatcher): void;
 							public onSkipToNext(player: com.google.android.exoplayer2.Player, controlDispatcher: com.google.android.exoplayer2.ControlDispatcher): void;
-							public getSupportedQueueNavigatorActions(player: com.google.android.exoplayer2.Player): number;
+							public onSkipToPrevious(player: com.google.android.exoplayer2.Player, controlDispatcher: com.google.android.exoplayer2.ControlDispatcher): void;
 							public getActiveQueueItemId(player: com.google.android.exoplayer2.Player): number;
+							public getSupportedQueueNavigatorActions(player: com.google.android.exoplayer2.Player): number;
 							public constructor(mediaSession: globalAndroid.support.v4.media.session.MediaSessionCompat);
 							public onCommand(player: com.google.android.exoplayer2.Player, controlDispatcher: com.google.android.exoplayer2.ControlDispatcher, command: string, extras: globalAndroid.os.Bundle, cb: globalAndroid.os.ResultReceiver): boolean;
-							public onTimelineChanged(player: com.google.android.exoplayer2.Player): void;
 							public onSkipToQueueItem(player: com.google.android.exoplayer2.Player, controlDispatcher: com.google.android.exoplayer2.ControlDispatcher, id: number): void;
+							public onTimelineChanged(player: com.google.android.exoplayer2.Player): void;
 							public constructor(mediaSession: globalAndroid.support.v4.media.session.MediaSessionCompat, maxQueueSize: number);
 							public getMediaDescription(player0: com.google.android.exoplayer2.Player, int1: number): globalAndroid.support.v4.media.MediaDescriptionCompat;
 							public onCurrentWindowIndexChanged(player: com.google.android.exoplayer2.Player): void;

@@ -7,26 +7,23 @@ const webpack = require('webpack')
 /** @type { (env: webpack.Configuration) => webpack.Configuration } */
 module.exports = (env) => {
 	env = env || {}
+	if (env.android) {
+		env.appComponents = env.appComponents || []
+		env.appComponents.push(path.join(__dirname, 'src/exoplayer/ExoPlayerActivity'))
+	}
 
 	/** @type { webpack.Configuration } */
 	const config = require(path.join(__dirname, 'webpack.config.js'))(env)
 
-	config.stats = 'errors-only'
+	config.stats = 'errors-warnings'
+	config.optimization.noEmitOnErrors = false
 
-	config.module.rules.forEach((rule) => {
-		if (!Array.isArray(rule.use)) return
-		rule.use.forEach((use) => {
-			if (use.loader == 'svelte-loader-hot' && R.hasPath('options.hotReload', use)) {
-				use.options.hotReload = false
-			}
-		})
-	})
-
+	let envfile = fs.readFileSync(path.join(__dirname, '.env'))
 	config.plugins.push(
 		new webpack.DefinePlugin(
 			R.mapToObject(
 				([key, value]) => ({ [`process.env.${key}`]: `"${value}"` }),
-				Object.entries(dotenv.parse(fs.readFileSync('.env'))),
+				Object.entries(dotenv.parse(envfile)),
 			),
 		),
 	)

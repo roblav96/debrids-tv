@@ -6,11 +6,11 @@ declare module com {
 					export module dash {
 						export class BuildConfig extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.BuildConfig>;
-							public static DEBUG: boolean;
-							public static LIBRARY_PACKAGE_NAME: string;
 							public static APPLICATION_ID: string;
 							public static BUILD_TYPE: string;
+							public static DEBUG: boolean;
 							public static FLAVOR: string;
+							public static LIBRARY_PACKAGE_NAME: string;
 							public static VERSION_CODE: number;
 							public static VERSION_NAME: string;
 							public constructor();
@@ -106,11 +106,11 @@ declare module com {
 					export module dash {
 						export class DashMediaPeriod extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DashMediaPeriod>;
-							public onSampleStreamReleased(stream: com.google.android.exoplayer2.source.chunk.ChunkSampleStream<com.google.android.exoplayer2.source.dash.DashChunkSource>): void;
 							public getTrackGroups(): com.google.android.exoplayer2.source.TrackGroupArray;
+							public onSampleStreamReleased(stream: com.google.android.exoplayer2.source.chunk.ChunkSampleStream<com.google.android.exoplayer2.source.dash.DashChunkSource>): void;
 							public constructor(id: number, manifest: com.google.android.exoplayer2.source.dash.manifest.DashManifest, periodIndex: number, chunkSourceFactory: com.google.android.exoplayer2.source.dash.DashChunkSource.Factory, transferListener: com.google.android.exoplayer2.upstream.TransferListener, drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager, drmEventDispatcher: com.google.android.exoplayer2.drm.DrmSessionEventListener.EventDispatcher, loadErrorHandlingPolicy: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy, mediaSourceEventDispatcher: com.google.android.exoplayer2.source.MediaSourceEventListener.EventDispatcher, elapsedRealtimeOffsetMs: number, manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, allocator: com.google.android.exoplayer2.upstream.Allocator, compositeSequenceableLoaderFactory: com.google.android.exoplayer2.source.CompositeSequenceableLoaderFactory, playerEmsgCallback: com.google.android.exoplayer2.source.dash.PlayerEmsgHandler.PlayerEmsgCallback);
-							public reevaluateBuffer(positionUs: number): void;
 							public onSampleStreamReleased(stream: com.google.android.exoplayer2.source.chunk.ChunkSampleStream<any>): void;
+							public reevaluateBuffer(positionUs: number): void;
 							public onContinueLoadingRequested(sequenceableLoader0: any): void;
 							public getStreamKeys(trackSelections: java.util.List<com.google.android.exoplayer2.trackselection.TrackSelection>): java.util.List<com.google.android.exoplayer2.offline.StreamKey>;
 							public seekToUs(positionUs: number): number;
@@ -118,8 +118,8 @@ declare module com {
 							public release(): void;
 							public onContinueLoadingRequested(sampleStream: com.google.android.exoplayer2.source.chunk.ChunkSampleStream<com.google.android.exoplayer2.source.dash.DashChunkSource>): void;
 							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.TrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number): number;
-							public maybeThrowPrepareError(): void;
 							public getBufferedPositionUs(): number;
+							public maybeThrowPrepareError(): void;
 							public discardBuffer(positionUs: number, toKeyframe: boolean): void;
 							public getNextLoadPositionUs(): number;
 							public continueLoading(positionUs: number): boolean;
@@ -132,12 +132,12 @@ declare module com {
 							export class TrackGroupInfo extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DashMediaPeriod.TrackGroupInfo>;
 								public adaptationSetIndices: native.Array<number>;
-								public trackType: number;
-								public trackGroupCategory: number;
+								public embeddedClosedCaptionTrackGroupIndex: number;
+								public embeddedEventMessageTrackGroupIndex: number;
 								public eventStreamGroupIndex: number;
 								public primaryTrackGroupIndex: number;
-								public embeddedEventMessageTrackGroupIndex: number;
-								public embeddedClosedCaptionTrackGroupIndex: number;
+								public trackGroupCategory: number;
+								public trackType: number;
 								public static mpdEventTrack(eventStreamIndex: number): com.google.android.exoplayer2.source.dash.DashMediaPeriod.TrackGroupInfo;
 								public static embeddedEmsgTrack(adaptationSetIndices: native.Array<number>, primaryTrackGroupIndex: number): com.google.android.exoplayer2.source.dash.DashMediaPeriod.TrackGroupInfo;
 								public static embeddedClosedCaptionTrack(adaptationSetIndices: native.Array<number>, primaryTrackGroupIndex: number): com.google.android.exoplayer2.source.dash.DashMediaPeriod.TrackGroupInfo;
@@ -178,8 +178,8 @@ declare module com {
 					export module dash {
 						export class DashMediaSource extends com.google.android.exoplayer2.source.BaseMediaSource {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DashMediaSource>;
-							public static DEFAULT_LIVE_PRESENTATION_DELAY_MS: number;
 							public static DEFAULT_LIVE_PRESENTATION_DELAY_FIXED_MS: number;
+							public static DEFAULT_LIVE_PRESENTATION_DELAY_MS: number;
 							public static DEFAULT_LIVE_PRESENTATION_DELAY_PREFER_MANIFEST_MS: number;
 							public static DUMMY_MEDIA_ID: string;
 							public addEventListener(handler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): void;
@@ -221,13 +221,13 @@ declare module com {
 								public getPeriod(periodIndex: number, period: com.google.android.exoplayer2.Timeline.Period): com.google.android.exoplayer2.Timeline.Period;
 								public getPeriod(periodIndex: number, period: com.google.android.exoplayer2.Timeline.Period, setIdentifiers: boolean): com.google.android.exoplayer2.Timeline.Period;
 								public getUidOfPeriod(int0: number): any;
-								public getWindowCount(): number;
 								public getIndexOfPeriod(uid: any): number;
+								public getWindowCount(): number;
 								public constructor();
 								public getPeriodCount(): number;
 								public constructor(presentationStartTimeMs: number, windowStartTimeMs: number, elapsedRealtimeEpochOffsetMs: number, firstPeriodId: number, offsetInFirstPeriodUs: number, windowDurationUs: number, windowDefaultStartPositionUs: number, manifest: com.google.android.exoplayer2.source.dash.manifest.DashManifest, mediaItem: com.google.android.exoplayer2.MediaItem);
-								public getWindow(windowIndex: number, window: com.google.android.exoplayer2.Timeline.Window, defaultPositionProjectionUs: number): com.google.android.exoplayer2.Timeline.Window;
 								public getUidOfPeriod(periodIndex: number): any;
+								public getWindow(windowIndex: number, window: com.google.android.exoplayer2.Timeline.Window, defaultPositionProjectionUs: number): com.google.android.exoplayer2.Timeline.Window;
 								public getPeriod(int0: number, period1: com.google.android.exoplayer2.Timeline.Period, boolean2: boolean): com.google.android.exoplayer2.Timeline.Period;
 								public getWindow(windowIndex: number, window: com.google.android.exoplayer2.Timeline.Window): com.google.android.exoplayer2.Timeline.Window;
 								/** @deprecated */
@@ -242,8 +242,8 @@ declare module com {
 							export class Factory extends java.lang.Object implements com.google.android.exoplayer2.source.MediaSourceFactory {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DashMediaSource.Factory>;
 								public getSupportedTypes(): native.Array<number>;
-								public setDrmHttpDataSourceFactory(drmHttpDataSourceFactory: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
 								public createMediaSource(mediaItem: com.google.android.exoplayer2.MediaItem): com.google.android.exoplayer2.source.dash.DashMediaSource;
+								public setDrmHttpDataSourceFactory(drmHttpDataSourceFactory: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
 								/** @deprecated */
 								public createMediaSource(manifest: com.google.android.exoplayer2.source.dash.manifest.DashManifest, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.dash.DashMediaSource;
 								/** @deprecated */
@@ -254,9 +254,9 @@ declare module com {
 								/** @deprecated */
 								public createMediaSource(manifestUri: globalAndroid.net.Uri, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.dash.DashMediaSource;
 								public setDrmUserAgent(userAgent: string): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
+								public setDrmUserAgent(string0: string): com.google.android.exoplayer2.source.MediaSourceFactory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
-								public setDrmUserAgent(string0: string): com.google.android.exoplayer2.source.MediaSourceFactory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public setLoadErrorHandlingPolicy(loadErrorHandlingPolicy0: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy): com.google.android.exoplayer2.source.MediaSourceFactory;
@@ -270,9 +270,9 @@ declare module com {
 								/** @deprecated */
 								public setLivePresentationDelayMs(livePresentationDelayMs: number): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
 								public setLivePresentationDelayMs(livePresentationDelayMs: number, overridesManifest: boolean): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
+								public setDrmSessionManager(drmSessionManager0: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.MediaSourceFactory;
 								/** @deprecated */
 								public setTag(tag: any): com.google.android.exoplayer2.source.dash.DashMediaSource.Factory;
-								public setDrmSessionManager(drmSessionManager0: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public createMediaSource(manifest: com.google.android.exoplayer2.source.dash.manifest.DashManifest): com.google.android.exoplayer2.source.dash.DashMediaSource;
 								public createMediaSource(manifest: com.google.android.exoplayer2.source.dash.manifest.DashManifest, mediaItem: com.google.android.exoplayer2.MediaItem): com.google.android.exoplayer2.source.dash.DashMediaSource;
 								/** @deprecated */
@@ -299,16 +299,16 @@ declare module com {
 							}
 							export class PeriodSeekInfo extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DashMediaSource.PeriodSeekInfo>;
-								public isIndexExplicit: boolean;
-								public availableStartTimeUs: number;
 								public availableEndTimeUs: number;
+								public availableStartTimeUs: number;
+								public isIndexExplicit: boolean;
 								public static createPeriodSeekInfo(period: com.google.android.exoplayer2.source.dash.manifest.Period, durationUs: number): com.google.android.exoplayer2.source.dash.DashMediaSource.PeriodSeekInfo;
 							}
 							export class UtcTimestampCallback extends com.google.android.exoplayer2.upstream.Loader.Callback<com.google.android.exoplayer2.upstream.ParsingLoadable<java.lang.Long>> {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DashMediaSource.UtcTimestampCallback>;
 								public onLoadError(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<java.lang.Long>, elapsedRealtimeMs: number, loadDurationMs: number, error: java.io.IOException, errorCount: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
-								public onLoadCompleted(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<java.lang.Long>, elapsedRealtimeMs: number, loadDurationMs: number): void;
 								public onLoadCanceled(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<java.lang.Long>, elapsedRealtimeMs: number, loadDurationMs: number, released: boolean): void;
+								public onLoadCompleted(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<java.lang.Long>, elapsedRealtimeMs: number, loadDurationMs: number): void;
 								public onLoadCanceled(loadable0: any, long1: number, long2: number, boolean3: boolean): void;
 								public onLoadError(loadable0: any, long1: number, long2: number, iOException3: java.io.IOException, int4: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
 								public onLoadCompleted(loadable0: any, long1: number, long2: number): void;
@@ -448,8 +448,8 @@ declare module com {
 								public getSegmentUrl(segmentNum: number): com.google.android.exoplayer2.source.dash.manifest.RangedUri;
 								public getSegmentCount(): number;
 								public getFirstAvailableSegmentNum(manifest: com.google.android.exoplayer2.source.dash.manifest.DashManifest, periodIndex: number, nowUnixTimeUs: number): number;
-								public getSegmentStartTimeUs(segmentNum: number): number;
 								public getSegmentEndTimeUs(segmentNum: number): number;
+								public getSegmentStartTimeUs(segmentNum: number): number;
 							}
 							export class RepresentationSegmentIterator extends com.google.android.exoplayer2.source.chunk.BaseMediaChunkIterator {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.DefaultDashChunkSource.RepresentationSegmentIterator>;
@@ -560,12 +560,12 @@ declare module com {
 							export class AdaptationSet extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.AdaptationSet>;
 								public static ID_UNSET: number;
-								public id: number;
-								public type: number;
-								public representations: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Representation>;
 								public accessibilityDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>;
 								public essentialProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>;
+								public id: number;
+								public representations: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Representation>;
 								public supplementalProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>;
+								public type: number;
 								public constructor(id: number, type: number, representations: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Representation>, accessibilityDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, essentialProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, supplementalProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>);
 							}
 						}
@@ -587,18 +587,18 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.DashManifest>;
 								public availabilityStartTimeMs: number;
 								public durationMs: number;
-								public minBufferTimeMs: number;
 								public dynamic: boolean;
-								public minUpdatePeriodMs: number;
-								public timeShiftBufferDepthMs: number;
-								public suggestedPresentationDelayMs: number;
-								public publishTimeMs: number;
-								public utcTiming: com.google.android.exoplayer2.source.dash.manifest.UtcTimingElement;
 								public location: globalAndroid.net.Uri;
+								public minBufferTimeMs: number;
+								public minUpdatePeriodMs: number;
 								public programInformation: com.google.android.exoplayer2.source.dash.manifest.ProgramInformation;
+								public publishTimeMs: number;
+								public suggestedPresentationDelayMs: number;
+								public timeShiftBufferDepthMs: number;
+								public utcTiming: com.google.android.exoplayer2.source.dash.manifest.UtcTimingElement;
 								public getPeriodDurationMs(index: number): number;
-								public getPeriodCount(): number;
 								public copy(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.dash.manifest.DashManifest;
+								public getPeriodCount(): number;
 								public getPeriodDurationUs(index: number): number;
 								/** @deprecated */
 								public constructor(availabilityStartTimeMs: number, durationMs: number, minBufferTimeMs: number, dynamic: boolean, minUpdatePeriodMs: number, timeShiftBufferDepthMs: number, suggestedPresentationDelayMs: number, publishTimeMs: number, utcTiming: com.google.android.exoplayer2.source.dash.manifest.UtcTimingElement, location: globalAndroid.net.Uri, periods: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Period>);
@@ -640,10 +640,10 @@ declare module com {
 								public static parseInt(xpp: org.xmlpull.v1.XmlPullParser, name: string, defaultValue: number): number;
 								public notationDecl(name: string, publicId: string, systemId: string): void;
 								public buildEvent(schemeIdUri: string, value: string, id: number, durationMs: number, messageData: native.Array<number>): com.google.android.exoplayer2.metadata.emsg.EventMessage;
-								public parsePeriod(xpp: org.xmlpull.v1.XmlPullParser, baseUrl: string, defaultStartMs: number): globalAndroid.util.Pair<com.google.android.exoplayer2.source.dash.manifest.Period,java.lang.Long>;
-								public parseContentType(xpp: org.xmlpull.v1.XmlPullParser): number;
 								public parseContentProtection(xpp: org.xmlpull.v1.XmlPullParser): globalAndroid.util.Pair<string,com.google.android.exoplayer2.drm.DrmInitData.SchemeData>;
+								public parseContentType(xpp: org.xmlpull.v1.XmlPullParser): number;
 								public parseEventObject(xpp: org.xmlpull.v1.XmlPullParser, scratchOutputStream: java.io.ByteArrayOutputStream): native.Array<number>;
+								public parsePeriod(xpp: org.xmlpull.v1.XmlPullParser, baseUrl: string, defaultStartMs: number): globalAndroid.util.Pair<com.google.android.exoplayer2.source.dash.manifest.Period,java.lang.Long>;
 								public buildSegmentList(initialization: com.google.android.exoplayer2.source.dash.manifest.RangedUri, timescale: number, presentationTimeOffset: number, startNumber: number, duration: number, timeline: java.util.List<com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentTimelineElement>, segments: java.util.List<com.google.android.exoplayer2.source.dash.manifest.RangedUri>): com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentList;
 								public parseRoleFlagsFromAccessibilityDescriptors(accessibilityDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>): number;
 								public error(e: org.xml.sax.SAXParseException): void;
@@ -656,10 +656,10 @@ declare module com {
 								public parseInitialization(xpp: org.xmlpull.v1.XmlPullParser): com.google.android.exoplayer2.source.dash.manifest.RangedUri;
 								public parseSegmentTemplate(xpp: org.xmlpull.v1.XmlPullParser, parent: com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentTemplate, adaptationSetSupplementalProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, periodDurationMs: number): com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentTemplate;
 								public static parseFrameRate(xpp: org.xmlpull.v1.XmlPullParser, defaultValue: number): number;
-								public parseSegmentBase(xpp: org.xmlpull.v1.XmlPullParser, parent: com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SingleSegmentBase): com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SingleSegmentBase;
 								public parseRoleFlagsFromRoleDescriptors(roleDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>): number;
-								public parseEvent(xpp: org.xmlpull.v1.XmlPullParser, schemeIdUri: string, value: string, timescale: number, scratchOutputStream: java.io.ByteArrayOutputStream): globalAndroid.util.Pair<java.lang.Long,com.google.android.exoplayer2.metadata.emsg.EventMessage>;
+								public parseSegmentBase(xpp: org.xmlpull.v1.XmlPullParser, parent: com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SingleSegmentBase): com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SingleSegmentBase;
 								public static parseDescriptor(xpp: org.xmlpull.v1.XmlPullParser, tag: string): com.google.android.exoplayer2.source.dash.manifest.Descriptor;
+								public parseEvent(xpp: org.xmlpull.v1.XmlPullParser, schemeIdUri: string, value: string, timescale: number, scratchOutputStream: java.io.ByteArrayOutputStream): globalAndroid.util.Pair<java.lang.Long,com.google.android.exoplayer2.metadata.emsg.EventMessage>;
 								public parseAdaptationSet(xpp: org.xmlpull.v1.XmlPullParser, baseUrl: string, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase, periodDurationMs: number): com.google.android.exoplayer2.source.dash.manifest.AdaptationSet;
 								public parseAudioChannelConfiguration(xpp: org.xmlpull.v1.XmlPullParser): number;
 								public static parseDateTime(xpp: org.xmlpull.v1.XmlPullParser, name: string, defaultValue: number): number;
@@ -670,8 +670,8 @@ declare module com {
 								public buildSegmentTemplate(initialization: com.google.android.exoplayer2.source.dash.manifest.RangedUri, timescale: number, presentationTimeOffset: number, startNumber: number, endNumber: number, duration: number, timeline: java.util.List<com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentTimelineElement>, initializationTemplate: com.google.android.exoplayer2.source.dash.manifest.UrlTemplate, mediaTemplate: com.google.android.exoplayer2.source.dash.manifest.UrlTemplate): com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentTemplate;
 								public endElement(uri: string, localName: string, qName: string): void;
 								public parseRangedUrl(xpp: org.xmlpull.v1.XmlPullParser, urlAttribute: string, rangeAttribute: string): com.google.android.exoplayer2.source.dash.manifest.RangedUri;
-								public parseProgramInformation(xpp: org.xmlpull.v1.XmlPullParser): com.google.android.exoplayer2.source.dash.manifest.ProgramInformation;
 								public static parseLong(xpp: org.xmlpull.v1.XmlPullParser, name: string, defaultValue: number): number;
+								public parseProgramInformation(xpp: org.xmlpull.v1.XmlPullParser): com.google.android.exoplayer2.source.dash.manifest.ProgramInformation;
 								public static parseCea708AccessibilityChannel(accessibilityDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>): number;
 								public characters(ch: native.Array<string>, start: number, length: number): void;
 								public parseLabel(xpp: org.xmlpull.v1.XmlPullParser): string;
@@ -680,8 +680,8 @@ declare module com {
 								public warning(e: org.xml.sax.SAXParseException): void;
 								public setDocumentLocator(locator: org.xml.sax.Locator): void;
 								public static parseMpegChannelConfiguration(xpp: org.xmlpull.v1.XmlPullParser): number;
-								public parse(uri: globalAndroid.net.Uri, inputStream: java.io.InputStream): com.google.android.exoplayer2.source.dash.manifest.DashManifest;
 								public buildEventStream(schemeIdUri: string, value: string, timescale: number, presentationTimesUs: native.Array<number>, events: native.Array<com.google.android.exoplayer2.metadata.emsg.EventMessage>): com.google.android.exoplayer2.source.dash.manifest.EventStream;
+								public parse(uri: globalAndroid.net.Uri, inputStream: java.io.InputStream): com.google.android.exoplayer2.source.dash.manifest.DashManifest;
 								public parseRepresentation(xpp: org.xmlpull.v1.XmlPullParser, baseUrl: string, adaptationSetMimeType: string, adaptationSetCodecs: string, adaptationSetWidth: number, adaptationSetHeight: number, adaptationSetFrameRate: number, adaptationSetAudioChannels: number, adaptationSetAudioSamplingRate: number, adaptationSetLanguage: string, adaptationSetRoleDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, adaptationSetAccessibilityDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, adaptationSetEssentialProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, adaptationSetSupplementalProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase, periodDurationMs: number): com.google.android.exoplayer2.source.dash.manifest.DashManifestParser.RepresentationInfo;
 								public buildAdaptationSet(id: number, contentType: number, representations: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Representation>, accessibilityDescriptors: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, essentialProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, supplementalProperties: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>): com.google.android.exoplayer2.source.dash.manifest.AdaptationSet;
 								public parseSegmentTimeline(xpp: org.xmlpull.v1.XmlPullParser, timescale: number, periodDurationMs: number): java.util.List<com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SegmentTimelineElement>;
@@ -704,13 +704,13 @@ declare module com {
 							export module DashManifestParser {
 								export class RepresentationInfo extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.DashManifestParser.RepresentationInfo>;
-									public format: com.google.android.exoplayer2.Format;
 									public baseUrl: string;
-									public segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase;
-									public drmSchemeType: string;
 									public drmSchemeDatas: java.util.ArrayList<com.google.android.exoplayer2.drm.DrmInitData.SchemeData>;
+									public drmSchemeType: string;
+									public format: com.google.android.exoplayer2.Format;
 									public inbandEventStreams: java.util.ArrayList<com.google.android.exoplayer2.source.dash.manifest.Descriptor>;
 									public revisionId: number;
+									public segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase;
 									public constructor(format: com.google.android.exoplayer2.Format, baseUrl: string, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase, drmSchemeType: string, drmSchemeDatas: java.util.ArrayList<com.google.android.exoplayer2.drm.DrmInitData.SchemeData>, inbandEventStreams: java.util.ArrayList<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, revisionId: number);
 								}
 							}
@@ -731,9 +731,9 @@ declare module com {
 						export module manifest {
 							export class Descriptor extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.Descriptor>;
+								public id: string;
 								public schemeIdUri: string;
 								public value: string;
-								public id: string;
 								public equals(obj: any): boolean;
 								public constructor(schemeIdUri: string, value: string, id: string);
 								public hashCode(): number;
@@ -758,8 +758,8 @@ declare module com {
 								public events: native.Array<com.google.android.exoplayer2.metadata.emsg.EventMessage>;
 								public presentationTimesUs: native.Array<number>;
 								public schemeIdUri: string;
-								public value: string;
 								public timescale: number;
+								public value: string;
 								public constructor(schemeIdUri: string, value: string, timescale: number, presentationTimesUs: native.Array<number>, events: native.Array<com.google.android.exoplayer2.metadata.emsg.EventMessage>);
 								public id(): string;
 							}
@@ -780,11 +780,11 @@ declare module com {
 						export module manifest {
 							export class Period extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.Period>;
+								public adaptationSets: java.util.List<com.google.android.exoplayer2.source.dash.manifest.AdaptationSet>;
+								public assetIdentifier: com.google.android.exoplayer2.source.dash.manifest.Descriptor;
+								public eventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.EventStream>;
 								public id: string;
 								public startMs: number;
-								public adaptationSets: java.util.List<com.google.android.exoplayer2.source.dash.manifest.AdaptationSet>;
-								public eventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.EventStream>;
-								public assetIdentifier: com.google.android.exoplayer2.source.dash.manifest.Descriptor;
 								public getAdaptationSetIndex(type: number): number;
 								public constructor(id: string, startMs: number, adaptationSets: java.util.List<com.google.android.exoplayer2.source.dash.manifest.AdaptationSet>, eventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.EventStream>, assetIdentifier: com.google.android.exoplayer2.source.dash.manifest.Descriptor);
 								public constructor(id: string, startMs: number, adaptationSets: java.util.List<com.google.android.exoplayer2.source.dash.manifest.AdaptationSet>, eventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.EventStream>);
@@ -807,11 +807,11 @@ declare module com {
 						export module manifest {
 							export class ProgramInformation extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.ProgramInformation>;
-								public title: string;
-								public source: string;
 								public copyright: string;
-								public moreInformationURL: string;
 								public lang: string;
+								public moreInformationURL: string;
+								public source: string;
+								public title: string;
 								public equals(obj: any): boolean;
 								public constructor(title: string, source: string, copyright: string, moreInformationURL: string, lang: string);
 								public hashCode(): number;
@@ -833,15 +833,15 @@ declare module com {
 						export module manifest {
 							export class RangedUri extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.RangedUri>;
-								public start: number;
 								public length: number;
+								public start: number;
 								public toString(): string;
 								public equals(obj: any): boolean;
 								public resolveUri(baseUri: string): globalAndroid.net.Uri;
 								public constructor(referenceUri: string, start: number, length: number);
 								public attemptMerge(other: com.google.android.exoplayer2.source.dash.manifest.RangedUri, baseUri: string): com.google.android.exoplayer2.source.dash.manifest.RangedUri;
-								public resolveUriString(baseUri: string): string;
 								public hashCode(): number;
+								public resolveUriString(baseUri: string): string;
 							}
 						}
 					}
@@ -861,11 +861,11 @@ declare module com {
 							export abstract class Representation extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.Representation>;
 								public static REVISION_ID_DEFAULT: number;
-								public revisionId: number;
-								public format: com.google.android.exoplayer2.Format;
 								public baseUrl: string;
-								public presentationTimeOffsetUs: number;
+								public format: com.google.android.exoplayer2.Format;
 								public inbandEventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>;
+								public presentationTimeOffsetUs: number;
+								public revisionId: number;
 								public getIndex(): com.google.android.exoplayer2.source.dash.DashSegmentIndex;
 								public getCacheKey(): string;
 								public static newInstance(revisionId: number, format: com.google.android.exoplayer2.Format, baseUrl: string, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase): com.google.android.exoplayer2.source.dash.manifest.Representation;
@@ -878,8 +878,8 @@ declare module com {
 								export class MultiSegmentRepresentation extends com.google.android.exoplayer2.source.dash.manifest.Representation implements com.google.android.exoplayer2.source.dash.DashSegmentIndex {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.Representation.MultiSegmentRepresentation>;
 									public getSegmentCount(periodDurationUs: number): number;
-									public getTimeUs(segmentIndex: number): number;
 									public getFirstSegmentNum(): number;
+									public getTimeUs(segmentIndex: number): number;
 									public getCacheKey(): string;
 									public getSegmentNum(timeUs: number, periodDurationUs: number): number;
 									public constructor(revisionId: number, format: com.google.android.exoplayer2.Format, baseUrl: string, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase.MultiSegmentBase, inbandEventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>);
@@ -891,8 +891,8 @@ declare module com {
 								}
 								export class SingleSegmentRepresentation extends com.google.android.exoplayer2.source.dash.manifest.Representation {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.dash.manifest.Representation.SingleSegmentRepresentation>;
-									public uri: globalAndroid.net.Uri;
 									public contentLength: number;
+									public uri: globalAndroid.net.Uri;
 									public getCacheKey(): string;
 									public static newInstance(revisionId: number, format: com.google.android.exoplayer2.Format, baseUrl: string, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase): com.google.android.exoplayer2.source.dash.manifest.Representation;
 									public constructor(revisionId: number, format: com.google.android.exoplayer2.Format, baseUrl: string, segmentBase: com.google.android.exoplayer2.source.dash.manifest.SegmentBase.SingleSegmentBase, inbandEventStreams: java.util.List<com.google.android.exoplayer2.source.dash.manifest.Descriptor>, cacheKey: string, contentLength: number);
@@ -996,8 +996,8 @@ declare module com {
 								public isExplicit(): boolean;
 								public getDurationUs(segmentNum: number, periodDurationUs: number): number;
 								public constructor(uri: com.google.android.exoplayer2.source.dash.manifest.RangedUri);
-								public getSegmentUrl(segmentNum: number): com.google.android.exoplayer2.source.dash.manifest.RangedUri;
 								public getFirstSegmentNum(): number;
+								public getSegmentUrl(segmentNum: number): com.google.android.exoplayer2.source.dash.manifest.RangedUri;
 								public getSegmentCount(periodDurationUs: number): number;
 							}
 						}

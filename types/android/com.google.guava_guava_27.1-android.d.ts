@@ -117,14 +117,14 @@ declare module com {
 					public asSet(): java.util.Set<any>;
 					public or(supplier0: com.google.common.base.Supplier<any>): any;
 					public transform(function0: com.google.common.base.Function<any,any>): com.google.common.base.Optional<any>;
+					public equals(object: any): boolean;
 					public or(supplier: com.google.common.base.Supplier<any>): any;
 					public orNull(): any;
-					public equals(object: any): boolean;
 					public toString(): string;
 					public get(): any;
 					public or(optional0: com.google.common.base.Optional<any>): com.google.common.base.Optional<any>;
-					public or(secondChoice: com.google.common.base.Optional<any>): com.google.common.base.Optional<any>;
 					public equals(object0: any): boolean;
+					public or(secondChoice: com.google.common.base.Optional<any>): com.google.common.base.Optional<any>;
 					public or(defaultValue: any): any;
 					public isPresent(): boolean;
 					public or(object0: any): any;
@@ -151,10 +151,10 @@ declare module com {
 				export module AbstractIterator {
 					export class State {
 						public static class: java.lang.Class<com.google.common.base.AbstractIterator.State>;
-						public static READY: com.google.common.base.AbstractIterator.State;
-						public static NOT_READY: com.google.common.base.AbstractIterator.State;
 						public static DONE: com.google.common.base.AbstractIterator.State;
 						public static FAILED: com.google.common.base.AbstractIterator.State;
+						public static NOT_READY: com.google.common.base.AbstractIterator.State;
+						public static READY: com.google.common.base.AbstractIterator.State;
 						public static valueOf(name: string): com.google.common.base.AbstractIterator.State;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static values(): native.Array<com.google.common.base.AbstractIterator.State>;
@@ -171,56 +171,56 @@ declare module com {
 			export module base {
 				export class Ascii extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.base.Ascii>;
-					public static NUL: number;
-					public static SOH: number;
-					public static STX: number;
-					public static ETX: number;
-					public static EOT: number;
-					public static ENQ: number;
 					public static ACK: number;
 					public static BEL: number;
 					public static BS: number;
-					public static HT: number;
-					public static LF: number;
-					public static NL: number;
-					public static VT: number;
-					public static FF: number;
+					public static CAN: number;
 					public static CR: number;
-					public static SO: number;
-					public static SI: number;
-					public static DLE: number;
 					public static DC1: number;
-					public static XON: number;
 					public static DC2: number;
 					public static DC3: number;
-					public static XOFF: number;
 					public static DC4: number;
-					public static NAK: number;
-					public static SYN: number;
-					public static ETB: number;
-					public static CAN: number;
+					public static DEL: number;
+					public static DLE: number;
 					public static EM: number;
-					public static SUB: number;
+					public static ENQ: number;
+					public static EOT: number;
 					public static ESC: number;
+					public static ETB: number;
+					public static ETX: number;
+					public static FF: number;
 					public static FS: number;
 					public static GS: number;
+					public static HT: number;
+					public static LF: number;
+					public static MAX: string;
+					public static MIN: string;
+					public static NAK: number;
+					public static NL: number;
+					public static NUL: number;
 					public static RS: number;
-					public static US: number;
+					public static SI: number;
+					public static SO: number;
+					public static SOH: number;
 					public static SP: number;
 					public static SPACE: number;
-					public static DEL: number;
-					public static MIN: string;
-					public static MAX: string;
+					public static STX: number;
+					public static SUB: number;
+					public static SYN: number;
+					public static US: number;
+					public static VT: number;
+					public static XOFF: number;
+					public static XON: number;
 					public static toUpperCase(string: string): string;
 					public static isLowerCase(c: string): boolean;
 					public static toLowerCase(chars: string): string;
-					public static toLowerCase(c: string): string;
 					public static equalsIgnoreCase(s1: string, s2: string): boolean;
+					public static toLowerCase(c: string): string;
 					public static truncate(seq: string, maxLength: number, truncationIndicator: string): string;
 					public static toUpperCase(chars: string): string;
 					public static toLowerCase(string: string): string;
-					public static toUpperCase(c: string): string;
 					public static isUpperCase(c: string): boolean;
+					public static toUpperCase(c: string): string;
 				}
 			}
 		}
@@ -233,9 +233,9 @@ declare module com {
 			export module base {
 				export abstract class CaseFormat {
 					public static class: java.lang.Class<com.google.common.base.CaseFormat>;
+					public static LOWER_CAMEL: com.google.common.base.CaseFormat;
 					public static LOWER_HYPHEN: com.google.common.base.CaseFormat;
 					public static LOWER_UNDERSCORE: com.google.common.base.CaseFormat;
-					public static LOWER_CAMEL: com.google.common.base.CaseFormat;
 					public static UPPER_CAMEL: com.google.common.base.CaseFormat;
 					public static UPPER_UNDERSCORE: com.google.common.base.CaseFormat;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -270,16 +270,16 @@ declare module com {
 			export module base {
 				export abstract class CharMatcher extends com.google.common.base.Predicate<java.lang.Character> {
 					public static class: java.lang.Class<com.google.common.base.CharMatcher>;
-					/** @deprecated */
-					public static javaDigit(): com.google.common.base.CharMatcher;
 					public static is(match: string): com.google.common.base.CharMatcher;
 					/** @deprecated */
-					public static invisible(): com.google.common.base.CharMatcher;
+					public static javaDigit(): com.google.common.base.CharMatcher;
 					public equals(obj: any): boolean;
+					/** @deprecated */
+					public static invisible(): com.google.common.base.CharMatcher;
 					public static isNot(match: string): com.google.common.base.CharMatcher;
 					public static any(): com.google.common.base.CharMatcher;
-					public static none(): com.google.common.base.CharMatcher;
 					public static ascii(): com.google.common.base.CharMatcher;
+					public static none(): com.google.common.base.CharMatcher;
 					public removeFrom(sequence: string): string;
 					public replaceFrom(sequence: string, replacement: string): string;
 					public trimAndCollapseFrom(sequence: string, replacement: string): string;
@@ -291,19 +291,19 @@ declare module com {
 					/** @deprecated */
 					public static javaUpperCase(): com.google.common.base.CharMatcher;
 					public toString(): string;
+					public static anyOf(sequence: string): com.google.common.base.CharMatcher;
 					/** @deprecated */
 					public static javaLetterOrDigit(): com.google.common.base.CharMatcher;
-					public static anyOf(sequence: string): com.google.common.base.CharMatcher;
 					public or(other: com.google.common.base.CharMatcher): com.google.common.base.CharMatcher;
-					public static inRange(startInclusive: string, endInclusive: string): com.google.common.base.CharMatcher;
 					public constructor();
+					public static inRange(startInclusive: string, endInclusive: string): com.google.common.base.CharMatcher;
 					public trimFrom(sequence: string): string;
 					public apply(object0: any): boolean;
 					public collapseFrom(sequence: string, replacement: string): string;
 					/** @deprecated */
-					public static singleWidth(): com.google.common.base.CharMatcher;
-					/** @deprecated */
 					public apply(character: java.lang.Character): boolean;
+					/** @deprecated */
+					public static singleWidth(): com.google.common.base.CharMatcher;
 					public and(other: com.google.common.base.CharMatcher): com.google.common.base.CharMatcher;
 					public static forPredicate(predicate: com.google.common.base.Predicate<any>): com.google.common.base.CharMatcher;
 					public trimLeadingFrom(sequence: string): string;
@@ -351,8 +351,8 @@ declare module com {
 						public and(other: com.google.common.base.CharMatcher): com.google.common.base.CharMatcher;
 						public matches(c: string): boolean;
 						public matchesNoneOf(sequence: string): boolean;
-						public matches(char0: string): boolean;
 						public indexIn(sequence: string, start: number): number;
+						public matches(char0: string): boolean;
 						public matchesAllOf(sequence: string): boolean;
 						public lastIndexIn(sequence: string): number;
 						public negate(): com.google.common.base.CharMatcher;
@@ -411,8 +411,8 @@ declare module com {
 						public apply(object0: any): boolean;
 						/** @deprecated */
 						public apply(character: java.lang.Character): boolean;
-						public precomputed(): com.google.common.base.CharMatcher;
 						public negate(): com.google.common.base.CharMatcher;
+						public precomputed(): com.google.common.base.CharMatcher;
 					}
 					export class ForPredicate extends com.google.common.base.CharMatcher {
 						public static class: java.lang.Class<com.google.common.base.CharMatcher.ForPredicate>;
@@ -584,8 +584,8 @@ declare module com {
 						public and(other: com.google.common.base.CharMatcher): com.google.common.base.CharMatcher;
 						public matches(c: string): boolean;
 						public matchesNoneOf(sequence: string): boolean;
-						public matches(char0: string): boolean;
 						public indexIn(sequence: string, start: number): number;
+						public matches(char0: string): boolean;
 						public matchesAllOf(sequence: string): boolean;
 						public lastIndexIn(sequence: string): number;
 						public negate(): com.google.common.base.CharMatcher;
@@ -640,12 +640,12 @@ declare module com {
 			export module base {
 				export class Charsets extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.base.Charsets>;
-					public static US_ASCII: java.nio.charset.Charset;
 					public static ISO_8859_1: java.nio.charset.Charset;
-					public static UTF_8: java.nio.charset.Charset;
+					public static US_ASCII: java.nio.charset.Charset;
+					public static UTF_16: java.nio.charset.Charset;
 					public static UTF_16BE: java.nio.charset.Charset;
 					public static UTF_16LE: java.nio.charset.Charset;
-					public static UTF_16: java.nio.charset.Charset;
+					public static UTF_8: java.nio.charset.Charset;
 				}
 			}
 		}
@@ -678,8 +678,8 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.base.CommonPattern>;
 					public static compile(pattern: string): com.google.common.base.CommonPattern;
 					public toString(): string;
-					public pattern(): string;
 					public static isPcreLike(): boolean;
+					public pattern(): string;
 					public flags(): number;
 					public matcher(charSequence0: string): com.google.common.base.CommonMatcher;
 				}
@@ -696,8 +696,8 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.base.Converter<any,any>>;
 					public equals(obj: any): boolean;
 					public static identity(): com.google.common.base.Converter<any,any>;
-					public convert(a: any): any;
 					public apply(a: any): any;
+					public convert(a: any): any;
 					public andThen(secondConverter: com.google.common.base.Converter<any,any>): com.google.common.base.Converter<any,any>;
 					public doBackward(object0: any): any;
 					/** @deprecated */
@@ -712,8 +712,8 @@ declare module com {
 				export module Converter {
 					export class ConverterComposition<A, B, C>  extends com.google.common.base.Converter<any,any> implements java.io.Serializable  {
 						public static class: java.lang.Class<com.google.common.base.Converter.ConverterComposition<any,any,any>>;
-						public doForward(object0: any): any;
 						public doBackward(c: any): any;
+						public doForward(object0: any): any;
 						public doBackward(object0: any): any;
 						public hashCode(): number;
 						public doForward(a: any): any;
@@ -752,8 +752,8 @@ declare module com {
 					}
 					export class ReverseConverter<A, B>  extends com.google.common.base.Converter<any,any> implements java.io.Serializable  {
 						public static class: java.lang.Class<com.google.common.base.Converter.ReverseConverter<any,any>>;
-						public doForward(object0: any): any;
 						public doBackward(a: any): any;
+						public doForward(object0: any): any;
 						public doForward(b: any): any;
 						public doBackward(object0: any): any;
 						public reverse(): com.google.common.base.Converter<any,any>;
@@ -820,8 +820,8 @@ declare module com {
 				export abstract class Equivalence<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.base.Equivalence<any>>;
 					public equals(obj: any): boolean;
-					public wrap(reference: any): com.google.common.base.Equivalence.Wrapper<any>;
 					public static identity(): com.google.common.base.Equivalence<any>;
+					public wrap(reference: any): com.google.common.base.Equivalence.Wrapper<any>;
 					public hash(t: T): number;
 					public constructor();
 					public equivalent(a: T, b: T): boolean;
@@ -1037,8 +1037,8 @@ declare module com {
 					public static forPredicate(predicate: com.google.common.base.Predicate<any>): com.google.common.base.Function<any,any>;
 					public static forMap(map: java.util.Map<any,any>, defaultValue: any): com.google.common.base.Function<any,any>;
 					public static identity(): com.google.common.base.Function<any,any>;
-					public static toStringFunction(): com.google.common.base.Function<any,string>;
 					public static forMap(map: java.util.Map<any,any>): com.google.common.base.Function<any,any>;
+					public static toStringFunction(): com.google.common.base.Function<any,string>;
 					public static forSupplier(supplier: com.google.common.base.Supplier<any>): com.google.common.base.Function<any,any>;
 					public static constant(value: any): com.google.common.base.Function<any,any>;
 				}
@@ -1047,8 +1047,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.base.Functions.ConstantFunction<any>>;
 						public equals(obj: any): boolean;
 						public apply(from: any): E;
-						public hashCode(): number;
 						public apply(from: any): any;
+						public hashCode(): number;
 						public constructor(value: E);
 						public toString(): string;
 					}
@@ -1085,8 +1085,8 @@ declare module com {
 						public static valueOf(name: string): com.google.common.base.Functions.IdentityFunction;
 						public equals(other: any): boolean;
 						public apply(o: any): any;
-						public static values(): native.Array<com.google.common.base.Functions.IdentityFunction>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+						public static values(): native.Array<com.google.common.base.Functions.IdentityFunction>;
 						public toString(): string;
 					}
 					export class PredicateFunction<T>  extends java.lang.Object {
@@ -1138,8 +1138,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.base.JdkPattern.JdkMatcher>;
 						public matches(): boolean;
 						public start(): number;
-						public find(index: number): boolean;
 						public end(): number;
+						public find(index: number): boolean;
 						public replaceAll(string0: string): string;
 						public find(): boolean;
 						public replaceAll(replacement: string): string;
@@ -1352,8 +1352,8 @@ declare module com {
 					public static checkElementIndex(index: number, size: number): number;
 					public static checkArgument(b: boolean, errorMessageTemplate: string, p1: number): void;
 					public static checkNotNull(reference: any): any;
-					public static checkState(expression: boolean, errorMessageTemplate: string, errorMessageArgs: native.Array<any>): void;
 					public static checkNotNull(reference: any, errorMessage: any): any;
+					public static checkState(expression: boolean, errorMessageTemplate: string, errorMessageArgs: native.Array<any>): void;
 					public static checkArgument(b: boolean, errorMessageTemplate: string, p1: any): void;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: any, p2: number): any;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: string): any;
@@ -1366,14 +1366,14 @@ declare module com {
 					public static checkElementIndex(index: number, size: number, desc: string): number;
 					public static checkArgument(b: boolean, errorMessageTemplate: string, p1: any, p2: any, p3: any, p4: any): void;
 					public static checkArgument(expression: boolean): void;
-					public static checkState(b: boolean, errorMessageTemplate: string, p1: any, p2: any): void;
 					public static checkPositionIndex(index: number, size: number): number;
+					public static checkState(b: boolean, errorMessageTemplate: string, p1: any, p2: any): void;
 					public static checkArgument(b: boolean, errorMessageTemplate: string, p1: string, p2: number): void;
-					public static checkState(b: boolean, errorMessageTemplate: string, p1: any, p2: any, p3: any): void;
 					public static checkNotNull(reference: any, errorMessageTemplate: string, errorMessageArgs: native.Array<any>): any;
+					public static checkState(b: boolean, errorMessageTemplate: string, p1: any, p2: any, p3: any): void;
 					public static checkArgument(b: boolean, errorMessageTemplate: string, p1: any, p2: number): void;
-					public static checkState(b: boolean, errorMessageTemplate: string, p1: string, p2: any): void;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: number, p2: string): any;
+					public static checkState(b: boolean, errorMessageTemplate: string, p1: string, p2: any): void;
 					public static checkState(b: boolean, errorMessageTemplate: string, p1: any): void;
 					public static checkState(b: boolean, errorMessageTemplate: string, p1: number, p2: string): void;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: any, p2: string): any;
@@ -1392,8 +1392,8 @@ declare module com {
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: number, p2: any): any;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: string, p2: string): any;
 					public static checkState(expression: boolean): void;
-					public static checkState(b: boolean, errorMessageTemplate: string, p1: number, p2: any): void;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: any): any;
+					public static checkState(b: boolean, errorMessageTemplate: string, p1: number, p2: any): void;
 					public static checkArgument(b: boolean, errorMessageTemplate: string, p1: number, p2: any): void;
 					public static checkNotNull(obj: any, errorMessageTemplate: string, p1: string, p2: any): any;
 				}
@@ -1442,11 +1442,11 @@ declare module com {
 					public static subtypeOf(clazz: java.lang.Class<any>): com.google.common.base.Predicate<java.lang.Class<any>>;
 					public static compose(predicate: com.google.common.base.Predicate<any>, function1: com.google.common.base.Function<any,any>): com.google.common.base.Predicate<any>;
 					public static contains(pattern: java.util.regex.Pattern): com.google.common.base.Predicate<string>;
-					public static not(predicate: com.google.common.base.Predicate<any>): com.google.common.base.Predicate<any>;
 					public static instanceOf(clazz: java.lang.Class<any>): com.google.common.base.Predicate<any>;
+					public static not(predicate: com.google.common.base.Predicate<any>): com.google.common.base.Predicate<any>;
 					public static and(components: native.Array<com.google.common.base.Predicate<any>>): com.google.common.base.Predicate<any>;
-					public static isNull(): com.google.common.base.Predicate<any>;
 					public static containsPattern(pattern: string): com.google.common.base.Predicate<string>;
+					public static isNull(): com.google.common.base.Predicate<any>;
 					public static or(components: java.lang.Iterable<any>): com.google.common.base.Predicate<any>;
 				}
 				export module Predicates {
@@ -1510,15 +1510,15 @@ declare module com {
 					}
 					export abstract class ObjectPredicate extends com.google.common.base.Predicate<any> {
 						public static class: java.lang.Class<com.google.common.base.Predicates.ObjectPredicate>;
-						public static ALWAYS_TRUE: com.google.common.base.Predicates.ObjectPredicate;
 						public static ALWAYS_FALSE: com.google.common.base.Predicates.ObjectPredicate;
+						public static ALWAYS_TRUE: com.google.common.base.Predicates.ObjectPredicate;
 						public static IS_NULL: com.google.common.base.Predicates.ObjectPredicate;
 						public static NOT_NULL: com.google.common.base.Predicates.ObjectPredicate;
 						public equals(other: any): boolean;
 						public static valueOf(name: string): com.google.common.base.Predicates.ObjectPredicate;
 						public apply(object0: any): boolean;
-						public static values(): native.Array<com.google.common.base.Predicates.ObjectPredicate>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+						public static values(): native.Array<com.google.common.base.Predicates.ObjectPredicate>;
 					}
 					export class OrPredicate<T>  extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.base.Predicates.OrPredicate<any>>;
@@ -1550,14 +1550,14 @@ declare module com {
 					public asSet(): java.util.Set<any>;
 					public or(supplier0: com.google.common.base.Supplier<any>): any;
 					public transform(function0: com.google.common.base.Function<any,any>): com.google.common.base.Optional<any>;
+					public equals(object: any): boolean;
 					public or(supplier: com.google.common.base.Supplier<any>): any;
 					public orNull(): any;
-					public equals(object: any): boolean;
 					public toString(): string;
 					public get(): any;
 					public or(optional0: com.google.common.base.Optional<any>): com.google.common.base.Optional<any>;
-					public or(secondChoice: com.google.common.base.Optional<any>): com.google.common.base.Optional<any>;
 					public equals(object0: any): boolean;
+					public or(secondChoice: com.google.common.base.Optional<any>): com.google.common.base.Optional<any>;
 					public or(defaultValue: any): any;
 					public isPresent(): boolean;
 					public or(object0: any): any;
@@ -1595,8 +1595,8 @@ declare module com {
 					public static fixedLength(length: number): com.google.common.base.Splitter;
 					public trimResults(): com.google.common.base.Splitter;
 					public trimResults(trimmer: com.google.common.base.CharMatcher): com.google.common.base.Splitter;
-					public static onPattern(separatorPattern: string): com.google.common.base.Splitter;
 					public omitEmptyStrings(): com.google.common.base.Splitter;
+					public static onPattern(separatorPattern: string): com.google.common.base.Splitter;
 					public static on(separatorMatcher: com.google.common.base.CharMatcher): com.google.common.base.Splitter;
 					public withKeyValueSeparator(keyValueSplitter: com.google.common.base.Splitter): com.google.common.base.Splitter.MapSplitter;
 					public limit(limit: number): com.google.common.base.Splitter;
@@ -1641,34 +1641,34 @@ declare module com {
 			export module base {
 				export class StandardSystemProperty {
 					public static class: java.lang.Class<com.google.common.base.StandardSystemProperty>;
-					public static JAVA_VERSION: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VENDOR: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VENDOR_URL: com.google.common.base.StandardSystemProperty;
-					public static JAVA_HOME: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VM_SPECIFICATION_VERSION: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VM_SPECIFICATION_VENDOR: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VM_SPECIFICATION_NAME: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VM_VERSION: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VM_VENDOR: com.google.common.base.StandardSystemProperty;
-					public static JAVA_VM_NAME: com.google.common.base.StandardSystemProperty;
-					public static JAVA_SPECIFICATION_VERSION: com.google.common.base.StandardSystemProperty;
-					public static JAVA_SPECIFICATION_VENDOR: com.google.common.base.StandardSystemProperty;
-					public static JAVA_SPECIFICATION_NAME: com.google.common.base.StandardSystemProperty;
-					public static JAVA_CLASS_VERSION: com.google.common.base.StandardSystemProperty;
+					public static FILE_SEPARATOR: com.google.common.base.StandardSystemProperty;
 					public static JAVA_CLASS_PATH: com.google.common.base.StandardSystemProperty;
-					public static JAVA_LIBRARY_PATH: com.google.common.base.StandardSystemProperty;
-					public static JAVA_IO_TMPDIR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_CLASS_VERSION: com.google.common.base.StandardSystemProperty;
 					public static JAVA_COMPILER: com.google.common.base.StandardSystemProperty;
 					public static JAVA_EXT_DIRS: com.google.common.base.StandardSystemProperty;
-					public static OS_NAME: com.google.common.base.StandardSystemProperty;
-					public static OS_ARCH: com.google.common.base.StandardSystemProperty;
-					public static OS_VERSION: com.google.common.base.StandardSystemProperty;
-					public static FILE_SEPARATOR: com.google.common.base.StandardSystemProperty;
-					public static PATH_SEPARATOR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_HOME: com.google.common.base.StandardSystemProperty;
+					public static JAVA_IO_TMPDIR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_LIBRARY_PATH: com.google.common.base.StandardSystemProperty;
+					public static JAVA_SPECIFICATION_NAME: com.google.common.base.StandardSystemProperty;
+					public static JAVA_SPECIFICATION_VENDOR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_SPECIFICATION_VERSION: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VENDOR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VENDOR_URL: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VERSION: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VM_NAME: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VM_SPECIFICATION_NAME: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VM_SPECIFICATION_VENDOR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VM_SPECIFICATION_VERSION: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VM_VENDOR: com.google.common.base.StandardSystemProperty;
+					public static JAVA_VM_VERSION: com.google.common.base.StandardSystemProperty;
 					public static LINE_SEPARATOR: com.google.common.base.StandardSystemProperty;
-					public static USER_NAME: com.google.common.base.StandardSystemProperty;
-					public static USER_HOME: com.google.common.base.StandardSystemProperty;
+					public static OS_ARCH: com.google.common.base.StandardSystemProperty;
+					public static OS_NAME: com.google.common.base.StandardSystemProperty;
+					public static OS_VERSION: com.google.common.base.StandardSystemProperty;
+					public static PATH_SEPARATOR: com.google.common.base.StandardSystemProperty;
 					public static USER_DIR: com.google.common.base.StandardSystemProperty;
+					public static USER_HOME: com.google.common.base.StandardSystemProperty;
+					public static USER_NAME: com.google.common.base.StandardSystemProperty;
 					public toString(): string;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static valueOf(name: string): com.google.common.base.StandardSystemProperty;
@@ -1711,10 +1711,10 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.base.Strings>;
 					public static commonSuffix(a: string, b: string): string;
 					public static isNullOrEmpty(string: string): boolean;
-					public static repeat(string: string, count: number): string;
 					public static lenientFormat(template: string, objects1: native.Array<any>): string;
-					public static padEnd(string: string, minLength: number, padChar: string): string;
+					public static repeat(string: string, count: number): string;
 					public static commonPrefix(a: string, b: string): string;
+					public static padEnd(string: string, minLength: number, padChar: string): string;
 					public static padStart(string: string, minLength: number, padChar: string): string;
 					public static nullToEmpty(string: string): string;
 					public static emptyToNull(string: string): string;
@@ -1775,8 +1775,8 @@ declare module com {
 					}
 					export class SupplierComposition<F, T>  extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.base.Suppliers.SupplierComposition<any,any>>;
-						public get(): T;
 						public equals(obj: any): boolean;
+						public get(): T;
 						public hashCode(): number;
 						public toString(): string;
 					}
@@ -1800,14 +1800,14 @@ declare module com {
 						public equals(other: any): boolean;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public apply(object0: any): any;
-						public static valueOf(name: string): com.google.common.base.Suppliers.SupplierFunctionImpl;
 						public apply(input: com.google.common.base.Supplier<any>): any;
+						public static valueOf(name: string): com.google.common.base.Suppliers.SupplierFunctionImpl;
 						public toString(): string;
 					}
 					export class SupplierOfInstance<T>  extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.base.Suppliers.SupplierOfInstance<any>>;
-						public get(): T;
 						public equals(obj: any): boolean;
+						public get(): T;
 						public hashCode(): number;
 						public toString(): string;
 					}
@@ -1838,9 +1838,9 @@ declare module com {
 					public static getStackTraceAsString(throwable: java.lang.Throwable): string;
 					public static propagateIfPossible(throwable: java.lang.Throwable, declaredType: java.lang.Class<any>): void;
 					public static lazyStackTrace(throwable: java.lang.Throwable): java.util.List<java.lang.StackTraceElement>;
+					public static lazyStackTraceIsLazy(): boolean;
 					/** @deprecated */
 					public static propagateIfInstanceOf(throwable: java.lang.Throwable, declaredType: java.lang.Class<any>): void;
-					public static lazyStackTraceIsLazy(): boolean;
 					/** @deprecated */
 					public static propagateIfPossible(throwable: java.lang.Throwable): void;
 					public static propagateIfPossible(throwable: java.lang.Throwable, declaredType1: java.lang.Class<any>, declaredType2: java.lang.Class<any>): void;
@@ -1954,13 +1954,13 @@ declare module com {
 					public getAllPresent(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public size(): number;
 					public invalidateAll(): void;
-					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public asMap(): java.util.concurrent.ConcurrentMap<any,any>;
+					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public cleanUp(): void;
 					public invalidateAll(keys: java.lang.Iterable<any>): void;
 					public constructor();
-					public put(key: any, value: any): void;
 					public invalidate(key: any): void;
+					public put(key: any, value: any): void;
 					public putAll(m: java.util.Map<any,any>): void;
 					public stats(): com.google.common.cache.CacheStats;
 				}
@@ -1968,11 +1968,11 @@ declare module com {
 					export class SimpleStatsCounter extends java.lang.Object implements com.google.common.cache.AbstractCache.StatsCounter {
 						public static class: java.lang.Class<com.google.common.cache.AbstractCache.SimpleStatsCounter>;
 						public constructor();
-						public snapshot(): com.google.common.cache.CacheStats;
 						public incrementBy(other: com.google.common.cache.AbstractCache.StatsCounter): void;
-						public recordMisses(count: number): void;
-						public recordLoadSuccess(loadTime: number): void;
+						public snapshot(): com.google.common.cache.CacheStats;
 						public recordLoadException(loadTime: number): void;
+						public recordLoadSuccess(loadTime: number): void;
+						public recordMisses(count: number): void;
 						public recordEviction(): void;
 						public recordHits(count: number): void;
 					}
@@ -2015,15 +2015,15 @@ declare module com {
 					public getAllPresent(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public size(): number;
 					public invalidateAll(): void;
-					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public asMap(): java.util.concurrent.ConcurrentMap<any,any>;
+					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public cleanUp(): void;
 					public invalidateAll(keys: java.lang.Iterable<any>): void;
 					public refresh(key: any): void;
 					public get(object0: any): any;
 					public constructor();
-					public put(key: any, value: any): void;
 					public invalidate(key: any): void;
+					public put(key: any, value: any): void;
 					public getAll(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public getUnchecked(key: any): any;
 					public putAll(m: java.util.Map<any,any>): void;
@@ -2102,8 +2102,8 @@ declare module com {
 					public weigher(weigher: com.google.common.cache.Weigher<any,any>): com.google.common.cache.CacheBuilder<any,any>;
 					public static from(spec: string): com.google.common.cache.CacheBuilder<any,any>;
 					public removalListener(listener: com.google.common.cache.RemovalListener<any,any>): com.google.common.cache.CacheBuilder<any,any>;
-					public weakKeys(): com.google.common.cache.CacheBuilder<K,V>;
 					public expireAfterAccess(duration: number, unit: java.util.concurrent.TimeUnit): com.google.common.cache.CacheBuilder<K,V>;
+					public weakKeys(): com.google.common.cache.CacheBuilder<K,V>;
 				}
 				export module CacheBuilder {
 					export class NullListener extends com.google.common.cache.RemovalListener<any,any> {
@@ -2134,8 +2134,8 @@ declare module com {
 			export module cache {
 				export class CacheBuilderSpec extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.cache.CacheBuilderSpec>;
-					public toString(): string;
 					public equals(obj: any): boolean;
+					public toString(): string;
 					public static parse(cacheBuilderSpecification: string): com.google.common.cache.CacheBuilderSpec;
 					public toParsableString(): string;
 					public static disableCaching(): com.google.common.cache.CacheBuilderSpec;
@@ -2240,8 +2240,8 @@ declare module com {
 					public loadAll(keys: java.lang.Iterable<any>): java.util.Map<K,V>;
 					public static asyncReloading(loader: com.google.common.cache.CacheLoader<any,any>, executor: java.util.concurrent.Executor): com.google.common.cache.CacheLoader<any,any>;
 					public constructor();
-					public reload(key: K, oldValue: V): com.google.common.util.concurrent.ListenableFuture<V>;
 					public static from(supplier: com.google.common.base.Supplier<any>): com.google.common.cache.CacheLoader<any,any>;
+					public reload(key: K, oldValue: V): com.google.common.util.concurrent.ListenableFuture<V>;
 					public static from(function0: com.google.common.base.Function<any,any>): com.google.common.cache.CacheLoader<any,any>;
 				}
 				export module CacheLoader {
@@ -2283,23 +2283,23 @@ declare module com {
 				export class CacheStats extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.cache.CacheStats>;
 					public loadSuccessCount(): number;
-					public plus(other: com.google.common.cache.CacheStats): com.google.common.cache.CacheStats;
 					public equals(obj: any): boolean;
-					public loadExceptionCount(): number;
+					public plus(other: com.google.common.cache.CacheStats): com.google.common.cache.CacheStats;
 					public evictionCount(): number;
+					public loadExceptionCount(): number;
 					public averageLoadPenalty(): number;
 					public hitRate(): number;
 					public totalLoadTime(): number;
 					public missRate(): number;
-					public loadCount(): number;
 					public equals(object: any): boolean;
+					public loadCount(): number;
 					public toString(): string;
 					public hitCount(): number;
-					public requestCount(): number;
 					public loadExceptionRate(): number;
+					public requestCount(): number;
 					public missCount(): number;
-					public minus(other: com.google.common.cache.CacheStats): com.google.common.cache.CacheStats;
 					public hashCode(): number;
+					public minus(other: com.google.common.cache.CacheStats): com.google.common.cache.CacheStats;
 					public constructor(hitCount: number, missCount: number, loadSuccessCount: number, loadExceptionCount: number, totalLoadTime: number, evictionCount: number);
 				}
 			}
@@ -2316,14 +2316,14 @@ declare module com {
 					public getAllPresent(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public size(): number;
 					public invalidateAll(): void;
-					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public asMap(): java.util.concurrent.ConcurrentMap<any,any>;
+					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public getIfPresent(key: any): any;
 					public cleanUp(): void;
 					public invalidateAll(keys: java.lang.Iterable<any>): void;
 					public constructor();
-					public put(key: any, value: any): void;
 					public invalidate(key: any): void;
+					public put(key: any, value: any): void;
 					public delegate(): com.google.common.cache.Cache<any,any>;
 					public putAll(m: java.util.Map<any,any>): void;
 					public delegate(): any;
@@ -2367,15 +2367,15 @@ declare module com {
 					public getAllPresent(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public size(): number;
 					public invalidateAll(): void;
-					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public asMap(): java.util.concurrent.ConcurrentMap<any,any>;
+					public get(key: any, valueLoader: java.util.concurrent.Callable<any>): any;
 					public getIfPresent(key: any): any;
 					public cleanUp(): void;
 					public invalidateAll(keys: java.lang.Iterable<any>): void;
 					public refresh(key: any): void;
 					public constructor();
-					public put(key: any, value: any): void;
 					public invalidate(key: any): void;
+					public put(key: any, value: any): void;
 					public delegate(): com.google.common.cache.LoadingCache<any,any>;
 					public getAll(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public delegate(): com.google.common.cache.Cache<any,any>;
@@ -2497,20 +2497,20 @@ declare module com {
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public hashCode(): number;
+					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public remove(key: any): any;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public getIfPresent(key: any): any;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public putAll(m: java.util.Map<any,any>): void;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public putAll(m: java.util.Map<any,any>): void;
 				}
 				export module LocalCache {
 					export abstract class AbstractCacheSet<T>  extends java.util.AbstractSet<any> {
@@ -2542,14 +2542,14 @@ declare module com {
 						public setAccessTime(time: number): void;
 						public getKey(): any;
 						public getPreviousInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
-						public getValueReference(): com.google.common.cache.LocalCache.ValueReference<any,any>;
 						public getAccessTime(): number;
+						public getValueReference(): com.google.common.cache.LocalCache.ValueReference<any,any>;
 						public getNext(): com.google.common.cache.ReferenceEntry<any,any>;
 						public getWriteTime(): number;
 						public getNextInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInWriteQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
-						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public getPreviousInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
+						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public setWriteTime(time: number): void;
 						public getNextInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInAccessQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
@@ -2590,12 +2590,12 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.cache.LocalCache.EntryFactory>;
 						public static STRONG: com.google.common.cache.LocalCache.EntryFactory;
 						public static STRONG_ACCESS: com.google.common.cache.LocalCache.EntryFactory;
-						public static STRONG_WRITE: com.google.common.cache.LocalCache.EntryFactory;
 						public static STRONG_ACCESS_WRITE: com.google.common.cache.LocalCache.EntryFactory;
+						public static STRONG_WRITE: com.google.common.cache.LocalCache.EntryFactory;
 						public static WEAK: com.google.common.cache.LocalCache.EntryFactory;
 						public static WEAK_ACCESS: com.google.common.cache.LocalCache.EntryFactory;
-						public static WEAK_WRITE: com.google.common.cache.LocalCache.EntryFactory;
 						public static WEAK_ACCESS_WRITE: com.google.common.cache.LocalCache.EntryFactory;
+						public static WEAK_WRITE: com.google.common.cache.LocalCache.EntryFactory;
 						public static valueOf(name: string): com.google.common.cache.LocalCache.EntryFactory;
 						public static values(): native.Array<com.google.common.cache.LocalCache.EntryFactory>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -2665,8 +2665,8 @@ declare module com {
 						public cleanUp(): void;
 						/** @deprecated */
 						public apply(key: any): any;
-						public invalidateAll(keys: java.lang.Iterable<any>): void;
 						public equals(obj: any): boolean;
+						public invalidateAll(keys: java.lang.Iterable<any>): void;
 						public getIfPresent(key: any): any;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
@@ -2697,17 +2697,17 @@ declare module com {
 						public getWeight(): number;
 						public copyFor(queue: java.lang.ref.ReferenceQueue<any>, value: any, entry: com.google.common.cache.ReferenceEntry<any,any>): com.google.common.cache.LocalCache.ValueReference<any,any>;
 						public loadFuture(key: any, loader: com.google.common.cache.CacheLoader<any,any>): com.google.common.util.concurrent.ListenableFuture<any>;
-						public isActive(): boolean;
 						public elapsedNanos(): number;
 						public getEntry(): com.google.common.cache.ReferenceEntry<any,any>;
+						public isActive(): boolean;
 					}
 					export class LocalLoadingCache<K, V>  extends com.google.common.cache.LocalCache.LocalManualCache<any,any> implements com.google.common.cache.LoadingCache<any,any>  {
 						public static class: java.lang.Class<com.google.common.cache.LocalCache.LocalLoadingCache<any,any>>;
 						public cleanUp(): void;
 						/** @deprecated */
 						public apply(key: any): any;
-						public invalidateAll(keys: java.lang.Iterable<any>): void;
 						public equals(obj: any): boolean;
+						public invalidateAll(keys: java.lang.Iterable<any>): void;
 						public getIfPresent(key: any): any;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
@@ -2727,8 +2727,8 @@ declare module com {
 					export class LocalManualCache<K, V>  extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.cache.LocalCache.LocalManualCache<any,any>>;
 						public cleanUp(): void;
-						public put(key: K, value: V): void;
 						public asMap(): java.util.concurrent.ConcurrentMap<K,V>;
+						public put(key: K, value: V): void;
 						public invalidateAll(keys: java.lang.Iterable<any>): void;
 						public get(key: K, valueLoader: java.util.concurrent.Callable<any>): V;
 						public getAllPresent(keys: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<K,V>;
@@ -2765,15 +2765,15 @@ declare module com {
 						public setAccessTime(time: number): void;
 						public getKey(): any;
 						public getPreviousInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
-						public getValueReference(): com.google.common.cache.LocalCache.ValueReference<any,any>;
 						public getAccessTime(): number;
+						public getValueReference(): com.google.common.cache.LocalCache.ValueReference<any,any>;
 						public getNext(): com.google.common.cache.ReferenceEntry<any,any>;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public getWriteTime(): number;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public getNextInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInWriteQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
-						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public getPreviousInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
+						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public setWriteTime(time: number): void;
 						public getNextInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInAccessQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
@@ -2802,8 +2802,8 @@ declare module com {
 					}
 					export abstract class Strength {
 						public static class: java.lang.Class<com.google.common.cache.LocalCache.Strength>;
-						public static STRONG: com.google.common.cache.LocalCache.Strength;
 						public static SOFT: com.google.common.cache.LocalCache.Strength;
+						public static STRONG: com.google.common.cache.LocalCache.Strength;
 						public static WEAK: com.google.common.cache.LocalCache.Strength;
 						public static valueOf(name: string): com.google.common.cache.LocalCache.Strength;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -2842,8 +2842,8 @@ declare module com {
 						public getWriteTime(): number;
 						public getNextInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInWriteQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
-						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public getPreviousInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
+						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public setWriteTime(time: number): void;
 						public getNextInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInAccessQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
@@ -2984,8 +2984,8 @@ declare module com {
 						public getWriteTime(): number;
 						public getNextInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInWriteQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
-						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public getPreviousInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
+						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public setWriteTime(time: number): void;
 						public getNextInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInAccessQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
@@ -3004,8 +3004,8 @@ declare module com {
 						public getWriteTime(): number;
 						public getNextInAccessQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInWriteQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
-						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public getPreviousInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
+						public setPreviousInAccessQueue(previous: com.google.common.cache.ReferenceEntry<any,any>): void;
 						public setWriteTime(time: number): void;
 						public getNextInWriteQueue(): com.google.common.cache.ReferenceEntry<any,any>;
 						public setNextInAccessQueue(next: com.google.common.cache.ReferenceEntry<any,any>): void;
@@ -3111,11 +3111,11 @@ declare module com {
 						public equals(obj: any): boolean;
 						public static comparingByValue(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
 						public getValue(): any;
-						public getKey(): any;
 						public static comparingByValue(): java.util.Comparator<any>;
+						public getKey(): any;
 						public hashCode(): number;
-						public setValue(newValue: any): any;
 						public static comparingByKey(): java.util.Comparator<any>;
+						public setValue(newValue: any): any;
 						public static comparingByKey(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
 						public equals(object: any): boolean;
 						public toString(): string;
@@ -3178,8 +3178,8 @@ declare module com {
 				export class LongAdder extends com.google.common.cache.Striped64 implements java.io.Serializable, com.google.common.cache.LongAddable {
 					public static class: java.lang.Class<com.google.common.cache.LongAdder>;
 					public decrement(): void;
-					public sum(): number;
 					public intValue(): number;
+					public sum(): number;
 					public reset(): void;
 					public toString(): string;
 					public increment(): void;
@@ -3253,10 +3253,10 @@ declare module com {
 			export module cache {
 				export abstract class RemovalCause {
 					public static class: java.lang.Class<com.google.common.cache.RemovalCause>;
-					public static EXPLICIT: com.google.common.cache.RemovalCause;
-					public static REPLACED: com.google.common.cache.RemovalCause;
 					public static COLLECTED: com.google.common.cache.RemovalCause;
 					public static EXPIRED: com.google.common.cache.RemovalCause;
+					public static EXPLICIT: com.google.common.cache.RemovalCause;
+					public static REPLACED: com.google.common.cache.RemovalCause;
 					public static SIZE: com.google.common.cache.RemovalCause;
 					public static valueOf(name: string): com.google.common.cache.RemovalCause;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -3387,16 +3387,16 @@ declare module com {
 					public delegate(): any;
 					public remove(key: any): any;
 					public putAll(map: java.util.Map<any,any>): void;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public values(): java.util.Set<any>;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public forcePut(key: any, value: any): any;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public delegate(): java.util.Map<any,any>;
 				}
@@ -3442,8 +3442,8 @@ declare module com {
 						public add(element: any): boolean;
 						public containsAll(collection: java.util.Collection<any>): boolean;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
 					}
 					export class Inverse<K, V>  extends com.google.common.collect.AbstractBiMap<any,any> {
@@ -3584,10 +3584,10 @@ declare module com {
 				export module AbstractIterator {
 					export class State {
 						public static class: java.lang.Class<com.google.common.collect.AbstractIterator.State>;
-						public static READY: com.google.common.collect.AbstractIterator.State;
-						public static NOT_READY: com.google.common.collect.AbstractIterator.State;
 						public static DONE: com.google.common.collect.AbstractIterator.State;
 						public static FAILED: com.google.common.collect.AbstractIterator.State;
+						public static NOT_READY: com.google.common.collect.AbstractIterator.State;
+						public static READY: com.google.common.collect.AbstractIterator.State;
 						public static valueOf(name: string): com.google.common.collect.AbstractIterator.State;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static values(): native.Array<com.google.common.collect.AbstractIterator.State>;
@@ -3604,10 +3604,10 @@ declare module com {
 			export module collect {
 				export abstract class AbstractListMultimap<K, V>  extends com.google.common.collect.AbstractMapBasedMultimap<any,any> implements com.google.common.collect.ListMultimap<any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.AbstractListMultimap<any,any>>;
-					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 					public containsKey(key: any): boolean;
-					public removeAll(key: any): java.util.List<any>;
+					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 					public isEmpty(): boolean;
+					public removeAll(key: any): java.util.List<any>;
 					public keys(): com.google.common.collect.Multiset<any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
 					public size(): number;
@@ -3620,14 +3620,14 @@ declare module com {
 					public equals(object: any): boolean;
 					public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public constructor(map: java.util.Map<any,java.util.Collection<any>>);
 					public clear(): void;
-					public get(key: any): java.util.List<any>;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
+					public get(key: any): java.util.List<any>;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 				}
 			}
 		}
@@ -3782,16 +3782,16 @@ declare module com {
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,java.util.Collection<any>>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,java.util.Collection<any>>;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public headMap(toKey: any): java.util.NavigableMap<any,java.util.Collection<any>>;
 						public firstKey(): any;
+						public headMap(toKey: any): java.util.NavigableMap<any,java.util.Collection<any>>;
 						public remove(key: any): java.util.Collection<any>;
 						public ceilingKey(key: any): any;
 						public firstEntry(): java.util.Map.Entry<any,java.util.Collection<any>>;
 						public pollFirstEntry(): java.util.Map.Entry<any,any>;
 						public lowerEntry(key: any): java.util.Map.Entry<any,java.util.Collection<any>>;
 						public higherEntry(key: any): java.util.Map.Entry<any,any>;
-						public subMap(fromKey: any, toKey: any): java.util.NavigableMap<any,java.util.Collection<any>>;
 						public lastEntry(): java.util.Map.Entry<any,any>;
+						public subMap(fromKey: any, toKey: any): java.util.NavigableMap<any,java.util.Collection<any>>;
 						public remove(key: any): any;
 						public headMap(toKey: any): java.util.SortedMap<any,java.util.Collection<any>>;
 						public tailMap(fromKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
@@ -3806,13 +3806,13 @@ declare module com {
 						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public descendingKeySet(): java.util.NavigableSet<any>;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
 						public lowerKey(key: any): any;
 						public get(key: any): java.util.Collection<any>;
 						public firstEntry(): java.util.Map.Entry<any,any>;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public pollLastEntry(): java.util.Map.Entry<any,any>;
 						public pollLastEntry(): java.util.Map.Entry<any,java.util.Collection<any>>;
 						public keySet(): java.util.SortedSet<any>;
@@ -3840,8 +3840,8 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public floor(k: any): any;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
@@ -3849,20 +3849,20 @@ declare module com {
 						public ceiling(k: any): any;
 						public descendingSet(): java.util.NavigableSet<any>;
 						public spliterator(): java.util.Spliterator<any>;
-						public subSet(fromElement: any, toElement: any): java.util.NavigableSet<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
+						public subSet(fromElement: any, toElement: any): java.util.NavigableSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public pollLast(): any;
+						public addAll(c: java.util.Collection<any>): boolean;
 						public pollFirst(): any;
 						public remove(key: any): boolean;
-						public addAll(c: java.util.Collection<any>): boolean;
 						public first(): any;
 						public add(e: any): boolean;
 						public headSet(toElement: any): java.util.SortedSet<any>;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public tailSet(fromElement: any): java.util.NavigableSet<any>;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public lower(k: any): any;
@@ -3914,18 +3914,18 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public get(key: any): java.util.Collection<any>;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public size(): number;
 						public keySet(): java.util.SortedSet<any>;
 						public lastKey(): any;
@@ -3934,11 +3934,11 @@ declare module com {
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,java.util.Collection<any>>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,java.util.Collection<any>>;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
-						public remove(key: any): java.util.Collection<any>;
 						public putAll(m: java.util.Map<any,any>): void;
+						public remove(key: any): java.util.Collection<any>;
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,any>;
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
@@ -3955,23 +3955,23 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
-						public remove(key: any): boolean;
 						public addAll(c: java.util.Collection<any>): boolean;
+						public remove(key: any): boolean;
 						public first(): any;
 						public add(e: any): boolean;
 						public headSet(toElement: any): java.util.SortedSet<any>;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
 						public equals(object: any): boolean;
@@ -3982,8 +3982,8 @@ declare module com {
 						public addAll(c: java.util.Collection<any>): boolean;
 						public equals(obj: any): boolean;
 						public retainAll(c: java.util.Collection<any>): boolean;
-						public iterator(): java.util.Iterator<any>;
 						public add(e: any): boolean;
+						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public add(value: any): boolean;
@@ -4013,8 +4013,8 @@ declare module com {
 					}
 					export class WrappedList extends com.google.common.collect.AbstractMapBasedMultimap.WrappedCollection implements java.util.List<any>  {
 						public static class: java.lang.Class<com.google.common.collect.AbstractMapBasedMultimap.WrappedList>;
-						public remove(index: number): any;
 						public indexOf(o: any): number;
+						public remove(index: number): any;
 						public listIterator(): java.util.ListIterator<any>;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
@@ -4035,12 +4035,12 @@ declare module com {
 						public set(index: number, element: any): any;
 						public get(index: number): any;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public replaceAll(operator: any /* any*/): void;
 						public addAll(index: number, c: java.util.Collection<any>): boolean;
-						public sort(c: java.util.Comparator<any>): void;
 						public clear(): void;
+						public sort(c: java.util.Comparator<any>): void;
 						public forEach(action: any /* any*/): void;
 						public equals(object: any): boolean;
 						public addAll(collection: java.util.Collection<any>): boolean;
@@ -4070,9 +4070,9 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public add(value: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
@@ -4080,8 +4080,8 @@ declare module com {
 						public spliterator(): java.util.Spliterator<any>;
 						public higher(v: any): any;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public lower(v: any): any;
 						public pollLast(): any;
@@ -4090,16 +4090,16 @@ declare module com {
 						public floor(v: any): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public ceiling(v: any): any;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class WrappedSet extends com.google.common.collect.AbstractMapBasedMultimap.WrappedCollection implements java.util.Set<any>  {
 						public static class: java.lang.Class<com.google.common.collect.AbstractMapBasedMultimap.WrappedSet>;
@@ -4110,19 +4110,19 @@ declare module com {
 						public add(value: any): boolean;
 						public remove(o: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
-						public removeAll(c: java.util.Collection<any>): boolean;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public contains(o: any): boolean;
+						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
 						public containsAll(c: java.util.Collection<any>): boolean;
-						public size(): number;
 						public forEach(action: any /* any*/): void;
+						public size(): number;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class WrappedSortedSet extends com.google.common.collect.AbstractMapBasedMultimap.WrappedCollection implements java.util.SortedSet<any>  {
 						public static class: java.lang.Class<com.google.common.collect.AbstractMapBasedMultimap.WrappedSortedSet>;
@@ -4131,27 +4131,27 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public add(value: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public first(): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 				}
 			}
@@ -4219,8 +4219,8 @@ declare module com {
 					public toString(): string;
 					public static comparingByKey(): java.util.Comparator<any>;
 					public setValue(value: any): any;
-					public static comparingByValue(): java.util.Comparator<any>;
 					public static comparingByKey(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
+					public static comparingByValue(): java.util.Comparator<any>;
 					public getKey(): any;
 					public hashCode(): number;
 				}
@@ -4242,8 +4242,8 @@ declare module com {
 					public size(): number;
 					public put(key: any, value: any): boolean;
 					public values(): java.util.Collection<any>;
-					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public get(object0: any): java.util.Collection<any>;
+					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public remove(key: any, value: any): boolean;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
@@ -4251,11 +4251,11 @@ declare module com {
 					public toString(): string;
 					public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 					public keySet(): java.util.Set<any>;
-					public removeAll(object0: any): java.util.Collection<any>;
 					public clear(): void;
+					public removeAll(object0: any): java.util.Collection<any>;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public containsKey(object0: any): boolean;
 				}
 				export module AbstractMultimap {
@@ -4287,23 +4287,23 @@ declare module com {
 						public addAll(c: java.util.Collection<any>): boolean;
 						public equals(obj: any): boolean;
 						public retainAll(c: java.util.Collection<any>): boolean;
+						public add(e: any): boolean;
 						public iterator(): java.util.Iterator<java.util.Map.Entry<any,any>>;
 						public iterator(): java.util.Iterator<any>;
-						public add(e: any): boolean;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public remove(o: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
 						public containsAll(c: java.util.Collection<any>): boolean;
-						public size(): number;
 						public forEach(action: any /* any*/): void;
+						public size(): number;
 						public toArray(): native.Array<any>;
 					}
 					export class Values extends java.util.AbstractCollection<any> {
@@ -4350,11 +4350,11 @@ declare module com {
 					public size(): number;
 					public remove(element: any): boolean;
 					public setCount(element: any, count: number): number;
-					public contains(o: any): boolean;
 					public add(element: any): boolean;
+					public contains(o: any): boolean;
 					public equals(object: any): boolean;
-					public toString(): string;
 					public iterator(): java.util.Iterator<any>;
+					public toString(): string;
 					public removeAll(c: java.util.Collection<any>): boolean;
 					public toArray(): native.Array<any>;
 					public clear(): void;
@@ -4364,16 +4364,16 @@ declare module com {
 					public addAll(elementsToAdd: java.util.Collection<any>): boolean;
 					public containsAll(c: java.util.Collection<any>): boolean;
 					public hashCode(): number;
-					public setCount(element: any, oldCount: number, newCount: number): boolean;
 					public forEach(action: any /* any*/): void;
+					public setCount(element: any, oldCount: number, newCount: number): boolean;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public add(e: any): boolean;
 					public retainAll(c: java.util.Collection<any>): boolean;
 					public retainAll(elementsToRetain: java.util.Collection<any>): boolean;
 					public removeIf(filter: any /* any*/): boolean;
 					public stream(): java.util.stream.Stream<any>;
-					public removeAll(elementsToRemove: java.util.Collection<any>): boolean;
 					public elementSet(): java.util.Set<any>;
+					public removeAll(elementsToRemove: java.util.Collection<any>): boolean;
 					public entrySet(): java.util.Set<com.google.common.collect.Multiset.Entry<any>>;
 				}
 				export module AbstractMultiset {
@@ -4453,13 +4453,13 @@ declare module com {
 					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public subMap(object0: any, boolean1: boolean, object2: any, boolean3: boolean): java.util.NavigableMap<any,any>;
 					public lowerEntry(key: any): java.util.Map.Entry<any,any>;
-					public pollLastEntry(): java.util.Map.Entry<any,any>;
 					public containsKey(key: any): boolean;
+					public pollLastEntry(): java.util.Map.Entry<any,any>;
 					public lastEntry(): java.util.Map.Entry<any,any>;
 					public comparator(): java.util.Comparator<any>;
 					public headMap(object0: any, boolean1: boolean): java.util.NavigableMap<any,any>;
-					public lastKey(): any;
 					public higherEntry(key: any): java.util.Map.Entry<any,any>;
+					public lastKey(): any;
 					public remove(key: any, value: any): boolean;
 					public getOrDefault(key: any, defaultValue: any): any;
 					public putIfAbsent(key: any, value: any): any;
@@ -4470,9 +4470,9 @@ declare module com {
 					public higherKey(key: any): any;
 					public remove(key: any): any;
 					public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
+					public replaceAll(function0: any /* any<any,any,any>*/): void;
 					public tailMap(object0: any, boolean1: boolean): java.util.NavigableMap<any,any>;
 					public values(): java.util.Collection<any>;
-					public replaceAll(function0: any /* any<any,any,any>*/): void;
 					public containsValue(value: any): boolean;
 					public navigableKeySet(): java.util.NavigableSet<any>;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
@@ -4480,8 +4480,8 @@ declare module com {
 					public firstKey(): any;
 					public ceilingEntry(key: any): java.util.Map.Entry<any,any>;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public putAll(m: java.util.Map<any,any>): void;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public putAll(m: java.util.Map<any,any>): void;
 					public descendingKeySet(): java.util.NavigableSet<any>;
 				}
 				export module AbstractNavigableMap {
@@ -4560,12 +4560,12 @@ declare module com {
 					public toString(): string;
 					public encloses(range0: com.google.common.collect.Range<any>): boolean;
 					public addAll(ranges: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
-					public contains(value: any): boolean;
-					public clear(): void;
 					public asDescendingSetOfRanges(): java.util.Set<com.google.common.collect.Range<any>>;
+					public clear(): void;
 					public complement(): com.google.common.collect.RangeSet<any>;
-					public span(): com.google.common.collect.Range<any>;
+					public contains(value: any): boolean;
 					public asRanges(): java.util.Set<com.google.common.collect.Range<any>>;
+					public span(): com.google.common.collect.Range<any>;
 					public subRangeSet(range0: com.google.common.collect.Range<any>): com.google.common.collect.RangeSet<any>;
 					public hashCode(): number;
 				}
@@ -4607,13 +4607,13 @@ declare module com {
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public constructor(map: java.util.Map<any,java.util.Collection<any>>);
 					public clear(): void;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public removeAll(key: any): java.util.Set<any>;
 					public put(key: any, value: any): boolean;
 					public values(): java.util.Collection<any>;
@@ -4688,8 +4688,8 @@ declare module com {
 					public setCount(element: any, count: number): number;
 					public add(element: any): boolean;
 					public pollFirstEntry(): com.google.common.collect.Multiset.Entry<any>;
-					public iterator(): java.util.Iterator<any>;
 					public equals(object: any): boolean;
+					public iterator(): java.util.Iterator<any>;
 					public toString(): string;
 					public firstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public elementSet(): java.util.SortedSet<any>;
@@ -4697,12 +4697,12 @@ declare module com {
 					public clear(): void;
 					public contains(element: any): boolean;
 					public remove(element: any, occurrences: number): number;
-					public subMultiset(fromElement: any, fromBoundType: com.google.common.collect.BoundType, toElement: any, toBoundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
-					public containsAll(c: java.util.Collection<any>): boolean;
 					public addAll(elementsToAdd: java.util.Collection<any>): boolean;
+					public containsAll(c: java.util.Collection<any>): boolean;
+					public subMultiset(fromElement: any, fromBoundType: com.google.common.collect.BoundType, toElement: any, toBoundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public hashCode(): number;
-					public setCount(element: any, oldCount: number, newCount: number): boolean;
 					public forEach(action: any /* any*/): void;
+					public setCount(element: any, oldCount: number, newCount: number): boolean;
 					public descendingMultiset(): com.google.common.collect.SortedMultiset<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public pollLastEntry(): com.google.common.collect.Multiset.Entry<any>;
@@ -4733,23 +4733,23 @@ declare module com {
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
 					public size(): number;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
-					public removeAll(key: any): java.util.SortedSet<any>;
 					public remove(key: any, value: any): boolean;
+					public removeAll(key: any): java.util.SortedSet<any>;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public get(key: any): java.util.SortedSet<any>;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public constructor(map: java.util.Map<any,java.util.Collection<any>>);
 					public clear(): void;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public removeAll(key: any): java.util.Set<any>;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.SortedSet<any>;
-					public values(): java.util.Collection<any>;
 					public put(key: any, value: any): boolean;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public entries(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
@@ -4769,8 +4769,8 @@ declare module com {
 				export abstract class AbstractTable<R, C, V>  extends com.google.common.collect.Table<any,any,any> {
 					public static class: java.lang.Class<com.google.common.collect.AbstractTable<any,any,any>>;
 					public get(rowKey: any, columnKey: any): any;
-					public put(rowKey: any, columnKey: any, value: any): any;
 					public equals(obj: any): boolean;
+					public put(rowKey: any, columnKey: any, value: any): any;
 					public isEmpty(): boolean;
 					public row(object0: any): java.util.Map<any,any>;
 					public rowKeySet(): java.util.Set<any>;
@@ -4787,8 +4787,8 @@ declare module com {
 					public putAll(table: com.google.common.collect.Table<any,any,any>): void;
 					public rowMap(): java.util.Map<any,java.util.Map<any,any>>;
 					public column(object0: any): java.util.Map<any,any>;
-					public containsRow(rowKey: any): boolean;
 					public columnKeySet(): java.util.Set<any>;
+					public containsRow(rowKey: any): boolean;
 					public hashCode(): number;
 				}
 				export module AbstractTable {
@@ -4978,8 +4978,8 @@ declare module com {
 					public containsColumn(columnKey: any): boolean;
 					public clear(): void;
 					public rowMap(): java.util.Map<any,java.util.Map<any,any>>;
-					public containsRow(rowKey: any): boolean;
 					public columnKeySet(): java.util.Set<any>;
+					public containsRow(rowKey: any): boolean;
 					public static create(rowKeys: java.lang.Iterable<any>, columnKeys: java.lang.Iterable<any>): com.google.common.collect.ArrayTable<any,any,any>;
 					public static create(table: com.google.common.collect.Table<any,any,any>): com.google.common.collect.ArrayTable<any,any,any>;
 					public hashCode(): number;
@@ -5263,8 +5263,8 @@ declare module com {
 			export module collect {
 				export class BoundType {
 					public static class: java.lang.Class<com.google.common.collect.BoundType>;
-					public static OPEN: com.google.common.collect.BoundType;
 					public static CLOSED: com.google.common.collect.BoundType;
+					public static OPEN: com.google.common.collect.BoundType;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static valueOf(name: string): com.google.common.collect.BoundType;
 					public static values(): native.Array<com.google.common.collect.BoundType>;
@@ -5709,8 +5709,8 @@ declare module com {
 					public contains(object: any): boolean;
 					public size(): number;
 					public equals(o: any): boolean;
-					public static createWithExpectedSize(expectedSize: number): com.google.common.collect.CompactHashSet<any>;
 					public contains(o: any): boolean;
+					public static createWithExpectedSize(expectedSize: number): com.google.common.collect.CompactHashSet<any>;
 					public iterator(): java.util.Iterator<any>;
 					public removeAll(c: java.util.Collection<any>): boolean;
 					public toArray(): native.Array<any>;
@@ -5880,8 +5880,8 @@ declare module com {
 					public compare(long0: number, long1: number): com.google.common.collect.ComparisonChain;
 					public compare(double0: number, double1: number): com.google.common.collect.ComparisonChain;
 					public result(): number;
-					public static start(): com.google.common.collect.ComparisonChain;
 					public compare(float0: number, float1: number): com.google.common.collect.ComparisonChain;
+					public static start(): com.google.common.collect.ComparisonChain;
 					public compare(comparable0: java.lang.Comparable<any>, comparable1: java.lang.Comparable<any>): com.google.common.collect.ComparisonChain;
 					public compareFalseFirst(boolean0: boolean, boolean1: boolean): com.google.common.collect.ComparisonChain;
 				}
@@ -6598,8 +6598,8 @@ declare module com {
 					public pollLast(): any;
 					public stream(): java.util.stream.Stream<any>;
 					public tailSet(fromElement: any, inclusive: boolean): com.google.common.collect.ImmutableSortedSet<any>;
-					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
 					public floor(element: any): any;
+					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
 					public higher(element: any): any;
 					public addAll(newElements: java.util.Collection<any>): boolean;
 					public tailSet(object0: any, boolean1: boolean): java.util.NavigableSet<any>;
@@ -6629,20 +6629,20 @@ declare module com {
 					public add(element: any): boolean;
 					public pollFirstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public removeAll(collection: java.util.Collection<any>): boolean;
+					public equals(object: any): boolean;
 					public iterator(): java.util.Iterator<any>;
 					public toString(): string;
-					public equals(object: any): boolean;
 					public firstEntry(): com.google.common.collect.Multiset.Entry<any>;
-					public toArray(): native.Array<any>;
 					public elementSet(): java.util.SortedSet<any>;
+					public toArray(): native.Array<any>;
 					public clear(): void;
 					public remove(element: any, occurrences: number): number;
 					public subMultiset(fromElement: any, fromBoundType: com.google.common.collect.BoundType, toElement: any, toBoundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public hashCode(): number;
 					public delegate(): any;
+					public forEach(action: any /* any*/): void;
 					public remove(object: any): boolean;
 					public setCount(element: any, oldCount: number, newCount: number): boolean;
-					public forEach(action: any /* any*/): void;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public descendingMultiset(): com.google.common.collect.SortedMultiset<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
@@ -6653,9 +6653,9 @@ declare module com {
 					public retainAll(collection: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
 					public elementSet(): java.util.Set<any>;
+					public count(element: any): number;
 					public delegate(): com.google.common.collect.Multiset<any>;
 					public entrySet(): java.util.Set<com.google.common.collect.Multiset.Entry<any>>;
-					public count(element: any): number;
 					public elementSet(): java.util.NavigableSet<any>;
 				}
 			}
@@ -6674,9 +6674,9 @@ declare module com {
 					public maxValue(): C;
 					public minValue(): C;
 					public static integers(): com.google.common.collect.DiscreteDomain<java.lang.Integer>;
-					public static longs(): com.google.common.collect.DiscreteDomain<java.lang.Long>;
 					public static bigIntegers(): com.google.common.collect.DiscreteDomain<java.math.BigInteger>;
 					public distance(comparable0: C, comparable1: C): number;
+					public static longs(): com.google.common.collect.DiscreteDomain<java.lang.Long>;
 					public previous(comparable0: C): C;
 				}
 				export module DiscreteDomain {
@@ -6694,15 +6694,15 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.collect.DiscreteDomain.IntegerDomain>;
 						public maxValue(): java.lang.Integer;
 						public previous(comparable0: any): any;
+						public minValue(): java.lang.Integer;
 						public next(value: java.lang.Integer): java.lang.Integer;
 						public previous(value: java.lang.Integer): java.lang.Integer;
-						public minValue(): java.lang.Integer;
 						public maxValue(): any;
 						public distance(comparable0: any, comparable1: any): number;
 						public distance(start: java.lang.Integer, end: java.lang.Integer): number;
 						public toString(): string;
-						public next(comparable0: any): any;
 						public minValue(): any;
+						public next(comparable0: any): any;
 					}
 					export class LongDomain extends com.google.common.collect.DiscreteDomain<java.lang.Long> implements java.io.Serializable  {
 						public static class: java.lang.Class<com.google.common.collect.DiscreteDomain.LongDomain>;
@@ -6715,8 +6715,8 @@ declare module com {
 						public maxValue(): any;
 						public distance(comparable0: any, comparable1: any): number;
 						public toString(): string;
-						public next(comparable0: any): any;
 						public minValue(): any;
+						public next(comparable0: any): any;
 					}
 				}
 			}
@@ -6779,8 +6779,8 @@ declare module com {
 					public pollFirst(): any;
 					public toArray(other: native.Array<any>): native.Array<any>;
 					public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): com.google.common.collect.ContiguousSet<any>;
-					public toString(): string;
 					public equals(object: any): boolean;
+					public toString(): string;
 					public clear(): void;
 					public containsAll(c: java.util.Collection<any>): boolean;
 					public hashCode(): number;
@@ -7174,14 +7174,14 @@ declare module com {
 					public equals(object: any): boolean;
 					public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
-					public entryPredicate(): com.google.common.base.Predicate<any>;
 					public containsEntry(key: any, value: any): boolean;
+					public entryPredicate(): com.google.common.base.Predicate<any>;
 					public unfiltered(): com.google.common.collect.Multimap<any,any>;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 				}
 				export module FilteredEntryMultimap {
 					export class AsMap extends com.google.common.collect.Maps.ViewCachingAbstractMap<any,java.util.Collection<any>> {
@@ -7272,14 +7272,14 @@ declare module com {
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
-					public unfiltered(): com.google.common.collect.SetMultimap<any,any>;
 					public containsEntry(key: any, value: any): boolean;
+					public unfiltered(): com.google.common.collect.SetMultimap<any,any>;
 					public unfiltered(): com.google.common.collect.Multimap<any,any>;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public removeAll(key: any): java.util.Set<any>;
 					public put(key: any, value: any): boolean;
 					public values(): java.util.Collection<any>;
@@ -7302,8 +7302,8 @@ declare module com {
 				export class FilteredKeyListMultimap<K, V>  extends com.google.common.collect.FilteredKeyMultimap<any,any> implements com.google.common.collect.ListMultimap<any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.FilteredKeyListMultimap<any,any>>;
 					public containsKey(key: any): boolean;
-					public removeAll(key: any): java.util.List<any>;
 					public isEmpty(): boolean;
+					public removeAll(key: any): java.util.List<any>;
 					public keys(): com.google.common.collect.Multiset<any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
 					public size(): number;
@@ -7312,14 +7312,14 @@ declare module com {
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
-					public get(key: any): java.util.List<any>;
 					public containsEntry(key: any, value: any): boolean;
+					public get(key: any): java.util.List<any>;
 					public unfiltered(): com.google.common.collect.Multimap<any,any>;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 					public put(key: any, value: any): boolean;
 					public values(): java.util.Collection<any>;
@@ -7353,14 +7353,14 @@ declare module com {
 					public equals(object: any): boolean;
 					public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
-					public entryPredicate(): com.google.common.base.Predicate<any>;
 					public containsEntry(key: any, value: any): boolean;
+					public entryPredicate(): com.google.common.base.Predicate<any>;
 					public unfiltered(): com.google.common.collect.Multimap<any,any>;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 				}
 				export module FilteredKeyMultimap {
 					export class AddRejectingList<K, V>  extends com.google.common.collect.ForwardingList<any> {
@@ -7474,14 +7474,14 @@ declare module com {
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public get(key: any): java.util.Collection<any>;
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
-					public unfiltered(): com.google.common.collect.SetMultimap<any,any>;
 					public containsEntry(key: any, value: any): boolean;
+					public unfiltered(): com.google.common.collect.SetMultimap<any,any>;
 					public unfiltered(): com.google.common.collect.Multimap<any,any>;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public removeAll(key: any): java.util.Set<any>;
 					public put(key: any, value: any): boolean;
 					public values(): java.util.Collection<any>;
@@ -7502,20 +7502,20 @@ declare module com {
 						public hashCode(): number;
 						public remove(o: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public toArray(array: native.Array<any>): native.Array<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
-						public equals(o: any): boolean;
 						public add(element: any): boolean;
-						public size(): number;
+						public equals(o: any): boolean;
 						public forEach(action: any /* any*/): void;
+						public size(): number;
 						public containsAll(collection: java.util.Collection<any>): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 				}
 			}
@@ -7725,14 +7725,14 @@ declare module com {
 					public static concat(a: java.lang.Iterable<any>, b: java.lang.Iterable<any>, c: java.lang.Iterable<any>): com.google.common.collect.FluentIterable<any>;
 					public uniqueIndex(keyFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableMap<any,any>;
 					public size(): number;
-					public toMap(valueFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableMap<any,any>;
 					public get(position: number): any;
+					public toMap(valueFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableMap<any,any>;
 					public firstMatch(predicate: com.google.common.base.Predicate<any>): com.google.common.base.Optional<any>;
+					public iterator(): java.util.Iterator<any>;
 					public static of(): com.google.common.collect.FluentIterable<any>;
+					public toSortedSet(comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public toString(): string;
 					public transformAndConcat(function0: com.google.common.base.Function<any,any>): com.google.common.collect.FluentIterable<any>;
-					public toSortedSet(comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSortedSet<any>;
-					public iterator(): java.util.Iterator<any>;
 					public constructor();
 					public index(keyFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableListMultimap<any,any>;
 					public limit(maxSize: number): com.google.common.collect.FluentIterable<any>;
@@ -7751,16 +7751,16 @@ declare module com {
 					public static concat(a: java.lang.Iterable<any>, b: java.lang.Iterable<any>): com.google.common.collect.FluentIterable<any>;
 					public join(joiner: com.google.common.base.Joiner): string;
 					public static concat(inputs: java.lang.Iterable<any>): com.google.common.collect.FluentIterable<any>;
+					public filter(predicate: com.google.common.base.Predicate<any>): com.google.common.collect.FluentIterable<any>;
 					/** @deprecated */
 					public static from(iterable: com.google.common.collect.FluentIterable<any>): com.google.common.collect.FluentIterable<any>;
-					public filter(predicate: com.google.common.base.Predicate<any>): com.google.common.collect.FluentIterable<any>;
 					public last(): com.google.common.base.Optional<any>;
-					public toSortedList(comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableList<any>;
 					public toSet(): com.google.common.collect.ImmutableSet<any>;
+					public toSortedList(comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableList<any>;
 					public cycle(): com.google.common.collect.FluentIterable<any>;
 					public transform(function0: com.google.common.base.Function<any,any>): com.google.common.collect.FluentIterable<any>;
-					public anyMatch(predicate: com.google.common.base.Predicate<any>): boolean;
 					public allMatch(predicate: com.google.common.base.Predicate<any>): boolean;
+					public anyMatch(predicate: com.google.common.base.Predicate<any>): boolean;
 				}
 				export module FluentIterable {
 					export class FromIterableFunction<E>  extends com.google.common.base.Function<java.lang.Iterable<any>,com.google.common.collect.FluentIterable<any>> {
@@ -7783,17 +7783,17 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingBlockingDeque<any>>;
 					public delegate(): java.util.Collection<any>;
 					public delegate(): java.util.Deque<any>;
-					public peek(): any;
 					public isEmpty(): boolean;
+					public peek(): any;
 					public spliterator(): java.util.Spliterator<any>;
 					public put(e: any): void;
 					public size(): number;
 					public pollFirst(timeout: number, unit: java.util.concurrent.TimeUnit): any;
-					public offerLast(e: any): boolean;
 					public add(element: any): boolean;
+					public offerLast(e: any): boolean;
 					public offerLast(e: any, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
-					public takeFirst(): any;
 					public removeAll(collection: java.util.Collection<any>): boolean;
+					public takeFirst(): any;
 					public iterator(): java.util.Iterator<any>;
 					public peekFirst(): any;
 					public constructor();
@@ -7803,14 +7803,14 @@ declare module com {
 					public delegate(): java.util.concurrent.BlockingDeque<any>;
 					public remove(object: any): boolean;
 					public takeLast(): any;
-					public pollFirst(): any;
 					public offer(e: any, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
+					public pollFirst(): any;
 					public addAll(collection: java.util.Collection<any>): boolean;
 					public drainTo(c: java.util.Collection<any>): number;
 					public drainTo(c: java.util.Collection<any>, maxElements: number): number;
 					public addLast(e: any): void;
-					public remove(): any;
 					public element(): any;
+					public remove(): any;
 					public equals(obj: any): boolean;
 					public pollLast(timeout: number, unit: java.util.concurrent.TimeUnit): any;
 					public removeLast(): any;
@@ -7822,8 +7822,8 @@ declare module com {
 					public poll(): any;
 					public putFirst(e: any): void;
 					public delegate(): java.util.Queue<any>;
-					public putLast(e: any): void;
 					public clear(): void;
+					public putLast(e: any): void;
 					public remainingCapacity(): number;
 					public removeFirst(): any;
 					public hashCode(): number;
@@ -7878,8 +7878,8 @@ declare module com {
 					public hashCode(): number;
 					public delegate(): any;
 					public standardClear(): void;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public addAll(collection: java.util.Collection<any>): boolean;
@@ -7911,24 +7911,24 @@ declare module com {
 					public remove(key: any, value: any): boolean;
 					public equals(object: any): boolean;
 					public remove(object: any): any;
-					public putIfAbsent(key: any, value: any): any;
 					public getOrDefault(key: any, defaultValue: any): any;
+					public putIfAbsent(key: any, value: any): any;
 					public constructor();
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public hashCode(): number;
+					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public delegate(): any;
-					public replaceAll(function0: any /* any<any,any,any>*/): void;
 					public putAll(map: java.util.Map<any,any>): void;
+					public replaceAll(function0: any /* any<any,any,any>*/): void;
 					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public delegate(): java.util.Map<any,any>;
 				}
@@ -7946,20 +7946,20 @@ declare module com {
 					public delegate(): java.util.Collection<any>;
 					public delegate(): java.util.Deque<any>;
 					public equals(obj: any): boolean;
-					public peek(): any;
 					public isEmpty(): boolean;
+					public peek(): any;
 					public spliterator(): java.util.Spliterator<any>;
 					public removeLast(): any;
 					public contains(object: any): boolean;
 					public containsAll(collection: java.util.Collection<any>): boolean;
 					public size(): number;
 					public addFirst(e: any): void;
-					public offerLast(e: any): boolean;
 					public add(element: any): boolean;
-					public removeFirstOccurrence(o: any): boolean;
+					public offerLast(e: any): boolean;
 					public removeAll(collection: java.util.Collection<any>): boolean;
-					public poll(): any;
+					public removeFirstOccurrence(o: any): boolean;
 					public iterator(): java.util.Iterator<any>;
+					public poll(): any;
 					public peekFirst(): any;
 					public delegate(): java.util.Queue<any>;
 					public constructor();
@@ -7972,8 +7972,8 @@ declare module com {
 					public delegate(): any;
 					public pop(): any;
 					public offer(o: any): boolean;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public pollFirst(): any;
@@ -7987,9 +7987,9 @@ declare module com {
 					public retainAll(collection: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
 					public addLast(e: any): void;
+					public element(): any;
 					public peekLast(): any;
 					public remove(): any;
-					public element(): any;
 				}
 			}
 		}
@@ -8074,17 +8074,17 @@ declare module com {
 					public spliterator(): java.util.Spliterator<any>;
 					public subList(fromIndex: number, toIndex: number): java.util.List<any>;
 					public get(index: number): any;
-					public set(index: number, element: any): any;
 					public contains(object: any): boolean;
 					public containsAll(collection: java.util.Collection<any>): boolean;
+					public set(index: number, element: any): any;
 					public size(): number;
 					public remove(index: number): any;
 					public standardAddAll(index: number, elements: java.lang.Iterable<any>): boolean;
 					public add(element: any): boolean;
 					public removeAll(collection: java.util.Collection<any>): boolean;
 					public equals(object: any): boolean;
-					public standardHashCode(): number;
 					public iterator(): java.util.Iterator<any>;
+					public standardHashCode(): number;
 					public indexOf(element: any): number;
 					public constructor();
 					public standardListIterator(start: number): java.util.ListIterator<any>;
@@ -8096,8 +8096,8 @@ declare module com {
 					public standardLastIndexOf(element: any): number;
 					public hashCode(): number;
 					public delegate(): any;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public standardIterator(): java.util.Iterator<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
@@ -8154,8 +8154,8 @@ declare module com {
 				export abstract class ForwardingListMultimap<K, V>  extends com.google.common.collect.ForwardingMultimap<any,any> implements com.google.common.collect.ListMultimap<any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingListMultimap<any,any>>;
 					public containsKey(key: any): boolean;
-					public removeAll(key: any): java.util.List<any>;
 					public isEmpty(): boolean;
+					public removeAll(key: any): java.util.List<any>;
 					public keys(): com.google.common.collect.Multiset<any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
 					public size(): number;
@@ -8165,13 +8165,13 @@ declare module com {
 					public equals(object: any): boolean;
 					public get(key: any): java.util.Collection<any>;
 					public constructor();
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
-					public get(key: any): java.util.List<any>;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
+					public get(key: any): java.util.List<any>;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public delegate(): any;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 					public delegate(): com.google.common.collect.ListMultimap<any,any>;
@@ -8220,14 +8220,14 @@ declare module com {
 					public standardContainsValue(value: any): boolean;
 					public standardEquals(object: any): boolean;
 					public putAll(map: java.util.Map<any,any>): void;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public delegate(): java.util.Map<any,any>;
 				}
@@ -8320,8 +8320,8 @@ declare module com {
 					public getValue(): any;
 					public equals(obj: any): boolean;
 					public setValue(value: any): any;
-					public static comparingByValue(): java.util.Comparator<any>;
 					public static comparingByKey(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
+					public static comparingByValue(): java.util.Comparator<any>;
 					public standardEquals(object: any): boolean;
 					public static comparingByValue(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
 					public equals(object: any): boolean;
@@ -8365,8 +8365,8 @@ declare module com {
 					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public delegate(): any;
 				}
 			}
@@ -8429,8 +8429,8 @@ declare module com {
 					public standardAddAll(elementsToAdd: java.util.Collection<any>): boolean;
 					public retainAll(collection: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
-					public delegate(): com.google.common.collect.Multiset<any>;
 					public count(element: any): number;
+					public delegate(): com.google.common.collect.Multiset<any>;
 					public standardSetCount(element: any, oldCount: number, newCount: number): boolean;
 				}
 				export module ForwardingMultiset {
@@ -8471,15 +8471,15 @@ declare module com {
 				export abstract class ForwardingNavigableMap<K, V>  extends com.google.common.collect.ForwardingSortedMap<any,any> implements java.util.NavigableMap<any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingNavigableMap<any,any>>;
 					public headMap(toKey: any): java.util.SortedMap<any,any>;
-					public headMap(toKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 					public get(key: any): any;
+					public headMap(toKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 					public isEmpty(): boolean;
 					public forEach(action: any /* any<any,any>*/): void;
 					public floorEntry(key: any): java.util.Map.Entry<any,any>;
 					public standardPollLastEntry(): java.util.Map.Entry<any,any>;
 					public tailMap(fromKey: any): java.util.SortedMap<any,any>;
-					public standardTailMap(fromKey: any): java.util.SortedMap<any,any>;
 					public size(): number;
+					public standardTailMap(fromKey: any): java.util.SortedMap<any,any>;
 					public lowerKey(key: any): any;
 					public floorKey(key: any): any;
 					public standardLowerEntry(key: any): java.util.Map.Entry<any,any>;
@@ -8491,20 +8491,20 @@ declare module com {
 					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public standardFirstKey(): any;
 					public ceilingKey(key: any): any;
-					public subMap(fromKey: any, fromInclusive: boolean, toKey: any, toInclusive: boolean): java.util.NavigableMap<any,any>;
 					public putAll(map: java.util.Map<any,any>): void;
+					public subMap(fromKey: any, fromInclusive: boolean, toKey: any, toInclusive: boolean): java.util.NavigableMap<any,any>;
 					public delegate(): java.util.NavigableMap<any,any>;
 					public replace(key: any, value: any): any;
-					public standardLowerKey(key: any): any;
 					public pollFirstEntry(): java.util.Map.Entry<any,any>;
+					public standardLowerKey(key: any): any;
 					public standardHigherEntry(key: any): java.util.Map.Entry<any,any>;
-					public tailMap(fromKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+					public tailMap(fromKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 					public delegate(): java.util.Map<any,any>;
 					public lowerEntry(key: any): java.util.Map.Entry<any,any>;
-					public standardPollFirstEntry(): java.util.Map.Entry<any,any>;
-					public pollLastEntry(): java.util.Map.Entry<any,any>;
 					public containsKey(key: any): boolean;
+					public pollLastEntry(): java.util.Map.Entry<any,any>;
+					public standardPollFirstEntry(): java.util.Map.Entry<any,any>;
 					public lastEntry(): java.util.Map.Entry<any,any>;
 					public comparator(): java.util.Comparator<any>;
 					public standardCeilingEntry(key: any): java.util.Map.Entry<any,any>;
@@ -8514,8 +8514,8 @@ declare module com {
 					public equals(object: any): boolean;
 					public getOrDefault(key: any, defaultValue: any): any;
 					public putIfAbsent(key: any, value: any): any;
-					public standardLastKey(): any;
 					public clear(): void;
+					public standardLastKey(): any;
 					public firstEntry(): java.util.Map.Entry<any,any>;
 					public descendingMap(): java.util.NavigableMap<any,any>;
 					public hashCode(): number;
@@ -8526,8 +8526,8 @@ declare module com {
 					public standardCeilingKey(key: any): any;
 					public standardHigherKey(key: any): any;
 					public delegate(): java.util.SortedMap<any,any>;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public standardHeadMap(toKey: any): java.util.SortedMap<any,any>;
 					public containsValue(value: any): boolean;
 					public navigableKeySet(): java.util.NavigableSet<any>;
@@ -8539,9 +8539,9 @@ declare module com {
 					public ceilingEntry(key: any): java.util.Map.Entry<any,any>;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public standardFloorEntry(key: any): java.util.Map.Entry<any,any>;
-					public standardFirstEntry(): java.util.Map.Entry<any,any>;
 					public descendingKeySet(): java.util.NavigableSet<any>;
+					public standardFirstEntry(): java.util.Map.Entry<any,any>;
+					public standardFloorEntry(key: any): java.util.Map.Entry<any,any>;
 				}
 				export module ForwardingNavigableMap {
 					export class StandardDescendingMap extends com.google.common.collect.Maps.DescendingMap<any,any> {
@@ -8651,8 +8651,8 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingNavigableSet<any>>;
 					public ceiling(e: any): any;
 					public delegate(): java.util.Collection<any>;
-					public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 					public isEmpty(): boolean;
+					public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 					public spliterator(): java.util.Spliterator<any>;
 					public size(): number;
 					public delegate(): java.util.SortedSet<any>;
@@ -8670,8 +8670,8 @@ declare module com {
 					public tailSet(fromElement: any): java.util.SortedSet<any>;
 					public addAll(collection: java.util.Collection<any>): boolean;
 					public descendingSet(): java.util.NavigableSet<any>;
-					public standardSubSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 					public first(): any;
+					public standardSubSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 					public last(): any;
 					public standardCeiling(e: any): any;
 					public standardHigher(e: any): any;
@@ -8682,8 +8682,8 @@ declare module com {
 					public containsAll(collection: java.util.Collection<any>): boolean;
 					public standardLower(e: any): any;
 					public delegate(): java.util.NavigableSet<any>;
-					public standardFirst(): any;
 					public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
+					public standardFirst(): any;
 					public lower(e: any): any;
 					public equals(object: any): boolean;
 					public clear(): void;
@@ -8776,16 +8776,16 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingQueue<any>>;
 					public delegate(): java.util.Collection<any>;
 					public equals(obj: any): boolean;
-					public peek(): any;
 					public isEmpty(): boolean;
+					public peek(): any;
 					public spliterator(): java.util.Spliterator<any>;
 					public contains(object: any): boolean;
 					public containsAll(collection: java.util.Collection<any>): boolean;
 					public size(): number;
 					public add(element: any): boolean;
 					public removeAll(collection: java.util.Collection<any>): boolean;
-					public poll(): any;
 					public iterator(): java.util.Iterator<any>;
+					public poll(): any;
 					public delegate(): java.util.Queue<any>;
 					public constructor();
 					public toArray(): native.Array<any>;
@@ -8794,8 +8794,8 @@ declare module com {
 					public hashCode(): number;
 					public delegate(): any;
 					public offer(o: any): boolean;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public standardPeek(): any;
 					public parallelStream(): java.util.stream.Stream<any>;
@@ -8804,8 +8804,8 @@ declare module com {
 					public standardPoll(): any;
 					public retainAll(collection: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
-					public remove(): any;
 					public element(): any;
+					public remove(): any;
 				}
 			}
 		}
@@ -8829,16 +8829,16 @@ declare module com {
 					public add(element: any): boolean;
 					public removeAll(collection: java.util.Collection<any>): boolean;
 					public equals(object: any): boolean;
-					public standardHashCode(): number;
 					public iterator(): java.util.Iterator<any>;
+					public standardHashCode(): number;
 					public constructor();
 					public toArray(): native.Array<any>;
 					public clear(): void;
 					public hashCode(): number;
 					public delegate(): any;
 					public delegate(): java.util.Set<any>;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public standardEquals(object: any): boolean;
@@ -8870,12 +8870,12 @@ declare module com {
 					public equals(object: any): boolean;
 					public get(key: any): java.util.Collection<any>;
 					public constructor();
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public delegate(): any;
 					public removeAll(key: any): java.util.Set<any>;
 					public put(key: any, value: any): boolean;
@@ -8898,8 +8898,8 @@ declare module com {
 			export module collect {
 				export abstract class ForwardingSortedMap<K, V>  extends com.google.common.collect.ForwardingMap<any,any> implements java.util.SortedMap<any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingSortedMap<any,any>>;
-					public headMap(toKey: any): java.util.SortedMap<any,any>;
 					public containsKey(key: any): boolean;
+					public headMap(toKey: any): java.util.SortedMap<any,any>;
 					public get(key: any): any;
 					public isEmpty(): boolean;
 					public standardContainsKey(key: any): boolean;
@@ -8915,24 +8915,24 @@ declare module com {
 					public putIfAbsent(key: any, value: any): any;
 					public constructor();
 					public keySet(): java.util.Set<any>;
-					public standardSubMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 					public clear(): void;
+					public standardSubMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public hashCode(): number;
 					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public delegate(): any;
 					public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 					public delegate(): java.util.SortedMap<any,any>;
-					public values(): java.util.Collection<any>;
 					public putAll(map: java.util.Map<any,any>): void;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
 					public firstKey(): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public delegate(): java.util.Map<any,any>;
 				}
@@ -8984,15 +8984,15 @@ declare module com {
 					public spliterator(): java.util.Spliterator<any>;
 					public standardPollLastEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public size(): number;
-					public standardFirstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public add(element: any): boolean;
+					public standardFirstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public removeAll(collection: java.util.Collection<any>): boolean;
 					public iterator(): java.util.Iterator<any>;
 					public constructor();
 					public elementSet(): java.util.SortedSet<any>;
 					public toArray(): native.Array<any>;
-					public standardSubMultiset(lowerBound: any, lowerBoundType: com.google.common.collect.BoundType, upperBound: any, upperBoundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public remove(element: any, occurrences: number): number;
+					public standardSubMultiset(lowerBound: any, lowerBoundType: com.google.common.collect.BoundType, upperBound: any, upperBoundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public delegate(): com.google.common.collect.SortedMultiset<any>;
 					public tailMultiset(lowerBound: any, boundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public remove(object: any): boolean;
@@ -9026,8 +9026,8 @@ declare module com {
 					public retainAll(collection: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
 					public headMultiset(upperBound: any, boundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
-					public delegate(): com.google.common.collect.Multiset<any>;
 					public count(element: any): number;
+					public delegate(): com.google.common.collect.Multiset<any>;
 				}
 				export module ForwardingSortedMultiset {
 					export abstract class StandardDescendingMultiset extends com.google.common.collect.DescendingMultiset<any> {
@@ -9135,22 +9135,22 @@ declare module com {
 					public delegate(): java.util.SortedSet<any>;
 					public add(element: any): boolean;
 					public removeAll(collection: java.util.Collection<any>): boolean;
-					public iterator(): java.util.Iterator<any>;
 					public equals(object: any): boolean;
+					public iterator(): java.util.Iterator<any>;
 					public constructor();
 					public toArray(): native.Array<any>;
 					public clear(): void;
 					public hashCode(): number;
 					public delegate(): any;
 					public delegate(): java.util.Set<any>;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public standardSubSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 					public tailSet(fromElement: any): java.util.SortedSet<any>;
-					public headSet(toElement: any): java.util.SortedSet<any>;
 					public addAll(collection: java.util.Collection<any>): boolean;
+					public headSet(toElement: any): java.util.SortedSet<any>;
 					public standardRemove(object: any): boolean;
 					public first(): any;
 					public removeIf(filter: any /* any*/): boolean;
@@ -9178,19 +9178,19 @@ declare module com {
 					public delegate(): com.google.common.collect.SetMultimap<any,any>;
 					public size(): number;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
-					public removeAll(key: any): java.util.SortedSet<any>;
 					public remove(key: any, value: any): boolean;
+					public removeAll(key: any): java.util.SortedSet<any>;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public get(key: any): java.util.SortedSet<any>;
 					public get(key: any): java.util.Collection<any>;
 					public constructor();
-					public removeAll(key: any): java.util.Collection<any>;
 					public keySet(): java.util.Set<any>;
+					public removeAll(key: any): java.util.Collection<any>;
 					public clear(): void;
 					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public delegate(): any;
 					public removeAll(key: any): java.util.Set<any>;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.SortedSet<any>;
@@ -9217,8 +9217,8 @@ declare module com {
 				export abstract class ForwardingTable<R, C, V>  extends com.google.common.collect.ForwardingObject implements com.google.common.collect.Table<any,any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.ForwardingTable<any,any,any>>;
 					public get(rowKey: any, columnKey: any): any;
-					public put(rowKey: any, columnKey: any, value: any): any;
 					public equals(obj: any): boolean;
+					public put(rowKey: any, columnKey: any, value: any): any;
 					public isEmpty(): boolean;
 					public column(columnKey: any): java.util.Map<any,any>;
 					public row(rowKey: any): java.util.Map<any,any>;
@@ -9228,8 +9228,8 @@ declare module com {
 					public remove(rowKey: any, columnKey: any): any;
 					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
-					public delegate(): com.google.common.collect.Table<any,any,any>;
 					public cellSet(): java.util.Set<com.google.common.collect.Table.Cell<any,any,any>>;
+					public delegate(): com.google.common.collect.Table<any,any,any>;
 					public containsColumn(columnKey: any): boolean;
 					public constructor();
 					public columnMap(): java.util.Map<any,java.util.Map<any,any>>;
@@ -9340,8 +9340,8 @@ declare module com {
 					public get(key: any): any;
 					public isEmpty(): boolean;
 					public forEach(action: any /* any<any,any>*/): void;
-					public size(): number;
 					public inverse(): com.google.common.collect.BiMap<any,any>;
+					public size(): number;
 					public equals(o: any): boolean;
 					public static create(map: java.util.Map<any,any>): com.google.common.collect.HashBiMap<any,any>;
 					public remove(key: any, value: any): boolean;
@@ -9354,8 +9354,8 @@ declare module com {
 					public hashCode(): number;
 					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public remove(key: any): any;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public static create(expectedSize: number): com.google.common.collect.HashBiMap<any,any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
@@ -9363,10 +9363,10 @@ declare module com {
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public forcePut(key: any, value: any): any;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public putAll(m: java.util.Map<any,any>): void;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public putAll(m: java.util.Map<any,any>): void;
 				}
 				export module HashBiMap {
 					export class EntryForKey extends com.google.common.collect.AbstractMapEntry<any,any> {
@@ -9422,24 +9422,24 @@ declare module com {
 						public remove(value: any): any;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public values(): java.util.Set<any>;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public replace(key: any, value: any): any;
-						public put(key: any, value: any): any;
 						public forcePut(value: any, key: any): any;
-						public put(value: any, key: any): any;
+						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public put(value: any, key: any): any;
 						public containsValue(value: any): boolean;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
@@ -9753,16 +9753,16 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.ImmutableBiMap<any,any>>;
 					public isEmpty(): boolean;
 					public remove(o: any): any;
-					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableBiMap<any,any>;
 					public forEach(action: any /* any<any,any>*/): void;
+					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableBiMap<any,any>;
 					public size(): number;
 					public static of(k1: any, v1: any): com.google.common.collect.ImmutableBiMap<any,any>;
-					public static of(k1: any, v1: any, k2: any, v2: any): com.google.common.collect.ImmutableBiMap<any,any>;
 					public static builder(): com.google.common.collect.ImmutableMap.Builder<any,any>;
+					public static of(k1: any, v1: any, k2: any, v2: any): com.google.common.collect.ImmutableBiMap<any,any>;
 					public keySet(): com.google.common.collect.ImmutableSet<any>;
 					public static of(k1: any, v1: any): com.google.common.collect.ImmutableMap<any,any>;
-					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableMap<any,any>;
 					public keySet(): java.util.Set<any>;
+					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableMap<any,any>;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public static copyOf(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
@@ -9779,8 +9779,8 @@ declare module com {
 					public inverse(): com.google.common.collect.ImmutableBiMap<any,any>;
 					public static copyOf(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableBiMap<any,any>;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any): com.google.common.collect.ImmutableMap<any,any>;
-					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableBiMap<any,any>;
 					public entrySet(): com.google.common.collect.ImmutableSet<java.util.Map.Entry<any,any>>;
+					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableBiMap<any,any>;
 					public inverse(): com.google.common.collect.BiMap<any,any>;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableMap<any,any>;
 					/** @deprecated */
@@ -9798,14 +9798,14 @@ declare module com {
 					public put(k: any, v: any): any;
 					public clear(): void;
 					public static of(k1: any, v1: any, k2: any, v2: any): com.google.common.collect.ImmutableMap<any,any>;
+					public hashCode(): number;
 					/** @deprecated */
 					public putAll(map: java.util.Map<any,any>): void;
-					public hashCode(): number;
 					public static builder(): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
 					public static builderWithExpectedSize(expectedSize: number): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
 					public static copyOf(map: java.util.Map<any,any>): com.google.common.collect.ImmutableBiMap<any,any>;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public static of(): com.google.common.collect.ImmutableMap<any,any>;
 					public containsValue(value: any): boolean;
 					public get(object0: any): any;
@@ -9818,15 +9818,15 @@ declare module com {
 				export module ImmutableBiMap {
 					export class Builder<K, V>  extends com.google.common.collect.ImmutableMap.Builder<any,any> {
 						public static class: java.lang.Class<com.google.common.collect.ImmutableBiMap.Builder<any,any>>;
-						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableMap<any,any>;
+						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public constructor();
 						public orderEntriesByValue(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public putAll(map: java.util.Map<any,any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableBiMap<any,any>;
 						public put(key: any, value: any): com.google.common.collect.ImmutableMap.Builder<any,any>;
-						public putAll(map: java.util.Map<any,any>): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
 						public orderEntriesByValue(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
+						public putAll(map: java.util.Map<any,any>): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
 						public put(key: any, value: any): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
 						public put(entry: java.util.Map.Entry<any,any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public put(entry: java.util.Map.Entry<any,any>): com.google.common.collect.ImmutableBiMap.Builder<any,any>;
@@ -9860,11 +9860,11 @@ declare module com {
 					public static of(type: java.lang.Class<any>, value: any): com.google.common.collect.ImmutableClassToInstanceMap<any>;
 					public equals(object: any): boolean;
 					public remove(object: any): any;
-					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public getOrDefault(key: any, defaultValue: any): any;
 					public putIfAbsent(key: any, value: any): any;
-					public static of(): com.google.common.collect.ImmutableClassToInstanceMap<any>;
+					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public keySet(): java.util.Set<any>;
+					public static of(): com.google.common.collect.ImmutableClassToInstanceMap<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public hashCode(): number;
@@ -9872,16 +9872,16 @@ declare module com {
 					public delegate(): any;
 					public getInstance(type: java.lang.Class<any>): any;
 					public putAll(map: java.util.Map<any,any>): void;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public delegate(): java.util.Map<java.lang.Class<any>,any>;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public delegate(): java.util.Map<java.lang.Class<any>,any>;
 					public delegate(): java.util.Map<any,any>;
 				}
 				export module ImmutableClassToInstanceMap {
@@ -10063,8 +10063,8 @@ declare module com {
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
 					public contains(object0: any): boolean;
 					public toArray(other: native.Array<any>): native.Array<any>;
-					public iterator(): java.util.Iterator<any>;
 					public equals(object: any): boolean;
+					public iterator(): java.util.Iterator<any>;
 					public toString(): string;
 					public toArray(): native.Array<any>;
 					public clear(): void;
@@ -10108,12 +10108,12 @@ declare module com {
 					public addAll(index: number, newElements: java.util.Collection<any>): boolean;
 					/** @deprecated */
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
-					public size(): number;
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
+					public size(): number;
 					public reverse(): com.google.common.collect.ImmutableList<any>;
-					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableList<any>;
 					/** @deprecated */
 					public addAll(index: number, newElements: java.util.Collection<any>): boolean;
+					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableList<any>;
 					public iterator(): java.util.Iterator<any>;
 					public static copyOf(elements: java.util.Collection<any>): com.google.common.collect.ImmutableList<any>;
 					public toArray(): native.Array<any>;
@@ -10137,27 +10137,27 @@ declare module com {
 					public listIterator(): com.google.common.collect.UnmodifiableListIterator<any>;
 					public asList(): com.google.common.collect.ImmutableList<any>;
 					public listIterator(int0: number): java.util.ListIterator<any>;
-					public subList(fromIndex: number, toIndex: number): com.google.common.collect.ImmutableList<any>;
 					public replaceAll(operator: any /* any*/): void;
+					public subList(fromIndex: number, toIndex: number): com.google.common.collect.ImmutableList<any>;
+					public equals(obj: any): boolean;
 					/** @deprecated */
 					public remove(object: any): boolean;
-					public equals(obj: any): boolean;
-					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableList<any>;
 					/** @deprecated */
 					public addAll(newElements: java.util.Collection<any>): boolean;
+					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableList<any>;
 					public contains(object: any): boolean;
 					/** @deprecated */
 					public removeAll(oldElements: java.util.Collection<any>): boolean;
 					public set(index: number, element: any): any;
 					public remove(index: number): any;
-					public static of(): com.google.common.collect.ImmutableList<any>;
 					public contains(object0: any): boolean;
+					public static of(): com.google.common.collect.ImmutableList<any>;
 					public toArray(other: native.Array<any>): native.Array<any>;
 					public indexOf(object: any): number;
 					public clear(): void;
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, e7: any, e8: any, e9: any): com.google.common.collect.ImmutableList<any>;
-					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, e7: any, e8: any, e9: any, e10: any, e11: any, e12: any, others: native.Array<any>): com.google.common.collect.ImmutableList<any>;
 					public containsAll(c: java.util.Collection<any>): boolean;
+					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, e7: any, e8: any, e9: any, e10: any, e11: any, e12: any, others: native.Array<any>): com.google.common.collect.ImmutableList<any>;
 					public static copyOf(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableList<any>;
 					public hashCode(): number;
 					public forEach(action: any /* any*/): void;
@@ -10169,12 +10169,12 @@ declare module com {
 					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableList<any>;
 					public subList(int0: number, int1: number): java.util.List<any>;
 					public removeIf(filter: any /* any*/): boolean;
-					public removeAll(oldElements: java.util.Collection<any>): boolean;
 					public listIterator(): java.util.ListIterator<any>;
+					public removeAll(oldElements: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
 					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
-					public listIterator(index: number): com.google.common.collect.UnmodifiableListIterator<any>;
 					public static builderWithExpectedSize(expectedSize: number): com.google.common.collect.ImmutableList.Builder<any>;
+					public listIterator(index: number): com.google.common.collect.UnmodifiableListIterator<any>;
 					public static of(e1: any, e2: any): com.google.common.collect.ImmutableList<any>;
 					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableList<any>;
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, e7: any): com.google.common.collect.ImmutableList<any>;
@@ -10349,9 +10349,9 @@ declare module com {
 				export class ImmutableListMultimap<K, V>  extends com.google.common.collect.ImmutableMultimap<any,any> implements com.google.common.collect.ListMultimap<any,any>  {
 					public static class: java.lang.Class<com.google.common.collect.ImmutableListMultimap<any,any>>;
 					public get(object0: any): com.google.common.collect.ImmutableCollection<any>;
+					public keys(): com.google.common.collect.ImmutableMultiset<any>;
 					/** @deprecated */
 					public replaceValues(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableList<any>;
-					public keys(): com.google.common.collect.ImmutableMultiset<any>;
 					public isEmpty(): boolean;
 					public static of(): com.google.common.collect.ImmutableMultimap<any,any>;
 					public get(key: any): com.google.common.collect.ImmutableList<any>;
@@ -10368,11 +10368,11 @@ declare module com {
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableMultimap<any,any>;
 					public static of(k1: any, v1: any): com.google.common.collect.ImmutableListMultimap<any,any>;
 					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
+					public asMap(): com.google.common.collect.ImmutableMap<any,java.util.Collection<any>>;
 					/** @deprecated */
 					public removeAll(key: any): com.google.common.collect.ImmutableList<any>;
-					public asMap(): com.google.common.collect.ImmutableMap<any,java.util.Collection<any>>;
-					public replaceValues(object0: any, iterable1: java.lang.Iterable<any>): java.util.List<any>;
 					public entries(): com.google.common.collect.ImmutableCollection<java.util.Map.Entry<any,any>>;
+					public replaceValues(object0: any, iterable1: java.lang.Iterable<any>): java.util.List<any>;
 					public inverse(): com.google.common.collect.ImmutableListMultimap<any,any>;
 					/** @deprecated */
 					public clear(): void;
@@ -10386,13 +10386,13 @@ declare module com {
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableListMultimap<any,any>;
 					/** @deprecated */
 					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
+					public keys(): com.google.common.collect.Multiset<any>;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableListMultimap<any,any>;
 					/** @deprecated */
 					public replaceValues(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableCollection<any>;
-					public keys(): com.google.common.collect.Multiset<any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
-					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public get(object0: any): java.util.Collection<any>;
+					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public remove(key: any, value: any): boolean;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
@@ -10423,13 +10423,13 @@ declare module com {
 						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public constructor();
 						public put(entry: java.util.Map.Entry<any,any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
-						public putAll(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableListMultimap<any,any>;
+						public putAll(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public putAll(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
+						public orderKeysBy(keyComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public put(entry: java.util.Map.Entry<any,any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public putAll(key: any, values: native.Array<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
-						public orderKeysBy(keyComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public orderValuesBy(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public putAll(key: any, values: native.Array<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
@@ -10437,8 +10437,8 @@ declare module com {
 						public put(key: any, value: any): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public orderValuesBy(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableMultimap<any,any>;
-						public put(key: any, value: any): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 						public orderKeysBy(keyComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
+						public put(key: any, value: any): com.google.common.collect.ImmutableListMultimap.Builder<any,any>;
 					}
 				}
 			}
@@ -10455,14 +10455,14 @@ declare module com {
 					public containsKey(key: any): boolean;
 					public replace(key: K, oldValue: V, newValue: V): boolean;
 					public equals(obj: any): boolean;
-					public isEmpty(): boolean;
 					public entrySet(): com.google.common.collect.ImmutableSet<java.util.Map.Entry<K,V>>;
+					public isEmpty(): boolean;
 					public values(): java.util.Collection<V>;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any): com.google.common.collect.ImmutableMap<any,any>;
 					public keySet(): java.util.Set<K>;
 					public forEach(action: any /* any<any,any>*/): void;
-					public remove(o: any): V;
 					public putIfAbsent(key: K, value: V): V;
+					public remove(o: any): V;
 					public size(): number;
 					public computeIfAbsent(key: K, mappingFunction: any /* any<any,any>*/): V;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableMap<any,any>;
@@ -10471,36 +10471,36 @@ declare module com {
 					public remove(key: any, value: any): boolean;
 					public static builderWithExpectedSize(expectedSize: number): com.google.common.collect.ImmutableMap.Builder<any,any>;
 					public equals(object: any): boolean;
-					public toString(): string;
 					public put(k: K, v: V): V;
+					public toString(): string;
 					public entrySet(): java.util.Set<java.util.Map.Entry<K,V>>;
 					public static of(k1: any, v1: any): com.google.common.collect.ImmutableMap<any,any>;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableMap<any,any>;
 					public clear(): void;
 					public static of(k1: any, v1: any, k2: any, v2: any): com.google.common.collect.ImmutableMap<any,any>;
 					public asMultimap(): com.google.common.collect.ImmutableSetMultimap<K,V>;
+					public hashCode(): number;
 					/** @deprecated */
 					public putAll(map: java.util.Map<any,any>): void;
-					public hashCode(): number;
 					/** @deprecated */
 					public remove(o: any): V;
 					public values(): com.google.common.collect.ImmutableCollection<V>;
 					public merge(key: K, value: V, remappingFunction: any /* any<any,any,any>*/): V;
-					public static copyOf(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					public compute(key: K, remappingFunction: any /* any<any,any,any>*/): V;
+					public static copyOf(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap<any,any>;
 					/** @deprecated */
 					public put(k: K, v: V): V;
 					public putAll(map: java.util.Map<any,any>): void;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
-					public static of(): com.google.common.collect.ImmutableMap<any,any>;
 					/** @deprecated */
 					public clear(): void;
+					public static of(): com.google.common.collect.ImmutableMap<any,any>;
 					public containsValue(value: any): boolean;
 					public getOrDefault(key: any, defaultValue: V): V;
 					public static copyOf(map: java.util.Map<any,any>): com.google.common.collect.ImmutableMap<any,any>;
 					public replace(key: K, value: V): V;
-					public get(object0: any): V;
 					public computeIfPresent(key: K, remappingFunction: any /* any<any,any,any>*/): V;
+					public get(object0: any): V;
 				}
 				export module ImmutableMap {
 					export class Builder<K, V>  extends java.lang.Object {
@@ -10794,23 +10794,23 @@ declare module com {
 			export module collect {
 				export abstract class ImmutableMultimap<K, V>  extends com.google.common.collect.BaseImmutableMultimap<any,any> implements java.io.Serializable  {
 					public static class: java.lang.Class<com.google.common.collect.ImmutableMultimap<any,any>>;
-					public get(object0: any): com.google.common.collect.ImmutableCollection<any>;
 					public containsKey(key: any): boolean;
+					public get(object0: any): com.google.common.collect.ImmutableCollection<any>;
+					public keys(): com.google.common.collect.ImmutableMultiset<any>;
 					/** @deprecated */
 					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
-					public keys(): com.google.common.collect.ImmutableMultiset<any>;
 					public isEmpty(): boolean;
+					public keys(): com.google.common.collect.Multiset<any>;
 					/** @deprecated */
 					public replaceValues(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableCollection<any>;
-					public keys(): com.google.common.collect.Multiset<any>;
-					public static of(): com.google.common.collect.ImmutableMultimap<any,any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
+					public static of(): com.google.common.collect.ImmutableMultimap<any,any>;
 					public size(): number;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public get(object0: any): java.util.Collection<any>;
 					public remove(key: any, value: any): boolean;
-					public keySet(): com.google.common.collect.ImmutableSet<any>;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
+					public keySet(): com.google.common.collect.ImmutableSet<any>;
 					/** @deprecated */
 					public put(key: any, value: any): boolean;
 					public equals(object: any): boolean;
@@ -10855,8 +10855,8 @@ declare module com {
 						public build(): com.google.common.collect.ImmutableMultimap<K,V>;
 						public putAll(key: K, values: native.Array<V>): com.google.common.collect.ImmutableMultimap.Builder<K,V>;
 						public putAll(key: K, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableMultimap.Builder<K,V>;
-						public put(key: K, value: V): com.google.common.collect.ImmutableMultimap.Builder<K,V>;
 						public orderValuesBy(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMultimap.Builder<K,V>;
+						public put(key: K, value: V): com.google.common.collect.ImmutableMultimap.Builder<K,V>;
 						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMultimap.Builder<K,V>;
 					}
 					export class EntryCollection<K, V>  extends com.google.common.collect.ImmutableCollection<java.util.Map.Entry<any,any>> {
@@ -11008,8 +11008,8 @@ declare module com {
 					public count(object0: any): number;
 					/** @deprecated */
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
-					public size(): number;
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
+					public size(): number;
 					public iterator(): java.util.Iterator<any>;
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any): com.google.common.collect.ImmutableMultiset<any>;
 					public toArray(): native.Array<any>;
@@ -11022,15 +11022,15 @@ declare module com {
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, others: native.Array<any>): com.google.common.collect.ImmutableMultiset<any>;
 					/** @deprecated */
 					public clear(): void;
-					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableMultiset<any>;
 					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableMultiset<any>;
+					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableMultiset<any>;
 					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableMultiset<any>;
 					public elementSet(): java.util.Set<any>;
 					public asList(): com.google.common.collect.ImmutableList<any>;
 					public entrySet(): java.util.Set<com.google.common.collect.Multiset.Entry<any>>;
+					public equals(obj: any): boolean;
 					/** @deprecated */
 					public remove(object: any): boolean;
-					public equals(obj: any): boolean;
 					/** @deprecated */
 					public addAll(newElements: java.util.Collection<any>): boolean;
 					public add(element: any, occurrences: number): number;
@@ -11047,8 +11047,8 @@ declare module com {
 					public toString(): string;
 					public entrySet(): com.google.common.collect.ImmutableSet<com.google.common.collect.Multiset.Entry<any>>;
 					public clear(): void;
-					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableMultiset<any>;
 					public containsAll(c: java.util.Collection<any>): boolean;
+					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableMultiset<any>;
 					public hashCode(): number;
 					public forEach(action: any /* any*/): void;
 					public static of(element: any): com.google.common.collect.ImmutableMultiset<any>;
@@ -11181,8 +11181,8 @@ declare module com {
 			export module collect {
 				export class ImmutableRangeMap<K, V>  extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.collect.ImmutableRangeMap<any,any>>;
-					public static of(range: com.google.common.collect.Range<any>, value: any): com.google.common.collect.ImmutableRangeMap<any,any>;
 					public equals(obj: any): boolean;
+					public static of(range: com.google.common.collect.Range<any>, value: any): com.google.common.collect.ImmutableRangeMap<any,any>;
 					public putAll(rangeMap: com.google.common.collect.RangeMap<K,V>): void;
 					public put(range: com.google.common.collect.Range<K>, value: V): void;
 					public equals(o: any): boolean;
@@ -11191,10 +11191,10 @@ declare module com {
 					public remove(range: com.google.common.collect.Range<K>): void;
 					public asDescendingMapOfRanges(): java.util.Map<com.google.common.collect.Range<K>,V>;
 					public clear(): void;
+					public asMapOfRanges(): com.google.common.collect.ImmutableMap<com.google.common.collect.Range<K>,V>;
 					public static copyOf(rangeMap: com.google.common.collect.RangeMap<any,any>): com.google.common.collect.ImmutableRangeMap<any,any>;
 					/** @deprecated */
 					public put(range: com.google.common.collect.Range<K>, value: V): void;
-					public asMapOfRanges(): com.google.common.collect.ImmutableMap<com.google.common.collect.Range<K>,V>;
 					/** @deprecated */
 					public putAll(rangeMap: com.google.common.collect.RangeMap<K,V>): void;
 					public hashCode(): number;
@@ -11202,9 +11202,9 @@ declare module com {
 					public static builder(): com.google.common.collect.ImmutableRangeMap.Builder<any,any>;
 					public span(): com.google.common.collect.Range<K>;
 					public putCoalescing(range: com.google.common.collect.Range<K>, value: V): void;
-					public getEntry(key: K): java.util.Map.Entry<com.google.common.collect.Range<K>,V>;
 					/** @deprecated */
 					public clear(): void;
+					public getEntry(key: K): java.util.Map.Entry<com.google.common.collect.Range<K>,V>;
 					/** @deprecated */
 					public putCoalescing(range: com.google.common.collect.Range<K>, value: V): void;
 					public asDescendingMapOfRanges(): com.google.common.collect.ImmutableMap<com.google.common.collect.Range<K>,V>;
@@ -11239,19 +11239,19 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.ImmutableRangeSet<any>>;
 					public enclosesAll(other: com.google.common.collect.RangeSet<any>): boolean;
 					public equals(obj: any): boolean;
-					public isEmpty(): boolean;
 					/** @deprecated */
 					public add(range: com.google.common.collect.Range<any>): void;
+					public isEmpty(): boolean;
 					public removeAll(ranges: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
 					/** @deprecated */
 					public removeAll(other: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
-					public static of(range: com.google.common.collect.Range<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					/** @deprecated */
 					public addAll(other: com.google.common.collect.RangeSet<any>): void;
+					public static of(range: com.google.common.collect.Range<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					/** @deprecated */
 					public addAll(other: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
-					public remove(range: com.google.common.collect.Range<any>): void;
 					public complement(): com.google.common.collect.ImmutableRangeSet<any>;
+					public remove(range: com.google.common.collect.Range<any>): void;
 					public asRanges(): com.google.common.collect.ImmutableSet<com.google.common.collect.Range<any>>;
 					public union(other: com.google.common.collect.RangeSet<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					public asSet(domain: com.google.common.collect.DiscreteDomain<any>): com.google.common.collect.ImmutableSortedSet<any>;
@@ -11271,8 +11271,8 @@ declare module com {
 					public addAll(other: com.google.common.collect.RangeSet<any>): void;
 					public intersects(otherRange: com.google.common.collect.Range<any>): boolean;
 					public add(range: com.google.common.collect.Range<any>): void;
-					public static unionOf(ranges: java.lang.Iterable<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					public rangeContaining(comparable0: any): com.google.common.collect.Range<any>;
+					public static unionOf(ranges: java.lang.Iterable<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					public static copyOf(ranges: java.lang.Iterable<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					/** @deprecated */
 					public remove(range: com.google.common.collect.Range<any>): void;
@@ -11280,8 +11280,8 @@ declare module com {
 					public enclosesAll(ranges: java.lang.Iterable<com.google.common.collect.Range<any>>): boolean;
 					public addAll(other: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
 					public static builder(): com.google.common.collect.ImmutableRangeSet.Builder<any>;
-					public rangeContaining(value: any): com.google.common.collect.Range<any>;
 					public addAll(ranges: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
+					public rangeContaining(value: any): com.google.common.collect.Range<any>;
 					public intersection(other: com.google.common.collect.RangeSet<any>): com.google.common.collect.ImmutableRangeSet<any>;
 					public complement(): com.google.common.collect.RangeSet<any>;
 					public removeAll(other: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
@@ -11443,19 +11443,19 @@ declare module com {
 					public equals(obj: any): boolean;
 					/** @deprecated */
 					public remove(object: any): boolean;
-					public isEmpty(): boolean;
 					/** @deprecated */
 					public addAll(newElements: java.util.Collection<any>): boolean;
+					public isEmpty(): boolean;
 					public spliterator(): java.util.Spliterator<any>;
 					/** @deprecated */
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
 					/** @deprecated */
 					public removeAll(oldElements: java.util.Collection<any>): boolean;
 					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableSet<any>;
-					public size(): number;
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
-					public static of(element: any): com.google.common.collect.ImmutableSet<any>;
+					public size(): number;
 					public static builderWithExpectedSize(expectedSize: number): com.google.common.collect.ImmutableSet.Builder<any>;
+					public static of(element: any): com.google.common.collect.ImmutableSet<any>;
 					public contains(object0: any): boolean;
 					public toArray(other: native.Array<any>): native.Array<any>;
 					public equals(object: any): boolean;
@@ -11464,11 +11464,11 @@ declare module com {
 					public toArray(): native.Array<any>;
 					public clear(): void;
 					public static copyOf(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSet<any>;
-					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableSet<any>;
 					public containsAll(c: java.util.Collection<any>): boolean;
+					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableSet<any>;
 					public hashCode(): number;
-					public remove(object: any): boolean;
 					public forEach(action: any /* any*/): void;
+					public remove(object: any): boolean;
 					/** @deprecated */
 					public add(e: any): boolean;
 					public parallelStream(): java.util.stream.Stream<any>;
@@ -11486,8 +11486,8 @@ declare module com {
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any): com.google.common.collect.ImmutableSet<any>;
 					public asList(): com.google.common.collect.ImmutableList<any>;
 					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableSet<any>;
-					public static copyOf(elements: java.util.Collection<any>): com.google.common.collect.ImmutableSet<any>;
 					public addAll(newElements: java.util.Collection<any>): boolean;
+					public static copyOf(elements: java.util.Collection<any>): com.google.common.collect.ImmutableSet<any>;
 				}
 				export module ImmutableSet {
 					export class Builder<E>  extends com.google.common.collect.ImmutableCollection.ArrayBasedBuilder<any> {
@@ -11557,13 +11557,13 @@ declare module com {
 					public containsKey(key: any): boolean;
 					/** @deprecated */
 					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
+					public keys(): com.google.common.collect.Multiset<any>;
 					/** @deprecated */
 					public replaceValues(key: any, values: java.lang.Iterable<any>): com.google.common.collect.ImmutableCollection<any>;
-					public keys(): com.google.common.collect.Multiset<any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
 					public static builder(): com.google.common.collect.ImmutableSetMultimap.Builder<any,any>;
-					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public get(object0: any): java.util.Collection<any>;
+					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public remove(key: any, value: any): boolean;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public static copyOf(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.ImmutableSetMultimap<any,any>;
@@ -11606,12 +11606,12 @@ declare module com {
 						public putAll(key: any, values: native.Array<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableSetMultimap.Builder<any,any>;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
-						public put(key: any, value: any): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableSetMultimap<any,any>;
+						public put(key: any, value: any): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 						public orderKeysBy(keyComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSetMultimap.Builder<any,any>;
 						public orderValuesBy(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
-						public putAll(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.ImmutableSetMultimap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableMultimap<any,any>;
+						public putAll(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.ImmutableSetMultimap.Builder<any,any>;
 						public orderKeysBy(keyComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMultimap.Builder<any,any>;
 					}
 					export class EntrySet<K, V>  extends com.google.common.collect.ImmutableSet<java.util.Map.Entry<any,any>> {
@@ -11672,8 +11672,8 @@ declare module com {
 					public static of(k1: java.lang.Comparable<any>, v1: any, k2: java.lang.Comparable<any>, v2: any, k3: java.lang.Comparable<any>, v3: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public remove(o: any): any;
 					public forEach(action: any /* any<any,any>*/): void;
-					public tailMap(fromKey: any, inclusive: boolean): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public floorEntry(key: any): java.util.Map.Entry<any,any>;
+					public tailMap(fromKey: any, inclusive: boolean): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public size(): number;
 					public lowerKey(key: any): any;
 					public floorKey(key: any): any;
@@ -11682,10 +11682,10 @@ declare module com {
 					/** @deprecated */
 					public pollLastEntry(): java.util.Map.Entry<any,any>;
 					public descendingKeySet(): com.google.common.collect.ImmutableSortedSet<any>;
-					public static of(k1: any, v1: any): com.google.common.collect.ImmutableMap<any,any>;
 					public keySet(): com.google.common.collect.ImmutableSortedSet<any>;
-					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableMap<any,any>;
+					public static of(k1: any, v1: any): com.google.common.collect.ImmutableMap<any,any>;
 					public keySet(): java.util.Set<any>;
+					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableMap<any,any>;
 					public tailMap(fromKey: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public replace(key: any, oldValue: any, newValue: any): boolean;
@@ -11711,16 +11711,16 @@ declare module com {
 					public headMap(toKey: any, inclusive: boolean): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public subMap(object0: any, boolean1: boolean, object2: any, boolean3: boolean): java.util.NavigableMap<any,any>;
 					public lowerEntry(key: any): java.util.Map.Entry<any,any>;
+					public containsKey(key: any): boolean;
 					public pollLastEntry(): java.util.Map.Entry<any,any>;
 					public subMap(object0: any, object1: any): java.util.SortedMap<any,any>;
-					public containsKey(key: any): boolean;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any): com.google.common.collect.ImmutableMap<any,any>;
 					public entrySet(): com.google.common.collect.ImmutableSet<java.util.Map.Entry<any,any>>;
 					public lastEntry(): java.util.Map.Entry<any,any>;
 					public comparator(): java.util.Comparator<any>;
 					public headMap(object0: any, boolean1: boolean): java.util.NavigableMap<any,any>;
-					public lastKey(): any;
 					public higherEntry(key: any): java.util.Map.Entry<any,any>;
+					public lastKey(): any;
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableMap<any,any>;
 					/** @deprecated */
 					public remove(o: any): any;
@@ -11740,18 +11740,18 @@ declare module com {
 					public static copyOf(map: java.util.Map<any,any>, comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public firstEntry(): java.util.Map.Entry<any,any>;
 					public descendingMap(): java.util.NavigableMap<any,any>;
+					public hashCode(): number;
 					/** @deprecated */
 					public putAll(map: java.util.Map<any,any>): void;
-					public hashCode(): number;
 					public static reverseOrder(): com.google.common.collect.ImmutableSortedMap.Builder<any,any>;
 					public higherKey(key: any): any;
 					public subMap(fromKey: any, fromInclusive: boolean, toKey: any, toInclusive: boolean): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public static copyOf(entries: java.lang.Iterable<any>, comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public static of(k1: java.lang.Comparable<any>, v1: any, k2: java.lang.Comparable<any>, v2: any, k3: java.lang.Comparable<any>, v3: any, k4: java.lang.Comparable<any>, v4: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public static of(k1: java.lang.Comparable<any>, v1: any): com.google.common.collect.ImmutableSortedMap<any,any>;
+					public replaceAll(function0: any /* any<any,any,any>*/): void;
 					public tailMap(object0: any, boolean1: boolean): java.util.NavigableMap<any,any>;
 					public values(): java.util.Collection<any>;
-					public replaceAll(function0: any /* any<any,any,any>*/): void;
 					/** @deprecated */
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public static of(): com.google.common.collect.ImmutableMap<any,any>;
@@ -11762,24 +11762,24 @@ declare module com {
 					public get(object0: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public firstKey(): any;
+					public ceilingEntry(key: any): java.util.Map.Entry<any,any>;
+					public static naturalOrder(): com.google.common.collect.ImmutableSortedMap.Builder<any,any>;
 					/** @deprecated */
 					public static of(k1: any, v1: any, k2: any, v2: any, k3: any, v3: any, k4: any, v4: any, k5: any, v5: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public static of(k1: java.lang.Comparable<any>, v1: any, k2: java.lang.Comparable<any>, v2: any, k3: java.lang.Comparable<any>, v3: any, k4: java.lang.Comparable<any>, v4: any, k5: java.lang.Comparable<any>, v5: any): com.google.common.collect.ImmutableSortedMap<any,any>;
-					public static naturalOrder(): com.google.common.collect.ImmutableSortedMap.Builder<any,any>;
-					public ceilingEntry(key: any): java.util.Map.Entry<any,any>;
 					/** @deprecated */
 					public pollFirstEntry(): java.util.Map.Entry<any,any>;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public static of(k1: java.lang.Comparable<any>, v1: any, k2: java.lang.Comparable<any>, v2: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 					public descendingKeySet(): java.util.NavigableSet<any>;
+					public static of(k1: java.lang.Comparable<any>, v1: any, k2: java.lang.Comparable<any>, v2: any): com.google.common.collect.ImmutableSortedMap<any,any>;
 				}
 				export module ImmutableSortedMap {
 					export class Builder<K, V>  extends com.google.common.collect.ImmutableMap.Builder<any,any> {
 						public static class: java.lang.Class<com.google.common.collect.ImmutableSortedMap.Builder<any,any>>;
-						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public build(): com.google.common.collect.ImmutableMap<any,any>;
 						public build(): com.google.common.collect.ImmutableSortedMap<any,any>;
+						public putAll(entries: java.lang.Iterable<any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						public constructor();
 						public orderEntriesByValue(valueComparator: java.util.Comparator<any>): com.google.common.collect.ImmutableMap.Builder<any,any>;
 						/** @deprecated */
@@ -11884,21 +11884,21 @@ declare module com {
 					public count(object0: any): number;
 					/** @deprecated */
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
-					public size(): number;
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
+					public size(): number;
 					public headMultiset(object0: any, boundType1: com.google.common.collect.BoundType): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public descendingMultiset(): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public static of(): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public static copyOf(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public subMultiset(object0: any, boundType1: com.google.common.collect.BoundType, object2: any, boundType3: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public elementSet(): com.google.common.collect.ImmutableSortedSet<any>;
-					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>, e4: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public iterator(): java.util.Iterator<any>;
+					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>, e4: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any): com.google.common.collect.ImmutableMultiset<any>;
 					public elementSet(): java.util.SortedSet<any>;
 					public toArray(): native.Array<any>;
-					public static of(e1: any, e2: any): com.google.common.collect.ImmutableMultiset<any>;
 					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
+					public static of(e1: any, e2: any): com.google.common.collect.ImmutableMultiset<any>;
 					public remove(element: any, occurrences: number): number;
 					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					/** @deprecated */
@@ -11918,26 +11918,26 @@ declare module com {
 					/** @deprecated */
 					public clear(): void;
 					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>, e4: java.lang.Comparable<any>, e5: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
-					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableMultiset<any>;
 					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableMultiset<any>;
+					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableMultiset<any>;
 					public static reverseOrder(): com.google.common.collect.ImmutableSortedMultiset.Builder<any>;
 					/** @deprecated */
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, remaining: native.Array<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public static orderedBy(comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSortedMultiset.Builder<any>;
-					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableMultiset<any>;
 					public headMultiset(object0: any, boundType1: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
+					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableMultiset<any>;
 					public elementSet(): java.util.Set<any>;
 					public static copyOf(comparator: java.util.Comparator<any>, elements: java.util.Iterator<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public entrySet(): java.util.Set<com.google.common.collect.Multiset.Entry<any>>;
-					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public elementSet(): java.util.NavigableSet<any>;
+					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public lastEntry(): com.google.common.collect.Multiset.Entry<any>;
 					/** @deprecated */
 					public remove(object: any): boolean;
 					/** @deprecated */
-					public static of(e1: any, e2: any): com.google.common.collect.ImmutableSortedMultiset<any>;
-					/** @deprecated */
 					public addAll(newElements: java.util.Collection<any>): boolean;
+					/** @deprecated */
+					public static of(e1: any, e2: any): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public add(element: any, occurrences: number): number;
 					public static of(): com.google.common.collect.ImmutableMultiset<any>;
 					/** @deprecated */
@@ -11949,19 +11949,19 @@ declare module com {
 					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>, e4: java.lang.Comparable<any>, e5: java.lang.Comparable<any>, e6: java.lang.Comparable<any>, remaining: native.Array<java.lang.Comparable<any>>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					/** @deprecated */
 					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableSortedMultiset<any>;
+					public setCount(element: any, count: number): number;
 					public subMultiset(lowerBound: any, lowerBoundType: com.google.common.collect.BoundType, upperBound: any, upperBoundType: com.google.common.collect.BoundType): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public tailMultiset(object0: any, boundType1: com.google.common.collect.BoundType): com.google.common.collect.ImmutableSortedMultiset<any>;
-					public setCount(element: any, count: number): number;
 					public static naturalOrder(): com.google.common.collect.ImmutableSortedMultiset.Builder<any>;
 					public pollFirstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public toArray(other: native.Array<any>): native.Array<any>;
 					public equals(object: any): boolean;
 					public toString(): string;
-					public firstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public entrySet(): com.google.common.collect.ImmutableSet<com.google.common.collect.Multiset.Entry<any>>;
+					public firstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public clear(): void;
-					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableMultiset<any>;
 					public containsAll(c: java.util.Collection<any>): boolean;
+					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableMultiset<any>;
 					/** @deprecated */
 					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public hashCode(): number;
@@ -11970,9 +11970,9 @@ declare module com {
 					public forEach(action: any /* any*/): void;
 					public static of(element: any): com.google.common.collect.ImmutableMultiset<any>;
 					public descendingMultiset(): com.google.common.collect.SortedMultiset<any>;
-					public elementSet(): com.google.common.collect.ImmutableSet<any>;
 					/** @deprecated */
 					public add(e: any): boolean;
+					public elementSet(): com.google.common.collect.ImmutableSet<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public add(e: any): boolean;
 					public static copyOfSorted(sortedMultiset: com.google.common.collect.SortedMultiset<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
@@ -11987,8 +11987,8 @@ declare module com {
 					public removeAll(oldElements: java.util.Collection<any>): boolean;
 					public stream(): java.util.stream.Stream<any>;
 					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
-					public static of(element: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public addAll(newElements: java.util.Collection<any>): boolean;
+					public static of(element: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 				}
 				export module ImmutableSortedMultiset {
 					export class Builder<E>  extends com.google.common.collect.ImmutableMultiset.Builder<any> {
@@ -12009,8 +12009,8 @@ declare module com {
 						public addAll(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableCollection.Builder<any>;
 						public addAll(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableMultiset.Builder<any>;
 						public addAll(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableMultiset.Builder<any>;
-						public setCount(element: any, count: number): com.google.common.collect.ImmutableSortedMultiset.Builder<any>;
 						public addAll(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableSortedMultiset.Builder<any>;
+						public setCount(element: any, count: number): com.google.common.collect.ImmutableSortedMultiset.Builder<any>;
 						public build(): com.google.common.collect.ImmutableMultiset<any>;
 						public add(elements: native.Array<any>): com.google.common.collect.ImmutableMultiset.Builder<any>;
 						public build(): com.google.common.collect.ImmutableCollection<any>;
@@ -12053,8 +12053,8 @@ declare module com {
 					public static of(element: any): com.google.common.collect.ImmutableSortedMultiset<any>;
 					/** @deprecated */
 					public clear(): void;
-					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableMultiset<any>;
 					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableMultiset<any>;
+					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableMultiset<any>;
 					/** @deprecated */
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, remaining: native.Array<any>): com.google.common.collect.ImmutableSortedMultiset<any>;
 					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableMultiset<any>;
@@ -12119,12 +12119,12 @@ declare module com {
 			export module collect {
 				export abstract class ImmutableSortedSet<E>  extends com.google.common.collect.ImmutableSortedSetFauxverideShim<any> {
 					public static class: java.lang.Class<com.google.common.collect.ImmutableSortedSet<any>>;
-					public static copyOf(elements: native.Array<java.lang.Comparable<any>>): com.google.common.collect.ImmutableSortedSet<any>;
 					public ceiling(e: any): any;
+					public static copyOf(elements: native.Array<java.lang.Comparable<any>>): com.google.common.collect.ImmutableSortedSet<any>;
+					public isEmpty(): boolean;
 					public static orderedBy(comparator: java.util.Comparator<any>): com.google.common.collect.ImmutableSortedSet.Builder<any>;
 					/** @deprecated */
 					public pollLast(): any;
-					public isEmpty(): boolean;
 					/** @deprecated */
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any, e6: any, remaining: native.Array<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public spliterator(): java.util.Spliterator<any>;
@@ -12133,8 +12133,8 @@ declare module com {
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
 					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableSet<any>;
 					public headSet(object0: any): java.util.SortedSet<any>;
-					public size(): number;
 					public retainAll(elementsToKeep: java.util.Collection<any>): boolean;
+					public size(): number;
 					public static copyOf(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public descendingIterator(): com.google.common.collect.UnmodifiableIterator<any>;
 					public static of(element: any): com.google.common.collect.ImmutableSet<any>;
@@ -12168,9 +12168,9 @@ declare module com {
 					/** @deprecated */
 					public addAll(newElements: java.util.Collection<any>): boolean;
 					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>, e4: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedSet<any>;
+					public comparator(): java.util.Comparator<any>;
 					/** @deprecated */
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any): com.google.common.collect.ImmutableSortedSet<any>;
-					public comparator(): java.util.Comparator<any>;
 					/** @deprecated */
 					public removeAll(oldElements: java.util.Collection<any>): boolean;
 					public headSet(object0: any, boolean1: boolean): java.util.NavigableSet<any>;
@@ -12178,52 +12178,52 @@ declare module com {
 					public tailSet(fromElement: any): com.google.common.collect.ImmutableSortedSet<any>;
 					public static copyOf(comparator: java.util.Comparator<any>, elements: java.util.Iterator<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public lower(e: any): any;
+					public contains(object0: any): boolean;
 					/** @deprecated */
 					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableSortedSet<any>;
 					/** @deprecated */
 					public pollFirst(): any;
-					public contains(object0: any): boolean;
 					public toArray(other: native.Array<any>): native.Array<any>;
 					public equals(object: any): boolean;
 					public static of(): com.google.common.collect.ImmutableSet<any>;
 					public clear(): void;
 					public static copyOf(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSet<any>;
-					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableSet<any>;
 					public containsAll(c: java.util.Collection<any>): boolean;
-					public headSet(toElement: any): com.google.common.collect.ImmutableSortedSet<any>;
+					public static of(e1: any, e2: any, e3: any, e4: any): com.google.common.collect.ImmutableSet<any>;
 					public hashCode(): number;
+					public headSet(toElement: any): com.google.common.collect.ImmutableSortedSet<any>;
 					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public forEach(action: any /* any*/): void;
 					/** @deprecated */
 					public static copyOf(elements: native.Array<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public tailSet(object0: any): java.util.SortedSet<any>;
-					public floor(e: any): any;
 					/** @deprecated */
 					public add(e: any): boolean;
+					public floor(e: any): any;
 					public parallelStream(): java.util.stream.Stream<any>;
 					public add(e: any): boolean;
-					public static naturalOrder(): com.google.common.collect.ImmutableSortedSet.Builder<any>;
 					public descendingSet(): com.google.common.collect.ImmutableSortedSet<any>;
+					public static naturalOrder(): com.google.common.collect.ImmutableSortedSet.Builder<any>;
 					public static of(e1: java.lang.Comparable<any>, e2: java.lang.Comparable<any>, e3: java.lang.Comparable<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					public descendingIterator(): java.util.Iterator<any>;
+					public static copyOf(comparator: java.util.Comparator<any>, elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSortedSet<any>;
 					/** @deprecated */
 					public static of(element: any): com.google.common.collect.ImmutableSortedSet<any>;
-					public static copyOf(comparator: java.util.Comparator<any>, elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSortedSet<any>;
-					public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): com.google.common.collect.ImmutableSortedSet<any>;
 					public removeIf(filter: any /* any*/): boolean;
+					public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): com.google.common.collect.ImmutableSortedSet<any>;
 					public static of(e1: any, e2: any, e3: any): com.google.common.collect.ImmutableSet<any>;
 					public pollLast(): any;
 					public removeAll(oldElements: java.util.Collection<any>): boolean;
-					public tailSet(fromElement: any, inclusive: boolean): com.google.common.collect.ImmutableSortedSet<any>;
 					public stream(): java.util.stream.Stream<any>;
-					public static of(): com.google.common.collect.ImmutableSortedSet<any>;
+					public tailSet(fromElement: any, inclusive: boolean): com.google.common.collect.ImmutableSortedSet<any>;
 					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
+					public static of(): com.google.common.collect.ImmutableSortedSet<any>;
 					public static of(e1: any, e2: any): com.google.common.collect.ImmutableSet<any>;
 					public static of(e1: any, e2: any, e3: any, e4: any, e5: any): com.google.common.collect.ImmutableSet<any>;
 					public static reverseOrder(): com.google.common.collect.ImmutableSortedSet.Builder<any>;
 					public static copyOf(elements: java.util.Iterator<any>): com.google.common.collect.ImmutableSet<any>;
-					public tailSet(object0: any, boolean1: boolean): java.util.NavigableSet<any>;
 					public addAll(newElements: java.util.Collection<any>): boolean;
+					public tailSet(object0: any, boolean1: boolean): java.util.NavigableSet<any>;
 				}
 				export module ImmutableSortedSet {
 					export class Builder<E>  extends com.google.common.collect.ImmutableSet.Builder<any> {
@@ -12366,18 +12366,18 @@ declare module com {
 					public row(rowKey: any): com.google.common.collect.ImmutableMap<any,any>;
 					public contains(rowKey: any, columnKey: any): boolean;
 					public columnMap(): com.google.common.collect.ImmutableMap<any,java.util.Map<any,any>>;
-					public values(): java.util.Collection<any>;
 					public remove(rowKey: any, columnKey: any): any;
 					/** @deprecated */
 					public remove(rowKey: any, columnKey: any): any;
+					public values(): java.util.Collection<any>;
 					/** @deprecated */
 					public clear(): void;
 					public containsValue(value: any): boolean;
 					public cellSet(): java.util.Set<com.google.common.collect.Table.Cell<any,any,any>>;
 					public columnMap(): java.util.Map<any,java.util.Map<any,any>>;
 					public static builder(): com.google.common.collect.ImmutableTable.Builder<any,any,any>;
-					public values(): com.google.common.collect.ImmutableCollection<any>;
 					public putAll(table: com.google.common.collect.Table<any,any,any>): void;
+					public values(): com.google.common.collect.ImmutableCollection<any>;
 					public column(object0: any): java.util.Map<any,any>;
 				}
 				export module ImmutableTable {
@@ -12511,32 +12511,32 @@ declare module com {
 					public static concat(a: java.lang.Iterable<any>, b: java.lang.Iterable<any>, c: java.lang.Iterable<any>, d: java.lang.Iterable<any>): java.lang.Iterable<any>;
 					public static concat(inputs: native.Array<java.lang.Iterable<any>>): java.lang.Iterable<any>;
 					public static indexOf(iterable: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): number;
-					/** @deprecated */
-					public static unmodifiableIterable(iterable: com.google.common.collect.ImmutableCollection<any>): java.lang.Iterable<any>;
-					public static getOnlyElement(iterable: java.lang.Iterable<any>, defaultValue: any): any;
 					public static all(iterable: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): boolean;
 					public static getLast(iterable: java.lang.Iterable<any>): any;
+					public static getOnlyElement(iterable: java.lang.Iterable<any>, defaultValue: any): any;
+					/** @deprecated */
+					public static unmodifiableIterable(iterable: com.google.common.collect.ImmutableCollection<any>): java.lang.Iterable<any>;
 					public static contains(iterable: java.lang.Iterable<any>, element: any): boolean;
-					public static toArray(iterable: java.lang.Iterable<any>, type: java.lang.Class<any>): native.Array<any>;
 					public static getLast(iterable: java.lang.Iterable<any>, defaultValue: any): any;
+					public static toArray(iterable: java.lang.Iterable<any>, type: java.lang.Class<any>): native.Array<any>;
 					public static concat(a: java.lang.Iterable<any>, b: java.lang.Iterable<any>): java.lang.Iterable<any>;
-					public static cycle(iterable: java.lang.Iterable<any>): java.lang.Iterable<any>;
 					public static concat(inputs: java.lang.Iterable<any>): java.lang.Iterable<any>;
+					public static cycle(iterable: java.lang.Iterable<any>): java.lang.Iterable<any>;
 					public static filter(unfiltered: java.lang.Iterable<any>, desiredType: java.lang.Class<any>): java.lang.Iterable<any>;
 					public static transform(fromIterable: java.lang.Iterable<any>, function1: com.google.common.base.Function<any,any>): java.lang.Iterable<any>;
-					public toString(): string;
 					public static skip(iterable: java.lang.Iterable<any>, numberToSkip: number): java.lang.Iterable<any>;
+					public toString(): string;
 					public static get(iterable: java.lang.Iterable<any>, position: number): any;
 					public static cycle(elements: native.Array<any>): java.lang.Iterable<any>;
 					public static mergeSorted(iterables: java.lang.Iterable<any>, comparator: java.util.Comparator<any>): java.lang.Iterable<any>;
 					public static find(iterable: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>, defaultValue: any): any;
 					public static concat(a: java.lang.Iterable<any>, b: java.lang.Iterable<any>, c: java.lang.Iterable<any>): java.lang.Iterable<any>;
-					public static removeIf(removeFrom: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): boolean;
 					public static getFirst(iterable: java.lang.Iterable<any>, defaultValue: any): any;
+					public static removeIf(removeFrom: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): boolean;
 					public static paddedPartition(iterable: java.lang.Iterable<any>, size: number): java.lang.Iterable<any>;
 					public static getOnlyElement(iterable: java.lang.Iterable<any>): any;
-					public static filter(unfiltered: java.lang.Iterable<any>, retainIfTrue: com.google.common.base.Predicate<any>): java.lang.Iterable<any>;
 					public static any(iterable: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): boolean;
+					public static filter(unfiltered: java.lang.Iterable<any>, retainIfTrue: com.google.common.base.Predicate<any>): java.lang.Iterable<any>;
 					public static tryFind(iterable: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): com.google.common.base.Optional<any>;
 					public static consumingIterable(iterable: java.lang.Iterable<any>): java.lang.Iterable<any>;
 					public static find(iterable: java.lang.Iterable<any>, predicate: com.google.common.base.Predicate<any>): any;
@@ -12572,8 +12572,8 @@ declare module com {
 			export module collect {
 				export class Iterators extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.collect.Iterators>;
-					public static cycle(elements: native.Array<any>): java.util.Iterator<any>;
 					public static concat(inputs: java.util.Iterator<any>): java.util.Iterator<any>;
+					public static cycle(elements: native.Array<any>): java.util.Iterator<any>;
 					public static toArray(iterator: java.util.Iterator<any>, type: java.lang.Class<any>): native.Array<any>;
 					public static concat(a: java.util.Iterator<any>, b: java.util.Iterator<any>, c: java.util.Iterator<any>, d: java.util.Iterator<any>): java.util.Iterator<any>;
 					public static get(iterator: java.util.Iterator<any>, position: number, defaultValue: any): any;
@@ -12583,15 +12583,15 @@ declare module com {
 					public static find(iterator: java.util.Iterator<any>, predicate: com.google.common.base.Predicate<any>): any;
 					/** @deprecated */
 					public static peekingIterator(iterator: com.google.common.collect.PeekingIterator<any>): com.google.common.collect.PeekingIterator<any>;
-					public toString(): string;
 					public static advance(iterator: java.util.Iterator<any>, numberToAdvance: number): number;
 					public static singletonIterator(value: any): com.google.common.collect.UnmodifiableIterator<any>;
+					public toString(): string;
 					public static filter(unfiltered: java.util.Iterator<any>, desiredType: java.lang.Class<any>): com.google.common.collect.UnmodifiableIterator<any>;
 					public static all(iterator: java.util.Iterator<any>, predicate: com.google.common.base.Predicate<any>): boolean;
 					public static find(iterator: java.util.Iterator<any>, predicate: com.google.common.base.Predicate<any>, defaultValue: any): any;
+					public static concat(inputs: native.Array<java.util.Iterator<any>>): java.util.Iterator<any>;
 					/** @deprecated */
 					public static unmodifiableIterator(iterator: com.google.common.collect.UnmodifiableIterator<any>): com.google.common.collect.UnmodifiableIterator<any>;
-					public static concat(inputs: native.Array<java.util.Iterator<any>>): java.util.Iterator<any>;
 					public static contains(iterator: java.util.Iterator<any>, element: any): boolean;
 					public static getLast(iterator: java.util.Iterator<any>, defaultValue: any): any;
 					public static concat(a: java.util.Iterator<any>, b: java.util.Iterator<any>, c: java.util.Iterator<any>): java.util.Iterator<any>;
@@ -12606,21 +12606,21 @@ declare module com {
 					public static getNext(iterator: java.util.Iterator<any>, defaultValue: any): any;
 					public static paddedPartition(iterator: java.util.Iterator<any>, size: number): com.google.common.collect.UnmodifiableIterator<any>;
 					public static frequency(iterator: java.util.Iterator<any>, element: any): number;
-					public static getLast(iterator: java.util.Iterator<any>): any;
 					public static forArray(array: native.Array<any>): com.google.common.collect.UnmodifiableIterator<any>;
+					public static getLast(iterator: java.util.Iterator<any>): any;
 					public static get(iterator: java.util.Iterator<any>, position: number): any;
 					public static filter(unfiltered: java.util.Iterator<any>, retainIfTrue: com.google.common.base.Predicate<any>): com.google.common.collect.UnmodifiableIterator<any>;
 					public static limit(iterator: java.util.Iterator<any>, limitSize: number): java.util.Iterator<any>;
 					public static indexOf(iterator: java.util.Iterator<any>, predicate: com.google.common.base.Predicate<any>): number;
 					public static removeAll(removeFrom: java.util.Iterator<any>, elementsToRemove: java.util.Collection<any>): boolean;
-					public static removeIf(removeFrom: java.util.Iterator<any>, predicate: com.google.common.base.Predicate<any>): boolean;
 					public static concat(a: java.util.Iterator<any>, b: java.util.Iterator<any>): java.util.Iterator<any>;
 					public static forEnumeration(enumeration: java.util.Enumeration<any>): com.google.common.collect.UnmodifiableIterator<any>;
-					public static toString(iterator: java.util.Iterator<any>): string;
+					public static removeIf(removeFrom: java.util.Iterator<any>, predicate: com.google.common.base.Predicate<any>): boolean;
 					public static addAll(addTo: java.util.Collection<any>, iterator: java.util.Iterator<any>): boolean;
+					public static toString(iterator: java.util.Iterator<any>): string;
 					public static transform(fromIterator: java.util.Iterator<any>, function1: com.google.common.base.Function<any,any>): java.util.Iterator<any>;
-					public static size(iterator: java.util.Iterator<any>): number;
 					public static elementsEqual(iterator1: java.util.Iterator<any>, iterator2: java.util.Iterator<any>): boolean;
+					public static size(iterator: java.util.Iterator<any>): number;
 					public static getOnlyElement(iterator: java.util.Iterator<any>, defaultValue: any): any;
 				}
 				export module Iterators {
@@ -12776,8 +12776,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.collect.LinkedHashMultimap.ValueSet>;
 						public addAll(c: java.util.Collection<any>): boolean;
 						public retainAll(c: java.util.Collection<any>): boolean;
-						public iterator(): java.util.Iterator<any>;
 						public add(e: any): boolean;
+						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public add(value: any): boolean;
@@ -12913,19 +12913,19 @@ declare module com {
 					public static create(): com.google.common.collect.LinkedListMultimap<any,any>;
 					public asMap(): java.util.Map<any,java.util.Collection<any>>;
 					public size(): number;
-					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public get(object0: any): java.util.Collection<any>;
+					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 					public entries(): java.util.List<java.util.Map.Entry<any,any>>;
 					public remove(key: any, value: any): boolean;
 					public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 					public equals(object: any): boolean;
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
+					public containsEntry(key: any, value: any): boolean;
 					public static create(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.LinkedListMultimap<any,any>;
 					public get(key: any): java.util.List<any>;
-					public containsEntry(key: any, value: any): boolean;
-					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
+					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public static create(expectedKeys: number): com.google.common.collect.LinkedListMultimap<any,any>;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 					public put(key: any, value: any): boolean;
@@ -12963,9 +12963,9 @@ declare module com {
 						public previousIndex(): number;
 						public set(e: java.util.Map.Entry<any,any>): void;
 						public next(): com.google.common.collect.LinkedListMultimap.Node<any,any>;
-						public previous(): com.google.common.collect.LinkedListMultimap.Node<any,any>;
 						public add(e: java.util.Map.Entry<any,any>): void;
 						public next(): any;
+						public previous(): com.google.common.collect.LinkedListMultimap.Node<any,any>;
 						public previous(): any;
 						public nextIndex(): number;
 						public set(object0: any): void;
@@ -13068,8 +13068,8 @@ declare module com {
 					public static cartesianProduct(lists: java.util.List<any>): java.util.List<any>;
 					public static newArrayList(elements: native.Array<any>): java.util.ArrayList<any>;
 					public static asList(first: any, rest: native.Array<any>): java.util.List<any>;
-					public static newLinkedList(elements: java.lang.Iterable<any>): java.util.LinkedList<any>;
 					public static charactersOf(sequence: string): java.util.List<java.lang.Character>;
+					public static newLinkedList(elements: java.lang.Iterable<any>): java.util.LinkedList<any>;
 					public static newArrayList(elements: java.lang.Iterable<any>): java.util.ArrayList<any>;
 					public static newArrayListWithCapacity(initialArraySize: number): java.util.ArrayList<any>;
 					public static partition(list: java.util.List<any>, size: number): java.util.List<any>;
@@ -13593,8 +13593,8 @@ declare module com {
 			export module collect {
 				export class MapMaker extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.collect.MapMaker>;
-					public weakKeys(): com.google.common.collect.MapMaker;
 					public toString(): string;
+					public weakKeys(): com.google.common.collect.MapMaker;
 					public constructor();
 					public initialCapacity(initialCapacity: number): com.google.common.collect.MapMaker;
 					public weakValues(): com.google.common.collect.MapMaker;
@@ -13628,24 +13628,24 @@ declare module com {
 					public size(): number;
 					public equals(o: any): boolean;
 					public remove(key: any, value: any): boolean;
-					public putIfAbsent(key: any, value: any): any;
 					public getOrDefault(key: any, defaultValue: any): any;
+					public putIfAbsent(key: any, value: any): any;
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public hashCode(): number;
+					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public remove(key: any): any;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public putAll(m: java.util.Map<any,any>): void;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public putAll(m: java.util.Map<any,any>): void;
 				}
 				export module MapMakerInternalMap {
 					export abstract class AbstractSerializationProxy<K, V>  extends com.google.common.collect.ForwardingConcurrentMap<any,any> implements java.io.Serializable  {
@@ -13884,8 +13884,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry.Helper<any>>;
 							public copy(segment0: any, internalEntry1: any, internalEntry2: any): any;
 							public newEntry(segment0: any, object1: any, int2: number, internalEntry3: any): any;
-							public valueStrength(): com.google.common.collect.MapMakerInternalMap.Strength;
 							public newEntry(segment: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueSegment<any>, key: any, hash: number, next: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry<any>): com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry<any>;
+							public valueStrength(): com.google.common.collect.MapMakerInternalMap.Strength;
 							public setValue(segment: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueSegment<any>, entry: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry<any>, value: com.google.common.collect.MapMaker.Dummy): void;
 							public newSegment(mapMakerInternalMap0: com.google.common.collect.MapMakerInternalMap<any,any,any,any>, int1: number, int2: number): any;
 							public copy(segment: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueSegment<any>, entry: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry<any>, newNext: com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry<any>): com.google.common.collect.MapMakerInternalMap.StrongKeyDummyValueEntry<any>;
@@ -14060,13 +14060,13 @@ declare module com {
 					export module WeakKeyStrongValueEntry {
 						export class Helper<K, V>  extends com.google.common.collect.MapMakerInternalMap.InternalEntryHelper<any,any,com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>,com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>> {
 							public static class: java.lang.Class<com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry.Helper<any,any>>;
-							public newEntry(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>, key: any, hash: number, next: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>): com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>;
 							public copy(segment0: any, internalEntry1: any, internalEntry2: any): any;
+							public newEntry(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>, key: any, hash: number, next: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>): com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>;
 							public newEntry(segment0: any, object1: any, int2: number, internalEntry3: any): any;
 							public copy(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>, entry: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>, newNext: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>): com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>;
 							public valueStrength(): com.google.common.collect.MapMakerInternalMap.Strength;
-							public setValue(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>, entry: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>, value: any): void;
 							public newSegment(mapMakerInternalMap0: com.google.common.collect.MapMakerInternalMap<any,any,any,any>, int1: number, int2: number): any;
+							public setValue(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>, entry: com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>, value: any): void;
 							public setValue(segment0: any, internalEntry1: any, object2: any): void;
 							public keyStrength(): com.google.common.collect.MapMakerInternalMap.Strength;
 							public newSegment(map: com.google.common.collect.MapMakerInternalMap<any,any,com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueEntry<any,any>,com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>>, initialCapacity: number, maxSegmentSize: number): com.google.common.collect.MapMakerInternalMap.WeakKeyStrongValueSegment<any,any>;
@@ -14098,8 +14098,8 @@ declare module com {
 							public copy(segment0: any, internalEntry1: any, internalEntry2: any): any;
 							public setValue(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueSegment<any,any>, entry: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>, value: any): void;
 							public newEntry(segment0: any, object1: any, int2: number, internalEntry3: any): any;
-							public valueStrength(): com.google.common.collect.MapMakerInternalMap.Strength;
 							public newEntry(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueSegment<any,any>, key: any, hash: number, next: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>): com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>;
+							public valueStrength(): com.google.common.collect.MapMakerInternalMap.Strength;
 							public newSegment(map: com.google.common.collect.MapMakerInternalMap<any,any,com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>,com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueSegment<any,any>>, initialCapacity: number, maxSegmentSize: number): com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueSegment<any,any>;
 							public newSegment(mapMakerInternalMap0: com.google.common.collect.MapMakerInternalMap<any,any,any,any>, int1: number, int2: number): any;
 							public copy(segment: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueSegment<any,any>, entry: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>, newNext: com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>): com.google.common.collect.MapMakerInternalMap.WeakKeyWeakValueEntry<any,any>;
@@ -14203,8 +14203,8 @@ declare module com {
 					public static toMap(keys: java.lang.Iterable<any>, valueFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableMap<any,any>;
 					public static newConcurrentMap(): java.util.concurrent.ConcurrentMap<any,any>;
 					public static transformEntries(fromMap: java.util.NavigableMap<any,any>, transformer: com.google.common.collect.Maps.EntryTransformer<any,any,any>): java.util.NavigableMap<any,any>;
-					public static synchronizedBiMap(bimap: com.google.common.collect.BiMap<any,any>): com.google.common.collect.BiMap<any,any>;
 					public static filterEntries(unfiltered: com.google.common.collect.BiMap<any,any>, entryPredicate: com.google.common.base.Predicate<any>): com.google.common.collect.BiMap<any,any>;
+					public static synchronizedBiMap(bimap: com.google.common.collect.BiMap<any,any>): com.google.common.collect.BiMap<any,any>;
 					public static transformValues(fromMap: java.util.Map<any,any>, function1: com.google.common.base.Function<any,any>): java.util.Map<any,any>;
 					public static difference(left: java.util.SortedMap<any,any>, right: java.util.Map<any,any>): com.google.common.collect.SortedMapDifference<any,any>;
 					public static filterValues(unfiltered: java.util.Map<any,any>, valuePredicate: com.google.common.base.Predicate<any>): java.util.Map<any,any>;
@@ -14212,8 +14212,8 @@ declare module com {
 					public static uniqueIndex(values: java.lang.Iterable<any>, keyFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableMap<any,any>;
 					public static unmodifiableBiMap(bimap: com.google.common.collect.BiMap<any,any>): com.google.common.collect.BiMap<any,any>;
 					public static filterValues(unfiltered: java.util.SortedMap<any,any>, valuePredicate: com.google.common.base.Predicate<any>): java.util.SortedMap<any,any>;
-					public static newLinkedHashMapWithExpectedSize(expectedSize: number): java.util.LinkedHashMap<any,any>;
 					public static filterValues(unfiltered: com.google.common.collect.BiMap<any,any>, valuePredicate: com.google.common.base.Predicate<any>): com.google.common.collect.BiMap<any,any>;
+					public static newLinkedHashMapWithExpectedSize(expectedSize: number): java.util.LinkedHashMap<any,any>;
 					public static newHashMap(map: java.util.Map<any,any>): java.util.HashMap<any,any>;
 					public static asMap(set: java.util.SortedSet<any>, function1: com.google.common.base.Function<any,any>): java.util.SortedMap<any,any>;
 					public static filterEntries(unfiltered: java.util.NavigableMap<any,any>, entryPredicate: com.google.common.base.Predicate<any>): java.util.NavigableMap<any,any>;
@@ -14263,8 +14263,8 @@ declare module com {
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 						public containsValue(value: any): boolean;
-						public putAll(m: java.util.Map<any,any>): void;
 						public get(key: any): any;
+						public putAll(m: java.util.Map<any,any>): void;
 						public putAll(map: java.util.Map<any,any>): void;
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 						public remove(key: any): any;
@@ -14347,20 +14347,20 @@ declare module com {
 						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public descendingKeySet(): java.util.NavigableSet<any>;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
 						public lowerKey(key: any): any;
 						public firstEntry(): java.util.Map.Entry<any,any>;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public pollLastEntry(): java.util.Map.Entry<any,any>;
 						public lastKey(): any;
 						public descendingMap(): java.util.NavigableMap<any,any>;
 						public put(key: any, value: any): any;
 						public containsValue(value: any): boolean;
 						public get(key: any): any;
-						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public putAll(map: java.util.Map<any,any>): void;
+						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public headMap(toKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,any>;
 						public delegate(): any;
@@ -14374,8 +14374,8 @@ declare module com {
 						public static KEY: com.google.common.collect.Maps.EntryFunction;
 						public static VALUE: com.google.common.collect.Maps.EntryFunction;
 						public static values(): native.Array<com.google.common.collect.Maps.EntryFunction>;
-						public static valueOf(name: string): com.google.common.collect.Maps.EntryFunction;
 						public equals(other: any): boolean;
+						public static valueOf(name: string): com.google.common.collect.Maps.EntryFunction;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public apply(object0: any): any;
 					}
@@ -14417,17 +14417,17 @@ declare module com {
 						public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public values(): java.util.Set<any>;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public replace(key: any, value: any): any;
@@ -14583,17 +14583,17 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public keySet(): java.util.SortedSet<any>;
@@ -14601,11 +14601,11 @@ declare module com {
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
-						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public putAll(map: java.util.Map<any,any>): void;
+						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,any>;
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 						public remove(key: any): any;
@@ -14616,18 +14616,18 @@ declare module com {
 						export class SortedKeySet extends com.google.common.collect.Maps.FilteredEntryMap.KeySet implements java.util.SortedSet<any>  {
 							public static class: java.lang.Class<com.google.common.collect.Maps.FilteredEntrySortedMap.SortedKeySet>;
 							public size(): number;
-							public spliterator(): java.util.Spliterator<any>;
 							public hashCode(): number;
-							public toArray(): native.Array<any>;
+							public spliterator(): java.util.Spliterator<any>;
 							public add(e: any): boolean;
+							public toArray(): native.Array<any>;
 							public toArray(array: native.Array<any>): native.Array<any>;
 							public stream(): java.util.stream.Stream<any>;
 							public first(): any;
 							public headSet(toElement: any): java.util.SortedSet<any>;
 							public equals(o: any): boolean;
 							public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
-							public tailSet(fromElement: any): java.util.SortedSet<any>;
 							public retainAll(collection: java.util.Collection<any>): boolean;
+							public tailSet(fromElement: any): java.util.SortedSet<any>;
 							public iterator(): java.util.Iterator<any>;
 							public contains(o: any): boolean;
 							public containsAll(c: java.util.Collection<any>): boolean;
@@ -14820,8 +14820,8 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
@@ -14829,20 +14829,20 @@ declare module com {
 						public descendingSet(): java.util.NavigableSet<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
 						public equals(o: any): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public pollLast(): any;
-						public pollFirst(): any;
 						public addAll(c: java.util.Collection<any>): boolean;
+						public pollFirst(): any;
 						public first(): any;
 						public add(e: any): boolean;
 						public lower(e: any): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public ceiling(e: any): any;
@@ -14856,25 +14856,25 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public lastKey(): any;
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
@@ -14891,24 +14891,24 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
 						public equals(o: any): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public addAll(c: java.util.Collection<any>): boolean;
 						public first(): any;
 						public add(e: any): boolean;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
 						public toArray(): native.Array<any>;
@@ -14989,13 +14989,13 @@ declare module com {
 						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public descendingKeySet(): java.util.NavigableSet<any>;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public lowerKey(key: any): any;
+						public remove(key: any, value: any): boolean;
 						public fromMap(): java.util.NavigableMap<any,any>;
+						public lowerKey(key: any): any;
 						public firstEntry(): java.util.Map.Entry<any,any>;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public pollLastEntry(): java.util.Map.Entry<any,any>;
 						public lastKey(): any;
 						public descendingMap(): java.util.NavigableMap<any,any>;
@@ -15009,8 +15009,8 @@ declare module com {
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 						public headMap(toKey: any): java.util.NavigableMap<any,any>;
 						public lowerEntry(key: any): java.util.Map.Entry<any,any>;
-						public navigableKeySet(): java.util.NavigableSet<any>;
 						public keySet(): java.util.Set<any>;
+						public navigableKeySet(): java.util.NavigableSet<any>;
 					}
 					export class TransformedEntriesSortedMap<K, V1, V2>  extends com.google.common.collect.Maps.TransformedEntriesMap<any,any,any> implements java.util.SortedMap<any,any>  {
 						public static class: java.lang.Class<com.google.common.collect.Maps.TransformedEntriesSortedMap<any,any,any>>;
@@ -15019,25 +15019,25 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public lastKey(): any;
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
@@ -15052,17 +15052,17 @@ declare module com {
 						public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public values(): java.util.Set<any>;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public size(): number;
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
@@ -15115,21 +15115,21 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public removeIf(filter: any /* any*/): boolean;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public toArray(array: native.Array<any>): native.Array<any>;
 						public remove(object: any): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
 						public add(element: any): boolean;
-						public size(): number;
 						public forEach(action: any /* any*/): void;
-						public equals(object: any): boolean;
+						public size(): number;
 						public containsAll(collection: java.util.Collection<any>): boolean;
-						public toArray(): native.Array<any>;
+						public equals(object: any): boolean;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class UnmodifiableNavigableMap<K, V>  extends com.google.common.collect.ForwardingSortedMap<any,any> {
 						public static class: java.lang.Class<com.google.common.collect.Maps.UnmodifiableNavigableMap<any,any>>;
@@ -15164,20 +15164,20 @@ declare module com {
 						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public descendingKeySet(): java.util.NavigableSet<any>;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
 						public lowerKey(key: any): any;
 						public firstEntry(): java.util.Map.Entry<any,any>;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public pollLastEntry(): java.util.Map.Entry<any,any>;
 						public lastKey(): any;
 						public descendingMap(): java.util.NavigableMap<any,any>;
 						public put(key: any, value: any): any;
 						public containsValue(value: any): boolean;
 						public get(key: any): any;
-						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public putAll(map: java.util.Map<any,any>): void;
+						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public headMap(toKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,any>;
 						public delegate(): any;
@@ -15208,8 +15208,8 @@ declare module com {
 						public removeIf(filter: any /* any*/): boolean;
 						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
-						public removeAll(c: java.util.Collection<any>): boolean;
 						public contains(o: any): boolean;
+						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
@@ -15264,16 +15264,16 @@ declare module com {
 					public isEmpty(): boolean;
 					public spliterator(): java.util.Spliterator<any>;
 					public addAll(c: java.util.Collection<any>): boolean;
-					public removeLast(): any;
 					public comparator(): java.util.Comparator<any>;
+					public removeLast(): any;
 					public size(): number;
 					public static expectedSize(expectedSize: number): com.google.common.collect.MinMaxPriorityQueue.Builder<java.lang.Comparable<any>>;
 					public offer(element: any): boolean;
 					public add(element: any): boolean;
 					public contains(o: any): boolean;
+					public iterator(): java.util.Iterator<any>;
 					public static orderedBy(comparator: java.util.Comparator<any>): com.google.common.collect.MinMaxPriorityQueue.Builder<any>;
 					public poll(): any;
-					public iterator(): java.util.Iterator<any>;
 					public peekFirst(): any;
 					public removeAll(c: java.util.Collection<any>): boolean;
 					public toArray(): native.Array<any>;
@@ -15498,8 +15498,8 @@ declare module com {
 					public static index(values: java.lang.Iterable<any>, keyFunction: com.google.common.base.Function<any,any>): com.google.common.collect.ImmutableListMultimap<any,any>;
 					public static transformEntries(fromMap: com.google.common.collect.ListMultimap<any,any>, transformer: com.google.common.collect.Maps.EntryTransformer<any,any,any>): com.google.common.collect.ListMultimap<any,any>;
 					public static filterValues(unfiltered: com.google.common.collect.Multimap<any,any>, valuePredicate: com.google.common.base.Predicate<any>): com.google.common.collect.Multimap<any,any>;
-					public static newListMultimap(map: java.util.Map<any,any>, factory: com.google.common.base.Supplier<any>): com.google.common.collect.ListMultimap<any,any>;
 					public static filterEntries(unfiltered: com.google.common.collect.Multimap<any,any>, entryPredicate: com.google.common.base.Predicate<any>): com.google.common.collect.Multimap<any,any>;
+					public static newListMultimap(map: java.util.Map<any,any>, factory: com.google.common.base.Supplier<any>): com.google.common.collect.ListMultimap<any,any>;
 					public static filterKeys(unfiltered: com.google.common.collect.ListMultimap<any,any>, keyPredicate: com.google.common.base.Predicate<any>): com.google.common.collect.ListMultimap<any,any>;
 					public static synchronizedListMultimap(multimap: com.google.common.collect.ListMultimap<any,any>): com.google.common.collect.ListMultimap<any,any>;
 					/** @deprecated */
@@ -15515,8 +15515,8 @@ declare module com {
 					public static filterEntries(unfiltered: com.google.common.collect.SetMultimap<any,any>, entryPredicate: com.google.common.base.Predicate<any>): com.google.common.collect.SetMultimap<any,any>;
 					public static synchronizedMultimap(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.Multimap<any,any>;
 					public static unmodifiableSetMultimap(delegate: com.google.common.collect.SetMultimap<any,any>): com.google.common.collect.SetMultimap<any,any>;
-					public static unmodifiableListMultimap(delegate: com.google.common.collect.ListMultimap<any,any>): com.google.common.collect.ListMultimap<any,any>;
 					public static transformValues(fromMultimap: com.google.common.collect.Multimap<any,any>, function1: com.google.common.base.Function<any,any>): com.google.common.collect.Multimap<any,any>;
+					public static unmodifiableListMultimap(delegate: com.google.common.collect.ListMultimap<any,any>): com.google.common.collect.ListMultimap<any,any>;
 				}
 				export module Multimaps {
 					export class AsMap<K, V>  extends com.google.common.collect.Maps.ViewCachingAbstractMap<any,java.util.Collection<any>> {
@@ -15743,8 +15743,8 @@ declare module com {
 						public get(object0: any): java.util.Collection<any>;
 						public put(key: any, value: any): boolean;
 						public containsValue(value: any): boolean;
-						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
+						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public removeAll(object0: any): java.util.Collection<any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
@@ -15756,10 +15756,10 @@ declare module com {
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Set<any>;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 						public isEmpty(): boolean;
-						public get(key: any): java.util.Set<any>;
-						public removeAll(key: any): java.util.Set<any>;
 						public clear(): void;
+						public get(key: any): java.util.Set<any>;
 						public keys(): com.google.common.collect.Multiset<any>;
+						public removeAll(key: any): java.util.Set<any>;
 						public size(): number;
 						public equals(object: any): boolean;
 						public entries(): java.util.Set<java.util.Map.Entry<any,any>>;
@@ -15772,12 +15772,12 @@ declare module com {
 						public get(key: any): java.util.List<any>;
 						public put(key: any, value: any): boolean;
 						public containsValue(value: any): boolean;
-						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
+						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 						public asMap(): java.util.Map<any,java.util.Collection<any>>;
+						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 						public containsEntry(key: any, value: any): boolean;
 						public values(): java.util.Collection<any>;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
@@ -15820,8 +15820,8 @@ declare module com {
 						public get(key: any): java.util.List<any>;
 						public delegate(): com.google.common.collect.ListMultimap<any,any>;
 						public hashCode(): number;
-						public delegate(): com.google.common.collect.Multimap<any,any>;
 						public containsKey(key: any): boolean;
+						public delegate(): com.google.common.collect.Multimap<any,any>;
 						public asMap(): java.util.Map<any,java.util.Collection<any>>;
 						public containsEntry(key: any, value: any): boolean;
 						public values(): java.util.Collection<any>;
@@ -15834,8 +15834,8 @@ declare module com {
 						public removeAll(key: any): java.util.List<any>;
 						public put(key: any, value: any): boolean;
 						public containsValue(value: any): boolean;
-						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
+						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 						public delegate(): any;
@@ -15873,8 +15873,8 @@ declare module com {
 						public removeAll(key: any): java.util.Collection<any>;
 						public delegate(): com.google.common.collect.SetMultimap<any,any>;
 						public hashCode(): number;
-						public delegate(): com.google.common.collect.Multimap<any,any>;
 						public containsKey(key: any): boolean;
+						public delegate(): com.google.common.collect.Multimap<any,any>;
 						public asMap(): java.util.Map<any,java.util.Collection<any>>;
 						public containsEntry(key: any, value: any): boolean;
 						public values(): java.util.Collection<any>;
@@ -15886,14 +15886,14 @@ declare module com {
 						public keys(): com.google.common.collect.Multiset<any>;
 						public size(): number;
 						public put(key: any, value: any): boolean;
-						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public containsValue(value: any): boolean;
+						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 						public delegate(): any;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Set<any>;
-						public removeAll(key: any): java.util.Set<any>;
 						public clear(): void;
+						public removeAll(key: any): java.util.Set<any>;
 						public equals(object: any): boolean;
 						public entries(): java.util.Set<java.util.Map.Entry<any,any>>;
 						public keySet(): java.util.Set<any>;
@@ -15903,8 +15903,8 @@ declare module com {
 						public removeAll(key: any): java.util.Collection<any>;
 						public delegate(): com.google.common.collect.SetMultimap<any,any>;
 						public hashCode(): number;
-						public delegate(): com.google.common.collect.Multimap<any,any>;
 						public containsKey(key: any): boolean;
+						public delegate(): com.google.common.collect.Multimap<any,any>;
 						public asMap(): java.util.Map<any,java.util.Collection<any>>;
 						public containsEntry(key: any, value: any): boolean;
 						public values(): java.util.Collection<any>;
@@ -15919,15 +15919,15 @@ declare module com {
 						public size(): number;
 						public put(key: any, value: any): boolean;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.SortedSet<any>;
-						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public containsValue(value: any): boolean;
+						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 						public delegate(): any;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Set<any>;
+						public clear(): void;
 						public get(key: any): java.util.SortedSet<any>;
 						public removeAll(key: any): java.util.Set<any>;
-						public clear(): void;
 						public removeAll(key: any): java.util.SortedSet<any>;
 						public equals(object: any): boolean;
 						public entries(): java.util.Set<java.util.Map.Entry<any,any>>;
@@ -16085,12 +16085,12 @@ declare module com {
 						public compare(object0: any, object1: any): number;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public compare(entry1: com.google.common.collect.Multiset.Entry<any>, entry2: com.google.common.collect.Multiset.Entry<any>): number;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -16271,8 +16271,8 @@ declare module com {
 			export module collect {
 				export class MutableClassToInstanceMap<B>  extends com.google.common.collect.ForwardingMap<java.lang.Class<any>,any> {
 					public static class: java.lang.Class<com.google.common.collect.MutableClassToInstanceMap<any>>;
-					public put(key: java.lang.Class<any>, value: any): any;
 					public containsKey(key: any): boolean;
+					public put(key: java.lang.Class<any>, value: any): any;
 					public get(key: any): any;
 					public isEmpty(): boolean;
 					public forEach(action: any /* any<any,any>*/): void;
@@ -16280,9 +16280,9 @@ declare module com {
 					public remove(key: any, value: any): boolean;
 					public equals(object: any): boolean;
 					public remove(object: any): any;
-					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public getOrDefault(key: any, defaultValue: any): any;
 					public putIfAbsent(key: any, value: any): any;
+					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
@@ -16293,17 +16293,17 @@ declare module com {
 					public static create(backingMap: java.util.Map<any,any>): com.google.common.collect.MutableClassToInstanceMap<any>;
 					public getInstance(type: java.lang.Class<any>): any;
 					public putAll(map: java.util.Map<any,any>): void;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public entrySet(): java.util.Set<java.util.Map.Entry<java.lang.Class<any>,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-					public delegate(): java.util.Map<java.lang.Class<any>,any>;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public delegate(): java.util.Map<java.lang.Class<any>,any>;
 					public delegate(): java.util.Map<any,any>;
 				}
 				export module MutableClassToInstanceMap {
@@ -16357,15 +16357,15 @@ declare module com {
 			export module collect {
 				export class NullsFirstOrdering<T>  extends com.google.common.collect.Ordering<any> implements java.io.Serializable  {
 					public static class: java.lang.Class<com.google.common.collect.NullsFirstOrdering<any>>;
-					public nullsLast(): com.google.common.collect.Ordering<any>;
 					public equals(obj: any): boolean;
+					public nullsLast(): com.google.common.collect.Ordering<any>;
 					public static nullsFirst(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 					public static comparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public nullsFirst(): com.google.common.collect.Ordering<any>;
 					public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
-					public reverse(): com.google.common.collect.Ordering<any>;
 					public equals(object: any): boolean;
+					public reverse(): com.google.common.collect.Ordering<any>;
 					public toString(): string;
 					public reversed(): java.util.Comparator<any>;
 					public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
@@ -16394,15 +16394,15 @@ declare module com {
 			export module collect {
 				export class NullsLastOrdering<T>  extends com.google.common.collect.Ordering<any> implements java.io.Serializable  {
 					public static class: java.lang.Class<com.google.common.collect.NullsLastOrdering<any>>;
-					public nullsLast(): com.google.common.collect.Ordering<any>;
 					public equals(obj: any): boolean;
+					public nullsLast(): com.google.common.collect.Ordering<any>;
 					public static nullsFirst(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 					public static comparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public nullsFirst(): com.google.common.collect.Ordering<any>;
 					public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
-					public reverse(): com.google.common.collect.Ordering<any>;
 					public equals(object: any): boolean;
+					public reverse(): com.google.common.collect.Ordering<any>;
 					public toString(): string;
 					public reversed(): java.util.Comparator<any>;
 					public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
@@ -16431,8 +16431,8 @@ declare module com {
 			export module collect {
 				export class ObjectArrays extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.collect.ObjectArrays>;
-					public static newArray(type: java.lang.Class<any>, length: number): native.Array<any>;
 					public static concat(element: any, array: native.Array<any>): native.Array<any>;
+					public static newArray(type: java.lang.Class<any>, length: number): native.Array<any>;
 					public static concat(first: native.Array<any>, second: native.Array<any>, type: java.lang.Class<any>): native.Array<any>;
 					public static concat(array: native.Array<any>, element: any): native.Array<any>;
 					public static newArray(reference: native.Array<any>, length: number): native.Array<any>;
@@ -16452,8 +16452,8 @@ declare module com {
 					public remove(key: any): number;
 					public static create(): com.google.common.collect.ObjectCountHashMap<any>;
 					public static createWithExpectedSize(expectedSize: number): com.google.common.collect.ObjectCountHashMap<any>;
-					public put(key: K, value: number): number;
 					public clear(): void;
+					public put(key: K, value: number): number;
 					public get(key: any): number;
 				}
 				export module ObjectCountHashMap {
@@ -16508,19 +16508,19 @@ declare module com {
 					public min(a: any, b: any, c: any, rest: native.Array<any>): any;
 					public compare(object0: any, object1: any): number;
 					public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
-					public static natural(): com.google.common.collect.Ordering<any>;
 					public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
+					public static natural(): com.google.common.collect.Ordering<any>;
 					public greatestOf(iterator: java.util.Iterator<any>, k: number): java.util.List<any>;
-					public static from(comparator: java.util.Comparator<any>): com.google.common.collect.Ordering<any>;
 					public static allEqual(): com.google.common.collect.Ordering<any>;
+					public static from(comparator: java.util.Comparator<any>): com.google.common.collect.Ordering<any>;
 					public static usingToString(): com.google.common.collect.Ordering<any>;
 					public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public equals(obj: any): boolean;
 					public static nullsFirst(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 					public static comparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
-					public min(iterator: java.util.Iterator<any>): any;
 					public isOrdered(iterable: java.lang.Iterable<any>): boolean;
+					public min(iterator: java.util.Iterator<any>): any;
 					public static explicit(valuesInOrder: java.util.List<any>): com.google.common.collect.Ordering<any>;
 					public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 					public greatestOf(iterable: java.lang.Iterable<any>, k: number): java.util.List<any>;
@@ -16541,9 +16541,9 @@ declare module com {
 					public max(a: any, b: any, c: any, rest: native.Array<any>): any;
 					public static reverseOrder(): java.util.Comparator<any>;
 					/** @deprecated */
-					public static from(ordering: com.google.common.collect.Ordering<any>): com.google.common.collect.Ordering<any>;
-					/** @deprecated */
 					public binarySearch(sortedList: java.util.List<any>, key: any): number;
+					/** @deprecated */
+					public static from(ordering: com.google.common.collect.Ordering<any>): com.google.common.collect.Ordering<any>;
 					public static arbitrary(): com.google.common.collect.Ordering<any>;
 					public min(a: any, b: any): any;
 					public immutableSortedCopy(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableList<any>;
@@ -16631,9 +16631,9 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.Queues>;
 					public static newArrayDeque(): java.util.ArrayDeque<any>;
 					public static newLinkedBlockingDeque(): java.util.concurrent.LinkedBlockingDeque<any>;
+					public static drainUninterruptibly(q: java.util.concurrent.BlockingQueue<any>, buffer: java.util.Collection<any>, numElements: number, timeout: number, unit: java.util.concurrent.TimeUnit): number;
 					public static newConcurrentLinkedQueue(): java.util.concurrent.ConcurrentLinkedQueue<any>;
 					public static newPriorityBlockingQueue(elements: java.lang.Iterable<any>): java.util.concurrent.PriorityBlockingQueue<any>;
-					public static drainUninterruptibly(q: java.util.concurrent.BlockingQueue<any>, buffer: java.util.Collection<any>, numElements: number, timeout: number, unit: java.util.concurrent.TimeUnit): number;
 					public static newLinkedBlockingQueue(elements: java.lang.Iterable<any>): java.util.concurrent.LinkedBlockingQueue<any>;
 					public static newLinkedBlockingQueue(): java.util.concurrent.LinkedBlockingQueue<any>;
 					public static synchronizedQueue(queue: java.util.Queue<any>): java.util.Queue<any>;
@@ -16641,9 +16641,9 @@ declare module com {
 					public static newLinkedBlockingDeque(elements: java.lang.Iterable<any>): java.util.concurrent.LinkedBlockingDeque<any>;
 					public static newSynchronousQueue(): java.util.concurrent.SynchronousQueue<any>;
 					public static newPriorityQueue(elements: java.lang.Iterable<any>): java.util.PriorityQueue<any>;
+					public static drain(q: java.util.concurrent.BlockingQueue<any>, buffer: java.util.Collection<any>, numElements: number, timeout: number, unit: java.util.concurrent.TimeUnit): number;
 					public static newArrayBlockingQueue(capacity: number): java.util.concurrent.ArrayBlockingQueue<any>;
 					public static newConcurrentLinkedQueue(elements: java.lang.Iterable<any>): java.util.concurrent.ConcurrentLinkedQueue<any>;
-					public static drain(q: java.util.concurrent.BlockingQueue<any>, buffer: java.util.Collection<any>, numElements: number, timeout: number, unit: java.util.concurrent.TimeUnit): number;
 					public static newPriorityBlockingQueue(): java.util.concurrent.PriorityBlockingQueue<any>;
 					public static newArrayDeque(elements: java.lang.Iterable<any>): java.util.ArrayDeque<any>;
 					public static newLinkedBlockingQueue(capacity: number): java.util.concurrent.LinkedBlockingQueue<any>;
@@ -16663,33 +16663,33 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.collect.Range<any>>;
 					public lowerBoundType(): com.google.common.collect.BoundType;
 					public static range(lower: java.lang.Comparable<any>, lowerType: com.google.common.collect.BoundType, upper: java.lang.Comparable<any>, upperType: com.google.common.collect.BoundType): com.google.common.collect.Range<any>;
-					public hasUpperBound(): boolean;
 					public equals(obj: any): boolean;
+					public hasUpperBound(): boolean;
 					public isEmpty(): boolean;
 					public static singleton(value: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
 					public lowerEndpoint(): any;
 					public static atLeast(endpoint: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
+					public encloses(other: com.google.common.collect.Range<any>): boolean;
 					public static greaterThan(endpoint: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
 					public upperEndpoint(): any;
-					public encloses(other: com.google.common.collect.Range<any>): boolean;
 					public equals(object: any): boolean;
 					public toString(): string;
-					public static upTo(endpoint: java.lang.Comparable<any>, boundType: com.google.common.collect.BoundType): com.google.common.collect.Range<any>;
 					public span(other: com.google.common.collect.Range<any>): com.google.common.collect.Range<any>;
+					public static upTo(endpoint: java.lang.Comparable<any>, boundType: com.google.common.collect.BoundType): com.google.common.collect.Range<any>;
 					public contains(value: any): boolean;
-					public static closedOpen(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
-					public static openClosed(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
-					public static downTo(endpoint: java.lang.Comparable<any>, boundType: com.google.common.collect.BoundType): com.google.common.collect.Range<any>;
 					public canonical(domain: com.google.common.collect.DiscreteDomain<any>): com.google.common.collect.Range<any>;
+					public static closedOpen(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
+					public static downTo(endpoint: java.lang.Comparable<any>, boundType: com.google.common.collect.BoundType): com.google.common.collect.Range<any>;
+					public static openClosed(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
 					public upperBoundType(): com.google.common.collect.BoundType;
 					public static encloseAll(values: java.lang.Iterable<any>): com.google.common.collect.Range<any>;
 					public isConnected(other: com.google.common.collect.Range<any>): boolean;
 					public hashCode(): number;
 					public static atMost(endpoint: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
-					public static open(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
 					public static all(): com.google.common.collect.Range<any>;
-					public hasLowerBound(): boolean;
+					public static open(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
 					public apply(object0: any): boolean;
+					public hasLowerBound(): boolean;
 					public static closed(lower: java.lang.Comparable<any>, upper: java.lang.Comparable<any>): com.google.common.collect.Range<any>;
 					public gap(otherRange: com.google.common.collect.Range<any>): com.google.common.collect.Range<any>;
 					public containsAll(values: java.lang.Iterable<any>): boolean;
@@ -17625,8 +17625,8 @@ declare module com {
 					public pollLast(): any;
 					public stream(): java.util.stream.Stream<any>;
 					public tailSet(fromElement: any, inclusive: boolean): com.google.common.collect.ImmutableSortedSet<any>;
-					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
 					public floor(element: any): any;
+					public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
 					public higher(element: any): any;
 					public addAll(newElements: java.util.Collection<any>): boolean;
 					public tailSet(object0: any, boolean1: boolean): java.util.NavigableSet<any>;
@@ -17817,8 +17817,8 @@ declare module com {
 					public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
 					public min(a: any, b: any, c: any, rest: native.Array<any>): any;
 					public thenComparing(other: java.util.Comparator<any>): java.util.Comparator<any>;
-					public min(a: java.lang.Comparable<any>, b: java.lang.Comparable<any>): java.lang.Comparable<any>;
 					public max(a: any, b: any, c: any, rest: native.Array<any>): any;
+					public min(a: java.lang.Comparable<any>, b: java.lang.Comparable<any>): java.lang.Comparable<any>;
 					public static reverseOrder(): java.util.Comparator<any>;
 					public compare(object0: any, object1: any): number;
 					public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -17847,8 +17847,8 @@ declare module com {
 					public min(iterable: java.lang.Iterable<any>): any;
 					public min(iterator: java.util.Iterator<any>): any;
 					public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
-					public reverse(): com.google.common.collect.Ordering<any>;
 					public equals(object: any): boolean;
+					public reverse(): com.google.common.collect.Ordering<any>;
 					public toString(): string;
 					public reversed(): java.util.Comparator<any>;
 					public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
@@ -18039,24 +18039,24 @@ declare module com {
 					public static immutableEnumSet(elements: java.lang.Iterable<any>): com.google.common.collect.ImmutableSet<any>;
 					public static union(set1: java.util.Set<any>, set2: java.util.Set<any>): com.google.common.collect.Sets.SetView<any>;
 					public static newHashSet(elements: java.lang.Iterable<any>): java.util.HashSet<any>;
-					public static newConcurrentHashSet(): java.util.Set<any>;
 					public static complementOf(collection: java.util.Collection<any>, type: java.lang.Class<any>): java.util.EnumSet<any>;
+					public static newConcurrentHashSet(): java.util.Set<any>;
 					public static symmetricDifference(set1: java.util.Set<any>, set2: java.util.Set<any>): com.google.common.collect.Sets.SetView<any>;
 					public static newCopyOnWriteArraySet(elements: java.lang.Iterable<any>): java.util.concurrent.CopyOnWriteArraySet<any>;
-					public static newLinkedHashSet(elements: java.lang.Iterable<any>): java.util.LinkedHashSet<any>;
 					public static combinations(set: java.util.Set<any>, size: number): java.util.Set<any>;
+					public static newLinkedHashSet(elements: java.lang.Iterable<any>): java.util.LinkedHashSet<any>;
 					public static cartesianProduct(sets: native.Array<java.util.Set<any>>): java.util.Set<any>;
-					public static newHashSet(elements: native.Array<any>): java.util.HashSet<any>;
 					public static filter(unfiltered: java.util.NavigableSet<any>, predicate: com.google.common.base.Predicate<any>): java.util.NavigableSet<any>;
+					public static newHashSet(elements: native.Array<any>): java.util.HashSet<any>;
 					public static unmodifiableNavigableSet(set: java.util.NavigableSet<any>): java.util.NavigableSet<any>;
 					public static newHashSet(elements: java.util.Iterator<any>): java.util.HashSet<any>;
 					public static newConcurrentHashSet(elements: java.lang.Iterable<any>): java.util.Set<any>;
 					public static subSet(set: java.util.NavigableSet<any>, range: com.google.common.collect.Range<any>): java.util.NavigableSet<any>;
-					public static newLinkedHashSet(): java.util.LinkedHashSet<any>;
 					public static cartesianProduct(sets: java.util.List<any>): java.util.Set<any>;
+					public static newLinkedHashSet(): java.util.LinkedHashSet<any>;
+					public static intersection(set1: java.util.Set<any>, set2: java.util.Set<any>): com.google.common.collect.Sets.SetView<any>;
 					/** @deprecated */
 					public static newSetFromMap(map: java.util.Map<any,any>): java.util.Set<any>;
-					public static intersection(set1: java.util.Set<any>, set2: java.util.Set<any>): com.google.common.collect.Sets.SetView<any>;
 					public static filter(unfiltered: java.util.Set<any>, predicate: com.google.common.base.Predicate<any>): java.util.Set<any>;
 					public static powerSet(set: java.util.Set<any>): java.util.Set<any>;
 					public static difference(set1: java.util.Set<any>, set2: java.util.Set<any>): com.google.common.collect.Sets.SetView<any>;
@@ -18080,8 +18080,8 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public removeIf(filter: any /* any*/): boolean;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public delegate(): any;
 						public toArray(array: native.Array<any>): native.Array<any>;
 						public delegate(): java.util.Collection<java.util.List<any>>;
@@ -18090,13 +18090,13 @@ declare module com {
 						public isEmpty(): boolean;
 						public clear(): void;
 						public add(element: any): boolean;
-						public size(): number;
 						public forEach(action: any /* any*/): void;
-						public equals(object: any): boolean;
+						public size(): number;
 						public containsAll(collection: java.util.Collection<any>): boolean;
-						public toArray(): native.Array<any>;
+						public equals(object: any): boolean;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class DescendingSet<E>  extends com.google.common.collect.ForwardingNavigableSet<any> {
 						public static class: java.lang.Class<com.google.common.collect.Sets.DescendingSet<any>>;
@@ -18152,9 +18152,9 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public contains(element: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public higher(e: any): any;
 						public toArray(array: native.Array<any>): native.Array<any>;
@@ -18169,8 +18169,8 @@ declare module com {
 						public first(): any;
 						public lower(e: any): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public ceiling(e: any): any;
@@ -18179,9 +18179,9 @@ declare module com {
 						public forEach(action: any /* any*/): void;
 						public containsAll(collection: java.util.Collection<any>): boolean;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class FilteredSet<E>  extends com.google.common.collect.Collections2.FilteredCollection<any> implements java.util.Set<any>  {
 						public static class: java.lang.Class<com.google.common.collect.Sets.FilteredSet<any>>;
@@ -18191,21 +18191,21 @@ declare module com {
 						public hashCode(): number;
 						public contains(element: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public toArray(array: native.Array<any>): native.Array<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public remove(element: any): boolean;
 						public isEmpty(): boolean;
 						public clear(): void;
 						public add(element: any): boolean;
-						public size(): number;
 						public forEach(action: any /* any*/): void;
-						public equals(object: any): boolean;
+						public size(): number;
 						public containsAll(collection: java.util.Collection<any>): boolean;
-						public toArray(): native.Array<any>;
+						public equals(object: any): boolean;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class FilteredSortedSet<E>  extends com.google.common.collect.Sets.FilteredSet<any> implements java.util.SortedSet<any>  {
 						public static class: java.lang.Class<com.google.common.collect.Sets.FilteredSortedSet<any>>;
@@ -18213,9 +18213,9 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public contains(element: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public toArray(array: native.Array<any>): native.Array<any>;
 						public spliterator(): java.util.Spliterator<any>;
@@ -18225,16 +18225,16 @@ declare module com {
 						public size(): number;
 						public first(): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public clear(): void;
 						public add(element: any): boolean;
 						public forEach(action: any /* any*/): void;
 						public containsAll(collection: java.util.Collection<any>): boolean;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export abstract class ImprovedAbstractSet<E>  extends java.util.AbstractSet<any> {
 						public static class: java.lang.Class<com.google.common.collect.Sets.ImprovedAbstractSet<any>>;
@@ -18351,14 +18351,14 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.collect.Sets.UnmodifiableNavigableSet<any>>;
 						public descendingIterator(): java.util.Iterator<any>;
 						public last(): any;
-						public floor(e: any): any;
 						public contains(object: any): boolean;
+						public floor(e: any): any;
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public higher(e: any): any;
 						public toArray(array: native.Array<any>): native.Array<any>;
@@ -18374,8 +18374,8 @@ declare module com {
 						public delegate(): java.util.Collection<any>;
 						public lower(e: any): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public delegate(): any;
@@ -18387,9 +18387,9 @@ declare module com {
 						public forEach(action: any /* any*/): void;
 						public containsAll(collection: java.util.Collection<any>): boolean;
 						public equals(object: any): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 				}
 			}
@@ -18547,9 +18547,9 @@ declare module com {
 				export module SortedLists {
 					export abstract class KeyAbsentBehavior {
 						public static class: java.lang.Class<com.google.common.collect.SortedLists.KeyAbsentBehavior>;
-						public static NEXT_LOWER: com.google.common.collect.SortedLists.KeyAbsentBehavior;
-						public static NEXT_HIGHER: com.google.common.collect.SortedLists.KeyAbsentBehavior;
 						public static INVERTED_INSERTION_INDEX: com.google.common.collect.SortedLists.KeyAbsentBehavior;
+						public static NEXT_HIGHER: com.google.common.collect.SortedLists.KeyAbsentBehavior;
+						public static NEXT_LOWER: com.google.common.collect.SortedLists.KeyAbsentBehavior;
 						public static valueOf(name: string): com.google.common.collect.SortedLists.KeyAbsentBehavior;
 						public static values(): native.Array<com.google.common.collect.SortedLists.KeyAbsentBehavior>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -18557,13 +18557,13 @@ declare module com {
 					export abstract class KeyPresentBehavior {
 						public static class: java.lang.Class<com.google.common.collect.SortedLists.KeyPresentBehavior>;
 						public static ANY_PRESENT: com.google.common.collect.SortedLists.KeyPresentBehavior;
-						public static LAST_PRESENT: com.google.common.collect.SortedLists.KeyPresentBehavior;
-						public static FIRST_PRESENT: com.google.common.collect.SortedLists.KeyPresentBehavior;
 						public static FIRST_AFTER: com.google.common.collect.SortedLists.KeyPresentBehavior;
+						public static FIRST_PRESENT: com.google.common.collect.SortedLists.KeyPresentBehavior;
 						public static LAST_BEFORE: com.google.common.collect.SortedLists.KeyPresentBehavior;
+						public static LAST_PRESENT: com.google.common.collect.SortedLists.KeyPresentBehavior;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
-						public static values(): native.Array<com.google.common.collect.SortedLists.KeyPresentBehavior>;
 						public static valueOf(name: string): com.google.common.collect.SortedLists.KeyPresentBehavior;
+						public static values(): native.Array<com.google.common.collect.SortedLists.KeyPresentBehavior>;
 					}
 				}
 			}
@@ -18831,24 +18831,24 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
 						public equals(o: any): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public addAll(c: java.util.Collection<any>): boolean;
 						public first(): any;
 						public add(e: any): boolean;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
 						public toArray(): native.Array<any>;
@@ -18863,8 +18863,8 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
@@ -18872,20 +18872,20 @@ declare module com {
 						public descendingSet(): java.util.NavigableSet<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
 						public equals(o: any): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public pollLast(): any;
-						public pollFirst(): any;
 						public addAll(c: java.util.Collection<any>): boolean;
+						public pollFirst(): any;
 						public first(): any;
 						public add(e: any): boolean;
 						public lower(e: any): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public ceiling(e: any): any;
@@ -19035,8 +19035,8 @@ declare module com {
 					public equals(obj: any): boolean;
 					public put(rowKey: any, columnKey: any, value: any): any;
 					public isEmpty(): boolean;
-					public row(rowKey: any): java.util.Map<any,any>;
 					public column(columnKey: any): java.util.Map<any,any>;
+					public row(rowKey: any): java.util.Map<any,any>;
 					public rowKeySet(): java.util.Set<any>;
 					public contains(rowKey: any, columnKey: any): boolean;
 					public size(): number;
@@ -19045,14 +19045,14 @@ declare module com {
 					public rowMap(): java.util.SortedMap<any,java.util.Map<any,any>>;
 					public containsValue(value: any): boolean;
 					public cellSet(): java.util.Set<com.google.common.collect.Table.Cell<any,any,any>>;
-					public rowKeySet(): java.util.SortedSet<any>;
 					public containsColumn(columnKey: any): boolean;
+					public rowKeySet(): java.util.SortedSet<any>;
 					public columnMap(): java.util.Map<any,java.util.Map<any,any>>;
 					public clear(): void;
-					public rowMap(): java.util.Map<any,java.util.Map<any,any>>;
 					public putAll(table: com.google.common.collect.Table<any,any,any>): void;
-					public containsRow(rowKey: any): boolean;
+					public rowMap(): java.util.Map<any,java.util.Map<any,any>>;
 					public columnKeySet(): java.util.Set<any>;
+					public containsRow(rowKey: any): boolean;
 					public hashCode(): number;
 				}
 				export module StandardRowSortedTable {
@@ -19062,18 +19062,18 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public remove(key: any): java.util.Map<any,any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public keySet(): java.util.SortedSet<any>;
@@ -19081,8 +19081,8 @@ declare module com {
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
@@ -19090,8 +19090,8 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,java.util.Map<any,any>>;
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 						public tailMap(fromKey: any): java.util.SortedMap<any,java.util.Map<any,any>>;
-						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,java.util.Map<any,any>>;
 						public remove(key: any): any;
+						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,java.util.Map<any,any>>;
 						public get(key: any): java.util.Map<any,any>;
 						public clear(): void;
 						public keySet(): java.util.Set<any>;
@@ -19112,8 +19112,8 @@ declare module com {
 					public put(rowKey: any, columnKey: any, value: any): any;
 					public equals(obj: any): boolean;
 					public isEmpty(): boolean;
-					public row(rowKey: any): java.util.Map<any,any>;
 					public column(columnKey: any): java.util.Map<any,any>;
+					public row(rowKey: any): java.util.Map<any,any>;
 					public rowKeySet(): java.util.Set<any>;
 					public contains(rowKey: any, columnKey: any): boolean;
 					public size(): number;
@@ -19126,8 +19126,8 @@ declare module com {
 					public clear(): void;
 					public rowMap(): java.util.Map<any,java.util.Map<any,any>>;
 					public putAll(table: com.google.common.collect.Table<any,any,any>): void;
-					public containsRow(rowKey: any): boolean;
 					public columnKeySet(): java.util.Set<any>;
+					public containsRow(rowKey: any): boolean;
 					public hashCode(): number;
 				}
 				export module StandardTable {
@@ -19261,8 +19261,8 @@ declare module com {
 						public removeIf(filter: any /* any*/): boolean;
 						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
-						public removeAll(c: java.util.Collection<any>): boolean;
 						public contains(o: any): boolean;
+						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
@@ -19558,17 +19558,17 @@ declare module com {
 						public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public values(): java.util.Set<any>;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public replace(key: any, value: any): any;
@@ -19595,16 +19595,16 @@ declare module com {
 						public hashCode(): number;
 						public remove(o: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
 						public containsAll(c: java.util.Collection<any>): boolean;
-						public size(): number;
 						public forEach(action: any /* any*/): void;
+						public size(): number;
 						public toArray(): native.Array<any>;
 					}
 					export class SynchronizedDeque<E>  extends com.google.common.collect.Synchronized.SynchronizedQueue<any> implements java.util.Deque<any>  {
@@ -19614,9 +19614,9 @@ declare module com {
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
-						public removeFirstOccurrence(o: any): boolean;
-						public poll(): any;
 						public hashCode(): number;
+						public poll(): any;
+						public removeFirstOccurrence(o: any): boolean;
 						public element(): any;
 						public removeIf(filter: any /* any*/): boolean;
 						public contains(o: any): boolean;
@@ -19630,21 +19630,21 @@ declare module com {
 						public size(): number;
 						public pollLast(): any;
 						public remove(): any;
-						public pollFirst(): any;
 						public addAll(c: java.util.Collection<any>): boolean;
+						public pollFirst(): any;
 						public addLast(e: any): void;
 						public pop(): any;
 						public add(e: any): boolean;
 						public peekLast(): any;
 						public peek(): any;
-						public removeFirst(): any;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
+						public removeFirst(): any;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public offerLast(e: any): boolean;
 						public removeLast(): any;
-						public offerFirst(e: any): boolean;
 						public getLast(): any;
+						public offerFirst(e: any): boolean;
 						public getFirst(): any;
 						public removeLastOccurrence(o: any): boolean;
 						public clear(): void;
@@ -19658,8 +19658,8 @@ declare module com {
 						public static comparingByValue(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
 						public getValue(): any;
 						public setValue(value: any): any;
-						public getKey(): any;
 						public static comparingByValue(): java.util.Comparator<any>;
+						public getKey(): any;
 						public hashCode(): number;
 						public static comparingByKey(): java.util.Comparator<any>;
 						public static comparingByKey(cmp: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -19668,8 +19668,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.collect.Synchronized.SynchronizedList<any>>;
 						public indexOf(o: any): number;
 						public remove(index: number): any;
-						public listIterator(): java.util.ListIterator<any>;
 						public equals(obj: any): boolean;
+						public listIterator(): java.util.ListIterator<any>;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
@@ -19682,8 +19682,8 @@ declare module com {
 						public subList(fromIndex: number, toIndex: number): java.util.List<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public equals(o: any): boolean;
 						public containsAll(c: java.util.Collection<any>): boolean;
+						public equals(o: any): boolean;
 						public size(): number;
 						public listIterator(index: number): java.util.ListIterator<any>;
 						public addAll(c: java.util.Collection<any>): boolean;
@@ -19691,12 +19691,12 @@ declare module com {
 						public add(e: any): boolean;
 						public get(index: number): any;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public replaceAll(operator: any /* any*/): void;
 						public addAll(index: number, c: java.util.Collection<any>): boolean;
-						public sort(c: java.util.Comparator<any>): void;
 						public clear(): void;
+						public sort(c: java.util.Comparator<any>): void;
 						public forEach(action: any /* any*/): void;
 						public toArray(): native.Array<any>;
 					}
@@ -19707,12 +19707,12 @@ declare module com {
 						public get(key: any): java.util.List<any>;
 						public put(key: any, value: any): boolean;
 						public containsValue(value: any): boolean;
-						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
+						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 						public asMap(): java.util.Map<any,java.util.Collection<any>>;
+						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.List<any>;
 						public containsEntry(key: any, value: any): boolean;
 						public values(): java.util.Collection<any>;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
@@ -19732,16 +19732,16 @@ declare module com {
 						public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public replace(key: any, value: any): any;
@@ -19758,11 +19758,11 @@ declare module com {
 					export class SynchronizedMultimap<K, V>  extends com.google.common.collect.Synchronized.SynchronizedObject implements com.google.common.collect.Multimap<any,any>  {
 						public static class: java.lang.Class<com.google.common.collect.Synchronized.SynchronizedMultimap<any,any>>;
 						public removeAll(key: any): java.util.Collection<any>;
-						public put(key: any, value: any): boolean;
 						public equals(obj: any): boolean;
+						public put(key: any, value: any): boolean;
 						public containsValue(value: any): boolean;
-						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
+						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
 						public asMap(): java.util.Map<any,java.util.Collection<any>>;
@@ -19781,8 +19781,8 @@ declare module com {
 					}
 					export class SynchronizedMultiset<E>  extends com.google.common.collect.Synchronized.SynchronizedCollection<any> implements com.google.common.collect.Multiset<any>  {
 						public static class: java.lang.Class<com.google.common.collect.Synchronized.SynchronizedMultiset<any>>;
-						public setCount(element: any, oldCount: number, newCount: number): boolean;
 						public equals(obj: any): boolean;
+						public setCount(element: any, oldCount: number, newCount: number): boolean;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
@@ -19793,18 +19793,18 @@ declare module com {
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public equals(o: any): boolean;
 						public containsAll(c: java.util.Collection<any>): boolean;
+						public equals(o: any): boolean;
 						public size(): number;
-						public setCount(element: any, count: number): number;
 						public addAll(c: java.util.Collection<any>): boolean;
+						public setCount(element: any, count: number): number;
 						public add(e: any): boolean;
 						public add(e: any, n: number): number;
 						public count(o: any): number;
 						public remove(o: any): boolean;
 						public remove(o: any, n: number): number;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public toString(): string;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
@@ -19842,20 +19842,20 @@ declare module com {
 						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public descendingKeySet(): java.util.NavigableSet<any>;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
 						public lowerKey(key: any): any;
 						public firstEntry(): java.util.Map.Entry<any,any>;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public pollLastEntry(): java.util.Map.Entry<any,any>;
 						public lastKey(): any;
 						public descendingMap(): java.util.NavigableMap<any,any>;
 						public put(key: any, value: any): any;
 						public containsValue(value: any): boolean;
 						public get(key: any): any;
-						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public putAll(map: java.util.Map<any,any>): void;
+						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public headMap(toKey: any, inclusive: boolean): java.util.NavigableMap<any,any>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,any>;
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
@@ -19873,8 +19873,8 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public subSet(fromElement: any, fromInclusive: boolean, toElement: any, toInclusive: boolean): java.util.NavigableSet<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
@@ -19882,20 +19882,20 @@ declare module com {
 						public descendingSet(): java.util.NavigableSet<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
 						public equals(o: any): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public pollLast(): any;
-						public pollFirst(): any;
 						public addAll(c: java.util.Collection<any>): boolean;
+						public pollFirst(): any;
 						public first(): any;
 						public add(e: any): boolean;
 						public lower(e: any): any;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public headSet(toElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public tailSet(fromElement: any, inclusive: boolean): java.util.NavigableSet<any>;
 						public ceiling(e: any): any;
@@ -19913,8 +19913,8 @@ declare module com {
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
-						public poll(): any;
 						public hashCode(): number;
+						public poll(): any;
 						public element(): any;
 						public removeIf(filter: any /* any*/): boolean;
 						public contains(o: any): boolean;
@@ -19928,8 +19928,8 @@ declare module com {
 						public add(e: any): boolean;
 						public peek(): any;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public clear(): void;
 						public offer(e: any): boolean;
 						public forEach(action: any /* any*/): void;
@@ -19974,31 +19974,31 @@ declare module com {
 						public addAll(c: java.util.Collection<any>): boolean;
 						public equals(obj: any): boolean;
 						public retainAll(c: java.util.Collection<any>): boolean;
-						public iterator(): java.util.Iterator<any>;
 						public add(e: any): boolean;
+						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public remove(o: any): boolean;
 						public removeIf(filter: any /* any*/): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
-						public equals(o: any): boolean;
 						public containsAll(c: java.util.Collection<any>): boolean;
-						public size(): number;
+						public equals(o: any): boolean;
 						public forEach(action: any /* any*/): void;
+						public size(): number;
 						public toArray(): native.Array<any>;
 					}
 					export class SynchronizedSetMultimap<K, V>  extends com.google.common.collect.Synchronized.SynchronizedMultimap<any,any> implements com.google.common.collect.SetMultimap<any,any>  {
 						public static class: java.lang.Class<com.google.common.collect.Synchronized.SynchronizedSetMultimap<any,any>>;
 						public removeAll(key: any): java.util.Collection<any>;
 						public put(key: any, value: any): boolean;
-						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public containsValue(value: any): boolean;
+						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
@@ -20011,10 +20011,10 @@ declare module com {
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Set<any>;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Collection<any>;
 						public isEmpty(): boolean;
-						public get(key: any): java.util.Set<any>;
-						public removeAll(key: any): java.util.Set<any>;
 						public clear(): void;
+						public get(key: any): java.util.Set<any>;
 						public keys(): com.google.common.collect.Multiset<any>;
+						public removeAll(key: any): java.util.Set<any>;
 						public equals(o: any): boolean;
 						public size(): number;
 						public entries(): java.util.Set<java.util.Map.Entry<any,any>>;
@@ -20026,28 +20026,28 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public lastKey(): any;
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
-						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public putAll(map: java.util.Map<any,any>): void;
+						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
 						public tailMap(fromKey: any): java.util.SortedMap<any,any>;
 						public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
 						public remove(key: any): any;
@@ -20061,24 +20061,24 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
-						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public removeIf(filter: any /* any*/): boolean;
+						public tailSet(fromElement: any): java.util.SortedSet<any>;
 						public comparator(): java.util.Comparator<any>;
 						public contains(o: any): boolean;
 						public removeAll(c: java.util.Collection<any>): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
-						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public containsAll(c: java.util.Collection<any>): boolean;
 						public equals(o: any): boolean;
+						public subSet(fromElement: any, toElement: any): java.util.SortedSet<any>;
 						public size(): number;
 						public addAll(c: java.util.Collection<any>): boolean;
 						public first(): any;
 						public add(e: any): boolean;
 						public headSet(toElement: any): java.util.SortedSet<any>;
 						public remove(o: any): boolean;
-						public toArray(a: native.Array<any>): native.Array<any>;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public toArray(a: native.Array<any>): native.Array<any>;
 						public clear(): void;
 						public forEach(action: any /* any*/): void;
 						public toArray(): native.Array<any>;
@@ -20102,14 +20102,14 @@ declare module com {
 						public size(): number;
 						public put(key: any, value: any): boolean;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.SortedSet<any>;
-						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public containsValue(value: any): boolean;
+						public entries(): java.util.Collection<java.util.Map.Entry<any,any>>;
 						public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 						public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 						public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Set<any>;
+						public clear(): void;
 						public get(key: any): java.util.SortedSet<any>;
 						public removeAll(key: any): java.util.Set<any>;
-						public clear(): void;
 						public removeAll(key: any): java.util.SortedSet<any>;
 						public entries(): java.util.Set<java.util.Map.Entry<any,any>>;
 						public keySet(): java.util.Set<any>;
@@ -20134,8 +20134,8 @@ declare module com {
 						public isEmpty(): boolean;
 						public remove(rowKey: any, columnKey: any): any;
 						public clear(): void;
-						public size(): number;
 						public columnMap(): java.util.Map<any,java.util.Map<any,any>>;
+						public size(): number;
 						public cellSet(): java.util.Set<com.google.common.collect.Table.Cell<any,any,any>>;
 					}
 				}
@@ -20232,8 +20232,8 @@ declare module com {
 				export class Tables extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.collect.Tables>;
 					public static immutableCell(rowKey: any, columnKey: any, value: any): com.google.common.collect.Table.Cell<any,any,any>;
-					public static transpose(table: com.google.common.collect.Table<any,any,any>): com.google.common.collect.Table<any,any,any>;
 					public static transformValues(fromTable: com.google.common.collect.Table<any,any,any>, function1: com.google.common.base.Function<any,any>): com.google.common.collect.Table<any,any,any>;
+					public static transpose(table: com.google.common.collect.Table<any,any,any>): com.google.common.collect.Table<any,any,any>;
 					public static unmodifiableRowSortedTable(table: com.google.common.collect.RowSortedTable<any,any,any>): com.google.common.collect.RowSortedTable<any,any,any>;
 					public static newCustomTable(backingMap: java.util.Map<any,any>, factory: com.google.common.base.Supplier<any>): com.google.common.collect.Table<any,any,any>;
 					public static synchronizedTable(table: com.google.common.collect.Table<any,any,any>): com.google.common.collect.Table<any,any,any>;
@@ -20277,8 +20277,8 @@ declare module com {
 						public remove(rowKey: any, columnKey: any): any;
 						public isEmpty(): boolean;
 						public clear(): void;
-						public size(): number;
 						public columnMap(): java.util.Map<any,java.util.Map<any,any>>;
+						public size(): number;
 						public cellSet(): java.util.Set<com.google.common.collect.Table.Cell<any,any,any>>;
 					}
 					export class TransposeTable<C, R, V>  extends com.google.common.collect.AbstractTable<any,any,any> {
@@ -20474,17 +20474,17 @@ declare module com {
 						public headMap(toKey: any): java.util.SortedMap<any,any>;
 						public hashCode(): number;
 						public containsKey(key: any): boolean;
-						public values(): java.util.Collection<any>;
 						public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
+						public values(): java.util.Collection<any>;
 						public comparator(): java.util.Comparator<any>;
 						public getOrDefault(key: any, defaultValue: any): any;
-						public replaceAll(function0: any /* any<any,any,any>*/): void;
-						public remove(key: any, value: any): boolean;
 						public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+						public remove(key: any, value: any): boolean;
+						public replaceAll(function0: any /* any<any,any,any>*/): void;
 						public putIfAbsent(key: any, value: any): any;
 						public replace(key: any, oldValue: any, newValue: any): boolean;
-						public isEmpty(): boolean;
 						public forEach(action: any /* any<any,any>*/): void;
+						public isEmpty(): boolean;
 						public equals(o: any): boolean;
 						public size(): number;
 						public keySet(): java.util.SortedSet<any>;
@@ -20492,8 +20492,8 @@ declare module com {
 						public replace(key: any, value: any): any;
 						public put(key: any, value: any): any;
 						public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
-						public firstKey(): any;
 						public containsValue(value: any): boolean;
+						public firstKey(): any;
 						public get(key: any): any;
 						public putAll(m: java.util.Map<any,any>): void;
 						public subMap(fromKey: any, toKey: any): java.util.SortedMap<any,any>;
@@ -20538,8 +20538,8 @@ declare module com {
 					public putAll(key: any, values: java.lang.Iterable<any>): boolean;
 					public hashCode(): number;
 					public removeAll(key: any): java.util.Set<any>;
-					public get(key: any): java.util.NavigableSet<any>;
 					public asMap(): java.util.SortedMap<any,java.util.Collection<any>>;
+					public get(key: any): java.util.NavigableSet<any>;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.SortedSet<any>;
 					public static create(keyComparator: java.util.Comparator<any>, valueComparator: java.util.Comparator<any>): com.google.common.collect.TreeMultimap<any,any>;
 					public put(key: any, value: any): boolean;
@@ -20551,8 +20551,8 @@ declare module com {
 					public static create(multimap: com.google.common.collect.Multimap<any,any>): com.google.common.collect.TreeMultimap<any,any>;
 					public putAll(multimap: com.google.common.collect.Multimap<any,any>): boolean;
 					public replaceValues(key: any, values: java.lang.Iterable<any>): java.util.Set<any>;
-					public valueComparator(): java.util.Comparator<any>;
 					public get(key: any): java.util.Set<any>;
+					public valueComparator(): java.util.Comparator<any>;
 				}
 			}
 		}
@@ -20609,8 +20609,8 @@ declare module com {
 				export module TreeMultiset {
 					export abstract class Aggregate {
 						public static class: java.lang.Class<com.google.common.collect.TreeMultiset.Aggregate>;
-						public static SIZE: com.google.common.collect.TreeMultiset.Aggregate;
 						public static DISTINCT: com.google.common.collect.TreeMultiset.Aggregate;
+						public static SIZE: com.google.common.collect.TreeMultiset.Aggregate;
 						public static values(): native.Array<com.google.common.collect.TreeMultiset.Aggregate>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static valueOf(name: string): com.google.common.collect.TreeMultiset.Aggregate;
@@ -20702,17 +20702,17 @@ declare module com {
 						public asDescendingMapOfRanges(): java.util.Map<com.google.common.collect.Range<any>,any>;
 						public equals(obj: any): boolean;
 						public get(key: any): any;
-						public span(): com.google.common.collect.Range<any>;
-						public put(range: com.google.common.collect.Range<any>, value: any): void;
 						public hashCode(): number;
+						public put(range: com.google.common.collect.Range<any>, value: any): void;
+						public span(): com.google.common.collect.Range<any>;
 						public toString(): string;
-						public subRangeMap(range: com.google.common.collect.Range<any>): com.google.common.collect.RangeMap<any,any>;
 						public asMapOfRanges(): java.util.Map<com.google.common.collect.Range<any>,any>;
+						public subRangeMap(range: com.google.common.collect.Range<any>): com.google.common.collect.RangeMap<any,any>;
 						public remove(range: com.google.common.collect.Range<any>): void;
 						public getEntry(key: any): java.util.Map.Entry<com.google.common.collect.Range<any>,any>;
 						public clear(): void;
-						public putAll(rangeMap: com.google.common.collect.RangeMap<any,any>): void;
 						public equals(o: any): boolean;
+						public putAll(rangeMap: com.google.common.collect.RangeMap<any,any>): void;
 						public putCoalescing(range: com.google.common.collect.Range<any>, value: any): void;
 					}
 					export module SubRangeMap {
@@ -20785,8 +20785,8 @@ declare module com {
 					public enclosesAll(ranges: java.lang.Iterable<com.google.common.collect.Range<any>>): boolean;
 					public rangeContaining(value: any): com.google.common.collect.Range<any>;
 					public addAll(ranges: java.lang.Iterable<com.google.common.collect.Range<any>>): void;
-					public static create(rangeSet: com.google.common.collect.RangeSet<any>): com.google.common.collect.TreeRangeSet<any>;
 					public complement(): com.google.common.collect.RangeSet<any>;
+					public static create(rangeSet: com.google.common.collect.RangeSet<any>): com.google.common.collect.TreeRangeSet<any>;
 					public remove(rangeToRemove: com.google.common.collect.Range<any>): void;
 					public span(): com.google.common.collect.Range<any>;
 				}
@@ -20801,22 +20801,22 @@ declare module com {
 						public stream(): java.util.stream.Stream<any>;
 						public hashCode(): number;
 						public removeIf(filter: any /* any*/): boolean;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public delegate(): any;
 						public toArray(array: native.Array<any>): native.Array<any>;
 						public remove(object: any): boolean;
 						public spliterator(): java.util.Spliterator<any>;
 						public isEmpty(): boolean;
 						public clear(): void;
-						public equals(o: any): boolean;
 						public add(element: any): boolean;
-						public size(): number;
+						public equals(o: any): boolean;
 						public forEach(action: any /* any*/): void;
+						public size(): number;
 						public containsAll(collection: java.util.Collection<any>): boolean;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 					export class Complement extends com.google.common.collect.TreeRangeSet<any> {
 						public static class: java.lang.Class<com.google.common.collect.TreeRangeSet.Complement>;
@@ -21043,9 +21043,9 @@ declare module com {
 				export abstract class TreeTraverser<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.collect.TreeTraverser<any>>;
 					/** @deprecated */
-					public postOrderTraversal(root: T): com.google.common.collect.FluentIterable<T>;
-					/** @deprecated */
 					public breadthFirstTraversal(root: T): com.google.common.collect.FluentIterable<T>;
+					/** @deprecated */
+					public postOrderTraversal(root: T): com.google.common.collect.FluentIterable<T>;
 					/** @deprecated */
 					public static using(nodeToChildrenFunction: com.google.common.base.Function<any,any>): com.google.common.collect.TreeTraverser<any>;
 					public constructor();
@@ -21056,8 +21056,8 @@ declare module com {
 				export module TreeTraverser {
 					export class BreadthFirstIterator extends com.google.common.collect.UnmodifiableIterator<any> implements com.google.common.collect.PeekingIterator<any>  {
 						public static class: java.lang.Class<com.google.common.collect.TreeTraverser.BreadthFirstIterator>;
-						public peek(): any;
 						public next(): any;
+						public peek(): any;
 						public hasNext(): boolean;
 						/** @deprecated */
 						public remove(): void;
@@ -21142,8 +21142,8 @@ declare module com {
 					public setCount(element: any, count: number): number;
 					public add(element: any): boolean;
 					public pollFirstEntry(): com.google.common.collect.Multiset.Entry<any>;
-					public iterator(): java.util.Iterator<any>;
 					public equals(object: any): boolean;
+					public iterator(): java.util.Iterator<any>;
 					public toString(): string;
 					public firstEntry(): com.google.common.collect.Multiset.Entry<any>;
 					public elementSet(): java.util.SortedSet<any>;
@@ -21155,8 +21155,8 @@ declare module com {
 					public hashCode(): number;
 					public delegate(): any;
 					public tailMultiset(lowerBound: any, boundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
-					public setCount(element: any, oldCount: number, newCount: number): boolean;
 					public forEach(action: any /* any*/): void;
+					public setCount(element: any, oldCount: number, newCount: number): boolean;
 					public toArray(array: native.Array<any>): native.Array<any>;
 					public descendingMultiset(): com.google.common.collect.SortedMultiset<any>;
 					public parallelStream(): java.util.stream.Stream<any>;
@@ -21167,11 +21167,11 @@ declare module com {
 					public stream(): java.util.stream.Stream<any>;
 					public elementSet(): java.util.Set<any>;
 					public removeAll(elementsToRemove: java.util.Collection<any>): boolean;
-					public headMultiset(upperBound: any, boundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
 					public add(element: any, occurences: number): number;
+					public headMultiset(upperBound: any, boundType: com.google.common.collect.BoundType): com.google.common.collect.SortedMultiset<any>;
+					public count(element: any): number;
 					public delegate(): com.google.common.collect.Multiset<any>;
 					public entrySet(): java.util.Set<com.google.common.collect.Multiset.Entry<any>>;
-					public count(element: any): number;
 					public elementSet(): java.util.NavigableSet<any>;
 				}
 			}
@@ -21334,16 +21334,16 @@ declare module com {
 				export class Escapers extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.escape.Escapers>;
 					public static computeReplacement(escaper: com.google.common.escape.CharEscaper, c: string): string;
-					public static nullEscaper(): com.google.common.escape.Escaper;
 					public static computeReplacement(escaper: com.google.common.escape.UnicodeEscaper, cp: number): string;
+					public static nullEscaper(): com.google.common.escape.Escaper;
 					public static builder(): com.google.common.escape.Escapers.Builder;
 				}
 				export module Escapers {
 					export class Builder extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.escape.Escapers.Builder>;
 						public addEscape(c: string, replacement: string): com.google.common.escape.Escapers.Builder;
-						public setSafeRange(safeMin: string, safeMax: string): com.google.common.escape.Escapers.Builder;
 						public build(): com.google.common.escape.Escaper;
+						public setSafeRange(safeMin: string, safeMax: string): com.google.common.escape.Escapers.Builder;
 						public setUnsafeReplacement(unsafeReplacement: string): com.google.common.escape.Escapers.Builder;
 					}
 				}
@@ -21374,8 +21374,8 @@ declare module com {
 					public escapeSlow(s: string, index: number): string;
 					public constructor();
 					public nextEscapeIndex(csq: string, start: number, end: number): number;
-					public escape(string: string): string;
 					public static codePointAt(seq: string, index: number, end: number): number;
+					public escape(string: string): string;
 					public escape(int0: number): native.Array<string>;
 				}
 			}
@@ -21555,8 +21555,8 @@ declare module com {
 				export class SubscriberExceptionContext extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.eventbus.SubscriberExceptionContext>;
 					public getSubscriber(): any;
-					public getEventBus(): com.google.common.eventbus.EventBus;
 					public getEvent(): any;
+					public getEventBus(): com.google.common.eventbus.EventBus;
 					public getSubscriberMethod(): java.lang.reflect.Method;
 				}
 			}
@@ -21611,8 +21611,8 @@ declare module com {
 			export module graph {
 				export abstract class AbstractBaseGraph<N>  extends com.google.common.graph.BaseGraph<any> {
 					public static class: java.lang.Class<com.google.common.graph.AbstractBaseGraph<any>>;
-					public isOrderingCompatible(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public adjacentNodes(object0: any): java.util.Set<any>;
+					public isOrderingCompatible(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public outDegree(node: any): number;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
 					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
@@ -21622,8 +21622,8 @@ declare module com {
 					public successors(object0: any): java.util.Set<any>;
 					public successors(object0: any): java.lang.Iterable<any>;
 					public edges(): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public isDirected(): boolean;
 					public allowsSelfLoops(): boolean;
+					public isDirected(): boolean;
 					public validateEndpoints(endpoints: com.google.common.graph.EndpointPair<any>): void;
 					public inDegree(node: any): number;
 					public degree(node: any): number;
@@ -21634,8 +21634,8 @@ declare module com {
 				export module AbstractBaseGraph {
 					export abstract class IncidentEdgeSet<N>  extends java.util.AbstractSet<com.google.common.graph.EndpointPair<any>> {
 						public static class: java.lang.Class<com.google.common.graph.AbstractBaseGraph.IncidentEdgeSet<any>>;
-						public node: any;
 						public graph: com.google.common.graph.BaseGraph<any>;
+						public node: any;
 						public addAll(c: java.util.Collection<any>): boolean;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
@@ -21728,8 +21728,8 @@ declare module com {
 					public addOutEdge(edge: any, node: any): void;
 					public removeOutEdge(edge: any): any;
 					public constructor(inEdgeMap: java.util.Map<any,any>, outEdgeMap: java.util.Map<any,any>, selfLoopCount: number);
-					public incidentEdges(): java.util.Set<any>;
 					public adjacentNode(edge: any): any;
+					public incidentEdges(): java.util.Set<any>;
 					public successors(): java.util.Set<any>;
 					public edgesConnecting(object0: any): java.util.Set<any>;
 					public removeInEdge(edge: any, isSelfLoop: boolean): any;
@@ -21746,19 +21746,19 @@ declare module com {
 			export module graph {
 				export abstract class AbstractGraph<N>  extends com.google.common.graph.AbstractBaseGraph<any> implements com.google.common.graph.Graph<any>  {
 					public static class: java.lang.Class<com.google.common.graph.AbstractGraph<any>>;
-					public equals(obj: any): boolean;
 					public adjacentNodes(object0: any): java.util.Set<any>;
+					public equals(obj: any): boolean;
 					public outDegree(node: any): number;
-					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
+					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public nodes(): java.util.Set<any>;
 					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public predecessors(object0: any): java.util.Set<any>;
 					public successors(object0: any): java.util.Set<any>;
 					public successors(object0: any): java.lang.Iterable<any>;
 					public edges(): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public isDirected(): boolean;
 					public allowsSelfLoops(): boolean;
+					public isDirected(): boolean;
 					public toString(): string;
 					public constructor();
 					public inDegree(node: any): number;
@@ -21791,14 +21791,14 @@ declare module com {
 				export abstract class AbstractNetwork<N, E>  extends com.google.common.graph.Network<any,any> {
 					public static class: java.lang.Class<com.google.common.graph.AbstractNetwork<any,any>>;
 					public edgeOrder(): com.google.common.graph.ElementOrder<any>;
-					public isOrderingCompatible(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
-					public equals(obj: any): boolean;
 					public adjacentNodes(object0: any): java.util.Set<any>;
+					public equals(obj: any): boolean;
+					public isOrderingCompatible(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public edgeConnectingOrNull(nodeU: any, nodeV: any): any;
 					public edges(): java.util.Set<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
-					public edgesConnecting(nodeU: any, nodeV: any): java.util.Set<any>;
 					public edgeConnectingOrNull(endpoints: com.google.common.graph.EndpointPair<any>): any;
+					public edgesConnecting(nodeU: any, nodeV: any): java.util.Set<any>;
 					public adjacentEdges(edge: any): java.util.Set<any>;
 					public nodes(): java.util.Set<any>;
 					public outEdges(object0: any): java.util.Set<any>;
@@ -21842,9 +21842,9 @@ declare module com {
 					public addInEdge(edge: any, node: any, isSelfLoop: boolean): void;
 					public addOutEdge(edge: any, node: any): void;
 					public removeOutEdge(edge: any): any;
-					public successors(): java.util.Set<any>;
-					public incidentEdges(): java.util.Set<any>;
 					public adjacentNode(edge: any): any;
+					public incidentEdges(): java.util.Set<any>;
+					public successors(): java.util.Set<any>;
 					public edgesConnecting(object0: any): java.util.Set<any>;
 					public constructor(incidentEdgeMap: java.util.Map<any,any>);
 					public removeInEdge(edge: any, isSelfLoop: boolean): any;
@@ -21862,20 +21862,20 @@ declare module com {
 				export abstract class AbstractValueGraph<N, V>  extends com.google.common.graph.AbstractBaseGraph<any> implements com.google.common.graph.ValueGraph<any,any>  {
 					public static class: java.lang.Class<com.google.common.graph.AbstractValueGraph<any,any>>;
 					public edgeValueOrDefault(object0: any, object1: any, object2: any): any;
-					public equals(obj: any): boolean;
 					public adjacentNodes(object0: any): java.util.Set<any>;
+					public equals(obj: any): boolean;
 					public outDegree(node: any): number;
-					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
-					public nodes(): java.util.Set<any>;
+					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public edgeValueOrDefault(endpointPair0: com.google.common.graph.EndpointPair<any>, object1: any): any;
+					public nodes(): java.util.Set<any>;
 					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public predecessors(object0: any): java.util.Set<any>;
 					public successors(object0: any): java.util.Set<any>;
 					public successors(object0: any): java.lang.Iterable<any>;
 					public edges(): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public isDirected(): boolean;
 					public allowsSelfLoops(): boolean;
+					public isDirected(): boolean;
 					public toString(): string;
 					public asGraph(): com.google.common.graph.Graph<any>;
 					public constructor();
@@ -21956,8 +21956,8 @@ declare module com {
 					public inDegree(node: any): number;
 					public incidentEdges(node: any): java.util.Set<com.google.common.graph.EndpointPair<any>>;
 					public removeEdge(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
-					public predecessors(node: any): java.util.Set<any>;
 					public hashCode(): number;
+					public predecessors(node: any): java.util.Set<any>;
 					public removeEdge(nodeU: any, nodeV: any): boolean;
 					public outDegree(node: any): number;
 					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
@@ -21985,14 +21985,14 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.graph.ConfigurableMutableNetwork<any,any>>;
 					public edgeOrder(): com.google.common.graph.ElementOrder<any>;
 					public equals(obj: any): boolean;
-					public edges(): java.util.Set<any>;
 					public edgeConnectingOrNull(nodeU: any, nodeV: any): any;
+					public edges(): java.util.Set<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
 					public incidentNodes(edge: any): com.google.common.graph.EndpointPair<any>;
-					public edgesConnecting(nodeU: any, nodeV: any): java.util.Set<any>;
 					public edgeConnectingOrNull(endpoints: com.google.common.graph.EndpointPair<any>): any;
-					public nodes(): java.util.Set<any>;
+					public edgesConnecting(nodeU: any, nodeV: any): java.util.Set<any>;
 					public adjacentEdges(edge: any): java.util.Set<any>;
+					public nodes(): java.util.Set<any>;
 					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public removeEdge(edge: any): boolean;
 					public successors(object0: any): java.lang.Iterable<any>;
@@ -22000,9 +22000,9 @@ declare module com {
 					public addEdge(endpoints: com.google.common.graph.EndpointPair<any>, edge: any): boolean;
 					public allowsSelfLoops(): boolean;
 					public inDegree(node: any): number;
-					public predecessors(node: any): java.util.Set<any>;
-					public inEdges(node: any): java.util.Set<any>;
 					public hashCode(): number;
+					public inEdges(node: any): java.util.Set<any>;
+					public predecessors(node: any): java.util.Set<any>;
 					public allowsParallelEdges(): boolean;
 					public outEdges(node: any): java.util.Set<any>;
 					public outDegree(node: any): number;
@@ -22031,19 +22031,19 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.graph.ConfigurableMutableValueGraph<any,any>>;
 					public equals(obj: any): boolean;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
-					public putEdgeValue(endpoints: com.google.common.graph.EndpointPair<any>, value: any): any;
 					public nodes(): java.util.Set<any>;
-					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
+					public putEdgeValue(endpoints: com.google.common.graph.EndpointPair<any>, value: any): any;
 					public edgeValueOrDefault(endpoints: com.google.common.graph.EndpointPair<any>, defaultValue: any): any;
+					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public successors(object0: any): java.lang.Iterable<any>;
 					public allowsSelfLoops(): boolean;
 					public inDegree(node: any): number;
 					public incidentEdges(node: any): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public predecessors(node: any): java.util.Set<any>;
 					public hashCode(): number;
+					public predecessors(node: any): java.util.Set<any>;
 					public removeEdge(endpoints: com.google.common.graph.EndpointPair<any>): any;
-					public outDegree(node: any): number;
 					public edgeValueOrDefault(nodeU: any, nodeV: any, defaultValue: any): any;
+					public outDegree(node: any): number;
 					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public successors(node: any): java.util.Set<any>;
 					public removeNode(node: any): boolean;
@@ -22068,8 +22068,8 @@ declare module com {
 			export module graph {
 				export class ConfigurableNetwork<N, E>  extends com.google.common.graph.AbstractNetwork<any,any> {
 					public static class: java.lang.Class<com.google.common.graph.ConfigurableNetwork<any,any>>;
-					public nodeConnections: com.google.common.graph.MapIteratorCache<any,com.google.common.graph.NetworkConnections<any,any>>;
 					public edgeToReferenceNode: com.google.common.graph.MapIteratorCache<any,any>;
+					public nodeConnections: com.google.common.graph.MapIteratorCache<any,com.google.common.graph.NetworkConnections<any,any>>;
 					public edgeOrder(): com.google.common.graph.ElementOrder<any>;
 					public equals(obj: any): boolean;
 					public edges(): java.util.Set<any>;
@@ -22117,18 +22117,18 @@ declare module com {
 					public equals(obj: any): boolean;
 					public edgeValueOrDefault(nodeU: any, nodeV: any, defaultValue: any): any;
 					public outDegree(node: any): number;
-					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
+					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public successors(node: any): java.util.Set<any>;
 					public nodes(): java.util.Set<any>;
 					public edgeValueOrDefault_internal(nodeU: any, nodeV: any, defaultValue: any): any;
-					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
-					public edgeValueOrDefault(endpoints: com.google.common.graph.EndpointPair<any>, defaultValue: any): any;
 					public containsNode(node: any): boolean;
+					public edgeValueOrDefault(endpoints: com.google.common.graph.EndpointPair<any>, defaultValue: any): any;
+					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public hasEdgeConnecting_internal(nodeU: any, nodeV: any): boolean;
 					public edges(): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public isDirected(): boolean;
 					public allowsSelfLoops(): boolean;
+					public isDirected(): boolean;
 					public adjacentNodes(node: any): java.util.Set<any>;
 					public asGraph(): com.google.common.graph.Graph<any>;
 					public checkedConnections(node: any): com.google.common.graph.GraphConnections<any,any>;
@@ -22184,8 +22184,8 @@ declare module com {
 					public outEdges(): java.util.Set<any>;
 					public adjacentNodes(): java.util.Set<any>;
 					public removeInEdge(edge: any, isSelfLoop: boolean): any;
-					public predecessors(): java.util.Set<any>;
 					public edgesConnecting(node: any): java.util.Set<any>;
+					public predecessors(): java.util.Set<any>;
 					public addInEdge(edge: any, node: any, isSelfLoop: boolean): void;
 				}
 			}
@@ -22262,17 +22262,17 @@ declare module com {
 					public static insertion(): com.google.common.graph.ElementOrder<any>;
 					public static natural(): com.google.common.graph.ElementOrder<any>;
 					public static unordered(): com.google.common.graph.ElementOrder<any>;
-					public type(): com.google.common.graph.ElementOrder.Type;
 					public hashCode(): number;
-					public static sorted(comparator: java.util.Comparator<any>): com.google.common.graph.ElementOrder<any>;
+					public type(): com.google.common.graph.ElementOrder.Type;
 					public comparator(): java.util.Comparator<T>;
+					public static sorted(comparator: java.util.Comparator<any>): com.google.common.graph.ElementOrder<any>;
 				}
 				export module ElementOrder {
 					export class Type {
 						public static class: java.lang.Class<com.google.common.graph.ElementOrder.Type>;
-						public static UNORDERED: com.google.common.graph.ElementOrder.Type;
 						public static INSERTION: com.google.common.graph.ElementOrder.Type;
 						public static SORTED: com.google.common.graph.ElementOrder.Type;
+						public static UNORDERED: com.google.common.graph.ElementOrder.Type;
 						public static values(): native.Array<com.google.common.graph.ElementOrder.Type>;
 						public static valueOf(name: string): com.google.common.graph.ElementOrder.Type;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -22312,8 +22312,8 @@ declare module com {
 						public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public hashCode(): number;
-						public source(): any;
 						public equals(object0: any): boolean;
+						public source(): any;
 						public isOrdered(): boolean;
 						public target(): any;
 						public forEach(action: any /* any*/): void;
@@ -22326,8 +22326,8 @@ declare module com {
 						public iterator(): com.google.common.collect.UnmodifiableIterator<any>;
 						public spliterator(): java.util.Spliterator<any>;
 						public hashCode(): number;
-						public source(): any;
 						public equals(object0: any): boolean;
+						public source(): any;
 						public isOrdered(): boolean;
 						public target(): any;
 						public forEach(action: any /* any*/): void;
@@ -22374,14 +22374,14 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.graph.ForwardingGraph<any>>;
 					public equals(obj: any): boolean;
 					public outDegree(node: any): number;
-					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
+					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public successors(node: any): java.util.Set<any>;
 					public nodes(): java.util.Set<any>;
 					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public edges(): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public isDirected(): boolean;
 					public allowsSelfLoops(): boolean;
+					public isDirected(): boolean;
 					public adjacentNodes(node: any): java.util.Set<any>;
 					public inDegree(node: any): number;
 					public degree(node: any): number;
@@ -22404,19 +22404,19 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.graph.ForwardingNetwork<any,any>>;
 					public edgeOrder(): com.google.common.graph.ElementOrder<any>;
 					public equals(obj: any): boolean;
-					public edges(): java.util.Set<any>;
 					public edgeConnectingOrNull(nodeU: any, nodeV: any): any;
+					public edges(): java.util.Set<any>;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
 					public incidentNodes(edge: any): com.google.common.graph.EndpointPair<any>;
-					public edgesConnecting(nodeU: any, nodeV: any): java.util.Set<any>;
 					public edgeConnectingOrNull(endpoints: com.google.common.graph.EndpointPair<any>): any;
-					public nodes(): java.util.Set<any>;
+					public edgesConnecting(nodeU: any, nodeV: any): java.util.Set<any>;
 					public adjacentEdges(edge: any): java.util.Set<any>;
+					public nodes(): java.util.Set<any>;
 					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public allowsSelfLoops(): boolean;
 					public inDegree(node: any): number;
-					public predecessors(node: any): java.util.Set<any>;
 					public inEdges(node: any): java.util.Set<any>;
+					public predecessors(node: any): java.util.Set<any>;
 					public hashCode(): number;
 					public allowsParallelEdges(): boolean;
 					public outEdges(node: any): java.util.Set<any>;
@@ -22443,18 +22443,18 @@ declare module com {
 				export abstract class ForwardingValueGraph<N, V>  extends com.google.common.graph.AbstractValueGraph<any,any> {
 					public static class: java.lang.Class<com.google.common.graph.ForwardingValueGraph<any,any>>;
 					public equals(obj: any): boolean;
-					public outDegree(node: any): number;
 					public edgeValueOrDefault(nodeU: any, nodeV: any, defaultValue: any): any;
-					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
+					public outDegree(node: any): number;
 					public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
+					public nodeOrder(): com.google.common.graph.ElementOrder<any>;
 					public successors(node: any): java.util.Set<any>;
 					public nodes(): java.util.Set<any>;
-					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public edgeValueOrDefault(endpoints: com.google.common.graph.EndpointPair<any>, defaultValue: any): any;
+					public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
 					public delegate(): com.google.common.graph.ValueGraph<any,any>;
 					public edges(): java.util.Set<com.google.common.graph.EndpointPair<any>>;
-					public isDirected(): boolean;
 					public allowsSelfLoops(): boolean;
+					public isDirected(): boolean;
 					public adjacentNodes(node: any): java.util.Set<any>;
 					public asGraph(): com.google.common.graph.Graph<any>;
 					public inDegree(node: any): number;
@@ -22634,16 +22634,16 @@ declare module com {
 				export module Graphs {
 					export class NodeVisitState {
 						public static class: java.lang.Class<com.google.common.graph.Graphs.NodeVisitState>;
-						public static PENDING: com.google.common.graph.Graphs.NodeVisitState;
 						public static COMPLETE: com.google.common.graph.Graphs.NodeVisitState;
+						public static PENDING: com.google.common.graph.Graphs.NodeVisitState;
 						public static valueOf(name: string): com.google.common.graph.Graphs.NodeVisitState;
 						public static values(): native.Array<com.google.common.graph.Graphs.NodeVisitState>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					}
 					export class TransposedGraph<N>  extends com.google.common.graph.ForwardingGraph<any> {
 						public static class: java.lang.Class<com.google.common.graph.Graphs.TransposedGraph<any>>;
-						public inDegree(node: any): number;
 						public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
+						public inDegree(node: any): number;
 						public predecessors(node: any): java.util.Set<any>;
 						public nodes(): java.util.Set<any>;
 						public incidentEdges(node: any): java.util.Set<com.google.common.graph.EndpointPair<any>>;
@@ -22665,8 +22665,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.graph.Graphs.TransposedNetwork<any,any>>;
 						public inDegree(node: any): number;
 						public equals(obj: any): boolean;
-						public successors(node: any): java.util.Set<any>;
 						public edgeConnectingOrNull(endpoints: com.google.common.graph.EndpointPair<any>): any;
+						public successors(node: any): java.util.Set<any>;
 						public hashCode(): number;
 						public edgeConnectingOrNull(nodeU: any, nodeV: any): any;
 						public incidentNodes(edge: any): com.google.common.graph.EndpointPair<any>;
@@ -22694,8 +22694,8 @@ declare module com {
 					}
 					export class TransposedValueGraph<N, V>  extends com.google.common.graph.ForwardingValueGraph<any,any> {
 						public static class: java.lang.Class<com.google.common.graph.Graphs.TransposedValueGraph<any,any>>;
-						public inDegree(node: any): number;
 						public hasEdgeConnecting(endpoints: com.google.common.graph.EndpointPair<any>): boolean;
+						public inDegree(node: any): number;
 						public predecessors(node: any): java.util.Set<any>;
 						public nodes(): java.util.Set<any>;
 						public incidentEdges(node: any): java.util.Set<com.google.common.graph.EndpointPair<any>>;
@@ -22703,8 +22703,8 @@ declare module com {
 						public delegate(): com.google.common.graph.ValueGraph<any,any>;
 						public successors(node: any): java.util.Set<any>;
 						public hashCode(): number;
-						public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
 						public edgeValueOrDefault(nodeU: any, nodeV: any, defaultValue: any): any;
+						public hasEdgeConnecting(nodeU: any, nodeV: any): boolean;
 						public isDirected(): boolean;
 						public degree(node: any): number;
 						public nodeOrder(): com.google.common.graph.ElementOrder<any>;
@@ -22837,12 +22837,12 @@ declare module com {
 			export module graph {
 				export class MapIteratorCache<K, V>  extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.graph.MapIteratorCache<any,any>>;
+					public containsKey(key: any): boolean;
 					public put(key: K, value: V): V;
 					public remove(key: any): V;
-					public containsKey(key: any): boolean;
 					public get(key: any): V;
-					public getWithoutCaching(key: any): V;
 					public clearCache(): void;
+					public getWithoutCaching(key: any): V;
 					public clear(): void;
 					public unmodifiableKeySet(): java.util.Set<K>;
 					public getIfCached(key: any): V;
@@ -23242,8 +23242,8 @@ declare module com {
 					public edgeOrder(edgeOrder: com.google.common.graph.ElementOrder<any>): com.google.common.graph.NetworkBuilder<any,any>;
 					public nodeOrder(nodeOrder: com.google.common.graph.ElementOrder<any>): com.google.common.graph.NetworkBuilder<any,any>;
 					public expectedEdgeCount(expectedEdgeCount: number): com.google.common.graph.NetworkBuilder<any,any>;
-					public static directed(): com.google.common.graph.NetworkBuilder<any,any>;
 					public allowsParallelEdges(allowsParallelEdges: boolean): com.google.common.graph.NetworkBuilder<any,any>;
+					public static directed(): com.google.common.graph.NetworkBuilder<any,any>;
 					public static undirected(): com.google.common.graph.NetworkBuilder<any,any>;
 					public expectedNodeCount(expectedNodeCount: number): com.google.common.graph.NetworkBuilder<any,any>;
 					public allowsSelfLoops(allowsSelfLoops: boolean): com.google.common.graph.NetworkBuilder<any,any>;
@@ -23345,8 +23345,8 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.graph.Traverser<any>>;
 					public depthFirstPreOrder(object0: N): java.lang.Iterable<N>;
 					public static forTree(tree: com.google.common.graph.SuccessorsFunction<any>): com.google.common.graph.Traverser<any>;
-					public static forGraph(graph: com.google.common.graph.SuccessorsFunction<any>): com.google.common.graph.Traverser<any>;
 					public breadthFirst(object0: N): java.lang.Iterable<N>;
+					public static forGraph(graph: com.google.common.graph.SuccessorsFunction<any>): com.google.common.graph.Traverser<any>;
 					public depthFirstPreOrder(iterable0: java.lang.Iterable<any>): java.lang.Iterable<N>;
 					public depthFirstPostOrder(iterable0: java.lang.Iterable<any>): java.lang.Iterable<N>;
 					public breadthFirst(iterable0: java.lang.Iterable<any>): java.lang.Iterable<N>;
@@ -23386,8 +23386,8 @@ declare module com {
 					}
 					export class Order {
 						public static class: java.lang.Class<com.google.common.graph.Traverser.Order>;
-						public static PREORDER: com.google.common.graph.Traverser.Order;
 						public static POSTORDER: com.google.common.graph.Traverser.Order;
+						public static PREORDER: com.google.common.graph.Traverser.Order;
 						public static values(): native.Array<com.google.common.graph.Traverser.Order>;
 						public static valueOf(name: string): com.google.common.graph.Traverser.Order;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -23588,8 +23588,8 @@ declare module com {
 					public build(): com.google.common.graph.MutableValueGraph<any,any>;
 					public static from(graph: com.google.common.graph.ValueGraph<any,any>): com.google.common.graph.ValueGraphBuilder<any,any>;
 					public nodeOrder(nodeOrder: com.google.common.graph.ElementOrder<any>): com.google.common.graph.ValueGraphBuilder<any,any>;
-					public static undirected(): com.google.common.graph.ValueGraphBuilder<any,any>;
 					public allowsSelfLoops(allowsSelfLoops: boolean): com.google.common.graph.ValueGraphBuilder<any,any>;
+					public static undirected(): com.google.common.graph.ValueGraphBuilder<any,any>;
 				}
 			}
 		}
@@ -23613,18 +23613,18 @@ declare module com {
 					/** @deprecated */
 					public hashCode(): number;
 					public putBytes(bytes: native.Array<number>): com.google.common.hash.Hasher;
-					public update(b: native.Array<number>): void;
 					public putLong(l: number): com.google.common.hash.Hasher;
+					public update(b: native.Array<number>): void;
 					public putFloat(f: number): com.google.common.hash.Hasher;
 					public putShort(s: number): com.google.common.hash.Hasher;
-					public update(b: java.nio.ByteBuffer): void;
 					public putBytes(bytes: native.Array<number>, off: number, len: number): com.google.common.hash.Hasher;
+					public update(b: java.nio.ByteBuffer): void;
 					public hashCode(): number;
 					public putBytes(bytes: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 					public putString(charSequence: string, charset: java.nio.charset.Charset): com.google.common.hash.Hasher;
 					public putByte(b: number): com.google.common.hash.Hasher;
-					public putInt(i: number): com.google.common.hash.Hasher;
 					public putChar(c: string): com.google.common.hash.Hasher;
+					public putInt(i: number): com.google.common.hash.Hasher;
 					public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 				}
 			}
@@ -23666,12 +23666,12 @@ declare module com {
 					public hashBytes(input: native.Array<number>, off: number, len: number): com.google.common.hash.HashCode;
 					public hashObject(instance: any, funnel: com.google.common.hash.Funnel<any>): com.google.common.hash.HashCode;
 					public newHasher(expectedInputSize: number): com.google.common.hash.Hasher;
-					public hashUnencodedChars(input: string): com.google.common.hash.HashCode;
 					public hashLong(input: number): com.google.common.hash.HashCode;
+					public hashUnencodedChars(input: string): com.google.common.hash.HashCode;
 					public hashString(input: string, charset: java.nio.charset.Charset): com.google.common.hash.HashCode;
 					public newHasher(): com.google.common.hash.Hasher;
-					public hashInt(input: number): com.google.common.hash.HashCode;
 					public bits(): number;
+					public hashInt(input: number): com.google.common.hash.HashCode;
 				}
 			}
 		}
@@ -23698,8 +23698,8 @@ declare module com {
 					public putByte(byte0: number): com.google.common.hash.PrimitiveSink;
 					public putFloat(float0: number): com.google.common.hash.PrimitiveSink;
 					public putString(charSequence0: string, charset1: java.nio.charset.Charset): com.google.common.hash.PrimitiveSink;
-					public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 					public putInt(i: number): com.google.common.hash.Hasher;
+					public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 					public hash(): com.google.common.hash.HashCode;
 					public putUnencodedChars(charSequence0: string): com.google.common.hash.PrimitiveSink;
 					public putBytes(bytes0: native.Array<number>, int1: number, int2: number): com.google.common.hash.PrimitiveSink;
@@ -23734,8 +23734,8 @@ declare module com {
 					public hashObject(instance: any, funnel: com.google.common.hash.Funnel<any>): com.google.common.hash.HashCode;
 					public hashLong(input: number): com.google.common.hash.HashCode;
 					public hashUnencodedChars(input: string): com.google.common.hash.HashCode;
-					public newHasher(): com.google.common.hash.Hasher;
 					public hashString(input: string, charset: java.nio.charset.Charset): com.google.common.hash.HashCode;
+					public newHasher(): com.google.common.hash.Hasher;
 					public hashInt(input: number): com.google.common.hash.HashCode;
 					public bits(): number;
 				}
@@ -23750,8 +23750,8 @@ declare module com {
 						public putInt(i: number): com.google.common.hash.Hasher;
 						public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 						public hashCode(): number;
-						public putBytes(b: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 						public hash(): com.google.common.hash.HashCode;
+						public putBytes(b: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 						public putBytes(bytes: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 						/** @deprecated */
 						public hashCode(): number;
@@ -23824,13 +23824,13 @@ declare module com {
 					public static readFrom(in0: java.io.InputStream, funnel: com.google.common.hash.Funnel<any>): com.google.common.hash.BloomFilter<any>;
 					public static create(funnel: com.google.common.hash.Funnel<any>, expectedInsertions: number, fpp: number): com.google.common.hash.BloomFilter<any>;
 					public static create(funnel: com.google.common.hash.Funnel<any>, expectedInsertions: number): com.google.common.hash.BloomFilter<any>;
-					public expectedFpp(): number;
 					public approximateElementCount(): number;
+					public expectedFpp(): number;
+					public hashCode(): number;
+					public isCompatible(that: com.google.common.hash.BloomFilter<T>): boolean;
 					public mightContain(object: T): boolean;
 					public put(object: T): boolean;
-					public isCompatible(that: com.google.common.hash.BloomFilter<T>): boolean;
 					public putAll(that: com.google.common.hash.BloomFilter<T>): void;
-					public hashCode(): number;
 					public writeTo(out: java.io.OutputStream): void;
 				}
 				export module BloomFilter {
@@ -23866,12 +23866,12 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.hash.BloomFilterStrategies>;
 					public static MURMUR128_MITZ_32: com.google.common.hash.BloomFilterStrategies;
 					public static MURMUR128_MITZ_64: com.google.common.hash.BloomFilterStrategies;
-					public static values(): native.Array<com.google.common.hash.BloomFilterStrategies>;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+					public static values(): native.Array<com.google.common.hash.BloomFilterStrategies>;
 					public put(object0: any, funnel1: com.google.common.hash.Funnel<any>, int2: number, lockFreeBitArray3: com.google.common.hash.BloomFilterStrategies.LockFreeBitArray): boolean;
 					public ordinal(): number;
-					public static valueOf(name: string): com.google.common.hash.BloomFilterStrategies;
 					public mightContain(object0: any, funnel1: com.google.common.hash.Funnel<any>, int2: number, lockFreeBitArray3: com.google.common.hash.BloomFilterStrategies.LockFreeBitArray): boolean;
+					public static valueOf(name: string): com.google.common.hash.BloomFilterStrategies;
 				}
 				export module BloomFilterStrategies {
 					export class LockFreeBitArray extends java.lang.Object {
@@ -24043,8 +24043,8 @@ declare module com {
 			export module hash {
 				export class Funnels extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.hash.Funnels>;
-					public static sequentialFunnel(elementFunnel: com.google.common.hash.Funnel<any>): com.google.common.hash.Funnel<any>;
 					public static asOutputStream(sink: com.google.common.hash.PrimitiveSink): java.io.OutputStream;
+					public static sequentialFunnel(elementFunnel: com.google.common.hash.Funnel<any>): com.google.common.hash.Funnel<any>;
 					public static stringFunnel(charset: java.nio.charset.Charset): com.google.common.hash.Funnel<string>;
 					public static integerFunnel(): com.google.common.hash.Funnel<java.lang.Integer>;
 					public static longFunnel(): com.google.common.hash.Funnel<java.lang.Long>;
@@ -24058,8 +24058,8 @@ declare module com {
 						public funnel(object0: any, primitiveSink1: com.google.common.hash.PrimitiveSink): void;
 						public static valueOf(name: string): com.google.common.hash.Funnels.ByteArrayFunnel;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
-						public static values(): native.Array<com.google.common.hash.Funnels.ByteArrayFunnel>;
 						public funnel(from: native.Array<number>, into: com.google.common.hash.PrimitiveSink): void;
+						public static values(): native.Array<com.google.common.hash.Funnels.ByteArrayFunnel>;
 						public toString(): string;
 					}
 					export class IntegerFunnel extends com.google.common.hash.Funnel<java.lang.Integer> {
@@ -24139,8 +24139,8 @@ declare module com {
 			export module hash {
 				export abstract class HashCode extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.hash.HashCode>;
-					public static fromLong(hash: number): com.google.common.hash.HashCode;
 					public equals(obj: any): boolean;
+					public static fromLong(hash: number): com.google.common.hash.HashCode;
 					public asLong(): number;
 					public padToLong(): number;
 					public static fromBytes(bytes: native.Array<number>): com.google.common.hash.HashCode;
@@ -24312,19 +24312,19 @@ declare module com {
 					public static consistentHash(hashCode: com.google.common.hash.HashCode, buckets: number): number;
 					/** @deprecated */
 					public static sha1(): com.google.common.hash.HashFunction;
-					public static murmur3_128(): com.google.common.hash.HashFunction;
 					public static combineUnordered(hashCodes: java.lang.Iterable<com.google.common.hash.HashCode>): com.google.common.hash.HashCode;
+					public static murmur3_128(): com.google.common.hash.HashFunction;
 					public static hmacMd5(key: java.security.Key): com.google.common.hash.HashFunction;
 					/** @deprecated */
 					public static md5(): com.google.common.hash.HashFunction;
-					public static sipHash24(): com.google.common.hash.HashFunction;
 					public static hmacSha256(key: native.Array<number>): com.google.common.hash.HashFunction;
+					public static sipHash24(): com.google.common.hash.HashFunction;
 					public static hmacSha512(key: java.security.Key): com.google.common.hash.HashFunction;
 					public static goodFastHash(minimumBits: number): com.google.common.hash.HashFunction;
 					public static hmacSha256(key: java.security.Key): com.google.common.hash.HashFunction;
 					public static sipHash24(k0: number, k1: number): com.google.common.hash.HashFunction;
-					public static murmur3_32(): com.google.common.hash.HashFunction;
 					public static crc32(): com.google.common.hash.HashFunction;
+					public static murmur3_32(): com.google.common.hash.HashFunction;
 					public static hmacMd5(key: native.Array<number>): com.google.common.hash.HashFunction;
 					public static consistentHash(input: number, buckets: number): number;
 					public static combineOrdered(hashCodes: java.lang.Iterable<com.google.common.hash.HashCode>): com.google.common.hash.HashCode;
@@ -24345,8 +24345,8 @@ declare module com {
 				export module Hashing {
 					export abstract class ChecksumType extends com.google.common.hash.ImmutableSupplier<java.util.zip.Checksum> {
 						public static class: java.lang.Class<com.google.common.hash.Hashing.ChecksumType>;
-						public static CRC_32: com.google.common.hash.Hashing.ChecksumType;
 						public static ADLER_32: com.google.common.hash.Hashing.ChecksumType;
+						public static CRC_32: com.google.common.hash.Hashing.ChecksumType;
 						public hashFunction: com.google.common.hash.HashFunction;
 						public static values(): native.Array<com.google.common.hash.Hashing.ChecksumType>;
 						public static valueOf(name: string): com.google.common.hash.Hashing.ChecksumType;
@@ -24431,8 +24431,8 @@ declare module com {
 					public constructor(hashFunction: com.google.common.hash.HashFunction, out: java.io.OutputStream);
 					public constructor();
 					public write(b: number): void;
-					public write(b: native.Array<number>, off: number, len: number): void;
 					public close(): void;
+					public write(b: native.Array<number>, off: number, len: number): void;
 					public write(bytes: native.Array<number>, off: number, len: number): void;
 					public flush(): void;
 					public constructor(out: java.io.OutputStream);
@@ -24473,9 +24473,9 @@ declare module com {
 					export abstract class JavaLittleEndianBytes extends com.google.common.hash.LittleEndianByteArray.LittleEndianBytes {
 						public static class: java.lang.Class<com.google.common.hash.LittleEndianByteArray.JavaLittleEndianBytes>;
 						public static INSTANCE: com.google.common.hash.LittleEndianByteArray.JavaLittleEndianBytes;
-						public static values(): native.Array<com.google.common.hash.LittleEndianByteArray.JavaLittleEndianBytes>;
-						public static valueOf(name: string): com.google.common.hash.LittleEndianByteArray.JavaLittleEndianBytes;
 						public getLongLittleEndian(bytes0: native.Array<number>, int1: number): number;
+						public static valueOf(name: string): com.google.common.hash.LittleEndianByteArray.JavaLittleEndianBytes;
+						public static values(): native.Array<com.google.common.hash.LittleEndianByteArray.JavaLittleEndianBytes>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public putLongLittleEndian(bytes0: native.Array<number>, int1: number, long2: number): void;
 					}
@@ -24494,13 +24494,13 @@ declare module com {
 					}
 					export abstract class UnsafeByteArray extends com.google.common.hash.LittleEndianByteArray.LittleEndianBytes {
 						public static class: java.lang.Class<com.google.common.hash.LittleEndianByteArray.UnsafeByteArray>;
-						public static UNSAFE_LITTLE_ENDIAN: com.google.common.hash.LittleEndianByteArray.UnsafeByteArray;
 						public static UNSAFE_BIG_ENDIAN: com.google.common.hash.LittleEndianByteArray.UnsafeByteArray;
+						public static UNSAFE_LITTLE_ENDIAN: com.google.common.hash.LittleEndianByteArray.UnsafeByteArray;
 						public getLongLittleEndian(bytes0: native.Array<number>, int1: number): number;
 						public static values(): native.Array<com.google.common.hash.LittleEndianByteArray.UnsafeByteArray>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
-						public static valueOf(name: string): com.google.common.hash.LittleEndianByteArray.UnsafeByteArray;
 						public putLongLittleEndian(bytes0: native.Array<number>, int1: number, long2: number): void;
+						public static valueOf(name: string): com.google.common.hash.LittleEndianByteArray.UnsafeByteArray;
 					}
 				}
 			}
@@ -24560,8 +24560,8 @@ declare module com {
 				export class LongAdder extends com.google.common.hash.Striped64 implements java.io.Serializable, com.google.common.hash.LongAddable {
 					public static class: java.lang.Class<com.google.common.hash.LongAdder>;
 					public decrement(): void;
-					public sum(): number;
 					public intValue(): number;
+					public sum(): number;
 					public reset(): void;
 					public toString(): string;
 					public increment(): void;
@@ -24609,8 +24609,8 @@ declare module com {
 						public update(b: java.nio.ByteBuffer): void;
 						public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 						public hashCode(): number;
-						public update(bytes: java.nio.ByteBuffer): void;
 						public hash(): com.google.common.hash.HashCode;
+						public update(bytes: java.nio.ByteBuffer): void;
 						public update(b: number): void;
 						public update(b: native.Array<number>): void;
 						public putBytes(bytes: java.nio.ByteBuffer): com.google.common.hash.Hasher;
@@ -24662,8 +24662,8 @@ declare module com {
 						public update(b: java.nio.ByteBuffer): void;
 						public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 						public hashCode(): number;
-						public update(bytes: java.nio.ByteBuffer): void;
 						public hash(): com.google.common.hash.HashCode;
+						public update(bytes: java.nio.ByteBuffer): void;
 						public update(b: number): void;
 						public update(b: native.Array<number>): void;
 						public putBytes(bytes: java.nio.ByteBuffer): com.google.common.hash.Hasher;
@@ -24699,8 +24699,8 @@ declare module com {
 					public hashLong(input: number): com.google.common.hash.HashCode;
 					public hashUnencodedChars(input: string): com.google.common.hash.HashCode;
 					public hashString(input: string, charset: java.nio.charset.Charset): com.google.common.hash.HashCode;
-					public toString(): string;
 					public equals(object: any): boolean;
+					public toString(): string;
 					public hashBytes(input: native.Array<number>, off: number, len: number): com.google.common.hash.HashCode;
 					public hashObject(instance: any, funnel: com.google.common.hash.Funnel<any>): com.google.common.hash.HashCode;
 					public hashCode(): number;
@@ -24753,8 +24753,8 @@ declare module com {
 					public hashLong(input: number): com.google.common.hash.HashCode;
 					public hashUnencodedChars(input: string): com.google.common.hash.HashCode;
 					public hashString(input: string, charset: java.nio.charset.Charset): com.google.common.hash.HashCode;
-					public toString(): string;
 					public equals(object: any): boolean;
+					public toString(): string;
 					public hashBytes(input: native.Array<number>, off: number, len: number): com.google.common.hash.HashCode;
 					public hashObject(instance: any, funnel: com.google.common.hash.Funnel<any>): com.google.common.hash.HashCode;
 					public hashCode(): number;
@@ -24773,8 +24773,8 @@ declare module com {
 						public putInt(i: number): com.google.common.hash.Hasher;
 						public putUnencodedChars(charSequence: string): com.google.common.hash.Hasher;
 						public hashCode(): number;
-						public putBytes(b: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 						public hash(): com.google.common.hash.HashCode;
+						public putBytes(b: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 						public putBytes(buffer: java.nio.ByteBuffer): com.google.common.hash.Hasher;
 						/** @deprecated */
 						public hashCode(): number;
@@ -24849,8 +24849,8 @@ declare module com {
 					public hashLong(input: number): com.google.common.hash.HashCode;
 					public hashUnencodedChars(input: string): com.google.common.hash.HashCode;
 					public hashString(input: string, charset: java.nio.charset.Charset): com.google.common.hash.HashCode;
-					public toString(): string;
 					public equals(object: any): boolean;
+					public toString(): string;
 					public hashBytes(input: native.Array<number>, off: number, len: number): com.google.common.hash.HashCode;
 					public hashObject(instance: any, funnel: com.google.common.hash.Funnel<any>): com.google.common.hash.HashCode;
 					public hashCode(): number;
@@ -24934,17 +24934,17 @@ declare module com {
 					public write(c: number): void;
 					public append(csq: string, start: number, end: number): java.io.Writer;
 					public append(charSeq: string): java.io.Writer;
-					public write(chars0: native.Array<string>, int1: number, int2: number): void;
-					public flush(): void;
 					public append(csq: string): java.io.Writer;
+					public flush(): void;
+					public write(chars0: native.Array<string>, int1: number, int2: number): void;
 					public append(charSequence0: string): java.lang.Appendable;
 					public write(str: string): void;
 					public append(charSeq: string, start: number, end: number): java.io.Writer;
 					public close(): void;
 					public append(charSequence0: string, int1: number, int2: number): java.lang.Appendable;
 					public write(cbuf: native.Array<string>): void;
-					public write(str: string, off: number, len: number): void;
 					public append(c: string): java.io.Writer;
+					public write(str: string, off: number, len: number): void;
 				}
 			}
 		}
@@ -24965,16 +24965,16 @@ declare module com {
 					public withSeparator(string0: string, int1: number): com.google.common.io.BaseEncoding;
 					public static base16(): com.google.common.io.BaseEncoding;
 					public encodingStream(writer0: java.io.Writer): java.io.OutputStream;
-					public encode(bytes: native.Array<number>): string;
 					public static base64(): com.google.common.io.BaseEncoding;
+					public encode(bytes: native.Array<number>): string;
 					public encode(bytes: native.Array<number>, off: number, len: number): string;
 					public omitPadding(): com.google.common.io.BaseEncoding;
 					public decode(chars: string): native.Array<number>;
 					public static base32Hex(): com.google.common.io.BaseEncoding;
-					public withPadChar(char0: string): com.google.common.io.BaseEncoding;
 					public upperCase(): com.google.common.io.BaseEncoding;
-					public canDecode(charSequence0: string): boolean;
+					public withPadChar(char0: string): com.google.common.io.BaseEncoding;
 					public static base32(): com.google.common.io.BaseEncoding;
+					public canDecode(charSequence0: string): boolean;
 				}
 				export module BaseEncoding {
 					export class Alphabet extends java.lang.Object {
@@ -25005,8 +25005,8 @@ declare module com {
 						public decodingStream(reader: java.io.Reader): java.io.InputStream;
 						public lowerCase(): com.google.common.io.BaseEncoding;
 						public withSeparator(string0: string, int1: number): com.google.common.io.BaseEncoding;
-						public withSeparator(separator: string, afterEveryChars: number): com.google.common.io.BaseEncoding;
 						public upperCase(): com.google.common.io.BaseEncoding;
+						public withSeparator(separator: string, afterEveryChars: number): com.google.common.io.BaseEncoding;
 						public canDecode(charSequence0: string): boolean;
 						public canDecode(chars: string): boolean;
 						public withPadChar(padChar: string): com.google.common.io.BaseEncoding;
@@ -25025,8 +25025,8 @@ declare module com {
 						public decodingStream(reader: java.io.Reader): java.io.InputStream;
 						public lowerCase(): com.google.common.io.BaseEncoding;
 						public withSeparator(string0: string, int1: number): com.google.common.io.BaseEncoding;
-						public withSeparator(separator: string, afterEveryChars: number): com.google.common.io.BaseEncoding;
 						public upperCase(): com.google.common.io.BaseEncoding;
+						public withSeparator(separator: string, afterEveryChars: number): com.google.common.io.BaseEncoding;
 						public canDecode(charSequence0: string): boolean;
 						public canDecode(chars: string): boolean;
 						public withPadChar(padChar: string): com.google.common.io.BaseEncoding;
@@ -25195,8 +25195,8 @@ declare module com {
 					public asCharSink(charset: java.nio.charset.Charset): com.google.common.io.CharSink;
 					public constructor();
 					public write(bytes: native.Array<number>): void;
-					public openStream(): java.io.OutputStream;
 					public openBufferedStream(): java.io.OutputStream;
+					public openStream(): java.io.OutputStream;
 					public writeFrom(input: java.io.InputStream): number;
 				}
 				export module ByteSink {
@@ -25219,8 +25219,8 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.io.ByteSource>;
 					public sizeIfKnown(): com.google.common.base.Optional<java.lang.Long>;
 					public isEmpty(): boolean;
-					public copyTo(sink: com.google.common.io.ByteSink): number;
 					public static concat(sources: native.Array<com.google.common.io.ByteSource>): com.google.common.io.ByteSource;
+					public copyTo(sink: com.google.common.io.ByteSink): number;
 					public asCharSource(charset: java.nio.charset.Charset): com.google.common.io.CharSource;
 					public size(): number;
 					public static concat(sources: java.util.Iterator<any>): com.google.common.io.ByteSource;
@@ -25228,14 +25228,14 @@ declare module com {
 					public copyTo(output: java.io.OutputStream): number;
 					public openStream(): java.io.InputStream;
 					public read(processor: com.google.common.io.ByteProcessor<any>): any;
-					public openBufferedStream(): java.io.InputStream;
 					public contentEquals(other: com.google.common.io.ByteSource): boolean;
+					public openBufferedStream(): java.io.InputStream;
 					public constructor();
 					public hash(hashFunction: com.google.common.hash.HashFunction): com.google.common.hash.HashCode;
 					public read(): native.Array<number>;
-					public slice(offset: number, length: number): com.google.common.io.ByteSource;
 					public static concat(sources: java.lang.Iterable<any>): com.google.common.io.ByteSource;
 					public static empty(): com.google.common.io.ByteSource;
+					public slice(offset: number, length: number): com.google.common.io.ByteSource;
 				}
 				export module ByteSource {
 					export class AsCharSource extends com.google.common.io.CharSource {
@@ -25318,16 +25318,16 @@ declare module com {
 					export class ByteArrayDataInputStream extends java.lang.Object implements com.google.common.io.ByteArrayDataInput {
 						public static class: java.lang.Class<com.google.common.io.ByteStreams.ByteArrayDataInputStream>;
 						public readInt(): number;
-						public readUnsignedByte(): number;
 						public readUTF(): string;
+						public readUnsignedByte(): number;
 						public readFully(b: native.Array<number>): void;
 						public readChar(): string;
-						public skipBytes(n: number): number;
 						public readDouble(): number;
+						public skipBytes(n: number): number;
 						public readShort(): number;
 						public readByte(): number;
-						public readFully(b: native.Array<number>, off: number, len: number): void;
 						public readBoolean(): boolean;
+						public readFully(b: native.Array<number>, off: number, len: number): void;
 						public readUnsignedShort(): number;
 						public readFloat(): number;
 						public readLong(): number;
@@ -25349,9 +25349,9 @@ declare module com {
 						public writeUTF(s: string): void;
 						public write(b: native.Array<number>): void;
 						public writeChar(v: number): void;
-						public writeShort(v: number): void;
 						/** @deprecated */
 						public writeBytes(s: string): void;
+						public writeShort(v: number): void;
 					}
 					export class LimitedInputStream extends java.io.FilterInputStream {
 						public static class: java.lang.Class<com.google.common.io.ByteStreams.LimitedInputStream>;
@@ -25422,8 +25422,8 @@ declare module com {
 			export module io {
 				export abstract class CharSource extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.io.CharSource>;
-					public openStream(): java.io.Reader;
 					public openBufferedStream(): java.io.BufferedReader;
+					public openStream(): java.io.Reader;
 					public readFirstLine(): string;
 					public copyTo(appendable: java.lang.Appendable): number;
 					public isEmpty(): boolean;
@@ -25432,12 +25432,12 @@ declare module com {
 					public copyTo(sink: com.google.common.io.CharSink): number;
 					public readLines(processor: com.google.common.io.LineProcessor<any>): any;
 					public static wrap(charSequence: string): com.google.common.io.CharSource;
-					public length(): number;
 					public static concat(sources: java.lang.Iterable<any>): com.google.common.io.CharSource;
+					public length(): number;
 					public asByteSource(charset: java.nio.charset.Charset): com.google.common.io.ByteSource;
 					public constructor();
-					public lengthIfKnown(): com.google.common.base.Optional<java.lang.Long>;
 					public static concat(sources: native.Array<com.google.common.io.CharSource>): com.google.common.io.CharSource;
+					public lengthIfKnown(): com.google.common.base.Optional<java.lang.Long>;
 					public readLines(): com.google.common.collect.ImmutableList<string>;
 					public static concat(sources: java.util.Iterator<any>): com.google.common.io.CharSource;
 				}
@@ -25501,8 +25501,8 @@ declare module com {
 					public static asWriter(target: java.lang.Appendable): java.io.Writer;
 					public static exhaust(readable: java.lang.Readable): number;
 					public static skipFully(reader: java.io.Reader, n: number): void;
-					public static toString(r: java.lang.Readable): string;
 					public static readLines(readable: java.lang.Readable, processor: com.google.common.io.LineProcessor<any>): any;
+					public static toString(r: java.lang.Readable): string;
 					public static nullWriter(): java.io.Writer;
 				}
 				export module CharStreams {
@@ -25514,8 +25514,8 @@ declare module com {
 						public close(): void;
 						public write(chars0: native.Array<string>, int1: number, int2: number): void;
 						public write(cbuf: native.Array<string>, off: number, len: number): void;
-						public write(str: string): void;
 						public flush(): void;
+						public write(str: string): void;
 						public append(csq: string): java.io.Writer;
 						public toString(): string;
 						public write(cbuf: native.Array<string>): void;
@@ -25555,8 +25555,8 @@ declare module com {
 					public static create(): com.google.common.io.Closer;
 					public rethrow(e: java.lang.Throwable): java.lang.RuntimeException;
 					public rethrow(e: java.lang.Throwable, declaredType1: java.lang.Class<any>, declaredType2: java.lang.Class<any>): java.lang.RuntimeException;
-					public register(closeable: java.io.Closeable): java.io.Closeable;
 					public close(): void;
+					public register(closeable: java.io.Closeable): java.io.Closeable;
 				}
 				export module Closer {
 					export class LoggingSuppressor extends java.lang.Object implements com.google.common.io.Closer.Suppressor {
@@ -25598,8 +25598,8 @@ declare module com {
 					public constructor();
 					public close(): void;
 					public read(b: native.Array<number>): number;
-					public skip(n: number): number;
 					public mark(readlimit: number): void;
+					public skip(n: number): number;
 				}
 			}
 		}
@@ -25616,8 +25616,8 @@ declare module com {
 					public getCount(): number;
 					public constructor();
 					public write(b: number): void;
-					public write(b: native.Array<number>, off: number, len: number): void;
 					public close(): void;
+					public write(b: native.Array<number>, off: number, len: number): void;
 					public flush(): void;
 					public constructor(out: java.io.OutputStream);
 				}
@@ -25638,8 +25638,8 @@ declare module com {
 					public constructor();
 					public constructor(fileThreshold: number);
 					public write(b: number): void;
-					public write(b: native.Array<number>, off: number, len: number): void;
 					public close(): void;
+					public write(b: native.Array<number>, off: number, len: number): void;
 					public flush(): void;
 					public constructor(fileThreshold: number, resetOnFinalize: boolean);
 					public write(int0: number): void;
@@ -25663,8 +25663,8 @@ declare module com {
 				export class FileWriteMode {
 					public static class: java.lang.Class<com.google.common.io.FileWriteMode>;
 					public static APPEND: com.google.common.io.FileWriteMode;
-					public static values(): native.Array<com.google.common.io.FileWriteMode>;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+					public static values(): native.Array<com.google.common.io.FileWriteMode>;
 					public static valueOf(name: string): com.google.common.io.FileWriteMode;
 				}
 			}
@@ -25679,8 +25679,8 @@ declare module com {
 				export class Files extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.io.Files>;
 					public static readLines(file: java.io.File, charset: java.nio.charset.Charset): java.util.List<string>;
-					public static getFileExtension(fullName: string): string;
 					public static fileTraverser(): com.google.common.graph.Traverser<java.io.File>;
+					public static getFileExtension(fullName: string): string;
 					public static newWriter(file: java.io.File, charset: java.nio.charset.Charset): java.io.BufferedWriter;
 					/** @deprecated */
 					public static readFirstLine(file: java.io.File, charset: java.nio.charset.Charset): string;
@@ -25839,9 +25839,9 @@ declare module com {
 					public constructor();
 					public close(): void;
 					public readFloat(): number;
-					public readUnsignedByte(): number;
-					public readUTF(): string;
 					public readChar(): string;
+					public readUTF(): string;
+					public readUnsignedByte(): number;
 					public readInt(): number;
 				}
 			}
@@ -25870,8 +25870,8 @@ declare module com {
 					public constructor();
 					public write(b: number): void;
 					public writeShort(v: number): void;
-					public write(b: native.Array<number>, off: number, len: number): void;
 					public close(): void;
+					public write(b: native.Array<number>, off: number, len: number): void;
 					/** @deprecated */
 					public writeBytes(s: string): void;
 					public constructor(out: java.io.OutputStream);
@@ -25961,14 +25961,14 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.io.Resources>;
 					public static getResource(contextClass: java.lang.Class<any>, resourceName: string): java.net.URL;
 					public static toByteArray(url: java.net.URL): native.Array<number>;
-					public toString(): string;
 					public static getResource(resourceName: string): java.net.URL;
+					public toString(): string;
 					public static copy(from: java.net.URL, to: java.io.OutputStream): void;
 					public static asByteSource(url: java.net.URL): com.google.common.io.ByteSource;
 					public static asCharSource(url: java.net.URL, charset: java.nio.charset.Charset): com.google.common.io.CharSource;
-					public static toString(url: java.net.URL, charset: java.nio.charset.Charset): string;
 					public static readLines(url: java.net.URL, charset: java.nio.charset.Charset, callback: com.google.common.io.LineProcessor<any>): any;
 					public static readLines(url: java.net.URL, charset: java.nio.charset.Charset): java.util.List<string>;
+					public static toString(url: java.net.URL, charset: java.nio.charset.Charset): string;
 				}
 				export module Resources {
 					export class UrlByteSource extends com.google.common.io.ByteSource {
@@ -25990,8 +25990,8 @@ declare module com {
 				export class BigIntegerMath extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.math.BigIntegerMath>;
 					public static sqrt(x: java.math.BigInteger, mode: java.math.RoundingMode): java.math.BigInteger;
-					public static isPowerOfTwo(x: java.math.BigInteger): boolean;
 					public static factorial(n: number): java.math.BigInteger;
+					public static isPowerOfTwo(x: java.math.BigInteger): boolean;
 					public static divide(p: java.math.BigInteger, q: java.math.BigInteger, mode: java.math.RoundingMode): java.math.BigInteger;
 					public static log10(x: java.math.BigInteger, mode: java.math.RoundingMode): number;
 					public static binomial(n: number, k: number): java.math.BigInteger;
@@ -26052,15 +26052,15 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.math.IntMath>;
 					public static sqrt(x: number, mode: java.math.RoundingMode): number;
 					public static checkedAdd(a: number, b: number): number;
-					public static floorPowerOfTwo(x: number): number;
 					public static binomial(n: number, k: number): number;
+					public static floorPowerOfTwo(x: number): number;
 					public static ceilingPowerOfTwo(x: number): number;
 					public static saturatedAdd(a: number, b: number): number;
 					public static saturatedMultiply(a: number, b: number): number;
-					public static saturatedSubtract(a: number, b: number): number;
 					public static isPrime(n: number): boolean;
-					public static log2(x: number, mode: java.math.RoundingMode): number;
+					public static saturatedSubtract(a: number, b: number): number;
 					public static checkedPow(b: number, k: number): number;
+					public static log2(x: number, mode: java.math.RoundingMode): number;
 					public static gcd(a: number, b: number): number;
 					public static pow(b: number, k: number): number;
 					public static saturatedPow(b: number, k: number): number;
@@ -26145,15 +26145,15 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.math.LongMath>;
 					public static sqrt(x: number, mode: java.math.RoundingMode): number;
 					public static checkedAdd(a: number, b: number): number;
-					public static floorPowerOfTwo(x: number): number;
 					public static binomial(n: number, k: number): number;
+					public static floorPowerOfTwo(x: number): number;
 					public static ceilingPowerOfTwo(x: number): number;
 					public static saturatedAdd(a: number, b: number): number;
 					public static saturatedMultiply(a: number, b: number): number;
-					public static saturatedSubtract(a: number, b: number): number;
 					public static isPrime(n: number): boolean;
-					public static log2(x: number, mode: java.math.RoundingMode): number;
+					public static saturatedSubtract(a: number, b: number): number;
 					public static checkedPow(b: number, k: number): number;
+					public static log2(x: number, mode: java.math.RoundingMode): number;
 					public static gcd(a: number, b: number): number;
 					public static pow(b: number, k: number): number;
 					public static saturatedPow(b: number, k: number): number;
@@ -26169,8 +26169,8 @@ declare module com {
 				export module LongMath {
 					export abstract class MillerRabinTester {
 						public static class: java.lang.Class<com.google.common.math.LongMath.MillerRabinTester>;
-						public static SMALL: com.google.common.math.LongMath.MillerRabinTester;
 						public static LARGE: com.google.common.math.LongMath.MillerRabinTester;
+						public static SMALL: com.google.common.math.LongMath.MillerRabinTester;
 						public static valueOf(name: string): com.google.common.math.LongMath.MillerRabinTester;
 						public static values(): native.Array<com.google.common.math.LongMath.MillerRabinTester>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -26199,17 +26199,17 @@ declare module com {
 			export module math {
 				export class PairedStats extends java.lang.Object implements java.io.Serializable {
 					public static class: java.lang.Class<com.google.common.math.PairedStats>;
-					public yStats(): com.google.common.math.Stats;
 					public pearsonsCorrelationCoefficient(): number;
 					public toByteArray(): native.Array<number>;
+					public yStats(): com.google.common.math.Stats;
 					public equals(obj: any): boolean;
 					public toString(): string;
 					public populationCovariance(): number;
 					public xStats(): com.google.common.math.Stats;
 					public count(): number;
 					public leastSquaresFit(): com.google.common.math.LinearTransformation;
-					public hashCode(): number;
 					public static fromByteArray(byteArray: native.Array<number>): com.google.common.math.PairedStats;
+					public hashCode(): number;
 					public sampleCovariance(): number;
 				}
 			}
@@ -26223,8 +26223,8 @@ declare module com {
 			export module math {
 				export class PairedStatsAccumulator extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.math.PairedStatsAccumulator>;
-					public yStats(): com.google.common.math.Stats;
 					public pearsonsCorrelationCoefficient(): number;
+					public yStats(): com.google.common.math.Stats;
 					public populationCovariance(): number;
 					public constructor();
 					public xStats(): com.google.common.math.Stats;
@@ -26249,8 +26249,8 @@ declare module com {
 					public static scale(scale: number): com.google.common.math.Quantiles.Scale;
 					public static median(): com.google.common.math.Quantiles.ScaleAndIndex;
 					public constructor();
-					public static quartiles(): com.google.common.math.Quantiles.Scale;
 					public static percentiles(): com.google.common.math.Quantiles.Scale;
+					public static quartiles(): com.google.common.math.Quantiles.Scale;
 				}
 				export module Quantiles {
 					export class Scale extends java.lang.Object {
@@ -26284,9 +26284,9 @@ declare module com {
 				export class Stats extends java.lang.Object implements java.io.Serializable {
 					public static class: java.lang.Class<com.google.common.math.Stats>;
 					public sum(): number;
+					public equals(obj: any): boolean;
 					public static of(values: java.lang.Iterable<any>): com.google.common.math.Stats;
 					public sampleVariance(): number;
-					public equals(obj: any): boolean;
 					public static meanOf(values: java.util.Iterator<any>): number;
 					public populationStandardDeviation(): number;
 					public count(): number;
@@ -26344,9 +26344,9 @@ declare module com {
 			export module net {
 				export class HostAndPort extends java.lang.Object implements java.io.Serializable {
 					public static class: java.lang.Class<com.google.common.net.HostAndPort>;
-					public getPort(): number;
-					public static fromHost(host: string): com.google.common.net.HostAndPort;
 					public equals(obj: any): boolean;
+					public static fromHost(host: string): com.google.common.net.HostAndPort;
+					public getPort(): number;
 					public withDefaultPort(defaultPort: number): com.google.common.net.HostAndPort;
 					public equals(other: any): boolean;
 					public requireBracketsForIPv6(): com.google.common.net.HostAndPort;
@@ -26369,8 +26369,8 @@ declare module com {
 			export module net {
 				export class HostSpecifier extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.net.HostSpecifier>;
-					public static fromValid(specifier: string): com.google.common.net.HostSpecifier;
 					public equals(obj: any): boolean;
+					public static fromValid(specifier: string): com.google.common.net.HostSpecifier;
 					public toString(): string;
 					public equals(other: any): boolean;
 					public static isValid(specifier: string): boolean;
@@ -26388,27 +26388,44 @@ declare module com {
 			export module net {
 				export class HttpHeaders extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.net.HttpHeaders>;
-					public static CACHE_CONTROL: string;
-					public static CONTENT_LENGTH: string;
-					public static CONTENT_TYPE: string;
-					public static DATE: string;
-					public static PRAGMA: string;
-					public static VIA: string;
-					public static WARNING: string;
 					public static ACCEPT: string;
 					public static ACCEPT_CHARSET: string;
 					public static ACCEPT_ENCODING: string;
 					public static ACCEPT_LANGUAGE: string;
+					public static ACCEPT_RANGES: string;
+					public static ACCESS_CONTROL_ALLOW_CREDENTIALS: string;
+					public static ACCESS_CONTROL_ALLOW_HEADERS: string;
+					public static ACCESS_CONTROL_ALLOW_METHODS: string;
+					public static ACCESS_CONTROL_ALLOW_ORIGIN: string;
+					public static ACCESS_CONTROL_EXPOSE_HEADERS: string;
+					public static ACCESS_CONTROL_MAX_AGE: string;
 					public static ACCESS_CONTROL_REQUEST_HEADERS: string;
 					public static ACCESS_CONTROL_REQUEST_METHOD: string;
+					public static AGE: string;
+					public static ALLOW: string;
 					public static AUTHORIZATION: string;
+					public static CACHE_CONTROL: string;
 					public static CONNECTION: string;
+					public static CONTENT_DISPOSITION: string;
+					public static CONTENT_ENCODING: string;
+					public static CONTENT_LANGUAGE: string;
+					public static CONTENT_LENGTH: string;
+					public static CONTENT_LOCATION: string;
+					public static CONTENT_MD5: string;
+					public static CONTENT_RANGE: string;
+					public static CONTENT_SECURITY_POLICY: string;
+					public static CONTENT_SECURITY_POLICY_REPORT_ONLY: string;
+					public static CONTENT_TYPE: string;
 					public static COOKIE: string;
+					public static DATE: string;
+					public static DNT: string;
 					public static EARLY_DATA: string;
+					public static ETAG: string;
 					public static EXPECT: string;
-					public static FROM: string;
-					public static FORWARDED: string;
+					public static EXPIRES: string;
 					public static FOLLOW_ONLY_WHEN_PRERENDER_SHOWN: string;
+					public static FORWARDED: string;
+					public static FROM: string;
 					public static HOST: string;
 					public static HTTP2_SETTINGS: string;
 					public static IF_MATCH: string;
@@ -26417,96 +26434,79 @@ declare module com {
 					public static IF_RANGE: string;
 					public static IF_UNMODIFIED_SINCE: string;
 					public static LAST_EVENT_ID: string;
-					public static MAX_FORWARDS: string;
-					public static ORIGIN: string;
-					public static PROXY_AUTHORIZATION: string;
-					public static RANGE: string;
-					public static REFERER: string;
-					public static REFERRER_POLICY: string;
-					public static SERVICE_WORKER: string;
-					public static TE: string;
-					public static UPGRADE: string;
-					public static USER_AGENT: string;
-					public static ACCEPT_RANGES: string;
-					public static ACCESS_CONTROL_ALLOW_HEADERS: string;
-					public static ACCESS_CONTROL_ALLOW_METHODS: string;
-					public static ACCESS_CONTROL_ALLOW_ORIGIN: string;
-					public static ACCESS_CONTROL_ALLOW_CREDENTIALS: string;
-					public static ACCESS_CONTROL_EXPOSE_HEADERS: string;
-					public static ACCESS_CONTROL_MAX_AGE: string;
-					public static AGE: string;
-					public static ALLOW: string;
-					public static CONTENT_DISPOSITION: string;
-					public static CONTENT_ENCODING: string;
-					public static CONTENT_LANGUAGE: string;
-					public static CONTENT_LOCATION: string;
-					public static CONTENT_MD5: string;
-					public static CONTENT_RANGE: string;
-					public static CONTENT_SECURITY_POLICY: string;
-					public static CONTENT_SECURITY_POLICY_REPORT_ONLY: string;
-					public static X_CONTENT_SECURITY_POLICY: string;
-					public static X_CONTENT_SECURITY_POLICY_REPORT_ONLY: string;
-					public static X_WEBKIT_CSP: string;
-					public static X_WEBKIT_CSP_REPORT_ONLY: string;
-					public static ETAG: string;
-					public static EXPIRES: string;
 					public static LAST_MODIFIED: string;
 					public static LINK: string;
 					public static LOCATION: string;
+					public static MAX_FORWARDS: string;
+					public static ORIGIN: string;
 					public static ORIGIN_TRIAL: string;
 					public static P3P: string;
+					public static PING_FROM: string;
+					public static PING_TO: string;
+					public static PRAGMA: string;
 					public static PROXY_AUTHENTICATE: string;
+					public static PROXY_AUTHORIZATION: string;
+					public static PUBLIC_KEY_PINS: string;
+					public static PUBLIC_KEY_PINS_REPORT_ONLY: string;
+					public static RANGE: string;
+					public static REFERER: string;
+					public static REFERRER_POLICY: string;
 					public static REFRESH: string;
 					public static REPORT_TO: string;
 					public static RETRY_AFTER: string;
-					public static SERVER: string;
-					public static SERVER_TIMING: string;
-					public static SERVICE_WORKER_ALLOWED: string;
-					public static SET_COOKIE: string;
-					public static SET_COOKIE2: string;
-					public static SOURCE_MAP: string;
-					public static STRICT_TRANSPORT_SECURITY: string;
-					public static TIMING_ALLOW_ORIGIN: string;
-					public static TRAILER: string;
-					public static TRANSFER_ENCODING: string;
-					public static VARY: string;
-					public static WWW_AUTHENTICATE: string;
-					public static DNT: string;
-					public static X_CONTENT_TYPE_OPTIONS: string;
-					public static X_DO_NOT_TRACK: string;
-					public static X_FORWARDED_FOR: string;
-					public static X_FORWARDED_PROTO: string;
-					public static X_FORWARDED_HOST: string;
-					public static X_FORWARDED_PORT: string;
-					public static X_FRAME_OPTIONS: string;
-					public static X_POWERED_BY: string;
-					public static PUBLIC_KEY_PINS: string;
-					public static PUBLIC_KEY_PINS_REPORT_ONLY: string;
-					public static X_REQUESTED_WITH: string;
-					public static X_USER_IP: string;
-					public static X_DOWNLOAD_OPTIONS: string;
-					public static X_XSS_PROTECTION: string;
-					public static X_DNS_PREFETCH_CONTROL: string;
-					public static PING_FROM: string;
-					public static PING_TO: string;
 					public static SEC_FETCH_DEST: string;
 					public static SEC_FETCH_MODE: string;
 					public static SEC_FETCH_SITE: string;
 					public static SEC_FETCH_USER: string;
 					public static SEC_METADATA: string;
-					public static SEC_TOKEN_BINDING: string;
 					public static SEC_PROVIDED_TOKEN_BINDING_ID: string;
 					public static SEC_REFERRED_TOKEN_BINDING_ID: string;
+					public static SEC_TOKEN_BINDING: string;
+					public static SERVER: string;
+					public static SERVER_TIMING: string;
+					public static SERVICE_WORKER: string;
+					public static SERVICE_WORKER_ALLOWED: string;
+					public static SET_COOKIE: string;
+					public static SET_COOKIE2: string;
+					public static SOURCE_MAP: string;
+					public static STRICT_TRANSPORT_SECURITY: string;
+					public static TE: string;
+					public static TIMING_ALLOW_ORIGIN: string;
+					public static TRAILER: string;
+					public static TRANSFER_ENCODING: string;
+					public static UPGRADE: string;
+					public static USER_AGENT: string;
+					public static VARY: string;
+					public static VIA: string;
+					public static WARNING: string;
+					public static WWW_AUTHENTICATE: string;
+					public static X_CONTENT_SECURITY_POLICY: string;
+					public static X_CONTENT_SECURITY_POLICY_REPORT_ONLY: string;
+					public static X_CONTENT_TYPE_OPTIONS: string;
+					public static X_DNS_PREFETCH_CONTROL: string;
+					public static X_DOWNLOAD_OPTIONS: string;
+					public static X_DO_NOT_TRACK: string;
+					public static X_FORWARDED_FOR: string;
+					public static X_FORWARDED_HOST: string;
+					public static X_FORWARDED_PORT: string;
+					public static X_FORWARDED_PROTO: string;
+					public static X_FRAME_OPTIONS: string;
+					public static X_POWERED_BY: string;
+					public static X_REQUESTED_WITH: string;
+					public static X_USER_IP: string;
+					public static X_WEBKIT_CSP: string;
+					public static X_WEBKIT_CSP_REPORT_ONLY: string;
+					public static X_XSS_PROTECTION: string;
 				}
 				export module HttpHeaders {
 					export class ReferrerPolicyValues extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.net.HttpHeaders.ReferrerPolicyValues>;
 						public static NO_REFERRER: string;
 						public static NO_REFFERER_WHEN_DOWNGRADE: string;
-						public static SAME_ORIGIN: string;
 						public static ORIGIN: string;
-						public static STRICT_ORIGIN: string;
 						public static ORIGIN_WHEN_CROSS_ORIGIN: string;
+						public static SAME_ORIGIN: string;
+						public static STRICT_ORIGIN: string;
 						public static STRICT_ORIGIN_WHEN_CROSS_ORIGIN: string;
 						public static UNSAFE_URL: string;
 					}
@@ -26522,21 +26522,21 @@ declare module com {
 			export module net {
 				export class InetAddresses extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.net.InetAddresses>;
-					public static isMappedIPv4Address(ipString: string): boolean;
 					public static getCoercedIPv4Address(ip: java.net.InetAddress): java.net.Inet4Address;
+					public static isMappedIPv4Address(ipString: string): boolean;
 					public static getCompatIPv4Address(ip: java.net.Inet6Address): java.net.Inet4Address;
 					public static is6to4Address(ip: java.net.Inet6Address): boolean;
 					public static coerceToInteger(ip: java.net.InetAddress): number;
 					public static toUriString(ip: java.net.InetAddress): string;
 					public static forString(ipString: string): java.net.InetAddress;
-					public static isInetAddress(ipString: string): boolean;
 					public static getIsatapIPv4Address(ip: java.net.Inet6Address): java.net.Inet4Address;
-					public static get6to4IPv4Address(ip: java.net.Inet6Address): java.net.Inet4Address;
+					public static isInetAddress(ipString: string): boolean;
 					public static fromInteger(address: number): java.net.Inet4Address;
-					public static isCompatIPv4Address(ip: java.net.Inet6Address): boolean;
+					public static get6to4IPv4Address(ip: java.net.Inet6Address): java.net.Inet4Address;
 					public static increment(address: java.net.InetAddress): java.net.InetAddress;
-					public static isUriInetAddress(ipString: string): boolean;
+					public static isCompatIPv4Address(ip: java.net.Inet6Address): boolean;
 					public static getTeredoInfo(ip: java.net.Inet6Address): com.google.common.net.InetAddresses.TeredoInfo;
+					public static isUriInetAddress(ipString: string): boolean;
 					public static decrement(address: java.net.InetAddress): java.net.InetAddress;
 					public static toAddrString(ip: java.net.InetAddress): string;
 					public static fromLittleEndianByteArray(addr: native.Array<number>): java.net.InetAddress;
@@ -26572,18 +26572,18 @@ declare module com {
 					public static from(domain: string): com.google.common.net.InternetDomainName;
 					public isRegistrySuffix(): boolean;
 					public parts(): com.google.common.collect.ImmutableList<string>;
+					public hasParent(): boolean;
 					public isPublicSuffix(): boolean;
 					public isTopDomainUnderRegistrySuffix(): boolean;
-					public hasParent(): boolean;
 					public registrySuffix(): com.google.common.net.InternetDomainName;
 					public child(leftParts: string): com.google.common.net.InternetDomainName;
+					public equals(object: any): boolean;
 					public static isValid(name: string): boolean;
 					public toString(): string;
-					public equals(object: any): boolean;
 					public hasPublicSuffix(): boolean;
 					public isUnderPublicSuffix(): boolean;
-					public topPrivateDomain(): com.google.common.net.InternetDomainName;
 					public hasRegistrySuffix(): boolean;
+					public topPrivateDomain(): com.google.common.net.InternetDomainName;
 					public isTopPrivateDomain(): boolean;
 					public isUnderRegistrySuffix(): boolean;
 					public topDomainUnderRegistrySuffix(): com.google.common.net.InternetDomainName;
@@ -26602,86 +26602,62 @@ declare module com {
 			export module net {
 				export class MediaType extends java.lang.Object {
 					public static class: java.lang.Class<com.google.common.net.MediaType>;
-					public static ANY_TYPE: com.google.common.net.MediaType;
-					public static ANY_TEXT_TYPE: com.google.common.net.MediaType;
-					public static ANY_IMAGE_TYPE: com.google.common.net.MediaType;
-					public static ANY_AUDIO_TYPE: com.google.common.net.MediaType;
-					public static ANY_VIDEO_TYPE: com.google.common.net.MediaType;
-					public static ANY_APPLICATION_TYPE: com.google.common.net.MediaType;
-					public static CACHE_MANIFEST_UTF_8: com.google.common.net.MediaType;
-					public static CSS_UTF_8: com.google.common.net.MediaType;
-					public static CSV_UTF_8: com.google.common.net.MediaType;
-					public static HTML_UTF_8: com.google.common.net.MediaType;
-					public static I_CALENDAR_UTF_8: com.google.common.net.MediaType;
-					public static PLAIN_TEXT_UTF_8: com.google.common.net.MediaType;
-					public static TEXT_JAVASCRIPT_UTF_8: com.google.common.net.MediaType;
-					public static TSV_UTF_8: com.google.common.net.MediaType;
-					public static VCARD_UTF_8: com.google.common.net.MediaType;
-					public static WML_UTF_8: com.google.common.net.MediaType;
-					public static XML_UTF_8: com.google.common.net.MediaType;
-					public static VTT_UTF_8: com.google.common.net.MediaType;
-					public static BMP: com.google.common.net.MediaType;
-					public static CRW: com.google.common.net.MediaType;
-					public static GIF: com.google.common.net.MediaType;
-					public static ICO: com.google.common.net.MediaType;
-					public static JPEG: com.google.common.net.MediaType;
-					public static PNG: com.google.common.net.MediaType;
-					public static PSD: com.google.common.net.MediaType;
-					public static SVG_UTF_8: com.google.common.net.MediaType;
-					public static TIFF: com.google.common.net.MediaType;
-					public static WEBP: com.google.common.net.MediaType;
-					public static MP4_AUDIO: com.google.common.net.MediaType;
-					public static MPEG_AUDIO: com.google.common.net.MediaType;
-					public static OGG_AUDIO: com.google.common.net.MediaType;
-					public static WEBM_AUDIO: com.google.common.net.MediaType;
-					public static L16_AUDIO: com.google.common.net.MediaType;
-					public static L24_AUDIO: com.google.common.net.MediaType;
-					public static BASIC_AUDIO: com.google.common.net.MediaType;
 					public static AAC_AUDIO: com.google.common.net.MediaType;
-					public static VORBIS_AUDIO: com.google.common.net.MediaType;
-					public static WMA_AUDIO: com.google.common.net.MediaType;
-					public static WAX_AUDIO: com.google.common.net.MediaType;
-					public static VND_REAL_AUDIO: com.google.common.net.MediaType;
-					public static VND_WAVE_AUDIO: com.google.common.net.MediaType;
-					public static MP4_VIDEO: com.google.common.net.MediaType;
-					public static MPEG_VIDEO: com.google.common.net.MediaType;
-					public static OGG_VIDEO: com.google.common.net.MediaType;
-					public static QUICKTIME: com.google.common.net.MediaType;
-					public static WEBM_VIDEO: com.google.common.net.MediaType;
-					public static WMV: com.google.common.net.MediaType;
-					public static FLV_VIDEO: com.google.common.net.MediaType;
-					public static THREE_GPP_VIDEO: com.google.common.net.MediaType;
-					public static THREE_GPP2_VIDEO: com.google.common.net.MediaType;
+					public static ANY_APPLICATION_TYPE: com.google.common.net.MediaType;
+					public static ANY_AUDIO_TYPE: com.google.common.net.MediaType;
+					public static ANY_IMAGE_TYPE: com.google.common.net.MediaType;
+					public static ANY_TEXT_TYPE: com.google.common.net.MediaType;
+					public static ANY_TYPE: com.google.common.net.MediaType;
+					public static ANY_VIDEO_TYPE: com.google.common.net.MediaType;
+					public static APPLE_MOBILE_CONFIG: com.google.common.net.MediaType;
+					public static APPLE_PASSBOOK: com.google.common.net.MediaType;
+					public static APPLICATION_BINARY: com.google.common.net.MediaType;
 					public static APPLICATION_XML_UTF_8: com.google.common.net.MediaType;
 					public static ATOM_UTF_8: com.google.common.net.MediaType;
+					public static BASIC_AUDIO: com.google.common.net.MediaType;
+					public static BMP: com.google.common.net.MediaType;
 					public static BZIP2: com.google.common.net.MediaType;
+					public static CACHE_MANIFEST_UTF_8: com.google.common.net.MediaType;
+					public static CRW: com.google.common.net.MediaType;
+					public static CSS_UTF_8: com.google.common.net.MediaType;
+					public static CSV_UTF_8: com.google.common.net.MediaType;
 					public static DART_UTF_8: com.google.common.net.MediaType;
-					public static APPLE_PASSBOOK: com.google.common.net.MediaType;
 					public static EOT: com.google.common.net.MediaType;
 					public static EPUB: com.google.common.net.MediaType;
+					public static FLV_VIDEO: com.google.common.net.MediaType;
 					public static FORM_DATA: com.google.common.net.MediaType;
-					public static KEY_ARCHIVE: com.google.common.net.MediaType;
-					public static APPLICATION_BINARY: com.google.common.net.MediaType;
+					public static GIF: com.google.common.net.MediaType;
 					public static GZIP: com.google.common.net.MediaType;
 					public static HAL_JSON: com.google.common.net.MediaType;
+					public static HTML_UTF_8: com.google.common.net.MediaType;
+					public static ICO: com.google.common.net.MediaType;
+					public static I_CALENDAR_UTF_8: com.google.common.net.MediaType;
 					public static JAVASCRIPT_UTF_8: com.google.common.net.MediaType;
 					public static JOSE: com.google.common.net.MediaType;
 					public static JOSE_JSON: com.google.common.net.MediaType;
+					public static JPEG: com.google.common.net.MediaType;
 					public static JSON_UTF_8: com.google.common.net.MediaType;
-					public static MANIFEST_JSON_UTF_8: com.google.common.net.MediaType;
+					public static KEY_ARCHIVE: com.google.common.net.MediaType;
 					public static KML: com.google.common.net.MediaType;
 					public static KMZ: com.google.common.net.MediaType;
+					public static L16_AUDIO: com.google.common.net.MediaType;
+					public static L24_AUDIO: com.google.common.net.MediaType;
+					public static MANIFEST_JSON_UTF_8: com.google.common.net.MediaType;
 					public static MBOX: com.google.common.net.MediaType;
-					public static APPLE_MOBILE_CONFIG: com.google.common.net.MediaType;
 					public static MICROSOFT_EXCEL: com.google.common.net.MediaType;
 					public static MICROSOFT_OUTLOOK: com.google.common.net.MediaType;
 					public static MICROSOFT_POWERPOINT: com.google.common.net.MediaType;
 					public static MICROSOFT_WORD: com.google.common.net.MediaType;
-					public static WASM_APPLICATION: com.google.common.net.MediaType;
+					public static MP4_AUDIO: com.google.common.net.MediaType;
+					public static MP4_VIDEO: com.google.common.net.MediaType;
+					public static MPEG_AUDIO: com.google.common.net.MediaType;
+					public static MPEG_VIDEO: com.google.common.net.MediaType;
 					public static NACL_APPLICATION: com.google.common.net.MediaType;
 					public static NACL_PORTABLE_APPLICATION: com.google.common.net.MediaType;
 					public static OCTET_STREAM: com.google.common.net.MediaType;
+					public static OGG_AUDIO: com.google.common.net.MediaType;
 					public static OGG_CONTAINER: com.google.common.net.MediaType;
+					public static OGG_VIDEO: com.google.common.net.MediaType;
 					public static OOXML_DOCUMENT: com.google.common.net.MediaType;
 					public static OOXML_PRESENTATION: com.google.common.net.MediaType;
 					public static OOXML_SHEET: com.google.common.net.MediaType;
@@ -26690,18 +26666,42 @@ declare module com {
 					public static OPENDOCUMENT_SPREADSHEET: com.google.common.net.MediaType;
 					public static OPENDOCUMENT_TEXT: com.google.common.net.MediaType;
 					public static PDF: com.google.common.net.MediaType;
+					public static PLAIN_TEXT_UTF_8: com.google.common.net.MediaType;
+					public static PNG: com.google.common.net.MediaType;
 					public static POSTSCRIPT: com.google.common.net.MediaType;
 					public static PROTOBUF: com.google.common.net.MediaType;
+					public static PSD: com.google.common.net.MediaType;
+					public static QUICKTIME: com.google.common.net.MediaType;
 					public static RDF_XML_UTF_8: com.google.common.net.MediaType;
 					public static RTF_UTF_8: com.google.common.net.MediaType;
 					public static SFNT: com.google.common.net.MediaType;
 					public static SHOCKWAVE_FLASH: com.google.common.net.MediaType;
 					public static SKETCHUP: com.google.common.net.MediaType;
 					public static SOAP_XML_UTF_8: com.google.common.net.MediaType;
+					public static SVG_UTF_8: com.google.common.net.MediaType;
 					public static TAR: com.google.common.net.MediaType;
+					public static TEXT_JAVASCRIPT_UTF_8: com.google.common.net.MediaType;
+					public static THREE_GPP2_VIDEO: com.google.common.net.MediaType;
+					public static THREE_GPP_VIDEO: com.google.common.net.MediaType;
+					public static TIFF: com.google.common.net.MediaType;
+					public static TSV_UTF_8: com.google.common.net.MediaType;
+					public static VCARD_UTF_8: com.google.common.net.MediaType;
+					public static VND_REAL_AUDIO: com.google.common.net.MediaType;
+					public static VND_WAVE_AUDIO: com.google.common.net.MediaType;
+					public static VORBIS_AUDIO: com.google.common.net.MediaType;
+					public static VTT_UTF_8: com.google.common.net.MediaType;
+					public static WASM_APPLICATION: com.google.common.net.MediaType;
+					public static WAX_AUDIO: com.google.common.net.MediaType;
+					public static WEBM_AUDIO: com.google.common.net.MediaType;
+					public static WEBM_VIDEO: com.google.common.net.MediaType;
+					public static WEBP: com.google.common.net.MediaType;
+					public static WMA_AUDIO: com.google.common.net.MediaType;
+					public static WML_UTF_8: com.google.common.net.MediaType;
+					public static WMV: com.google.common.net.MediaType;
 					public static WOFF: com.google.common.net.MediaType;
 					public static WOFF2: com.google.common.net.MediaType;
 					public static XHTML_UTF_8: com.google.common.net.MediaType;
+					public static XML_UTF_8: com.google.common.net.MediaType;
 					public static XRD_UTF_8: com.google.common.net.MediaType;
 					public static ZIP: com.google.common.net.MediaType;
 					public charset(): com.google.common.base.Optional<java.nio.charset.Charset>;
@@ -26711,8 +26711,8 @@ declare module com {
 					public is(mediaTypeRange: com.google.common.net.MediaType): boolean;
 					public subtype(): string;
 					public static create(type: string, subtype: string): com.google.common.net.MediaType;
-					public parameters(): com.google.common.collect.ImmutableListMultimap<string,string>;
 					public hasWildcard(): boolean;
+					public parameters(): com.google.common.collect.ImmutableListMultimap<string,string>;
 					public toString(): string;
 					public withParameter(attribute: string, value: string): com.google.common.net.MediaType;
 					public static parse(input: string): com.google.common.net.MediaType;
@@ -26777,15 +26777,15 @@ declare module com {
 					public static reverse(array: native.Array<boolean>): void;
 					public static toArray(collection: java.util.Collection<java.lang.Boolean>): native.Array<boolean>;
 					public static lexicographicalComparator(): java.util.Comparator<native.Array<boolean>>;
-					public static falseFirst(): java.util.Comparator<java.lang.Boolean>;
 					public static concat(arrays: native.Array<native.Array<boolean>>): native.Array<boolean>;
+					public static falseFirst(): java.util.Comparator<java.lang.Boolean>;
 					public static compare(a: boolean, b: boolean): number;
 					public static lastIndexOf(array: native.Array<boolean>, target: boolean): number;
 					public static hashCode(value: boolean): number;
 					public static reverse(array: native.Array<boolean>, fromIndex: number, toIndex: number): void;
 					public static countTrue(values: native.Array<boolean>): number;
-					public static join(separator: string, array: native.Array<boolean>): string;
 					public static asList(backingArray: native.Array<boolean>): java.util.List<java.lang.Boolean>;
+					public static join(separator: string, array: native.Array<boolean>): string;
 					public static indexOf(array: native.Array<boolean>, target: native.Array<boolean>): number;
 					public static ensureCapacity(array: native.Array<boolean>, minLength: number, padding: number): native.Array<boolean>;
 					public static contains(array: native.Array<boolean>, target: boolean): boolean;
@@ -26837,27 +26837,27 @@ declare module com {
 					}
 					export class BooleanComparator extends java.util.Comparator<java.lang.Boolean> {
 						public static class: java.lang.Class<com.google.common.primitives.Booleans.BooleanComparator>;
-						public static TRUE_FIRST: com.google.common.primitives.Booleans.BooleanComparator;
 						public static FALSE_FIRST: com.google.common.primitives.Booleans.BooleanComparator;
+						public static TRUE_FIRST: com.google.common.primitives.Booleans.BooleanComparator;
 						public equals(other: any): boolean;
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
-						public static valueOf(name: string): com.google.common.primitives.Booleans.BooleanComparator;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
+						public static valueOf(name: string): com.google.common.primitives.Booleans.BooleanComparator;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public static nullsFirst(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
-						public static values(): native.Array<com.google.common.primitives.Booleans.BooleanComparator>;
 						public static naturalOrder(): java.util.Comparator<any>;
+						public static values(): native.Array<com.google.common.primitives.Booleans.BooleanComparator>;
 						public thenComparing(other: java.util.Comparator<any>): java.util.Comparator<any>;
 						public static comparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public compare(a: java.lang.Boolean, b: java.lang.Boolean): number;
@@ -26871,16 +26871,16 @@ declare module com {
 						public static values(): native.Array<com.google.common.primitives.Booleans.LexicographicalComparator>;
 						public static valueOf(name: string): com.google.common.primitives.Booleans.LexicographicalComparator;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public compare(left: native.Array<boolean>, right: native.Array<boolean>): number;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -26906,14 +26906,14 @@ declare module com {
 					public static indexOf(array: native.Array<number>, target: number): number;
 					public static indexOf(array: native.Array<number>, target: native.Array<number>): number;
 					public static ensureCapacity(array: native.Array<number>, minLength: number, padding: number): native.Array<number>;
-					public static toArray(collection: java.util.Collection<any>): native.Array<number>;
 					public static reverse(array: native.Array<number>, fromIndex: number, toIndex: number): void;
+					public static toArray(collection: java.util.Collection<any>): native.Array<number>;
 					public static hashCode(value: number): number;
 					public static lastIndexOf(array: native.Array<number>, target: number): number;
 					public static contains(array: native.Array<number>, target: number): boolean;
 					public static reverse(array: native.Array<number>): void;
-					public hashCode(): number;
 					public static concat(arrays: native.Array<native.Array<number>>): native.Array<number>;
+					public hashCode(): number;
 				}
 				export module Bytes {
 					export class ByteArrayAsList extends java.util.AbstractList<java.lang.Byte> {
@@ -26923,8 +26923,8 @@ declare module com {
 						public listIterator(): java.util.ListIterator<any>;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
-						public get(index: number): java.lang.Byte;
 						public contains(target: any): boolean;
+						public get(index: number): java.lang.Byte;
 						public stream(): java.util.stream.Stream<any>;
 						public get(int0: number): any;
 						public hashCode(): number;
@@ -26981,16 +26981,16 @@ declare module com {
 					public static fromBytes(b1: number, b2: number): string;
 					public static asList(backingArray: native.Array<string>): java.util.List<java.lang.Character>;
 					public hashCode(): number;
-					public static min(array: native.Array<string>): string;
 					public static join(separator: string, array: native.Array<string>): string;
 					public static lexicographicalComparator(): java.util.Comparator<native.Array<string>>;
-					public static toArray(collection: java.util.Collection<java.lang.Character>): native.Array<string>;
+					public static min(array: native.Array<string>): string;
 					public static reverse(array: native.Array<string>): void;
+					public static toArray(collection: java.util.Collection<java.lang.Character>): native.Array<string>;
 					public static ensureCapacity(array: native.Array<string>, minLength: number, padding: number): native.Array<string>;
 					public static constrainToRange(value: string, min: string, max: string): string;
 					public static reverse(array: native.Array<string>, fromIndex: number, toIndex: number): void;
-					public static saturatedCast(value: number): string;
 					public static indexOf(array: native.Array<string>, target: native.Array<string>): number;
+					public static saturatedCast(value: number): string;
 					public static checkedCast(value: number): string;
 					public static toByteArray(value: string): native.Array<number>;
 					public static fromByteArray(bytes: native.Array<number>): string;
@@ -27047,15 +27047,15 @@ declare module com {
 						public equals(other: any): boolean;
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static values(): native.Array<com.google.common.primitives.Chars.LexicographicalComparator>;
 						public compare(left: native.Array<string>, right: native.Array<string>): number;
@@ -27100,8 +27100,8 @@ declare module com {
 					public static hashCode(value: number): number;
 					public static lastIndexOf(array: native.Array<number>, target: number): number;
 					public static reverse(array: native.Array<number>): void;
-					public hashCode(): number;
 					public static concat(arrays: native.Array<native.Array<number>>): native.Array<number>;
+					public hashCode(): number;
 					public static stringConverter(): com.google.common.base.Converter<string,java.lang.Double>;
 				}
 				export module Doubles {
@@ -27166,15 +27166,15 @@ declare module com {
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public static valueOf(name: string): com.google.common.primitives.Doubles.LexicographicalComparator;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static values(): native.Array<com.google.common.primitives.Doubles.LexicographicalComparator>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -27218,10 +27218,10 @@ declare module com {
 					public static toArray(collection: java.util.Collection<any>): native.Array<number>;
 					public static hashCode(value: number): number;
 					public static lastIndexOf(array: native.Array<number>, target: number): number;
-					public static stringConverter(): com.google.common.base.Converter<string,java.lang.Float>;
 					public static reverse(array: native.Array<number>): void;
-					public hashCode(): number;
+					public static stringConverter(): com.google.common.base.Converter<string,java.lang.Float>;
 					public static concat(arrays: native.Array<native.Array<number>>): native.Array<number>;
+					public hashCode(): number;
 				}
 				export module Floats {
 					export class FloatArrayAsList extends java.util.AbstractList<java.lang.Float> {
@@ -27285,16 +27285,16 @@ declare module com {
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public static values(): native.Array<com.google.common.primitives.Floats.LexicographicalComparator>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
-						public static valueOf(name: string): com.google.common.primitives.Floats.LexicographicalComparator;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
+						public static valueOf(name: string): com.google.common.primitives.Floats.LexicographicalComparator;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -27325,19 +27325,19 @@ declare module com {
 					public indexOf(target: number): number;
 					public static of(): com.google.common.primitives.ImmutableDoubleArray;
 					public trimmed(): com.google.common.primitives.ImmutableDoubleArray;
-					public static of(first: number, rest: native.Array<number>): com.google.common.primitives.ImmutableDoubleArray;
 					public static copyOf(values: java.lang.Iterable<java.lang.Double>): com.google.common.primitives.ImmutableDoubleArray;
+					public static of(first: number, rest: native.Array<number>): com.google.common.primitives.ImmutableDoubleArray;
 					public equals(object: any): boolean;
 					public toString(): string;
-					public static of(e0: number): com.google.common.primitives.ImmutableDoubleArray;
 					public static builder(initialCapacity: number): com.google.common.primitives.ImmutableDoubleArray.Builder;
+					public static of(e0: number): com.google.common.primitives.ImmutableDoubleArray;
 					public contains(target: number): boolean;
 					public hashCode(): number;
 					public static builder(): com.google.common.primitives.ImmutableDoubleArray.Builder;
+					public asList(): java.util.List<java.lang.Double>;
 					public static of(e0: number, e1: number, e2: number): com.google.common.primitives.ImmutableDoubleArray;
 					public static of(e0: number, e1: number, e2: number, e3: number, e4: number): com.google.common.primitives.ImmutableDoubleArray;
 					public subArray(startIndex: number, endIndex: number): com.google.common.primitives.ImmutableDoubleArray;
-					public asList(): java.util.List<java.lang.Double>;
 					public length(): number;
 					public static of(e0: number, e1: number, e2: number, e3: number, e4: number, e5: number): com.google.common.primitives.ImmutableDoubleArray;
 					public static copyOf(values: native.Array<number>): com.google.common.primitives.ImmutableDoubleArray;
@@ -27444,8 +27444,8 @@ declare module com {
 						public listIterator(): java.util.ListIterator<any>;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
-						public get(index: number): java.lang.Integer;
 						public contains(target: any): boolean;
+						public get(index: number): java.lang.Integer;
 						public stream(): java.util.stream.Stream<any>;
 						public get(int0: number): any;
 						public hashCode(): number;
@@ -27509,18 +27509,18 @@ declare module com {
 					public static builder(): com.google.common.primitives.ImmutableLongArray.Builder;
 					public indexOf(target: number): number;
 					public static of(first: number, rest: native.Array<number>): com.google.common.primitives.ImmutableLongArray;
-					public static copyOf(values: java.util.Collection<java.lang.Long>): com.google.common.primitives.ImmutableLongArray;
 					public asList(): java.util.List<java.lang.Long>;
+					public static copyOf(values: java.util.Collection<java.lang.Long>): com.google.common.primitives.ImmutableLongArray;
 					public static of(e0: number, e1: number, e2: number, e3: number, e4: number, e5: number): com.google.common.primitives.ImmutableLongArray;
-					public subArray(startIndex: number, endIndex: number): com.google.common.primitives.ImmutableLongArray;
 					public equals(object: any): boolean;
+					public subArray(startIndex: number, endIndex: number): com.google.common.primitives.ImmutableLongArray;
 					public toString(): string;
 					public contains(target: number): boolean;
-					public static of(e0: number, e1: number, e2: number, e3: number, e4: number): com.google.common.primitives.ImmutableLongArray;
 					public hashCode(): number;
+					public static of(e0: number, e1: number, e2: number, e3: number, e4: number): com.google.common.primitives.ImmutableLongArray;
 					public static copyOf(values: native.Array<number>): com.google.common.primitives.ImmutableLongArray;
-					public static of(e0: number, e1: number, e2: number): com.google.common.primitives.ImmutableLongArray;
 					public static builder(initialCapacity: number): com.google.common.primitives.ImmutableLongArray.Builder;
+					public static of(e0: number, e1: number, e2: number): com.google.common.primitives.ImmutableLongArray;
 					public static of(e0: number, e1: number, e2: number, e3: number): com.google.common.primitives.ImmutableLongArray;
 					public length(): number;
 					public static of(e0: number): com.google.common.primitives.ImmutableLongArray;
@@ -27594,8 +27594,8 @@ declare module com {
 					public static MAX_POWER_OF_TWO: number;
 					public static min(array: native.Array<number>): number;
 					public static compare(a: number, b: number): number;
-					public static contains(array: native.Array<number>, target: number): boolean;
 					public static asList(backingArray: native.Array<number>): java.util.List<java.lang.Integer>;
+					public static contains(array: native.Array<number>, target: number): boolean;
 					public static sortDescending(array: native.Array<number>): void;
 					public static sortDescending(array: native.Array<number>, fromIndex: number, toIndex: number): void;
 					public static checkedCast(value: number): number;
@@ -27629,8 +27629,8 @@ declare module com {
 						public listIterator(): java.util.ListIterator<any>;
 						public retainAll(c: java.util.Collection<any>): boolean;
 						public iterator(): java.util.Iterator<any>;
-						public get(index: number): java.lang.Integer;
 						public contains(target: any): boolean;
+						public get(index: number): java.lang.Integer;
 						public stream(): java.util.stream.Stream<any>;
 						public get(int0: number): any;
 						public hashCode(): number;
@@ -27684,15 +27684,15 @@ declare module com {
 						public static values(): native.Array<com.google.common.primitives.Ints.LexicographicalComparator>;
 						public static valueOf(name: string): com.google.common.primitives.Ints.LexicographicalComparator;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -27755,16 +27755,16 @@ declare module com {
 						public equals(other: any): boolean;
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public static values(): native.Array<com.google.common.primitives.Longs.LexicographicalComparator>;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -27889,9 +27889,9 @@ declare module com {
 					public static fromBytes(b1: number, b2: number): number;
 					public static toByteArray(value: number): native.Array<number>;
 					public static max(array: native.Array<number>): number;
+					public static asList(backingArray: native.Array<number>): java.util.List<java.lang.Short>;
 					public static indexOf(array: native.Array<number>, target: native.Array<number>): number;
 					public static lexicographicalComparator(): java.util.Comparator<native.Array<number>>;
-					public static asList(backingArray: native.Array<number>): java.util.List<java.lang.Short>;
 					public static ensureCapacity(array: native.Array<number>, minLength: number, padding: number): native.Array<number>;
 					public static toArray(collection: java.util.Collection<any>): native.Array<number>;
 					public static hashCode(value: number): number;
@@ -27906,17 +27906,17 @@ declare module com {
 						public equals(other: any): boolean;
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public static valueOf(name: string): com.google.common.primitives.Shorts.LexicographicalComparator;
-						public static values(): native.Array<com.google.common.primitives.Shorts.LexicographicalComparator>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+						public static values(): native.Array<com.google.common.primitives.Shorts.LexicographicalComparator>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -27995,10 +27995,10 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.primitives.SignedBytes>;
 					public static MAX_POWER_OF_TWO: number;
 					public static checkedCast(value: number): number;
-					public static min(array: native.Array<number>): number;
 					public static max(array: native.Array<number>): number;
-					public static saturatedCast(value: number): number;
+					public static min(array: native.Array<number>): number;
 					public static lexicographicalComparator(): java.util.Comparator<native.Array<number>>;
+					public static saturatedCast(value: number): number;
 					public static compare(a: number, b: number): number;
 					public static join(separator: string, array: native.Array<number>): string;
 					public static sortDescending(array: native.Array<number>): void;
@@ -28012,16 +28012,16 @@ declare module com {
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public static values(): native.Array<com.google.common.primitives.SignedBytes.LexicographicalComparator>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public static valueOf(name: string): com.google.common.primitives.SignedBytes.LexicographicalComparator;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -28049,16 +28049,16 @@ declare module com {
 					public static min(array: native.Array<number>): number;
 					public static toInt(value: number): number;
 					public static compare(a: number, b: number): number;
-					public static parseUnsignedByte(string: string): number;
 					public static join(separator: string, array: native.Array<number>): string;
+					public static parseUnsignedByte(string: string): number;
 					public static sortDescending(array: native.Array<number>): void;
-					public static toString(x: number, radix: number): string;
 					public static sortDescending(array: native.Array<number>, fromIndex: number, toIndex: number): void;
+					public static toString(x: number, radix: number): string;
 					public static checkedCast(value: number): number;
 					public toString(): string;
 					public static max(array: native.Array<number>): number;
-					public static saturatedCast(value: number): number;
 					public static lexicographicalComparator(): java.util.Comparator<native.Array<number>>;
+					public static saturatedCast(value: number): number;
 					public static toString(x: number): string;
 					public static parseUnsignedByte(string: string, radix: number): number;
 					public static sort(array: native.Array<number>, fromIndex: number, toIndex: number): void;
@@ -28079,12 +28079,12 @@ declare module com {
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 							public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 							public static comparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
-							public toString(): string;
 							public static comparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
+							public toString(): string;
 							public static naturalOrder(): java.util.Comparator<any>;
 							public thenComparing(other: java.util.Comparator<any>): java.util.Comparator<any>;
-							public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 							public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+							public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 							public static valueOf(name: string): com.google.common.primitives.UnsignedBytes.LexicographicalComparatorHolder.PureJavaComparator;
 							public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 							public reversed(): java.util.Comparator<any>;
@@ -28105,15 +28105,15 @@ declare module com {
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 							public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 							public static comparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
-							public toString(): string;
 							public static comparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
+							public toString(): string;
 							public static naturalOrder(): java.util.Comparator<any>;
 							public thenComparing(other: java.util.Comparator<any>): java.util.Comparator<any>;
-							public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 							public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+							public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 							public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
-							public static valueOf(name: string): com.google.common.primitives.UnsignedBytes.LexicographicalComparatorHolder.UnsafeComparator;
 							public reversed(): java.util.Comparator<any>;
+							public static valueOf(name: string): com.google.common.primitives.UnsignedBytes.LexicographicalComparatorHolder.UnsafeComparator;
 							public equals(other: any): boolean;
 							public static nullsFirst(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 							public compare(object0: any, object1: any): number;
@@ -28136,28 +28136,28 @@ declare module com {
 			export module primitives {
 				export class UnsignedInteger extends java.lang.Number implements java.lang.Comparable<com.google.common.primitives.UnsignedInteger>  {
 					public static class: java.lang.Class<com.google.common.primitives.UnsignedInteger>;
-					public static ZERO: com.google.common.primitives.UnsignedInteger;
-					public static ONE: com.google.common.primitives.UnsignedInteger;
 					public static MAX_VALUE: com.google.common.primitives.UnsignedInteger;
+					public static ONE: com.google.common.primitives.UnsignedInteger;
+					public static ZERO: com.google.common.primitives.UnsignedInteger;
 					public equals(obj: any): boolean;
-					public plus(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
 					public doubleValue(): number;
+					public plus(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
 					public static valueOf(value: java.math.BigInteger): com.google.common.primitives.UnsignedInteger;
 					public floatValue(): number;
 					public bigIntegerValue(): java.math.BigInteger;
 					public static valueOf(value: number): com.google.common.primitives.UnsignedInteger;
 					public minus(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
-					public times(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
 					public dividedBy(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
 					public intValue(): number;
+					public times(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
 					public static fromIntBits(bits: number): com.google.common.primitives.UnsignedInteger;
 					public toString(): string;
 					public mod(val: com.google.common.primitives.UnsignedInteger): com.google.common.primitives.UnsignedInteger;
 					public static valueOf(string: string): com.google.common.primitives.UnsignedInteger;
 					public compareTo(other: com.google.common.primitives.UnsignedInteger): number;
 					public longValue(): number;
-					public static valueOf(string: string, radix: number): com.google.common.primitives.UnsignedInteger;
 					public hashCode(): number;
+					public static valueOf(string: string, radix: number): com.google.common.primitives.UnsignedInteger;
 					public toString(radix: number): string;
 				}
 			}
@@ -28175,8 +28175,8 @@ declare module com {
 					public static parseUnsignedInt(s: string): number;
 					public static min(array: native.Array<number>): number;
 					public static compare(a: number, b: number): number;
-					public static toLong(value: number): number;
 					public static join(separator: string, array: native.Array<number>): string;
+					public static toLong(value: number): number;
 					public static decode(stringValue: string): number;
 					public static sortDescending(array: native.Array<number>): void;
 					public static sortDescending(array: native.Array<number>, fromIndex: number, toIndex: number): void;
@@ -28185,8 +28185,8 @@ declare module com {
 					public static checkedCast(value: number): number;
 					public toString(): string;
 					public static max(array: native.Array<number>): number;
-					public static saturatedCast(value: number): number;
 					public static lexicographicalComparator(): java.util.Comparator<native.Array<number>>;
+					public static saturatedCast(value: number): number;
 					public static remainder(dividend: number, divisor: number): number;
 					public static toString(x: number): string;
 					public static sort(array: native.Array<number>, fromIndex: number, toIndex: number): void;
@@ -28199,16 +28199,16 @@ declare module com {
 						public equals(other: any): boolean;
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public static valueOf(name: string): com.google.common.primitives.UnsignedInts.LexicographicalComparator;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static values(): native.Array<com.google.common.primitives.UnsignedInts.LexicographicalComparator>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -28232,14 +28232,14 @@ declare module com {
 			export module primitives {
 				export class UnsignedLong extends java.lang.Number {
 					public static class: java.lang.Class<com.google.common.primitives.UnsignedLong>;
-					public static ZERO: com.google.common.primitives.UnsignedLong;
-					public static ONE: com.google.common.primitives.UnsignedLong;
 					public static MAX_VALUE: com.google.common.primitives.UnsignedLong;
-					public plus(val: com.google.common.primitives.UnsignedLong): com.google.common.primitives.UnsignedLong;
+					public static ONE: com.google.common.primitives.UnsignedLong;
+					public static ZERO: com.google.common.primitives.UnsignedLong;
 					public minus(val: com.google.common.primitives.UnsignedLong): com.google.common.primitives.UnsignedLong;
+					public plus(val: com.google.common.primitives.UnsignedLong): com.google.common.primitives.UnsignedLong;
 					public equals(obj: any): boolean;
-					public times(val: com.google.common.primitives.UnsignedLong): com.google.common.primitives.UnsignedLong;
 					public doubleValue(): number;
+					public times(val: com.google.common.primitives.UnsignedLong): com.google.common.primitives.UnsignedLong;
 					public static valueOf(value: java.math.BigInteger): com.google.common.primitives.UnsignedLong;
 					public static valueOf(string: string): com.google.common.primitives.UnsignedLong;
 					public floatValue(): number;
@@ -28253,8 +28253,8 @@ declare module com {
 					public compareTo(o: com.google.common.primitives.UnsignedLong): number;
 					public hashCode(): number;
 					public toString(radix: number): string;
-					public static valueOf(string: string, radix: number): com.google.common.primitives.UnsignedLong;
 					public mod(val: com.google.common.primitives.UnsignedLong): com.google.common.primitives.UnsignedLong;
+					public static valueOf(string: string, radix: number): com.google.common.primitives.UnsignedLong;
 				}
 			}
 		}
@@ -28290,20 +28290,20 @@ declare module com {
 					export class LexicographicalComparator extends java.util.Comparator<native.Array<number>> {
 						public static class: java.lang.Class<com.google.common.primitives.UnsignedLongs.LexicographicalComparator>;
 						public static INSTANCE: com.google.common.primitives.UnsignedLongs.LexicographicalComparator;
-						public static valueOf(name: string): com.google.common.primitives.UnsignedLongs.LexicographicalComparator;
 						public equals(other: any): boolean;
 						public static nullsLast(comparator: java.util.Comparator<any>): java.util.Comparator<any>;
+						public static valueOf(name: string): com.google.common.primitives.UnsignedLongs.LexicographicalComparator;
 						public static values(): native.Array<com.google.common.primitives.UnsignedLongs.LexicographicalComparator>;
 						public compare(object0: any, object1: any): number;
-						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public thenComparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static reverseOrder(): java.util.Comparator<any>;
-						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingLong(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public toString(): string;
 						public reversed(): java.util.Comparator<any>;
-						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public thenComparingDouble(keyExtractor: any /* any*/): java.util.Comparator<any>;
+						public thenComparingInt(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/): java.util.Comparator<any>;
 						public static comparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
 						public thenComparing(keyExtractor: any /* any*/, keyComparator: java.util.Comparator<any>): java.util.Comparator<any>;
@@ -28350,8 +28350,8 @@ declare module com {
 					public static class: java.lang.Class<com.google.common.reflect.ClassPath>;
 					public getTopLevelClasses(): com.google.common.collect.ImmutableSet<com.google.common.reflect.ClassPath.ClassInfo>;
 					public getTopLevelClasses(packageName: string): com.google.common.collect.ImmutableSet<com.google.common.reflect.ClassPath.ClassInfo>;
-					public getResources(): com.google.common.collect.ImmutableSet<com.google.common.reflect.ClassPath.ResourceInfo>;
 					public getAllClasses(): com.google.common.collect.ImmutableSet<com.google.common.reflect.ClassPath.ClassInfo>;
+					public getResources(): com.google.common.collect.ImmutableSet<com.google.common.reflect.ClassPath.ResourceInfo>;
 					public static from(classloader: java.lang.ClassLoader): com.google.common.reflect.ClassPath;
 					public getTopLevelClassesRecursive(packageName: string): com.google.common.collect.ImmutableSet<com.google.common.reflect.ClassPath.ClassInfo>;
 				}
@@ -28373,8 +28373,8 @@ declare module com {
 					}
 					export class ResourceInfo extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.reflect.ClassPath.ResourceInfo>;
-						public url(): java.net.URL;
 						public getResourceName(): string;
+						public url(): java.net.URL;
 						public asCharSource(charset: java.nio.charset.Charset): com.google.common.io.CharSource;
 						public equals(obj: any): boolean;
 						public hashCode(): number;
@@ -28399,8 +28399,8 @@ declare module com {
 			export module reflect {
 				export class Element extends java.lang.reflect.AccessibleObject implements java.lang.reflect.Member {
 					public static class: java.lang.Class<com.google.common.reflect.Element>;
-					public getDeclaredAnnotations(): native.Array<java.lang.annotation.Annotation>;
 					public equals(obj: any): boolean;
+					public getDeclaredAnnotations(): native.Array<java.lang.annotation.Annotation>;
 					public isStatic(): boolean;
 					public getAnnotations(): native.Array<java.lang.annotation.Annotation>;
 					public getOwnerType(): com.google.common.reflect.TypeToken<any>;
@@ -28412,8 +28412,8 @@ declare module com {
 					public isPublic(): boolean;
 					public isSynthetic(): boolean;
 					public hashCode(): number;
-					public setAccessible(flag: boolean): void;
 					public isProtected(): boolean;
+					public setAccessible(flag: boolean): void;
 					public isFinal(): boolean;
 					public isSynchronized(): boolean;
 					public isAccessible(): boolean;
@@ -28451,33 +28451,33 @@ declare module com {
 					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public equals(object: any): boolean;
 					public remove(object: any): any;
-					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public getOrDefault(key: any, defaultValue: any): any;
 					public putIfAbsent(key: any, value: any): any;
+					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public hashCode(): number;
 					/** @deprecated */
 					public putAll(map: java.util.Map<any,any>): void;
-					public hashCode(): number;
 					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public delegate(): any;
 					public getInstance(type: java.lang.Class<any>): any;
 					public static builder(): com.google.common.reflect.ImmutableTypeToInstanceMap.Builder<any>;
 					public putAll(map: java.util.Map<any,any>): void;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public putInstance(type: com.google.common.reflect.TypeToken<any>, value: any): any;
+					public containsValue(value: any): boolean;
 					public static of(): com.google.common.reflect.ImmutableTypeToInstanceMap<any>;
 					/** @deprecated */
 					public put(key: com.google.common.reflect.TypeToken<any>, value: any): any;
-					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public delegate(): java.util.Map<com.google.common.reflect.TypeToken<any>,any>;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public delegate(): java.util.Map<any,any>;
 				}
@@ -28508,18 +28508,18 @@ declare module com {
 					public getAnnotationsByType(annotationClass: java.lang.Class<any>): native.Array<java.lang.annotation.Annotation>;
 					public getOwnerType(): com.google.common.reflect.TypeToken<any>;
 					public getDeclaringClass(): java.lang.Class<any>;
-					public isVarArgs(): boolean;
 					public isAnnotationPresent(annotationClass: java.lang.Class<any>): boolean;
+					public isVarArgs(): boolean;
 					public isOverridable(): boolean;
 					public getModifiers(): number;
 					public invoke(receiver: any, objects1: native.Array<any>): any;
-					public returning(returnType: com.google.common.reflect.TypeToken<any>): com.google.common.reflect.Invokable<any,any>;
 					public getDeclaredAnnotationsByType(annotationClass: java.lang.Class<any>): native.Array<java.lang.annotation.Annotation>;
+					public returning(returnType: com.google.common.reflect.TypeToken<any>): com.google.common.reflect.Invokable<any,any>;
 					public getName(): string;
 					public isSynthetic(): boolean;
 					public returning(returnType: java.lang.Class<any>): com.google.common.reflect.Invokable<any,any>;
-					public getReturnType(): com.google.common.reflect.TypeToken<any>;
 					public getAnnotation(annotationClass: java.lang.Class<any>): java.lang.annotation.Annotation;
+					public getReturnType(): com.google.common.reflect.TypeToken<any>;
 					public static from(method: java.lang.reflect.Method): com.google.common.reflect.Invokable<any,any>;
 					public getExceptionTypes(): com.google.common.collect.ImmutableList<com.google.common.reflect.TypeToken<any>>;
 					public getDeclaredAnnotation(annotationClass: java.lang.Class<any>): java.lang.annotation.Annotation;
@@ -28580,32 +28580,32 @@ declare module com {
 					public remove(key: any, value: any): boolean;
 					public equals(object: any): boolean;
 					public remove(object: any): any;
-					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public getOrDefault(key: any, defaultValue: any): any;
 					public putIfAbsent(key: any, value: any): any;
+					public putInstance(type: java.lang.Class<any>, value: any): any;
 					public constructor();
 					public keySet(): java.util.Set<any>;
 					public clear(): void;
 					public merge(key: any, value: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public hashCode(): number;
 					/** @deprecated */
 					public putAll(map: java.util.Map<any,any>): void;
-					public hashCode(): number;
 					public replace(key: any, oldValue: any, newValue: any): boolean;
 					public delegate(): any;
 					public getInstance(type: java.lang.Class<any>): any;
 					public putAll(map: java.util.Map<any,any>): void;
-					public values(): java.util.Collection<any>;
 					public replaceAll(function0: any /* any<any,any,any>*/): void;
+					public values(): java.util.Collection<any>;
 					public putInstance(type: com.google.common.reflect.TypeToken<any>, value: any): any;
+					public containsValue(value: any): boolean;
 					/** @deprecated */
 					public put(key: com.google.common.reflect.TypeToken<any>, value: any): any;
-					public containsValue(value: any): boolean;
 					public replace(key: any, value: any): any;
 					public delegate(): java.util.Map<com.google.common.reflect.TypeToken<any>,any>;
 					public entrySet(): java.util.Set<java.util.Map.Entry<any,any>>;
 					public put(key: any, value: any): any;
-					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public compute(key: any, remappingFunction: any /* any<any,any,any>*/): any;
+					public computeIfAbsent(key: any, mappingFunction: any /* any<any,any>*/): any;
 					public computeIfPresent(key: any, remappingFunction: any /* any<any,any,any>*/): any;
 					public delegate(): java.util.Map<any,any>;
 					public entrySet(): java.util.Set<java.util.Map.Entry<com.google.common.reflect.TypeToken<any>,any>>;
@@ -28637,15 +28637,15 @@ declare module com {
 			export module reflect {
 				export class Parameter extends java.lang.Object implements java.lang.reflect.AnnotatedElement {
 					public static class: java.lang.Class<com.google.common.reflect.Parameter>;
-					public getDeclaredAnnotations(): native.Array<java.lang.annotation.Annotation>;
 					public equals(obj: any): boolean;
-					public isAnnotationPresent(annotationType: java.lang.Class<any>): boolean;
+					public getDeclaredAnnotations(): native.Array<java.lang.annotation.Annotation>;
 					public getAnnotation(annotationType: java.lang.Class<any>): java.lang.annotation.Annotation;
+					public isAnnotationPresent(annotationType: java.lang.Class<any>): boolean;
 					public getAnnotations(): native.Array<java.lang.annotation.Annotation>;
 					public getAnnotationsByType(annotationType: java.lang.Class<any>): native.Array<java.lang.annotation.Annotation>;
 					public getAnnotationsByType(annotationClass: java.lang.Class<any>): native.Array<java.lang.annotation.Annotation>;
-					public getType(): com.google.common.reflect.TypeToken<any>;
 					public getDeclaredAnnotation(annotationType: java.lang.Class<any>): java.lang.annotation.Annotation;
+					public getType(): com.google.common.reflect.TypeToken<any>;
 					public isAnnotationPresent(annotationClass: java.lang.Class<any>): boolean;
 					public getDeclaringInvokable(): com.google.common.reflect.Invokable<any,any>;
 					public toString(): string;
@@ -28696,8 +28696,8 @@ declare module com {
 					public equals(obj: any): boolean;
 					public toString(): string;
 					public constructor();
-					public hashCode(): number;
 					public equals(o: any): boolean;
+					public hashCode(): number;
 				}
 			}
 		}
@@ -28818,9 +28818,9 @@ declare module com {
 			export module reflect {
 				export abstract class TypeToken<T>  extends com.google.common.reflect.TypeCapture<any> implements java.io.Serializable  {
 					public static class: java.lang.Class<com.google.common.reflect.TypeToken<any>>;
-					public wrap(): com.google.common.reflect.TypeToken<any>;
-					public getComponentType(): com.google.common.reflect.TypeToken<any>;
 					public equals(obj: any): boolean;
+					public getComponentType(): com.google.common.reflect.TypeToken<any>;
+					public wrap(): com.google.common.reflect.TypeToken<any>;
 					public unwrap(): com.google.common.reflect.TypeToken<any>;
 					public getTypes(): com.google.common.reflect.TypeToken.TypeSet;
 					public equals(o: any): boolean;
@@ -28835,8 +28835,8 @@ declare module com {
 					public hashCode(): number;
 					public isSubtypeOf(type: com.google.common.reflect.TypeToken<any>): boolean;
 					public getRawType(): java.lang.Class<any>;
-					public static of(type: java.lang.Class<any>): com.google.common.reflect.TypeToken<any>;
 					public getType(): java.lang.reflect.Type;
+					public static of(type: java.lang.Class<any>): com.google.common.reflect.TypeToken<any>;
 					public isArray(): boolean;
 					public isSubtypeOf(supertype: java.lang.reflect.Type): boolean;
 					public static of(type: java.lang.reflect.Type): com.google.common.reflect.TypeToken<any>;
@@ -28986,16 +28986,16 @@ declare module com {
 				export module Types {
 					export abstract class ClassOwnership {
 						public static class: java.lang.Class<com.google.common.reflect.Types.ClassOwnership>;
-						public static OWNED_BY_ENCLOSING_CLASS: com.google.common.reflect.Types.ClassOwnership;
 						public static LOCAL_CLASS_HAS_NO_OWNER: com.google.common.reflect.Types.ClassOwnership;
+						public static OWNED_BY_ENCLOSING_CLASS: com.google.common.reflect.Types.ClassOwnership;
 						public static valueOf(name: string): com.google.common.reflect.Types.ClassOwnership;
 						public static values(): native.Array<com.google.common.reflect.Types.ClassOwnership>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					}
 					export class GenericArrayTypeImpl extends java.lang.Object implements java.lang.reflect.GenericArrayType, java.io.Serializable {
 						public static class: java.lang.Class<com.google.common.reflect.Types.GenericArrayTypeImpl>;
-						public getGenericComponentType(): java.lang.reflect.Type;
 						public equals(obj: any): boolean;
+						public getGenericComponentType(): java.lang.reflect.Type;
 						public getTypeName(): string;
 						public hashCode(): number;
 						public toString(): string;
@@ -29015,9 +29015,9 @@ declare module com {
 					}
 					export class ParameterizedTypeImpl extends java.lang.Object implements java.lang.reflect.ParameterizedType, java.io.Serializable {
 						public static class: java.lang.Class<com.google.common.reflect.Types.ParameterizedTypeImpl>;
-						public getOwnerType(): java.lang.reflect.Type;
 						public equals(obj: any): boolean;
 						public equals(other: any): boolean;
+						public getOwnerType(): java.lang.reflect.Type;
 						public getTypeName(): string;
 						public hashCode(): number;
 						public getRawType(): java.lang.reflect.Type;
@@ -29026,8 +29026,8 @@ declare module com {
 					}
 					export class TypeVariableImpl<D>  extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.reflect.Types.TypeVariableImpl<any>>;
-						public getGenericDeclaration(): D;
 						public equals(obj: any): boolean;
+						public getGenericDeclaration(): D;
 						public getBounds(): native.Array<java.lang.reflect.Type>;
 						public getTypeName(): string;
 						public hashCode(): number;
@@ -29091,8 +29091,8 @@ declare module com {
 				export module concurrent {
 					export abstract class AbstractCheckedFuture<V, X>  extends com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture<any> implements com.google.common.util.concurrent.CheckedFuture<any,any>  {
 						public static class: java.lang.Class<com.google.common.util.concurrent.AbstractCheckedFuture<any,any>>;
-						public checkedGet(timeout: number, unit: java.util.concurrent.TimeUnit): any;
 						public cancel(mayInterruptIfRunning: boolean): boolean;
+						public checkedGet(timeout: number, unit: java.util.concurrent.TimeUnit): any;
 						public constructor();
 						public isDone(): boolean;
 						public mapException(exception0: java.lang.Exception): any;
@@ -29120,14 +29120,14 @@ declare module com {
 						public failureCause(): java.lang.Throwable;
 						public executor(): java.util.concurrent.Executor;
 						public startUp(): void;
-						public triggerShutdown(): void;
 						public startAsync(): com.google.common.util.concurrent.Service;
+						public triggerShutdown(): void;
 						public isRunning(): boolean;
 						public toString(): string;
-						public stopAsync(): com.google.common.util.concurrent.Service;
 						public awaitRunning(timeout: number, unit: java.util.concurrent.TimeUnit): void;
-						public shutDown(): void;
+						public stopAsync(): com.google.common.util.concurrent.Service;
 						public addListener(listener: com.google.common.util.concurrent.Service.Listener, executor: java.util.concurrent.Executor): void;
+						public shutDown(): void;
 						public run(): void;
 						public awaitTerminated(): void;
 						public serviceName(): string;
@@ -29214,8 +29214,8 @@ declare module com {
 							public get(): any;
 							public get(timeout: number, unit: java.util.concurrent.TimeUnit): any;
 							public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-							public isDone(): boolean;
 							public isCancelled(): boolean;
+							public isDone(): boolean;
 							public cancel(mayInterruptIfRunning: boolean): boolean;
 						}
 						export class UnsafeAtomicHelper extends com.google.common.util.concurrent.AbstractFuture.AtomicHelper {
@@ -29245,10 +29245,10 @@ declare module com {
 						public startAsync(): com.google.common.util.concurrent.Service;
 						public isRunning(): boolean;
 						public toString(): string;
-						public stopAsync(): com.google.common.util.concurrent.Service;
 						public awaitRunning(timeout: number, unit: java.util.concurrent.TimeUnit): void;
-						public shutDown(): void;
+						public stopAsync(): com.google.common.util.concurrent.Service;
 						public addListener(listener: com.google.common.util.concurrent.Service.Listener, executor: java.util.concurrent.Executor): void;
+						public shutDown(): void;
 						public awaitTerminated(): void;
 						public serviceName(): string;
 						public state(): com.google.common.util.concurrent.Service.State;
@@ -29292,10 +29292,10 @@ declare module com {
 					export abstract class AbstractListeningExecutorService extends java.util.concurrent.AbstractExecutorService implements com.google.common.util.concurrent.ListeningExecutorService {
 						public static class: java.lang.Class<com.google.common.util.concurrent.AbstractListeningExecutorService>;
 						public constructor();
-						public newTaskFor(runnable: java.lang.Runnable, value: any): java.util.concurrent.RunnableFuture<any>;
 						public isTerminated(): boolean;
-						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
+						public newTaskFor(runnable: java.lang.Runnable, value: any): java.util.concurrent.RunnableFuture<any>;
 						public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
+						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
 						public submit(task: java.util.concurrent.Callable<any>): com.google.common.util.concurrent.ListenableFuture<any>;
 						public invokeAny(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
 						public invokeAll(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): java.util.List<any>;
@@ -29307,9 +29307,9 @@ declare module com {
 						public shutdown(): void;
 						public submit(task: java.lang.Runnable): com.google.common.util.concurrent.ListenableFuture<any>;
 						public isShutdown(): boolean;
-						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
-						public shutdownNow(): java.util.List<java.lang.Runnable>;
 						public invokeAny(tasks: java.util.Collection<any>): any;
+						public shutdownNow(): java.util.List<java.lang.Runnable>;
+						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
 					}
 				}
 			}
@@ -29327,18 +29327,18 @@ declare module com {
 						public constructor();
 						public failureCause(): java.lang.Throwable;
 						public runOneIteration(): void;
-						public startUp(): void;
 						public scheduler(): com.google.common.util.concurrent.AbstractScheduledService.Scheduler;
+						public startUp(): void;
 						public executor(): java.util.concurrent.ScheduledExecutorService;
 						public startAsync(): com.google.common.util.concurrent.Service;
 						public isRunning(): boolean;
 						public toString(): string;
-						public stopAsync(): com.google.common.util.concurrent.Service;
 						public awaitRunning(timeout: number, unit: java.util.concurrent.TimeUnit): void;
-						public shutDown(): void;
+						public stopAsync(): com.google.common.util.concurrent.Service;
 						public addListener(listener: com.google.common.util.concurrent.Service.Listener, executor: java.util.concurrent.Executor): void;
-						public serviceName(): string;
+						public shutDown(): void;
 						public awaitTerminated(): void;
+						public serviceName(): string;
 						public state(): com.google.common.util.concurrent.Service.State;
 						public awaitTerminated(timeout: number, unit: java.util.concurrent.TimeUnit): void;
 						public awaitRunning(): void;
@@ -29410,8 +29410,8 @@ declare module com {
 				export module concurrent {
 					export abstract class AbstractService extends java.lang.Object implements com.google.common.util.concurrent.Service {
 						public static class: java.lang.Class<com.google.common.util.concurrent.AbstractService>;
-						public doStart(): void;
 						public doCancelStart(): void;
+						public doStart(): void;
 						public constructor();
 						public notifyStarted(): void;
 						public notifyStopped(): void;
@@ -29420,8 +29420,8 @@ declare module com {
 						public startAsync(): com.google.common.util.concurrent.Service;
 						public isRunning(): boolean;
 						public toString(): string;
-						public stopAsync(): com.google.common.util.concurrent.Service;
 						public awaitRunning(timeout: number, unit: java.util.concurrent.TimeUnit): void;
+						public stopAsync(): com.google.common.util.concurrent.Service;
 						public addListener(listener: com.google.common.util.concurrent.Service.Listener, executor: java.util.concurrent.Executor): void;
 						public awaitTerminated(): void;
 						public state(): com.google.common.util.concurrent.Service.State;
@@ -29590,15 +29590,15 @@ declare module com {
 						public floatValue(): number;
 						public constructor();
 						public get(): number;
-						public getAndSet(newValue: number): number;
 						public addAndGet(delta: number): number;
+						public getAndSet(newValue: number): number;
 						public getAndAdd(delta: number): number;
 						public lazySet(newValue: number): void;
-						public toString(): string;
 						public intValue(): number;
+						public toString(): string;
 						public weakCompareAndSet(expect: number, update: number): boolean;
-						public set(newValue: number): void;
 						public doubleValue(): number;
+						public set(newValue: number): void;
 						public longValue(): number;
 					}
 				}
@@ -29658,8 +29658,8 @@ declare module com {
 						public clear(): void;
 						public size(): number;
 						public getAndDecrement(key: any): number;
-						public static create(): com.google.common.util.concurrent.AtomicLongMap<any>;
 						public addAndGet(key: any, delta: number): number;
+						public static create(): com.google.common.util.concurrent.AtomicLongMap<any>;
 						public sum(): number;
 					}
 				}
@@ -29823,8 +29823,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.util.concurrent.CycleDetectingLockFactory>;
 						public newReentrantReadWriteLock(lockName: string): java.util.concurrent.locks.ReentrantReadWriteLock;
 						public static newInstance(policy: com.google.common.util.concurrent.CycleDetectingLockFactory.Policy): com.google.common.util.concurrent.CycleDetectingLockFactory;
-						public newReentrantLock(lockName: string, fair: boolean): java.util.concurrent.locks.ReentrantLock;
 						public static newInstanceWithExplicitOrdering(enumClass: java.lang.Class<any>, policy: com.google.common.util.concurrent.CycleDetectingLockFactory.Policy): com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering<any>;
+						public newReentrantLock(lockName: string, fair: boolean): java.util.concurrent.locks.ReentrantLock;
 						public newReentrantLock(lockName: string): java.util.concurrent.locks.ReentrantLock;
 						public newReentrantReadWriteLock(lockName: string, fair: boolean): java.util.concurrent.locks.ReentrantReadWriteLock;
 					}
@@ -29888,9 +29888,9 @@ declare module com {
 						}
 						export abstract class Policies extends com.google.common.util.concurrent.CycleDetectingLockFactory.Policy {
 							public static class: java.lang.Class<com.google.common.util.concurrent.CycleDetectingLockFactory.Policies>;
+							public static DISABLED: com.google.common.util.concurrent.CycleDetectingLockFactory.Policies;
 							public static THROW: com.google.common.util.concurrent.CycleDetectingLockFactory.Policies;
 							public static WARN: com.google.common.util.concurrent.CycleDetectingLockFactory.Policies;
-							public static DISABLED: com.google.common.util.concurrent.CycleDetectingLockFactory.Policies;
 							public static values(): native.Array<com.google.common.util.concurrent.CycleDetectingLockFactory.Policies>;
 							public static valueOf(name: string): com.google.common.util.concurrent.CycleDetectingLockFactory.Policies;
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -30007,8 +30007,8 @@ declare module com {
 					export module ExecutionSequencer {
 						export class RunningState {
 							public static class: java.lang.Class<com.google.common.util.concurrent.ExecutionSequencer.RunningState>;
-							public static NOT_RUN: com.google.common.util.concurrent.ExecutionSequencer.RunningState;
 							public static CANCELLED: com.google.common.util.concurrent.ExecutionSequencer.RunningState;
+							public static NOT_RUN: com.google.common.util.concurrent.ExecutionSequencer.RunningState;
 							public static STARTED: com.google.common.util.concurrent.ExecutionSequencer.RunningState;
 							public static values(): native.Array<com.google.common.util.concurrent.ExecutionSequencer.RunningState>;
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -30052,8 +30052,8 @@ declare module com {
 						public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
 						public catchingAsync(exceptionType: java.lang.Class<any>, fallback: com.google.common.util.concurrent.AsyncFunction<any,any>, executor: java.util.concurrent.Executor): com.google.common.util.concurrent.FluentFuture<any>;
 						public transformAsync(function0: com.google.common.util.concurrent.AsyncFunction<any,any>, executor: java.util.concurrent.Executor): com.google.common.util.concurrent.FluentFuture<any>;
-						public withTimeout(timeout: number, unit: java.util.concurrent.TimeUnit, scheduledExecutor: java.util.concurrent.ScheduledExecutorService): com.google.common.util.concurrent.FluentFuture<any>;
 						public transform(function0: com.google.common.base.Function<any,any>, executor: java.util.concurrent.Executor): com.google.common.util.concurrent.FluentFuture<any>;
+						public withTimeout(timeout: number, unit: java.util.concurrent.TimeUnit, scheduledExecutor: java.util.concurrent.ScheduledExecutorService): com.google.common.util.concurrent.FluentFuture<any>;
 						public addCallback(callback: com.google.common.util.concurrent.FutureCallback<any>, executor: java.util.concurrent.Executor): void;
 						public static from(future: com.google.common.util.concurrent.ListenableFuture<any>): com.google.common.util.concurrent.FluentFuture<any>;
 					}
@@ -30063,8 +30063,8 @@ declare module com {
 							public get(): any;
 							public get(timeout: number, unit: java.util.concurrent.TimeUnit): any;
 							public addListener(listener: java.lang.Runnable, executor: java.util.concurrent.Executor): void;
-							public isDone(): boolean;
 							public isCancelled(): boolean;
+							public isDone(): boolean;
 							public cancel(mayInterruptIfRunning: boolean): boolean;
 						}
 					}
@@ -30098,16 +30098,16 @@ declare module com {
 						public constructor();
 						public pop(): any;
 						public offerFirst(e: any, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
-						public remainingCapacity(): number;
 						public peekLast(): any;
+						public remainingCapacity(): number;
 						public peek(): any;
 						public retainAll(collection: java.util.Collection<any>): boolean;
 						public offerLast(e: any): boolean;
 						public delegate(): java.util.Deque<any>;
-						public offerFirst(e: any): boolean;
 						public getLast(): any;
-						public take(): any;
+						public offerFirst(e: any): boolean;
 						public removeLastOccurrence(o: any): boolean;
+						public take(): any;
 						public remove(object: any): boolean;
 						public clear(): void;
 						public add(element: any): boolean;
@@ -30129,8 +30129,8 @@ declare module com {
 						public isEmpty(): boolean;
 						public push(e: any): void;
 						public addFirst(e: any): void;
-						public pollFirst(): any;
 						public offer(o: any): boolean;
+						public pollFirst(): any;
 						public delegate(): java.util.Collection<any>;
 						public putLast(e: any): void;
 						public removeFirst(): any;
@@ -30142,8 +30142,8 @@ declare module com {
 						public takeLast(): any;
 						public takeFirst(): any;
 						public pollFirst(timeout: number, unit: java.util.concurrent.TimeUnit): any;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 				}
 			}
@@ -30163,8 +30163,8 @@ declare module com {
 						public iterator(): java.util.Iterator<any>;
 						public offer(e: any, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public stream(): java.util.stream.Stream<any>;
-						public poll(): any;
 						public hashCode(): number;
+						public poll(): any;
 						public drainTo(c: java.util.Collection<any>, maxElements: number): number;
 						public element(): any;
 						public removeIf(filter: any /* any*/): boolean;
@@ -30181,8 +30181,8 @@ declare module com {
 						public delegate(): java.util.Collection<any>;
 						public remainingCapacity(): number;
 						public peek(): any;
-						public retainAll(collection: java.util.Collection<any>): boolean;
 						public parallelStream(): java.util.stream.Stream<any>;
+						public retainAll(collection: java.util.Collection<any>): boolean;
 						public delegate(): java.util.concurrent.BlockingQueue<any>;
 						public delegate(): any;
 						public take(): any;
@@ -30191,10 +30191,10 @@ declare module com {
 						public add(element: any): boolean;
 						public forEach(action: any /* any*/): void;
 						public containsAll(collection: java.util.Collection<any>): boolean;
-						public put(e: any): void;
-						public toArray(): native.Array<any>;
 						public addAll(collection: java.util.Collection<any>): boolean;
+						public put(e: any): void;
 						public removeAll(collection: java.util.Collection<any>): boolean;
+						public toArray(): native.Array<any>;
 					}
 				}
 			}
@@ -30404,8 +30404,8 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.util.concurrent.ForwardingListeningExecutorService>;
 						public constructor();
 						public isTerminated(): boolean;
-						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
 						public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
+						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
 						public submit(task: java.util.concurrent.Callable<any>): com.google.common.util.concurrent.ListenableFuture<any>;
 						public invokeAny(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
 						public awaitTermination(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
@@ -30418,9 +30418,9 @@ declare module com {
 						public submit(task: java.lang.Runnable): com.google.common.util.concurrent.ListenableFuture<any>;
 						public isShutdown(): boolean;
 						public execute(command: java.lang.Runnable): void;
-						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
-						public shutdownNow(): java.util.List<java.lang.Runnable>;
 						public invokeAny(tasks: java.util.Collection<any>): any;
+						public shutdownNow(): java.util.List<java.lang.Runnable>;
+						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
 						public delegate(): java.util.concurrent.ExecutorService;
 					}
 				}
@@ -30488,17 +30488,17 @@ declare module com {
 						public static immediateCancelledFuture(): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static allAsList(futures: native.Array<com.google.common.util.concurrent.ListenableFuture<any>>): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static whenAllSucceed(futures: java.lang.Iterable<any>): com.google.common.util.concurrent.Futures.FutureCombiner<any>;
+						public static catching(input: com.google.common.util.concurrent.ListenableFuture<any>, exceptionType: java.lang.Class<any>, fallback: com.google.common.base.Function<any,any>, executor: java.util.concurrent.Executor): com.google.common.util.concurrent.ListenableFuture<any>;
 						/** @deprecated */
 						public static immediateFailedCheckedFuture(exception: java.lang.Exception): com.google.common.util.concurrent.CheckedFuture<any,any>;
-						public static catching(input: com.google.common.util.concurrent.ListenableFuture<any>, exceptionType: java.lang.Class<any>, fallback: com.google.common.base.Function<any,any>, executor: java.util.concurrent.Executor): com.google.common.util.concurrent.ListenableFuture<any>;
-						public static withTimeout(delegate: com.google.common.util.concurrent.ListenableFuture<any>, time: number, unit: java.util.concurrent.TimeUnit, scheduledExecutor: java.util.concurrent.ScheduledExecutorService): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static getUnchecked(future: java.util.concurrent.Future<any>): any;
+						public static withTimeout(delegate: com.google.common.util.concurrent.ListenableFuture<any>, time: number, unit: java.util.concurrent.TimeUnit, scheduledExecutor: java.util.concurrent.ScheduledExecutorService): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static successfulAsList(futures: java.lang.Iterable<any>): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static lazyTransform(input: java.util.concurrent.Future<any>, function1: com.google.common.base.Function<any,any>): java.util.concurrent.Future<any>;
 						public static scheduleAsync(callable: com.google.common.util.concurrent.AsyncCallable<any>, delay: number, timeUnit: java.util.concurrent.TimeUnit, executorService: java.util.concurrent.ScheduledExecutorService): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static whenAllSucceed(futures: native.Array<com.google.common.util.concurrent.ListenableFuture<any>>): com.google.common.util.concurrent.Futures.FutureCombiner<any>;
-						public static immediateFailedFuture(throwable: java.lang.Throwable): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static getDone(future: java.util.concurrent.Future<any>): any;
+						public static immediateFailedFuture(throwable: java.lang.Throwable): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static inCompletionOrder(futures: java.lang.Iterable<any>): com.google.common.collect.ImmutableList<any>;
 						public static submitAsync(callable: com.google.common.util.concurrent.AsyncCallable<any>, executor: java.util.concurrent.Executor): com.google.common.util.concurrent.ListenableFuture<any>;
 						public static immediateFuture(value: any): com.google.common.util.concurrent.ListenableFuture<any>;
@@ -31041,8 +31041,8 @@ declare module com {
 						public constructor();
 						public enterIf(guard: com.google.common.util.concurrent.Monitor.Guard): boolean;
 						public enterIfInterruptibly(guard: com.google.common.util.concurrent.Monitor.Guard): boolean;
-						public waitForUninterruptibly(guard: com.google.common.util.concurrent.Monitor.Guard, time: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public getQueueLength(): number;
+						public waitForUninterruptibly(guard: com.google.common.util.concurrent.Monitor.Guard, time: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public enterInterruptibly(time: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public enterWhen(guard: com.google.common.util.concurrent.Monitor.Guard, time: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public getOccupiedDepth(): number;
@@ -31052,10 +31052,10 @@ declare module com {
 						public enterWhen(guard: com.google.common.util.concurrent.Monitor.Guard): void;
 						public isFair(): boolean;
 						public constructor(fair: boolean);
-						public waitFor(guard: com.google.common.util.concurrent.Monitor.Guard): void;
 						public getWaitQueueLength(guard: com.google.common.util.concurrent.Monitor.Guard): number;
-						public enterWhenUninterruptibly(guard: com.google.common.util.concurrent.Monitor.Guard): void;
+						public waitFor(guard: com.google.common.util.concurrent.Monitor.Guard): void;
 						public enterIf(guard: com.google.common.util.concurrent.Monitor.Guard, time: number, unit: java.util.concurrent.TimeUnit): boolean;
+						public enterWhenUninterruptibly(guard: com.google.common.util.concurrent.Monitor.Guard): void;
 					}
 					export module Monitor {
 						export abstract class Guard extends java.lang.Object {
@@ -31082,8 +31082,8 @@ declare module com {
 						public static directExecutor(): java.util.concurrent.Executor;
 						public static getExitingScheduledExecutorService(executor: java.util.concurrent.ScheduledThreadPoolExecutor, terminationTimeout: number, timeUnit: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledExecutorService;
 						public static listeningDecorator(delegate: java.util.concurrent.ExecutorService): com.google.common.util.concurrent.ListeningExecutorService;
-						public static newDirectExecutorService(): com.google.common.util.concurrent.ListeningExecutorService;
 						public static listeningDecorator(delegate: java.util.concurrent.ScheduledExecutorService): com.google.common.util.concurrent.ListeningScheduledExecutorService;
+						public static newDirectExecutorService(): com.google.common.util.concurrent.ListeningExecutorService;
 						public static newSequentialExecutor(delegate: java.util.concurrent.Executor): java.util.concurrent.Executor;
 						public static platformThreadFactory(): java.util.concurrent.ThreadFactory;
 						public static getExitingExecutorService(executor: java.util.concurrent.ThreadPoolExecutor, terminationTimeout: number, timeUnit: java.util.concurrent.TimeUnit): java.util.concurrent.ExecutorService;
@@ -31107,8 +31107,8 @@ declare module com {
 							public invokeAny(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
 							public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
 							public isShutdown(): boolean;
-							public isTerminated(): boolean;
 							public awaitTermination(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
+							public isTerminated(): boolean;
 							public submit(task: java.util.concurrent.Callable<any>): com.google.common.util.concurrent.ListenableFuture<any>;
 							public submit(task: java.lang.Runnable, result: any): java.util.concurrent.Future<any>;
 							public invokeAll(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): java.util.List<any>;
@@ -31136,8 +31136,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.common.util.concurrent.MoreExecutors.ScheduledListeningDecorator>;
 							public scheduleAtFixedRate(runnable0: java.lang.Runnable, long1: number, long2: number, timeUnit3: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
 							public schedule(runnable0: java.lang.Runnable, long1: number, timeUnit2: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
-							public submit(task: java.lang.Runnable, result: any): com.google.common.util.concurrent.ListenableFuture<any>;
 							public shutdownNow(): java.util.List<java.lang.Runnable>;
+							public submit(task: java.lang.Runnable, result: any): com.google.common.util.concurrent.ListenableFuture<any>;
 							public schedule(command: java.lang.Runnable, delay: number, unit: java.util.concurrent.TimeUnit): com.google.common.util.concurrent.ListenableScheduledFuture<any>;
 							public scheduleWithFixedDelay(command: java.lang.Runnable, initialDelay: number, delay: number, unit: java.util.concurrent.TimeUnit): com.google.common.util.concurrent.ListenableScheduledFuture<any>;
 							public scheduleWithFixedDelay(runnable0: java.lang.Runnable, long1: number, long2: number, timeUnit3: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
@@ -31145,19 +31145,19 @@ declare module com {
 							public execute(command: java.lang.Runnable): void;
 							public scheduleAtFixedRate(command: java.lang.Runnable, initialDelay: number, period: number, unit: java.util.concurrent.TimeUnit): com.google.common.util.concurrent.ListenableScheduledFuture<any>;
 							public schedule(callable: java.util.concurrent.Callable<any>, delay: number, unit: java.util.concurrent.TimeUnit): com.google.common.util.concurrent.ListenableScheduledFuture<any>;
-							public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
-							public shutdown(): void;
 							public invokeAny(tasks: java.util.Collection<any>): any;
+							public shutdown(): void;
+							public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
 							public submit(task: java.lang.Runnable): com.google.common.util.concurrent.ListenableFuture<any>;
 							public invokeAny(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
 							public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
 							public isShutdown(): boolean;
-							public isTerminated(): boolean;
 							public awaitTermination(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
+							public isTerminated(): boolean;
 							public schedule(callable0: java.util.concurrent.Callable<any>, long1: number, timeUnit2: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
 							public submit(task: java.util.concurrent.Callable<any>): com.google.common.util.concurrent.ListenableFuture<any>;
-							public submit(task: java.lang.Runnable, result: any): java.util.concurrent.Future<any>;
 							public invokeAll(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): java.util.List<any>;
+							public submit(task: java.lang.Runnable, result: any): java.util.concurrent.Future<any>;
 						}
 						export module ScheduledListeningDecorator {
 							export class ListenableScheduledTask<V>  extends com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture<any> implements com.google.common.util.concurrent.ListenableScheduledFuture<any>  {
@@ -31165,8 +31165,8 @@ declare module com {
 								public constructor(listenableDelegate: com.google.common.util.concurrent.ListenableFuture<any>, scheduledDelegate: java.util.concurrent.ScheduledFuture<any>);
 								public addListener(listener: java.lang.Runnable, exec: java.util.concurrent.Executor): void;
 								public cancel(mayInterruptIfRunning: boolean): boolean;
-								public isCancelled(): boolean;
 								public get(): any;
+								public isCancelled(): boolean;
 								public compareTo(other: java.util.concurrent.Delayed): number;
 								public get(timeout: number, unit: java.util.concurrent.TimeUnit): any;
 								public constructor();
@@ -31247,14 +31247,14 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.util.concurrent.RateLimiter>;
 						public setRate(permitsPerSecond: number): void;
 						public tryAcquire(permits: number): boolean;
-						public static create(permitsPerSecond: number): com.google.common.util.concurrent.RateLimiter;
 						public acquire(permits: number): number;
+						public static create(permitsPerSecond: number): com.google.common.util.concurrent.RateLimiter;
 						public static create(permitsPerSecond: number, warmupPeriod: number, unit: java.util.concurrent.TimeUnit): com.google.common.util.concurrent.RateLimiter;
 						public acquire(): number;
 						public tryAcquire(): boolean;
 						public tryAcquire(permits: number, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
-						public tryAcquire(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public toString(): string;
+						public tryAcquire(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public getRate(): number;
 					}
 					export module RateLimiter {
@@ -31304,8 +31304,8 @@ declare module com {
 						export class WorkerRunningState {
 							public static class: java.lang.Class<com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState>;
 							public static IDLE: com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState;
-							public static QUEUING: com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState;
 							public static QUEUED: com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState;
+							public static QUEUING: com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState;
 							public static RUNNING: com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState;
 							public static values(): native.Array<com.google.common.util.concurrent.SequentialExecutor.WorkerRunningState>;
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -31364,14 +31364,14 @@ declare module com {
 						}
 						export abstract class State {
 							public static class: java.lang.Class<com.google.common.util.concurrent.Service.State>;
+							public static FAILED: com.google.common.util.concurrent.Service.State;
 							public static NEW: com.google.common.util.concurrent.Service.State;
-							public static STARTING: com.google.common.util.concurrent.Service.State;
 							public static RUNNING: com.google.common.util.concurrent.Service.State;
+							public static STARTING: com.google.common.util.concurrent.Service.State;
 							public static STOPPING: com.google.common.util.concurrent.Service.State;
 							public static TERMINATED: com.google.common.util.concurrent.Service.State;
-							public static FAILED: com.google.common.util.concurrent.Service.State;
-							public static values(): native.Array<com.google.common.util.concurrent.Service.State>;
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+							public static values(): native.Array<com.google.common.util.concurrent.Service.State>;
 							public static valueOf(name: string): com.google.common.util.concurrent.Service.State;
 						}
 					}
@@ -31531,8 +31531,8 @@ declare module com {
 						public static lazyWeakSemaphore(stripes: number, permits: number): com.google.common.util.concurrent.Striped<java.util.concurrent.Semaphore>;
 						public static readWriteLock(stripes: number): com.google.common.util.concurrent.Striped<java.util.concurrent.locks.ReadWriteLock>;
 						public static lazyWeakLock(stripes: number): com.google.common.util.concurrent.Striped<java.util.concurrent.locks.Lock>;
-						public size(): number;
 						public static lock(stripes: number): com.google.common.util.concurrent.Striped<java.util.concurrent.locks.Lock>;
+						public size(): number;
 						public static semaphore(stripes: number, permits: number): com.google.common.util.concurrent.Striped<java.util.concurrent.Semaphore>;
 					}
 					export module Striped {
@@ -31785,8 +31785,8 @@ declare module com {
 					export class Uninterruptibles extends java.lang.Object {
 						public static class: java.lang.Class<com.google.common.util.concurrent.Uninterruptibles>;
 						public static tryAcquireUninterruptibly(semaphore: java.util.concurrent.Semaphore, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
-						public static joinUninterruptibly(toJoin: java.lang.Thread): void;
 						public static getUninterruptibly(future: java.util.concurrent.Future<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
+						public static joinUninterruptibly(toJoin: java.lang.Thread): void;
 						public static awaitUninterruptibly(latch: java.util.concurrent.CountDownLatch, timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public static awaitUninterruptibly(latch: java.util.concurrent.CountDownLatch): void;
 						public static putUninterruptibly(queue: java.util.concurrent.BlockingQueue<any>, element: any): void;
@@ -31812,9 +31812,9 @@ declare module com {
 						public static class: java.lang.Class<com.google.common.util.concurrent.WrappingExecutorService>;
 						public constructor(delegate: java.util.concurrent.ExecutorService);
 						public isTerminated(): boolean;
-						public wrapTask(callable0: java.util.concurrent.Callable<any>): java.util.concurrent.Callable<any>;
-						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
 						public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
+						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
+						public wrapTask(callable0: java.util.concurrent.Callable<any>): java.util.concurrent.Callable<any>;
 						public invokeAny(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
 						public awaitTermination(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
 						public invokeAll(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): java.util.List<any>;
@@ -31823,9 +31823,9 @@ declare module com {
 						public isShutdown(): boolean;
 						public wrapTask(command: java.lang.Runnable): java.lang.Runnable;
 						public execute(command: java.lang.Runnable): void;
-						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
 						public invokeAny(tasks: java.util.Collection<any>): any;
 						public shutdownNow(): java.util.List<java.lang.Runnable>;
+						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
 					}
 				}
 			}
@@ -31844,9 +31844,9 @@ declare module com {
 						public schedule(task: java.util.concurrent.Callable<any>, delay: number, unit: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
 						public isTerminated(): boolean;
 						public scheduleWithFixedDelay(command: java.lang.Runnable, initialDelay: number, delay: number, unit: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
+						public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
 						public schedule(command: java.lang.Runnable, delay: number, unit: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
 						public submit(task: java.util.concurrent.Callable<any>): java.util.concurrent.Future<any>;
-						public invokeAll(tasks: java.util.Collection<any>): java.util.List<any>;
 						public scheduleAtFixedRate(command: java.lang.Runnable, initialDelay: number, period: number, unit: java.util.concurrent.TimeUnit): java.util.concurrent.ScheduledFuture<any>;
 						public invokeAny(tasks: java.util.Collection<any>, timeout: number, unit: java.util.concurrent.TimeUnit): any;
 						public awaitTermination(timeout: number, unit: java.util.concurrent.TimeUnit): boolean;
@@ -31855,9 +31855,9 @@ declare module com {
 						public shutdown(): void;
 						public isShutdown(): boolean;
 						public execute(command: java.lang.Runnable): void;
+						public invokeAny(tasks: java.util.Collection<any>): any;
 						public shutdownNow(): java.util.List<java.lang.Runnable>;
 						public submit(task: java.lang.Runnable): java.util.concurrent.Future<any>;
-						public invokeAny(tasks: java.util.Collection<any>): any;
 						public constructor(delegate: java.util.concurrent.ScheduledExecutorService);
 					}
 				}
@@ -31889,8 +31889,8 @@ declare module com {
 				export class PublicSuffixPatterns extends java.lang.Object {
 					public static class: java.lang.Class<com.google.thirdparty.publicsuffix.PublicSuffixPatterns>;
 					public static EXACT: com.google.common.collect.ImmutableMap<string,com.google.thirdparty.publicsuffix.PublicSuffixType>;
-					public static UNDER: com.google.common.collect.ImmutableMap<string,com.google.thirdparty.publicsuffix.PublicSuffixType>;
 					public static EXCLUDED: com.google.common.collect.ImmutableMap<string,com.google.thirdparty.publicsuffix.PublicSuffixType>;
+					public static UNDER: com.google.common.collect.ImmutableMap<string,com.google.thirdparty.publicsuffix.PublicSuffixType>;
 				}
 			}
 		}

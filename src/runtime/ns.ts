@@ -1,36 +1,36 @@
 import * as Application from '@nativescript/core/application'
 import * as Utils from '@nativescript/core/utils'
 
-const NsAndroid = {
+class NsAndroid {
 	get context() {
 		return Application.android.context as android.content.Context
-	},
+	}
 	get foregroundActivity() {
 		return Application.android.foregroundActivity as androidx.appcompat.app.AppCompatActivity
-	},
+	}
 	get nativeApp() {
 		return Application.android.nativeApp as android.app.Application
-	},
+	}
 	get startActivity() {
 		return Application.android.startActivity as androidx.appcompat.app.AppCompatActivity
-	},
+	}
 	getApplication() {
 		return Utils.ad.getApplication() as android.app.Application
-	},
+	}
 	getApplicationContext() {
 		return Utils.ad.getApplicationContext() as android.content.Context
-	},
+	}
 	getInputMethodManager() {
 		return Utils.ad.getInputMethodManager() as android.view.inputmethod.InputMethodManager
-	},
+	}
 }
 
 global.NS || Object.assign(global, { NS: {} })
-global.NS.android || Object.assign(global.NS, { android: NsAndroid })
+global.NS.android || Object.assign(global.NS, { android: new NsAndroid() })
 
 declare global {
 	export module NS {
-		export var android: typeof NsAndroid
+		export var android: NsAndroid
 	}
 }
 

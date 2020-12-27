@@ -15,15 +15,15 @@ declare module androidx {
 				public getVariable(index: number): androidx.constraintlayout.solver.SolverVariable;
 				public getVariableValue(index: number): number;
 				public getCurrentSize(): number;
-				public getHead(): number;
 				public display(): void;
+				public getHead(): number;
 				public add(variable: androidx.constraintlayout.solver.SolverVariable, value: number, removeFromDefinition: boolean): void;
 				public clear(): void;
 				public remove(variable: androidx.constraintlayout.solver.SolverVariable, removeFromDefinition: boolean): number;
-				public use(definition: androidx.constraintlayout.solver.ArrayRow, removeFromDefinition: boolean): number;
 				public indexOf(variable: androidx.constraintlayout.solver.SolverVariable): number;
-				public put(variable: androidx.constraintlayout.solver.SolverVariable, value: number): void;
+				public use(definition: androidx.constraintlayout.solver.ArrayRow, removeFromDefinition: boolean): number;
 				public contains(variable: androidx.constraintlayout.solver.SolverVariable): boolean;
+				public put(variable: androidx.constraintlayout.solver.SolverVariable, value: number): void;
 			}
 		}
 	}
@@ -144,30 +144,30 @@ declare module androidx {
 		export module solver {
 			export class LinearSystem extends java.lang.Object {
 				public static class: java.lang.Class<androidx.constraintlayout.solver.LinearSystem>;
-				public static FULL_DEBUG: boolean;
+				public static ARRAY_ROW_CREATION: number;
 				public static DEBUG: boolean;
+				public static FULL_DEBUG: boolean;
 				public static MEASURE: boolean;
-				public static USE_DEPENDENCY_ORDERING: boolean;
-				public static USE_BASIC_SYNONYMS: boolean;
-				public static SIMPLIFY_SYNONYMS: boolean;
-				public static USE_SYNONYMS: boolean;
-				public static SKIP_COLUMNS: boolean;
+				public static OPTIMIZED_ARRAY_ROW_CREATION: number;
 				public static OPTIMIZED_ENGINE: boolean;
-				public hasSimpleDefinition: boolean;
+				public static SIMPLIFY_SYNONYMS: boolean;
+				public static SKIP_COLUMNS: boolean;
+				public static USE_BASIC_SYNONYMS: boolean;
+				public static USE_DEPENDENCY_ORDERING: boolean;
+				public static USE_SYNONYMS: boolean;
 				public graphOptimizer: boolean;
+				public hasSimpleDefinition: boolean;
 				public newgraphOptimizer: boolean;
 				public static sMetrics: androidx.constraintlayout.solver.Metrics;
-				public static ARRAY_ROW_CREATION: number;
-				public static OPTIMIZED_ARRAY_ROW_CREATION: number;
 				public createExtraVariable(): androidx.constraintlayout.solver.SolverVariable;
 				public addEquality(a: androidx.constraintlayout.solver.SolverVariable, b: androidx.constraintlayout.solver.SolverVariable, margin: number, strength: number): androidx.constraintlayout.solver.ArrayRow;
 				public addCentering(a: androidx.constraintlayout.solver.SolverVariable, b: androidx.constraintlayout.solver.SolverVariable, m1: number, bias: number, c: androidx.constraintlayout.solver.SolverVariable, d: androidx.constraintlayout.solver.SolverVariable, m2: number, strength: number): void;
 				public addSynonym(a: androidx.constraintlayout.solver.SolverVariable, b: androidx.constraintlayout.solver.SolverVariable, margin: number): void;
 				public createObjectVariable(anchor: any): androidx.constraintlayout.solver.SolverVariable;
 				public constructor();
-				public reset(): void;
 				public createRow(): androidx.constraintlayout.solver.ArrayRow;
 				public minimize(): void;
+				public reset(): void;
 				public addCenterPoint(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, target: androidx.constraintlayout.solver.widgets.ConstraintWidget, angle: number, radius: number): void;
 				public createSlackVariable(): androidx.constraintlayout.solver.SolverVariable;
 				public removeRow(row: androidx.constraintlayout.solver.ArrayRow): void;
@@ -185,8 +185,8 @@ declare module androidx {
 				public addRatio(a: androidx.constraintlayout.solver.SolverVariable, b: androidx.constraintlayout.solver.SolverVariable, c: androidx.constraintlayout.solver.SolverVariable, d: androidx.constraintlayout.solver.SolverVariable, ratio: number, strength: number): void;
 				public addLowerThan(a: androidx.constraintlayout.solver.SolverVariable, b: androidx.constraintlayout.solver.SolverVariable, margin: number, strength: number): void;
 				public createErrorVariable(strength: number, prefix: string): androidx.constraintlayout.solver.SolverVariable;
-				public getCache(): androidx.constraintlayout.solver.Cache;
 				public addGreaterBarrier(a: androidx.constraintlayout.solver.SolverVariable, b: androidx.constraintlayout.solver.SolverVariable, margin: number, hasMatchConstraintWidgets: boolean): void;
+				public getCache(): androidx.constraintlayout.solver.Cache;
 				public static createRowDimensionPercent(linearSystem: androidx.constraintlayout.solver.LinearSystem, variableA: androidx.constraintlayout.solver.SolverVariable, variableC: androidx.constraintlayout.solver.SolverVariable, percent: number): androidx.constraintlayout.solver.ArrayRow;
 				public addConstraint(row: androidx.constraintlayout.solver.ArrayRow): void;
 			}
@@ -244,49 +244,49 @@ declare module androidx {
 		export module solver {
 			export class Metrics extends java.lang.Object {
 				public static class: java.lang.Class<androidx.constraintlayout.solver.Metrics>;
-				public measuresWidgetsDuration: number;
-				public measuresLayoutDuration: number;
-				public measuredWidgets: number;
-				public measuredMatchWidgets: number;
-				public measures: number;
 				public additionalMeasures: number;
-				public resolutions: number;
-				public tableSizeIncrease: number;
-				public minimize: number;
-				public constraints: number;
-				public simpleconstraints: number;
-				public optimize: number;
-				public iterations: number;
-				public pivots: number;
+				public barrierConnectionResolved: number;
 				public bfs: number;
-				public variables: number;
+				public centerConnectionResolved: number;
+				public chainConnectionResolved: number;
+				public constraints: number;
+				public determineGroups: number;
 				public errors: number;
-				public slackvariables: number;
 				public extravariables: number;
-				public maxTableSize: number;
 				public fullySolved: number;
 				public graphOptimizer: number;
 				public graphSolved: number;
-				public linearSolved: number;
-				public resolvedWidgets: number;
-				public minimizeGoal: number;
-				public maxVariables: number;
-				public maxRows: number;
-				public centerConnectionResolved: number;
-				public matchConnectionResolved: number;
-				public chainConnectionResolved: number;
-				public barrierConnectionResolved: number;
-				public oldresolvedWidgets: number;
-				public nonresolvedWidgets: number;
-				public problematicLayouts: java.util.ArrayList<string>;
+				public grouping: number;
+				public infeasibleDetermineGroups: number;
+				public iterations: number;
 				public lastTableSize: number;
-				public widgets: number;
+				public layouts: number;
+				public linearSolved: number;
+				public matchConnectionResolved: number;
+				public maxRows: number;
+				public maxTableSize: number;
+				public maxVariables: number;
+				public measuredMatchWidgets: number;
+				public measuredWidgets: number;
+				public measures: number;
+				public measuresLayoutDuration: number;
+				public measuresWidgetsDuration: number;
 				public measuresWrap: number;
 				public measuresWrapInfeasible: number;
-				public infeasibleDetermineGroups: number;
-				public determineGroups: number;
-				public layouts: number;
-				public grouping: number;
+				public minimize: number;
+				public minimizeGoal: number;
+				public nonresolvedWidgets: number;
+				public oldresolvedWidgets: number;
+				public optimize: number;
+				public pivots: number;
+				public problematicLayouts: java.util.ArrayList<string>;
+				public resolutions: number;
+				public resolvedWidgets: number;
+				public simpleconstraints: number;
+				public slackvariables: number;
+				public tableSizeIncrease: number;
+				public variables: number;
+				public widgets: number;
 				public reset(): void;
 				public toString(): string;
 				public constructor();
@@ -371,24 +371,24 @@ declare module androidx {
 		export module solver {
 			export class SolverVariable extends java.lang.Object {
 				public static class: java.lang.Class<androidx.constraintlayout.solver.SolverVariable>;
-				public static STRENGTH_NONE: number;
-				public static STRENGTH_LOW: number;
-				public static STRENGTH_MEDIUM: number;
-				public static STRENGTH_HIGH: number;
-				public static STRENGTH_HIGHEST: number;
-				public static STRENGTH_EQUALITY: number;
 				public static STRENGTH_BARRIER: number;
 				public static STRENGTH_CENTERING: number;
+				public static STRENGTH_EQUALITY: number;
 				public static STRENGTH_FIXED: number;
-				public inGoal: boolean;
-				public id: number;
-				public strength: number;
+				public static STRENGTH_HIGH: number;
+				public static STRENGTH_HIGHEST: number;
+				public static STRENGTH_LOW: number;
+				public static STRENGTH_MEDIUM: number;
+				public static STRENGTH_NONE: number;
 				public computedValue: number;
+				public id: number;
+				public inGoal: boolean;
 				public isFinalValue: boolean;
+				public strength: number;
 				public usageInRowCount: number;
 				public addToRow(row: androidx.constraintlayout.solver.ArrayRow): void;
-				public setFinalValue(system: androidx.constraintlayout.solver.LinearSystem, value: number): void;
 				public reset(): void;
+				public setFinalValue(system: androidx.constraintlayout.solver.LinearSystem, value: number): void;
 				public constructor(type: androidx.constraintlayout.solver.SolverVariable.Type, prefix: string);
 				public setName(name: string): void;
 				public setSynonym(system: androidx.constraintlayout.solver.LinearSystem, synonymVariable: androidx.constraintlayout.solver.SolverVariable, value: number): void;
@@ -402,11 +402,11 @@ declare module androidx {
 			export module SolverVariable {
 				export class Type {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.SolverVariable.Type>;
-					public static UNRESTRICTED: androidx.constraintlayout.solver.SolverVariable.Type;
 					public static CONSTANT: androidx.constraintlayout.solver.SolverVariable.Type;
-					public static SLACK: androidx.constraintlayout.solver.SolverVariable.Type;
 					public static ERROR: androidx.constraintlayout.solver.SolverVariable.Type;
+					public static SLACK: androidx.constraintlayout.solver.SolverVariable.Type;
 					public static UNKNOWN: androidx.constraintlayout.solver.SolverVariable.Type;
+					public static UNRESTRICTED: androidx.constraintlayout.solver.SolverVariable.Type;
 					public static values(): native.Array<androidx.constraintlayout.solver.SolverVariable.Type>;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static valueOf(name: string): androidx.constraintlayout.solver.SolverVariable.Type;
@@ -423,10 +423,10 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.constraintlayout.solver.SolverVariableValues>;
 				public mCache: androidx.constraintlayout.solver.Cache;
 				public remove(v: androidx.constraintlayout.solver.SolverVariable, removeFromDefinition: boolean): number;
-				public get(variable: androidx.constraintlayout.solver.SolverVariable): number;
 				public divideByAmount(amount: number): void;
-				public toString(): string;
+				public get(variable: androidx.constraintlayout.solver.SolverVariable): number;
 				public add(v: androidx.constraintlayout.solver.SolverVariable, value: number, removeFromDefinition: boolean): void;
+				public toString(): string;
 				public invert(): void;
 				public sizeInBytes(): number;
 				public use(def: androidx.constraintlayout.solver.ArrayRow, removeFromDefinition: boolean): number;
@@ -463,13 +463,13 @@ declare module androidx {
 					public rightToRight(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public verticalBias(value: number): androidx.constraintlayout.solver.state.ConstraintReference;
 					public clearHorizontal(): androidx.constraintlayout.solver.state.ConstraintReference;
-					public setKey(key: any): void;
 					public createConstraintWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public setKey(key: any): void;
 					public bottomToBottom(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public getHeight(): androidx.constraintlayout.solver.state.Dimension;
 					public marginGone(value: number): androidx.constraintlayout.solver.state.ConstraintReference;
-					public setWidth(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.ConstraintReference;
 					public margin(marginValue: any): androidx.constraintlayout.solver.state.ConstraintReference;
+					public setWidth(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.ConstraintReference;
 					public getView(): any;
 					public rightToLeft(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public startToStart(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
@@ -478,8 +478,8 @@ declare module androidx {
 					public validate(): void;
 					public setConstraintWidget(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 					public end(): androidx.constraintlayout.solver.state.ConstraintReference;
-					public topToBottom(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public height(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.ConstraintReference;
+					public topToBottom(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public endToStart(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public endToEnd(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public bottomToTop(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
@@ -495,8 +495,8 @@ declare module androidx {
 					public bottom(): androidx.constraintlayout.solver.state.ConstraintReference;
 					public constructor(state: androidx.constraintlayout.solver.state.State);
 					public leftToRight(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
-					public getKey(): any;
 					public centerVertically(reference: any): androidx.constraintlayout.solver.state.ConstraintReference;
+					public getKey(): any;
 					public left(): androidx.constraintlayout.solver.state.ConstraintReference;
 					public right(): androidx.constraintlayout.solver.state.ConstraintReference;
 					public clearVertical(): androidx.constraintlayout.solver.state.ConstraintReference;
@@ -537,10 +537,10 @@ declare module androidx {
 				export class Dimension extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.state.Dimension>;
 					public static FIXED_DIMENSION: any;
-					public static WRAP_DIMENSION: any;
-					public static SPREAD_DIMENSION: any;
 					public static PARENT_DIMENSION: any;
 					public static PERCENT_DIMENSION: any;
+					public static SPREAD_DIMENSION: any;
+					public static WRAP_DIMENSION: any;
 					public static Fixed(value: any): androidx.constraintlayout.solver.state.Dimension;
 					public min(value: number): androidx.constraintlayout.solver.state.Dimension;
 					public min(value: any): androidx.constraintlayout.solver.state.Dimension;
@@ -551,8 +551,8 @@ declare module androidx {
 					public apply(state: androidx.constraintlayout.solver.state.State, constraintWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget, orientation: number): void;
 					public static Percent(key: any, value: number): androidx.constraintlayout.solver.state.Dimension;
 					public suggested(value: any): androidx.constraintlayout.solver.state.Dimension;
-					public percent(key: any, value: number): androidx.constraintlayout.solver.state.Dimension;
 					public max(value: number): androidx.constraintlayout.solver.state.Dimension;
+					public percent(key: any, value: number): androidx.constraintlayout.solver.state.Dimension;
 					public ratio(ratio: number): androidx.constraintlayout.solver.state.Dimension;
 					public static Suggested(startValue: any): androidx.constraintlayout.solver.state.Dimension;
 					public suggested(value: number): androidx.constraintlayout.solver.state.Dimension;
@@ -565,9 +565,9 @@ declare module androidx {
 					export class Type {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.state.Dimension.Type>;
 						public static FIXED: androidx.constraintlayout.solver.state.Dimension.Type;
-						public static WRAP: androidx.constraintlayout.solver.state.Dimension.Type;
-						public static MATCH_PARENT: androidx.constraintlayout.solver.state.Dimension.Type;
 						public static MATCH_CONSTRAINT: androidx.constraintlayout.solver.state.Dimension.Type;
+						public static MATCH_PARENT: androidx.constraintlayout.solver.state.Dimension.Type;
+						public static WRAP: androidx.constraintlayout.solver.state.Dimension.Type;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static valueOf(name: string): androidx.constraintlayout.solver.state.Dimension.Type;
 						public static values(): native.Array<androidx.constraintlayout.solver.state.Dimension.Type>;
@@ -584,8 +584,8 @@ declare module androidx {
 			export module state {
 				export class HelperReference extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.state.HelperReference>;
-					public mState: androidx.constraintlayout.solver.state.State;
 					public mReferences: java.util.ArrayList<any>;
+					public mState: androidx.constraintlayout.solver.state.State;
 					public add(objects: native.Array<any>): androidx.constraintlayout.solver.state.HelperReference;
 					public setHelperWidget(helperWidget: androidx.constraintlayout.solver.widgets.HelperWidget): void;
 					public getHelperWidget(): androidx.constraintlayout.solver.widgets.HelperWidget;
@@ -632,10 +632,10 @@ declare module androidx {
 			export module state {
 				export class State extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.state.State>;
-					public mReferences: java.util.HashMap<any,androidx.constraintlayout.solver.state.Reference>;
-					public mHelperReferences: java.util.HashMap<any,androidx.constraintlayout.solver.state.HelperReference>;
 					public static PARENT: java.lang.Integer;
+					public mHelperReferences: java.util.HashMap<any,androidx.constraintlayout.solver.state.HelperReference>;
 					public mParent: androidx.constraintlayout.solver.state.ConstraintReference;
+					public mReferences: java.util.HashMap<any,androidx.constraintlayout.solver.state.Reference>;
 					public setHeight(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.State;
 					public reset(): void;
 					public map(key: any, view: any): void;
@@ -645,9 +645,9 @@ declare module androidx {
 					public guideline(key: any, orientation: number): androidx.constraintlayout.solver.state.helpers.GuidelineReference;
 					public apply(container: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer): void;
 					public height(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.State;
+					public centerHorizontally(references: native.Array<any>): androidx.constraintlayout.solver.state.helpers.AlignHorizontallyReference;
 					public constraints(key: any): androidx.constraintlayout.solver.state.ConstraintReference;
 					public verticalChain(references: native.Array<any>): androidx.constraintlayout.solver.state.helpers.VerticalChainReference;
-					public centerHorizontally(references: native.Array<any>): androidx.constraintlayout.solver.state.helpers.AlignHorizontallyReference;
 					public convertDimension(value: any): number;
 					public setWidth(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.State;
 					public constructor();
@@ -655,61 +655,61 @@ declare module androidx {
 					public width(dimension: androidx.constraintlayout.solver.state.Dimension): androidx.constraintlayout.solver.state.State;
 					public verticalGuideline(key: any): androidx.constraintlayout.solver.state.helpers.GuidelineReference;
 					public barrier(key: any, direction: androidx.constraintlayout.solver.state.State.Direction): androidx.constraintlayout.solver.state.helpers.BarrierReference;
-					public horizontalChain(references: native.Array<any>): androidx.constraintlayout.solver.state.helpers.HorizontalChainReference;
 					public centerVertically(references: native.Array<any>): androidx.constraintlayout.solver.state.helpers.AlignVerticallyReference;
+					public horizontalChain(references: native.Array<any>): androidx.constraintlayout.solver.state.helpers.HorizontalChainReference;
 				}
 				export module State {
 					export class Chain {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.state.State.Chain>;
+						public static PACKED: androidx.constraintlayout.solver.state.State.Chain;
 						public static SPREAD: androidx.constraintlayout.solver.state.State.Chain;
 						public static SPREAD_INSIDE: androidx.constraintlayout.solver.state.State.Chain;
-						public static PACKED: androidx.constraintlayout.solver.state.State.Chain;
 						public static values(): native.Array<androidx.constraintlayout.solver.state.State.Chain>;
 						public static valueOf(name: string): androidx.constraintlayout.solver.state.State.Chain;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					}
 					export class Constraint {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.state.State.Constraint>;
+						public static BASELINE_TO_BASELINE: androidx.constraintlayout.solver.state.State.Constraint;
+						public static BOTTOM_TO_BOTTOM: androidx.constraintlayout.solver.state.State.Constraint;
+						public static BOTTOM_TO_TOP: androidx.constraintlayout.solver.state.State.Constraint;
+						public static CENTER_HORIZONTALLY: androidx.constraintlayout.solver.state.State.Constraint;
+						public static CENTER_VERTICALLY: androidx.constraintlayout.solver.state.State.Constraint;
+						public static END_TO_END: androidx.constraintlayout.solver.state.State.Constraint;
+						public static END_TO_START: androidx.constraintlayout.solver.state.State.Constraint;
 						public static LEFT_TO_LEFT: androidx.constraintlayout.solver.state.State.Constraint;
 						public static LEFT_TO_RIGHT: androidx.constraintlayout.solver.state.State.Constraint;
 						public static RIGHT_TO_LEFT: androidx.constraintlayout.solver.state.State.Constraint;
 						public static RIGHT_TO_RIGHT: androidx.constraintlayout.solver.state.State.Constraint;
-						public static START_TO_START: androidx.constraintlayout.solver.state.State.Constraint;
 						public static START_TO_END: androidx.constraintlayout.solver.state.State.Constraint;
-						public static END_TO_START: androidx.constraintlayout.solver.state.State.Constraint;
-						public static END_TO_END: androidx.constraintlayout.solver.state.State.Constraint;
-						public static TOP_TO_TOP: androidx.constraintlayout.solver.state.State.Constraint;
+						public static START_TO_START: androidx.constraintlayout.solver.state.State.Constraint;
 						public static TOP_TO_BOTTOM: androidx.constraintlayout.solver.state.State.Constraint;
-						public static BOTTOM_TO_TOP: androidx.constraintlayout.solver.state.State.Constraint;
-						public static BOTTOM_TO_BOTTOM: androidx.constraintlayout.solver.state.State.Constraint;
-						public static BASELINE_TO_BASELINE: androidx.constraintlayout.solver.state.State.Constraint;
-						public static CENTER_HORIZONTALLY: androidx.constraintlayout.solver.state.State.Constraint;
-						public static CENTER_VERTICALLY: androidx.constraintlayout.solver.state.State.Constraint;
+						public static TOP_TO_TOP: androidx.constraintlayout.solver.state.State.Constraint;
 						public static values(): native.Array<androidx.constraintlayout.solver.state.State.Constraint>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static valueOf(name: string): androidx.constraintlayout.solver.state.State.Constraint;
 					}
 					export class Direction {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.state.State.Direction>;
+						public static BOTTOM: androidx.constraintlayout.solver.state.State.Direction;
+						public static END: androidx.constraintlayout.solver.state.State.Direction;
 						public static LEFT: androidx.constraintlayout.solver.state.State.Direction;
 						public static RIGHT: androidx.constraintlayout.solver.state.State.Direction;
 						public static START: androidx.constraintlayout.solver.state.State.Direction;
-						public static END: androidx.constraintlayout.solver.state.State.Direction;
 						public static TOP: androidx.constraintlayout.solver.state.State.Direction;
-						public static BOTTOM: androidx.constraintlayout.solver.state.State.Direction;
 						public static valueOf(name: string): androidx.constraintlayout.solver.state.State.Direction;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static values(): native.Array<androidx.constraintlayout.solver.state.State.Direction>;
 					}
 					export class Helper {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.state.State.Helper>;
-						public static HORIZONTAL_CHAIN: androidx.constraintlayout.solver.state.State.Helper;
-						public static VERTICAL_CHAIN: androidx.constraintlayout.solver.state.State.Helper;
 						public static ALIGN_HORIZONTALLY: androidx.constraintlayout.solver.state.State.Helper;
 						public static ALIGN_VERTICALLY: androidx.constraintlayout.solver.state.State.Helper;
 						public static BARRIER: androidx.constraintlayout.solver.state.State.Helper;
-						public static LAYER: androidx.constraintlayout.solver.state.State.Helper;
 						public static FLOW: androidx.constraintlayout.solver.state.State.Helper;
+						public static HORIZONTAL_CHAIN: androidx.constraintlayout.solver.state.State.Helper;
+						public static LAYER: androidx.constraintlayout.solver.state.State.Helper;
+						public static VERTICAL_CHAIN: androidx.constraintlayout.solver.state.State.Helper;
 						public static valueOf(name: string): androidx.constraintlayout.solver.state.State.Helper;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static values(): native.Array<androidx.constraintlayout.solver.state.State.Helper>;
@@ -751,8 +751,8 @@ declare module androidx {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.state.helpers.AlignVerticallyReference>;
 						public constructor(state: androidx.constraintlayout.solver.state.State, type: androidx.constraintlayout.solver.state.State.Helper);
 						public apply(): void;
-						public bottomToBottom(target: any): void;
 						public bias(bias: number): void;
+						public bottomToBottom(target: any): void;
 						public bottomToTop(target: any): void;
 						public constructor(state: androidx.constraintlayout.solver.state.State);
 						public topToBottom(target: any): void;
@@ -775,8 +775,8 @@ declare module androidx {
 						public constructor(state: androidx.constraintlayout.solver.state.State, type: androidx.constraintlayout.solver.state.State.Helper);
 						public apply(): void;
 						public constructor(state: androidx.constraintlayout.solver.state.State);
-						public setBarrierDirection(barrierDirection: androidx.constraintlayout.solver.state.State.Direction): void;
 						public margin(value: number): void;
+						public setBarrierDirection(barrierDirection: androidx.constraintlayout.solver.state.State.Direction): void;
 						public getHelperWidget(): androidx.constraintlayout.solver.widgets.HelperWidget;
 					}
 				}
@@ -817,13 +817,13 @@ declare module androidx {
 						public setConstraintWidget(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 						public setKey(key: any): void;
 						public setOrientation(orientation: number): void;
-						public getKey(): any;
 						public constructor(state: androidx.constraintlayout.solver.state.State);
+						public getKey(): any;
 						public percent(percent: number): void;
 						public getConstraintWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
-						public start(margin: any): void;
 						public end(margin: any): void;
 						public getOrientation(): number;
+						public start(margin: any): void;
 					}
 				}
 			}
@@ -879,10 +879,10 @@ declare module androidx {
 			export module widgets {
 				export class Barrier extends androidx.constraintlayout.solver.widgets.HelperWidget {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.Barrier>;
+					public static BOTTOM: number;
 					public static LEFT: number;
 					public static RIGHT: number;
 					public static TOP: number;
-					public static BOTTOM: number;
 					public isResolvedHorizontally(): boolean;
 					public add(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 					public copy(src: androidx.constraintlayout.solver.widgets.ConstraintWidget, map: java.util.HashMap<androidx.constraintlayout.solver.widgets.ConstraintWidget,androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
@@ -935,28 +935,28 @@ declare module androidx {
 				export class ChainHead extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.ChainHead>;
 					public mFirst: androidx.constraintlayout.solver.widgets.ConstraintWidget;
-					public mFirstVisibleWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget;
-					public mLast: androidx.constraintlayout.solver.widgets.ConstraintWidget;
-					public mLastVisibleWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget;
-					public mHead: androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public mFirstMatchConstraintWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mFirstVisibleWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mHasComplexMatchWeights: boolean;
+					public mHasDefinedWeights: boolean;
+					public mHasRatio: boolean;
+					public mHasUndefinedWeights: boolean;
+					public mHead: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mLast: androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public mLastMatchConstraintWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mLastVisibleWidget: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mTotalWeight: number;
 					public mWeightedMatchConstraintsWidgets: java.util.ArrayList<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
 					public mWidgetsCount: number;
 					public mWidgetsMatchCount: number;
-					public mTotalWeight: number;
-					public mHasUndefinedWeights: boolean;
-					public mHasDefinedWeights: boolean;
-					public mHasComplexMatchWeights: boolean;
-					public mHasRatio: boolean;
 					public getLast(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public getFirst(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
-					public getLastVisibleWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public getFirstMatchConstraintWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public getLastVisibleWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public getLastMatchConstraintWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public constructor(first: androidx.constraintlayout.solver.widgets.ConstraintWidget, orientation: number, isRtl: boolean);
-					public getFirstVisibleWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public define(): void;
+					public getFirstVisibleWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public getTotalWeight(): number;
 					public getHead(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 				}
@@ -971,10 +971,10 @@ declare module androidx {
 			export module widgets {
 				export class ConstraintAnchor extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.ConstraintAnchor>;
-					public mOwner: androidx.constraintlayout.solver.widgets.ConstraintWidget;
-					public mType: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
-					public mTarget: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 					public mMargin: number;
+					public mOwner: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mTarget: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public mType: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 					public copyFrom(source: androidx.constraintlayout.solver.widgets.ConstraintAnchor, map: java.util.HashMap<androidx.constraintlayout.solver.widgets.ConstraintWidget,androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
 					public findDependents(orientation: number, list: java.util.ArrayList<androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup>, group: androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup): void;
 					public setGoneMargin(margin: number): void;
@@ -985,13 +985,13 @@ declare module androidx {
 					public isVerticalAnchor(): boolean;
 					public isConnectionAllowed(target: androidx.constraintlayout.solver.widgets.ConstraintWidget): boolean;
 					public setFinalValue(finalValue: number): void;
-					public toString(): string;
 					public isConnectionAllowed(target: androidx.constraintlayout.solver.widgets.ConstraintWidget, anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor): boolean;
+					public toString(): string;
 					public isSimilarDimensionConnection(anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor): boolean;
 					public connect(toAnchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor, margin: number, goneMargin: number, forceConnection: boolean): boolean;
 					public isSideAnchor(): boolean;
-					public hasDependents(): boolean;
 					public getFinalValue(): number;
+					public hasDependents(): boolean;
 					public isValidConnection(anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor): boolean;
 					public getTarget(): androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 					public reset(): void;
@@ -1000,8 +1000,8 @@ declare module androidx {
 					public hasFinalValue(): boolean;
 					public getOpposite(): androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 					public resetFinalResolution(): void;
-					public resetSolverVariable(cache: androidx.constraintlayout.solver.Cache): void;
 					public connect(toAnchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor, margin: number): boolean;
+					public resetSolverVariable(cache: androidx.constraintlayout.solver.Cache): void;
 					public constructor(owner: androidx.constraintlayout.solver.widgets.ConstraintWidget, type: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type);
 					public getOwner(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public setMargin(margin: number): void;
@@ -1009,15 +1009,15 @@ declare module androidx {
 				export module ConstraintAnchor {
 					export class Type {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type>;
-						public static NONE: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
-						public static LEFT: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
-						public static TOP: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
-						public static RIGHT: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
-						public static BOTTOM: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 						public static BASELINE: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
+						public static BOTTOM: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 						public static CENTER: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 						public static CENTER_X: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 						public static CENTER_Y: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
+						public static LEFT: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
+						public static NONE: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
+						public static RIGHT: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
+						public static TOP: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 						public static valueOf(name: string): androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static values(): native.Array<androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type>;
@@ -1034,72 +1034,72 @@ declare module androidx {
 			export module widgets {
 				export class ConstraintWidget extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
-					public static SOLVER: number;
-					public static DIRECT: number;
-					public measured: boolean;
-					public run: native.Array<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun>;
-					public horizontalChainRun: androidx.constraintlayout.solver.widgets.analyzer.ChainRun;
-					public verticalChainRun: androidx.constraintlayout.solver.widgets.analyzer.ChainRun;
-					public horizontalRun: androidx.constraintlayout.solver.widgets.analyzer.HorizontalWidgetRun;
-					public verticalRun: androidx.constraintlayout.solver.widgets.analyzer.VerticalWidgetRun;
-					public isTerminalWidget: native.Array<boolean>;
-					public static MATCH_CONSTRAINT_SPREAD: number;
-					public static MATCH_CONSTRAINT_WRAP: number;
-					public static MATCH_CONSTRAINT_PERCENT: number;
-					public static MATCH_CONSTRAINT_RATIO: number;
-					public static MATCH_CONSTRAINT_RATIO_RESOLVED: number;
-					public static UNKNOWN: number;
-					public static HORIZONTAL: number;
-					public static VERTICAL: number;
-					public static BOTH: number;
-					public static VISIBLE: number;
-					public static INVISIBLE: number;
-					public static GONE: number;
-					public static CHAIN_SPREAD: number;
-					public static CHAIN_SPREAD_INSIDE: number;
-					public static CHAIN_PACKED: number;
-					public mHorizontalResolution: number;
-					public mVerticalResolution: number;
-					public mMatchConstraintDefaultWidth: number;
-					public mMatchConstraintDefaultHeight: number;
-					public mResolvedMatchConstraintDefault: native.Array<number>;
-					public mMatchConstraintMinWidth: number;
-					public mMatchConstraintMaxWidth: number;
-					public mMatchConstraintPercentWidth: number;
-					public mMatchConstraintMinHeight: number;
-					public mMatchConstraintMaxHeight: number;
-					public mMatchConstraintPercentHeight: number;
-					public mIsWidthWrapContent: boolean;
-					public mIsHeightWrapContent: boolean;
-					public mLeft: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
-					public mTop: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
-					public mRight: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
-					public mBottom: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
-					public mBaseline: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
-					public mCenter: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public static ANCHOR_BASELINE: number;
+					public static ANCHOR_BOTTOM: number;
 					public static ANCHOR_LEFT: number;
 					public static ANCHOR_RIGHT: number;
 					public static ANCHOR_TOP: number;
-					public static ANCHOR_BOTTOM: number;
-					public static ANCHOR_BASELINE: number;
-					public mListAnchors: native.Array<androidx.constraintlayout.solver.widgets.ConstraintAnchor>;
+					public static BOTH: number;
+					public static CHAIN_PACKED: number;
+					public static CHAIN_SPREAD: number;
+					public static CHAIN_SPREAD_INSIDE: number;
+					public static DEFAULT_BIAS: number;
+					public static DIRECT: number;
+					public static GONE: number;
+					public static HORIZONTAL: number;
+					public static INVISIBLE: number;
+					public static MATCH_CONSTRAINT_PERCENT: number;
+					public static MATCH_CONSTRAINT_RATIO: number;
+					public static MATCH_CONSTRAINT_RATIO_RESOLVED: number;
+					public static MATCH_CONSTRAINT_SPREAD: number;
+					public static MATCH_CONSTRAINT_WRAP: number;
+					public static SOLVER: number;
+					public static UNKNOWN: number;
+					public static VERTICAL: number;
+					public static VISIBLE: number;
+					public horizontalChainRun: androidx.constraintlayout.solver.widgets.analyzer.ChainRun;
+					public horizontalGroup: number;
+					public horizontalRun: androidx.constraintlayout.solver.widgets.analyzer.HorizontalWidgetRun;
+					public isTerminalWidget: native.Array<boolean>;
 					public mAnchors: java.util.ArrayList<androidx.constraintlayout.solver.widgets.ConstraintAnchor>;
-					public mListDimensionBehaviors: native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour>;
-					public mParent: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mBaseline: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public mBottom: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public mCenter: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 					public mDimensionRatio: number;
 					public mDimensionRatioSide: number;
-					public mX: number;
-					public mY: number;
+					public mHorizontalResolution: number;
+					public mIsHeightWrapContent: boolean;
+					public mIsWidthWrapContent: boolean;
+					public mLeft: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public mListAnchors: native.Array<androidx.constraintlayout.solver.widgets.ConstraintAnchor>;
+					public mListDimensionBehaviors: native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour>;
+					public mListNextMatchConstraintsWidget: native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
+					public mMatchConstraintDefaultHeight: number;
+					public mMatchConstraintDefaultWidth: number;
+					public mMatchConstraintMaxHeight: number;
+					public mMatchConstraintMaxWidth: number;
+					public mMatchConstraintMinHeight: number;
+					public mMatchConstraintMinWidth: number;
+					public mMatchConstraintPercentHeight: number;
+					public mMatchConstraintPercentWidth: number;
+					public mMinHeight: number;
+					public mMinWidth: number;
+					public mNextChainWidget: native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
 					public mOffsetX: number;
 					public mOffsetY: number;
-					public mMinWidth: number;
-					public mMinHeight: number;
-					public static DEFAULT_BIAS: number;
+					public mParent: androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public mResolvedMatchConstraintDefault: native.Array<number>;
+					public mRight: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public mTop: androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+					public mVerticalResolution: number;
 					public mWeight: native.Array<number>;
-					public mListNextMatchConstraintsWidget: native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
-					public mNextChainWidget: native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
-					public horizontalGroup: number;
+					public mX: number;
+					public mY: number;
+					public measured: boolean;
+					public run: native.Array<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun>;
+					public verticalChainRun: androidx.constraintlayout.solver.widgets.analyzer.ChainRun;
 					public verticalGroup: number;
+					public verticalRun: androidx.constraintlayout.solver.widgets.analyzer.VerticalWidgetRun;
 					public getRootX(): number;
 					public connect(constraintFrom: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type, target: androidx.constraintlayout.solver.widgets.ConstraintWidget, constraintTo: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type, margin: number): void;
 					public getHorizontalChainStyle(): number;
@@ -1116,10 +1116,10 @@ declare module androidx {
 					public getContainerItemSkip(): number;
 					public isResolvedVertically(): boolean;
 					public setGoneMargin(type: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type, goneMargin: number): void;
-					public setInPlaceholder(inPlaceholder: boolean): void;
 					public setFrame(left: number, top: number, right: number, bottom: number): void;
-					public resetAnchors(): void;
+					public setInPlaceholder(inPlaceholder: boolean): void;
 					public getVerticalChainControlWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public resetAnchors(): void;
 					public getHeight(): number;
 					public getVerticalChainStyle(): number;
 					public resetAnchor(anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor): void;
@@ -1132,11 +1132,11 @@ declare module androidx {
 					public getCompanionWidget(): any;
 					public isInHorizontalChain(): boolean;
 					public updateFromRuns(updateHorizontal: boolean, updateVertical: boolean): void;
-					public hasDanglingDimension(orientation: number): boolean;
 					public getHorizontalBiasPercent(): number;
+					public hasDanglingDimension(orientation: number): boolean;
 					public isInVerticalChain(): boolean;
-					public setFinalBaseline(baselineValue: number): void;
 					public getDimensionRatio(): number;
+					public setFinalBaseline(baselineValue: number): void;
 					public getHorizontalMargin(): number;
 					public getMaxWidth(): number;
 					public copy(src: androidx.constraintlayout.solver.widgets.ConstraintWidget, map: java.util.HashMap<androidx.constraintlayout.solver.widgets.ConstraintWidget,androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
@@ -1145,8 +1145,8 @@ declare module androidx {
 					public getVerticalDimensionBehaviour(): androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 					public hasBaseline(): boolean;
 					public setupDimensionRatio(hparentWrapContent: boolean, vparentWrapContent: boolean, horizontalDimensionFixed: boolean, verticalDimensionFixed: boolean): void;
-					public isSpreadHeight(): boolean;
 					public getVerticalMargin(): number;
+					public isSpreadHeight(): boolean;
 					public getOptimizerWrapHeight(): number;
 					public resetSolverVariables(cache: androidx.constraintlayout.solver.Cache): void;
 					public setHeight(h: number): void;
@@ -1177,8 +1177,8 @@ declare module androidx {
 					public setHorizontalChainStyle(horizontalChainStyle: number): void;
 					public isInPlaceholder(): boolean;
 					public updateFromSolver(system: androidx.constraintlayout.solver.LinearSystem, optimize: boolean): void;
-					public setHasBaseline(hasBaseline: boolean): void;
 					public getVerticalBiasPercent(): number;
+					public setHasBaseline(hasBaseline: boolean): void;
 					public resetAllConstraints(): void;
 					public setFinalFrame(left: number, top: number, right: number, bottom: number, baseline: number, orientation: number): void;
 					public getVisibility(): number;
@@ -1189,8 +1189,8 @@ declare module androidx {
 					public isResolvedHorizontally(): boolean;
 					public getRight(): number;
 					public setHorizontalDimensionBehaviour(behaviour: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour): void;
-					public getLastHorizontalMeasureSpec(): number;
 					public getDebugName(): string;
+					public getLastHorizontalMeasureSpec(): number;
 					public setCompanionWidget(companion: any): void;
 					public setContainerItemSkip(skip: number): void;
 					public constructor(debugName: string, x: number, y: number, width: number, height: number);
@@ -1209,10 +1209,10 @@ declare module androidx {
 					public constructor(x: number, y: number, width: number, height: number);
 					public hasDependencies(): boolean;
 					public setY(y: number): void;
-					public getMinWidth(): number;
 					public getDimensionRatioSide(): number;
-					public setOrigin(x: number, y: number): void;
+					public getMinWidth(): number;
 					public getPreviousChainMember(orientation: number): androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public setOrigin(x: number, y: number): void;
 					public getHorizontalDimensionBehaviour(): androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 					public getLength(orientation: number): number;
 					public ensureMeasureRequested(): void;
@@ -1221,24 +1221,24 @@ declare module androidx {
 					public setX(x: number): void;
 					public allowedInBarrier(): boolean;
 					public setHeightWrapContent(heightWrapContent: boolean): void;
-					public addToSolver(system: androidx.constraintlayout.solver.LinearSystem, optimize: boolean): void;
 					public addChildrenToSolverByDependency(container: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer, system: androidx.constraintlayout.solver.LinearSystem, widgets: java.util.HashSet<androidx.constraintlayout.solver.widgets.ConstraintWidget>, orientation: number, addSelf: boolean): void;
+					public addToSolver(system: androidx.constraintlayout.solver.LinearSystem, optimize: boolean): void;
 					public getMaxHeight(): number;
-					public setFinalTop(y1: number): void;
-					public getType(): string;
-					public setVisibility(visibility: number): void;
 					public getNextChainMember(orientation: number): androidx.constraintlayout.solver.widgets.ConstraintWidget;
+					public getType(): string;
+					public setFinalTop(y1: number): void;
+					public setVisibility(visibility: number): void;
 					public setFinalHorizontal(x1: number, x2: number): void;
 					public setParent(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
-					public setType(type: string): void;
 					public setHorizontalMatchStyle(horizontalMatchStyle: number, min: number, max: number, percent: number): void;
+					public setType(type: string): void;
 					public getAnchors(): java.util.ArrayList<androidx.constraintlayout.solver.widgets.ConstraintAnchor>;
 					public setDimensionRatio(ratio: string): void;
 					public connect(from: androidx.constraintlayout.solver.widgets.ConstraintAnchor, to: androidx.constraintlayout.solver.widgets.ConstraintAnchor, margin: number): void;
 					public getTop(): number;
 					public setDimension(w: number, h: number): void;
-					public setDimensionRatio(ratio: number, dimensionRatioSide: number): void;
 					public setBaselineDistance(baseline: number): void;
+					public setDimensionRatio(ratio: number, dimensionRatioSide: number): void;
 					public getDimensionBehaviour(orientation: number): androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 					public setHorizontalWeight(horizontalWeight: number): void;
 					public connect(constraintFrom: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type, target: androidx.constraintlayout.solver.widgets.ConstraintWidget, constraintTo: androidx.constraintlayout.solver.widgets.ConstraintAnchor.Type): void;
@@ -1247,9 +1247,9 @@ declare module androidx {
 					export class DimensionBehaviour {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour>;
 						public static FIXED: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
-						public static WRAP_CONTENT: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 						public static MATCH_CONSTRAINT: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 						public static MATCH_PARENT: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
+						public static WRAP_CONTENT: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 						public static values(): native.Array<androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour>;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static valueOf(name: string): androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
@@ -1267,22 +1267,22 @@ declare module androidx {
 				export class ConstraintWidgetContainer extends androidx.constraintlayout.solver.widgets.WidgetContainer {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer>;
 					public mDependencyGraph: androidx.constraintlayout.solver.widgets.analyzer.DependencyGraph;
+					public mGroupsWrapOptimized: boolean;
+					public mHorizontalChainsSize: number;
+					public mHorizontalWrapOptimized: boolean;
+					public mMeasure: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measure;
 					public mMeasurer: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer;
 					public mMetrics: androidx.constraintlayout.solver.Metrics;
-					public mSystem: androidx.constraintlayout.solver.LinearSystem;
-					public mHorizontalChainsSize: number;
-					public mVerticalChainsSize: number;
-					public mGroupsWrapOptimized: boolean;
-					public mHorizontalWrapOptimized: boolean;
-					public mVerticalWrapOptimized: boolean;
-					public mWrapFixedWidth: number;
-					public mWrapFixedHeight: number;
 					public mSkipSolver: boolean;
-					public mMeasure: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measure;
+					public mSystem: androidx.constraintlayout.solver.LinearSystem;
+					public mVerticalChainsSize: number;
+					public mVerticalWrapOptimized: boolean;
+					public mWrapFixedHeight: number;
+					public mWrapFixedWidth: number;
 					public invalidateGraph(): void;
 					public addHorizontalWrapMinVariable(left: androidx.constraintlayout.solver.widgets.ConstraintAnchor): void;
-					public handlesInternalConstraints(): boolean;
 					public getHorizontalGuidelines(): java.util.ArrayList<androidx.constraintlayout.solver.widgets.Guideline>;
+					public handlesInternalConstraints(): boolean;
 					public defineTerminalWidgets(): void;
 					public updateHierarchy(): void;
 					public directMeasure(optimizeWrap: boolean): boolean;
@@ -1290,8 +1290,8 @@ declare module androidx {
 					public getVerticalGuidelines(): java.util.ArrayList<androidx.constraintlayout.solver.widgets.Guideline>;
 					public getMeasurer(): androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer;
 					public static measure(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, measurer: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer, measure: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measure, measureStrategy: number): boolean;
-					public setMeasurer(measurer: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer): void;
 					public isHeightMeasuredTooSmall(): boolean;
+					public setMeasurer(measurer: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer): void;
 					public updateChildrenFromSolver(system: androidx.constraintlayout.solver.LinearSystem, flags: native.Array<boolean>): void;
 					public directMeasureWithOrientation(optimizeWrap: boolean, orientation: number): boolean;
 					public constructor();
@@ -1313,8 +1313,8 @@ declare module androidx {
 					public addChildrenToSolver(system: androidx.constraintlayout.solver.LinearSystem): boolean;
 					public fillMetrics(metrics: androidx.constraintlayout.solver.Metrics): void;
 					public optimizeFor(feature: number): boolean;
-					public measure(optimizationLevel: number, widthMode: number, widthSize: number, heightMode: number, heightSize: number, lastMeasureWidth: number, lastMeasureHeight: number, paddingX: number, paddingY: number): number;
 					public constructor(x: number, y: number, width: number, height: number);
+					public measure(optimizationLevel: number, widthMode: number, widthSize: number, heightMode: number, heightSize: number, lastMeasureWidth: number, lastMeasureHeight: number, paddingX: number, paddingY: number): number;
 					public isRtl(): boolean;
 					public addHorizontalWrapMaxVariable(right: androidx.constraintlayout.solver.widgets.ConstraintAnchor): void;
 				}
@@ -1329,16 +1329,16 @@ declare module androidx {
 			export module widgets {
 				export class Flow extends androidx.constraintlayout.solver.widgets.VirtualLayout {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.Flow>;
-					public static HORIZONTAL_ALIGN_START: number;
-					public static HORIZONTAL_ALIGN_END: number;
 					public static HORIZONTAL_ALIGN_CENTER: number;
-					public static VERTICAL_ALIGN_TOP: number;
+					public static HORIZONTAL_ALIGN_END: number;
+					public static HORIZONTAL_ALIGN_START: number;
+					public static VERTICAL_ALIGN_BASELINE: number;
 					public static VERTICAL_ALIGN_BOTTOM: number;
 					public static VERTICAL_ALIGN_CENTER: number;
-					public static VERTICAL_ALIGN_BASELINE: number;
-					public static WRAP_NONE: number;
-					public static WRAP_CHAIN: number;
+					public static VERTICAL_ALIGN_TOP: number;
 					public static WRAP_ALIGNED: number;
+					public static WRAP_CHAIN: number;
+					public static WRAP_NONE: number;
 					public measure(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, horizontalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour, horizontalDimension: number, verticalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour, verticalDimension: number): void;
 					public add(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 					public copy(src: androidx.constraintlayout.solver.widgets.ConstraintWidget, map: java.util.HashMap<androidx.constraintlayout.solver.widgets.ConstraintWidget,androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
@@ -1350,14 +1350,14 @@ declare module androidx {
 					public setLastHorizontalBias(value: number): void;
 					public setFirstHorizontalBias(value: number): void;
 					public constructor();
-					public setHorizontalAlign(value: number): void;
 					public addToSolver(system: androidx.constraintlayout.solver.LinearSystem, optimize: boolean): void;
+					public setHorizontalAlign(value: number): void;
 					public constructor(debugName: string);
 					public setFirstHorizontalStyle(value: number): void;
 					public setVerticalGap(value: number): void;
 					public setHorizontalStyle(value: number): void;
-					public setLastHorizontalStyle(value: number): void;
 					public setHorizontalGap(value: number): void;
+					public setLastHorizontalStyle(value: number): void;
 					public setVerticalStyle(value: number): void;
 					public setVerticalBias(value: number): void;
 					public constructor(debugName: string, x: number, y: number, width: number, height: number);
@@ -1398,23 +1398,23 @@ declare module androidx {
 				export class Guideline extends androidx.constraintlayout.solver.widgets.ConstraintWidget {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.Guideline>;
 					public static HORIZONTAL: number;
-					public static VERTICAL: number;
-					public static RELATIVE_PERCENT: number;
 					public static RELATIVE_BEGIN: number;
 					public static RELATIVE_END: number;
+					public static RELATIVE_PERCENT: number;
 					public static RELATIVE_UNKNWON: number;
-					public mRelativePercent: number;
+					public static VERTICAL: number;
 					public mRelativeBegin: number;
 					public mRelativeEnd: number;
+					public mRelativePercent: number;
 					public copy(src: androidx.constraintlayout.solver.widgets.ConstraintWidget, map: java.util.HashMap<androidx.constraintlayout.solver.widgets.ConstraintWidget,androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
 					public setGuidePercent(value: number): void;
-					public setGuideEnd(value: number): void;
 					public getRelativeBegin(): number;
+					public setGuideEnd(value: number): void;
 					public setGuideBegin(value: number): void;
 					public updateFromSolver(system: androidx.constraintlayout.solver.LinearSystem, optimize: boolean): void;
 					public setFinalValue(position: number): void;
-					public setOrientation(orientation: number): void;
 					public getRelativePercent(): number;
+					public setOrientation(orientation: number): void;
 					public allowedInBarrier(): boolean;
 					public constructor();
 					public addToSolver(system: androidx.constraintlayout.solver.LinearSystem, optimize: boolean): void;
@@ -1496,18 +1496,18 @@ declare module androidx {
 			export module widgets {
 				export class Optimizer extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.Optimizer>;
-					public static OPTIMIZATION_NONE: number;
-					public static OPTIMIZATION_DIRECT: number;
 					public static OPTIMIZATION_BARRIER: number;
+					public static OPTIMIZATION_CACHE_MEASURES: number;
 					public static OPTIMIZATION_CHAIN: number;
+					public static OPTIMIZATION_DEPENDENCY_ORDERING: number;
 					public static OPTIMIZATION_DIMENSIONS: number;
-					public static OPTIMIZATION_RATIO: number;
-					public static OPTIMIZATION_GROUPS: number;
+					public static OPTIMIZATION_DIRECT: number;
 					public static OPTIMIZATION_GRAPH: number;
 					public static OPTIMIZATION_GRAPH_WRAP: number;
-					public static OPTIMIZATION_CACHE_MEASURES: number;
-					public static OPTIMIZATION_DEPENDENCY_ORDERING: number;
 					public static OPTIMIZATION_GROUPING: number;
+					public static OPTIMIZATION_GROUPS: number;
+					public static OPTIMIZATION_NONE: number;
+					public static OPTIMIZATION_RATIO: number;
 					public static OPTIMIZATION_STANDARD: number;
 					public constructor();
 					public static enabled(optimizationLevel: number, optimization: number): boolean;
@@ -1523,10 +1523,10 @@ declare module androidx {
 			export module widgets {
 				export class Rectangle extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.Rectangle>;
+					public height: number;
+					public width: number;
 					public x: number;
 					public y: number;
-					public width: number;
-					public height: number;
 					public getCenterY(): number;
 					public constructor();
 					public getCenterX(): number;
@@ -1545,8 +1545,8 @@ declare module androidx {
 				export class VirtualLayout extends androidx.constraintlayout.solver.widgets.HelperWidget {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.VirtualLayout>;
 					public mMeasure: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measure;
-					public setPaddingStart(value: number): void;
 					public measure(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, horizontalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour, horizontalDimension: number, verticalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour, verticalDimension: number): void;
+					public setPaddingStart(value: number): void;
 					public add(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 					public captureWidgets(): void;
 					public getMeasuredHeight(): number;
@@ -1588,9 +1588,9 @@ declare module androidx {
 				export class WidgetContainer extends androidx.constraintlayout.solver.widgets.ConstraintWidget {
 					public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.WidgetContainer>;
 					public mChildren: java.util.ArrayList<androidx.constraintlayout.solver.widgets.ConstraintWidget>;
-					public reset(): void;
 					public add(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 					public getRootConstraintContainer(): androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer;
+					public reset(): void;
 					public remove(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget): void;
 					public constructor(debugName: string, x: number, y: number, width: number, height: number);
 					public removeAllChildren(): void;
@@ -1634,12 +1634,12 @@ declare module androidx {
 				export module analyzer {
 					export class BasicMeasure extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure>;
-						public static UNSPECIFIED: number;
-						public static EXACTLY: number;
 						public static AT_MOST: number;
-						public static MATCH_PARENT: number;
-						public static WRAP_CONTENT: number;
+						public static EXACTLY: number;
 						public static FIXED: number;
+						public static MATCH_PARENT: number;
+						public static UNSPECIFIED: number;
+						public static WRAP_CONTENT: number;
 						public constructor(constraintWidgetContainer: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer);
 						public solverMeasure(layout: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer, optimizationLevel: number, paddingX: number, paddingY: number, widthMode: number, widthSize: number, heightMode: number, heightSize: number, lastMeasureWidth: number, lastMeasureHeight: number): number;
 						public updateHierarchy(layout: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer): void;
@@ -1651,15 +1651,15 @@ declare module androidx {
 							public static TRY_GIVEN_DIMENSIONS: number;
 							public static USE_GIVEN_DIMENSIONS: number;
 							public horizontalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
-							public verticalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
 							public horizontalDimension: number;
-							public verticalDimension: number;
-							public measuredWidth: number;
-							public measuredHeight: number;
+							public measureStrategy: number;
 							public measuredBaseline: number;
 							public measuredHasBaseline: boolean;
+							public measuredHeight: number;
 							public measuredNeedsSolverPass: boolean;
-							public measureStrategy: number;
+							public measuredWidth: number;
+							public verticalBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
+							public verticalDimension: number;
 							public constructor();
 						}
 						export class Measurer extends java.lang.Object {
@@ -1735,8 +1735,8 @@ declare module androidx {
 						public setMeasurer(measurer: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer): void;
 						public directMeasure(optimizeWrap: boolean): boolean;
 						public invalidateMeasures(): void;
-						public directMeasureWithOrientation(optimizeWrap: boolean, orientation: number): boolean;
 						public buildGraph(runs: java.util.ArrayList<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun>): void;
+						public directMeasureWithOrientation(optimizeWrap: boolean, orientation: number): boolean;
 						public constructor(container: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer);
 						public directMeasureSetup(optimizeWrap: boolean): boolean;
 						public measureWidgets(): void;
@@ -1756,14 +1756,14 @@ declare module androidx {
 				export module analyzer {
 					export class DependencyNode extends java.lang.Object implements androidx.constraintlayout.solver.widgets.analyzer.Dependency {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.DependencyNode>;
-						public updateDelegate: androidx.constraintlayout.solver.widgets.analyzer.Dependency;
 						public delegateToWidgetRun: boolean;
 						public readyToSolve: boolean;
-						public value: number;
 						public resolved: boolean;
+						public updateDelegate: androidx.constraintlayout.solver.widgets.analyzer.Dependency;
+						public value: number;
 						public resolve(value: number): void;
-						public update(node: androidx.constraintlayout.solver.widgets.analyzer.Dependency): void;
 						public name(): string;
+						public update(node: androidx.constraintlayout.solver.widgets.analyzer.Dependency): void;
 						public clear(): void;
 						public addDependency(dependency: androidx.constraintlayout.solver.widgets.analyzer.Dependency): void;
 						public constructor(run: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun);
@@ -1772,14 +1772,14 @@ declare module androidx {
 					export module DependencyNode {
 						export class Type {
 							public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type>;
-							public static UNKNOWN: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
+							public static BASELINE: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
+							public static BOTTOM: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
 							public static HORIZONTAL_DIMENSION: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
-							public static VERTICAL_DIMENSION: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
 							public static LEFT: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
 							public static RIGHT: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
 							public static TOP: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
-							public static BOTTOM: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
-							public static BASELINE: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
+							public static UNKNOWN: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
+							public static VERTICAL_DIMENSION: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 							public static valueOf(name: string): androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type;
 							public static values(): native.Array<androidx.constraintlayout.solver.widgets.analyzer.DependencyNode.Type>;
@@ -1903,12 +1903,12 @@ declare module androidx {
 				export module analyzer {
 					export class RunGroup extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.RunGroup>;
-						public static START: number;
-						public static END: number;
 						public static BASELINE: number;
+						public static END: number;
+						public static START: number;
+						public dual: boolean;
 						public static index: number;
 						public position: number;
-						public dual: boolean;
 						public constructor(run: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun, dir: number);
 						public computeWrapSize(container: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer, orientation: number): number;
 						public defineTerminalWidgets(horizontalCheck: boolean, verticalCheck: boolean): void;
@@ -1947,11 +1947,11 @@ declare module androidx {
 					export class WidgetGroup extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup>;
 						public setOrientation(orientation: number): void;
-						public setAuthoritative(isAuthoritative: boolean): void;
 						public isAuthoritative(): boolean;
+						public setAuthoritative(isAuthoritative: boolean): void;
 						public constructor(orientation: number);
-						public measureWrap(system: androidx.constraintlayout.solver.LinearSystem, orientation: number): number;
 						public cleanup(dependencyLists: java.util.ArrayList<androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup>): void;
+						public measureWrap(system: androidx.constraintlayout.solver.LinearSystem, orientation: number): number;
 						public toString(): string;
 						public getId(): number;
 						public intersectWith(group: androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup): boolean;
@@ -1982,22 +1982,22 @@ declare module androidx {
 				export module analyzer {
 					export abstract class WidgetRun extends java.lang.Object implements androidx.constraintlayout.solver.widgets.analyzer.Dependency {
 						public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun>;
-						public matchConstraintsType: number;
 						public dimensionBehavior: androidx.constraintlayout.solver.widgets.ConstraintWidget.DimensionBehaviour;
-						public orientation: number;
-						public start: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode;
 						public end: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode;
 						public mRunType: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
+						public matchConstraintsType: number;
+						public orientation: number;
+						public start: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode;
 						public isCenterConnection(): boolean;
 						public updateRunEnd(dependency: androidx.constraintlayout.solver.widgets.analyzer.Dependency): void;
 						public getTarget(anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor, orientation: number): androidx.constraintlayout.solver.widgets.analyzer.DependencyNode;
 						public addTarget(node: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode, target: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode, marginFactor: number, dimensionDependency: androidx.constraintlayout.solver.widgets.analyzer.DimensionDependency): void;
 						public getLimitedDimension(dimension: number, orientation: number): number;
-						public getTarget(anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor): androidx.constraintlayout.solver.widgets.analyzer.DependencyNode;
 						public addTarget(node: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode, target: androidx.constraintlayout.solver.widgets.analyzer.DependencyNode, margin: number): void;
+						public getTarget(anchor: androidx.constraintlayout.solver.widgets.ConstraintAnchor): androidx.constraintlayout.solver.widgets.analyzer.DependencyNode;
 						public updateRunStart(dependency: androidx.constraintlayout.solver.widgets.analyzer.Dependency): void;
-						public wrapSize(direction: number): number;
 						public isResolved(): boolean;
+						public wrapSize(direction: number): number;
 						public constructor(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget);
 						public isDimensionResolved(): boolean;
 						public getWrapDimension(): number;
@@ -2007,13 +2007,13 @@ declare module androidx {
 					export module WidgetRun {
 						export class RunType {
 							public static class: java.lang.Class<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType>;
+							public static CENTER: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
+							public static END: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
 							public static NONE: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
 							public static START: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
-							public static END: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
-							public static CENTER: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
 							public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
-							public static values(): native.Array<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType>;
 							public static valueOf(name: string): androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType;
+							public static values(): native.Array<androidx.constraintlayout.solver.widgets.analyzer.WidgetRun.RunType>;
 						}
 					}
 				}

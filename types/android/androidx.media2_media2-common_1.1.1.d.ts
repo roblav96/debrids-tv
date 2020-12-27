@@ -55,12 +55,12 @@ declare module androidx {
 					public setMetadata(metadata: androidx.media2.common.MediaMetadata): androidx.media2.common.CallbackMediaItem.Builder;
 					public constructor();
 					public constructor(dsc2: androidx.media2.common.DataSourceCallback);
-					public setEndPosition(position: number): androidx.media2.common.MediaItem.Builder;
 					public build(): androidx.media2.common.CallbackMediaItem;
+					public setEndPosition(position: number): androidx.media2.common.MediaItem.Builder;
 					public setStartPosition(position: number): androidx.media2.common.CallbackMediaItem.Builder;
 					public build(): androidx.media2.common.MediaItem;
-					public setStartPosition(position: number): androidx.media2.common.MediaItem.Builder;
 					public setEndPosition(position: number): androidx.media2.common.CallbackMediaItem.Builder;
+					public setStartPosition(position: number): androidx.media2.common.MediaItem.Builder;
 				}
 			}
 		}
@@ -100,15 +100,15 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.media2.common.FileMediaItem.Builder>;
 					public setMetadata(metadata: androidx.media2.common.MediaMetadata): androidx.media2.common.MediaItem.Builder;
 					public constructor();
-					public setFileDescriptorLength(length: number): androidx.media2.common.FileMediaItem.Builder;
 					public setEndPosition(position: number): androidx.media2.common.MediaItem.Builder;
+					public setFileDescriptorLength(length: number): androidx.media2.common.FileMediaItem.Builder;
 					public constructor(pfd: globalAndroid.os.ParcelFileDescriptor);
 					public setMetadata(metadata: androidx.media2.common.MediaMetadata): androidx.media2.common.FileMediaItem.Builder;
 					public build(): androidx.media2.common.MediaItem;
 					public setStartPosition(position: number): androidx.media2.common.FileMediaItem.Builder;
 					public setStartPosition(position: number): androidx.media2.common.MediaItem.Builder;
-					public setEndPosition(position: number): androidx.media2.common.FileMediaItem.Builder;
 					public build(): androidx.media2.common.FileMediaItem;
+					public setEndPosition(position: number): androidx.media2.common.FileMediaItem.Builder;
 					public setFileDescriptorOffset(offset: number): androidx.media2.common.FileMediaItem.Builder;
 				}
 			}
@@ -124,8 +124,8 @@ declare module androidx {
 				public static POSITION_UNKNOWN: number;
 				public getMetadata(): androidx.media2.common.MediaMetadata;
 				public getEndPosition(): number;
-				public setMetadata(metadata: androidx.media2.common.MediaMetadata): void;
 				public addOnMetadataChangedListener(executor: java.util.concurrent.Executor, listener: androidx.media2.common.MediaItem.OnMetadataChangedListener): void;
+				public setMetadata(metadata: androidx.media2.common.MediaMetadata): void;
 				public getStartPosition(): number;
 				public toString(): string;
 				public removeOnMetadataChangedListener(listener: androidx.media2.common.MediaItem.OnMetadataChangedListener): void;
@@ -175,65 +175,65 @@ declare module androidx {
 		export module common {
 			export class MediaMetadata extends androidx.versionedparcelable.CustomVersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.common.MediaMetadata>;
-				public static METADATA_KEY_TITLE: string;
-				public static METADATA_KEY_ARTIST: string;
-				public static METADATA_KEY_DURATION: string;
-				public static METADATA_KEY_ALBUM: string;
-				public static METADATA_KEY_AUTHOR: string;
-				public static METADATA_KEY_WRITER: string;
-				public static METADATA_KEY_COMPOSER: string;
-				public static METADATA_KEY_COMPILATION: string;
-				public static METADATA_KEY_DATE: string;
-				public static METADATA_KEY_YEAR: string;
-				public static METADATA_KEY_GENRE: string;
-				public static METADATA_KEY_TRACK_NUMBER: string;
-				public static METADATA_KEY_NUM_TRACKS: string;
-				public static METADATA_KEY_DISC_NUMBER: string;
-				public static METADATA_KEY_ALBUM_ARTIST: string;
-				public static METADATA_KEY_ART: string;
-				public static METADATA_KEY_ART_URI: string;
-				public static METADATA_KEY_ALBUM_ART: string;
-				public static METADATA_KEY_ALBUM_ART_URI: string;
-				public static METADATA_KEY_USER_RATING: string;
-				public static METADATA_KEY_RATING: string;
-				public static METADATA_KEY_DISPLAY_TITLE: string;
-				public static METADATA_KEY_DISPLAY_SUBTITLE: string;
-				public static METADATA_KEY_DISPLAY_DESCRIPTION: string;
-				public static METADATA_KEY_DISPLAY_ICON: string;
-				public static METADATA_KEY_DISPLAY_ICON_URI: string;
-				public static METADATA_KEY_MEDIA_ID: string;
-				public static METADATA_KEY_MEDIA_URI: string;
-				public static METADATA_KEY_RADIO_FREQUENCY: string;
-				public static METADATA_KEY_RADIO_PROGRAM_NAME: string;
-				public static METADATA_KEY_BROWSABLE: string;
-				public static BROWSABLE_TYPE_NONE: number;
-				public static BROWSABLE_TYPE_MIXED: number;
-				public static BROWSABLE_TYPE_TITLES: number;
 				public static BROWSABLE_TYPE_ALBUMS: number;
 				public static BROWSABLE_TYPE_ARTISTS: number;
 				public static BROWSABLE_TYPE_GENRES: number;
+				public static BROWSABLE_TYPE_MIXED: number;
+				public static BROWSABLE_TYPE_NONE: number;
 				public static BROWSABLE_TYPE_PLAYLISTS: number;
+				public static BROWSABLE_TYPE_TITLES: number;
 				public static BROWSABLE_TYPE_YEARS: number;
-				public static METADATA_KEY_PLAYABLE: string;
 				public static METADATA_KEY_ADVERTISEMENT: string;
+				public static METADATA_KEY_ALBUM: string;
+				public static METADATA_KEY_ALBUM_ART: string;
+				public static METADATA_KEY_ALBUM_ARTIST: string;
+				public static METADATA_KEY_ALBUM_ART_URI: string;
+				public static METADATA_KEY_ART: string;
+				public static METADATA_KEY_ARTIST: string;
+				public static METADATA_KEY_ART_URI: string;
+				public static METADATA_KEY_AUTHOR: string;
+				public static METADATA_KEY_BROWSABLE: string;
+				public static METADATA_KEY_COMPILATION: string;
+				public static METADATA_KEY_COMPOSER: string;
+				public static METADATA_KEY_DATE: string;
+				public static METADATA_KEY_DISC_NUMBER: string;
+				public static METADATA_KEY_DISPLAY_DESCRIPTION: string;
+				public static METADATA_KEY_DISPLAY_ICON: string;
+				public static METADATA_KEY_DISPLAY_ICON_URI: string;
+				public static METADATA_KEY_DISPLAY_SUBTITLE: string;
+				public static METADATA_KEY_DISPLAY_TITLE: string;
 				public static METADATA_KEY_DOWNLOAD_STATUS: string;
-				public static STATUS_NOT_DOWNLOADED: number;
-				public static STATUS_DOWNLOADING: number;
-				public static STATUS_DOWNLOADED: number;
+				public static METADATA_KEY_DURATION: string;
 				public static METADATA_KEY_EXTRAS: string;
+				public static METADATA_KEY_GENRE: string;
+				public static METADATA_KEY_MEDIA_ID: string;
+				public static METADATA_KEY_MEDIA_URI: string;
+				public static METADATA_KEY_NUM_TRACKS: string;
+				public static METADATA_KEY_PLAYABLE: string;
+				public static METADATA_KEY_RADIO_FREQUENCY: string;
+				public static METADATA_KEY_RADIO_PROGRAM_NAME: string;
+				public static METADATA_KEY_RATING: string;
+				public static METADATA_KEY_TITLE: string;
+				public static METADATA_KEY_TRACK_NUMBER: string;
+				public static METADATA_KEY_USER_RATING: string;
+				public static METADATA_KEY_WRITER: string;
+				public static METADATA_KEY_YEAR: string;
+				public static STATUS_DOWNLOADED: number;
+				public static STATUS_DOWNLOADING: number;
+				public static STATUS_NOT_DOWNLOADED: number;
 				public getRating(key: string): androidx.media2.common.Rating;
 				public getExtras(): globalAndroid.os.Bundle;
 				public keySet(): java.util.Set<string>;
 				public containsKey(key: string): boolean;
-				public toString(): string;
 				public onPostParceling(): void;
-				public size(): number;
+				public toString(): string;
 				public onPreParceling(isStream: boolean): void;
+				public size(): number;
 				public getText(key: string): string;
-				public getLong(key: string): number;
 				public getBitmap(key: string): globalAndroid.graphics.Bitmap;
-				public getString(key: string): string;
+				public getLong(key: string): number;
 				public getFloat(key: string): number;
+				public getString(key: string): string;
 				public getObject(key: string): any;
 				public getMediaId(): string;
 			}
@@ -268,8 +268,8 @@ declare module androidx {
 					public putBitmap(key: string, value: globalAndroid.graphics.Bitmap): androidx.media2.common.MediaMetadata.Builder;
 					public putLong(key: string, value: number): androidx.media2.common.MediaMetadata.Builder;
 					public build(): androidx.media2.common.MediaMetadata;
-					public putString(key: string, value: string): androidx.media2.common.MediaMetadata.Builder;
 					public putRating(key: string, value: androidx.media2.common.Rating): androidx.media2.common.MediaMetadata.Builder;
+					public putString(key: string, value: string): androidx.media2.common.MediaMetadata.Builder;
 				}
 				export class BundleKey extends java.lang.Object implements java.lang.annotation.Annotation {
 					public static class: java.lang.Class<androidx.media2.common.MediaMetadata.BundleKey>;
@@ -436,48 +436,48 @@ declare module androidx {
 		export module common {
 			export abstract class SessionPlayer extends java.lang.Object implements java.io.Closeable {
 				public static class: java.lang.Class<androidx.media2.common.SessionPlayer>;
-				public static PLAYER_STATE_IDLE: number;
-				public static PLAYER_STATE_PAUSED: number;
-				public static PLAYER_STATE_PLAYING: number;
-				public static PLAYER_STATE_ERROR: number;
-				public static BUFFERING_STATE_UNKNOWN: number;
 				public static BUFFERING_STATE_BUFFERING_AND_PLAYABLE: number;
 				public static BUFFERING_STATE_BUFFERING_AND_STARVED: number;
 				public static BUFFERING_STATE_COMPLETE: number;
-				public static REPEAT_MODE_NONE: number;
-				public static REPEAT_MODE_ONE: number;
+				public static BUFFERING_STATE_UNKNOWN: number;
+				public static INVALID_ITEM_INDEX: number;
+				public static PLAYER_STATE_ERROR: number;
+				public static PLAYER_STATE_IDLE: number;
+				public static PLAYER_STATE_PAUSED: number;
+				public static PLAYER_STATE_PLAYING: number;
 				public static REPEAT_MODE_ALL: number;
 				public static REPEAT_MODE_GROUP: number;
-				public static SHUFFLE_MODE_NONE: number;
+				public static REPEAT_MODE_NONE: number;
+				public static REPEAT_MODE_ONE: number;
 				public static SHUFFLE_MODE_ALL: number;
 				public static SHUFFLE_MODE_GROUP: number;
+				public static SHUFFLE_MODE_NONE: number;
 				public static UNKNOWN_TIME: number;
-				public static INVALID_ITEM_INDEX: number;
 				public setShuffleMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public getPlayerState(): number;
 				public getCurrentMediaItem(): androidx.media2.common.MediaItem;
+				public getPlayerState(): number;
 				public getCurrentMediaItemIndex(): number;
 				public unregisterPlayerCallback(callback: androidx.media2.common.SessionPlayer.PlayerCallback): void;
 				public getDuration(): number;
-				public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public prepare(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public selectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public pause(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public play(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public constructor();
 				public setPlaybackSpeed(float0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPreviousMediaItemIndex(): number;
-				public skipToPlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setRepeatMode(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public skipToPlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getBufferedPosition(): number;
 				public updatePlaylistMetadata(mediaMetadata0: androidx.media2.common.MediaMetadata): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public setMediaItem(mediaItem0: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public getNextMediaItemIndex(): number;
 				public getCallbacks(): java.util.List<androidx.core.util.Pair<androidx.media2.common.SessionPlayer.PlayerCallback,java.util.concurrent.Executor>>;
+				public getNextMediaItemIndex(): number;
 				public getSelectedTrack(trackType: number): androidx.media2.common.SessionPlayer.TrackInfo;
 				public registerPlayerCallback(executor: java.util.concurrent.Executor, callback: androidx.media2.common.SessionPlayer.PlayerCallback): void;
-				public setAudioAttributes(audioAttributesCompat0: androidx.media.AudioAttributesCompat): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaybackSpeed(): number;
+				public setAudioAttributes(audioAttributesCompat0: androidx.media.AudioAttributesCompat): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public close(): void;
 				public skipToPreviousPlaylistItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getVideoSize(): androidx.media2.common.VideoSize;
@@ -489,14 +489,14 @@ declare module androidx {
 				public skipToNextPlaylistItem(): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getBufferingState(): number;
 				public removePlaylistItem(int0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
-				public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 				public deselectTrack(trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
+				public seekTo(long0: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public getPlaylist(): java.util.List<androidx.media2.common.MediaItem>;
 				public getAudioAttributes(): androidx.media.AudioAttributesCompat;
 				public getTracks(): java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>;
-				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 				public replacePlaylistItem(int0: number, mediaItem1: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
+				public setSurface(surface: globalAndroid.view.Surface): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 			}
 			export module SessionPlayer {
 				export class BuffState extends java.lang.Object implements java.lang.annotation.Annotation {
@@ -616,11 +616,11 @@ declare module androidx {
 				}
 				export class TrackInfo extends androidx.versionedparcelable.CustomVersionedParcelable {
 					public static class: java.lang.Class<androidx.media2.common.SessionPlayer.TrackInfo>;
+					public static MEDIA_TRACK_TYPE_AUDIO: number;
+					public static MEDIA_TRACK_TYPE_METADATA: number;
+					public static MEDIA_TRACK_TYPE_SUBTITLE: number;
 					public static MEDIA_TRACK_TYPE_UNKNOWN: number;
 					public static MEDIA_TRACK_TYPE_VIDEO: number;
-					public static MEDIA_TRACK_TYPE_AUDIO: number;
-					public static MEDIA_TRACK_TYPE_SUBTITLE: number;
-					public static MEDIA_TRACK_TYPE_METADATA: number;
 					public equals(obj: any): boolean;
 					public getId(): number;
 					public getLanguage(): java.util.Locale;
@@ -664,8 +664,8 @@ declare module androidx {
 		export module common {
 			export class SubtitleData extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.common.SubtitleData>;
-				public getDurationUs(): number;
 				public getData(): native.Array<number>;
+				public getDurationUs(): number;
 				public equals(obj: any): boolean;
 				public getStartTimeUs(): number;
 				public hashCode(): number;
@@ -714,8 +714,8 @@ declare module androidx {
 			export module UriMediaItem {
 				export class Builder extends androidx.media2.common.MediaItem.Builder {
 					public static class: java.lang.Class<androidx.media2.common.UriMediaItem.Builder>;
-					public setStartPosition(position: number): androidx.media2.common.UriMediaItem.Builder;
 					public setEndPosition(position: number): androidx.media2.common.UriMediaItem.Builder;
+					public setStartPosition(position: number): androidx.media2.common.UriMediaItem.Builder;
 					public setMetadata(metadata: androidx.media2.common.MediaMetadata): androidx.media2.common.MediaItem.Builder;
 					public constructor();
 					public constructor(uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>, cookies: java.util.List<java.net.HttpCookie>);
@@ -736,8 +736,8 @@ declare module androidx {
 		export module common {
 			export class VideoSize extends java.lang.Object implements androidx.versionedparcelable.VersionedParcelable {
 				public static class: java.lang.Class<androidx.media2.common.VideoSize>;
-				public getWidth(): number;
 				public getHeight(): number;
+				public getWidth(): number;
 				public equals(obj: any): boolean;
 				public hashCode(): number;
 				public constructor(width: number, height: number);

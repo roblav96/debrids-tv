@@ -5,10 +5,10 @@ declare module com {
 				export module ui {
 					export class AspectRatioFrameLayout extends globalAndroid.widget.FrameLayout {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.AspectRatioFrameLayout>;
-						public static RESIZE_MODE_FIT: number;
-						public static RESIZE_MODE_FIXED_WIDTH: number;
-						public static RESIZE_MODE_FIXED_HEIGHT: number;
 						public static RESIZE_MODE_FILL: number;
+						public static RESIZE_MODE_FIT: number;
+						public static RESIZE_MODE_FIXED_HEIGHT: number;
+						public static RESIZE_MODE_FIXED_WIDTH: number;
 						public static RESIZE_MODE_ZOOM: number;
 						public isLayoutRequested(): boolean;
 						public bringChildToFront(child: globalAndroid.view.View): void;
@@ -135,11 +135,11 @@ declare module com {
 				export module ui {
 					export class BuildConfig extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.BuildConfig>;
-						public static DEBUG: boolean;
-						public static LIBRARY_PACKAGE_NAME: string;
 						public static APPLICATION_ID: string;
 						public static BUILD_TYPE: string;
+						public static DEBUG: boolean;
 						public static FLAVOR: string;
+						public static LIBRARY_PACKAGE_NAME: string;
 						public static VERSION_CODE: number;
 						public static VERSION_NAME: string;
 						public constructor();
@@ -201,8 +201,8 @@ declare module com {
 						public onPlayWhenReadyChanged(playWhenReady: boolean, playbackState: number): void;
 						/** @deprecated */
 						public onLoadingChanged(isLoading: boolean): void;
-						public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 						public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+						public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 						public constructor(player: com.google.android.exoplayer2.SimpleExoPlayer, textView: globalAndroid.widget.TextView);
 						public onIsPlayingChanged(isPlaying: boolean): void;
 						public updateAndPost(): void;
@@ -212,9 +212,9 @@ declare module com {
 						public onSeekProcessed(): void;
 						public stop(): void;
 						public onPlaybackStateChanged(playbackState: number): void;
-						public start(): void;
-						public run(): void;
 						public getDebugString(): string;
+						public run(): void;
+						public start(): void;
 						public onPlaybackStateChanged(state: number): void;
 						public getPlayerStateString(): string;
 						/** @deprecated */
@@ -234,21 +234,21 @@ declare module com {
 				export module ui {
 					export class DefaultTimeBar extends globalAndroid.view.View implements com.google.android.exoplayer2.ui.TimeBar {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.DefaultTimeBar>;
-						public static DEFAULT_BAR_HEIGHT_DP: number;
-						public static DEFAULT_TOUCH_TARGET_HEIGHT_DP: number;
+						public static BAR_GRAVITY_BOTTOM: number;
+						public static BAR_GRAVITY_CENTER: number;
+						public static BAR_GRAVITY_TOP: number;
+						public static DEFAULT_AD_MARKER_COLOR: number;
 						public static DEFAULT_AD_MARKER_WIDTH_DP: number;
-						public static DEFAULT_SCRUBBER_ENABLED_SIZE_DP: number;
+						public static DEFAULT_BAR_HEIGHT_DP: number;
+						public static DEFAULT_BUFFERED_COLOR: number;
+						public static DEFAULT_PLAYED_AD_MARKER_COLOR: number;
+						public static DEFAULT_PLAYED_COLOR: number;
+						public static DEFAULT_SCRUBBER_COLOR: number;
 						public static DEFAULT_SCRUBBER_DISABLED_SIZE_DP: number;
 						public static DEFAULT_SCRUBBER_DRAGGED_SIZE_DP: number;
-						public static DEFAULT_PLAYED_COLOR: number;
+						public static DEFAULT_SCRUBBER_ENABLED_SIZE_DP: number;
+						public static DEFAULT_TOUCH_TARGET_HEIGHT_DP: number;
 						public static DEFAULT_UNPLAYED_COLOR: number;
-						public static DEFAULT_BUFFERED_COLOR: number;
-						public static DEFAULT_SCRUBBER_COLOR: number;
-						public static DEFAULT_AD_MARKER_COLOR: number;
-						public static DEFAULT_PLAYED_AD_MARKER_COLOR: number;
-						public static BAR_GRAVITY_CENTER: number;
-						public static BAR_GRAVITY_BOTTOM: number;
-						public static BAR_GRAVITY_TOP: number;
 						public setKeyCountIncrement(count: number): void;
 						public setPosition(position: number): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
@@ -272,18 +272,18 @@ declare module com {
 						public setAdGroupTimesMs(adGroupTimesMs: native.Array<number>, playedAdGroups: native.Array<boolean>, adGroupCount: number): void;
 						public onRtlPropertiesChanged(layoutDirection: number): void;
 						public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
-						public showScrubber(showAnimationDurationMs: number): void;
 						public setDuration(duration: number): void;
+						public showScrubber(showAnimationDurationMs: number): void;
 						public setAdMarkerColor(adMarkerColor: number): void;
 						public hideScrubber(hideAnimationDurationMs: number): void;
 						public setUnplayedColor(unplayedColor: number): void;
 						public sendAccessibilityEvent(eventType: number): void;
 						public setEnabled(enabled: boolean): void;
 						public jumpDrawablesToCurrentState(): void;
-						public setKeyTimeIncrement(time: number): void;
 						public getPreferredUpdateDelay(): number;
-						public setPlayedAdMarkerColor(playedAdMarkerColor: number): void;
+						public setKeyTimeIncrement(time: number): void;
 						public onTouchEvent(event: globalAndroid.view.MotionEvent): boolean;
+						public setPlayedAdMarkerColor(playedAdMarkerColor: number): void;
 						public hideScrubber(): void;
 						public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 						public setScrubberColor(scrubberColor: number): void;
@@ -377,8 +377,8 @@ declare module com {
 				export module ui {
 					export class PlayerControlView extends globalAndroid.widget.FrameLayout {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.PlayerControlView>;
-						public static DEFAULT_SHOW_TIMEOUT_MS: number;
 						public static DEFAULT_REPEAT_TOGGLE_MODES: number;
+						public static DEFAULT_SHOW_TIMEOUT_MS: number;
 						public static DEFAULT_TIME_BAR_MIN_UPDATE_INTERVAL_MS: number;
 						public static MAX_WINDOWS_FOR_MULTI_WINDOW_TIME_BAR: number;
 						public isLayoutRequested(): boolean;
@@ -387,9 +387,9 @@ declare module com {
 						public setShowTimeoutMs(showTimeoutMs: number): void;
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
+						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						/** @deprecated */
 						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
-						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 						public getTextDirection(): number;
@@ -473,8 +473,8 @@ declare module com {
 						public removeView(view: globalAndroid.view.View): void;
 						public removeVisibilityListener(listener: com.google.android.exoplayer2.ui.PlayerControlView.VisibilityListener): void;
 						public showContextMenuForChild(originalView: globalAndroid.view.View, x: number, y: number): boolean;
-						public setShowMultiWindowTimeBar(showMultiWindowTimeBar: boolean): void;
 						public dispatchTouchEvent(ev: globalAndroid.view.MotionEvent): boolean;
+						public setShowMultiWindowTimeBar(showMultiWindowTimeBar: boolean): void;
 						public onNestedScroll(target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
 						public addView(child: globalAndroid.view.View, width: number, height: number): void;
 						public addView(child: globalAndroid.view.View, index: number, params: globalAndroid.view.ViewGroup.LayoutParams): void;
@@ -485,8 +485,8 @@ declare module com {
 						public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 						public setTimeBarMinUpdateInterval(minUpdateIntervalMs: number): void;
 						public createContextMenu(menu: globalAndroid.view.ContextMenu): void;
-						public setRepeatToggleModes(repeatToggleModes: number): void;
 						public onDetachedFromWindow(): void;
+						public setRepeatToggleModes(repeatToggleModes: number): void;
 						public hide(): void;
 						public showContextMenuForChild(originalView: globalAndroid.view.View): boolean;
 					}
@@ -496,24 +496,24 @@ declare module com {
 							public onIsPlayingChanged(isPlaying: boolean): void;
 							public onRepeatModeChanged(repeatMode: number): void;
 							public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
-							public onScrubStart(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+							public onScrubStart(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							/** @deprecated */
 							public onSeekProcessed(): void;
-							public onPlaybackStateChanged(playbackState: number): void;
 							public onClick(view: globalAndroid.view.View): void;
-							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
+							public onPlaybackStateChanged(playbackState: number): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
+							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 							public onScrubStop(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number, canceled: boolean): void;
 							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
-							public onScrubMove(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							/** @deprecated */
 							public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+							public onScrubMove(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							public onPlaybackStateChanged(state: number): void;
 							public onIsLoadingChanged(isLoading: boolean): void;
 							public onPositionDiscontinuity(reason: number): void;
@@ -557,25 +557,25 @@ declare module com {
 				export module ui {
 					export class PlayerNotificationManager extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.PlayerNotificationManager>;
-						public static ACTION_PLAY: string;
-						public static ACTION_PAUSE: string;
-						public static ACTION_PREVIOUS: string;
-						public static ACTION_NEXT: string;
 						public static ACTION_FAST_FORWARD: string;
+						public static ACTION_NEXT: string;
+						public static ACTION_PAUSE: string;
+						public static ACTION_PLAY: string;
+						public static ACTION_PREVIOUS: string;
 						public static ACTION_REWIND: string;
 						public static ACTION_STOP: string;
 						public static EXTRA_INSTANCE_ID: string;
-						public setUseNextAction(useNextAction: boolean): void;
 						public getActions(player: com.google.android.exoplayer2.Player): java.util.List<string>;
+						public setUseNextAction(useNextAction: boolean): void;
 						public constructor(context: globalAndroid.content.Context, channelId: string, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, customActionReceiver: com.google.android.exoplayer2.ui.PlayerNotificationManager.CustomActionReceiver);
 						/** @deprecated */
 						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter): com.google.android.exoplayer2.ui.PlayerNotificationManager;
 						/** @deprecated */
 						public setUseNavigationActionsInCompactView(useNavigationActionsInCompactView: boolean): void;
-						public setPlayer(player: com.google.android.exoplayer2.Player): void;
+						public getActionIndicesForCompactView(actionNames: java.util.List<string>, player: com.google.android.exoplayer2.Player): native.Array<number>;
 						/** @deprecated */
 						public setNotificationListener(notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): void;
-						public getActionIndicesForCompactView(actionNames: java.util.List<string>, player: com.google.android.exoplayer2.Player): native.Array<number>;
+						public setPlayer(player: com.google.android.exoplayer2.Player): void;
 						public setUseChronometer(useChronometer: boolean): void;
 						public constructor(context: globalAndroid.content.Context, channelId: string, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener);
 						public setMediaSessionToken(token: globalAndroid.support.v4.media.session.MediaSessionCompat.Token): void;
@@ -591,8 +591,8 @@ declare module com {
 						public setUseStopAction(useStopAction: boolean): void;
 						public setControlDispatcher(controlDispatcher: com.google.android.exoplayer2.ControlDispatcher): void;
 						public setSmallIcon(smallIconResourceId: number): void;
-						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, channelDescription: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): com.google.android.exoplayer2.ui.PlayerNotificationManager;
 						public constructor(context: globalAndroid.content.Context, channelId: string, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener, customActionReceiver: com.google.android.exoplayer2.ui.PlayerNotificationManager.CustomActionReceiver);
+						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, channelDescription: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): com.google.android.exoplayer2.ui.PlayerNotificationManager;
 						public setColor(color: number): void;
 						/** @deprecated */
 						public static createWithNotificationChannel(context: globalAndroid.content.Context, channelId: string, channelName: number, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter, notificationListener: com.google.android.exoplayer2.ui.PlayerNotificationManager.NotificationListener): com.google.android.exoplayer2.ui.PlayerNotificationManager;
@@ -606,8 +606,8 @@ declare module com {
 						/** @deprecated */
 						public setFastForwardIncrementMs(fastForwardMs: number): void;
 						public setDefaults(defaults: number): void;
-						public setVisibility(visibility: number): void;
 						public getOngoing(player: com.google.android.exoplayer2.Player): boolean;
+						public setVisibility(visibility: number): void;
 						public constructor(context: globalAndroid.content.Context, channelId: string, notificationId: number, mediaDescriptionAdapter: com.google.android.exoplayer2.ui.PlayerNotificationManager.MediaDescriptionAdapter);
 					}
 					export module PlayerNotificationManager {
@@ -682,9 +682,9 @@ declare module com {
 							/** @deprecated */
 							public onSeekProcessed(): void;
 							public onPlaybackStateChanged(playbackState: number): void;
-							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
+							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
@@ -747,9 +747,9 @@ declare module com {
 				export module ui {
 					export class PlayerView extends globalAndroid.widget.FrameLayout implements com.google.android.exoplayer2.source.ads.AdsLoader.AdViewProvider {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.PlayerView>;
+						public static SHOW_BUFFERING_ALWAYS: number;
 						public static SHOW_BUFFERING_NEVER: number;
 						public static SHOW_BUFFERING_WHEN_PLAYING: number;
-						public static SHOW_BUFFERING_ALWAYS: number;
 						public setErrorMessageProvider(errorMessageProvider: com.google.android.exoplayer2.util.ErrorMessageProvider<any>): void;
 						public isLayoutRequested(): boolean;
 						/** @deprecated */
@@ -757,8 +757,8 @@ declare module com {
 						public bringChildToFront(child: globalAndroid.view.View): void;
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
-						public setShowBuffering(showBuffering: number): void;
 						public performClick(): boolean;
+						public setShowBuffering(showBuffering: number): void;
 						public setUseArtwork(useArtwork: boolean): void;
 						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						/** @deprecated */
@@ -862,8 +862,8 @@ declare module com {
 						public removeView(view: globalAndroid.view.View): void;
 						public setUseController(useController: boolean): void;
 						public showContextMenuForChild(originalView: globalAndroid.view.View, x: number, y: number): boolean;
-						public setShowMultiWindowTimeBar(showMultiWindowTimeBar: boolean): void;
 						public onTrackballEvent(event: globalAndroid.view.MotionEvent): boolean;
+						public setShowMultiWindowTimeBar(showMultiWindowTimeBar: boolean): void;
 						public getVideoSurfaceView(): globalAndroid.view.View;
 						public onNestedScroll(target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
 						public addView(child: globalAndroid.view.View, width: number, height: number): void;
@@ -895,11 +895,11 @@ declare module com {
 							public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 							public onPlaybackStateChanged(playbackState: number): void;
 							public constructor(param0: com.google.android.exoplayer2.ui.PlayerView);
-							public onRenderedFirstFrame(): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
-							public onTracksChanged(tracks: com.google.android.exoplayer2.source.TrackGroupArray, selections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+							public onRenderedFirstFrame(): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
+							public onTracksChanged(tracks: com.google.android.exoplayer2.source.TrackGroupArray, selections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							public onSurfaceSizeChanged(width: number, height: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
@@ -959,15 +959,15 @@ declare module com {
 					export module SpannedToHtmlConverter {
 						export class HtmlAndCss extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.SpannedToHtmlConverter.HtmlAndCss>;
-							public html: string;
 							public cssRuleSets: java.util.Map<string,string>;
+							public html: string;
 						}
 						export class SpanInfo extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.SpannedToHtmlConverter.SpanInfo>;
-							public start: number;
+							public closingTag: string;
 							public end: number;
 							public openingTag: string;
-							public closingTag: string;
+							public start: number;
 						}
 						export class Transition extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.SpannedToHtmlConverter.Transition>;
@@ -987,8 +987,8 @@ declare module com {
 				export module ui {
 					export class StyledPlayerControlView extends globalAndroid.widget.FrameLayout {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView>;
-						public static DEFAULT_SHOW_TIMEOUT_MS: number;
 						public static DEFAULT_REPEAT_TOGGLE_MODES: number;
+						public static DEFAULT_SHOW_TIMEOUT_MS: number;
 						public static DEFAULT_TIME_BAR_MIN_UPDATE_INTERVAL_MS: number;
 						public static MAX_WINDOWS_FOR_MULTI_WINDOW_TIME_BAR: number;
 						public isLayoutRequested(): boolean;
@@ -998,9 +998,9 @@ declare module com {
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
 						public setProgressUpdateListener(listener: com.google.android.exoplayer2.ui.StyledPlayerControlView.ProgressUpdateListener): void;
+						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						/** @deprecated */
 						public setPlaybackPreparer(playbackPreparer: com.google.android.exoplayer2.PlaybackPreparer): void;
-						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
 						public setAnimationEnabled(animationEnabled: boolean): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
@@ -1097,8 +1097,8 @@ declare module com {
 						public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 						public setTimeBarMinUpdateInterval(minUpdateIntervalMs: number): void;
 						public createContextMenu(menu: globalAndroid.view.ContextMenu): void;
-						public setRepeatToggleModes(repeatToggleModes: number): void;
 						public onDetachedFromWindow(): void;
+						public setRepeatToggleModes(repeatToggleModes: number): void;
 						public hide(): void;
 						public showContextMenuForChild(originalView: globalAndroid.view.View): boolean;
 					}
@@ -1138,9 +1138,9 @@ declare module com {
 							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 							public onScrubStop(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number, canceled: boolean): void;
-							public onScrubMove(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							/** @deprecated */
 							public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+							public onScrubMove(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 							public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
 						}
@@ -1194,9 +1194,9 @@ declare module com {
 							public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup, int1: number): any;
 							public onBindViewHolder(holder: any, position: number, payloads: java.util.List<any>): void;
 							public getItemCount(): number;
-							public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingViewHolder;
 							public onBindViewHolder(viewHolder0: any, int1: number): void;
 							public onBindViewHolder(holder: com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingViewHolder, position: number): void;
+							public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingViewHolder;
 							public setCheckPosition(checkPosition: number): void;
 							public setTexts(texts: java.util.List<string>): void;
 						}
@@ -1214,21 +1214,21 @@ declare module com {
 						}
 						export class TrackInfo extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackInfo>;
-							public rendererIndex: number;
 							public groupIndex: number;
+							public rendererIndex: number;
+							public selected: boolean;
 							public trackIndex: number;
 							public trackName: string;
-							public selected: boolean;
 							public constructor(rendererIndex: number, groupIndex: number, trackIndex: number, trackName: string, selected: boolean);
 						}
 						export abstract class TrackSelectionAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackSelectionViewHolder> {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackSelectionAdapter>;
+							public mappedTrackInfo: com.google.android.exoplayer2.trackselection.MappingTrackSelector.MappedTrackInfo;
 							public rendererIndices: java.util.List<java.lang.Integer>;
 							public tracks: java.util.List<com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackInfo>;
-							public mappedTrackInfo: com.google.android.exoplayer2.trackselection.MappingTrackSelector.MappedTrackInfo;
 							public constructor();
-							public onTrackSelection(string0: string): void;
 							public onBindViewHolder(holder: com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackSelectionViewHolder, position: number): void;
+							public onTrackSelection(string0: string): void;
 							public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup, int1: number): any;
 							public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackSelectionViewHolder;
 							public constructor(param0: com.google.android.exoplayer2.ui.StyledPlayerControlView);
@@ -1241,8 +1241,8 @@ declare module com {
 						}
 						export class TrackSelectionViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackSelectionViewHolder>;
-							public textView: globalAndroid.widget.TextView;
 							public checkView: globalAndroid.view.View;
+							public textView: globalAndroid.widget.TextView;
 							public constructor(itemView: globalAndroid.view.View);
 						}
 						export class VisibilityListener extends java.lang.Object {
@@ -1297,16 +1297,16 @@ declare module com {
 				export module ui {
 					export class StyledPlayerView extends globalAndroid.widget.FrameLayout implements com.google.android.exoplayer2.source.ads.AdsLoader.AdViewProvider {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerView>;
+						public static SHOW_BUFFERING_ALWAYS: number;
 						public static SHOW_BUFFERING_NEVER: number;
 						public static SHOW_BUFFERING_WHEN_PLAYING: number;
-						public static SHOW_BUFFERING_ALWAYS: number;
 						public setErrorMessageProvider(errorMessageProvider: com.google.android.exoplayer2.util.ErrorMessageProvider<any>): void;
 						public isLayoutRequested(): boolean;
 						public bringChildToFront(child: globalAndroid.view.View): void;
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
-						public setShowBuffering(showBuffering: number): void;
 						public performClick(): boolean;
+						public setShowBuffering(showBuffering: number): void;
 						public setUseArtwork(useArtwork: boolean): void;
 						public setControllerVisibilityListener(listener: com.google.android.exoplayer2.ui.StyledPlayerControlView.VisibilityListener): void;
 						public dispatchMediaKeyEvent(event: globalAndroid.view.KeyEvent): boolean;
@@ -1407,8 +1407,8 @@ declare module com {
 						public removeView(view: globalAndroid.view.View): void;
 						public setUseController(useController: boolean): void;
 						public showContextMenuForChild(originalView: globalAndroid.view.View, x: number, y: number): boolean;
-						public setShowMultiWindowTimeBar(showMultiWindowTimeBar: boolean): void;
 						public onTrackballEvent(event: globalAndroid.view.MotionEvent): boolean;
+						public setShowMultiWindowTimeBar(showMultiWindowTimeBar: boolean): void;
 						public getVideoSurfaceView(): globalAndroid.view.View;
 						public onNestedScroll(target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
 						public addView(child: globalAndroid.view.View, width: number, height: number): void;
@@ -1439,11 +1439,11 @@ declare module com {
 							public onRepeatModeChanged(repeatMode: number): void;
 							public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 							public onPlaybackStateChanged(playbackState: number): void;
-							public onRenderedFirstFrame(): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
-							public onTracksChanged(tracks: com.google.android.exoplayer2.source.TrackGroupArray, selections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+							public onRenderedFirstFrame(): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
+							public onTracksChanged(tracks: com.google.android.exoplayer2.source.TrackGroupArray, selections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							public onSurfaceSizeChanged(width: number, height: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
@@ -1515,8 +1515,8 @@ declare module com {
 				export module ui {
 					export class SubtitleView extends globalAndroid.widget.FrameLayout implements com.google.android.exoplayer2.text.TextOutput {
 						public static class: java.lang.Class<com.google.android.exoplayer2.ui.SubtitleView>;
-						public static DEFAULT_TEXT_SIZE_FRACTION: number;
 						public static DEFAULT_BOTTOM_PADDING_FRACTION: number;
+						public static DEFAULT_TEXT_SIZE_FRACTION: number;
 						public static VIEW_TYPE_CANVAS: number;
 						public static VIEW_TYPE_WEB: number;
 						public isLayoutRequested(): boolean;
@@ -1747,8 +1747,8 @@ declare module com {
 						public setTheme(themeResId: number): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
 						public setShowDisableOption(showDisableOption: boolean): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
 						public setOverrides(overrides: java.util.List<com.google.android.exoplayer2.trackselection.DefaultTrackSelector.SelectionOverride>): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
-						public setIsDisabled(isDisabled: boolean): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
 						public setAllowMultipleOverrides(allowMultipleOverrides: boolean): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
+						public setIsDisabled(isDisabled: boolean): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
 						public constructor(context: globalAndroid.content.Context, title: string, mappedTrackInfo: com.google.android.exoplayer2.trackselection.MappingTrackSelector.MappedTrackInfo, rendererIndex: number, callback: com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder.DialogCallback);
 						public build(): globalAndroid.app.Dialog;
 						public setOverride(override: com.google.android.exoplayer2.trackselection.DefaultTrackSelector.SelectionOverride): com.google.android.exoplayer2.ui.TrackSelectionDialogBuilder;
@@ -1865,9 +1865,9 @@ declare module com {
 						}
 						export class TrackInfo extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.TrackSelectionView.TrackInfo>;
+							public format: com.google.android.exoplayer2.Format;
 							public groupIndex: number;
 							public trackIndex: number;
-							public format: com.google.android.exoplayer2.Format;
 							public constructor(groupIndex: number, trackIndex: number, format: com.google.android.exoplayer2.Format);
 						}
 						export class TrackSelectionListener extends java.lang.Object {
@@ -1900,8 +1900,8 @@ declare module com {
 						public childHasTransientStateChanged(child: globalAndroid.view.View, childHasTransientState: boolean): void;
 						public canResolveLayoutDirection(): boolean;
 						public onNestedPrePerformAccessibilityAction(target: globalAndroid.view.View, action: number, bundle2: globalAndroid.os.Bundle): boolean;
-						public update(cues: java.util.List<com.google.android.exoplayer2.text.Cue>, style: com.google.android.exoplayer2.text.CaptionStyleCompat, textSize: number, textSizeType: number, bottomPaddingFraction: number): void;
 						public destroy(): void;
+						public update(cues: java.util.List<com.google.android.exoplayer2.text.Cue>, style: com.google.android.exoplayer2.text.CaptionStyleCompat, textSize: number, textSizeType: number, bottomPaddingFraction: number): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
 						public updateViewLayout(view: globalAndroid.view.View, params: globalAndroid.view.ViewGroup.LayoutParams): void;
 						public sendAccessibilityEventUnchecked(event: globalAndroid.view.accessibility.AccessibilityEvent): void;
@@ -2122,8 +2122,8 @@ declare module com {
 								public static class: java.lang.Class<com.google.android.exoplayer2.ui.spherical.SphericalGLSurfaceView.Renderer>;
 								public onOrientationChange(matrix: native.Array<number>, deviceRoll: number): void;
 								public constructor(this0: com.google.android.exoplayer2.ui.spherical.SphericalGLSurfaceView, scene: com.google.android.exoplayer2.ui.spherical.SceneRenderer);
-								public onSurfaceChanged(gl: javax.microedition.khronos.opengles.GL10, width: number, height: number): void;
 								public onScrollChange(scrollOffsetDegrees: globalAndroid.graphics.PointF): void;
+								public onSurfaceChanged(gl: javax.microedition.khronos.opengles.GL10, width: number, height: number): void;
 								public onDrawFrame(gl: javax.microedition.khronos.opengles.GL10): void;
 								public onSurfaceCreated(gl: javax.microedition.khronos.opengles.GL10, config: javax.microedition.khronos.egl.EGLConfig): void;
 							}

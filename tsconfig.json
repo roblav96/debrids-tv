@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
@@ -11,16 +10,17 @@
 		"noEmitHelpers": true,
 		"noEmitOnError": false,
 		"paths": { "~/*": ["src/*"] },
+		"plugins": [{ "name": "ts-vue-plugin" }],
 		"skipLibCheck": true,
+		"sourceMap": true,
 		"target": "es2017"
 	},
 	"exclude": ["platforms"],
 	"include": [
-		"node_modules/svelte/types/**/*.d.ts",
 		"node_modules/@nativescript/types-android/lib/android-29.d.ts",
 		"types/**/*.d.ts",
 		"src/**/*.d.ts",
 		"src/**/*.ts",
-		"src/**/*.svelte"
+		"src/**/*.vue"
 	]
 }

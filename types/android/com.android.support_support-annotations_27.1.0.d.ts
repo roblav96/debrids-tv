@@ -1040,11 +1040,11 @@ declare module android {
 			export module RestrictTo {
 				export class Scope {
 					public static class: java.lang.Class<android.support.annotation.RestrictTo.Scope>;
+					public static GROUP_ID: android.support.annotation.RestrictTo.Scope;
 					public static LIBRARY: android.support.annotation.RestrictTo.Scope;
 					public static LIBRARY_GROUP: android.support.annotation.RestrictTo.Scope;
-					public static GROUP_ID: android.support.annotation.RestrictTo.Scope;
-					public static TESTS: android.support.annotation.RestrictTo.Scope;
 					public static SUBCLASSES: android.support.annotation.RestrictTo.Scope;
+					public static TESTS: android.support.annotation.RestrictTo.Scope;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static values(): native.Array<android.support.annotation.RestrictTo.Scope>;
 					public static valueOf(name: string): android.support.annotation.RestrictTo.Scope;

@@ -16,19 +16,17 @@ Application.android.on('activityNewIntent', function activityNewIntent(args) {
 	console.log('activityNewIntent action.VIEW ->', url)
 })
 
-import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.svelte'
-import { showModal } from 'svelte-native'
+// import type { ExoPlayerActivity } from '~/exoplayer/ExoPlayerActivity'
+import * as intents from '~/utils/intents'
+import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.vue'
+import Vue from 'nativescript-vue'
+
 Application.on('displayed', function displayed(args) {
-	console.log('ExoPlayerModal ->', ExoPlayerModal)
+	let activity = (args as any).activity as androidx.appcompat.app.AppCompatActivity
 	try {
-		console.log('showModal ->', showModal)
-		showModal({
-			page: ExoPlayerModal,
-			fullscreen: true,
-			stretched: true,
-			animated: true,
-			android: { cancelable: false },
-		})
+		let intent = new android.content.Intent(activity, app.debrids.tv.ExoPlayerActivity.class)
+		intents.setVideos(intent, [process.env.TEST_MKV])
+		activity.startActivity(intent)
 	} catch (error) {
 		console.error('displayed ->', error)
 	}

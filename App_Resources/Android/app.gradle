@@ -6,6 +6,7 @@ repositories {
 
 dependencies {
 	implementation 'androidx.legacy:legacy-support-v4:1.+'
+	implementation 'com.android.support:multidex:1.+'
 	implementation 'androidx.appcompat:appcompat:1.2.+'
 	implementation 'androidx.core:core:1.3.+'
 	implementation 'androidx.media:media:1.2.+'
@@ -27,7 +28,7 @@ dependencies {
 	implementation 'com.squareup.okio:okio:1.+'
 	implementation 'com.squareup.picasso:picasso:+'
 
-	implementation 'com.yyl.ffmpeg:ffmpeg_cmd:+'
+	implementation 'com.arthenica:mobile-ffmpeg-full:+'
 	implementation 'com.tananaev:adblib:+'
 }
 
