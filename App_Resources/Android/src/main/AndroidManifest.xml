@@ -34,8 +34,7 @@
 		android:usesCleartextTraffic="true"
 	>
 		<activity
-			android:configChanges="keyboard|keyboardHidden|navigation"
-			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:configChanges="keyboard|keyboardHidden|layoutDirection|navigation|orientation|screenLayout|screenSize|smallestScreenSize"
 			android:label="@string/title_activity_kimera"
 			android:name="com.tns.NativeScriptActivity"
 			android:launchMode="singleTop"
@@ -50,6 +49,7 @@
 		</activity>
 		<activity android:name="com.tns.ErrorReportActivity" />
 		<activity
+			android:configChanges="keyboard|keyboardHidden|layoutDirection|navigation|orientation|screenLayout|screenSize|smallestScreenSize"
 			android:label="ExoPlayerActivity"
 			android:launchMode="singleTop"
 			android:name="app.debrids.tv.ExoPlayerActivity"

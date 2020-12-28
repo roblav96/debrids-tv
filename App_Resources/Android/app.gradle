@@ -5,18 +5,23 @@ repositories {
 }
 
 dependencies {
+
+	// ████  androidx.d.ts  ████
+
 	implementation 'androidx.legacy:legacy-support-v4:1.+'
-	implementation 'com.android.support:multidex:1.+'
 	implementation 'androidx.appcompat:appcompat:1.2.+'
 	implementation 'androidx.core:core:1.3.+'
 	implementation 'androidx.media:media:1.2.+'
 	implementation 'com.google.android.material:material:1.2.+'
+
+	// ████  app.gradle  ████
 
 	implementation 'androidx.tvprovider:tvprovider:1.0.+'
 	implementation 'androidx.constraintlayout:constraintlayout:2.0.+'
 	implementation 'androidx.media2:media2-common:+'
 	implementation 'androidx.media2:media2-session:+'
 	implementation 'androidx.media2:media2-widget:+'
+	// implementation 'androidx.media2:media2-player:+'
 
 	implementation 'com.google.android.exoplayer:exoplayer:+'
 	implementation 'com.google.android.exoplayer:extension-leanback:+'
@@ -30,15 +35,37 @@ dependencies {
 
 	implementation 'com.arthenica:mobile-ffmpeg-full:+'
 	implementation 'com.tananaev:adblib:+'
+	implementation 'tv.hd3g:fflauncher:+'
+
+	implementation 'tv.danmaku.ijk.media:ijkplayer-java:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-exo:+'
+	implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:+'
+	implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:+'
+	implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:+'
+	implementation 'tv.danmaku.ijk.media:ijkplayer-x86:+'
+	implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:+'
+
+	implementation 'cn.jzvd:jiaozivideoplayer:+'
+
+	implementation 'im.ene.kohii:kohii-core:+'
+	implementation 'im.ene.kohii:kohii-exoplayer:+'
+	// implementation 'im.ene.kohii:kohii-androidx:+'
+
+	implementation 'com.kk.taurus.playerbase:playerbase:+'
+	implementation 'cn.jiajunhui:ijkplayer:+'
+	// implementation 'cn.jiajunhui:exoplayer:+'
+
+	// implementation 'androidx.multidex:multidex:+'
+
 }
 
 android {
 	// buildToolsVersion '29.0.3'
 	// compileSdkVersion 29
 	defaultConfig {
-		minSdkVersion 26
+		minSdkVersion 28
 		// targetSdkVersion 29
-		multiDexEnabled true
+		// multiDexEnabled true
 		generatedDensities = []
 	}
 	compileOptions {
@@ -46,16 +73,16 @@ android {
 		targetCompatibility JavaVersion.VERSION_1_8
 	}
 	aaptOptions {
-		additionalParameters "--no-version-vectors"
+		additionalParameters '--no-version-vectors'
 	}
 }
 
-// println "\n================"
-// println "\nproject -> " + project.getProperties()
-// println "\nproject.ext -> " + project.ext.getProperties()
-// println "\ncompileSdk -> " + project.getProperty("compileSdk")
-// println "\ntargetSdk -> " + project.getProperty("targetSdk")
-// println "\nbuildToolsVersion -> " + project.getProperty("buildToolsVersion")
-// println "\nminSdkVersion -> " + android.defaultConfig.getProperty("minSdkVersion").mApiLevel
-// println "\nandroid.compileOptions -> " + android.compileOptions.getProperties()
-// println "\n================"
+// println '\n\n================'
+// println '\n\nproject -> ' + project.getProperties()
+// println '\n\nproject.ext -> ' + project.ext.getProperties()
+// println '\n\nandroid.compileOptions -> ' + android.compileOptions.getProperties()
+// println '\n\ncompileSdk -> ' + project.getProperty('compileSdk')
+// println '\n\ntargetSdk -> ' + project.getProperty('targetSdk')
+// println '\n\nbuildToolsVersion -> ' + project.getProperty('buildToolsVersion')
+// println '\n\nminSdkVersion -> ' + android.defaultConfig.getProperty('minSdkVersion').mApiLevel
+// println '\n\n================'

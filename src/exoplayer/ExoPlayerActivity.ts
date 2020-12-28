@@ -68,7 +68,7 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		super.onNewIntent(intent)
 		super.setIntent(intent)
 		this.videos = intents.getVideos(this.getIntent())
-		this.initializePlayer()
+		this.initializePlayer().catch((error) => console.error('initializePlayer ->', error))
 		// for (let video of this.videos) {
 		// 	let extractor = new android.media.MediaExtractor()
 		// 	extractor.setDataSource(video)
@@ -212,8 +212,63 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		return this._mediaItems
 	}
 
+	async getFFProbe() {
+		return new Promise((resolve, reject) => {
+			// for (let video of this.videos) {
+			// 	console.log('video ->', video)
+			// 	let extractor = new android.media.MediaExtractor()
+			// 	extractor.setDataSource(video)
+			// 	for (let i = 0; i < extractor.getTrackCount(); i++) {
+			// 		console.log('getTrackFormat ->', extractor.getTrackFormat(i))
+			// 		console.log('getAudioPresentations ->', extractor.getAudioPresentations(i))
+			// 	}
+			// }
+
+			// com.arthenica.mobileffmpeg.Config.disableRedirection()
+			com.arthenica.mobileffmpeg.Config.setLogLevel(
+				com.arthenica.mobileffmpeg.Level.AV_LOG_ERROR,
+			)
+			// let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -show_private_data -i ${this.videos[0]}`
+			// let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
+			let cmd = `-hide_banner -v error -print_format json -show_format -show_streams -i ${this.videos[0]}`
+			console.log('cmd ->', cmd)
+			let rc = com.arthenica.mobileffmpeg.FFprobe.execute(cmd)
+			let output = com.arthenica.mobileffmpeg.Config.getLastCommandOutput()
+			console.log('output ->', output)
+			// let info = com.arthenica.mobileffmpeg.FFprobe.getMediaInformation(this.videos[0])
+			// let streams = info.getStreams()
+			// for (let i = 0; i < streams.size(); i++) {
+			// 	let stream = streams.get(i) as com.arthenica.mobileffmpeg.StreamInformation
+			// 	if (stream.getType() == 'subtitle') {
+			// 		continue
+			// 	}
+			// 	console.log('stream.getType() ->', stream.getType())
+			// 	console.log('stream.getSampleFormat() ->', stream.getSampleFormat())
+			// 	console.log('stream.getSampleRate() ->', stream.getSampleRate())
+			// 	console.log('stream.getRealFrameRate() ->', stream.getRealFrameRate())
+			// 	console.log('stream.getAverageFrameRate() ->', stream.getAverageFrameRate())
+			// 	console.log('stream.getCodec() ->', stream.getCodec())
+			// 	console.log('stream.getFullCodec() ->', stream.getFullCodec())
+			// }
+			// let json = JSON.parse(info.getAllProperties().toString())
+			// console.log('json ->', JSON.stringify(json, null, 4))
+			// let task = new com.arthenica.mobileffmpeg.AsyncGetMediaInformationTask(
+			// 	this.videos[0],
+			// 	new com.arthenica.mobileffmpeg.GetMediaInformationCallback({
+			// 		apply(info) {
+			// 			console.log('info.getLongFormat() ->', info.getLongFormat())
+			// 		},
+			// 	}),
+			// )
+		})
+	}
+
 	player: com.google.android.exoplayer2.SimpleExoPlayer
-	initializePlayer() {
+	async initializePlayer() {
+		let ffprobe = await this.getFFProbe()
+		console.log('ffprobe ->', ffprobe)
+		return
+
 		// let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
 		let renderersFactory = new RenderersFactory(
 			this.getApplicationContext(),
@@ -286,15 +341,6 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		// 	com.google.android.exoplayer2.source.ProgressiveMediaSource
 		// 		.DEFAULT_LOADING_CHECK_INTERVAL_BYTES * 8,
 		// )
-
-		// for (let url of this.urls) {
-		// 	let extractor = new android.media.MediaExtractor()
-		// 	extractor.setDataSource(url)
-		// 	for (let i = 0; i < extractor.getTrackCount(); i++) {
-		// 		let track = extractor.getTrackFormat(i)
-		// 		console.log('track ->', track)
-		// 	}
-		// }
 
 		let loadControl = new com.google.android.exoplayer2.DefaultLoadControl.Builder()
 			.setPrioritizeTimeOverSizeThresholds(false)
