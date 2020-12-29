@@ -23,9 +23,9 @@ declare module kotlinx {
 				public plus(context: kotlin.coroutines.CoroutineContext): kotlin.coroutines.CoroutineContext;
 				public fold(initial: any, operation: kotlin.jvm.functions.Function2<any,any,any>): any;
 				public getKey(): kotlin.coroutines.CoroutineContext.Key<any>;
-				public constructor(key: kotlin.coroutines.CoroutineContext.Key<any>);
-				public handleException(context: kotlin.coroutines.CoroutineContext, exception: java.lang.Throwable): void;
 				public invoke(): java.lang.reflect.Method;
+				public handleException(context: kotlin.coroutines.CoroutineContext, exception: java.lang.Throwable): void;
+				public constructor(key: kotlin.coroutines.CoroutineContext.Key<any>);
 				public minusKey(key: kotlin.coroutines.CoroutineContext.Key<any>): kotlin.coroutines.CoroutineContext;
 				public constructor();
 			}
@@ -43,8 +43,8 @@ declare module kotlinx {
 				public fold(initial: any, operation: kotlin.jvm.functions.Function2<any,any,any>): any;
 				public delay(time: number, param1: kotlin.coroutines.Continuation<any>): any;
 				public interceptContinuation(continuation: kotlin.coroutines.Continuation<any>): kotlin.coroutines.Continuation<any>;
-				public dispatch(coroutineContext0: kotlin.coroutines.CoroutineContext, runnable1: java.lang.Runnable): void;
 				public getImmediate(): kotlinx.coroutines.android.HandlerDispatcher;
+				public dispatch(coroutineContext0: kotlin.coroutines.CoroutineContext, runnable1: java.lang.Runnable): void;
 				public minusKey(key: kotlin.coroutines.CoroutineContext.Key<any>): kotlin.coroutines.CoroutineContext;
 				public getImmediate(): kotlinx.coroutines.android.HandlerContext;
 				public toString(): string;
@@ -53,9 +53,9 @@ declare module kotlinx {
 				public equals(obj: any): boolean;
 				public equals(other: any): boolean;
 				public isDispatchNeeded(context: kotlin.coroutines.CoroutineContext): boolean;
-				public constructor(handler: globalAndroid.os.Handler, name: string);
-				public hashCode(): number;
 				public invokeOnTimeout(timeMillis: number, block: java.lang.Runnable): kotlinx.coroutines.DisposableHandle;
+				public hashCode(): number;
+				public constructor(handler: globalAndroid.os.Handler, name: string);
 				public releaseInterceptedContinuation(continuation: kotlin.coroutines.Continuation<any>): void;
 				public dispatch(context: kotlin.coroutines.CoroutineContext, block: java.lang.Runnable): void;
 				public getKey(): kotlin.coroutines.CoroutineContext.Key<any>;

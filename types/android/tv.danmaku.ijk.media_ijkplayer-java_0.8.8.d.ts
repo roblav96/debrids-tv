@@ -30,9 +30,9 @@ declare module tv {
 						public start(): void;
 						public reset(): void;
 						public setDataSource(fileDescriptor0: java.io.FileDescriptor): void;
+						public setOnInfoListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener): void;
 						/** @deprecated */
 						public isPlayable(): boolean;
-						public setOnInfoListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener): void;
 						public setOnPreparedListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener): void;
 						public isPlaying(): boolean;
 						public setOnCompletionListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener): void;
@@ -48,8 +48,8 @@ declare module tv {
 						public getDuration(): number;
 						public setOnSeekCompleteListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener): void;
 						public setDisplay(surfaceHolder0: globalAndroid.view.SurfaceHolder): void;
-						public getVideoSarDen(): number;
 						public release(): void;
+						public getVideoSarDen(): number;
 						public getDataSource(): string;
 						public stop(): void;
 						/** @deprecated */
@@ -85,18 +85,18 @@ declare module tv {
 						public setScreenOnWhilePlaying(screenOn: boolean): void;
 						public setOnCompletionListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener): void;
 						public setVolume(leftVolume: number, rightVolume: number): void;
-						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						public setSurface(surface: globalAndroid.view.Surface): void;
+						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						/** @deprecated */
 						public setWakeMode(context: globalAndroid.content.Context, mode: number): void;
 						public getVideoWidth(): number;
 						public setOnTimedTextListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnTimedTextListener): void;
 						public setOnErrorListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener): void;
-						public getMediaInfo(): tv.danmaku.ijk.media.player.MediaInfo;
 						public setDataSource(path: string): void;
+						public getMediaInfo(): tv.danmaku.ijk.media.player.MediaInfo;
 						public setLogEnabled(enable: boolean): void;
-						public getAudioSessionId(): number;
 						public getVideoHeight(): number;
+						public getAudioSessionId(): number;
 						public isPlayable(): boolean;
 						public getTrackInfo(): native.Array<tv.danmaku.ijk.media.player.misc.ITrackInfo>;
 						public setKeepInBackground(keepInBackground: boolean): void;
@@ -138,8 +138,8 @@ declare module tv {
 							public onPrepared(mp: globalAndroid.media.MediaPlayer): void;
 							public onInfo(mp: globalAndroid.media.MediaPlayer, what: number, extra: number): boolean;
 							public constructor(param0: tv.danmaku.ijk.media.player.AndroidMediaPlayer, mp: tv.danmaku.ijk.media.player.AndroidMediaPlayer);
-							public onSeekComplete(mp: globalAndroid.media.MediaPlayer): void;
 							public onVideoSizeChanged(mp: globalAndroid.media.MediaPlayer, width: number, height: number): void;
+							public onSeekComplete(mp: globalAndroid.media.MediaPlayer): void;
 							public onBufferingUpdate(mp: globalAndroid.media.MediaPlayer, percent: number): void;
 						}
 						export class MediaDataSourceProxy extends globalAndroid.media.MediaDataSource {
@@ -147,8 +147,8 @@ declare module tv {
 							public constructor();
 							public constructor(mediaDataSource: tv.danmaku.ijk.media.player.misc.IMediaDataSource);
 							public close(): void;
-							public getSize(): number;
 							public readAt(long0: number, bytes1: native.Array<number>, int2: number, int3: number): number;
+							public getSize(): number;
 							public readAt(position: number, buffer: native.Array<number>, offset: number, size: number): number;
 						}
 					}
@@ -165,9 +165,9 @@ declare module tv {
 				export module player {
 					export class BuildConfig extends java.lang.Object {
 						public static class: java.lang.Class<tv.danmaku.ijk.media.player.BuildConfig>;
+						public static DEBUG: boolean;
 						public static APPLICATION_ID: string;
 						public static BUILD_TYPE: string;
-						public static DEBUG: boolean;
 						public static FLAVOR: string;
 						public static VERSION_CODE: number;
 						public static VERSION_NAME: string;
@@ -315,7 +315,7 @@ declare module tv {
 						export class OnBufferingUpdateListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnBufferingUpdateListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnBufferingUpdateListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onBufferingUpdate(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer, int1: number): void;
@@ -326,7 +326,7 @@ declare module tv {
 						export class OnCompletionListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnCompletionListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onCompletion(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer): void;
@@ -337,7 +337,7 @@ declare module tv {
 						export class OnErrorListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnErrorListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onError(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer, int1: number, int2: number): boolean;
@@ -348,7 +348,7 @@ declare module tv {
 						export class OnInfoListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnInfoListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onInfo(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer, int1: number, int2: number): boolean;
@@ -359,7 +359,7 @@ declare module tv {
 						export class OnPreparedListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnPreparedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onPrepared(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer): void;
@@ -370,7 +370,7 @@ declare module tv {
 						export class OnSeekCompleteListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnSeekCompleteListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onSeekComplete(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer): void;
@@ -381,7 +381,7 @@ declare module tv {
 						export class OnTimedTextListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnTimedTextListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnTimedTextListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onTimedText(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer, ijkTimedText1: tv.danmaku.ijk.media.player.IjkTimedText): void;
@@ -392,7 +392,7 @@ declare module tv {
 						export class OnVideoSizeChangedListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IMediaPlayer.OnVideoSizeChangedListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer$OnVideoSizeChangedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onVideoSizeChanged(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer, int1: number, int2: number, int3: number, int4: number): void;
@@ -484,20 +484,20 @@ declare module tv {
 				export module player {
 					export class IjkMediaCodecInfo extends java.lang.Object {
 						public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaCodecInfo>;
+						public static RANK_MAX: number;
+						public static RANK_TESTED: number;
 						public static RANK_ACCEPTABLE: number;
 						public static RANK_LAST_CHANCE: number;
-						public static RANK_MAX: number;
-						public static RANK_NON_STANDARD: number;
-						public static RANK_NO_SENSE: number;
 						public static RANK_SECURE: number;
 						public static RANK_SOFTWARE: number;
-						public static RANK_TESTED: number;
+						public static RANK_NON_STANDARD: number;
+						public static RANK_NO_SENSE: number;
 						public mCodecInfo: globalAndroid.media.MediaCodecInfo;
-						public mMimeType: string;
 						public mRank: number;
+						public mMimeType: string;
 						public constructor();
-						public static getLevelName(level: number): string;
 						public static getProfileName(profile: number): string;
+						public static getLevelName(level: number): string;
 						public dumpProfileLevels(mimeType: string): void;
 						public static getProfileLevelName(profile: number, level: number): string;
 						public static setupCandidate(codecInfo: globalAndroid.media.MediaCodecInfo, mimeType: string): tv.danmaku.ijk.media.player.IjkMediaCodecInfo;
@@ -515,26 +515,78 @@ declare module tv {
 				export module player {
 					export class IjkMediaMeta extends java.lang.Object {
 						public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaMeta>;
-						public static AV_CH_BACK_CENTER: number;
+						public static IJKM_KEY_FORMAT: string;
+						public static IJKM_KEY_DURATION_US: string;
+						public static IJKM_KEY_START_US: string;
+						public static IJKM_KEY_BITRATE: string;
+						public static IJKM_KEY_VIDEO_STREAM: string;
+						public static IJKM_KEY_AUDIO_STREAM: string;
+						public static IJKM_KEY_TIMEDTEXT_STREAM: string;
+						public static IJKM_KEY_TYPE: string;
+						public static IJKM_VAL_TYPE__VIDEO: string;
+						public static IJKM_VAL_TYPE__AUDIO: string;
+						public static IJKM_VAL_TYPE__TIMEDTEXT: string;
+						public static IJKM_VAL_TYPE__UNKNOWN: string;
+						public static IJKM_KEY_LANGUAGE: string;
+						public static IJKM_KEY_CODEC_NAME: string;
+						public static IJKM_KEY_CODEC_PROFILE: string;
+						public static IJKM_KEY_CODEC_LEVEL: string;
+						public static IJKM_KEY_CODEC_LONG_NAME: string;
+						public static IJKM_KEY_CODEC_PIXEL_FORMAT: string;
+						public static IJKM_KEY_CODEC_PROFILE_ID: string;
+						public static IJKM_KEY_WIDTH: string;
+						public static IJKM_KEY_HEIGHT: string;
+						public static IJKM_KEY_FPS_NUM: string;
+						public static IJKM_KEY_FPS_DEN: string;
+						public static IJKM_KEY_TBR_NUM: string;
+						public static IJKM_KEY_TBR_DEN: string;
+						public static IJKM_KEY_SAR_NUM: string;
+						public static IJKM_KEY_SAR_DEN: string;
+						public static IJKM_KEY_SAMPLE_RATE: string;
+						public static IJKM_KEY_CHANNEL_LAYOUT: string;
+						public static IJKM_KEY_STREAMS: string;
+						public static AV_CH_FRONT_LEFT: number;
+						public static AV_CH_FRONT_RIGHT: number;
+						public static AV_CH_FRONT_CENTER: number;
+						public static AV_CH_LOW_FREQUENCY: number;
 						public static AV_CH_BACK_LEFT: number;
 						public static AV_CH_BACK_RIGHT: number;
-						public static AV_CH_FRONT_CENTER: number;
-						public static AV_CH_FRONT_LEFT: number;
 						public static AV_CH_FRONT_LEFT_OF_CENTER: number;
-						public static AV_CH_FRONT_RIGHT: number;
 						public static AV_CH_FRONT_RIGHT_OF_CENTER: number;
+						public static AV_CH_BACK_CENTER: number;
+						public static AV_CH_SIDE_LEFT: number;
+						public static AV_CH_SIDE_RIGHT: number;
+						public static AV_CH_TOP_CENTER: number;
+						public static AV_CH_TOP_FRONT_LEFT: number;
+						public static AV_CH_TOP_FRONT_CENTER: number;
+						public static AV_CH_TOP_FRONT_RIGHT: number;
+						public static AV_CH_TOP_BACK_LEFT: number;
+						public static AV_CH_TOP_BACK_CENTER: number;
+						public static AV_CH_TOP_BACK_RIGHT: number;
+						public static AV_CH_STEREO_LEFT: number;
+						public static AV_CH_STEREO_RIGHT: number;
+						public static AV_CH_WIDE_LEFT: number;
+						public static AV_CH_WIDE_RIGHT: number;
+						public static AV_CH_SURROUND_DIRECT_LEFT: number;
+						public static AV_CH_SURROUND_DIRECT_RIGHT: number;
+						public static AV_CH_LOW_FREQUENCY_2: number;
+						public static AV_CH_LAYOUT_MONO: number;
+						public static AV_CH_LAYOUT_STEREO: number;
 						public static AV_CH_LAYOUT_2POINT1: number;
 						public static AV_CH_LAYOUT_2_1: number;
-						public static AV_CH_LAYOUT_2_2: number;
+						public static AV_CH_LAYOUT_SURROUND: number;
 						public static AV_CH_LAYOUT_3POINT1: number;
 						public static AV_CH_LAYOUT_4POINT0: number;
 						public static AV_CH_LAYOUT_4POINT1: number;
+						public static AV_CH_LAYOUT_2_2: number;
+						public static AV_CH_LAYOUT_QUAD: number;
 						public static AV_CH_LAYOUT_5POINT0: number;
-						public static AV_CH_LAYOUT_5POINT0_BACK: number;
 						public static AV_CH_LAYOUT_5POINT1: number;
+						public static AV_CH_LAYOUT_5POINT0_BACK: number;
 						public static AV_CH_LAYOUT_5POINT1_BACK: number;
 						public static AV_CH_LAYOUT_6POINT0: number;
 						public static AV_CH_LAYOUT_6POINT0_FRONT: number;
+						public static AV_CH_LAYOUT_HEXAGONAL: number;
 						public static AV_CH_LAYOUT_6POINT1: number;
 						public static AV_CH_LAYOUT_6POINT1_BACK: number;
 						public static AV_CH_LAYOUT_6POINT1_FRONT: number;
@@ -543,34 +595,13 @@ declare module tv {
 						public static AV_CH_LAYOUT_7POINT1: number;
 						public static AV_CH_LAYOUT_7POINT1_WIDE: number;
 						public static AV_CH_LAYOUT_7POINT1_WIDE_BACK: number;
-						public static AV_CH_LAYOUT_HEXAGONAL: number;
-						public static AV_CH_LAYOUT_MONO: number;
 						public static AV_CH_LAYOUT_OCTAGONAL: number;
-						public static AV_CH_LAYOUT_QUAD: number;
-						public static AV_CH_LAYOUT_STEREO: number;
 						public static AV_CH_LAYOUT_STEREO_DOWNMIX: number;
-						public static AV_CH_LAYOUT_SURROUND: number;
-						public static AV_CH_LOW_FREQUENCY: number;
-						public static AV_CH_LOW_FREQUENCY_2: number;
-						public static AV_CH_SIDE_LEFT: number;
-						public static AV_CH_SIDE_RIGHT: number;
-						public static AV_CH_STEREO_LEFT: number;
-						public static AV_CH_STEREO_RIGHT: number;
-						public static AV_CH_SURROUND_DIRECT_LEFT: number;
-						public static AV_CH_SURROUND_DIRECT_RIGHT: number;
-						public static AV_CH_TOP_BACK_CENTER: number;
-						public static AV_CH_TOP_BACK_LEFT: number;
-						public static AV_CH_TOP_BACK_RIGHT: number;
-						public static AV_CH_TOP_CENTER: number;
-						public static AV_CH_TOP_FRONT_CENTER: number;
-						public static AV_CH_TOP_FRONT_LEFT: number;
-						public static AV_CH_TOP_FRONT_RIGHT: number;
-						public static AV_CH_WIDE_LEFT: number;
-						public static AV_CH_WIDE_RIGHT: number;
-						public static FF_PROFILE_H264_BASELINE: number;
-						public static FF_PROFILE_H264_CAVLC_444: number;
 						public static FF_PROFILE_H264_CONSTRAINED: number;
+						public static FF_PROFILE_H264_INTRA: number;
+						public static FF_PROFILE_H264_BASELINE: number;
 						public static FF_PROFILE_H264_CONSTRAINED_BASELINE: number;
+						public static FF_PROFILE_H264_MAIN: number;
 						public static FF_PROFILE_H264_EXTENDED: number;
 						public static FF_PROFILE_H264_HIGH: number;
 						public static FF_PROFILE_H264_HIGH_10: number;
@@ -578,48 +609,17 @@ declare module tv {
 						public static FF_PROFILE_H264_HIGH_422: number;
 						public static FF_PROFILE_H264_HIGH_422_INTRA: number;
 						public static FF_PROFILE_H264_HIGH_444: number;
-						public static FF_PROFILE_H264_HIGH_444_INTRA: number;
 						public static FF_PROFILE_H264_HIGH_444_PREDICTIVE: number;
-						public static FF_PROFILE_H264_INTRA: number;
-						public static FF_PROFILE_H264_MAIN: number;
-						public static IJKM_KEY_AUDIO_STREAM: string;
-						public static IJKM_KEY_BITRATE: string;
-						public static IJKM_KEY_CHANNEL_LAYOUT: string;
-						public static IJKM_KEY_CODEC_LEVEL: string;
-						public static IJKM_KEY_CODEC_LONG_NAME: string;
-						public static IJKM_KEY_CODEC_NAME: string;
-						public static IJKM_KEY_CODEC_PIXEL_FORMAT: string;
-						public static IJKM_KEY_CODEC_PROFILE: string;
-						public static IJKM_KEY_CODEC_PROFILE_ID: string;
-						public static IJKM_KEY_DURATION_US: string;
-						public static IJKM_KEY_FORMAT: string;
-						public static IJKM_KEY_FPS_DEN: string;
-						public static IJKM_KEY_FPS_NUM: string;
-						public static IJKM_KEY_HEIGHT: string;
-						public static IJKM_KEY_LANGUAGE: string;
-						public static IJKM_KEY_SAMPLE_RATE: string;
-						public static IJKM_KEY_SAR_DEN: string;
-						public static IJKM_KEY_SAR_NUM: string;
-						public static IJKM_KEY_START_US: string;
-						public static IJKM_KEY_STREAMS: string;
-						public static IJKM_KEY_TBR_DEN: string;
-						public static IJKM_KEY_TBR_NUM: string;
-						public static IJKM_KEY_TIMEDTEXT_STREAM: string;
-						public static IJKM_KEY_TYPE: string;
-						public static IJKM_KEY_VIDEO_STREAM: string;
-						public static IJKM_KEY_WIDTH: string;
-						public static IJKM_VAL_TYPE__AUDIO: string;
-						public static IJKM_VAL_TYPE__TIMEDTEXT: string;
-						public static IJKM_VAL_TYPE__UNKNOWN: string;
-						public static IJKM_VAL_TYPE__VIDEO: string;
-						public mAudioStream: tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta;
-						public mBitrate: number;
-						public mDurationUS: number;
-						public mFormat: string;
+						public static FF_PROFILE_H264_HIGH_444_INTRA: number;
+						public static FF_PROFILE_H264_CAVLC_444: number;
 						public mMediaMeta: globalAndroid.os.Bundle;
+						public mFormat: string;
+						public mDurationUS: number;
 						public mStartUS: number;
+						public mBitrate: number;
 						public mStreams: java.util.ArrayList<tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta>;
 						public mVideoStream: tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta;
+						public mAudioStream: tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta;
 						public getDurationInline(): string;
 						public constructor();
 						public getInt(key: string, defaultValue: number): number;
@@ -633,24 +633,24 @@ declare module tv {
 					export module IjkMediaMeta {
 						export class IjkStreamMeta extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta>;
-							public mBitrate: number;
-							public mChannelLayout: number;
-							public mCodecLongName: string;
+							public mMeta: globalAndroid.os.Bundle;
+							public mIndex: number;
+							public mType: string;
+							public mLanguage: string;
 							public mCodecName: string;
 							public mCodecProfile: string;
-							public mFpsDen: number;
-							public mFpsNum: number;
-							public mHeight: number;
-							public mIndex: number;
-							public mLanguage: string;
-							public mMeta: globalAndroid.os.Bundle;
-							public mSampleRate: number;
-							public mSarDen: number;
-							public mSarNum: number;
-							public mTbrDen: number;
-							public mTbrNum: number;
-							public mType: string;
+							public mCodecLongName: string;
+							public mBitrate: number;
 							public mWidth: number;
+							public mHeight: number;
+							public mFpsNum: number;
+							public mFpsDen: number;
+							public mTbrNum: number;
+							public mTbrDen: number;
+							public mSarNum: number;
+							public mSarDen: number;
+							public mSampleRate: number;
+							public mChannelLayout: number;
 							public getString(key: string): string;
 							public getResolutionInline(): string;
 							public getLong(key: string): number;
@@ -679,65 +679,65 @@ declare module tv {
 				export module player {
 					export class IjkMediaPlayer extends tv.danmaku.ijk.media.player.AbstractMediaPlayer {
 						public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaPlayer>;
-						public static FFP_PROPV_DECODER_AVCODEC: number;
-						public static FFP_PROPV_DECODER_MEDIACODEC: number;
-						public static FFP_PROPV_DECODER_UNKNOWN: number;
-						public static FFP_PROPV_DECODER_VIDEOTOOLBOX: number;
-						public static FFP_PROP_FLOAT_DROP_FRAME_RATE: number;
-						public static FFP_PROP_FLOAT_PLAYBACK_RATE: number;
-						public static FFP_PROP_INT64_ASYNC_STATISTIC_BUF_BACKWARDS: number;
-						public static FFP_PROP_INT64_ASYNC_STATISTIC_BUF_CAPACITY: number;
-						public static FFP_PROP_INT64_ASYNC_STATISTIC_BUF_FORWARDS: number;
-						public static FFP_PROP_INT64_AUDIO_CACHED_BYTES: number;
-						public static FFP_PROP_INT64_AUDIO_CACHED_DURATION: number;
-						public static FFP_PROP_INT64_AUDIO_CACHED_PACKETS: number;
-						public static FFP_PROP_INT64_AUDIO_DECODER: number;
-						public static FFP_PROP_INT64_BIT_RATE: number;
-						public static FFP_PROP_INT64_CACHE_STATISTIC_COUNT_BYTES: number;
-						public static FFP_PROP_INT64_CACHE_STATISTIC_FILE_FORWARDS: number;
-						public static FFP_PROP_INT64_CACHE_STATISTIC_FILE_POS: number;
-						public static FFP_PROP_INT64_CACHE_STATISTIC_PHYSICAL_POS: number;
-						public static FFP_PROP_INT64_IMMEDIATE_RECONNECT: number;
-						public static FFP_PROP_INT64_LATEST_SEEK_LOAD_DURATION: number;
-						public static FFP_PROP_INT64_LOGICAL_FILE_SIZE: number;
-						public static FFP_PROP_INT64_SELECTED_AUDIO_STREAM: number;
-						public static FFP_PROP_INT64_SELECTED_TIMEDTEXT_STREAM: number;
-						public static FFP_PROP_INT64_SELECTED_VIDEO_STREAM: number;
-						public static FFP_PROP_INT64_SHARE_CACHE_DATA: number;
-						public static FFP_PROP_INT64_TCP_SPEED: number;
-						public static FFP_PROP_INT64_TRAFFIC_STATISTIC_BYTE_COUNT: number;
-						public static FFP_PROP_INT64_VIDEO_CACHED_BYTES: number;
-						public static FFP_PROP_INT64_VIDEO_CACHED_DURATION: number;
-						public static FFP_PROP_INT64_VIDEO_CACHED_PACKETS: number;
-						public static FFP_PROP_INT64_VIDEO_DECODER: number;
-						public static IJK_LOG_DEBUG: number;
+						public static MEDIA_SET_VIDEO_SAR: number;
+						public static IJK_LOG_UNKNOWN: number;
 						public static IJK_LOG_DEFAULT: number;
+						public static IJK_LOG_VERBOSE: number;
+						public static IJK_LOG_DEBUG: number;
+						public static IJK_LOG_INFO: number;
+						public static IJK_LOG_WARN: number;
 						public static IJK_LOG_ERROR: number;
 						public static IJK_LOG_FATAL: number;
-						public static IJK_LOG_INFO: number;
 						public static IJK_LOG_SILENT: number;
-						public static IJK_LOG_UNKNOWN: number;
-						public static IJK_LOG_VERBOSE: number;
-						public static IJK_LOG_WARN: number;
-						public static MEDIA_SET_VIDEO_SAR: number;
-						public static OPT_CATEGORY_CODEC: number;
 						public static OPT_CATEGORY_FORMAT: number;
-						public static OPT_CATEGORY_PLAYER: number;
+						public static OPT_CATEGORY_CODEC: number;
 						public static OPT_CATEGORY_SWS: number;
-						public static PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND: number;
-						public static PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND: number;
+						public static OPT_CATEGORY_PLAYER: number;
+						public static SDL_FCC_YV12: number;
 						public static SDL_FCC_RV16: number;
 						public static SDL_FCC_RV32: number;
-						public static SDL_FCC_YV12: number;
+						public static PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND: number;
+						public static PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND: number;
+						public static FFP_PROP_FLOAT_PLAYBACK_RATE: number;
+						public static FFP_PROP_FLOAT_DROP_FRAME_RATE: number;
+						public static FFP_PROP_INT64_SELECTED_VIDEO_STREAM: number;
+						public static FFP_PROP_INT64_SELECTED_AUDIO_STREAM: number;
+						public static FFP_PROP_INT64_SELECTED_TIMEDTEXT_STREAM: number;
+						public static FFP_PROP_INT64_VIDEO_DECODER: number;
+						public static FFP_PROP_INT64_AUDIO_DECODER: number;
+						public static FFP_PROPV_DECODER_UNKNOWN: number;
+						public static FFP_PROPV_DECODER_AVCODEC: number;
+						public static FFP_PROPV_DECODER_MEDIACODEC: number;
+						public static FFP_PROPV_DECODER_VIDEOTOOLBOX: number;
+						public static FFP_PROP_INT64_VIDEO_CACHED_DURATION: number;
+						public static FFP_PROP_INT64_AUDIO_CACHED_DURATION: number;
+						public static FFP_PROP_INT64_VIDEO_CACHED_BYTES: number;
+						public static FFP_PROP_INT64_AUDIO_CACHED_BYTES: number;
+						public static FFP_PROP_INT64_VIDEO_CACHED_PACKETS: number;
+						public static FFP_PROP_INT64_AUDIO_CACHED_PACKETS: number;
+						public static FFP_PROP_INT64_ASYNC_STATISTIC_BUF_BACKWARDS: number;
+						public static FFP_PROP_INT64_ASYNC_STATISTIC_BUF_FORWARDS: number;
+						public static FFP_PROP_INT64_ASYNC_STATISTIC_BUF_CAPACITY: number;
+						public static FFP_PROP_INT64_TRAFFIC_STATISTIC_BYTE_COUNT: number;
+						public static FFP_PROP_INT64_CACHE_STATISTIC_PHYSICAL_POS: number;
+						public static FFP_PROP_INT64_CACHE_STATISTIC_FILE_FORWARDS: number;
+						public static FFP_PROP_INT64_CACHE_STATISTIC_FILE_POS: number;
+						public static FFP_PROP_INT64_CACHE_STATISTIC_COUNT_BYTES: number;
+						public static FFP_PROP_INT64_LOGICAL_FILE_SIZE: number;
+						public static FFP_PROP_INT64_SHARE_CACHE_DATA: number;
+						public static FFP_PROP_INT64_BIT_RATE: number;
+						public static FFP_PROP_INT64_TCP_SPEED: number;
+						public static FFP_PROP_INT64_LATEST_SEEK_LOAD_DURATION: number;
+						public static FFP_PROP_INT64_IMMEDIATE_RECONNECT: number;
 						public pause(): void;
 						public getTrafficStatisticByteCount(): number;
 						public setScreenOnWhilePlaying(screenOn: boolean): void;
-						public static native_profileEnd(): void;
 						public setAndroidIOCallback(androidIO: tv.danmaku.ijk.media.player.misc.IAndroidIO): void;
+						public static native_profileEnd(): void;
 						public getCacheStatisticFileForwards(): number;
 						public static native_profileBegin(string0: string): void;
-						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						public setSurface(surface: globalAndroid.view.Surface): void;
+						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						public getSelectedTrack(trackType: number): number;
 						public finalize(): void;
 						/** @deprecated */
@@ -778,38 +778,38 @@ declare module tv {
 						public setOnInfoListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener): void;
 						public setOnPreparedListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener): void;
 						public getVideoCachedBytes(): number;
-						public getBitRate(): number;
 						public isPlaying(): boolean;
+						public getBitRate(): number;
 						public setOnCompletionListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener): void;
 						public getSpeed(speed: number): number;
 						public getAudioCachedBytes(): number;
 						public static getColorFormatName(mediaCodecColorFormat: number): string;
 						public deselectTrack(track: number): void;
-						public getVideoCachedPackets(): number;
 						public getVideoWidth(): number;
+						public getVideoCachedPackets(): number;
 						public getTcpSpeed(): number;
 						public getCacheStatisticCountBytes(): number;
-						public getMediaInfo(): tv.danmaku.ijk.media.player.MediaInfo;
 						public getSeekLoadDuration(): number;
+						public getMediaInfo(): tv.danmaku.ijk.media.player.MediaInfo;
 						public setLogEnabled(enable: boolean): void;
+						public setDataSource(path: string, headers: java.util.Map<string,string>): void;
 						public getAudioSessionId(): number;
 						public isPlayable(): boolean;
-						public setDataSource(path: string, headers: java.util.Map<string,string>): void;
 						public setOption(category: number, name: string, value: number): void;
 						public getAudioCachedDuration(): number;
 						public getDuration(): number;
 						public setOnSeekCompleteListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener): void;
-						public getAsyncStatisticBufForwards(): number;
 						public setDisplay(sh: globalAndroid.view.SurfaceHolder): void;
-						public _prepareAsync(): void;
+						public getAsyncStatisticBufForwards(): number;
 						public setDataSource(fd: java.io.FileDescriptor): void;
+						public _prepareAsync(): void;
 						public getTrackInfo(): native.Array<tv.danmaku.ijk.media.player.misc.IjkTrackInfo>;
 						public getVideoSarDen(): number;
 						public release(): void;
 						public getDataSource(): string;
 						public stop(): void;
-						public getMediaMeta(): globalAndroid.os.Bundle;
 						public isLooping(): boolean;
+						public getMediaMeta(): globalAndroid.os.Bundle;
 						public prepareAsync(): void;
 						public setDataSource(mediaDataSource: tv.danmaku.ijk.media.player.misc.IMediaDataSource): void;
 						public getCacheStatisticFilePos(): number;
@@ -824,9 +824,9 @@ declare module tv {
 						/** @deprecated */
 						public setLogEnabled(enable: boolean): void;
 						public getCurrentPosition(): number;
+						public setSpeed(speed: number): void;
 						public getVideoDecodeFramesPerSecond(): number;
 						public setAudioStreamType(streamtype: number): void;
-						public setSpeed(speed: number): void;
 					}
 					export module IjkMediaPlayer {
 						export class DefaultMediaCodecSelector extends java.lang.Object implements tv.danmaku.ijk.media.player.IjkMediaPlayer.OnMediaCodecSelectListener {
@@ -847,7 +847,7 @@ declare module tv {
 						export class OnControlMessageListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaPlayer.OnControlMessageListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IjkMediaPlayer$OnControlMessageListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IjkMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onControlResolveSegmentUrl(int0: number): string;
@@ -858,7 +858,7 @@ declare module tv {
 						export class OnMediaCodecSelectListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaPlayer.OnMediaCodecSelectListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IjkMediaPlayer$OnMediaCodecSelectListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IjkMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onMediaCodecSelect(iMediaPlayer0: tv.danmaku.ijk.media.player.IMediaPlayer, string1: string, int2: number, int3: number): string;
@@ -869,7 +869,7 @@ declare module tv {
 						export class OnNativeInvokeListener extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.IjkMediaPlayer.OnNativeInvokeListener>;
 							/**
-							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IjkMediaPlayer$OnNativeInvokeListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the tv.danmaku.ijk.media.player.IjkMediaPlayer() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onNativeInvoke(int0: number, bundle1: globalAndroid.os.Bundle): boolean;
@@ -928,12 +928,12 @@ declare module tv {
 				export module player {
 					export class MediaInfo extends java.lang.Object {
 						public static class: java.lang.Class<tv.danmaku.ijk.media.player.MediaInfo>;
-						public mAudioDecoder: string;
-						public mAudioDecoderImpl: string;
 						public mMediaPlayerName: string;
-						public mMeta: tv.danmaku.ijk.media.player.IjkMediaMeta;
 						public mVideoDecoder: string;
 						public mVideoDecoderImpl: string;
+						public mAudioDecoder: string;
+						public mAudioDecoderImpl: string;
+						public mMeta: tv.danmaku.ijk.media.player.IjkMediaMeta;
 						public constructor();
 					}
 				}
@@ -950,43 +950,43 @@ declare module tv {
 					export class MediaPlayerProxy extends java.lang.Object implements tv.danmaku.ijk.media.player.IMediaPlayer {
 						public static class: java.lang.Class<tv.danmaku.ijk.media.player.MediaPlayerProxy>;
 						public mBackEndMediaPlayer: tv.danmaku.ijk.media.player.IMediaPlayer;
+						public setOnInfoListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener): void;
 						/** @deprecated */
 						public isPlayable(): boolean;
-						public setOnInfoListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener): void;
 						public setOnPreparedListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener): void;
 						public seekTo(msec: number): void;
 						public isPlaying(): boolean;
 						public pause(): void;
-						public setOnCompletionListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener): void;
 						public setScreenOnWhilePlaying(screenOn: boolean): void;
+						public setOnCompletionListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener): void;
 						public setVolume(leftVolume: number, rightVolume: number): void;
-						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						public setSurface(surface: globalAndroid.view.Surface): void;
+						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						/** @deprecated */
 						public setWakeMode(context: globalAndroid.content.Context, mode: number): void;
 						public getVideoWidth(): number;
 						public setOnTimedTextListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnTimedTextListener): void;
 						public setOnErrorListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener): void;
-						public getMediaInfo(): tv.danmaku.ijk.media.player.MediaInfo;
 						public setDataSource(path: string): void;
+						public getMediaInfo(): tv.danmaku.ijk.media.player.MediaInfo;
 						public setLogEnabled(enable: boolean): void;
-						public getAudioSessionId(): number;
 						public getVideoHeight(): number;
+						public getAudioSessionId(): number;
 						public isPlayable(): boolean;
-						public getTrackInfo(): native.Array<tv.danmaku.ijk.media.player.misc.ITrackInfo>;
 						public setKeepInBackground(keepInBackground: boolean): void;
+						public getTrackInfo(): native.Array<tv.danmaku.ijk.media.player.misc.ITrackInfo>;
 						public getDuration(): number;
 						public setOnSeekCompleteListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener): void;
 						public constructor(backEndMediaPlayer: tv.danmaku.ijk.media.player.IMediaPlayer);
 						public setDisplay(sh: globalAndroid.view.SurfaceHolder): void;
 						public setOnVideoSizeChangedListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnVideoSizeChangedListener): void;
 						public setDataSource(fd: java.io.FileDescriptor): void;
-						public getVideoSarDen(): number;
 						public release(): void;
+						public getVideoSarDen(): number;
 						public getDataSource(): string;
+						public stop(): void;
 						/** @deprecated */
 						public setKeepInBackground(keepInBackground: boolean): void;
-						public stop(): void;
 						public isLooping(): boolean;
 						public prepareAsync(): void;
 						public setDataSource(mediaDataSource: tv.danmaku.ijk.media.player.misc.IMediaDataSource): void;
@@ -997,9 +997,9 @@ declare module tv {
 						public getVideoSarNum(): number;
 						public getInternalMediaPlayer(): tv.danmaku.ijk.media.player.IMediaPlayer;
 						public reset(): void;
+						public setLooping(looping: boolean): void;
 						/** @deprecated */
 						public setLogEnabled(enable: boolean): void;
-						public setLooping(looping: boolean): void;
 						public getCurrentPosition(): number;
 						public setAudioStreamType(streamtype: number): void;
 					}
@@ -1020,16 +1020,16 @@ declare module tv {
 						public pause(): void;
 						public setScreenOnWhilePlaying(screenOn: boolean): void;
 						public releaseSurfaceTexture(): void;
-						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						public setSurface(surface: globalAndroid.view.Surface): void;
+						public setDataSource(context: globalAndroid.content.Context, uri: globalAndroid.net.Uri, headers: java.util.Map<string,string>): void;
 						/** @deprecated */
 						public setWakeMode(context: globalAndroid.content.Context, mode: number): void;
 						public setOnTimedTextListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnTimedTextListener): void;
 						public setOnErrorListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener): void;
 						public setDataSource(path: string): void;
 						public getVideoHeight(): number;
-						public getTrackInfo(): native.Array<tv.danmaku.ijk.media.player.misc.ITrackInfo>;
 						public setKeepInBackground(keepInBackground: boolean): void;
+						public getTrackInfo(): native.Array<tv.danmaku.ijk.media.player.misc.ITrackInfo>;
 						public setSurfaceTexture(surfaceTexture: globalAndroid.graphics.SurfaceTexture): void;
 						public setOnVideoSizeChangedListener(listener: tv.danmaku.ijk.media.player.IMediaPlayer.OnVideoSizeChangedListener): void;
 						/** @deprecated */
@@ -1055,8 +1055,8 @@ declare module tv {
 						public setDisplay(sh: globalAndroid.view.SurfaceHolder): void;
 						public setSurfaceTextureHost(surfaceTextureHost: tv.danmaku.ijk.media.player.ISurfaceTextureHost): void;
 						public setDataSource(fd: java.io.FileDescriptor): void;
-						public getVideoSarDen(): number;
 						public release(): void;
+						public getVideoSarDen(): number;
 						public getDataSource(): string;
 						public stop(): void;
 						public isLooping(): boolean;
@@ -1352,16 +1352,16 @@ declare module tv {
 					export module misc {
 						export class IjkMediaFormat extends java.lang.Object implements tv.danmaku.ijk.media.player.misc.IMediaFormat {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.misc.IjkMediaFormat>;
-							public static CODEC_NAME_H264: string;
-							public static KEY_IJK_BIT_RATE_UI: string;
-							public static KEY_IJK_CHANNEL_UI: string;
 							public static KEY_IJK_CODEC_LONG_NAME_UI: string;
 							public static KEY_IJK_CODEC_NAME_UI: string;
-							public static KEY_IJK_CODEC_PIXEL_FORMAT_UI: string;
+							public static KEY_IJK_BIT_RATE_UI: string;
 							public static KEY_IJK_CODEC_PROFILE_LEVEL_UI: string;
-							public static KEY_IJK_FRAME_RATE_UI: string;
+							public static KEY_IJK_CODEC_PIXEL_FORMAT_UI: string;
 							public static KEY_IJK_RESOLUTION_UI: string;
+							public static KEY_IJK_FRAME_RATE_UI: string;
 							public static KEY_IJK_SAMPLE_RATE_UI: string;
+							public static KEY_IJK_CHANNEL_UI: string;
+							public static CODEC_NAME_H264: string;
 							public mMediaFormat: tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta;
 							public getInteger(name: string): number;
 							public constructor(streamMeta: tv.danmaku.ijk.media.player.IjkMediaMeta.IjkStreamMeta);
@@ -1414,11 +1414,11 @@ declare module tv {
 					export module pragma {
 						export class DebugLog extends java.lang.Object {
 							public static class: java.lang.Class<tv.danmaku.ijk.media.player.pragma.DebugLog>;
-							public static ENABLE_DEBUG: boolean;
 							public static ENABLE_ERROR: boolean;
 							public static ENABLE_INFO: boolean;
-							public static ENABLE_VERBOSE: boolean;
 							public static ENABLE_WARN: boolean;
+							public static ENABLE_DEBUG: boolean;
+							public static ENABLE_VERBOSE: boolean;
 							public constructor();
 							public static wfmt(tag: string, fmt: string, objects2: native.Array<any>): void;
 							public static printCause(e: java.lang.Throwable): void;
@@ -1430,8 +1430,8 @@ declare module tv {
 							public static e(tag: string, msg: string): void;
 							public static vfmt(tag: string, fmt: string, objects2: native.Array<any>): void;
 							public static w(tag: string, msg: string, tr: java.lang.Throwable): void;
-							public static v(tag: string, msg: string): void;
 							public static w(tag: string, msg: string): void;
+							public static v(tag: string, msg: string): void;
 							public static i(tag: string, msg: string, tr: java.lang.Throwable): void;
 							public static efmt(tag: string, fmt: string, objects2: native.Array<any>): void;
 							public static i(tag: string, msg: string): void;

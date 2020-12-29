@@ -19,8 +19,8 @@ declare module androidx {
 				public dump(prefix: string, writer: java.io.PrintWriter): void;
 				public isEmpty(): boolean;
 				public setPrimaryNavigationFragment(fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
-				public commitNow(): void;
 				public detach(fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
+				public commitNow(): void;
 				public generateOps(records: java.util.ArrayList<androidx.fragment.app.BackStackRecord>, isRecordPop: java.util.ArrayList<java.lang.Boolean>): boolean;
 				public dump(prefix: string, writer: java.io.PrintWriter, full: boolean): void;
 				public getId(): number;
@@ -60,16 +60,16 @@ declare module androidx {
 			export class DialogFragment extends androidx.fragment.app.Fragment implements globalAndroid.content.DialogInterface.OnCancelListener, globalAndroid.content.DialogInterface.OnDismissListener {
 				public static class: java.lang.Class<androidx.fragment.app.DialogFragment>;
 				public static STYLE_NORMAL: number;
+				public static STYLE_NO_TITLE: number;
 				public static STYLE_NO_FRAME: number;
 				public static STYLE_NO_INPUT: number;
-				public static STYLE_NO_TITLE: number;
 				public getDialog(): globalAndroid.app.Dialog;
 				public setupDialog(dialog: globalAndroid.app.Dialog, style: number): void;
 				public getViewModelStore(): androidx.lifecycle.ViewModelStore;
 				public setStyle(style: number, theme: number): void;
 				public show(manager: androidx.fragment.app.FragmentManager, tag: string): void;
-				public onCreateDialog(savedInstanceState: globalAndroid.os.Bundle): globalAndroid.app.Dialog;
 				public showNow(manager: androidx.fragment.app.FragmentManager, tag: string): void;
+				public onCreateDialog(savedInstanceState: globalAndroid.os.Bundle): globalAndroid.app.Dialog;
 				public dismiss(): void;
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
@@ -122,10 +122,10 @@ declare module androidx {
 				/** @deprecated */
 				public onAttach(activity: globalAndroid.app.Activity): void;
 				public isInLayout(): boolean;
-				public getEnterTransition(): any;
 				public getString(resId: number, formatArgs: native.Array<any>): string;
-				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
+				public getEnterTransition(): any;
 				public setHasOptionsMenu(hasMenu: boolean): void;
+				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
 				public setTargetFragment(fragment: androidx.fragment.app.Fragment, requestCode: number): void;
 				public onStart(): void;
 				public getSharedElementReturnTransition(): any;
@@ -133,9 +133,9 @@ declare module androidx {
 				public startPostponedEnterTransition(): void;
 				public getViewModelStore(): androidx.lifecycle.ViewModelStore;
 				/** @deprecated */
-				public getLoaderManager(): androidx.loader.app.LoaderManager;
-				/** @deprecated */
 				public static instantiate(context: globalAndroid.content.Context, fname: string, bundle2: globalAndroid.os.Bundle): androidx.fragment.app.Fragment;
+				/** @deprecated */
+				public getLoaderManager(): androidx.loader.app.LoaderManager;
 				public onOptionsMenuClosed(menu: globalAndroid.view.Menu): void;
 				public setSharedElementReturnTransition(transition: any): void;
 				public onViewStateRestored(savedInstanceState: globalAndroid.os.Bundle): void;
@@ -152,12 +152,12 @@ declare module androidx {
 				public onOptionsItemSelected(item: globalAndroid.view.MenuItem): boolean;
 				public startIntentSenderForResult(intent: globalAndroid.content.IntentSender, requestCode: number, fillInIntent: globalAndroid.content.Intent, flagsMask: number, flagsValues: number, extraFlags: number, options: globalAndroid.os.Bundle): void;
 				public setReturnTransition(transition: any): void;
-				public getExitTransition(): any;
 				public onPrepareOptionsMenu(menu: globalAndroid.view.Menu): void;
+				public getExitTransition(): any;
 				public onCreateAnimator(transit: number, enter: boolean, nextAnim: number): globalAndroid.animation.Animator;
-				public getReenterTransition(): any;
 				/** @deprecated */
 				public onInflate(activity: globalAndroid.app.Activity, attrs: globalAndroid.util.AttributeSet, savedInstanceState: globalAndroid.os.Bundle): void;
+				public getReenterTransition(): any;
 				public getDefaultViewModelProviderFactory(): androidx.lifecycle.ViewModelProvider.Factory;
 				/** @deprecated */
 				public getUserVisibleHint(): boolean;
@@ -187,25 +187,25 @@ declare module androidx {
 				public postponeEnterTransition(duration: number, timeUnit: java.util.concurrent.TimeUnit): void;
 				public getSharedElementEnterTransition(): any;
 				public requireParentFragment(): androidx.fragment.app.Fragment;
-				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
-				public onResume(): void;
 				public shouldShowRequestPermissionRationale(permission: string): boolean;
-				public getContext(): globalAndroid.content.Context;
+				public onResume(): void;
+				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
 				public requireArguments(): globalAndroid.os.Bundle;
-				public getTag(): string;
+				public getContext(): globalAndroid.content.Context;
 				public getViewLifecycleOwner(): androidx.lifecycle.LifecycleOwner;
+				public getTag(): string;
 				public toString(): string;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
-				public requestPermissions(permissions: native.Array<string>, requestCode: number): void;
 				/** @deprecated */
 				public setUserVisibleHint(isVisibleToUser: boolean): void;
+				public requestPermissions(permissions: native.Array<string>, requestCode: number): void;
 				public getParentFragmentManager(): androidx.fragment.app.FragmentManager;
 				public onAttachFragment(childFragment: androidx.fragment.app.Fragment): void;
 				public onCreateAnimation(transit: number, enter: boolean, nextAnim: number): globalAndroid.view.animation.Animation;
 				public getHost(): any;
 				public isResumed(): boolean;
-				public getAllowEnterTransitionOverlap(): boolean;
 				public onGetLayoutInflater(savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.LayoutInflater;
+				public getAllowEnterTransitionOverlap(): boolean;
 				public getText(resId: number): string;
 				public onDestroyView(): void;
 				public requireActivity(): androidx.fragment.app.FragmentActivity;
@@ -216,8 +216,8 @@ declare module androidx {
 				public setExitSharedElementCallback(callback: androidx.core.app.SharedElementCallback): void;
 				public setInitialSavedState(state: androidx.fragment.app.Fragment.SavedState): void;
 				public setEnterSharedElementCallback(callback: androidx.core.app.SharedElementCallback): void;
-				public onPause(): void;
 				public onPrimaryNavigationFragmentChanged(isPrimaryNavigationFragment: boolean): void;
+				public onPause(): void;
 				public setAllowReturnTransitionOverlap(allow: boolean): void;
 				public setAllowEnterTransitionOverlap(allow: boolean): void;
 				public onRequestPermissionsResult(requestCode: number, permissions: native.Array<string>, grantResults: native.Array<number>): void;
@@ -226,8 +226,8 @@ declare module androidx {
 				public isMenuVisible(): boolean;
 				public onStop(): void;
 				public setReenterTransition(transition: any): void;
-				public getLayoutInflater(): globalAndroid.view.LayoutInflater;
 				public getTargetFragment(): androidx.fragment.app.Fragment;
+				public getLayoutInflater(): globalAndroid.view.LayoutInflater;
 				public getArguments(): globalAndroid.os.Bundle;
 				/** @deprecated */
 				public getLayoutInflater(savedFragmentState: globalAndroid.os.Bundle): globalAndroid.view.LayoutInflater;
@@ -244,8 +244,8 @@ declare module androidx {
 				public isAdded(): boolean;
 				public getParentFragment(): androidx.fragment.app.Fragment;
 				public constructor(contentLayoutId: number);
-				public isDetached(): boolean;
 				public setArguments(bundle0: globalAndroid.os.Bundle): void;
+				public isDetached(): boolean;
 				public onDestroy(): void;
 			}
 			export module Fragment {
@@ -264,7 +264,7 @@ declare module androidx {
 				export class OnStartEnterTransitionListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.fragment.app.Fragment.OnStartEnterTransitionListener>;
 					/**
-					 * Constructs a new instance of the androidx.fragment.app.Fragment$OnStartEnterTransitionListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.fragment.app.Fragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onStartEnterTransition(): void;
@@ -298,9 +298,9 @@ declare module androidx {
 				public onCreateView(name: string, context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet): globalAndroid.view.View;
 				public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
 				public onNewIntent(intent: globalAndroid.content.Intent): void;
-				public dump(prefix: string, fd: java.io.FileDescriptor, writer: java.io.PrintWriter, strings3: native.Array<string>): void;
 				/** @deprecated */
 				public supportInvalidateOptionsMenu(): void;
+				public dump(prefix: string, fd: java.io.FileDescriptor, writer: java.io.PrintWriter, strings3: native.Array<string>): void;
 				public getSupportFragmentManager(): androidx.fragment.app.FragmentManager;
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
 				public constructor();
@@ -360,8 +360,8 @@ declare module androidx {
 				public onActionModeFinished(mode: globalAndroid.view.ActionMode): void;
 				public validateRequestPermissionsRequestCode(requestCode: number): void;
 				public startActivityFromFragment(fragment: androidx.fragment.app.Fragment, intent: globalAndroid.content.Intent, requestCode: number): void;
-				public onRequestPermissionsResult(requestCode: number, permissions: native.Array<string>, grantResults: native.Array<number>): void;
 				public setExitSharedElementCallback(listener: androidx.core.app.SharedElementCallback): void;
+				public onRequestPermissionsResult(requestCode: number, permissions: native.Array<string>, grantResults: native.Array<number>): void;
 				public onProvideKeyboardShortcuts(data: java.util.List<any>, menu: globalAndroid.view.Menu, deviceId: number): void;
 				public onActivityResult(requestCode: number, resultCode: number, data: globalAndroid.content.Intent): void;
 				public onStop(): void;
@@ -386,9 +386,9 @@ declare module androidx {
 				public onMultiWindowModeChanged(isInMultiWindowMode: boolean): void;
 				public onDestroy(): void;
 				public onAttachedToWindow(): void;
+				public supportStartPostponedEnterTransition(): void;
 				/** @deprecated */
 				public onPictureInPictureModeChanged(isInPictureInPictureMode: boolean): void;
-				public supportStartPostponedEnterTransition(): void;
 				public dispatchTouchEvent(ev: globalAndroid.view.MotionEvent): boolean;
 			}
 			export module FragmentActivity {
@@ -400,14 +400,14 @@ declare module androidx {
 					public getViewModelStore(): androidx.lifecycle.ViewModelStore;
 					public onStartActivityFromFragment(fragment: androidx.fragment.app.Fragment, intent: globalAndroid.content.Intent, requestCode: number): void;
 					public onGetLayoutInflater(): globalAndroid.view.LayoutInflater;
-					public onGetWindowAnimations(): number;
 					public onStartIntentSenderFromFragment(fragment: androidx.fragment.app.Fragment, intent: globalAndroid.content.IntentSender, requestCode: number, fillInIntent: globalAndroid.content.Intent, flagsMask: number, flagsValues: number, extraFlags: number, options: globalAndroid.os.Bundle): void;
+					public onGetWindowAnimations(): number;
 					public getLifecycle(): androidx.lifecycle.Lifecycle;
 					public onRequestPermissionsFromFragment(fragment: androidx.fragment.app.Fragment, permissions: native.Array<string>, requestCode: number): void;
 					public onShouldShowRequestPermissionRationale(permission: string): boolean;
 					public onStartActivityFromFragment(fragment: androidx.fragment.app.Fragment, intent: globalAndroid.content.Intent, requestCode: number, options: globalAndroid.os.Bundle): void;
-					public onAttachFragment(fragment: androidx.fragment.app.Fragment): void;
 					public onHasWindowAnimations(): boolean;
+					public onAttachFragment(fragment: androidx.fragment.app.Fragment): void;
 					public onGetHost(): androidx.fragment.app.FragmentActivity;
 					public onHasView(): boolean;
 					public constructor(context: globalAndroid.content.Context, handler: globalAndroid.os.Handler, windowAnimations: number);
@@ -562,15 +562,15 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentController>;
 				public dispatchOptionsItemSelected(item: globalAndroid.view.MenuItem): boolean;
 				public dispatchCreateOptionsMenu(menu: globalAndroid.view.Menu, inflater: globalAndroid.view.MenuInflater): boolean;
+				public saveAllState(): globalAndroid.os.Parcelable;
 				/** @deprecated */
 				public dumpLoaders(prefix: string, fd: java.io.FileDescriptor, writer: java.io.PrintWriter, strings3: native.Array<string>): void;
-				public saveAllState(): globalAndroid.os.Parcelable;
 				public dispatchPictureInPictureModeChanged(isInPictureInPictureMode: boolean): void;
-				public dispatchLowMemory(): void;
 				public getActiveFragments(actives: java.util.List<androidx.fragment.app.Fragment>): java.util.List<androidx.fragment.app.Fragment>;
+				public dispatchLowMemory(): void;
 				public getActiveFragmentsCount(): number;
-				public dispatchStop(): void;
 				public getSupportFragmentManager(): androidx.fragment.app.FragmentManager;
+				public dispatchStop(): void;
 				/** @deprecated */
 				public retainNestedNonConfig(): androidx.fragment.app.FragmentManagerNonConfig;
 				public noteStateNotSaved(): void;
@@ -581,12 +581,12 @@ declare module androidx {
 				public findFragmentByWho(who: string): androidx.fragment.app.Fragment;
 				/** @deprecated */
 				public restoreAllState(state: globalAndroid.os.Parcelable, nonConfigList: java.util.List<androidx.fragment.app.Fragment>): void;
-				public dispatchResume(): void;
 				/** @deprecated */
 				public restoreAllState(state: globalAndroid.os.Parcelable, nonConfig: androidx.fragment.app.FragmentManagerNonConfig): void;
-				public dispatchDestroy(): void;
+				public dispatchResume(): void;
 				/** @deprecated */
 				public getSupportLoaderManager(): androidx.loader.app.LoaderManager;
+				public dispatchDestroy(): void;
 				/** @deprecated */
 				public doLoaderStart(): void;
 				public attachHost(parent: androidx.fragment.app.Fragment): void;
@@ -626,8 +626,8 @@ declare module androidx {
 		export module app {
 			export class FragmentFactory extends java.lang.Object {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentFactory>;
-				public instantiate(classLoader: java.lang.ClassLoader, className: string): androidx.fragment.app.Fragment;
 				public static loadFragmentClass(classLoader: java.lang.ClassLoader, className: string): java.lang.Class<any>;
+				public instantiate(classLoader: java.lang.ClassLoader, className: string): androidx.fragment.app.Fragment;
 				public constructor();
 			}
 		}
@@ -641,8 +641,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentHostCallback<any>>;
 				public onDump(prefix: string, fd: java.io.FileDescriptor, writer: java.io.PrintWriter, strings3: native.Array<string>): void;
 				public onShouldSaveFragmentState(fragment: androidx.fragment.app.Fragment): boolean;
-				public onRequestPermissionsFromFragment(fragment: androidx.fragment.app.Fragment, permissions: native.Array<string>, requestCode: number): void;
 				public onSupportInvalidateOptionsMenu(): void;
+				public onRequestPermissionsFromFragment(fragment: androidx.fragment.app.Fragment, permissions: native.Array<string>, requestCode: number): void;
 				public constructor(context: globalAndroid.content.Context, handler: globalAndroid.os.Handler, windowAnimations: number);
 				public onShouldShowRequestPermissionRationale(permission: string): boolean;
 				public onHasView(): boolean;
@@ -734,7 +734,7 @@ declare module androidx {
 				export class BackStackEntry extends java.lang.Object {
 					public static class: java.lang.Class<androidx.fragment.app.FragmentManager.BackStackEntry>;
 					/**
-					 * Constructs a new instance of the androidx.fragment.app.FragmentManager$BackStackEntry interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.fragment.app.FragmentManager() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getId(): number;
@@ -777,7 +777,7 @@ declare module androidx {
 				export class OnBackStackChangedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.fragment.app.FragmentManager.OnBackStackChangedListener>;
 					/**
-					 * Constructs a new instance of the androidx.fragment.app.FragmentManager$OnBackStackChangedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.fragment.app.FragmentManager() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onBackStackChanged(): void;
@@ -788,7 +788,7 @@ declare module androidx {
 				export class OpGenerator extends java.lang.Object {
 					public static class: java.lang.Class<androidx.fragment.app.FragmentManager.OpGenerator>;
 					/**
-					 * Constructs a new instance of the androidx.fragment.app.FragmentManager$OpGenerator interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.fragment.app.FragmentManager() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						generateOps(arrayList0: java.util.ArrayList<androidx.fragment.app.BackStackRecord>, arrayList1: java.util.ArrayList<java.lang.Boolean>): boolean;
@@ -866,8 +866,8 @@ declare module androidx {
 		export module app {
 			export abstract class FragmentPagerAdapter extends androidx.viewpager.widget.PagerAdapter {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentPagerAdapter>;
-				public static BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT: number;
 				public static BEHAVIOR_SET_USER_VISIBLE_HINT: number;
+				public static BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT: number;
 				public saveState(): globalAndroid.os.Parcelable;
 				/** @deprecated */
 				public destroyItem(container: globalAndroid.view.View, position: number, object: any): void;
@@ -880,8 +880,8 @@ declare module androidx {
 				public constructor(fm: androidx.fragment.app.FragmentManager, behavior: number);
 				/** @deprecated */
 				public instantiateItem(container: globalAndroid.view.View, position: number): any;
-				public getItemId(position: number): number;
 				public startUpdate(container: globalAndroid.view.ViewGroup): void;
+				public getItemId(position: number): number;
 				/** @deprecated */
 				public constructor(fm: androidx.fragment.app.FragmentManager);
 				public restoreState(state: globalAndroid.os.Parcelable, loader: java.lang.ClassLoader): void;
@@ -927,8 +927,8 @@ declare module androidx {
 		export module app {
 			export abstract class FragmentStatePagerAdapter extends androidx.viewpager.widget.PagerAdapter {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentStatePagerAdapter>;
-				public static BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT: number;
 				public static BEHAVIOR_SET_USER_VISIBLE_HINT: number;
+				public static BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT: number;
 				public saveState(): globalAndroid.os.Parcelable;
 				/** @deprecated */
 				public destroyItem(container: globalAndroid.view.View, position: number, object: any): void;
@@ -1036,9 +1036,9 @@ declare module androidx {
 				public setOnTabChangedListener(l: globalAndroid.widget.TabHost.OnTabChangeListener): void;
 				public notifySubtreeAccessibilityStateChanged(child: globalAndroid.view.View, source: globalAndroid.view.View, changeType: number): void;
 				/** @deprecated */
-				public onTabChanged(tabId: string): void;
-				/** @deprecated */
 				public setup(context: globalAndroid.content.Context, manager: androidx.fragment.app.FragmentManager, containerId: number): void;
+				/** @deprecated */
+				public onTabChanged(tabId: string): void;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 				public updateViewLayout(view: globalAndroid.view.View, params: globalAndroid.view.ViewGroup.LayoutParams): void;
 				public onNestedScroll(target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
@@ -1060,9 +1060,9 @@ declare module androidx {
 				public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
 				public onTouchModeChanged(isInTouchMode: boolean): void;
 				public removeView(view: globalAndroid.view.View): void;
-				public onSaveInstanceState(): globalAndroid.os.Parcelable;
 				/** @deprecated */
 				public setup(context: globalAndroid.content.Context, manager: androidx.fragment.app.FragmentManager): void;
+				public onSaveInstanceState(): globalAndroid.os.Parcelable;
 				public requestChildRectangleOnScreen(child: globalAndroid.view.View, rectangle: globalAndroid.graphics.Rect, immediate: boolean): boolean;
 				public onKeyLongPress(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 				public invalidateDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
@@ -1107,22 +1107,22 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentTransaction>;
 				public static TRANSIT_ENTER_MASK: number;
 				public static TRANSIT_EXIT_MASK: number;
+				public static TRANSIT_UNSET: number;
+				public static TRANSIT_NONE: number;
+				public static TRANSIT_FRAGMENT_OPEN: number;
 				public static TRANSIT_FRAGMENT_CLOSE: number;
 				public static TRANSIT_FRAGMENT_FADE: number;
-				public static TRANSIT_FRAGMENT_OPEN: number;
-				public static TRANSIT_NONE: number;
-				public static TRANSIT_UNSET: number;
 				public commitAllowingStateLoss(): number;
 				public commitNowAllowingStateLoss(): void;
-				public isAddToBackStackAllowed(): boolean;
 				public setMaxLifecycle(fragment: androidx.fragment.app.Fragment, state: androidx.lifecycle.Lifecycle.State): androidx.fragment.app.FragmentTransaction;
+				public isAddToBackStackAllowed(): boolean;
 				/** @deprecated */
 				public setBreadCrumbShortTitle(text: string): androidx.fragment.app.FragmentTransaction;
 				/** @deprecated */
 				public setAllowOptimization(allowOptimization: boolean): androidx.fragment.app.FragmentTransaction;
 				public setCustomAnimations(enter: number, exit: number, popEnter: number, popExit: number): androidx.fragment.app.FragmentTransaction;
-				public attach(fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
 				public replace(containerViewId: number, fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
+				public attach(fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
 				public add(containerViewId: number, fragmentClass: java.lang.Class<any>, bundle2: globalAndroid.os.Bundle, tag: string): androidx.fragment.app.FragmentTransaction;
 				public add(fragmentClass: java.lang.Class<any>, bundle1: globalAndroid.os.Bundle, tag: string): androidx.fragment.app.FragmentTransaction;
 				public runOnCommit(runnable: java.lang.Runnable): androidx.fragment.app.FragmentTransaction;
@@ -1139,11 +1139,11 @@ declare module androidx {
 				public isEmpty(): boolean;
 				public setPrimaryNavigationFragment(fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
 				public add(fragment: androidx.fragment.app.Fragment, tag: string): androidx.fragment.app.FragmentTransaction;
-				public commitNow(): void;
 				public detach(fragment: androidx.fragment.app.Fragment): androidx.fragment.app.FragmentTransaction;
+				public commitNow(): void;
 				public setTransition(transition: number): androidx.fragment.app.FragmentTransaction;
-				public addSharedElement(sharedElement: globalAndroid.view.View, name: string): androidx.fragment.app.FragmentTransaction;
 				public setCustomAnimations(enter: number, exit: number): androidx.fragment.app.FragmentTransaction;
+				public addSharedElement(sharedElement: globalAndroid.view.View, name: string): androidx.fragment.app.FragmentTransaction;
 				/** @deprecated */
 				public setTransitionStyle(styleRes: number): androidx.fragment.app.FragmentTransaction;
 				/** @deprecated */
@@ -1179,7 +1179,7 @@ declare module androidx {
 				export class Callback extends java.lang.Object {
 					public static class: java.lang.Class<androidx.fragment.app.FragmentTransition.Callback>;
 					/**
-					 * Constructs a new instance of the androidx.fragment.app.FragmentTransition$Callback interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.fragment.app.FragmentTransition() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onStart(fragment0: androidx.fragment.app.Fragment, cancellationSignal1: androidx.core.os.CancellationSignal): void;
@@ -1191,12 +1191,12 @@ declare module androidx {
 				}
 				export class FragmentContainerTransition extends java.lang.Object {
 					public static class: java.lang.Class<androidx.fragment.app.FragmentTransition.FragmentContainerTransition>;
-					public firstOut: androidx.fragment.app.Fragment;
-					public firstOutIsPop: boolean;
-					public firstOutTransaction: androidx.fragment.app.BackStackRecord;
 					public lastIn: androidx.fragment.app.Fragment;
 					public lastInIsPop: boolean;
 					public lastInTransaction: androidx.fragment.app.BackStackRecord;
+					public firstOut: androidx.fragment.app.Fragment;
+					public firstOutIsPop: boolean;
+					public firstOutTransaction: androidx.fragment.app.BackStackRecord;
 				}
 			}
 		}
@@ -1221,10 +1221,10 @@ declare module androidx {
 				public swapSharedElementTargets(object0: any, arrayList1: java.util.ArrayList<globalAndroid.view.View>, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
 				public swapSharedElementTargets(sharedElementTransitionObj: any, sharedElementsOut: java.util.ArrayList<globalAndroid.view.View>, sharedElementsIn: java.util.ArrayList<globalAndroid.view.View>): void;
 				public wrapTransitionInSet(object0: any): any;
-				public scheduleHideFragmentView(object0: any, view1: globalAndroid.view.View, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
 				public setSharedElementTargets(object0: any, view1: globalAndroid.view.View, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
-				public addTarget(object0: any, view1: globalAndroid.view.View): void;
+				public scheduleHideFragmentView(object0: any, view1: globalAndroid.view.View, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
 				public setSharedElementTargets(transitionObj: any, nonExistentView: globalAndroid.view.View, sharedViews: java.util.ArrayList<globalAndroid.view.View>): void;
+				public addTarget(object0: any, view1: globalAndroid.view.View): void;
 				public addTarget(transitionObj: any, view: globalAndroid.view.View): void;
 				public removeTarget(object0: any, view1: globalAndroid.view.View): void;
 				public removeTarget(transitionObj: any, view: globalAndroid.view.View): void;
@@ -1236,8 +1236,8 @@ declare module androidx {
 				public beginDelayedTransition(viewGroup0: globalAndroid.view.ViewGroup, object1: any): void;
 				public mergeTransitionsTogether(transition1: any, transition2: any, transition3: any): any;
 				public canHandle(transition: any): boolean;
-				public setEpicenter(transitionObj: any, epicenter: globalAndroid.graphics.Rect): void;
 				public setListenerForTransitionEnd(outFragment: androidx.fragment.app.Fragment, transition: any, signal: androidx.core.os.CancellationSignal, transitionCompleteRunnable: java.lang.Runnable): void;
+				public setEpicenter(transitionObj: any, epicenter: globalAndroid.graphics.Rect): void;
 				public cloneTransition(object0: any): any;
 				public mergeTransitionsInSequence(object0: any, object1: any, object2: any): any;
 				public addTargets(transitionObj: any, views: java.util.ArrayList<globalAndroid.view.View>): void;
@@ -1251,8 +1251,8 @@ declare module androidx {
 		export module app {
 			export abstract class FragmentTransitionImpl extends java.lang.Object {
 				public static class: java.lang.Class<androidx.fragment.app.FragmentTransitionImpl>;
-				public static isNullOrEmpty(list: java.util.List<any>): boolean;
 				public removeTarget(object0: any, view1: globalAndroid.view.View): void;
+				public static isNullOrEmpty(list: java.util.List<any>): boolean;
 				public addTargets(object0: any, arrayList1: java.util.ArrayList<globalAndroid.view.View>): void;
 				public getBoundsOnScreen(view: globalAndroid.view.View, epicenter: globalAndroid.graphics.Rect): void;
 				public replaceTargets(object0: any, arrayList1: java.util.ArrayList<globalAndroid.view.View>, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
@@ -1267,8 +1267,8 @@ declare module androidx {
 				public swapSharedElementTargets(object0: any, arrayList1: java.util.ArrayList<globalAndroid.view.View>, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
 				public cloneTransition(object0: any): any;
 				public wrapTransitionInSet(object0: any): any;
-				public scheduleHideFragmentView(object0: any, view1: globalAndroid.view.View, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
 				public setSharedElementTargets(object0: any, view1: globalAndroid.view.View, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
+				public scheduleHideFragmentView(object0: any, view1: globalAndroid.view.View, arrayList2: java.util.ArrayList<globalAndroid.view.View>): void;
 				public mergeTransitionsInSequence(object0: any, object1: any, object2: any): any;
 				public addTarget(object0: any, view1: globalAndroid.view.View): void;
 				public static bfsAddViewChildren(views: java.util.List<globalAndroid.view.View>, startView: globalAndroid.view.View): void;
@@ -1313,9 +1313,9 @@ declare module androidx {
 				public setSelection(position: number): void;
 				public onListItemClick(l: globalAndroid.widget.ListView, v: globalAndroid.view.View, position: number, id: number): void;
 				public constructor(contentLayoutId: number);
-				public getSelectedItemId(): number;
 				public onDestroyView(): void;
 				public setListAdapter(adapter: globalAndroid.widget.ListAdapter): void;
+				public getSelectedItemId(): number;
 			}
 		}
 	}

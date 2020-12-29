@@ -75,7 +75,7 @@ declare module org {
 					export class AdjustableOrientation extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.AdjustableOrientation>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$AdjustableOrientation interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -92,7 +92,7 @@ declare module org {
 					export class BoxLayoutAxis extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.BoxLayoutAxis>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$BoxLayoutAxis interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -109,7 +109,7 @@ declare module org {
 					export class CalendarMonth extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.CalendarMonth>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$CalendarMonth interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -126,7 +126,7 @@ declare module org {
 					export class CursorType extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.CursorType>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$CursorType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -143,7 +143,7 @@ declare module org {
 					export class FlowLayoutAlignment extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.FlowLayoutAlignment>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$FlowLayoutAlignment interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -160,7 +160,7 @@ declare module org {
 					export class FontStyle extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.FontStyle>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$FontStyle interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -177,7 +177,7 @@ declare module org {
 					export class HorizontalAlignment extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.HorizontalAlignment>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$HorizontalAlignment interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -194,7 +194,7 @@ declare module org {
 					export class InputEventMask extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.InputEventMask>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$InputEventMask interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -211,7 +211,7 @@ declare module org {
 					export class ListSelectionMode extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.ListSelectionMode>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$ListSelectionMode interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -228,7 +228,7 @@ declare module org {
 					export class PatternFlags extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.PatternFlags>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$PatternFlags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -245,7 +245,7 @@ declare module org {
 					export class TabLayoutPolicy extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.TabLayoutPolicy>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$TabLayoutPolicy interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -262,7 +262,7 @@ declare module org {
 					export class TabPlacement extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.TabPlacement>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$TabPlacement interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -279,7 +279,7 @@ declare module org {
 					export class TitledBorderJustification extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.TitledBorderJustification>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$TitledBorderJustification interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -296,7 +296,7 @@ declare module org {
 					export class TitledBorderTitlePosition extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.TitledBorderTitlePosition>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$TitledBorderTitlePosition interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -313,7 +313,7 @@ declare module org {
 					export class TreeSelectionMode extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<org.intellij.lang.annotations.JdkConstants.TreeSelectionMode>;
 						/**
-						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants$TreeSelectionMode interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.intellij.lang.annotations.JdkConstants() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;

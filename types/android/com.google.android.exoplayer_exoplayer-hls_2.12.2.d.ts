@@ -7,8 +7,8 @@ declare module com {
 						export class Aes128DataSource extends java.lang.Object implements com.google.android.exoplayer2.upstream.DataSource {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.Aes128DataSource>;
 							public getCipherInstance(): javax.crypto.Cipher;
-							public close(): void;
 							public getUri(): globalAndroid.net.Uri;
+							public close(): void;
 							public read(buffer: native.Array<number>, offset: number, readLength: number): number;
 							public open(dataSpec: com.google.android.exoplayer2.upstream.DataSpec): number;
 							public addTransferListener(transferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
@@ -30,11 +30,11 @@ declare module com {
 					export module hls {
 						export class BuildConfig extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.BuildConfig>;
+							public static DEBUG: boolean;
+							public static LIBRARY_PACKAGE_NAME: string;
 							public static APPLICATION_ID: string;
 							public static BUILD_TYPE: string;
-							public static DEBUG: boolean;
 							public static FLAVOR: string;
-							public static LIBRARY_PACKAGE_NAME: string;
 							public static VERSION_CODE: number;
 							public static VERSION_NAME: string;
 							public constructor();
@@ -145,8 +145,8 @@ declare module com {
 							public maybeExcludeTrack(chunk: com.google.android.exoplayer2.source.chunk.Chunk, exclusionDurationMs: number): boolean;
 							public onChunkLoadCompleted(chunk: com.google.android.exoplayer2.source.chunk.Chunk): void;
 							public getNextChunk(playbackPositionUs: number, loadPositionUs: number, queue: java.util.List<com.google.android.exoplayer2.source.hls.HlsMediaChunk>, allowEndOfStream: boolean, out: com.google.android.exoplayer2.source.hls.HlsChunkSource.HlsChunkHolder): void;
-							public createMediaChunkIterators(previous: com.google.android.exoplayer2.source.hls.HlsMediaChunk, loadPositionUs: number): native.Array<com.google.android.exoplayer2.source.chunk.MediaChunkIterator>;
 							public getTrackSelection(): com.google.android.exoplayer2.trackselection.TrackSelection;
+							public createMediaChunkIterators(previous: com.google.android.exoplayer2.source.hls.HlsMediaChunk, loadPositionUs: number): native.Array<com.google.android.exoplayer2.source.chunk.MediaChunkIterator>;
 							public maybeThrowError(): void;
 							public onPlaylistError(playlistUrl: globalAndroid.net.Uri, exclusionDurationMs: number): boolean;
 						}
@@ -288,15 +288,15 @@ declare module com {
 						export class HlsMediaChunk extends com.google.android.exoplayer2.source.chunk.MediaChunk {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsMediaChunk>;
 							public static PRIV_TIMESTAMP_FRAME_OWNER: string;
+							public uid: number;
 							public discontinuitySequenceNumber: number;
 							public playlistUrl: globalAndroid.net.Uri;
 							public shouldSpliceIn: boolean;
-							public uid: number;
 							public isLoadCompleted(): boolean;
 							public cancelLoad(): void;
 							public load(): void;
-							public getFirstSampleIndex(sampleQueueIndex: number): number;
 							public init(output: com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper, sampleQueueWriteIndices: com.google.common.collect.ImmutableList<java.lang.Integer>): void;
+							public getFirstSampleIndex(sampleQueueIndex: number): number;
 							public static createInstance(extractorFactory: com.google.android.exoplayer2.source.hls.HlsExtractorFactory, dataSource: com.google.android.exoplayer2.upstream.DataSource, format: com.google.android.exoplayer2.Format, startOfPlaylistInPeriodUs: number, mediaPlaylist: com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist, segmentIndexInPlaylist: number, playlistUrl: globalAndroid.net.Uri, muxedCaptionFormats: java.util.List<com.google.android.exoplayer2.Format>, trackSelectionReason: number, trackSelectionData: any, isMasterTimestampSource: boolean, timestampAdjusterProvider: com.google.android.exoplayer2.source.hls.TimestampAdjusterProvider, previousChunk: com.google.android.exoplayer2.source.hls.HlsMediaChunk, mediaSegmentKey: native.Array<number>, initSegmentKey: native.Array<number>): com.google.android.exoplayer2.source.hls.HlsMediaChunk;
 							public invalidateExtractor(): void;
 						}
@@ -358,8 +358,8 @@ declare module com {
 							public constructor(extractorFactory: com.google.android.exoplayer2.source.hls.HlsExtractorFactory, playlistTracker: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker, dataSourceFactory: com.google.android.exoplayer2.source.hls.HlsDataSourceFactory, mediaTransferListener: com.google.android.exoplayer2.upstream.TransferListener, drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager, drmEventDispatcher: com.google.android.exoplayer2.drm.DrmSessionEventListener.EventDispatcher, loadErrorHandlingPolicy: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy, eventDispatcher: com.google.android.exoplayer2.source.MediaSourceEventListener.EventDispatcher, allocator: com.google.android.exoplayer2.upstream.Allocator, compositeSequenceableLoaderFactory: com.google.android.exoplayer2.source.CompositeSequenceableLoaderFactory, allowChunklessPreparation: boolean, metadataType: number, useSessionKeys: boolean);
 							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.TrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number): number;
 							public onPlaylistChanged(): void;
-							public getBufferedPositionUs(): number;
 							public maybeThrowPrepareError(): void;
+							public getBufferedPositionUs(): number;
 							public discardBuffer(positionUs: number, toKeyframe: boolean): void;
 							public getNextLoadPositionUs(): number;
 							public continueLoading(positionUs: number): boolean;
@@ -385,8 +385,8 @@ declare module com {
 					export module hls {
 						export class HlsMediaSource extends com.google.android.exoplayer2.source.BaseMediaSource implements com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PrimaryPlaylistListener {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsMediaSource>;
-							public static METADATA_TYPE_EMSG: number;
 							public static METADATA_TYPE_ID3: number;
+							public static METADATA_TYPE_EMSG: number;
 							public addEventListener(handler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): void;
 							public getMediaItem(): com.google.android.exoplayer2.MediaItem;
 							public enable(caller: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller): void;
@@ -412,9 +412,9 @@ declare module com {
 							export class Factory extends java.lang.Object implements com.google.android.exoplayer2.source.MediaSourceFactory {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory>;
 								public getSupportedTypes(): native.Array<number>;
+								public setPlaylistParserFactory(playlistParserFactory: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParserFactory): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
 								/** @deprecated */
 								public createMediaSource(uri: globalAndroid.net.Uri): com.google.android.exoplayer2.source.hls.HlsMediaSource;
-								public setPlaylistParserFactory(playlistParserFactory: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParserFactory): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
 								public setPlaylistTrackerFactory(playlistTrackerFactory: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.Factory): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
 								/** @deprecated */
 								public createMediaSource(uri: globalAndroid.net.Uri): com.google.android.exoplayer2.source.MediaSource;
@@ -428,19 +428,19 @@ declare module com {
 								public setDrmUserAgent(userAgent: string): com.google.android.exoplayer2.source.MediaSourceFactory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.MediaSourceFactory;
-								public setDrmSessionManager(drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
 								public setMetadataType(metadataType: number): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
-								public setLoadErrorHandlingPolicy(loadErrorHandlingPolicy0: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy): com.google.android.exoplayer2.source.MediaSourceFactory;
+								public setDrmSessionManager(drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
 								/** @deprecated */
 								public setMinLoadableRetryCount(minLoadableRetryCount: number): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
-								/** @deprecated */
-								public createMediaSource(playlistUri: globalAndroid.net.Uri, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.hls.HlsMediaSource;
+								public setLoadErrorHandlingPolicy(loadErrorHandlingPolicy0: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy): com.google.android.exoplayer2.source.MediaSourceFactory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
+								/** @deprecated */
+								public createMediaSource(playlistUri: globalAndroid.net.Uri, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.hls.HlsMediaSource;
 								public constructor(dataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory);
 								public setLoadErrorHandlingPolicy(loadErrorHandlingPolicy: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
-								public setDrmHttpDataSourceFactory(factory0: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public setUseSessionKeys(useSessionKeys: boolean): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
+								public setDrmHttpDataSourceFactory(factory0: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public setAllowChunklessPreparation(allowChunklessPreparation: boolean): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
 								public setDrmSessionManager(drmSessionManager0: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public setCompositeSequenceableLoaderFactory(compositeSequenceableLoaderFactory: com.google.android.exoplayer2.source.CompositeSequenceableLoaderFactory): com.google.android.exoplayer2.source.hls.HlsMediaSource.Factory;
@@ -448,7 +448,7 @@ declare module com {
 							export class MetadataType extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsMediaSource.MetadataType>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.HlsMediaSource$MetadataType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.HlsMediaSource() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -501,9 +501,9 @@ declare module com {
 					export module hls {
 						export class HlsSampleStreamWrapper extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper>;
+							public static SAMPLE_QUEUE_INDEX_PENDING: number;
 							public static SAMPLE_QUEUE_INDEX_NO_MAPPING_FATAL: number;
 							public static SAMPLE_QUEUE_INDEX_NO_MAPPING_NON_FATAL: number;
-							public static SAMPLE_QUEUE_INDEX_PENDING: number;
 							public getTrackGroups(): com.google.android.exoplayer2.source.TrackGroupArray;
 							public onLoadCompleted(loadable0: any, long1: number, long2: number): void;
 							public onNewExtractor(): void;
@@ -513,8 +513,8 @@ declare module com {
 							public discardBuffer(positionUs: number, toKeyframe: boolean): void;
 							public maybeThrowError(sampleQueueIndex: number): void;
 							public skipData(sampleQueueIndex: number, positionUs: number): number;
-							public readData(sampleQueueIndex: number, formatHolder: com.google.android.exoplayer2.FormatHolder, buffer: com.google.android.exoplayer2.decoder.DecoderInputBuffer, requireFormat: boolean): number;
 							public setIsTimestampMaster(isTimestampMaster: boolean): void;
+							public readData(sampleQueueIndex: number, formatHolder: com.google.android.exoplayer2.FormatHolder, buffer: com.google.android.exoplayer2.decoder.DecoderInputBuffer, requireFormat: boolean): number;
 							public continueLoading(positionUs: number): boolean;
 							public onLoadCompleted(loadable: com.google.android.exoplayer2.source.chunk.Chunk, elapsedRealtimeMs: number, loadDurationMs: number): void;
 							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.TrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number, forceReset: boolean): boolean;
@@ -527,8 +527,8 @@ declare module com {
 							public bindSampleQueueToSampleStream(trackGroupIndex: number): number;
 							public release(): void;
 							public getPrimaryTrackGroupIndex(): number;
-							public setSampleOffsetUs(sampleOffsetUs: number): void;
 							public track(id: number, type: number): com.google.android.exoplayer2.extractor.TrackOutput;
+							public setSampleOffsetUs(sampleOffsetUs: number): void;
 							public endTracks(): void;
 							public getBufferedPositionUs(): number;
 							public getNextLoadPositionUs(): number;
@@ -537,8 +537,8 @@ declare module com {
 							public onLoaderReleased(): void;
 							public onLoadCanceled(loadable0: any, long1: number, long2: number, boolean3: boolean): void;
 							public onLoadError(loadable0: any, long1: number, long2: number, iOException3: java.io.IOException, int4: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
-							public maybeThrowError(): void;
 							public prepareWithMasterPlaylistInfo(trackGroups: native.Array<com.google.android.exoplayer2.source.TrackGroup>, primaryTrackGroupIndex: number, optionalTrackGroupsIndices: native.Array<number>): void;
+							public maybeThrowError(): void;
 							public setDrmInitData(drmInitData: com.google.android.exoplayer2.drm.DrmInitData): void;
 							public onPlaylistError(playlistUrl: globalAndroid.net.Uri, exclusionDurationMs: number): boolean;
 							public seekMap(seekMap: com.google.android.exoplayer2.extractor.SeekMap): void;
@@ -547,7 +547,7 @@ declare module com {
 							export class Callback extends com.google.android.exoplayer2.source.SequenceableLoader.Callback<com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper> {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper.Callback>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper$Callback interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									onPrepared(): void;
@@ -571,8 +571,8 @@ declare module com {
 							}
 							export class HlsSampleQueue extends com.google.android.exoplayer2.source.SampleQueue {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper.HlsSampleQueue>;
-								public sampleMetadata(timeUs: number, flags: number, size: number, offset: number, cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData): void;
 								public setDrmInitData(drmInitData: com.google.android.exoplayer2.drm.DrmInitData): void;
+								public sampleMetadata(timeUs: number, flags: number, size: number, offset: number, cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData): void;
 								public sampleData(input: com.google.android.exoplayer2.upstream.DataReader, length: number, allowEndOfInput: boolean): number;
 								public sampleData(buffer: com.google.android.exoplayer2.util.ParsableByteArray, length: number, sampleDataPart: number): void;
 								public getAdjustedUpstreamFormat(format: com.google.android.exoplayer2.Format): com.google.android.exoplayer2.Format;
@@ -597,15 +597,15 @@ declare module com {
 					export module hls {
 						export class HlsTrackMetadataEntry extends java.lang.Object implements com.google.android.exoplayer2.metadata.Metadata.Entry {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry>;
-							public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry>;
 							public groupId: string;
 							public name: string;
 							public variantInfos: java.util.List<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry.VariantInfo>;
+							public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry>;
 							public constructor(groupId: string, name: string, variantInfos: java.util.List<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry.VariantInfo>);
 							public getWrappedMetadataFormat(): com.google.android.exoplayer2.Format;
 							public hashCode(): number;
-							public describeContents(): number;
 							public equals(other: any): boolean;
+							public describeContents(): number;
 							public writeToParcel(dest: globalAndroid.os.Parcel, flags: number): void;
 							public getWrappedMetadataBytes(): native.Array<number>;
 							public equals(obj: any): boolean;
@@ -614,13 +614,13 @@ declare module com {
 						export module HlsTrackMetadataEntry {
 							export class VariantInfo extends java.lang.Object implements globalAndroid.os.Parcelable {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry.VariantInfo>;
-								public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry.VariantInfo>;
-								public audioGroupId: string;
 								public averageBitrate: number;
-								public captionGroupId: string;
 								public peakBitrate: number;
-								public subtitleGroupId: string;
 								public videoGroupId: string;
+								public audioGroupId: string;
+								public subtitleGroupId: string;
+								public captionGroupId: string;
+								public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.source.hls.HlsTrackMetadataEntry.VariantInfo>;
 								public describeContents(): number;
 								public equals(obj: any): boolean;
 								public writeToParcel(dest: globalAndroid.os.Parcel, flags: number): void;
@@ -685,8 +685,8 @@ declare module com {
 					export module hls {
 						export class UnexpectedSampleTimestampException extends java.io.IOException {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.UnexpectedSampleTimestampException>;
-							public lastAcceptedSampleTimeUs: number;
 							public mediaChunk: com.google.android.exoplayer2.source.chunk.MediaChunk;
+							public lastAcceptedSampleTimeUs: number;
 							public rejectedSampleTimeUs: number;
 							public constructor();
 							public constructor(message: string, cause: java.lang.Throwable);
@@ -787,8 +787,8 @@ declare module com {
 						export module playlist {
 							export class DefaultHlsPlaylistTracker extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.DefaultHlsPlaylistTracker>;
-								public static DEFAULT_PLAYLIST_STUCK_TARGET_DURATION_COEFFICIENT: number;
 								public static FACTORY: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.Factory;
+								public static DEFAULT_PLAYLIST_STUCK_TARGET_DURATION_COEFFICIENT: number;
 								public constructor(dataSourceFactory: com.google.android.exoplayer2.source.hls.HlsDataSourceFactory, loadErrorHandlingPolicy: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy, playlistParserFactory: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParserFactory);
 								public getPlaylistSnapshot(url: globalAndroid.net.Uri, isForPlayback: boolean): com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
 								public onLoadError(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist>, elapsedRealtimeMs: number, loadDurationMs: number, error: java.io.IOException, errorCount: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
@@ -817,8 +817,8 @@ declare module com {
 									public run(): void;
 									public onLoadCompleted(loadable0: any, long1: number, long2: number): void;
 									public maybeThrowPlaylistRefreshError(): void;
-									public onLoadCanceled(loadable0: any, long1: number, long2: number, boolean3: boolean): void;
 									public onLoadError(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist>, elapsedRealtimeMs: number, loadDurationMs: number, error: java.io.IOException, errorCount: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
+									public onLoadCanceled(loadable0: any, long1: number, long2: number, boolean3: boolean): void;
 									public constructor(param0: com.google.android.exoplayer2.source.hls.playlist.DefaultHlsPlaylistTracker, playlistUrl: globalAndroid.net.Uri);
 									public onLoadError(loadable0: any, long1: number, long2: number, iOException3: java.io.IOException, int4: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
 									public onLoadCompleted(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist>, elapsedRealtimeMs: number, loadDurationMs: number): void;
@@ -867,19 +867,19 @@ declare module com {
 							export class HlsMasterPlaylist extends com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist>;
 								public static EMPTY: com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist;
+								public static GROUP_INDEX_VARIANT: number;
 								public static GROUP_INDEX_AUDIO: number;
 								public static GROUP_INDEX_SUBTITLE: number;
-								public static GROUP_INDEX_VARIANT: number;
-								public audios: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
-								public closedCaptions: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
 								public mediaPlaylistUrls: java.util.List<globalAndroid.net.Uri>;
-								public muxedAudioFormat: com.google.android.exoplayer2.Format;
-								public muxedCaptionFormats: java.util.List<com.google.android.exoplayer2.Format>;
-								public sessionKeyDrmInitData: java.util.List<com.google.android.exoplayer2.drm.DrmInitData>;
-								public subtitles: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
-								public variableDefinitions: java.util.Map<string,string>;
 								public variants: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Variant>;
 								public videos: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
+								public audios: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
+								public subtitles: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
+								public closedCaptions: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
+								public muxedAudioFormat: com.google.android.exoplayer2.Format;
+								public muxedCaptionFormats: java.util.List<com.google.android.exoplayer2.Format>;
+								public variableDefinitions: java.util.Map<string,string>;
+								public sessionKeyDrmInitData: java.util.List<com.google.android.exoplayer2.drm.DrmInitData>;
 								public static createSingleVariantMasterPlaylist(variantUrl: string): com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist;
 								public constructor(baseUri: string, tags: java.util.List<string>, hasIndependentSegments: boolean);
 								public copy(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist;
@@ -889,20 +889,20 @@ declare module com {
 							export module HlsMasterPlaylist {
 								export class Rendition extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Rendition>;
+									public url: globalAndroid.net.Uri;
 									public format: com.google.android.exoplayer2.Format;
 									public groupId: string;
 									public name: string;
-									public url: globalAndroid.net.Uri;
 									public constructor(url: globalAndroid.net.Uri, format: com.google.android.exoplayer2.Format, groupId: string, name: string);
 								}
 								export class Variant extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Variant>;
-									public audioGroupId: string;
-									public captionGroupId: string;
-									public format: com.google.android.exoplayer2.Format;
-									public subtitleGroupId: string;
 									public url: globalAndroid.net.Uri;
+									public format: com.google.android.exoplayer2.Format;
 									public videoGroupId: string;
+									public audioGroupId: string;
+									public subtitleGroupId: string;
+									public captionGroupId: string;
 									public copyWithFormat(format: com.google.android.exoplayer2.Format): com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Variant;
 									public static createMediaPlaylistVariantUrl(url: globalAndroid.net.Uri): com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist.Variant;
 									public constructor(url: globalAndroid.net.Uri, format: com.google.android.exoplayer2.Format, videoGroupId: string, audioGroupId: string, subtitleGroupId: string, captionGroupId: string);
@@ -925,22 +925,22 @@ declare module com {
 						export module playlist {
 							export class HlsMediaPlaylist extends com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist>;
-								public static PLAYLIST_TYPE_EVENT: number;
 								public static PLAYLIST_TYPE_UNKNOWN: number;
 								public static PLAYLIST_TYPE_VOD: number;
-								public discontinuitySequence: number;
-								public durationUs: number;
-								public hasDiscontinuitySequence: boolean;
-								public hasEndTag: boolean;
-								public hasProgramDateTime: boolean;
-								public mediaSequence: number;
+								public static PLAYLIST_TYPE_EVENT: number;
 								public playlistType: number;
-								public protectionSchemes: com.google.android.exoplayer2.drm.DrmInitData;
-								public segments: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.Segment>;
 								public startOffsetUs: number;
 								public startTimeUs: number;
-								public targetDurationUs: number;
+								public hasDiscontinuitySequence: boolean;
+								public discontinuitySequence: number;
+								public mediaSequence: number;
 								public version: number;
+								public targetDurationUs: number;
+								public hasEndTag: boolean;
+								public hasProgramDateTime: boolean;
+								public protectionSchemes: com.google.android.exoplayer2.drm.DrmInitData;
+								public segments: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.Segment>;
+								public durationUs: number;
 								public constructor(playlistType: number, baseUri: string, tags: java.util.List<string>, startOffsetUs: number, startTimeUs: number, hasDiscontinuitySequence: boolean, discontinuitySequence: number, mediaSequence: number, version: number, targetDurationUs: number, hasIndependentSegments: boolean, hasEndTag: boolean, hasProgramDateTime: boolean, protectionSchemes: com.google.android.exoplayer2.drm.DrmInitData, segments: java.util.List<com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.Segment>);
 								public copyWithEndTag(): com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
 								public copy(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
@@ -954,7 +954,7 @@ declare module com {
 								export class PlaylistType extends java.lang.Object implements java.lang.annotation.Annotation {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.PlaylistType>;
 									/**
-									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist$PlaylistType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										equals(object0: any): boolean;
@@ -970,18 +970,18 @@ declare module com {
 								}
 								export class Segment extends java.lang.Comparable<java.lang.Long> {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.Segment>;
-									public byteRangeLength: number;
-									public byteRangeOffset: number;
-									public drmInitData: com.google.android.exoplayer2.drm.DrmInitData;
-									public durationUs: number;
-									public encryptionIV: string;
-									public fullSegmentEncryptionKeyUri: string;
-									public hasGapTag: boolean;
+									public url: string;
 									public initializationSegment: com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.Segment;
+									public durationUs: number;
+									public title: string;
 									public relativeDiscontinuitySequence: number;
 									public relativeStartTimeUs: number;
-									public title: string;
-									public url: string;
+									public drmInitData: com.google.android.exoplayer2.drm.DrmInitData;
+									public fullSegmentEncryptionKeyUri: string;
+									public encryptionIV: string;
+									public byteRangeOffset: number;
+									public byteRangeLength: number;
+									public hasGapTag: boolean;
 									public compareTo(relativeStartTimeUs: java.lang.Long): number;
 									public constructor(url: string, initializationSegment: com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist.Segment, title: string, durationUs: number, relativeDiscontinuitySequence: number, relativeStartTimeUs: number, drmInitData: com.google.android.exoplayer2.drm.DrmInitData, fullSegmentEncryptionKeyUri: string, encryptionIV: string, byteRangeOffset: number, byteRangeLength: number, hasGapTag: boolean);
 									public constructor(uri: string, byteRangeOffset: number, byteRangeLength: number, fullSegmentEncryptionKeyUri: string, encryptionIV: string);
@@ -1005,8 +1005,8 @@ declare module com {
 							export abstract class HlsPlaylist extends com.google.android.exoplayer2.offline.FilterableManifest<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist> {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist>;
 								public baseUri: string;
-								public hasIndependentSegments: boolean;
 								public tags: java.util.List<string>;
+								public hasIndependentSegments: boolean;
 								public constructor(baseUri: string, tags: java.util.List<string>, hasIndependentSegments: boolean);
 								public copy(list0: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): any;
 							}
@@ -1120,7 +1120,7 @@ declare module com {
 								export class Factory extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.Factory>;
 									/**
-									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker$Factory interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										createTracker(hlsDataSourceFactory0: com.google.android.exoplayer2.source.hls.HlsDataSourceFactory, loadErrorHandlingPolicy1: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy, hlsPlaylistParserFactory2: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParserFactory): com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker;
@@ -1131,7 +1131,7 @@ declare module com {
 								export class PlaylistEventListener extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PlaylistEventListener>;
 									/**
-									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker$PlaylistEventListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										onPlaylistChanged(): void;
@@ -1164,7 +1164,7 @@ declare module com {
 								export class PrimaryPlaylistListener extends java.lang.Object {
 									public static class: java.lang.Class<com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PrimaryPlaylistListener>;
 									/**
-									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker$PrimaryPlaylistListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										onPrimaryPlaylistRefreshed(hlsMediaPlaylist0: com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist): void;

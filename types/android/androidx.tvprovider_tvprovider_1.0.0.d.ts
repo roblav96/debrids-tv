@@ -15,18 +15,18 @@ declare module androidx {
 					public getThumbnailAspectRatio(): number;
 					public getTvSeriesItemType(): number;
 					public toContentValues(includeProtectedFields: boolean): globalAndroid.content.ContentValues;
-					public getGenre(): string;
 					public getInteractionCount(): number;
+					public getGenre(): string;
 					public getInternalProviderId(): string;
 					public getPreviewAudioUri(): globalAndroid.net.Uri;
-					public getContentId(): string;
 					public isTransient(): boolean;
+					public getContentId(): string;
 					public getLogoContentDescription(): string;
 					public getInteractionType(): number;
 					public getLastPlaybackPositionMillis(): number;
 					public getOfferPrice(): string;
-					public equals(other: any): boolean;
 					public getIntent(): globalAndroid.content.Intent;
+					public equals(other: any): boolean;
 					public getPosterArtAspectRatio(): number;
 					public toContentValues(): globalAndroid.content.ContentValues;
 					public getStartTimeUtcMillis(): number;
@@ -41,7 +41,7 @@ declare module androidx {
 					export class AspectRatio extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.BasePreviewProgram.AspectRatio>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram$AspectRatio interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -58,7 +58,7 @@ declare module androidx {
 					export class Availability extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.BasePreviewProgram.Availability>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram$Availability interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -96,13 +96,13 @@ declare module androidx {
 						public setReleaseDate(releaseDate: string): any;
 						public setPreviewAudioUri(previewAudioUri: globalAndroid.net.Uri): any;
 						public setAvailability(availability: number): any;
-						public setReleaseDate(releaseDate: java.util.Date): any;
 						public setType(type: number): any;
-						public setInteractionType(interactionType: number): any;
+						public setReleaseDate(releaseDate: java.util.Date): any;
 						public setPosterArtAspectRatio(ratio: number): any;
+						public setInteractionType(interactionType: number): any;
 						public setInternalProviderId(externalId: string): any;
-						public setInteractionCount(interactionCount: number): any;
 						public setThumbnailAspectRatio(ratio: number): any;
+						public setInteractionCount(interactionCount: number): any;
 						public setIntent(intent: globalAndroid.content.Intent): any;
 						public setContentId(contentId: string): any;
 						public setIntentUri(intentUri: globalAndroid.net.Uri): any;
@@ -110,7 +110,7 @@ declare module androidx {
 					export class InteractionType extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.BasePreviewProgram.InteractionType>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram$InteractionType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -127,7 +127,7 @@ declare module androidx {
 					export class TvSeriesItemType extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.BasePreviewProgram.TvSeriesItemType>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram$TvSeriesItemType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -144,7 +144,7 @@ declare module androidx {
 					export class Type extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.BasePreviewProgram.Type>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram$Type interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.BasePreviewProgram() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;
@@ -172,15 +172,15 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.tvprovider.media.tv.BaseProgram>;
 					public static PROJECTION: native.Array<string>;
 					public mValues: globalAndroid.content.ContentValues;
-					public getInternalProviderFlag3(): java.lang.Long;
 					public getTitle(): string;
+					public getInternalProviderFlag3(): java.lang.Long;
 					public equals(obj: any): boolean;
 					public getEpisodeTitle(): string;
 					public getInternalProviderFlag2(): java.lang.Long;
 					public getPackageName(): string;
 					public getThumbnailUri(): globalAndroid.net.Uri;
-					public getInternalProviderFlag4(): java.lang.Long;
 					public getLongDescription(): string;
+					public getInternalProviderFlag4(): java.lang.Long;
 					public getVideoWidth(): number;
 					public getReviewRatingStyle(): number;
 					public toString(): string;
@@ -190,8 +190,8 @@ declare module androidx {
 					public getVideoHeight(): number;
 					public getSeasonNumber(): string;
 					public getInternalProviderDataByteArray(): native.Array<number>;
-					public equals(other: any): boolean;
 					public getId(): number;
+					public equals(other: any): boolean;
 					public getAudioLanguages(): native.Array<string>;
 					public toContentValues(): globalAndroid.content.ContentValues;
 					public getContentRatings(): native.Array<globalAndroid.media.tv.TvContentRating>;
@@ -218,13 +218,13 @@ declare module androidx {
 						public setEpisodeNumber(episodeNumber: number): T;
 						public setDescription(description: string): T;
 						public constructor();
-						public setCanonicalGenres(genres: native.Array<string>): T;
 						public setId(programId: number): T;
+						public setCanonicalGenres(genres: native.Array<string>): T;
 						public setSearchable(searchable: boolean): T;
 						public setThumbnailUri(thumbnailUri: globalAndroid.net.Uri): T;
 						public setSeasonTitle(seasonTitle: string): T;
-						public setInternalProviderData(data: native.Array<number>): T;
 						public setVideoHeight(height: number): T;
+						public setInternalProviderData(data: native.Array<number>): T;
 						public setInternalProviderFlag2(flag: number): T;
 						public setPosterArtUri(posterArtUri: globalAndroid.net.Uri): T;
 						public setLongDescription(longDescription: string): T;
@@ -275,10 +275,10 @@ declare module androidx {
 					public getInternalProviderDataByteArray(): native.Array<number>;
 					public getTransportStreamId(): number;
 					public getAppLinkIconUri(): globalAndroid.net.Uri;
-					public equals(other: any): boolean;
 					public getId(): number;
-					public getAppLinkIntentUri(): globalAndroid.net.Uri;
+					public equals(other: any): boolean;
 					public getServiceId(): number;
+					public getAppLinkIntentUri(): globalAndroid.net.Uri;
 					public getVideoFormat(): string;
 					public toContentValues(): globalAndroid.content.ContentValues;
 					public isLocked(): boolean;
@@ -298,8 +298,8 @@ declare module androidx {
 						public build(): androidx.tvprovider.media.tv.Channel;
 						public setSearchable(searchable: boolean): androidx.tvprovider.media.tv.Channel.Builder;
 						public constructor(other: androidx.tvprovider.media.tv.Channel);
-						public setNetworkAffiliation(networkAffiliation: string): androidx.tvprovider.media.tv.Channel.Builder;
 						public setVideoFormat(videoFormat: string): androidx.tvprovider.media.tv.Channel.Builder;
+						public setNetworkAffiliation(networkAffiliation: string): androidx.tvprovider.media.tv.Channel.Builder;
 						public setInputId(inputId: string): androidx.tvprovider.media.tv.Channel.Builder;
 						public setAppLinkPosterArtUri(appLinkPosterArtUri: globalAndroid.net.Uri): androidx.tvprovider.media.tv.Channel.Builder;
 						public setInternalProviderFlag1(flag: number): androidx.tvprovider.media.tv.Channel.Builder;
@@ -309,14 +309,14 @@ declare module androidx {
 						public setServiceType(serviceType: string): androidx.tvprovider.media.tv.Channel.Builder;
 						public constructor();
 						public setTransient(value: boolean): androidx.tvprovider.media.tv.Channel.Builder;
-						public setAppLinkIntent(appLinkIntent: globalAndroid.content.Intent): androidx.tvprovider.media.tv.Channel.Builder;
 						public setInternalProviderData(internalProviderData: string): androidx.tvprovider.media.tv.Channel.Builder;
+						public setAppLinkIntent(appLinkIntent: globalAndroid.content.Intent): androidx.tvprovider.media.tv.Channel.Builder;
 						public setAppLinkIntentUri(appLinkIntentUri: globalAndroid.net.Uri): androidx.tvprovider.media.tv.Channel.Builder;
 						public setServiceId(serviceId: number): androidx.tvprovider.media.tv.Channel.Builder;
 						public setDisplayName(displayName: string): androidx.tvprovider.media.tv.Channel.Builder;
 						public setType(type: string): androidx.tvprovider.media.tv.Channel.Builder;
-						public setBrowsable(value: boolean): androidx.tvprovider.media.tv.Channel.Builder;
 						public setInternalProviderId(internalProviderId: string): androidx.tvprovider.media.tv.Channel.Builder;
+						public setBrowsable(value: boolean): androidx.tvprovider.media.tv.Channel.Builder;
 						public setInternalProviderData(internalProviderData: native.Array<number>): androidx.tvprovider.media.tv.Channel.Builder;
 						public setOriginalNetworkId(originalNetworkId: number): androidx.tvprovider.media.tv.Channel.Builder;
 						public setLocked(value: boolean): androidx.tvprovider.media.tv.Channel.Builder;
@@ -339,9 +339,9 @@ declare module androidx {
 				export class ChannelLogoUtils extends java.lang.Object {
 					public static class: java.lang.Class<androidx.tvprovider.media.tv.ChannelLogoUtils>;
 					public static storeChannelLogo(context: globalAndroid.content.Context, channelId: number, logoUri: globalAndroid.net.Uri): boolean;
+					public static storeChannelLogo(context: globalAndroid.content.Context, channelId: number, logo: globalAndroid.graphics.Bitmap): boolean;
 					/** @deprecated */
 					public constructor();
-					public static storeChannelLogo(context: globalAndroid.content.Context, channelId: number, logo: globalAndroid.graphics.Bitmap): boolean;
 					public static loadChannelLogo(context: globalAndroid.content.Context, channelId: number): globalAndroid.graphics.Bitmap;
 				}
 			}
@@ -370,15 +370,15 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.tvprovider.media.tv.PreviewChannel>;
 					public getInternalProviderFlag3(): java.lang.Long;
 					public getDisplayName(): string;
-					public equals(obj: any): boolean;
 					public getInternalProviderDataByteArray(): native.Array<number>;
+					public equals(obj: any): boolean;
 					public static fromCursor(cursor: globalAndroid.database.Cursor): androidx.tvprovider.media.tv.PreviewChannel;
 					public isBrowsable(): boolean;
 					public getInternalProviderFlag2(): java.lang.Long;
 					public getPackageName(): string;
-					public equals(other: any): boolean;
 					public getId(): number;
 					public getInternalProviderFlag4(): java.lang.Long;
+					public equals(other: any): boolean;
 					public hasAnyUpdatedValues(update: androidx.tvprovider.media.tv.PreviewChannel): boolean;
 					public getAppLinkIntentUri(): globalAndroid.net.Uri;
 					public getLogo(context: globalAndroid.content.Context): globalAndroid.graphics.Bitmap;
@@ -387,8 +387,8 @@ declare module androidx {
 					public getAppLinkIntent(): globalAndroid.content.Intent;
 					public getInternalProviderId(): string;
 					public getInternalProviderFlag1(): java.lang.Long;
-					public getDescription(): string;
 					public getType(): string;
+					public getDescription(): string;
 					public hashCode(): number;
 				}
 				export module PreviewChannel {
@@ -412,19 +412,19 @@ declare module androidx {
 					}
 					export class Columns extends java.lang.Object {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.PreviewChannel.Columns>;
-						public static COL_APP_LINK_INTENT_URI: number;
-						public static COL_DESCRIPTION: number;
-						public static COL_DISPLAY_NAME: number;
+						public static PROJECTION: native.Array<string>;
 						public static COL_ID: number;
+						public static COL_PACKAGE_NAME: number;
+						public static COL_TYPE: number;
+						public static COL_DISPLAY_NAME: number;
+						public static COL_DESCRIPTION: number;
+						public static COL_APP_LINK_INTENT_URI: number;
+						public static COL_INTERNAL_PROVIDER_ID: number;
 						public static COL_INTERNAL_PROVIDER_DATA: number;
 						public static COL_INTERNAL_PROVIDER_FLAG1: number;
 						public static COL_INTERNAL_PROVIDER_FLAG2: number;
 						public static COL_INTERNAL_PROVIDER_FLAG3: number;
 						public static COL_INTERNAL_PROVIDER_FLAG4: number;
-						public static COL_INTERNAL_PROVIDER_ID: number;
-						public static COL_PACKAGE_NAME: number;
-						public static COL_TYPE: number;
-						public static PROJECTION: native.Array<string>;
 					}
 				}
 			}
@@ -442,9 +442,9 @@ declare module androidx {
 					public getPreviewChannel(channelId: number): androidx.tvprovider.media.tv.PreviewChannel;
 					public deletePreviewChannel(channelId: number): void;
 					public updatePreviewProgram(programId: number, update: androidx.tvprovider.media.tv.PreviewProgram): void;
+					public updatePreviewChannelInternal(channelId: number, upgrade: androidx.tvprovider.media.tv.PreviewChannel): void;
 					public deletePreviewProgram(programId: number): void;
 					public publishWatchNextProgram(program: androidx.tvprovider.media.tv.WatchNextProgram): number;
-					public updatePreviewChannelInternal(channelId: number, upgrade: androidx.tvprovider.media.tv.PreviewChannel): void;
 					public publishPreviewProgram(program: androidx.tvprovider.media.tv.PreviewProgram): number;
 					public publishChannel(channel: androidx.tvprovider.media.tv.PreviewChannel): number;
 					public getPreviewProgram(programId: number): androidx.tvprovider.media.tv.PreviewProgram;
@@ -481,8 +481,8 @@ declare module androidx {
 					export class Builder extends androidx.tvprovider.media.tv.BasePreviewProgram.Builder<androidx.tvprovider.media.tv.PreviewProgram.Builder> {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.PreviewProgram.Builder>;
 						public constructor(other: androidx.tvprovider.media.tv.BasePreviewProgram);
-						public build(): androidx.tvprovider.media.tv.PreviewProgram;
 						public setWeight(weight: number): androidx.tvprovider.media.tv.PreviewProgram.Builder;
+						public build(): androidx.tvprovider.media.tv.PreviewProgram;
 						public constructor();
 						public setChannelId(channelId: number): androidx.tvprovider.media.tv.PreviewProgram.Builder;
 						public constructor(other: androidx.tvprovider.media.tv.BaseProgram);
@@ -516,8 +516,8 @@ declare module androidx {
 				export module Program {
 					export class Builder extends androidx.tvprovider.media.tv.BaseProgram.Builder<androidx.tvprovider.media.tv.Program.Builder> {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.Program.Builder>;
-						public setEndTimeUtcMillis(endTimeUtcMillis: number): androidx.tvprovider.media.tv.Program.Builder;
 						public setStartTimeUtcMillis(startTimeUtcMillis: number): androidx.tvprovider.media.tv.Program.Builder;
+						public setEndTimeUtcMillis(endTimeUtcMillis: number): androidx.tvprovider.media.tv.Program.Builder;
 						public constructor();
 						public setRecordingProhibited(prohibited: boolean): androidx.tvprovider.media.tv.Program.Builder;
 						public constructor(other: androidx.tvprovider.media.tv.BaseProgram);
@@ -538,30 +538,30 @@ declare module androidx {
 			export module tv {
 				export class TvContractCompat extends java.lang.Object {
 					public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat>;
-					public static ACTION_CHANNEL_BROWSABLE_REQUESTED: string;
-					public static ACTION_INITIALIZE_PROGRAMS: string;
-					public static ACTION_PREVIEW_PROGRAM_ADDED_TO_WATCH_NEXT: string;
-					public static ACTION_PREVIEW_PROGRAM_BROWSABLE_DISABLED: string;
-					public static ACTION_REQUEST_CHANNEL_BROWSABLE: string;
-					public static ACTION_WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED: string;
 					public static AUTHORITY: string;
+					public static PERMISSION_READ_TV_LISTINGS: string;
+					public static ACTION_CHANNEL_BROWSABLE_REQUESTED: string;
+					public static ACTION_REQUEST_CHANNEL_BROWSABLE: string;
+					public static ACTION_PREVIEW_PROGRAM_BROWSABLE_DISABLED: string;
+					public static ACTION_WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED: string;
+					public static ACTION_PREVIEW_PROGRAM_ADDED_TO_WATCH_NEXT: string;
+					public static ACTION_INITIALIZE_PROGRAMS: string;
 					public static EXTRA_CHANNEL_ID: string;
-					public static EXTRA_COLUMN_NAME: string;
-					public static EXTRA_DATA_TYPE: string;
-					public static EXTRA_DEFAULT_VALUE: string;
-					public static EXTRA_EXISTING_COLUMN_NAMES: string;
 					public static EXTRA_PACKAGE_NAME: string;
 					public static EXTRA_PREVIEW_PROGRAM_ID: string;
 					public static EXTRA_WATCH_NEXT_PROGRAM_ID: string;
-					public static METHOD_ADD_COLUMN: string;
 					public static METHOD_GET_COLUMNS: string;
+					public static METHOD_ADD_COLUMN: string;
+					public static EXTRA_EXISTING_COLUMN_NAMES: string;
+					public static EXTRA_COLUMN_NAME: string;
+					public static EXTRA_DATA_TYPE: string;
+					public static EXTRA_DEFAULT_VALUE: string;
+					public static PARAM_INPUT: string;
+					public static PARAM_CHANNEL: string;
+					public static PARAM_START_TIME: string;
+					public static PARAM_END_TIME: string;
 					public static PARAM_BROWSABLE_ONLY: string;
 					public static PARAM_CANONICAL_GENRE: string;
-					public static PARAM_CHANNEL: string;
-					public static PARAM_END_TIME: string;
-					public static PARAM_INPUT: string;
-					public static PARAM_START_TIME: string;
-					public static PERMISSION_READ_TV_LISTINGS: string;
 					public static buildChannelsUriForInput(inputId: string): globalAndroid.net.Uri;
 					public static requestChannelBrowsable(context: globalAndroid.content.Context, channelId: number): void;
 					public static isProgramUri(uri: globalAndroid.net.Uri): boolean;
@@ -577,19 +577,19 @@ declare module androidx {
 					public static buildChannelUriForPassthroughInput(inputId: string): globalAndroid.net.Uri;
 					public static isChannelUriForPassthroughInput(uri: globalAndroid.net.Uri): boolean;
 					public static buildWatchNextProgramUri(watchNextProgramId: number): globalAndroid.net.Uri;
-					public static buildChannelLogoUri(channelId: number): globalAndroid.net.Uri;
 					public static buildChannelUri(channelId: number): globalAndroid.net.Uri;
+					public static buildChannelLogoUri(channelId: number): globalAndroid.net.Uri;
 					public static buildProgramsUriForChannel(channelId: number, startTime: number, endTime: number): globalAndroid.net.Uri;
 					public static buildRecordedProgramUri(recordedProgramId: number): globalAndroid.net.Uri;
 					public static buildPreviewProgramsUriForChannel(channelUri: globalAndroid.net.Uri): globalAndroid.net.Uri;
-					public static buildChannelLogoUri(channelUri: globalAndroid.net.Uri): globalAndroid.net.Uri;
 					public static buildInputId(name: globalAndroid.content.ComponentName): string;
+					public static buildChannelLogoUri(channelUri: globalAndroid.net.Uri): globalAndroid.net.Uri;
 				}
 				export module TvContractCompat {
 					export class BaseTvColumns extends java.lang.Object implements globalAndroid.provider.BaseColumns {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.BaseTvColumns>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$BaseTvColumns interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 						 */
 						public constructor(implementation: {
 						});
@@ -600,83 +600,83 @@ declare module androidx {
 					}
 					export class Channels extends java.lang.Object implements androidx.tvprovider.media.tv.TvContractCompat.BaseTvColumns {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Channels>;
-						public static COLUMN_APP_LINK_COLOR: string;
-						public static COLUMN_APP_LINK_ICON_URI: string;
-						public static COLUMN_APP_LINK_INTENT_URI: string;
-						public static COLUMN_APP_LINK_POSTER_ART_URI: string;
-						public static COLUMN_APP_LINK_TEXT: string;
-						public static COLUMN_BROWSABLE: string;
-						public static COLUMN_CONFIGURATION_DISPLAY_ORDER: string;
-						public static COLUMN_DESCRIPTION: string;
-						public static COLUMN_DISPLAY_NAME: string;
-						public static COLUMN_DISPLAY_NUMBER: string;
-						public static COLUMN_INPUT_ID: string;
-						public static COLUMN_INTERNAL_PROVIDER_DATA: string;
-						public static COLUMN_INTERNAL_PROVIDER_FLAG1: string;
-						public static COLUMN_INTERNAL_PROVIDER_FLAG2: string;
-						public static COLUMN_INTERNAL_PROVIDER_FLAG3: string;
-						public static COLUMN_INTERNAL_PROVIDER_FLAG4: string;
-						public static COLUMN_INTERNAL_PROVIDER_ID: string;
-						public static COLUMN_LOCKED: string;
-						public static COLUMN_NETWORK_AFFILIATION: string;
-						public static COLUMN_ORIGINAL_NETWORK_ID: string;
-						public static COLUMN_SEARCHABLE: string;
-						public static COLUMN_SERVICE_ID: string;
-						public static COLUMN_SERVICE_TYPE: string;
-						public static COLUMN_SYSTEM_APPROVED: string;
-						public static COLUMN_SYSTEM_CHANNEL_KEY: string;
-						public static COLUMN_TRANSIENT: string;
-						public static COLUMN_TRANSPORT_STREAM_ID: string;
-						public static COLUMN_TYPE: string;
-						public static COLUMN_VERSION_NUMBER: string;
-						public static COLUMN_VIDEO_FORMAT: string;
-						public static CONTENT_ITEM_TYPE: string;
-						public static CONTENT_TYPE: string;
 						public static CONTENT_URI: globalAndroid.net.Uri;
-						public static SERVICE_TYPE_AUDIO: string;
-						public static SERVICE_TYPE_AUDIO_VIDEO: string;
-						public static SERVICE_TYPE_OTHER: string;
-						public static TYPE_1SEG: string;
-						public static TYPE_ATSC_C: string;
-						public static TYPE_ATSC_M_H: string;
-						public static TYPE_ATSC_T: string;
-						public static TYPE_CMMB: string;
-						public static TYPE_DTMB: string;
+						public static CONTENT_TYPE: string;
+						public static CONTENT_ITEM_TYPE: string;
+						public static TYPE_OTHER: string;
+						public static TYPE_NTSC: string;
+						public static TYPE_PAL: string;
+						public static TYPE_SECAM: string;
+						public static TYPE_DVB_T: string;
+						public static TYPE_DVB_T2: string;
+						public static TYPE_DVB_S: string;
+						public static TYPE_DVB_S2: string;
 						public static TYPE_DVB_C: string;
 						public static TYPE_DVB_C2: string;
 						public static TYPE_DVB_H: string;
-						public static TYPE_DVB_S: string;
-						public static TYPE_DVB_S2: string;
 						public static TYPE_DVB_SH: string;
-						public static TYPE_DVB_T: string;
-						public static TYPE_DVB_T2: string;
-						public static TYPE_ISDB_C: string;
-						public static TYPE_ISDB_S: string;
+						public static TYPE_ATSC_T: string;
+						public static TYPE_ATSC_C: string;
+						public static TYPE_ATSC_M_H: string;
 						public static TYPE_ISDB_T: string;
 						public static TYPE_ISDB_TB: string;
-						public static TYPE_NTSC: string;
-						public static TYPE_OTHER: string;
-						public static TYPE_PAL: string;
-						public static TYPE_PREVIEW: string;
-						public static TYPE_SECAM: string;
-						public static TYPE_S_DMB: string;
+						public static TYPE_ISDB_S: string;
+						public static TYPE_ISDB_C: string;
+						public static TYPE_1SEG: string;
+						public static TYPE_DTMB: string;
+						public static TYPE_CMMB: string;
 						public static TYPE_T_DMB: string;
-						public static VIDEO_FORMAT_1080I: string;
-						public static VIDEO_FORMAT_1080P: string;
-						public static VIDEO_FORMAT_2160P: string;
+						public static TYPE_S_DMB: string;
+						public static TYPE_PREVIEW: string;
+						public static SERVICE_TYPE_OTHER: string;
+						public static SERVICE_TYPE_AUDIO_VIDEO: string;
+						public static SERVICE_TYPE_AUDIO: string;
 						public static VIDEO_FORMAT_240P: string;
 						public static VIDEO_FORMAT_360P: string;
-						public static VIDEO_FORMAT_4320P: string;
 						public static VIDEO_FORMAT_480I: string;
 						public static VIDEO_FORMAT_480P: string;
 						public static VIDEO_FORMAT_576I: string;
 						public static VIDEO_FORMAT_576P: string;
 						public static VIDEO_FORMAT_720P: string;
-						public static VIDEO_RESOLUTION_ED: string;
-						public static VIDEO_RESOLUTION_FHD: string;
-						public static VIDEO_RESOLUTION_HD: string;
+						public static VIDEO_FORMAT_1080I: string;
+						public static VIDEO_FORMAT_1080P: string;
+						public static VIDEO_FORMAT_2160P: string;
+						public static VIDEO_FORMAT_4320P: string;
 						public static VIDEO_RESOLUTION_SD: string;
+						public static VIDEO_RESOLUTION_ED: string;
+						public static VIDEO_RESOLUTION_HD: string;
+						public static VIDEO_RESOLUTION_FHD: string;
 						public static VIDEO_RESOLUTION_UHD: string;
+						public static COLUMN_INPUT_ID: string;
+						public static COLUMN_TYPE: string;
+						public static COLUMN_SERVICE_TYPE: string;
+						public static COLUMN_ORIGINAL_NETWORK_ID: string;
+						public static COLUMN_TRANSPORT_STREAM_ID: string;
+						public static COLUMN_SERVICE_ID: string;
+						public static COLUMN_DISPLAY_NUMBER: string;
+						public static COLUMN_DISPLAY_NAME: string;
+						public static COLUMN_NETWORK_AFFILIATION: string;
+						public static COLUMN_DESCRIPTION: string;
+						public static COLUMN_VIDEO_FORMAT: string;
+						public static COLUMN_BROWSABLE: string;
+						public static COLUMN_SEARCHABLE: string;
+						public static COLUMN_LOCKED: string;
+						public static COLUMN_APP_LINK_ICON_URI: string;
+						public static COLUMN_APP_LINK_POSTER_ART_URI: string;
+						public static COLUMN_APP_LINK_TEXT: string;
+						public static COLUMN_APP_LINK_COLOR: string;
+						public static COLUMN_APP_LINK_INTENT_URI: string;
+						public static COLUMN_INTERNAL_PROVIDER_ID: string;
+						public static COLUMN_INTERNAL_PROVIDER_DATA: string;
+						public static COLUMN_INTERNAL_PROVIDER_FLAG1: string;
+						public static COLUMN_INTERNAL_PROVIDER_FLAG2: string;
+						public static COLUMN_INTERNAL_PROVIDER_FLAG3: string;
+						public static COLUMN_INTERNAL_PROVIDER_FLAG4: string;
+						public static COLUMN_VERSION_NUMBER: string;
+						public static COLUMN_TRANSIENT: string;
+						public static COLUMN_SYSTEM_APPROVED: string;
+						public static COLUMN_CONFIGURATION_DISPLAY_ORDER: string;
+						public static COLUMN_SYSTEM_CHANNEL_KEY: string;
 						public static getVideoResolution(videoFormat: string): string;
 					}
 					export module Channels {
@@ -687,7 +687,7 @@ declare module androidx {
 						export class ServiceType extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Channels.ServiceType>;
 							/**
-							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$Channels$ServiceType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								equals(object0: any): boolean;
@@ -704,7 +704,7 @@ declare module androidx {
 						export class Type extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Channels.Type>;
 							/**
-							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$Channels$Type interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								equals(object0: any): boolean;
@@ -721,7 +721,7 @@ declare module androidx {
 						export class VideoFormat extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Channels.VideoFormat>;
 							/**
-							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$Channels$VideoFormat interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								equals(object0: any): boolean;
@@ -738,7 +738,7 @@ declare module androidx {
 						export class VideoResolution extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Channels.VideoResolution>;
 							/**
-							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$Channels$VideoResolution interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								equals(object0: any): boolean;
@@ -756,7 +756,7 @@ declare module androidx {
 					export class PreviewProgramColumns extends java.lang.Object {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.PreviewProgramColumns>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$PreviewProgramColumns interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 						 */
 						public constructor(implementation: {
 						});
@@ -824,16 +824,16 @@ declare module androidx {
 					}
 					export class PreviewPrograms extends java.lang.Object implements androidx.tvprovider.media.tv.TvContractCompat.BaseTvColumns, androidx.tvprovider.media.tv.TvContractCompat.ProgramColumns, androidx.tvprovider.media.tv.TvContractCompat.PreviewProgramColumns {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.PreviewPrograms>;
+						public static CONTENT_URI: globalAndroid.net.Uri;
+						public static CONTENT_TYPE: string;
+						public static CONTENT_ITEM_TYPE: string;
 						public static COLUMN_CHANNEL_ID: string;
 						public static COLUMN_WEIGHT: string;
-						public static CONTENT_ITEM_TYPE: string;
-						public static CONTENT_TYPE: string;
-						public static CONTENT_URI: globalAndroid.net.Uri;
 					}
 					export class ProgramColumns extends java.lang.Object {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.ProgramColumns>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$ProgramColumns interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 						 */
 						public constructor(implementation: {
 						});
@@ -867,37 +867,37 @@ declare module androidx {
 					}
 					export class Programs extends java.lang.Object implements androidx.tvprovider.media.tv.TvContractCompat.BaseTvColumns, androidx.tvprovider.media.tv.TvContractCompat.ProgramColumns {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Programs>;
-						public static COLUMN_BROADCAST_GENRE: string;
-						public static COLUMN_CHANNEL_ID: string;
-						public static COLUMN_END_TIME_UTC_MILLIS: string;
-						public static COLUMN_EPISODE_NUMBER: string;
-						public static COLUMN_RECORDING_PROHIBITED: string;
-						public static COLUMN_SEASON_NUMBER: string;
-						public static COLUMN_START_TIME_UTC_MILLIS: string;
-						public static CONTENT_ITEM_TYPE: string;
-						public static CONTENT_TYPE: string;
 						public static CONTENT_URI: globalAndroid.net.Uri;
+						public static CONTENT_TYPE: string;
+						public static CONTENT_ITEM_TYPE: string;
+						public static COLUMN_CHANNEL_ID: string;
+						public static COLUMN_SEASON_NUMBER: string;
+						public static COLUMN_EPISODE_NUMBER: string;
+						public static COLUMN_START_TIME_UTC_MILLIS: string;
+						public static COLUMN_END_TIME_UTC_MILLIS: string;
+						public static COLUMN_BROADCAST_GENRE: string;
+						public static COLUMN_RECORDING_PROHIBITED: string;
 					}
 					export module Programs {
 						export class Genres extends java.lang.Object {
 							public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Programs.Genres>;
-							public static ANIMAL_WILDLIFE: string;
-							public static ARTS: string;
+							public static FAMILY_KIDS: string;
+							public static SPORTS: string;
+							public static SHOPPING: string;
+							public static MOVIES: string;
 							public static COMEDY: string;
+							public static TRAVEL: string;
 							public static DRAMA: string;
 							public static EDUCATION: string;
-							public static ENTERTAINMENT: string;
-							public static FAMILY_KIDS: string;
-							public static GAMING: string;
-							public static LIFE_STYLE: string;
-							public static MOVIES: string;
-							public static MUSIC: string;
+							public static ANIMAL_WILDLIFE: string;
 							public static NEWS: string;
+							public static GAMING: string;
+							public static ARTS: string;
+							public static ENTERTAINMENT: string;
+							public static LIFE_STYLE: string;
+							public static MUSIC: string;
 							public static PREMIER: string;
-							public static SHOPPING: string;
-							public static SPORTS: string;
 							public static TECH_SCIENCE: string;
-							public static TRAVEL: string;
 							public static encode(genres: native.Array<string>): string;
 							public static isCanonical(genre: string): boolean;
 							public static decode(genres: string): native.Array<string>;
@@ -906,7 +906,7 @@ declare module androidx {
 							export class Genre extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.Programs.Genres.Genre>;
 								/**
-								 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat$Programs$Genres$Genre interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the androidx.tvprovider.media.tv.TvContractCompat() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -924,30 +924,30 @@ declare module androidx {
 					}
 					export class RecordedPrograms extends java.lang.Object implements androidx.tvprovider.media.tv.TvContractCompat.BaseTvColumns, androidx.tvprovider.media.tv.TvContractCompat.ProgramColumns {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.RecordedPrograms>;
-						public static COLUMN_BROADCAST_GENRE: string;
+						public static CONTENT_URI: globalAndroid.net.Uri;
+						public static CONTENT_TYPE: string;
+						public static CONTENT_ITEM_TYPE: string;
 						public static COLUMN_CHANNEL_ID: string;
-						public static COLUMN_END_TIME_UTC_MILLIS: string;
 						public static COLUMN_INPUT_ID: string;
-						public static COLUMN_RECORDING_DATA_BYTES: string;
+						public static COLUMN_START_TIME_UTC_MILLIS: string;
+						public static COLUMN_END_TIME_UTC_MILLIS: string;
+						public static COLUMN_BROADCAST_GENRE: string;
 						public static COLUMN_RECORDING_DATA_URI: string;
+						public static COLUMN_RECORDING_DATA_BYTES: string;
 						public static COLUMN_RECORDING_DURATION_MILLIS: string;
 						public static COLUMN_RECORDING_EXPIRE_TIME_UTC_MILLIS: string;
-						public static COLUMN_START_TIME_UTC_MILLIS: string;
-						public static CONTENT_ITEM_TYPE: string;
-						public static CONTENT_TYPE: string;
-						public static CONTENT_URI: globalAndroid.net.Uri;
 					}
 					export class WatchNextPrograms extends java.lang.Object implements androidx.tvprovider.media.tv.TvContractCompat.BaseTvColumns, androidx.tvprovider.media.tv.TvContractCompat.ProgramColumns, androidx.tvprovider.media.tv.TvContractCompat.PreviewProgramColumns {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.TvContractCompat.WatchNextPrograms>;
-						public static COLUMN_LAST_ENGAGEMENT_TIME_UTC_MILLIS: string;
-						public static COLUMN_WATCH_NEXT_TYPE: string;
-						public static CONTENT_ITEM_TYPE: string;
-						public static CONTENT_TYPE: string;
 						public static CONTENT_URI: globalAndroid.net.Uri;
+						public static CONTENT_TYPE: string;
+						public static CONTENT_ITEM_TYPE: string;
 						public static WATCH_NEXT_TYPE_CONTINUE: number;
-						public static WATCH_NEXT_TYPE_NEW: number;
 						public static WATCH_NEXT_TYPE_NEXT: number;
+						public static WATCH_NEXT_TYPE_NEW: number;
 						public static WATCH_NEXT_TYPE_WATCHLIST: number;
+						public static COLUMN_WATCH_NEXT_TYPE: string;
+						public static COLUMN_LAST_ENGAGEMENT_TIME_UTC_MILLIS: string;
 					}
 				}
 			}
@@ -1002,7 +1002,7 @@ declare module androidx {
 					export class WatchNextType extends java.lang.Object implements java.lang.annotation.Annotation {
 						public static class: java.lang.Class<androidx.tvprovider.media.tv.WatchNextProgram.WatchNextType>;
 						/**
-						 * Constructs a new instance of the androidx.tvprovider.media.tv.WatchNextProgram$WatchNextType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.tvprovider.media.tv.WatchNextProgram() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							equals(object0: any): boolean;

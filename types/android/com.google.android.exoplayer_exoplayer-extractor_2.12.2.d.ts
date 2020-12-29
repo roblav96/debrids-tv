@@ -6,10 +6,10 @@ declare module com {
 					export abstract class BinarySearchSeeker extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.BinarySearchSeeker>;
 						public seekMap: com.google.android.exoplayer2.extractor.BinarySearchSeeker.BinarySearchSeekMap;
-						public seekOperationParams: com.google.android.exoplayer2.extractor.BinarySearchSeeker.SeekOperationParams;
 						public timestampSeeker: com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSeeker;
-						public isSeeking(): boolean;
+						public seekOperationParams: com.google.android.exoplayer2.extractor.BinarySearchSeeker.SeekOperationParams;
 						public setSeekTargetUs(timeUs: number): void;
+						public isSeeking(): boolean;
 						public markSeekOperationFinished(foundTargetFrame: boolean, resultPosition: number): void;
 						public seekToPosition(input: com.google.android.exoplayer2.extractor.ExtractorInput, position: number, seekPositionHolder: com.google.android.exoplayer2.extractor.PositionHolder): number;
 						public constructor(seekTimestampConverter: com.google.android.exoplayer2.extractor.BinarySearchSeeker.SeekTimestampConverter, timestampSeeker: com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSeeker, durationUs: number, floorTimePosition: number, ceilingTimePosition: number, floorBytePosition: number, ceilingBytePosition: number, approxBytesPerFrame: number, minimumSearchRange: number);
@@ -41,7 +41,7 @@ declare module com {
 						export class SeekTimestampConverter extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.BinarySearchSeeker.SeekTimestampConverter>;
 							/**
-							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.BinarySearchSeeker$SeekTimestampConverter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.BinarySearchSeeker() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								timeUsToTargetTime(long0: number): number;
@@ -51,11 +51,11 @@ declare module com {
 						}
 						export class TimestampSearchResult extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult>;
-							public static NO_TIMESTAMP_IN_RANGE_RESULT: com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult;
-							public static TYPE_NO_TIMESTAMP: number;
+							public static TYPE_TARGET_TIMESTAMP_FOUND: number;
 							public static TYPE_POSITION_OVERESTIMATED: number;
 							public static TYPE_POSITION_UNDERESTIMATED: number;
-							public static TYPE_TARGET_TIMESTAMP_FOUND: number;
+							public static TYPE_NO_TIMESTAMP: number;
+							public static NO_TIMESTAMP_IN_RANGE_RESULT: com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult;
 							public static overestimatedResult(newCeilingTimestamp: number, newCeilingBytePosition: number): com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult;
 							public static underestimatedResult(newFloorTimestamp: number, newCeilingBytePosition: number): com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult;
 							public static targetFoundResult(resultBytePosition: number): com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult;
@@ -63,7 +63,7 @@ declare module com {
 						export class TimestampSeeker extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSeeker>;
 							/**
-							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.BinarySearchSeeker$TimestampSeeker interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.BinarySearchSeeker() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								searchForTimestamp(extractorInput0: com.google.android.exoplayer2.extractor.ExtractorInput, long1: number): com.google.android.exoplayer2.extractor.BinarySearchSeeker.TimestampSearchResult;
@@ -87,11 +87,11 @@ declare module com {
 				export module extractor {
 					export class BuildConfig extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.BuildConfig>;
+						public static DEBUG: boolean;
+						public static LIBRARY_PACKAGE_NAME: string;
 						public static APPLICATION_ID: string;
 						public static BUILD_TYPE: string;
-						public static DEBUG: boolean;
 						public static FLAVOR: string;
-						public static LIBRARY_PACKAGE_NAME: string;
 						public static VERSION_CODE: number;
 						public static VERSION_NAME: string;
 						public constructor();
@@ -127,10 +127,10 @@ declare module com {
 				export module extractor {
 					export class ChunkIndex extends java.lang.Object implements com.google.android.exoplayer2.extractor.SeekMap {
 						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ChunkIndex>;
-						public durationsUs: native.Array<number>;
 						public length: number;
-						public offsets: native.Array<number>;
 						public sizes: native.Array<number>;
+						public offsets: native.Array<number>;
+						public durationsUs: native.Array<number>;
 						public timesUs: native.Array<number>;
 						public getDurationUs(): number;
 						public constructor(sizes: native.Array<number>, offsets: native.Array<number>, durationsUs: native.Array<number>, timesUs: native.Array<number>);
@@ -175,15 +175,15 @@ declare module com {
 						public readFully(target: native.Array<number>, offset: number, length: number): void;
 						public advancePeekPosition(length: number, allowEndOfInput: boolean): boolean;
 						public read(target: native.Array<number>, offset: number, length: number): number;
-						public getPosition(): number;
 						public resetPeekPosition(): void;
+						public getPosition(): number;
 						public readFully(target: native.Array<number>, offset: number, length: number, allowEndOfInput: boolean): boolean;
 						public getLength(): number;
 						public skipFully(length: number): void;
 						public constructor(dataReader: com.google.android.exoplayer2.upstream.DataReader, position: number, length: number);
 						public peekFully(target: native.Array<number>, offset: number, length: number): void;
-						public setRetryPosition(position: number, e: java.lang.Throwable): void;
 						public skipFully(length: number, allowEndOfInput: boolean): boolean;
+						public setRetryPosition(position: number, e: java.lang.Throwable): void;
 						public advancePeekPosition(length: number): void;
 						public getPeekPosition(): number;
 						public skip(length: number): number;
@@ -205,8 +205,8 @@ declare module com {
 						public constructor();
 						public setMp3ExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 						public setFragmentedMp4ExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-						public setAdtsExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 						public setConstantBitrateSeekingEnabled(constantBitrateSeekingEnabled: boolean): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+						public setAdtsExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 						public setMp4ExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 						public setMatroskaExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 						public setFlacExtractorFlags(flags: number): com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
@@ -251,9 +251,9 @@ declare module com {
 						public constructor();
 						public format(format: com.google.android.exoplayer2.Format): void;
 						public sampleData(data: com.google.android.exoplayer2.util.ParsableByteArray, length: number, sampleDataPart: number): void;
+						public sampleMetadata(timeUs: number, flags: number, size: number, offset: number, cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData): void;
 						public sampleData(input: com.google.android.exoplayer2.upstream.DataReader, length: number, allowEndOfInput: boolean): number;
 						public sampleData(data: com.google.android.exoplayer2.util.ParsableByteArray, length: number): void;
-						public sampleMetadata(timeUs: number, flags: number, size: number, offset: number, cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData): void;
 						public sampleData(input: com.google.android.exoplayer2.upstream.DataReader, length: number, allowEndOfInput: boolean, sampleDataPart: number): number;
 					}
 				}
@@ -293,7 +293,7 @@ declare module com {
 						export class ReadResult extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.Extractor.ReadResult>;
 							/**
-							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.Extractor$ReadResult interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.Extractor() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								equals(object0: any): boolean;
@@ -422,7 +422,7 @@ declare module com {
 						public constructor(implementation: {
 							createExtractors(): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
 							createExtractors(uri: globalAndroid.net.Uri, responseHeaders: java.util.Map<string,java.util.List<string>>): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
-							lambda$static$0(): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
+							lambda(): native.Array<com.google.android.exoplayer2.extractor.Extractor>;
 						});
 						public constructor();
 						public static EMPTY: com.google.android.exoplayer2.extractor.ExtractorsFactory;
@@ -514,35 +514,35 @@ declare module com {
 					export class FlacStreamMetadata extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.FlacStreamMetadata>;
 						public static NOT_IN_LOOKUP_TABLE: number;
-						public bitsPerSample: number;
-						public bitsPerSampleLookupKey: number;
-						public channels: number;
-						public maxBlockSizeSamples: number;
-						public maxFrameSize: number;
 						public minBlockSizeSamples: number;
+						public maxBlockSizeSamples: number;
 						public minFrameSize: number;
+						public maxFrameSize: number;
 						public sampleRate: number;
 						public sampleRateLookupKey: number;
-						public seekTable: com.google.android.exoplayer2.extractor.FlacStreamMetadata.SeekTable;
+						public channels: number;
+						public bitsPerSample: number;
+						public bitsPerSampleLookupKey: number;
 						public totalSamples: number;
-						public getDecodedBitrate(): number;
+						public seekTable: com.google.android.exoplayer2.extractor.FlacStreamMetadata.SeekTable;
 						public getMaxDecodedFrameSize(): number;
-						public copyWithVorbisComments(vorbisComments: java.util.List<string>): com.google.android.exoplayer2.extractor.FlacStreamMetadata;
-						public getApproxBytesPerFrame(): number;
+						public getDecodedBitrate(): number;
 						public getDurationUs(): number;
+						public getApproxBytesPerFrame(): number;
+						public copyWithVorbisComments(vorbisComments: java.util.List<string>): com.google.android.exoplayer2.extractor.FlacStreamMetadata;
 						public copyWithSeekTable(seekTable: com.google.android.exoplayer2.extractor.FlacStreamMetadata.SeekTable): com.google.android.exoplayer2.extractor.FlacStreamMetadata;
 						public constructor(data: native.Array<number>, offset: number);
 						public getFormat(streamMarkerAndInfoBlock: native.Array<number>, id3Metadata: com.google.android.exoplayer2.metadata.Metadata): com.google.android.exoplayer2.Format;
 						public getSampleNumber(timeUs: number): number;
 						public constructor(minBlockSizeSamples: number, maxBlockSizeSamples: number, minFrameSize: number, maxFrameSize: number, sampleRate: number, channels: number, bitsPerSample: number, totalSamples: number, vorbisComments: java.util.ArrayList<string>, pictureFrames: java.util.ArrayList<com.google.android.exoplayer2.metadata.flac.PictureFrame>);
-						public copyWithPictureFrames(pictureFrames: java.util.List<com.google.android.exoplayer2.metadata.flac.PictureFrame>): com.google.android.exoplayer2.extractor.FlacStreamMetadata;
 						public getMetadataCopyWithAppendedEntriesFrom(other: com.google.android.exoplayer2.metadata.Metadata): com.google.android.exoplayer2.metadata.Metadata;
+						public copyWithPictureFrames(pictureFrames: java.util.List<com.google.android.exoplayer2.metadata.flac.PictureFrame>): com.google.android.exoplayer2.extractor.FlacStreamMetadata;
 					}
 					export module FlacStreamMetadata {
 						export class SeekTable extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.FlacStreamMetadata.SeekTable>;
-							public pointOffsets: native.Array<number>;
 							public pointSampleNumbers: native.Array<number>;
+							public pointOffsets: native.Array<number>;
 							public constructor(pointSampleNumbers: native.Array<number>, pointOffsets: native.Array<number>);
 						}
 					}
@@ -562,8 +562,8 @@ declare module com {
 						public encoderDelay: number;
 						public encoderPadding: number;
 						public constructor();
-						public setFromMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): boolean;
 						public setFromXingHeaderValue(value: number): boolean;
+						public setFromMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): boolean;
 						public hasGaplessInfo(): boolean;
 					}
 				}
@@ -676,8 +676,8 @@ declare module com {
 					export class SeekPoint extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.SeekPoint>;
 						public static START: com.google.android.exoplayer2.extractor.SeekPoint;
-						public position: number;
 						public timeUs: number;
+						public position: number;
 						public equals(obj: any): boolean;
 						public hashCode(): number;
 						public toString(): string;
@@ -721,10 +721,10 @@ declare module com {
 					export module TrackOutput {
 						export class CryptoData extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.TrackOutput.CryptoData>;
-							public clearBlocks: number;
 							public cryptoMode: number;
-							public encryptedBlocks: number;
 							public encryptionKey: native.Array<number>;
+							public encryptedBlocks: number;
+							public clearBlocks: number;
 							public hashCode(): number;
 							public equals(obj: any): boolean;
 							public constructor(cryptoMode: number, encryptionKey: native.Array<number>, encryptedBlocks: number, clearBlocks: number);
@@ -732,7 +732,7 @@ declare module com {
 						export class SampleDataPart extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.TrackOutput.SampleDataPart>;
 							/**
-							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.TrackOutput$SampleDataPart interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.google.android.exoplayer2.extractor.TrackOutput() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								equals(object0: any): boolean;
@@ -794,38 +794,38 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.VorbisUtil.CodeBook>;
 							public dimensions: number;
 							public entries: number;
-							public isOrdered: boolean;
 							public lengthMap: native.Array<number>;
 							public lookupType: number;
+							public isOrdered: boolean;
 							public constructor(dimensions: number, entries: number, lengthMap: native.Array<number>, lookupType: number, isOrdered: boolean);
 						}
 						export class CommentHeader extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.VorbisUtil.CommentHeader>;
+							public vendor: string;
 							public comments: native.Array<string>;
 							public length: number;
-							public vendor: string;
 							public constructor(vendor: string, comments: native.Array<string>, length: number);
 						}
 						export class Mode extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.VorbisUtil.Mode>;
 							public blockFlag: boolean;
-							public mapping: number;
-							public transformType: number;
 							public windowType: number;
+							public transformType: number;
+							public mapping: number;
 							public constructor(blockFlag: boolean, windowType: number, transformType: number, mapping: number);
 						}
 						export class VorbisIdHeader extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.VorbisUtil.VorbisIdHeader>;
+							public version: number;
+							public channels: number;
+							public sampleRate: number;
 							public bitrateMaximum: number;
-							public bitrateMinimum: number;
 							public bitrateNominal: number;
+							public bitrateMinimum: number;
 							public blockSize0: number;
 							public blockSize1: number;
-							public channels: number;
-							public data: native.Array<number>;
 							public framingFlag: boolean;
-							public sampleRate: number;
-							public version: number;
+							public data: native.Array<number>;
 							public constructor(version: number, channels: number, sampleRate: number, bitrateMaximum: number, bitrateNominal: number, bitrateMinimum: number, blockSize0: number, blockSize1: number, framingFlag: boolean, data: native.Array<number>);
 						}
 					}
@@ -857,7 +857,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.amr.AmrExtractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.amr.AmrExtractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.amr.AmrExtractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -927,7 +927,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.flac.FlacExtractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.flac.FlacExtractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.flac.FlacExtractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -959,8 +959,8 @@ declare module com {
 						export class AudioTagPayloadReader extends com.google.android.exoplayer2.extractor.flv.TagPayloadReader {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.flv.AudioTagPayloadReader>;
 							public parseHeader(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
-							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public seek(): void;
+							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public constructor(output: com.google.android.exoplayer2.extractor.TrackOutput);
 							public parsePayload(data: com.google.android.exoplayer2.util.ParsableByteArray, timeUs: number): boolean;
 							public parseHeader(data: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
@@ -1006,8 +1006,8 @@ declare module com {
 							public constructor();
 							public getDurationUs(): number;
 							public parseHeader(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
-							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public seek(): void;
+							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public constructor(output: com.google.android.exoplayer2.extractor.TrackOutput);
 							public getKeyFrameTimesUs(): native.Array<number>;
 							public parsePayload(data: com.google.android.exoplayer2.util.ParsableByteArray, timeUs: number): boolean;
@@ -1032,8 +1032,8 @@ declare module com {
 							public output: com.google.android.exoplayer2.extractor.TrackOutput;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray, timeUs: number): boolean;
 							public parseHeader(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
-							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public seek(): void;
+							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public constructor(output: com.google.android.exoplayer2.extractor.TrackOutput);
 						}
 						export module TagPayloadReader {
@@ -1063,8 +1063,8 @@ declare module com {
 						export class VideoTagPayloadReader extends com.google.android.exoplayer2.extractor.flv.TagPayloadReader {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.flv.VideoTagPayloadReader>;
 							public parseHeader(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
-							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public seek(): void;
+							public parsePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number): boolean;
 							public constructor(output: com.google.android.exoplayer2.extractor.TrackOutput);
 							public parsePayload(data: com.google.android.exoplayer2.util.ParsableByteArray, timeUs: number): boolean;
 							public parseHeader(data: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
@@ -1143,7 +1143,7 @@ declare module com {
 							export class ElementType extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mkv.EbmlProcessor.ElementType>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mkv.EbmlProcessor$ElementType interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mkv.EbmlProcessor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -1205,27 +1205,27 @@ declare module com {
 							public static FLAG_DISABLE_SEEK_FOR_CUES: number;
 							public constructor();
 							public constructor(flags: number);
-							public handleBlockAddIDExtraData(track: com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.Track, input: com.google.android.exoplayer2.extractor.ExtractorInput, contentSize: number): void;
 							public sniff(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
+							public handleBlockAddIDExtraData(track: com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.Track, input: com.google.android.exoplayer2.extractor.ExtractorInput, contentSize: number): void;
 							public handleBlockAdditionalData(track: com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.Track, blockAdditionalId: number, input: com.google.android.exoplayer2.extractor.ExtractorInput, contentSize: number): void;
-							public binaryElement(id: number, contentSize: number, input: com.google.android.exoplayer2.extractor.ExtractorInput): void;
 							public startMasterElement(id: number, contentPosition: number, contentSize: number): void;
+							public binaryElement(id: number, contentSize: number, input: com.google.android.exoplayer2.extractor.ExtractorInput): void;
 							public release(): void;
 							public floatElement(id: number, value: number): void;
 							public getElementType(id: number): number;
 							public stringElement(id: number, value: string): void;
-							public integerElement(id: number, value: number): void;
 							public seek(position: number, timeUs: number): void;
+							public integerElement(id: number, value: number): void;
 							public isLevel1Element(id: number): boolean;
-							public endMasterElement(id: number): void;
 							public init(output: com.google.android.exoplayer2.extractor.ExtractorOutput): void;
 							public read(input: com.google.android.exoplayer2.extractor.ExtractorInput, seekPosition: com.google.android.exoplayer2.extractor.PositionHolder): number;
+							public endMasterElement(id: number): void;
 						}
 						export module MatroskaExtractor {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -1252,55 +1252,55 @@ declare module com {
 							}
 							export class Track extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.Track>;
-								public audioBitDepth: number;
-								public channelCount: number;
-								public codecDelayNs: number;
+								public name: string;
 								public codecId: string;
-								public codecPrivate: native.Array<number>;
-								public colorRange: number;
-								public colorSpace: number;
-								public colorTransfer: number;
-								public cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData;
+								public number: number;
+								public type: number;
 								public defaultSampleDurationNs: number;
+								public maxBlockAdditionId: number;
+								public hasContentEncryption: boolean;
+								public sampleStrippedBytes: native.Array<number>;
+								public cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData;
+								public codecPrivate: native.Array<number>;
+								public drmInitData: com.google.android.exoplayer2.drm.DrmInitData;
+								public width: number;
+								public height: number;
+								public displayWidth: number;
 								public displayHeight: number;
 								public displayUnit: number;
-								public displayWidth: number;
-								public dolbyVisionConfigBytes: native.Array<number>;
-								public drmInitData: com.google.android.exoplayer2.drm.DrmInitData;
-								public flagDefault: boolean;
-								public flagForced: boolean;
-								public hasColorInfo: boolean;
-								public hasContentEncryption: boolean;
-								public height: number;
-								public maxBlockAdditionId: number;
-								public maxContentLuminance: number;
-								public maxFrameAverageLuminance: number;
-								public maxMasteringLuminance: number;
-								public minMasteringLuminance: number;
-								public nalUnitLengthFieldLength: number;
-								public name: string;
-								public number: number;
-								public output: com.google.android.exoplayer2.extractor.TrackOutput;
-								public primaryBChromaticityX: number;
-								public primaryBChromaticityY: number;
-								public primaryGChromaticityX: number;
-								public primaryGChromaticityY: number;
-								public primaryRChromaticityX: number;
-								public primaryRChromaticityY: number;
-								public projectionData: native.Array<number>;
+								public projectionType: number;
+								public projectionPoseYaw: number;
 								public projectionPosePitch: number;
 								public projectionPoseRoll: number;
-								public projectionPoseYaw: number;
-								public projectionType: number;
-								public sampleRate: number;
-								public sampleStrippedBytes: native.Array<number>;
-								public seekPreRollNs: number;
+								public projectionData: native.Array<number>;
 								public stereoMode: number;
-								public trueHdSampleRechunker: com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.TrueHdSampleRechunker;
-								public type: number;
+								public hasColorInfo: boolean;
+								public colorSpace: number;
+								public colorTransfer: number;
+								public colorRange: number;
+								public maxContentLuminance: number;
+								public maxFrameAverageLuminance: number;
+								public primaryRChromaticityX: number;
+								public primaryRChromaticityY: number;
+								public primaryGChromaticityX: number;
+								public primaryGChromaticityY: number;
+								public primaryBChromaticityX: number;
+								public primaryBChromaticityY: number;
 								public whitePointChromaticityX: number;
 								public whitePointChromaticityY: number;
-								public width: number;
+								public maxMasteringLuminance: number;
+								public minMasteringLuminance: number;
+								public dolbyVisionConfigBytes: native.Array<number>;
+								public channelCount: number;
+								public audioBitDepth: number;
+								public sampleRate: number;
+								public codecDelayNs: number;
+								public seekPreRollNs: number;
+								public trueHdSampleRechunker: com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor.TrueHdSampleRechunker;
+								public flagForced: boolean;
+								public flagDefault: boolean;
+								public output: com.google.android.exoplayer2.extractor.TrackOutput;
+								public nalUnitLengthFieldLength: number;
 								public reset(): void;
 								public initializeOutput(output: com.google.android.exoplayer2.extractor.ExtractorOutput, trackId: number): void;
 								public outputPendingSampleMetadata(): void;
@@ -1418,8 +1418,8 @@ declare module com {
 						export class MlltSeeker extends java.lang.Object implements com.google.android.exoplayer2.extractor.mp3.Seeker {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp3.MlltSeeker>;
 							public getTimeUs(position: number): number;
-							public getDataEndPosition(): number;
 							public getDurationUs(): number;
+							public getDataEndPosition(): number;
 							public getSeekPoints(timeUs: number): com.google.android.exoplayer2.extractor.SeekMap.SeekPoints;
 							public isSeekable(): boolean;
 							public static create(firstFramePosition: number, mlltFrame: com.google.android.exoplayer2.metadata.id3.MlltFrame, durationUs: number): com.google.android.exoplayer2.extractor.mp3.MlltSeeker;
@@ -1440,9 +1440,9 @@ declare module com {
 						export class Mp3Extractor extends java.lang.Object implements com.google.android.exoplayer2.extractor.Extractor {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp3.Mp3Extractor>;
 							public static FACTORY: com.google.android.exoplayer2.extractor.ExtractorsFactory;
-							public static FLAG_DISABLE_ID3_METADATA: number;
 							public static FLAG_ENABLE_CONSTANT_BITRATE_SEEKING: number;
 							public static FLAG_ENABLE_INDEX_SEEKING: number;
+							public static FLAG_DISABLE_ID3_METADATA: number;
 							public constructor();
 							public constructor(flags: number);
 							public sniff(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
@@ -1457,7 +1457,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp3.Mp3Extractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp3.Mp3Extractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -1533,8 +1533,8 @@ declare module com {
 						export class VbriSeeker extends java.lang.Object implements com.google.android.exoplayer2.extractor.mp3.Seeker {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp3.VbriSeeker>;
 							public getTimeUs(position: number): number;
-							public getDataEndPosition(): number;
 							public getDurationUs(): number;
+							public getDataEndPosition(): number;
 							public static create(inputLength: number, position: number, mpegAudioHeader: com.google.android.exoplayer2.audio.MpegAudioUtil.Header, frame: com.google.android.exoplayer2.util.ParsableByteArray): com.google.android.exoplayer2.extractor.mp3.VbriSeeker;
 							public getSeekPoints(timeUs: number): com.google.android.exoplayer2.extractor.SeekMap.SeekPoints;
 							public isSeekable(): boolean;
@@ -1555,8 +1555,8 @@ declare module com {
 						export class XingSeeker extends java.lang.Object implements com.google.android.exoplayer2.extractor.mp3.Seeker {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp3.XingSeeker>;
 							public getTimeUs(position: number): number;
-							public getDataEndPosition(): number;
 							public getDurationUs(): number;
+							public getDataEndPosition(): number;
 							public static create(inputLength: number, position: number, mpegAudioHeader: com.google.android.exoplayer2.audio.MpegAudioUtil.Header, frame: com.google.android.exoplayer2.util.ParsableByteArray): com.google.android.exoplayer2.extractor.mp3.XingSeeker;
 							public getSeekPoints(timeUs: number): com.google.android.exoplayer2.extractor.SeekMap.SeekPoints;
 							public isSeekable(): boolean;
@@ -1577,124 +1577,124 @@ declare module com {
 					export module mp4 {
 						export abstract class Atom extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Atom>;
+							public static HEADER_SIZE: number;
+							public static FULL_HEADER_SIZE: number;
+							public static LONG_HEADER_SIZE: number;
 							public static DEFINES_LARGE_SIZE: number;
 							public static EXTENDS_TO_END_SIZE: number;
-							public static FULL_HEADER_SIZE: number;
-							public static HEADER_SIZE: number;
-							public static LONG_HEADER_SIZE: number;
-							public static TYPE_Opus: number;
-							public static TYPE_TTML: number;
-							public static TYPE__mp2: number;
-							public static TYPE__mp3: number;
-							public static TYPE_ac_3: number;
-							public static TYPE_ac_4: number;
-							public static TYPE_alac: number;
-							public static TYPE_alaw: number;
-							public static TYPE_av01: number;
-							public static TYPE_av1C: number;
+							public static TYPE_ftyp: number;
 							public static TYPE_avc1: number;
 							public static TYPE_avc3: number;
 							public static TYPE_avcC: number;
-							public static TYPE_c608: number;
-							public static TYPE_camm: number;
-							public static TYPE_co64: number;
-							public static TYPE_ctts: number;
-							public static TYPE_d263: number;
-							public static TYPE_dOps: number;
-							public static TYPE_dac3: number;
-							public static TYPE_dac4: number;
-							public static TYPE_data: number;
-							public static TYPE_ddts: number;
-							public static TYPE_dec3: number;
-							public static TYPE_dfLa: number;
-							public static TYPE_dtsc: number;
-							public static TYPE_dtse: number;
-							public static TYPE_dtsh: number;
-							public static TYPE_dtsl: number;
-							public static TYPE_dva1: number;
-							public static TYPE_dvav: number;
-							public static TYPE_dvcC: number;
-							public static TYPE_dvh1: number;
-							public static TYPE_dvhe: number;
-							public static TYPE_dvvC: number;
-							public static TYPE_ec_3: number;
-							public static TYPE_edts: number;
-							public static TYPE_elst: number;
-							public static TYPE_emsg: number;
-							public static TYPE_enca: number;
-							public static TYPE_encv: number;
-							public static TYPE_esds: number;
-							public static TYPE_fLaC: number;
-							public static TYPE_frma: number;
-							public static TYPE_ftyp: number;
-							public static TYPE_hdlr: number;
-							public static TYPE_hev1: number;
 							public static TYPE_hvc1: number;
+							public static TYPE_hev1: number;
 							public static TYPE_hvcC: number;
-							public static TYPE_ilst: number;
-							public static TYPE_keys: number;
-							public static TYPE_lpcm: number;
-							public static TYPE_m1v_: number;
-							public static TYPE_mdat: number;
-							public static TYPE_mdhd: number;
-							public static TYPE_mdia: number;
-							public static TYPE_mean: number;
-							public static TYPE_mehd: number;
-							public static TYPE_meta: number;
-							public static TYPE_mett: number;
-							public static TYPE_minf: number;
-							public static TYPE_moof: number;
-							public static TYPE_moov: number;
-							public static TYPE_mp4a: number;
-							public static TYPE_mp4v: number;
-							public static TYPE_mvex: number;
-							public static TYPE_mvhd: number;
-							public static TYPE_name: number;
-							public static TYPE_pasp: number;
-							public static TYPE_proj: number;
-							public static TYPE_pssh: number;
-							public static TYPE_s263: number;
-							public static TYPE_saio: number;
-							public static TYPE_saiz: number;
-							public static TYPE_samr: number;
-							public static TYPE_sawb: number;
-							public static TYPE_sbgp: number;
-							public static TYPE_schi: number;
-							public static TYPE_schm: number;
-							public static TYPE_senc: number;
-							public static TYPE_sgpd: number;
-							public static TYPE_sidx: number;
-							public static TYPE_sinf: number;
-							public static TYPE_sowt: number;
-							public static TYPE_st3d: number;
-							public static TYPE_stbl: number;
-							public static TYPE_stco: number;
-							public static TYPE_stpp: number;
-							public static TYPE_stsc: number;
-							public static TYPE_stsd: number;
-							public static TYPE_stss: number;
-							public static TYPE_stsz: number;
-							public static TYPE_stts: number;
-							public static TYPE_stz2: number;
-							public static TYPE_sv3d: number;
-							public static TYPE_tenc: number;
-							public static TYPE_tfdt: number;
-							public static TYPE_tfhd: number;
-							public static TYPE_tkhd: number;
-							public static TYPE_traf: number;
-							public static TYPE_trak: number;
-							public static TYPE_trex: number;
-							public static TYPE_trun: number;
-							public static TYPE_twos: number;
-							public static TYPE_tx3g: number;
-							public static TYPE_udta: number;
-							public static TYPE_ulaw: number;
-							public static TYPE_uuid: number;
 							public static TYPE_vp08: number;
 							public static TYPE_vp09: number;
 							public static TYPE_vpcC: number;
+							public static TYPE_av01: number;
+							public static TYPE_av1C: number;
+							public static TYPE_dvav: number;
+							public static TYPE_dva1: number;
+							public static TYPE_dvhe: number;
+							public static TYPE_dvh1: number;
+							public static TYPE_dvcC: number;
+							public static TYPE_dvvC: number;
+							public static TYPE_s263: number;
+							public static TYPE_d263: number;
+							public static TYPE_mdat: number;
+							public static TYPE_mp4a: number;
+							public static TYPE__mp2: number;
+							public static TYPE__mp3: number;
 							public static TYPE_wave: number;
+							public static TYPE_lpcm: number;
+							public static TYPE_sowt: number;
+							public static TYPE_ac_3: number;
+							public static TYPE_dac3: number;
+							public static TYPE_ec_3: number;
+							public static TYPE_dec3: number;
+							public static TYPE_ac_4: number;
+							public static TYPE_dac4: number;
+							public static TYPE_dtsc: number;
+							public static TYPE_dtsh: number;
+							public static TYPE_dtsl: number;
+							public static TYPE_dtse: number;
+							public static TYPE_ddts: number;
+							public static TYPE_tfdt: number;
+							public static TYPE_tfhd: number;
+							public static TYPE_trex: number;
+							public static TYPE_trun: number;
+							public static TYPE_sidx: number;
+							public static TYPE_moov: number;
+							public static TYPE_mvhd: number;
+							public static TYPE_trak: number;
+							public static TYPE_mdia: number;
+							public static TYPE_minf: number;
+							public static TYPE_stbl: number;
+							public static TYPE_esds: number;
+							public static TYPE_moof: number;
+							public static TYPE_traf: number;
+							public static TYPE_mvex: number;
+							public static TYPE_mehd: number;
+							public static TYPE_tkhd: number;
+							public static TYPE_edts: number;
+							public static TYPE_elst: number;
+							public static TYPE_mdhd: number;
+							public static TYPE_hdlr: number;
+							public static TYPE_stsd: number;
+							public static TYPE_pssh: number;
+							public static TYPE_sinf: number;
+							public static TYPE_schm: number;
+							public static TYPE_schi: number;
+							public static TYPE_tenc: number;
+							public static TYPE_encv: number;
+							public static TYPE_enca: number;
+							public static TYPE_frma: number;
+							public static TYPE_saiz: number;
+							public static TYPE_saio: number;
+							public static TYPE_sbgp: number;
+							public static TYPE_sgpd: number;
+							public static TYPE_uuid: number;
+							public static TYPE_senc: number;
+							public static TYPE_pasp: number;
+							public static TYPE_TTML: number;
+							public static TYPE_m1v_: number;
+							public static TYPE_mp4v: number;
+							public static TYPE_stts: number;
+							public static TYPE_stss: number;
+							public static TYPE_ctts: number;
+							public static TYPE_stsc: number;
+							public static TYPE_stsz: number;
+							public static TYPE_stz2: number;
+							public static TYPE_stco: number;
+							public static TYPE_co64: number;
+							public static TYPE_tx3g: number;
 							public static TYPE_wvtt: number;
+							public static TYPE_stpp: number;
+							public static TYPE_c608: number;
+							public static TYPE_samr: number;
+							public static TYPE_sawb: number;
+							public static TYPE_udta: number;
+							public static TYPE_meta: number;
+							public static TYPE_keys: number;
+							public static TYPE_ilst: number;
+							public static TYPE_mean: number;
+							public static TYPE_name: number;
+							public static TYPE_data: number;
+							public static TYPE_emsg: number;
+							public static TYPE_st3d: number;
+							public static TYPE_sv3d: number;
+							public static TYPE_proj: number;
+							public static TYPE_camm: number;
+							public static TYPE_mett: number;
+							public static TYPE_alac: number;
+							public static TYPE_alaw: number;
+							public static TYPE_ulaw: number;
+							public static TYPE_Opus: number;
+							public static TYPE_dOps: number;
+							public static TYPE_fLaC: number;
+							public static TYPE_dfLa: number;
+							public static TYPE_twos: number;
 							public type: number;
 							public static parseFullAtomFlags(fullAtomInt: number): number;
 							public static getAtomTypeString(type: number): string;
@@ -1705,9 +1705,9 @@ declare module com {
 						export module Atom {
 							export class ContainerAtom extends com.google.android.exoplayer2.extractor.mp4.Atom {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom>;
-								public containerChildren: java.util.List<com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom>;
 								public endPosition: number;
 								public leafChildren: java.util.List<com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom>;
+								public containerChildren: java.util.List<com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom>;
 								public add(atom: com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom): void;
 								public getLeafAtomOfType(type: number): com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom;
 								public toString(): string;
@@ -1739,15 +1739,15 @@ declare module com {
 					export module mp4 {
 						export class AtomParsers extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.AtomParsers>;
-							public static parseMdtaFromMeta(meta: com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom): com.google.android.exoplayer2.metadata.Metadata;
 							public static parseUdta(udtaAtom: com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom, isQuickTime: boolean): com.google.android.exoplayer2.metadata.Metadata;
+							public static parseMdtaFromMeta(meta: com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom): com.google.android.exoplayer2.metadata.Metadata;
 							public static parseTraks(moov: com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom, gaplessInfoHolder: com.google.android.exoplayer2.extractor.GaplessInfoHolder, duration: number, drmInitData: com.google.android.exoplayer2.drm.DrmInitData, ignoreEditLists: boolean, isQuickTime: boolean, modifyTrackFunction: com.google.common.base.Function<com.google.android.exoplayer2.extractor.mp4.Track,com.google.android.exoplayer2.extractor.mp4.Track>): java.util.List<com.google.android.exoplayer2.extractor.mp4.TrackSampleTable>;
 						}
 						export module AtomParsers {
 							export class ChunkIterator extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.AtomParsers.ChunkIterator>;
-								public index: number;
 								public length: number;
+								public index: number;
 								public numSamples: number;
 								public offset: number;
 								public moveNext(): boolean;
@@ -1756,7 +1756,7 @@ declare module com {
 							export class SampleSizeBox extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.AtomParsers.SampleSizeBox>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.AtomParsers$SampleSizeBox interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.AtomParsers() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									getSampleCount(): number;
@@ -1771,10 +1771,10 @@ declare module com {
 							export class StsdData extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.AtomParsers.StsdData>;
 								public static STSD_HEADER_SIZE: number;
+								public trackEncryptionBoxes: native.Array<com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox>;
 								public format: com.google.android.exoplayer2.Format;
 								public nalUnitLengthFieldLength: number;
 								public requiredSampleTransformation: number;
-								public trackEncryptionBoxes: native.Array<com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox>;
 								public constructor(numberOfEntries: number);
 							}
 							export class StszSampleSizeBox extends java.lang.Object implements com.google.android.exoplayer2.extractor.mp4.AtomParsers.SampleSizeBox {
@@ -1811,10 +1811,10 @@ declare module com {
 					export module mp4 {
 						export class DefaultSampleValues extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.DefaultSampleValues>;
-							public duration: number;
-							public flags: number;
 							public sampleDescriptionIndex: number;
+							public duration: number;
 							public size: number;
+							public flags: number;
 							public constructor(sampleDescriptionIndex: number, duration: number, size: number, flags: number);
 						}
 					}
@@ -1837,12 +1837,12 @@ declare module com {
 						export module FixedSampleSizeRechunker {
 							export class Results extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.FixedSampleSizeRechunker.Results>;
-								public duration: number;
-								public flags: native.Array<number>;
-								public maximumSize: number;
 								public offsets: native.Array<number>;
 								public sizes: native.Array<number>;
+								public maximumSize: number;
 								public timestamps: native.Array<number>;
+								public flags: native.Array<number>;
+								public duration: number;
 							}
 						}
 					}
@@ -1861,10 +1861,10 @@ declare module com {
 						export class FragmentedMp4Extractor extends java.lang.Object implements com.google.android.exoplayer2.extractor.Extractor {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor>;
 							public static FACTORY: com.google.android.exoplayer2.extractor.ExtractorsFactory;
-							public static FLAG_ENABLE_EMSG_TRACK: number;
 							public static FLAG_WORKAROUND_EVERY_VIDEO_FRAME_IS_SYNC_FRAME: number;
-							public static FLAG_WORKAROUND_IGNORE_EDIT_LISTS: number;
 							public static FLAG_WORKAROUND_IGNORE_TFDT_BOX: number;
+							public static FLAG_ENABLE_EMSG_TRACK: number;
+							public static FLAG_WORKAROUND_IGNORE_EDIT_LISTS: number;
 							public constructor();
 							public modifyTrack(track: com.google.android.exoplayer2.extractor.mp4.Track): com.google.android.exoplayer2.extractor.mp4.Track;
 							public constructor(flags: number);
@@ -1882,7 +1882,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -1904,20 +1904,20 @@ declare module com {
 							}
 							export class TrackBundle extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor.TrackBundle>;
-								public currentSampleInTrackRun: number;
-								public currentSampleIndex: number;
-								public currentTrackRunIndex: number;
-								public defaultSampleValues: com.google.android.exoplayer2.extractor.mp4.DefaultSampleValues;
-								public firstSampleToOutputIndex: number;
-								public fragment: com.google.android.exoplayer2.extractor.mp4.TrackFragment;
-								public moovSampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable;
 								public output: com.google.android.exoplayer2.extractor.TrackOutput;
+								public fragment: com.google.android.exoplayer2.extractor.mp4.TrackFragment;
 								public scratch: com.google.android.exoplayer2.util.ParsableByteArray;
+								public moovSampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable;
+								public defaultSampleValues: com.google.android.exoplayer2.extractor.mp4.DefaultSampleValues;
+								public currentSampleIndex: number;
+								public currentSampleInTrackRun: number;
+								public currentTrackRunIndex: number;
+								public firstSampleToOutputIndex: number;
 								public getEncryptionBoxIfEncrypted(): com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox;
 								public getCurrentSampleFlags(): number;
+								public reset(moovSampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable, defaultSampleValues: com.google.android.exoplayer2.extractor.mp4.DefaultSampleValues): void;
 								public getCurrentSampleSize(): number;
 								public next(): boolean;
-								public reset(moovSampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable, defaultSampleValues: com.google.android.exoplayer2.extractor.mp4.DefaultSampleValues): void;
 								public getCurrentSampleOffset(): number;
 								public skipSampleEncryptionData(): void;
 								public updateDrmInitData(drmInitData: com.google.android.exoplayer2.drm.DrmInitData): void;
@@ -1943,16 +1943,16 @@ declare module com {
 					export module mp4 {
 						export class MdtaMetadataEntry extends java.lang.Object implements com.google.android.exoplayer2.metadata.Metadata.Entry {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.MdtaMetadataEntry>;
-							public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.extractor.mp4.MdtaMetadataEntry>;
 							public key: string;
+							public value: native.Array<number>;
 							public localeIndicator: number;
 							public typeIndicator: number;
-							public value: native.Array<number>;
+							public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.extractor.mp4.MdtaMetadataEntry>;
 							public getWrappedMetadataFormat(): com.google.android.exoplayer2.Format;
 							public constructor(key: string, value: native.Array<number>, localeIndicator: number, typeIndicator: number);
 							public hashCode(): number;
-							public describeContents(): number;
 							public writeToParcel(dest: globalAndroid.os.Parcel, flags: number): void;
+							public describeContents(): number;
 							public getWrappedMetadataBytes(): native.Array<number>;
 							public equals(obj: any): boolean;
 							public toString(): string;
@@ -1995,8 +1995,8 @@ declare module com {
 							public static FLAG_WORKAROUND_IGNORE_EDIT_LISTS: number;
 							public constructor();
 							public constructor(flags: number);
-							public getDurationUs(): number;
 							public sniff(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
+							public getDurationUs(): number;
 							public getSeekPoints(timeUs: number): com.google.android.exoplayer2.extractor.SeekMap.SeekPoints;
 							public seek(position: number, timeUs: number): void;
 							public release(): void;
@@ -2008,7 +2008,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Mp4Extractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.Mp4Extractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.Mp4Extractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -2024,10 +2024,10 @@ declare module com {
 							}
 							export class Mp4Track extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Mp4Extractor.Mp4Track>;
-								public sampleIndex: number;
-								public sampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable;
 								public track: com.google.android.exoplayer2.extractor.mp4.Track;
+								public sampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable;
 								public trackOutput: com.google.android.exoplayer2.extractor.TrackOutput;
+								public sampleIndex: number;
 								public constructor(track: com.google.android.exoplayer2.extractor.mp4.Track, sampleTable: com.google.android.exoplayer2.extractor.mp4.TrackSampleTable, trackOutput: com.google.android.exoplayer2.extractor.TrackOutput);
 							}
 						}
@@ -2092,18 +2092,18 @@ declare module com {
 					export module mp4 {
 						export class Track extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Track>;
-							public static TRANSFORMATION_CEA608_CDAT: number;
 							public static TRANSFORMATION_NONE: number;
+							public static TRANSFORMATION_CEA608_CDAT: number;
+							public id: number;
+							public type: number;
+							public timescale: number;
+							public movieTimescale: number;
 							public durationUs: number;
+							public format: com.google.android.exoplayer2.Format;
+							public sampleTransformation: number;
 							public editListDurations: native.Array<number>;
 							public editListMediaTimes: native.Array<number>;
-							public format: com.google.android.exoplayer2.Format;
-							public id: number;
-							public movieTimescale: number;
 							public nalUnitLengthFieldLength: number;
-							public sampleTransformation: number;
-							public timescale: number;
-							public type: number;
 							public copyWithFormat(format: com.google.android.exoplayer2.Format): com.google.android.exoplayer2.extractor.mp4.Track;
 							public getSampleDescriptionEncryptionBox(sampleDescriptionIndex: number): com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox;
 							public constructor(id: number, type: number, timescale: number, movieTimescale: number, durationUs: number, format: com.google.android.exoplayer2.Format, sampleTransformation: number, sampleDescriptionEncryptionBoxes: native.Array<com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox>, nalUnitLengthFieldLength: number, editListDurations: native.Array<number>, editListMediaTimes: native.Array<number>);
@@ -2112,7 +2112,7 @@ declare module com {
 							export class Transformation extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Track.Transformation>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.Track$Transformation interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.mp4.Track() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -2142,11 +2142,11 @@ declare module com {
 					export module mp4 {
 						export class TrackEncryptionBox extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox>;
-							public cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData;
-							public defaultInitializationVector: native.Array<number>;
 							public isEncrypted: boolean;
-							public perSampleIvSize: number;
 							public schemeType: string;
+							public cryptoData: com.google.android.exoplayer2.extractor.TrackOutput.CryptoData;
+							public perSampleIvSize: number;
+							public defaultInitializationVector: native.Array<number>;
 							public constructor(isEncrypted: boolean, schemeType: string, perSampleIvSize: number, keyId: native.Array<number>, defaultEncryptedBlocks: number, defaultClearBlocks: number, defaultInitializationVector: native.Array<number>);
 						}
 					}
@@ -2164,24 +2164,24 @@ declare module com {
 					export module mp4 {
 						export class TrackFragment extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.TrackFragment>;
-							public atomPosition: number;
-							public auxiliaryDataPosition: number;
-							public dataPosition: number;
-							public definesEncryptionData: boolean;
 							public header: com.google.android.exoplayer2.extractor.mp4.DefaultSampleValues;
-							public nextFragmentDecodeTime: number;
-							public nextFragmentDecodeTimeIncludesMoov: boolean;
-							public sampleCompositionTimeOffsetUsTable: native.Array<number>;
-							public sampleCount: number;
-							public sampleDecodingTimeUsTable: native.Array<number>;
-							public sampleEncryptionData: com.google.android.exoplayer2.util.ParsableByteArray;
-							public sampleEncryptionDataNeedsFill: boolean;
-							public sampleIsSyncFrameTable: native.Array<boolean>;
-							public sampleSizeTable: native.Array<number>;
-							public trackEncryptionBox: com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox;
+							public atomPosition: number;
+							public dataPosition: number;
+							public auxiliaryDataPosition: number;
 							public trunCount: number;
+							public sampleCount: number;
 							public trunDataPosition: native.Array<number>;
 							public trunLength: native.Array<number>;
+							public sampleSizeTable: native.Array<number>;
+							public sampleCompositionTimeOffsetUsTable: native.Array<number>;
+							public sampleDecodingTimeUsTable: native.Array<number>;
+							public sampleIsSyncFrameTable: native.Array<boolean>;
+							public definesEncryptionData: boolean;
+							public trackEncryptionBox: com.google.android.exoplayer2.extractor.mp4.TrackEncryptionBox;
+							public sampleEncryptionData: com.google.android.exoplayer2.util.ParsableByteArray;
+							public sampleEncryptionDataNeedsFill: boolean;
+							public nextFragmentDecodeTime: number;
+							public nextFragmentDecodeTimeIncludesMoov: boolean;
 							public constructor();
 							public fillEncryptionData(source: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public fillEncryptionData(input: com.google.android.exoplayer2.extractor.ExtractorInput): void;
@@ -2206,14 +2206,14 @@ declare module com {
 					export module mp4 {
 						export class TrackSampleTable extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.TrackSampleTable>;
-							public durationUs: number;
-							public flags: native.Array<number>;
-							public maximumSize: number;
-							public offsets: native.Array<number>;
-							public sampleCount: number;
-							public sizes: native.Array<number>;
-							public timestampsUs: native.Array<number>;
 							public track: com.google.android.exoplayer2.extractor.mp4.Track;
+							public sampleCount: number;
+							public offsets: native.Array<number>;
+							public sizes: native.Array<number>;
+							public maximumSize: number;
+							public timestampsUs: native.Array<number>;
+							public flags: native.Array<number>;
+							public durationUs: number;
 							public constructor(track: com.google.android.exoplayer2.extractor.mp4.Track, offsets: native.Array<number>, sizes: native.Array<number>, maximumSize: number, timestampsUs: native.Array<number>, flags: native.Array<number>, durationUs: number);
 							public getIndexOfEarlierOrEqualSynchronizationSample(timeUs: number): number;
 							public getIndexOfLaterOrEqualSynchronizationSample(timeUs: number): number;
@@ -2243,8 +2243,8 @@ declare module com {
 						export module DefaultOggSeeker {
 							export class OggSeekMap extends java.lang.Object implements com.google.android.exoplayer2.extractor.SeekMap {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker.OggSeekMap>;
-								public getDurationUs(): number;
 								public getSeekPoints(timeUs: number): com.google.android.exoplayer2.extractor.SeekMap.SeekPoints;
+								public getDurationUs(): number;
 								public isSeekable(): boolean;
 							}
 						}
@@ -2340,19 +2340,19 @@ declare module com {
 						export class OggPageHeader extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ogg.OggPageHeader>;
 							public static EMPTY_PAGE_HEADER_SIZE: number;
+							public static MAX_SEGMENT_COUNT: number;
 							public static MAX_PAGE_PAYLOAD: number;
 							public static MAX_PAGE_SIZE: number;
-							public static MAX_SEGMENT_COUNT: number;
-							public bodySize: number;
+							public revision: number;
+							public type: number;
 							public granulePosition: number;
-							public headerSize: number;
-							public laces: native.Array<number>;
+							public streamSerialNumber: number;
+							public pageSequenceNumber: number;
 							public pageChecksum: number;
 							public pageSegmentCount: number;
-							public pageSequenceNumber: number;
-							public revision: number;
-							public streamSerialNumber: number;
-							public type: number;
+							public headerSize: number;
+							public bodySize: number;
+							public laces: native.Array<number>;
 							public skipToNextPage(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
 							public populate(input: com.google.android.exoplayer2.extractor.ExtractorInput, quiet: boolean): boolean;
 							public skipToNextPage(input: com.google.android.exoplayer2.extractor.ExtractorInput, limit: number): boolean;
@@ -2425,8 +2425,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ogg.StreamReader>;
 							public constructor();
 							public readHeaders(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number, setupData2: com.google.android.exoplayer2.extractor.ogg.StreamReader.SetupData): boolean;
-							public onSeekEnd(currentGranule: number): void;
 							public reset(headerData: boolean): void;
+							public onSeekEnd(currentGranule: number): void;
 							public preparePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray): number;
 							public convertGranuleToTime(granule: number): number;
 							public convertTimeToGranule(timeUs: number): number;
@@ -2459,8 +2459,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ogg.VorbisReader>;
 							public preparePayload(packet: com.google.android.exoplayer2.util.ParsableByteArray): number;
 							public readHeaders(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray, long1: number, setupData2: com.google.android.exoplayer2.extractor.ogg.StreamReader.SetupData): boolean;
-							public onSeekEnd(currentGranule: number): void;
 							public reset(headerData: boolean): void;
+							public onSeekEnd(currentGranule: number): void;
 							public readHeaders(packet: com.google.android.exoplayer2.util.ParsableByteArray, position: number, setupData: com.google.android.exoplayer2.extractor.ogg.StreamReader.SetupData): boolean;
 							public preparePayload(parsableByteArray0: com.google.android.exoplayer2.util.ParsableByteArray): number;
 							public static verifyBitstreamType(data: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
@@ -2468,11 +2468,11 @@ declare module com {
 						export module VorbisReader {
 							export class VorbisSetup extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ogg.VorbisReader.VorbisSetup>;
-								public commentHeader: com.google.android.exoplayer2.extractor.VorbisUtil.CommentHeader;
-								public iLogModes: number;
 								public idHeader: com.google.android.exoplayer2.extractor.VorbisUtil.VorbisIdHeader;
-								public modes: native.Array<com.google.android.exoplayer2.extractor.VorbisUtil.Mode>;
+								public commentHeader: com.google.android.exoplayer2.extractor.VorbisUtil.CommentHeader;
 								public setupHeaderData: native.Array<number>;
+								public modes: native.Array<com.google.android.exoplayer2.extractor.VorbisUtil.Mode>;
+								public iLogModes: number;
 								public constructor(idHeader: com.google.android.exoplayer2.extractor.VorbisUtil.VorbisIdHeader, commentHeader: com.google.android.exoplayer2.extractor.VorbisUtil.CommentHeader, setupHeaderData: native.Array<number>, modes: native.Array<com.google.android.exoplayer2.extractor.VorbisUtil.Mode>, iLogModes: number);
 							}
 						}
@@ -2622,7 +2622,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.AdtsExtractor.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.AdtsExtractor$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.AdtsExtractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -2654,8 +2654,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.AdtsReader>;
 							public packetFinished(): void;
 							public static isAdtsSyncWord(candidateSyncWord: number): boolean;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public getSampleDurationUs(): number;
 							public packetStarted(pesTimeUs: number, flags: number): void;
@@ -2678,12 +2678,12 @@ declare module com {
 						export class DefaultTsPayloadReaderFactory extends java.lang.Object implements com.google.android.exoplayer2.extractor.ts.TsPayloadReader.Factory {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.DefaultTsPayloadReaderFactory>;
 							public static FLAG_ALLOW_NON_IDR_KEYFRAMES: number;
-							public static FLAG_DETECT_ACCESS_UNITS: number;
-							public static FLAG_ENABLE_HDMV_DTS_AUDIO_STREAMS: number;
 							public static FLAG_IGNORE_AAC_STREAM: number;
 							public static FLAG_IGNORE_H264_STREAM: number;
+							public static FLAG_DETECT_ACCESS_UNITS: number;
 							public static FLAG_IGNORE_SPLICE_INFO_STREAM: number;
 							public static FLAG_OVERRIDE_CAPTION_DESCRIPTORS: number;
+							public static FLAG_ENABLE_HDMV_DTS_AUDIO_STREAMS: number;
 							public constructor();
 							public constructor(flags: number);
 							public constructor(flags: number, closedCaptionFormats: java.util.List<com.google.android.exoplayer2.Format>);
@@ -2694,7 +2694,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.DefaultTsPayloadReaderFactory.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.DefaultTsPayloadReaderFactory$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.DefaultTsPayloadReaderFactory() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -2726,8 +2726,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.DtsReader>;
 							public constructor(language: string);
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
@@ -2747,8 +2747,8 @@ declare module com {
 						export class DvbSubtitleReader extends java.lang.Object implements com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.DvbSubtitleReader>;
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 							public constructor(subtitleInfos: java.util.List<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.DvbSubtitleInfo>);
@@ -2802,17 +2802,17 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.H262Reader>;
 							public constructor();
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
 						export module H262Reader {
 							export class CsdBuffer extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.H262Reader.CsdBuffer>;
-								public data: native.Array<number>;
 								public length: number;
 								public sequenceExtensionPosition: number;
+								public data: native.Array<number>;
 								public onData(newData: native.Array<number>, offset: number, limit: number): void;
 								public onStartCode(startCodeValue: number, bytesAlreadyPassed: number): boolean;
 								public constructor(initialCapacity: number);
@@ -2836,17 +2836,17 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.H263Reader>;
 							public constructor();
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
 						export module H263Reader {
 							export class CsdBuffer extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.H263Reader.CsdBuffer>;
-								public data: native.Array<number>;
 								public length: number;
 								public volStartPosition: number;
+								public data: native.Array<number>;
 								public onData(newData: native.Array<number>, offset: number, limit: number): void;
 								public onStartCode(startCodeValue: number, bytesAlreadyPassed: number): boolean;
 								public constructor(initialCapacity: number);
@@ -2877,8 +2877,8 @@ declare module com {
 						export class H264Reader extends java.lang.Object implements com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.H264Reader>;
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 							public constructor(seiReader: com.google.android.exoplayer2.extractor.ts.SeiReader, allowNonIdrKeyframes: boolean, detectAccessUnits: boolean);
@@ -2922,8 +2922,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.H265Reader>;
 							public packetFinished(): void;
 							public constructor(seiReader: com.google.android.exoplayer2.extractor.ts.SeiReader);
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
@@ -2954,8 +2954,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.Id3Reader>;
 							public constructor();
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
@@ -2976,8 +2976,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.LatmReader>;
 							public constructor(language: string);
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
@@ -2999,8 +2999,8 @@ declare module com {
 							public constructor();
 							public constructor(language: string);
 							public packetFinished(): void;
-							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public seek(): void;
+							public createTracks(extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput, idGenerator: com.google.android.exoplayer2.extractor.ts.TsPayloadReader.TrackIdGenerator): void;
 							public consume(data: com.google.android.exoplayer2.util.ParsableByteArray): void;
 							public packetStarted(pesTimeUs: number, flags: number): void;
 						}
@@ -3128,10 +3128,10 @@ declare module com {
 					export module ts {
 						export class PsExtractor extends java.lang.Object implements com.google.android.exoplayer2.extractor.Extractor {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.PsExtractor>;
-							public static AUDIO_STREAM: number;
-							public static AUDIO_STREAM_MASK: number;
 							public static FACTORY: com.google.android.exoplayer2.extractor.ExtractorsFactory;
 							public static PRIVATE_STREAM_1: number;
+							public static AUDIO_STREAM: number;
+							public static AUDIO_STREAM_MASK: number;
 							public static VIDEO_STREAM: number;
 							public static VIDEO_STREAM_MASK: number;
 							public constructor();
@@ -3276,29 +3276,29 @@ declare module com {
 					export module ts {
 						export class TsExtractor extends java.lang.Object implements com.google.android.exoplayer2.extractor.Extractor {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.TsExtractor>;
-							public static DEFAULT_TIMESTAMP_SEARCH_BYTES: number;
 							public static FACTORY: com.google.android.exoplayer2.extractor.ExtractorsFactory;
-							public static MODE_HLS: number;
 							public static MODE_MULTI_PMT: number;
 							public static MODE_SINGLE_PMT: number;
+							public static MODE_HLS: number;
 							public static TS_PACKET_SIZE: number;
+							public static DEFAULT_TIMESTAMP_SEARCH_BYTES: number;
+							public static TS_STREAM_TYPE_MPA: number;
+							public static TS_STREAM_TYPE_MPA_LSF: number;
 							public static TS_STREAM_TYPE_AAC_ADTS: number;
 							public static TS_STREAM_TYPE_AAC_LATM: number;
 							public static TS_STREAM_TYPE_AC3: number;
-							public static TS_STREAM_TYPE_AC4: number;
-							public static TS_STREAM_TYPE_AIT: number;
 							public static TS_STREAM_TYPE_DTS: number;
-							public static TS_STREAM_TYPE_DVBSUBS: number;
+							public static TS_STREAM_TYPE_HDMV_DTS: number;
 							public static TS_STREAM_TYPE_E_AC3: number;
+							public static TS_STREAM_TYPE_AC4: number;
 							public static TS_STREAM_TYPE_H262: number;
 							public static TS_STREAM_TYPE_H263: number;
 							public static TS_STREAM_TYPE_H264: number;
 							public static TS_STREAM_TYPE_H265: number;
-							public static TS_STREAM_TYPE_HDMV_DTS: number;
 							public static TS_STREAM_TYPE_ID3: number;
-							public static TS_STREAM_TYPE_MPA: number;
-							public static TS_STREAM_TYPE_MPA_LSF: number;
 							public static TS_STREAM_TYPE_SPLICE_INFO: number;
+							public static TS_STREAM_TYPE_DVBSUBS: number;
+							public static TS_STREAM_TYPE_AIT: number;
 							public static TS_SYNC_BYTE: number;
 							public constructor();
 							public sniff(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
@@ -3315,7 +3315,7 @@ declare module com {
 							export class Mode extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.TsExtractor.Mode>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.TsExtractor$Mode interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.TsExtractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -3376,23 +3376,23 @@ declare module com {
 						export module TsPayloadReader {
 							export class DvbSubtitleInfo extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.DvbSubtitleInfo>;
-								public initializationData: native.Array<number>;
 								public language: string;
 								public type: number;
+								public initializationData: native.Array<number>;
 								public constructor(language: string, type: number, initializationData: native.Array<number>);
 							}
 							export class EsInfo extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.EsInfo>;
-								public descriptorBytes: native.Array<number>;
-								public dvbSubtitleInfos: java.util.List<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.DvbSubtitleInfo>;
-								public language: string;
 								public streamType: number;
+								public language: string;
+								public dvbSubtitleInfos: java.util.List<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.DvbSubtitleInfo>;
+								public descriptorBytes: native.Array<number>;
 								public constructor(streamType: number, language: string, dvbSubtitleInfos: java.util.List<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.DvbSubtitleInfo>, descriptorBytes: native.Array<number>);
 							}
 							export class Factory extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.Factory>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.TsPayloadReader$Factory interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.TsPayloadReader() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									createInitialPayloadReaders(): globalAndroid.util.SparseArray<com.google.android.exoplayer2.extractor.ts.TsPayloadReader>;
@@ -3405,7 +3405,7 @@ declare module com {
 							export class Flags extends java.lang.Object implements java.lang.annotation.Annotation {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ts.TsPayloadReader.Flags>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.TsPayloadReader$Flags interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.ts.TsPayloadReader() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									equals(object0: any): boolean;
@@ -3500,7 +3500,7 @@ declare module com {
 							export class OutputWriter extends java.lang.Object {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.wav.WavExtractor.OutputWriter>;
 								/**
-								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.wav.WavExtractor$OutputWriter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the com.google.android.exoplayer2.extractor.wav.WavExtractor() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									reset(long0: number): void;
@@ -3535,13 +3535,13 @@ declare module com {
 					export module wav {
 						export class WavHeader extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.wav.WavHeader>;
-							public averageBytesPerSecond: number;
-							public bitsPerSample: number;
-							public blockSize: number;
-							public extraData: native.Array<number>;
 							public formatType: number;
-							public frameRateHz: number;
 							public numChannels: number;
+							public frameRateHz: number;
+							public averageBytesPerSecond: number;
+							public blockSize: number;
+							public bitsPerSample: number;
+							public extraData: native.Array<number>;
 							public constructor(formatType: number, numChannels: number, frameRateHz: number, averageBytesPerSecond: number, blockSize: number, bitsPerSample: number, extraData: native.Array<number>);
 						}
 					}

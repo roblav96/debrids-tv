@@ -15,16 +15,16 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.media2.widget.CaptionStyle>;
 				public static COLOR_UNSPECIFIED: number;
 				public static DEFAULT: androidx.media2.widget.CaptionStyle;
-				public static EDGE_TYPE_DEPRESSED: number;
-				public static EDGE_TYPE_DROP_SHADOW: number;
+				public static EDGE_TYPE_UNSPECIFIED: number;
 				public static EDGE_TYPE_NONE: number;
 				public static EDGE_TYPE_OUTLINE: number;
+				public static EDGE_TYPE_DROP_SHADOW: number;
 				public static EDGE_TYPE_RAISED: number;
-				public static EDGE_TYPE_UNSPECIFIED: number;
-				public backgroundColor: number;
-				public edgeColor: number;
-				public edgeType: number;
+				public static EDGE_TYPE_DEPRESSED: number;
 				public foregroundColor: number;
+				public backgroundColor: number;
+				public edgeType: number;
+				public edgeColor: number;
 				public windowColor: number;
 				public getTypeface(): globalAndroid.graphics.Typeface;
 			}
@@ -37,8 +37,8 @@ declare module androidx {
 		export module widget {
 			export class Cea608CCParser extends java.lang.Object {
 				public static class: java.lang.Class<androidx.media2.widget.Cea608CCParser>;
-				public static MAX_COLS: number;
 				public static MAX_ROWS: number;
+				public static MAX_COLS: number;
 				public parse(data: native.Array<number>): void;
 			}
 			export module Cea608CCParser {
@@ -55,7 +55,7 @@ declare module androidx {
 				export class DisplayListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea608CCParser.DisplayListener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.Cea608CCParser$DisplayListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.Cea608CCParser() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onDisplayChanged(spannableStringBuilders0: native.Array<globalAndroid.text.SpannableStringBuilder>): void;
@@ -308,114 +308,144 @@ declare module androidx {
 			export class Cea708CCParser extends java.lang.Object {
 				public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser>;
 				public static CAPTION_EMIT_TYPE_BUFFER: number;
-				public static CAPTION_EMIT_TYPE_COMMAND_CLW: number;
+				public static CAPTION_EMIT_TYPE_CONTROL: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_CWX: number;
-				public static CAPTION_EMIT_TYPE_COMMAND_DFX: number;
-				public static CAPTION_EMIT_TYPE_COMMAND_DLC: number;
-				public static CAPTION_EMIT_TYPE_COMMAND_DLW: number;
-				public static CAPTION_EMIT_TYPE_COMMAND_DLY: number;
+				public static CAPTION_EMIT_TYPE_COMMAND_CLW: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_DSW: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_HDW: number;
+				public static CAPTION_EMIT_TYPE_COMMAND_TGW: number;
+				public static CAPTION_EMIT_TYPE_COMMAND_DLW: number;
+				public static CAPTION_EMIT_TYPE_COMMAND_DLY: number;
+				public static CAPTION_EMIT_TYPE_COMMAND_DLC: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_RST: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_SPA: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_SPC: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_SPL: number;
 				public static CAPTION_EMIT_TYPE_COMMAND_SWA: number;
-				public static CAPTION_EMIT_TYPE_COMMAND_TGW: number;
-				public static CAPTION_EMIT_TYPE_CONTROL: number;
+				public static CAPTION_EMIT_TYPE_COMMAND_DFX: number;
 				public parse(data: native.Array<number>): void;
 			}
 			export module Cea708CCParser {
 				export class CaptionColor extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionColor>;
-					public static OPACITY_FLASH: number;
 					public static OPACITY_SOLID: number;
+					public static OPACITY_FLASH: number;
 					public static OPACITY_TRANSLUCENT: number;
 					public static OPACITY_TRANSPARENT: number;
-					public blue: number;
-					public green: number;
 					public opacity: number;
 					public red: number;
+					public green: number;
+					public blue: number;
 					public getArgbValue(): number;
 				}
 				export class CaptionEvent extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionEvent>;
-					public obj: any;
 					public type: number;
+					public obj: any;
 				}
 				export class CaptionPenAttr extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionPenAttr>;
-					public static OFFSET_NORMAL: number;
-					public static OFFSET_SUBSCRIPT: number;
-					public static OFFSET_SUPERSCRIPT: number;
-					public static PEN_SIZE_LARGE: number;
 					public static PEN_SIZE_SMALL: number;
 					public static PEN_SIZE_STANDARD: number;
-					public edgeType: number;
-					public fontTag: number;
-					public italic: boolean;
-					public penOffset: number;
+					public static PEN_SIZE_LARGE: number;
+					public static OFFSET_SUBSCRIPT: number;
+					public static OFFSET_NORMAL: number;
+					public static OFFSET_SUPERSCRIPT: number;
 					public penSize: number;
+					public penOffset: number;
 					public textTag: number;
+					public fontTag: number;
+					public edgeType: number;
 					public underline: boolean;
+					public italic: boolean;
 				}
 				export class CaptionPenColor extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionPenColor>;
+					public foregroundColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
 					public backgroundColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
 					public edgeColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
-					public foregroundColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
 				}
 				export class CaptionPenLocation extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionPenLocation>;
-					public column: number;
 					public row: number;
+					public column: number;
 				}
 				export class CaptionWindow extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionWindow>;
-					public anchorHorizontal: number;
-					public anchorId: number;
-					public anchorVertical: number;
-					public columnCount: number;
-					public columnLock: boolean;
 					public id: number;
-					public penStyle: number;
+					public visible: boolean;
+					public rowLock: boolean;
+					public columnLock: boolean;
 					public priority: number;
 					public relativePositioning: boolean;
+					public anchorVertical: number;
+					public anchorHorizontal: number;
+					public anchorId: number;
 					public rowCount: number;
-					public rowLock: boolean;
-					public visible: boolean;
+					public columnCount: number;
+					public penStyle: number;
 					public windowStyle: number;
 				}
 				export class CaptionWindowAttr extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.CaptionWindowAttr>;
+					public fillColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
 					public borderColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
 					public borderType: number;
-					public displayEffect: number;
-					public effectDirection: number;
-					public effectSpeed: number;
-					public fillColor: androidx.media2.widget.Cea708CCParser.CaptionColor;
-					public justify: number;
+					public wordWrap: boolean;
 					public printDirection: number;
 					public scrollDirection: number;
-					public wordWrap: boolean;
+					public justify: number;
+					public effectDirection: number;
+					public effectSpeed: number;
+					public displayEffect: number;
 				}
 				export class Const extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.Const>;
-					public static CODE_C0_BS: number;
-					public static CODE_C0_CR: number;
-					public static CODE_C0_ETX: number;
-					public static CODE_C0_EXT1: number;
-					public static CODE_C0_FF: number;
-					public static CODE_C0_HCR: number;
-					public static CODE_C0_NUL: number;
-					public static CODE_C0_P16: number;
-					public static CODE_C0_RANGE_END: number;
 					public static CODE_C0_RANGE_START: number;
-					public static CODE_C0_SKIP1_RANGE_END: number;
-					public static CODE_C0_SKIP1_RANGE_START: number;
-					public static CODE_C0_SKIP2_RANGE_END: number;
+					public static CODE_C0_RANGE_END: number;
+					public static CODE_C1_RANGE_START: number;
+					public static CODE_C1_RANGE_END: number;
+					public static CODE_G0_RANGE_START: number;
+					public static CODE_G0_RANGE_END: number;
+					public static CODE_G1_RANGE_START: number;
+					public static CODE_G1_RANGE_END: number;
+					public static CODE_C2_RANGE_START: number;
+					public static CODE_C2_RANGE_END: number;
+					public static CODE_C3_RANGE_START: number;
+					public static CODE_C3_RANGE_END: number;
+					public static CODE_G2_RANGE_START: number;
+					public static CODE_G2_RANGE_END: number;
+					public static CODE_G3_RANGE_START: number;
+					public static CODE_G3_RANGE_END: number;
 					public static CODE_C0_SKIP2_RANGE_START: number;
-					public static CODE_C1_CLW: number;
+					public static CODE_C0_SKIP2_RANGE_END: number;
+					public static CODE_C0_SKIP1_RANGE_START: number;
+					public static CODE_C0_SKIP1_RANGE_END: number;
+					public static CODE_C2_SKIP0_RANGE_START: number;
+					public static CODE_C2_SKIP0_RANGE_END: number;
+					public static CODE_C2_SKIP1_RANGE_START: number;
+					public static CODE_C2_SKIP1_RANGE_END: number;
+					public static CODE_C2_SKIP2_RANGE_START: number;
+					public static CODE_C2_SKIP2_RANGE_END: number;
+					public static CODE_C2_SKIP3_RANGE_START: number;
+					public static CODE_C2_SKIP3_RANGE_END: number;
+					public static CODE_C3_SKIP4_RANGE_START: number;
+					public static CODE_C3_SKIP4_RANGE_END: number;
+					public static CODE_C3_SKIP5_RANGE_START: number;
+					public static CODE_C3_SKIP5_RANGE_END: number;
+					public static CODE_C0_NUL: number;
+					public static CODE_C0_ETX: number;
+					public static CODE_C0_BS: number;
+					public static CODE_C0_FF: number;
+					public static CODE_C0_CR: number;
+					public static CODE_C0_HCR: number;
+					public static CODE_C0_EXT1: number;
+					public static CODE_C0_P16: number;
+					public static CODE_G0_MUSICNOTE: number;
+					public static CODE_G2_TSP: number;
+					public static CODE_G2_NBTSP: number;
+					public static CODE_G2_BLK: number;
+					public static CODE_G3_CC: number;
 					public static CODE_C1_CW0: number;
 					public static CODE_C1_CW1: number;
 					public static CODE_C1_CW2: number;
@@ -424,6 +454,18 @@ declare module androidx {
 					public static CODE_C1_CW5: number;
 					public static CODE_C1_CW6: number;
 					public static CODE_C1_CW7: number;
+					public static CODE_C1_CLW: number;
+					public static CODE_C1_DSW: number;
+					public static CODE_C1_HDW: number;
+					public static CODE_C1_TGW: number;
+					public static CODE_C1_DLW: number;
+					public static CODE_C1_DLY: number;
+					public static CODE_C1_DLC: number;
+					public static CODE_C1_RST: number;
+					public static CODE_C1_SPA: number;
+					public static CODE_C1_SPC: number;
+					public static CODE_C1_SPL: number;
+					public static CODE_C1_SWA: number;
 					public static CODE_C1_DF0: number;
 					public static CODE_C1_DF1: number;
 					public static CODE_C1_DF2: number;
@@ -432,53 +474,11 @@ declare module androidx {
 					public static CODE_C1_DF5: number;
 					public static CODE_C1_DF6: number;
 					public static CODE_C1_DF7: number;
-					public static CODE_C1_DLC: number;
-					public static CODE_C1_DLW: number;
-					public static CODE_C1_DLY: number;
-					public static CODE_C1_DSW: number;
-					public static CODE_C1_HDW: number;
-					public static CODE_C1_RANGE_END: number;
-					public static CODE_C1_RANGE_START: number;
-					public static CODE_C1_RST: number;
-					public static CODE_C1_SPA: number;
-					public static CODE_C1_SPC: number;
-					public static CODE_C1_SPL: number;
-					public static CODE_C1_SWA: number;
-					public static CODE_C1_TGW: number;
-					public static CODE_C2_RANGE_END: number;
-					public static CODE_C2_RANGE_START: number;
-					public static CODE_C2_SKIP0_RANGE_END: number;
-					public static CODE_C2_SKIP0_RANGE_START: number;
-					public static CODE_C2_SKIP1_RANGE_END: number;
-					public static CODE_C2_SKIP1_RANGE_START: number;
-					public static CODE_C2_SKIP2_RANGE_END: number;
-					public static CODE_C2_SKIP2_RANGE_START: number;
-					public static CODE_C2_SKIP3_RANGE_END: number;
-					public static CODE_C2_SKIP3_RANGE_START: number;
-					public static CODE_C3_RANGE_END: number;
-					public static CODE_C3_RANGE_START: number;
-					public static CODE_C3_SKIP4_RANGE_END: number;
-					public static CODE_C3_SKIP4_RANGE_START: number;
-					public static CODE_C3_SKIP5_RANGE_END: number;
-					public static CODE_C3_SKIP5_RANGE_START: number;
-					public static CODE_G0_MUSICNOTE: number;
-					public static CODE_G0_RANGE_END: number;
-					public static CODE_G0_RANGE_START: number;
-					public static CODE_G1_RANGE_END: number;
-					public static CODE_G1_RANGE_START: number;
-					public static CODE_G2_BLK: number;
-					public static CODE_G2_NBTSP: number;
-					public static CODE_G2_RANGE_END: number;
-					public static CODE_G2_RANGE_START: number;
-					public static CODE_G2_TSP: number;
-					public static CODE_G3_CC: number;
-					public static CODE_G3_RANGE_END: number;
-					public static CODE_G3_RANGE_START: number;
 				}
 				export class DisplayListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.Cea708CCParser.DisplayListener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.Cea708CCParser$DisplayListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.Cea708CCParser() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						emitEvent(captionEvent0: androidx.media2.widget.Cea708CCParser.CaptionEvent): void;
@@ -847,10 +847,10 @@ declare module androidx {
 						export class ScaledLayoutParams extends globalAndroid.view.ViewGroup.LayoutParams {
 							public static class: java.lang.Class<androidx.media2.widget.Cea708CaptionRenderer.Cea708CCWidget.ScaledLayout.ScaledLayoutParams>;
 							public static SCALE_UNSPECIFIED: number;
-							public scaleEndCol: number;
+							public scaleStartRow: number;
 							public scaleEndRow: number;
 							public scaleStartCol: number;
-							public scaleStartRow: number;
+							public scaleEndCol: number;
 						}
 					}
 				}
@@ -877,8 +877,8 @@ declare module androidx {
 			export abstract class ClosedCaptionWidget extends globalAndroid.view.ViewGroup implements androidx.media2.widget.SubtitleTrack.RenderingWidget {
 				public static class: java.lang.Class<androidx.media2.widget.ClosedCaptionWidget>;
 				public mCaptionStyle: androidx.media2.widget.CaptionStyle;
-				public mClosedCaptionLayout: androidx.media2.widget.ClosedCaptionWidget.ClosedCaptionLayout;
 				public mListener: androidx.media2.widget.SubtitleTrack.RenderingWidget.OnChangedListener;
+				public mClosedCaptionLayout: androidx.media2.widget.ClosedCaptionWidget.ClosedCaptionLayout;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
 				public focusSearch(direction: number): globalAndroid.view.View;
@@ -961,7 +961,7 @@ declare module androidx {
 				export class ClosedCaptionLayout extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.ClosedCaptionWidget.ClosedCaptionLayout>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.ClosedCaptionWidget$ClosedCaptionLayout interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.ClosedCaptionWidget() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						setCaptionStyle(captionStyle0: androidx.media2.widget.CaptionStyle): void;
@@ -1055,8 +1055,8 @@ declare module androidx {
 				public getChildVisibleRect(child: globalAndroid.view.View, r: globalAndroid.graphics.Rect, offset: globalAndroid.graphics.Point): boolean;
 				public requestChildFocus(child: globalAndroid.view.View, focused: globalAndroid.view.View): void;
 				public createContextMenu(menu: globalAndroid.view.ContextMenu): void;
-				public onTouchEvent(ev: globalAndroid.view.MotionEvent): boolean;
 				public requestPlayButtonFocus(): void;
+				public onTouchEvent(ev: globalAndroid.view.MotionEvent): boolean;
 				public canResolveLayoutDirection(): boolean;
 				public onTrackballEvent(ev: globalAndroid.view.MotionEvent): boolean;
 				public addView(child: globalAndroid.view.View, index: number, params: globalAndroid.view.ViewGroup.LayoutParams): void;
@@ -1071,7 +1071,7 @@ declare module androidx {
 				export class OnFullScreenListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.MediaControlView.OnFullScreenListener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.MediaControlView$OnFullScreenListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.MediaControlView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onFullScreen(view0: globalAndroid.view.View, boolean1: boolean): void;
@@ -1082,9 +1082,9 @@ declare module androidx {
 				export class PlayerCallback extends androidx.media2.widget.PlayerWrapper.PlayerCallback {
 					public static class: java.lang.Class<androidx.media2.widget.MediaControlView.PlayerCallback>;
 					public onPlayerStateChanged(player: androidx.media2.widget.PlayerWrapper, state: number): void;
-					public onAllowedCommandsChanged(player: androidx.media2.widget.PlayerWrapper, commands: androidx.media2.session.SessionCommandGroup): void;
-					public onPlaybackCompleted(player: androidx.media2.widget.PlayerWrapper): void;
 					public onSeekCompleted(player: androidx.media2.widget.PlayerWrapper, position: number): void;
+					public onPlaybackCompleted(player: androidx.media2.widget.PlayerWrapper): void;
+					public onAllowedCommandsChanged(player: androidx.media2.widget.PlayerWrapper, commands: androidx.media2.session.SessionCommandGroup): void;
 					public onPlaybackSpeedChanged(player: androidx.media2.widget.PlayerWrapper, speed: number): void;
 					public onCurrentMediaItemChanged(player: androidx.media2.widget.PlayerWrapper, mediaItem: androidx.media2.common.MediaItem): void;
 				}
@@ -1102,8 +1102,8 @@ declare module androidx {
 				export class SubSettingsAdapter extends globalAndroid.widget.BaseAdapter {
 					public static class: java.lang.Class<androidx.media2.widget.MediaControlView.SubSettingsAdapter>;
 					public setTexts(texts: java.util.List<string>): void;
-					public getItem(position: number): any;
 					public getMainText(position: number): string;
+					public getItem(position: number): any;
 					public getCount(): number;
 					public areAllItemsEnabled(): boolean;
 					public isEnabled(position: number): boolean;
@@ -1142,7 +1142,7 @@ declare module androidx {
 				export class OnMediaTimeListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.MediaTimeProvider.OnMediaTimeListener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.MediaTimeProvider$OnMediaTimeListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.MediaTimeProvider() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onTimedEvent(long0: number): void;
@@ -1319,9 +1319,9 @@ declare module androidx {
 			export module MusicView {
 				export class MusicViewType {
 					public static class: java.lang.Class<androidx.media2.widget.MusicView.MusicViewType>;
-					public static WITHOUT_TITLE: androidx.media2.widget.MusicView.MusicViewType;
 					public static WITH_TITLE_LANDSCAPE: androidx.media2.widget.MusicView.MusicViewType;
 					public static WITH_TITLE_PORTRAIT: androidx.media2.widget.MusicView.MusicViewType;
+					public static WITHOUT_TITLE: androidx.media2.widget.MusicView.MusicViewType;
 					public static values(): native.Array<androidx.media2.widget.MusicView.MusicViewType>;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static valueOf(name: string): androidx.media2.widget.MusicView.MusicViewType;
@@ -1370,8 +1370,8 @@ declare module androidx {
 					public onPlaybackCompleted(player: androidx.media2.common.SessionPlayer): void;
 					public onSubtitleData(player: androidx.media2.common.SessionPlayer, item: androidx.media2.common.MediaItem, track: androidx.media2.common.SessionPlayer.TrackInfo, data: androidx.media2.common.SubtitleData): void;
 					public onTrackDeselected(player: androidx.media2.common.SessionPlayer, trackInfo: androidx.media2.common.SessionPlayer.TrackInfo): void;
-					public onTracksChanged(player: androidx.media2.common.SessionPlayer, tracks: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
 					public onVideoSizeChanged(player: androidx.media2.common.SessionPlayer, size: androidx.media2.common.VideoSize): void;
+					public onTracksChanged(player: androidx.media2.common.SessionPlayer, tracks: java.util.List<androidx.media2.common.SessionPlayer.TrackInfo>): void;
 				}
 			}
 		}
@@ -1489,8 +1489,8 @@ declare module androidx {
 				public sendAccessibilityEventUnchecked(event: globalAndroid.view.accessibility.AccessibilityEvent): void;
 				public getSubtitleLooper(): globalAndroid.os.Looper;
 				public onAttachedToWindow(): void;
-				public getAccessibilityClassName(): string;
 				public onDraw(canvas: globalAndroid.graphics.Canvas): void;
+				public getAccessibilityClassName(): string;
 				public setSubtitleWidget(subtitleWidget: androidx.media2.widget.SubtitleTrack.RenderingWidget): void;
 			}
 		}
@@ -1505,13 +1505,13 @@ declare module androidx {
 				public getSelectedTrack(): androidx.media2.widget.SubtitleTrack;
 				public finalize(): void;
 				public setAnchor(anchor: androidx.media2.widget.SubtitleController.Anchor): void;
-				public hasRendererFor(format: globalAndroid.media.MediaFormat): boolean;
 				public selectTrack(track: androidx.media2.widget.SubtitleTrack): boolean;
+				public hasRendererFor(format: globalAndroid.media.MediaFormat): boolean;
 				public registerRenderer(renderer: androidx.media2.widget.SubtitleController.Renderer): void;
 				public show(): void;
 				public addTrack(format: globalAndroid.media.MediaFormat): androidx.media2.widget.SubtitleTrack;
-				public hide(): void;
 				public reset(): void;
+				public hide(): void;
 				public getDefaultTrack(): androidx.media2.widget.SubtitleTrack;
 				public getTracks(): native.Array<androidx.media2.widget.SubtitleTrack>;
 				public selectDefaultTrack(): void;
@@ -1520,7 +1520,7 @@ declare module androidx {
 				export class Anchor extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.SubtitleController.Anchor>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.SubtitleController$Anchor interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.SubtitleController() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						setSubtitleWidget(renderingWidget0: androidx.media2.widget.SubtitleTrack.RenderingWidget): void;
@@ -1533,7 +1533,7 @@ declare module androidx {
 				export class Listener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.SubtitleController.Listener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.SubtitleController$Listener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.SubtitleController() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onSubtitleTrackSelected(subtitleTrack0: androidx.media2.widget.SubtitleTrack): void;
@@ -1560,15 +1560,15 @@ declare module androidx {
 		export module widget {
 			export abstract class SubtitleTrack extends java.lang.Object implements androidx.media2.widget.MediaTimeProvider.OnMediaTimeListener {
 				public static class: java.lang.Class<androidx.media2.widget.SubtitleTrack>;
+				public mVisible: boolean;
 				public DEBUG: boolean;
 				public mHandler: globalAndroid.os.Handler;
 				public mTimeProvider: androidx.media2.widget.MediaTimeProvider;
-				public mVisible: boolean;
 				public updateView(arrayList0: java.util.ArrayList<androidx.media2.widget.SubtitleTrack.Cue>): void;
 				public getRenderingWidget(): androidx.media2.widget.SubtitleTrack.RenderingWidget;
 				public finalize(): void;
-				public addCue(cue: androidx.media2.widget.SubtitleTrack.Cue): boolean;
 				public onSeek(timeUs: number): void;
+				public addCue(cue: androidx.media2.widget.SubtitleTrack.Cue): boolean;
 				public onData(bytes0: native.Array<number>, boolean1: boolean, long2: number): void;
 				public setTimeProvider(timeProvider: androidx.media2.widget.MediaTimeProvider): void;
 				public getFormat(): globalAndroid.media.MediaFormat;
@@ -1576,8 +1576,8 @@ declare module androidx {
 				public show(): void;
 				public scheduleTimedEvents(): void;
 				public hide(): void;
-				public getTrackType(): number;
 				public onData(data: androidx.media2.common.SubtitleData): void;
+				public getTrackType(): number;
 				public updateActiveCues(rebuild: boolean, timeMs: number): void;
 				public onTimedEvent(timeUs: number): void;
 				public onStop(): void;
@@ -1587,11 +1587,11 @@ declare module androidx {
 			export module SubtitleTrack {
 				export class Cue extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.SubtitleTrack.Cue>;
+					public mStartTimeMs: number;
 					public mEndTimeMs: number;
 					public mInnerTimesMs: native.Array<number>;
-					public mNextInRun: androidx.media2.widget.SubtitleTrack.Cue;
 					public mRunID: number;
-					public mStartTimeMs: number;
+					public mNextInRun: androidx.media2.widget.SubtitleTrack.Cue;
 					public constructor();
 					public onTime(timeMs: number): void;
 				}
@@ -1614,7 +1614,7 @@ declare module androidx {
 				export class RenderingWidget extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.SubtitleTrack.RenderingWidget>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.SubtitleTrack$RenderingWidget interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.SubtitleTrack() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						setOnChangedListener(onChangedListener0: androidx.media2.widget.SubtitleTrack.RenderingWidget.OnChangedListener): void;
@@ -1636,7 +1636,7 @@ declare module androidx {
 					export class OnChangedListener extends java.lang.Object {
 						public static class: java.lang.Class<androidx.media2.widget.SubtitleTrack.RenderingWidget.OnChangedListener>;
 						/**
-						 * Constructs a new instance of the androidx.media2.widget.SubtitleTrack$RenderingWidget$OnChangedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.media2.widget.SubtitleTrack() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							onChanged(renderingWidget0: androidx.media2.widget.SubtitleTrack.RenderingWidget): void;
@@ -1647,10 +1647,10 @@ declare module androidx {
 				}
 				export class Run extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.SubtitleTrack.Run>;
-					public mEndTimeMs: number;
 					public mFirstCue: androidx.media2.widget.SubtitleTrack.Cue;
 					public mNextRunAtEndTimeMs: androidx.media2.widget.SubtitleTrack.Run;
 					public mPrevRunAtEndTimeMs: androidx.media2.widget.SubtitleTrack.Run;
+					public mEndTimeMs: number;
 					public mRunID: number;
 					public removeAtEndTimeMs(): void;
 					public storeByEndTimeMs(runsByEndTime: globalAndroid.util.LongSparseArray<androidx.media2.widget.SubtitleTrack.Run>): void;
@@ -1745,8 +1745,8 @@ declare module androidx {
 				public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
 				public onKeyLongPress(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 				public invalidateDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
-				public onSurfaceTextureUpdated(surface: globalAndroid.graphics.SurfaceTexture): void;
 				public setSurfaceListener(l: androidx.media2.widget.VideoViewInterface.SurfaceListener): void;
+				public onSurfaceTextureUpdated(surface: globalAndroid.graphics.SurfaceTexture): void;
 				public hasAvailableSurface(): boolean;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 				public sendAccessibilityEvent(eventType: number): void;
@@ -1854,7 +1854,7 @@ declare module androidx {
 				export class OnViewTypeChangedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.VideoView.OnViewTypeChangedListener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.VideoView$OnViewTypeChangedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.VideoView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onViewTypeChanged(view0: globalAndroid.view.View, int1: number): void;
@@ -1894,7 +1894,7 @@ declare module androidx {
 				export class SurfaceListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.media2.widget.VideoViewInterface.SurfaceListener>;
 					/**
-					 * Constructs a new instance of the androidx.media2.widget.VideoViewInterface$SurfaceListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.media2.widget.VideoViewInterface() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onSurfaceCreated(view0: globalAndroid.view.View, int1: number, int2: number): void;

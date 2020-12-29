@@ -40,9 +40,9 @@ declare module kohii {
 	export module v1 {
 		export class BuildConfig extends java.lang.Object {
 			public static class: java.lang.Class<kohii.v1.BuildConfig>;
-			public static BUILD_TYPE: string;
 			public static DEBUG: boolean;
 			public static LIBRARY_PACKAGE_NAME: string;
+			public static BUILD_TYPE: string;
 			public static LIB_NAME: string;
 			public constructor();
 		}
@@ -106,10 +106,10 @@ declare module kohii {
 			public static partitionToMutableSets(thispartitionToMutableSets: java.lang.Iterable<any>, predicate: kotlin.jvm.functions.Function1<any,any>, transform: kotlin.jvm.functions.Function1<any,any>): kotlin.Pair<any,any>;
 			public static distanceTo(thisdistanceTo: globalAndroid.graphics.Rect, target: kotlin.Pair<java.lang.Float,java.lang.Float>): number;
 			public static logError(thislogError: string, tag: string): void;
-			public static logWarn(thislogWarn: string, tag: string): void;
 			public static onEachAcquired(thisonEachAcquired: androidx.core.util.Pools.Pool<any>, action: kotlin.jvm.functions.Function1<any,any>): void;
-			public static debugOnly(action: kotlin.jvm.functions.Function0<kotlin.Unit>): void;
+			public static logWarn(thislogWarn: string, tag: string): void;
 			public static viewBehavior(thisviewBehavior: globalAndroid.view.View): androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<any>;
+			public static debugOnly(action: kotlin.jvm.functions.Function0<kotlin.Unit>): void;
 		}
 	}
 }
@@ -148,33 +148,33 @@ declare module kohii {
 				public removeEventListener(listener: kohii.v1.core.PlayerEventListener): void;
 				public ready(): void;
 				public setVolumeInfo(volumeInfo0: kohii.v1.media.VolumeInfo): void;
-				public getRenderer(): any;
 				public setVideoSize(param0: kohii.v1.core.VideoSize): void;
+				public getRenderer(): any;
 				/** @deprecated */
 				public setVideoSize(param0: kohii.v1.core.VideoSize): void;
-				public getPlaybackInfo(): kohii.v1.media.PlaybackInfo;
 				public setPlayerParameters(param0: kohii.v1.core.PlayerParameters): void;
+				public getPlaybackInfo(): kohii.v1.media.PlaybackInfo;
 				/** @deprecated */
 				public getVideoSize(): kohii.v1.core.VideoSize;
 				public setPlaybackInfo(playbackInfo0: kohii.v1.media.PlaybackInfo): void;
 				public getErrorListeners(): kohii.v1.core.ErrorListeners;
 				public removeErrorListener(errorListener: kohii.v1.core.ErrorListener): void;
 				public addEventListener(listener: kohii.v1.core.PlayerEventListener): void;
+				public removeVolumeChangeListener(listener: kohii.v1.core.VolumeChangedListener): void;
 				public addErrorListener(errorListener: kohii.v1.core.ErrorListener): void;
 				public release(): void;
-				public removeVolumeChangeListener(listener: kohii.v1.core.VolumeChangedListener): void;
 				public reset(boolean0: boolean): void;
 				public prepare(boolean0: boolean): void;
-				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public play(): void;
-				public isPlaying(): boolean;
+				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public pause(): void;
+				public isPlaying(): boolean;
 				public getRepeatMode(): number;
 				public getEventListeners(): kohii.v1.core.PlayerEventListeners;
 				public getPlayerParameters(): kohii.v1.core.PlayerParameters;
 				public setRepeatMode(int0: number): void;
-				public getVideoSize(): kohii.v1.core.VideoSize;
 				public getVolumeListeners(): kohii.v1.core.VolumeChangedListeners;
+				public getVideoSize(): kohii.v1.core.VideoSize;
 				public setRenderer(object0: any): void;
 			}
 		}
@@ -188,48 +188,48 @@ declare module kohii {
 				public static class: java.lang.Class<kohii.v1.core.AbstractPlayable<any>>;
 				public onRelease(): void;
 				public teardownRenderer(playback: kohii.v1.core.Playback): void;
-				public getPlayerState$kohii_core_release(): number;
-				public onNetworkTypeChanged$kohii_core_release(from: number, to: number): void;
 				public onPause(): void;
-				public setManager$kohii_core_release(playableManager0: kohii.v1.core.PlayableManager): void;
+				public getPlayerState(): number;
+				public onNetworkTypeChanged(from: number, to: number): void;
+				public setManager(playableManager0: kohii.v1.core.PlayableManager): void;
 				public onUnbind(playback0: kohii.v1.core.Playback): void;
 				public onInActive(playback: kohii.v1.core.Playback): void;
+				public setPlayback(playback0: kohii.v1.core.Playback): void;
 				public getBridge(): kohii.v1.core.Bridge<any>;
-				public setPlayback$kohii_core_release(playback0: kohii.v1.core.Playback): void;
-				public setPlaybackInfo$kohii_core_release(playbackInfo0: kohii.v1.media.PlaybackInfo): void;
+				public setPlaybackInfo(playbackInfo0: kohii.v1.media.PlaybackInfo): void;
 				public onPrepare(boolean0: boolean): void;
-				public onPlaybackPriorityChanged$kohii_core_release(playback0: kohii.v1.core.Playback, int1: number, int2: number): void;
+				public onPlaybackPriorityChanged(playback0: kohii.v1.core.Playback, int1: number, int2: number): void;
 				public constructor(media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config);
-				public setPlayback$kohii_core_release(value: kohii.v1.core.Playback): void;
+				public setPlayback(value: kohii.v1.core.Playback): void;
 				public setupRenderer(playback: kohii.v1.core.Playback): void;
-				public onAttached(playback: kohii.v1.core.Playback): void;
 				public onRemoved(playback: kohii.v1.core.Playback): void;
+				public onAttached(playback: kohii.v1.core.Playback): void;
 				public getTag(): any;
 				public onPlay(): void;
 				public onUnbind(playback: kohii.v1.core.Playback): void;
-				public getPlaybackInfo$kohii_core_release(): kohii.v1.media.PlaybackInfo;
 				public onRendererAttached(playback: kohii.v1.core.Playback, renderer: any): void;
+				public getPlaybackInfo(): kohii.v1.media.PlaybackInfo;
 				public setupRenderer(playback0: kohii.v1.core.Playback): void;
-				public onVolumeInfoChanged$kohii_core_release(playback: kohii.v1.core.Playback, from: kohii.v1.media.VolumeInfo, to: kohii.v1.media.VolumeInfo): void;
-				public onVolumeInfoChanged$kohii_core_release(playback0: kohii.v1.core.Playback, volumeInfo1: kohii.v1.media.VolumeInfo, volumeInfo2: kohii.v1.media.VolumeInfo): void;
-				public isPlaying(): boolean;
+				public onVolumeInfoChanged(playback: kohii.v1.core.Playback, from: kohii.v1.media.VolumeInfo, to: kohii.v1.media.VolumeInfo): void;
+				public onVolumeInfoChanged(playback0: kohii.v1.core.Playback, volumeInfo1: kohii.v1.media.VolumeInfo, volumeInfo2: kohii.v1.media.VolumeInfo): void;
 				public onConfigChange(): boolean;
 				public onPrepare(loadSource: boolean): void;
+				public isPlaying(): boolean;
+				public setManager(value: kohii.v1.core.PlayableManager): void;
 				public onRendererDetached(playback: kohii.v1.core.Playback, renderer: any): void;
-				public setManager$kohii_core_release(value: kohii.v1.core.PlayableManager): void;
-				public onPlaybackPriorityChanged$kohii_core_release(playback: kohii.v1.core.Playback, oldPriority: number, newPriority: number): void;
-				public getMaster(): kohii.v1.core.Master;
+				public onPlaybackPriorityChanged(playback: kohii.v1.core.Playback, oldPriority: number, newPriority: number): void;
 				public onPlayerParametersChanged(parameters: kohii.v1.core.PlayerParameters): void;
-				public onNetworkTypeChanged$kohii_core_release(int0: number, int1: number): void;
+				public getMaster(): kohii.v1.core.Master;
+				public onNetworkTypeChanged(int0: number, int1: number): void;
 				public toString(): string;
-				public constructor(master: kohii.v1.core.Master, media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config, bridge: kohii.v1.core.Bridge<any>);
 				public onReset(): void;
-				public getPlayback$kohii_core_release(): kohii.v1.core.Playback;
-				public getManager$kohii_core_release(): kohii.v1.core.PlayableManager;
+				public constructor(master: kohii.v1.core.Master, media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config, bridge: kohii.v1.core.Bridge<any>);
+				public getPlayback(): kohii.v1.core.Playback;
+				public getManager(): kohii.v1.core.PlayableManager;
 				public onAdded(playback: kohii.v1.core.Playback): void;
-				public onDetached(playback: kohii.v1.core.Playback): void;
 				public onReady(): void;
-				public setPlaybackInfo$kohii_core_release(value: kohii.v1.media.PlaybackInfo): void;
+				public onDetached(playback: kohii.v1.core.Playback): void;
+				public setPlaybackInfo(value: kohii.v1.media.PlaybackInfo): void;
 				public teardownRenderer(playback0: kohii.v1.core.Playback): void;
 				public onActive(playback: kohii.v1.core.Playback): void;
 			}
@@ -250,14 +250,14 @@ declare module kohii {
 				public bind(container: globalAndroid.view.ViewGroup): kohii.v1.core.Rebinder;
 				public constructor(engine: kohii.v1.core.Engine<any>, media: kohii.v1.media.Media);
 				public bind(container: globalAndroid.view.ViewGroup, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>): kohii.v1.core.Rebinder;
-				public getMedia$kohii_core_release(): kohii.v1.media.Media;
+				public getMedia(): kohii.v1.media.Media;
 				public getOptions(): kohii.v1.core.Binder.Options;
 			}
 			export module Binder {
 				export class Options extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Binder.Options>;
-					public getArtworkHintListener(): kohii.v1.core.Playback.ArtworkHintListener;
 					public getPreload(): boolean;
+					public getArtworkHintListener(): kohii.v1.core.Playback.ArtworkHintListener;
 					public getTag(): any;
 					public getRepeatMode(): number;
 					public setArtworkHintListener(param0: kohii.v1.core.Playback.ArtworkHintListener): void;
@@ -268,13 +268,13 @@ declare module kohii {
 					public setInitialPlaybackInfo(param0: kohii.v1.media.PlaybackInfo): void;
 					public getInitialPlaybackInfo(): kohii.v1.media.PlaybackInfo;
 					public setThreshold(param0: number): void;
-					public constructor();
 					public getDelay(): number;
+					public constructor();
 					public setTokenUpdateListener(param0: kohii.v1.core.Playback.TokenUpdateListener): void;
 					public setNetworkTypeChangeListener(param0: kohii.v1.core.Playback.NetworkTypeChangeListener): void;
-					public getCallbacks(): java.util.Set<kohii.v1.core.Playback.Callback>;
-					public getTokenUpdateListener(): kohii.v1.core.Playback.TokenUpdateListener;
 					public setRepeatMode(param0: number): void;
+					public getTokenUpdateListener(): kohii.v1.core.Playback.TokenUpdateListener;
+					public getCallbacks(): java.util.Set<kohii.v1.core.Playback.Callback>;
 					public setPreload(param0: boolean): void;
 					public getController(): kohii.v1.core.Playback.Controller;
 					public setController(param0: kohii.v1.core.Playback.Controller): void;
@@ -386,43 +386,43 @@ declare module kohii {
 		export module core {
 			export abstract class Bucket extends java.lang.Object implements globalAndroid.view.View.OnLayoutChangeListener {
 				public static class: java.lang.Class<kohii.v1.core.Bucket>;
-				public static BOTH_AXIS: number;
-				public static Companion: kohii.v1.core.Bucket.Companion;
-				public static HORIZONTAL: number;
-				public static NONE_AXIS: number;
 				public static VERTICAL: number;
-				public effectiveVolumeInfo$kohii_core_release(origin: kohii.v1.media.VolumeInfo): kohii.v1.media.VolumeInfo;
+				public static HORIZONTAL: number;
+				public static BOTH_AXIS: number;
+				public static NONE_AXIS: number;
+				public static Companion: kohii.v1.core.Bucket.Companion;
 				public onLayoutChange(v: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
+				public effectiveVolumeInfo(origin: kohii.v1.media.VolumeInfo): kohii.v1.media.VolumeInfo;
 				public onRemoved(): void;
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public static get$kohii_core_release(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>): kohii.v1.core.Bucket;
-				public getStrategy$kohii_core_release(): kohii.v1.core.Strategy;
-				public getRoot(): globalAndroid.view.View;
+				public static get(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>): kohii.v1.core.Bucket;
+				public getStrategy(): kohii.v1.core.Strategy;
 				public onAdded(): void;
 				public selectByOrientation(candidates: java.util.Collection<any>, orientation: number): java.util.Collection<kohii.v1.core.Playback>;
-				public setLock$kohii_core_release(value: boolean): void;
+				public getRoot(): globalAndroid.view.View;
+				public setLock(value: boolean): void;
 				public selectToPlay(collection0: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
-				public equals(other: any): boolean;
 				public onAttached(): void;
+				public equals(other: any): boolean;
 				public hashCode(): number;
 				public allowToPlay(playback: kohii.v1.core.Playback): boolean;
 				public getManager(): kohii.v1.core.Manager;
 				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
-				public setStrategy$kohii_core_release(value: kohii.v1.core.Strategy): void;
+				public setStrategy(value: kohii.v1.core.Strategy): void;
 				public addContainer(container: globalAndroid.view.ViewGroup): void;
-				public getVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public removeContainer(container: globalAndroid.view.ViewGroup): void;
-				public setBucketVolumeInfo$kohii_core_release(value: kohii.v1.media.VolumeInfo): void;
-				public getBucketVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				public setBucketVolumeInfo(value: kohii.v1.media.VolumeInfo): void;
+				public getBucketVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public equals(obj: any): boolean;
-				public getLock$kohii_core_release(): boolean;
-				public getSelector$kohii_core_release(): kotlin.jvm.functions.Function1<java.util.Collection<any>,java.util.Collection<kohii.v1.core.Playback>>;
+				public getLock(): boolean;
+				public getSelector(): kotlin.jvm.functions.Function1<java.util.Collection<any>,java.util.Collection<kohii.v1.core.Playback>>;
 				public onDetached(): void;
 			}
 			export module Bucket {
 				export class Companion extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Bucket.Companion>;
-					public get$kohii_core_release(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>): kohii.v1.core.Bucket;
+					public get(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>): kohii.v1.core.Bucket;
 				}
 			}
 		}
@@ -434,18 +434,18 @@ declare module kohii {
 		export module core {
 			export class Common extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.core.Common>;
-				public static INSTANCE: kohii.v1.core.Common;
-				public static REPEAT_MODE_ALL: number;
-				public static REPEAT_MODE_GROUP: number;
 				public static REPEAT_MODE_OFF: number;
 				public static REPEAT_MODE_ONE: number;
-				public static STATE_BUFFERING: number;
-				public static STATE_ENDED: number;
+				public static REPEAT_MODE_ALL: number;
+				public static REPEAT_MODE_GROUP: number;
 				public static STATE_IDLE: number;
+				public static STATE_BUFFERING: number;
 				public static STATE_READY: number;
-				public getPAUSE-5eWuy7w$kohii_core_release(): boolean;
-				public getPLAY-5eWuy7w$kohii_core_release(): boolean;
+				public static STATE_ENDED: number;
+				public static INSTANCE: kohii.v1.core.Common;
+				public getPLAY(): boolean;
 				public getUserAgent(context: globalAndroid.content.Context, appName: string): string;
+				public getPAUSE(): boolean;
 			}
 		}
 	}
@@ -484,10 +484,10 @@ declare module kohii {
 		export module core {
 			export abstract class Engine<RENDERER>  extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.core.Engine<any>>;
-				public inject$kohii_core_release(group: kohii.v1.core.Group): void;
+				public inject(group: kohii.v1.core.Group): void;
 				public lockBucket(view: globalAndroid.view.View): void;
-				public unlockBucket(view: globalAndroid.view.View): void;
 				public unstick(lifecycleOwner: androidx.lifecycle.LifecycleOwner): void;
+				public unlockBucket(view: globalAndroid.view.View): void;
 				public lockPlayback(playback: kohii.v1.core.Playback): void;
 				/** @deprecated */
 				public fetchRebinder(tag: any): kohii.v1.core.Rebinder;
@@ -496,8 +496,8 @@ declare module kohii {
 				public register(fragment: androidx.fragment.app.Fragment, memoryMode: kohii.v1.core.MemoryMode, activeLifecycleState: androidx.lifecycle.Lifecycle.State): kohii.v1.core.Manager;
 				public stick(lifecycleOwner: androidx.lifecycle.LifecycleOwner): void;
 				public cancel(tag: any): void;
-				public register(fragment: androidx.fragment.app.Fragment): kohii.v1.core.Manager;
 				public setUp(uri: globalAndroid.net.Uri): kohii.v1.core.Binder;
+				public register(fragment: androidx.fragment.app.Fragment): kohii.v1.core.Manager;
 				public prepare(manager0: kohii.v1.core.Manager): void;
 				public register(activity: androidx.fragment.app.FragmentActivity, memoryMode: kohii.v1.core.MemoryMode): kohii.v1.core.Manager;
 				public cleanUp(): void;
@@ -505,8 +505,8 @@ declare module kohii {
 				public constructor(context: globalAndroid.content.Context, playableCreator: kohii.v1.core.PlayableCreator<RENDERER>);
 				public lockActivity(activity: androidx.fragment.app.FragmentActivity): void;
 				public lockManager(manager: kohii.v1.core.Manager): void;
-				public register(activity: androidx.fragment.app.FragmentActivity, memoryMode: kohii.v1.core.MemoryMode, activeLifecycleState: androidx.lifecycle.Lifecycle.State): kohii.v1.core.Manager;
 				public setUp(media: kohii.v1.media.Media, options: kotlin.jvm.functions.Function1<any,kotlin.Unit>): kohii.v1.core.Binder;
+				public register(activity: androidx.fragment.app.FragmentActivity, memoryMode: kohii.v1.core.MemoryMode, activeLifecycleState: androidx.lifecycle.Lifecycle.State): kohii.v1.core.Manager;
 				public cancel(container: globalAndroid.view.ViewGroup): void;
 				public getMaster(): kohii.v1.core.Master;
 				public getPlayableCreator(): kohii.v1.core.PlayableCreator<RENDERER>;
@@ -583,38 +583,38 @@ declare module kohii {
 		export module core {
 			export class Group extends java.lang.Object implements androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.LifecycleEventObserver, globalAndroid.os.Handler.Callback {
 				public static class: java.lang.Class<kohii.v1.core.Group>;
-				public static Companion: kohii.v1.core.Group.Companion;
 				public static DELAY: number;
 				public static MSG_REFRESH: number;
-				public setGroupVolumeInfo$kohii_core_release(value: kohii.v1.media.VolumeInfo): void;
-				public onManagerDestroyed$kohii_core_release(manager: kohii.v1.core.Manager): void;
+				public static Companion: kohii.v1.core.Group.Companion;
+				public setGroupVolumeInfo(value: kohii.v1.media.VolumeInfo): void;
+				public onManagerDestroyed(manager: kohii.v1.core.Manager): void;
 				public onStart(owner: androidx.lifecycle.LifecycleOwner): void;
-				public getManagers$kohii_core_release(): java.util.ArrayDeque<kohii.v1.core.Manager>;
-				public setLock$kohii_core_release(value: boolean): void;
+				public getManagers(): java.util.ArrayDeque<kohii.v1.core.Manager>;
+				public setLock(value: boolean): void;
 				public equals(other: any): boolean;
+				public setSelection(param0: java.util.Set<any>): void;
 				public onStateChanged(source: androidx.lifecycle.LifecycleOwner, event: androidx.lifecycle.Lifecycle.Event): void;
-				public setSelection$kohii_core_release(param0: java.util.Set<any>): void;
 				public hashCode(): number;
 				public constructor(master: kohii.v1.core.Master, activity: androidx.fragment.app.FragmentActivity);
-				public notifyPlaybackChanged$kohii_core_release(playable: kohii.v1.core.Playable, from: kohii.v1.core.Playback, to: kohii.v1.core.Playback): void;
+				public notifyPlaybackChanged(playable: kohii.v1.core.Playable, from: kohii.v1.core.Playback, to: kohii.v1.core.Playback): void;
 				public onPause(owner: androidx.lifecycle.LifecycleOwner): void;
-				public getSelection$kohii_core_release(): java.util.Set<kohii.v1.core.Playback>;
-				public getMaster$kohii_core_release(): kohii.v1.core.Master;
+				public getSelection(): java.util.Set<kohii.v1.core.Playback>;
+				public getMaster(): kohii.v1.core.Master;
 				public handleMessage(msg: globalAndroid.os.Message): boolean;
-				public getActivity$kohii_core_release(): androidx.fragment.app.FragmentActivity;
-				public getVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				public getActivity(): androidx.fragment.app.FragmentActivity;
+				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public onCreate(owner: androidx.lifecycle.LifecycleOwner): void;
-				public stick$kohii_core_release(manager: kohii.v1.core.Manager): void;
-				public findBucketForContainer$kohii_core_release(container: globalAndroid.view.ViewGroup): kohii.v1.core.Bucket;
-				public unstick$kohii_core_release(manager: kohii.v1.core.Manager): void;
-				public getGroupVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				public stick(manager: kohii.v1.core.Manager): void;
+				public findBucketForContainer(container: globalAndroid.view.ViewGroup): kohii.v1.core.Bucket;
+				public unstick(manager: kohii.v1.core.Manager): void;
+				public getGroupVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public equals(obj: any): boolean;
-				public getLock$kohii_core_release(): boolean;
-				public onRefresh$kohii_core_release(): void;
-				public onResume(owner: androidx.lifecycle.LifecycleOwner): void;
+				public getLock(): boolean;
 				public onStop(owner: androidx.lifecycle.LifecycleOwner): void;
+				public onRefresh(): void;
+				public onResume(owner: androidx.lifecycle.LifecycleOwner): void;
 				public onDestroy(owner: androidx.lifecycle.LifecycleOwner): void;
-				public onManagerCreated$kohii_core_release(manager: kohii.v1.core.Manager): void;
+				public onManagerCreated(manager: kohii.v1.core.Manager): void;
 			}
 			export module Group {
 				export class Companion extends java.lang.Object {
@@ -631,54 +631,54 @@ declare module kohii {
 			export class Manager extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.core.Manager>;
 				public static Companion: kohii.v1.core.Manager.Companion;
-				public findRendererProvider$kohii_core_release(playable: kohii.v1.core.Playable): kohii.v1.core.RendererProvider;
 				public onStart(owner: androidx.lifecycle.LifecycleOwner): void;
+				public findRendererProvider(playable: kohii.v1.core.Playable): kohii.v1.core.RendererProvider;
 				public addBucket(view: globalAndroid.view.View): kohii.v1.core.Manager;
-				public setLock$kohii_core_release(value: boolean): void;
-				public getPlaybacks$kohii_core_release(): java.util.Map<any,kohii.v1.core.Playback>;
-				public refresh$kohii_core_release(): void;
-				public notifyPlaybackChanged$kohii_core_release(playable: kohii.v1.core.Playable, from: kohii.v1.core.Playback, to: kohii.v1.core.Playback): void;
+				public setLock(value: boolean): void;
+				public getPlaybacks(): java.util.Map<any,kohii.v1.core.Playback>;
+				public refresh(): void;
+				public removePlayback(playback: kohii.v1.core.Playback): void;
+				public notifyPlaybackChanged(playable: kohii.v1.core.Playable, from: kohii.v1.core.Playback, to: kohii.v1.core.Playback): void;
 				public onPause(owner: androidx.lifecycle.LifecycleOwner): void;
-				public removePlayback$kohii_core_release(playback: kohii.v1.core.Playback): void;
-				public setManagerVolumeInfo$kohii_core_release(value: kohii.v1.media.VolumeInfo): void;
+				public setManagerVolumeInfo(value: kohii.v1.media.VolumeInfo): void;
 				public addBucket(view: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>): kohii.v1.core.Manager;
-				public addPlayback$kohii_core_release(playback: kohii.v1.core.Playback): void;
-				public unstick$kohii_core_release(bucket: kohii.v1.core.Bucket): void;
-				public getLifecycleOwner$kohii_core_release(): androidx.lifecycle.LifecycleOwner;
-				public getMaster$kohii_core_release(): kohii.v1.core.Master;
-				public getVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				public addPlayback(playback: kohii.v1.core.Playback): void;
+				public unstick(bucket: kohii.v1.core.Bucket): void;
+				public getMaster(): kohii.v1.core.Master;
+				public getLifecycleOwner(): androidx.lifecycle.LifecycleOwner;
+				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
+				public findBucketForContainer(container: globalAndroid.view.ViewGroup): kohii.v1.core.Bucket;
 				/** @deprecated */
 				public addBucket(views: native.Array<globalAndroid.view.View>): kohii.v1.core.Manager;
-				public findBucketForContainer$kohii_core_release(container: globalAndroid.view.ViewGroup): kohii.v1.core.Bucket;
-				public getLock$kohii_core_release(): boolean;
+				public getLock(): boolean;
 				public onResume(owner: androidx.lifecycle.LifecycleOwner): void;
 				public getHost(): any;
-				public splitPlaybacks$kohii_core_release(): kotlin.Pair<java.util.Set<kohii.v1.core.Playback>,java.util.Set<kohii.v1.core.Playback>>;
-				public onContainerLayoutChanged$kohii_core_release(container: any): void;
-				public getActiveLifecycleState$kohii_core_release(): androidx.lifecycle.Lifecycle.State;
+				public splitPlaybacks(): kotlin.Pair<java.util.Set<kohii.v1.core.Playback>,java.util.Set<kohii.v1.core.Playback>>;
+				public onContainerLayoutChanged(container: any): void;
+				public getActiveLifecycleState(): androidx.lifecycle.Lifecycle.State;
 				public compareTo(other: kohii.v1.core.Manager): number;
-				public onBucketVolumeInfoUpdated$kohii_core_release(bucket: kohii.v1.core.Bucket, effectiveVolumeInfo: kohii.v1.media.VolumeInfo): void;
+				public onBucketVolumeInfoUpdated(bucket: kohii.v1.core.Bucket, effectiveVolumeInfo: kohii.v1.media.VolumeInfo): void;
 				public observe(mediaTag: any, observer: kotlin.jvm.functions.Function3<any,any,any,kotlin.Unit>): boolean;
-				public isChangingConfigurations$kohii_core_release(): boolean;
+				public isChangingConfigurations(): boolean;
 				public pause(playable: kohii.v1.core.Playable): void;
-				public getGroup$kohii_core_release(): kohii.v1.core.Group;
-				public onContainerDetachedFromWindow$kohii_core_release(container: any): void;
-				public getSticky$kohii_core_release(): boolean;
-				public getBuckets$kohii_core_release(): java.util.ArrayDeque<kohii.v1.core.Bucket>;
+				public getGroup(): kohii.v1.core.Group;
+				public onContainerDetachedFromWindow(container: any): void;
+				public getSticky(): boolean;
+				public getBuckets(): java.util.ArrayDeque<kohii.v1.core.Bucket>;
 				public addBucket(view: globalAndroid.view.View, strategy: kohii.v1.core.Strategy): kohii.v1.core.Manager;
 				public onStateChanged(source: androidx.lifecycle.LifecycleOwner, event: androidx.lifecycle.Lifecycle.Event): void;
 				public removeBucket(views: native.Array<globalAndroid.view.View>): kohii.v1.core.Manager;
 				public constructor(master: kohii.v1.core.Master, group: kohii.v1.core.Group, host: any, lifecycleOwner: androidx.lifecycle.LifecycleOwner, memoryMode: kohii.v1.core.MemoryMode, activeLifecycleState: androidx.lifecycle.Lifecycle.State);
-				public onContainerAttachedToWindow$kohii_core_release(container: any): void;
-				public onRemoveContainer$kohii_core_release(container: any): void;
-				public setSticky$kohii_core_release(param0: boolean): void;
+				public onContainerAttachedToWindow(container: any): void;
+				public onRemoveContainer(container: any): void;
+				public setSticky(param0: boolean): void;
+				public stick(bucket: kohii.v1.core.Bucket): void;
 				public onCreate(owner: androidx.lifecycle.LifecycleOwner): void;
-				public stick$kohii_core_release(bucket: kohii.v1.core.Bucket): void;
 				public applyVolumeInfo(volumeInfo: kohii.v1.media.VolumeInfo, target: any, scope: kohii.v1.core.Scope): void;
-				public getMemoryMode$kohii_core_release(): kohii.v1.core.MemoryMode;
+				public getMemoryMode(): kohii.v1.core.MemoryMode;
 				public registerRendererProvider(type: java.lang.Class<any>, provider: kohii.v1.core.RendererProvider): void;
 				public play(playable: kohii.v1.core.Playable): void;
-				public getManagerVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				public getManagerVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public onStop(owner: androidx.lifecycle.LifecycleOwner): void;
 				public onDestroy(owner: androidx.lifecycle.LifecycleOwner): void;
 			}
@@ -689,7 +689,7 @@ declare module kohii {
 				export class OnSelectionListener extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Manager.OnSelectionListener>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Manager$OnSelectionListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Manager() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onSelection(collection0: java.util.Collection<any>): void;
@@ -711,75 +711,75 @@ declare module kohii {
 			export class Master extends java.lang.Object implements kohii.v1.core.PlayableManager {
 				public static class: java.lang.Class<kohii.v1.core.Master>;
 				public static Companion: kohii.v1.core.Master.Companion;
-				public getDispatcher$kohii_core_release(): kohii.v1.core.Master.Dispatcher;
-				public registerInternal$kohii_core_release(activity: androidx.fragment.app.FragmentActivity, host: any, managerLifecycleOwner: androidx.lifecycle.LifecycleOwner, memoryMode: kohii.v1.core.MemoryMode, activeLifecycleState: androidx.lifecycle.Lifecycle.State): kohii.v1.core.Manager;
-				public play$kohii_core_release(playable: kohii.v1.core.Playable): void;
-				public onLastManagerDestroyed$kohii_core_release(group: kohii.v1.core.Group): void;
-				public onGroupUpdated$kohii_core_release(group: kohii.v1.core.Group): void;
-				public preferredMemoryMode$kohii_core_release(actual: kohii.v1.core.MemoryMode): kohii.v1.core.MemoryMode;
+				public registerInternal(activity: androidx.fragment.app.FragmentActivity, host: any, managerLifecycleOwner: androidx.lifecycle.LifecycleOwner, memoryMode: kohii.v1.core.MemoryMode, activeLifecycleState: androidx.lifecycle.Lifecycle.State): kohii.v1.core.Manager;
+				public getDispatcher(): kohii.v1.core.Master.Dispatcher;
+				public play(playable: kohii.v1.core.Playable): void;
+				public onLastManagerDestroyed(group: kohii.v1.core.Group): void;
+				public onGroupUpdated(group: kohii.v1.core.Group): void;
+				public preferredMemoryMode(actual: kohii.v1.core.MemoryMode): kohii.v1.core.MemoryMode;
 				public unlock(): void;
-				public onGroupLifecycleStateChanged$kohii_core_release(): void;
-				public getGroups$kohii_core_release(): java.util.Set<kohii.v1.core.Group>;
-				public getPlayables$kohii_core_release(): java.util.Map<kohii.v1.core.Playable,any>;
-				public getPlayablesPendingActions$kohii_core_release(): androidx.collection.ArrayMap<any,kohii.v1.core.PlaybackAction>;
-				public cleanupPendingPlayables$kohii_core_release(): void;
-				public setLock$kohii_core_release(value: boolean): void;
-				public getRequests$kohii_core_release(): java.util.Map<globalAndroid.view.ViewGroup,kohii.v1.core.Master.BindRequest>;
-				public onGroupCreated$kohii_core_release(group: kohii.v1.core.Group): void;
+				public onGroupLifecycleStateChanged(): void;
+				public getGroups(): java.util.Set<kohii.v1.core.Group>;
+				public getPlayables(): java.util.Map<kohii.v1.core.Playable,any>;
+				public getPlayablesPendingActions(): androidx.collection.ArrayMap<any,kohii.v1.core.PlaybackAction>;
+				public setLock(value: boolean): void;
+				public cleanupPendingPlayables(): void;
+				public getRequests(): java.util.Map<globalAndroid.view.ViewGroup,kohii.v1.core.Master.BindRequest>;
+				public onGroupCreated(group: kohii.v1.core.Group): void;
 				public static get(context: globalAndroid.content.Context): kohii.v1.core.Master;
 				public registerEngine(engine: kohii.v1.core.Engine<any>): void;
-				public notifyPlaybackChanged$kohii_core_release(playable: kohii.v1.core.Playable, from: kohii.v1.core.Playback, to: kohii.v1.core.Playback): void;
-				public setGroupsMaxLifecycleState$kohii_core_release(param0: androidx.lifecycle.Lifecycle.State): void;
-				public bind$kohii_core_release(playable: kohii.v1.core.Playable, tag: any, container: globalAndroid.view.ViewGroup, options: kohii.v1.core.Binder.Options, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>): void;
-				public unlock$kohii_core_release(target: any, scope: kohii.v1.core.Scope): void;
-				public onFirstManagerCreated$kohii_core_release(group: kohii.v1.core.Group): void;
+				public setGroupsMaxLifecycleState(param0: androidx.lifecycle.Lifecycle.State): void;
+				public notifyPlaybackChanged(playable: kohii.v1.core.Playable, from: kohii.v1.core.Playback, to: kohii.v1.core.Playback): void;
+				public bind(playable: kohii.v1.core.Playable, tag: any, container: globalAndroid.view.ViewGroup, options: kohii.v1.core.Binder.Options, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>): void;
+				public unlock(target: any, scope: kohii.v1.core.Scope): void;
+				public onFirstManagerCreated(group: kohii.v1.core.Group): void;
 				public getApp(): globalAndroid.app.Application;
-				public getGroupsMaxLifecycleState$kohii_core_release(): androidx.lifecycle.Lifecycle.State;
-				public getNetworkType$kohii_core_release(): number;
-				public preparePlayable$kohii_core_release(playable: kohii.v1.core.Playable, loadSource: boolean): void;
-				public getManuallyStartedPlayable$kohii_core_release(): java.util.concurrent.atomic.AtomicReference<kohii.v1.core.Playable>;
-				public findBucketForContainer$kohii_core_release(container: globalAndroid.view.ViewGroup): kohii.v1.core.Bucket;
-				public releasePlayable$kohii_core_release(playable: kohii.v1.core.Playable): void;
-				public onGroupDestroyed$kohii_core_release(group: kohii.v1.core.Group): void;
-				public getPlannedManualPlayables$kohii_core_release(): androidx.collection.ArraySet<any>;
-				public onPlaybackDetached$kohii_core_release(playback: kohii.v1.core.Playback): void;
-				public trySavePlaybackInfo$kohii_core_release(playable: kohii.v1.core.Playable): void;
-				public releasePlaybackOnInActive$kohii_core_release(playback: kohii.v1.core.Playback): boolean;
-				public onNetworkChanged$kohii_core_release(): void;
-				public onBind$kohii_core_release(playable: kohii.v1.core.Playable, tag: any, manager: kohii.v1.core.Manager, container: globalAndroid.view.ViewGroup, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>, createNewPlayback: kotlin.jvm.functions.Function0<any>): void;
-				public pause$kohii_core_release(playable: kohii.v1.core.Playable): void;
-				public setNetworkType$kohii_core_release(value: number): void;
-				public setTrimMemoryLevel$kohii_core_release(value: number): void;
-				public tearDown$kohii_core_release(playable: kohii.v1.core.Playable, clearState: boolean): void;
-				public getEngines$kohii_core_release(): java.util.Map<java.lang.Class<any>,kohii.v1.core.Engine<any>>;
-				public getLock$kohii_core_release(): boolean;
-				public removeBinding$kohii_core_release(container: any): void;
-				public getTrimMemoryLevel$kohii_core_release(): number;
-				public onTearDown$kohii_core_release(playable: kohii.v1.core.Playable, clearState: boolean): void;
+				public getGroupsMaxLifecycleState(): androidx.lifecycle.Lifecycle.State;
+				public getNetworkType(): number;
+				public preparePlayable(playable: kohii.v1.core.Playable, loadSource: boolean): void;
+				public getManuallyStartedPlayable(): java.util.concurrent.atomic.AtomicReference<kohii.v1.core.Playable>;
+				public findBucketForContainer(container: globalAndroid.view.ViewGroup): kohii.v1.core.Bucket;
+				public releasePlayable(playable: kohii.v1.core.Playable): void;
+				public onGroupDestroyed(group: kohii.v1.core.Group): void;
+				public getPlannedManualPlayables(): androidx.collection.ArraySet<any>;
+				public trySavePlaybackInfo(playable: kohii.v1.core.Playable): void;
+				public onPlaybackDetached(playback: kohii.v1.core.Playback): void;
+				public releasePlaybackOnInActive(playback: kohii.v1.core.Playback): boolean;
+				public onNetworkChanged(): void;
+				public setNetworkType(value: number): void;
+				public setTrimMemoryLevel(value: number): void;
+				public pause(playable: kohii.v1.core.Playable): void;
+				public onBind(playable: kohii.v1.core.Playable, tag: any, manager: kohii.v1.core.Manager, container: globalAndroid.view.ViewGroup, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>, createNewPlayback: kotlin.jvm.functions.Function0<any>): void;
+				public tearDown(playable: kohii.v1.core.Playable, clearState: boolean): void;
+				public getEngines(): java.util.Map<java.lang.Class<any>,kohii.v1.core.Engine<any>>;
+				public getLock(): boolean;
+				public removeBinding(container: any): void;
+				public getTrimMemoryLevel(): number;
+				public onTearDown(playable: kohii.v1.core.Playable, clearState: boolean): void;
 				public lock(): void;
-				public lock$kohii_core_release(target: any, scope: kohii.v1.core.Scope): void;
-				public tryRestorePlaybackInfo$kohii_core_release(playable: kohii.v1.core.Playable): void;
+				public tryRestorePlaybackInfo(playable: kohii.v1.core.Playable): void;
+				public lock(target: any, scope: kohii.v1.core.Scope): void;
 			}
 			export module Master {
 				export class BindRequest extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Master.BindRequest>;
-					public setBucket$kohii_core_release(param0: kohii.v1.core.Bucket): void;
-					public getCallback(): kotlin.jvm.functions.Function1<kohii.v1.core.Playback,kotlin.Unit>;
+					public setBucket(param0: kohii.v1.core.Bucket): void;
 					public getContainer(): globalAndroid.view.ViewGroup;
+					public getCallback(): kotlin.jvm.functions.Function1<kohii.v1.core.Playback,kotlin.Unit>;
 					public toString(): string;
 					public getTag(): any;
-					public onRemoved$kohii_core_release(): void;
+					public onRemoved(): void;
 					public getMaster(): kohii.v1.core.Master;
 					public getPlayable(): kohii.v1.core.Playable;
-					public getBucket$kohii_core_release(): kohii.v1.core.Bucket;
-					public onBind$kohii_core_release(): void;
-					public constructor(master: kohii.v1.core.Master, playable: kohii.v1.core.Playable, container: globalAndroid.view.ViewGroup, tag: any, options: kohii.v1.core.Binder.Options, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>);
+					public getBucket(): kohii.v1.core.Bucket;
+					public onBind(): void;
 					public getOptions(): kohii.v1.core.Binder.Options;
+					public constructor(master: kohii.v1.core.Master, playable: kohii.v1.core.Playable, container: globalAndroid.view.ViewGroup, tag: any, options: kohii.v1.core.Binder.Options, callback: kotlin.jvm.functions.Function1<any,kotlin.Unit>);
 				}
 				export class Companion extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Master.Companion>;
 					public get(context: globalAndroid.content.Context): kohii.v1.core.Master;
-					public getNO_TAG$kohii_core_release(): any;
+					public getNO_TAG(): any;
 				}
 				export class Dispatcher extends globalAndroid.os.Handler {
 					public static class: java.lang.Class<kohii.v1.core.Master.Dispatcher>;
@@ -804,11 +804,11 @@ declare module kohii {
 			export class MemoryMode {
 				public static class: java.lang.Class<kohii.v1.core.MemoryMode>;
 				public static AUTO: kohii.v1.core.MemoryMode;
+				public static LOW: kohii.v1.core.MemoryMode;
+				public static NORMAL: kohii.v1.core.MemoryMode;
 				public static BALANCED: kohii.v1.core.MemoryMode;
 				public static HIGH: kohii.v1.core.MemoryMode;
 				public static INFINITE: kohii.v1.core.MemoryMode;
-				public static LOW: kohii.v1.core.MemoryMode;
-				public static NORMAL: kohii.v1.core.MemoryMode;
 				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(string0: string): kohii.v1.core.MemoryMode;
 				public static values(): native.Array<kohii.v1.core.MemoryMode>;
@@ -823,29 +823,29 @@ declare module kohii {
 			export abstract class Playable extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.core.Playable>;
 				public onRelease(): void;
-				public getPlayerState$kohii_core_release(): number;
+				public getPlayerState(): number;
 				public onPause(): void;
-				public getConfig$kohii_core_release(): kohii.v1.core.Playable.Config;
-				public setManager$kohii_core_release(playableManager0: kohii.v1.core.PlayableManager): void;
+				public getConfig(): kohii.v1.core.Playable.Config;
+				public setManager(playableManager0: kohii.v1.core.PlayableManager): void;
 				public onUnbind(playback0: kohii.v1.core.Playback): void;
-				public setPlayback$kohii_core_release(playback0: kohii.v1.core.Playback): void;
-				public setPlaybackInfo$kohii_core_release(playbackInfo0: kohii.v1.media.PlaybackInfo): void;
+				public setPlayback(playback0: kohii.v1.core.Playback): void;
+				public setPlaybackInfo(playbackInfo0: kohii.v1.media.PlaybackInfo): void;
+				public setRenderer(object0: any): void;
 				public onPrepare(boolean0: boolean): void;
-				public setRenderer$kohii_core_release(object0: any): void;
-				public onPlaybackPriorityChanged$kohii_core_release(playback0: kohii.v1.core.Playback, int1: number, int2: number): void;
+				public onPlaybackPriorityChanged(playback0: kohii.v1.core.Playback, int1: number, int2: number): void;
 				public constructor(media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config);
 				public getRenderer(): any;
 				public getTag(): any;
 				public onPlay(): void;
-				public getPlaybackInfo$kohii_core_release(): kohii.v1.media.PlaybackInfo;
+				public getPlaybackInfo(): kohii.v1.media.PlaybackInfo;
 				public setupRenderer(playback0: kohii.v1.core.Playback): void;
-				public onVolumeInfoChanged$kohii_core_release(playback0: kohii.v1.core.Playback, volumeInfo1: kohii.v1.media.VolumeInfo, volumeInfo2: kohii.v1.media.VolumeInfo): void;
+				public onVolumeInfoChanged(playback0: kohii.v1.core.Playback, volumeInfo1: kohii.v1.media.VolumeInfo, volumeInfo2: kohii.v1.media.VolumeInfo): void;
 				public isPlaying(): boolean;
 				public onConfigChange(): boolean;
-				public onNetworkTypeChanged$kohii_core_release(int0: number, int1: number): void;
+				public onNetworkTypeChanged(int0: number, int1: number): void;
 				public onReset(): void;
-				public getPlayback$kohii_core_release(): kohii.v1.core.Playback;
-				public getManager$kohii_core_release(): kohii.v1.core.PlayableManager;
+				public getPlayback(): kohii.v1.core.Playback;
+				public getManager(): kohii.v1.core.PlayableManager;
 				public onReady(): void;
 				public teardownRenderer(playback0: kohii.v1.core.Playback): void;
 				public getMedia(): kohii.v1.media.Media;
@@ -854,14 +854,14 @@ declare module kohii {
 				export class Config extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playable.Config>;
 					public constructor(tag: any, rendererType: java.lang.Class<any>);
-					public equals(obj: any): boolean;
 					public toString(): string;
-					public component1$kohii_core_release(): any;
-					public getRendererType$kohii_core_release(): java.lang.Class<any>;
+					public equals(obj: any): boolean;
+					public component1(): any;
+					public getRendererType(): java.lang.Class<any>;
 					public copy(tag: any, rendererType: java.lang.Class<any>): kohii.v1.core.Playable.Config;
 					public hashCode(): number;
-					public getTag$kohii_core_release(): any;
-					public component2$kohii_core_release(): java.lang.Class<any>;
+					public getTag(): any;
+					public component2(): java.lang.Class<any>;
 				}
 			}
 		}
@@ -919,90 +919,100 @@ declare module kohii {
 		export module core {
 			export abstract class Playback extends java.lang.Object implements kohii.v1.core.PlayableContainer, kohii.v1.core.PlayerEventListener, kohii.v1.core.ErrorListener {
 				public static class: java.lang.Class<kohii.v1.core.Playback>;
-				public static Companion: kohii.v1.core.Playback.Companion;
 				public static DELAY_INFINITE: number;
+				public static Companion: kohii.v1.core.Playback.Companion;
 				public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 				public rewind(): void;
+				public onPlay(): void;
 				public onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
-				public onPlay$kohii_core_release(): void;
 				public getLock(): boolean;
 				public rewind(refresh: boolean): void;
-				public getToken$kohii_core_release(): kohii.v1.core.Playback.Token;
+				public getToken(): kohii.v1.core.Playback.Token;
+				public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
+				public setLock(value: boolean): void;
 				public getConfig(): kohii.v1.core.Playback.Config;
-				public setLock$kohii_core_release(value: boolean): void;
-				public acquireRenderer$kohii_core_release(): any;
-				public getLifecycleState$kohii_core_release(): androidx.lifecycle.Lifecycle.State;
-				public onDetached$kohii_core_release(): void;
-				public onAdded$kohii_core_release(): void;
+				public getLifecycleState(): androidx.lifecycle.Lifecycle.State;
+				public acquireRenderer(): any;
+				public onDetached(): void;
+				public onAdded(): void;
 				public onVolumeChanged(volume: number): void;
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
-				public detachRenderer$kohii_core_release(renderer: any): boolean;
-				public onRendererAttached$kohii_core_release(renderer: any): void;
+				public detachRenderer(renderer: any): boolean;
+				public onSkipSilenceEnabledChanged(skipSilenceEnabled: boolean): void;
+				public onRendererAttached(renderer: any): void;
 				public onRepeatModeChanged(repeatMode: number): void;
-				public onRemoved$kohii_core_release(): void;
-				public onPause$kohii_core_release(): void;
+				public onRemoved(): void;
+				public onPause(): void;
 				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
+				/** @deprecated */
+				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
 				public onAudioSessionId(audioSessionId: number): void;
-				public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 				public removeStateListener(listener: kohii.v1.core.Playback.StateListener): void;
+				public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 				public toString(): string;
-				public setPlaybackVolumeInfo$kohii_core_release(value: kohii.v1.media.VolumeInfo): void;
-				public getPlayerParametersChangeListener$kohii_core_release(): kohii.v1.internal.PlayerParametersChangeListener;
+				public setPlaybackVolumeInfo(value: kohii.v1.media.VolumeInfo): void;
+				public getPlayerParametersChangeListener(): kohii.v1.internal.PlayerParametersChangeListener;
 				public getPlayerParameters(): kohii.v1.core.PlayerParameters;
 				public onSurfaceSizeChanged(width: number, height: number): void;
-				public attachRenderer$kohii_core_release(renderer: any): boolean;
+				public attachRenderer(renderer: any): boolean;
 				public setPlayerParameters(value: kohii.v1.core.PlayerParameters): void;
 				public onError(error: java.lang.Exception): void;
-				public isAttached$kohii_core_release(): boolean;
-				public addCallback$kohii_core_release(callback: kohii.v1.core.Playback.Callback): void;
+				/** @deprecated */
+				public onLoadingChanged(isLoading: boolean): void;
+				public isAttached(): boolean;
+				public addCallback(callback: kohii.v1.core.Playback.Callback): void;
 				/** @deprecated */
 				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
-				public compareWith$kohii_core_release(other: kohii.v1.core.Playback, orientation: number): number;
-				public onSeekProcessed(): void;
-				public setLifecycleState$kohii_core_release(param0: androidx.lifecycle.Lifecycle.State): void;
-				public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+				public setLifecycleState(param0: androidx.lifecycle.Lifecycle.State): void;
+				public compareWith(other: kohii.v1.core.Playback, orientation: number): number;
 				public updateToken(): kohii.v1.core.Playback.Token;
-				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
-				public addStateListener(listener: kohii.v1.core.Playback.StateListener): void;
+				public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+				public setPlaybackPriority(value: number): void;
 				public onDetachRenderer(object0: any): boolean;
-				public onNetworkTypeChanged$kohii_core_release(networkType: number): void;
-				public setPlaybackPriority$kohii_core_release(value: number): void;
+				public onNetworkTypeChanged(networkType: number): void;
+				public addStateListener(listener: kohii.v1.core.Playback.StateListener): void;
+				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
 				public getContainer(): globalAndroid.view.ViewGroup;
 				public onIsPlayingChanged(isPlaying: boolean): void;
+				public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 				public onRenderedFirstFrame(): void;
-				public onActive$kohii_core_release(): void;
+				public onActive(): void;
 				public onPositionDiscontinuity(reason: number): void;
-				public isActive$kohii_core_release(): boolean;
-				public removeCallback$kohii_core_release(callback: kohii.v1.core.Playback.Callback): void;
-				public setPlayable$kohii_core_release(value: kohii.v1.core.Playable): void;
+				public isActive(): boolean;
+				public removeCallback(callback: kohii.v1.core.Playback.Callback): void;
+				public setPlayable(value: kohii.v1.core.Playable): void;
 				public getTag(): any;
 				public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
+				public setPlayerParametersChangeListener(param0: kohii.v1.internal.PlayerParametersChangeListener): void;
 				public getContainerRect(): globalAndroid.graphics.Rect;
-				public setPlayerParametersChangeListener$kohii_core_release(param0: kohii.v1.internal.PlayerParametersChangeListener): void;
 				public getManager(): kohii.v1.core.Manager;
 				public getPlayable(): kohii.v1.core.Playable;
 				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
 				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
-				public onInActive$kohii_core_release(): void;
+				public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
+				public onInActive(): void;
 				public getBucket(): kohii.v1.core.Bucket;
-				public getPlaybackVolumeInfo$kohii_core_release(): kohii.v1.media.VolumeInfo;
+				/** @deprecated */
+				public onSeekProcessed(): void;
+				public onPlaybackStateChanged(state: number): void;
+				public getPlaybackVolumeInfo(): kohii.v1.media.VolumeInfo;
 				public onAttachRenderer(object0: any): boolean;
-				public onLoadingChanged(isLoading: boolean): void;
 				public onVideoSizeChanged(width: number, height: number, unappliedRotationDegrees: number, pixelWidthHeightRatio: number): void;
-				public onRendererDetached$kohii_core_release(renderer: any): void;
-				public onRefresh$kohii_core_release(): void;
+				public onRendererDetached(renderer: any): void;
+				public onRefresh(): void;
 				public unbind(): void;
-				public onAttached$kohii_core_release(): void;
-				public releaseRenderer$kohii_core_release(renderer: any): boolean;
-				public getPlaybackPriority$kohii_core_release(): number;
+				public releaseRenderer(renderer: any): boolean;
+				public onAttached(): void;
+				public getPlaybackPriority(): number;
+				public onIsLoadingChanged(isLoading: boolean): void;
 				public onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
 			}
 			export module Playback {
 				export class ArtworkHintListener extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.ArtworkHintListener>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Playback$ArtworkHintListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Playback() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onArtworkHint(playback0: kohii.v1.core.Playback, boolean1: boolean, long2: number, int3: number): void;
@@ -1013,7 +1023,7 @@ declare module kohii {
 				export class Callback extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.Callback>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Playback$Callback interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Playback() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onActive(playback: kohii.v1.core.Playback): void;
@@ -1033,11 +1043,11 @@ declare module kohii {
 				}
 				export class Companion extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.Companion>;
-					public getBOTH_AXIS_COMPARATOR$kohii_core_release(): java.util.Comparator<kohii.v1.core.Playback>;
-					public getVERTICAL_COMPARATOR$kohii_core_release(): java.util.Comparator<kohii.v1.core.Playback>;
-					public getCENTER_Y$kohii_core_release(): java.util.Comparator<kohii.v1.core.Playback.Token>;
-					public getHORIZONTAL_COMPARATOR$kohii_core_release(): java.util.Comparator<kohii.v1.core.Playback>;
-					public getCENTER_X$kohii_core_release(): java.util.Comparator<kohii.v1.core.Playback.Token>;
+					public getBOTH_AXIS_COMPARATOR(): java.util.Comparator<kohii.v1.core.Playback>;
+					public getVERTICAL_COMPARATOR(): java.util.Comparator<kohii.v1.core.Playback>;
+					public getCENTER_Y(): java.util.Comparator<kohii.v1.core.Playback.Token>;
+					public getHORIZONTAL_COMPARATOR(): java.util.Comparator<kohii.v1.core.Playback>;
+					public getCENTER_X(): java.util.Comparator<kohii.v1.core.Playback.Token>;
 				}
 				export class Config extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.Config>;
@@ -1045,8 +1055,8 @@ declare module kohii {
 					public equals(obj: any): boolean;
 					public getPreload(): boolean;
 					public getTag(): any;
-					public component3(): number;
 					public getRepeatMode(): number;
+					public component3(): number;
 					public component12(): kohii.v1.core.Playback.NetworkTypeChangeListener;
 					public getReleaseOnInActive(): boolean;
 					public component5(): boolean;
@@ -1054,15 +1064,15 @@ declare module kohii {
 					public toString(): string;
 					public getInitialPlaybackInfo(): kohii.v1.media.PlaybackInfo;
 					public component1(): any;
-					public constructor();
 					public getDelay(): number;
+					public constructor();
 					public component10(): kohii.v1.core.Playback.ArtworkHintListener;
 					public getCallbacks(): java.util.Set<kohii.v1.core.Playback.Callback>;
 					public getTokenUpdateListener(): kohii.v1.core.Playback.TokenUpdateListener;
 					public hashCode(): number;
 					public getArtworkHintListener(): kohii.v1.core.Playback.ArtworkHintListener;
-					public component11(): kohii.v1.core.Playback.TokenUpdateListener;
 					public component9(): kohii.v1.media.PlaybackInfo;
+					public component11(): kohii.v1.core.Playback.TokenUpdateListener;
 					public component8(): kohii.v1.core.Playback.Controller;
 					public copy(tag: any, delay: number, threshold: number, preload: boolean, releaseOnInActive: boolean, repeatMode: number, callbacks: java.util.Set<any>, controller: kohii.v1.core.Playback.Controller, initialPlaybackInfo: kohii.v1.media.PlaybackInfo, artworkHintListener: kohii.v1.core.Playback.ArtworkHintListener, tokenUpdateListener: kohii.v1.core.Playback.TokenUpdateListener, networkTypeChangeListener: kohii.v1.core.Playback.NetworkTypeChangeListener): kohii.v1.core.Playback.Config;
 					public getThreshold(): number;
@@ -1075,7 +1085,7 @@ declare module kohii {
 				export class Controller extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.Controller>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Playback$Controller interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Playback() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						kohiiCanPause(): boolean;
@@ -1092,7 +1102,7 @@ declare module kohii {
 				export class NetworkTypeChangeListener extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.NetworkTypeChangeListener>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Playback$NetworkTypeChangeListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Playback() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onNetworkTypeChanged(int0: number): kohii.v1.core.PlayerParameters;
@@ -1103,7 +1113,7 @@ declare module kohii {
 				export class StateListener extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.StateListener>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Playback$StateListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Playback() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onRendered(playback: kohii.v1.core.Playback): void;
@@ -1125,11 +1135,11 @@ declare module kohii {
 				}
 				export class Token extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.Token>;
-					public constructor(threshold: number, areaOffset: number, containerRect: globalAndroid.graphics.Rect, containerWidth: number, containerHeight: number);
+					public shouldPlay(): boolean;
 					public getContainerRect(): globalAndroid.graphics.Rect;
-					public shouldPlay$kohii_core_release(): boolean;
+					public constructor(threshold: number, areaOffset: number, containerRect: globalAndroid.graphics.Rect, containerWidth: number, containerHeight: number);
 					public toString(): string;
-					public shouldPrepare$kohii_core_release(): boolean;
+					public shouldPrepare(): boolean;
 					public getAreaOffset(): number;
 					public getContainerHeight(): number;
 					public getContainerWidth(): number;
@@ -1137,7 +1147,7 @@ declare module kohii {
 				export class TokenUpdateListener extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Playback.TokenUpdateListener>;
 					/**
-					 * Constructs a new instance of the kohii.v1.core.Playback$TokenUpdateListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the kohii.v1.core.Playback() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onTokenUpdate(playback0: kohii.v1.core.Playback, token1: kohii.v1.core.Playback.Token): void;
@@ -1155,14 +1165,14 @@ declare module kohii {
 		export module core {
 			export class PlaybackAction extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.core.PlaybackAction>;
-				public static equals-impl(boolean0: boolean, object1: any): boolean;
-				public static constructor-impl(value: boolean): boolean;
+				public static equals(boolean0: boolean, object1: any): boolean;
 				public equals(obj: any): boolean;
-				public static equals-impl0(p1: boolean, p2: boolean): boolean;
-				public static toString-impl(boolean0: boolean): string;
+				public static hashCode(boolean0: boolean): number;
 				public hashCode(): number;
+				public static toString(boolean0: boolean): string;
+				public static constructor(value: boolean): boolean;
+				public static equals(p1: boolean, p2: boolean): boolean;
 				public toString(): string;
-				public static hashCode-impl(boolean0: boolean): number;
 				public getValue(): boolean;
 			}
 		}
@@ -1193,9 +1203,13 @@ declare module kohii {
 					onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
 					onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 					onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+					onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 					onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+					onIsLoadingChanged(isLoading: boolean): void;
 					onLoadingChanged(isLoading: boolean): void;
 					onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+					onPlaybackStateChanged(state: number): void;
+					onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 					onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 					onIsPlayingChanged(isPlaying: boolean): void;
 					onRepeatModeChanged(repeatMode: number): void;
@@ -1204,12 +1218,14 @@ declare module kohii {
 					onPositionDiscontinuity(reason: number): void;
 					onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 					onSeekProcessed(): void;
+					onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
 					onVideoSizeChanged(width: number, height: number, unappliedRotationDegrees: number, pixelWidthHeightRatio: number): void;
 					onSurfaceSizeChanged(width: number, height: number): void;
 					onRenderedFirstFrame(): void;
 					onAudioSessionId(audioSessionId: number): void;
 					onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
 					onVolumeChanged(volume: number): void;
+					onSkipSilenceEnabledChanged(skipSilenceEnabled: boolean): void;
 					onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
 					onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
 				});
@@ -1217,24 +1233,33 @@ declare module kohii {
 				public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 				/** @deprecated */
 				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
-				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
-				public onSeekProcessed(): void;
-				public onRepeatModeChanged(repeatMode: number): void;
 				public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
-				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 				public onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
 				public onIsPlayingChanged(isPlaying: boolean): void;
-				public onAudioSessionId(audioSessionId: number): void;
-				public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+				public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
+				public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 				public onRenderedFirstFrame(): void;
-				public onLoadingChanged(isLoading: boolean): void;
-				public onVideoSizeChanged(width: number, height: number, unappliedRotationDegrees: number, pixelWidthHeightRatio: number): void;
 				public onPositionDiscontinuity(reason: number): void;
-				public onSurfaceSizeChanged(width: number, height: number): void;
 				public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
 				public onVolumeChanged(volume: number): void;
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
+				public onSkipSilenceEnabledChanged(skipSilenceEnabled: boolean): void;
+				public onRepeatModeChanged(repeatMode: number): void;
+				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+				public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
+				/** @deprecated */
+				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+				public onAudioSessionId(audioSessionId: number): void;
+				public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+				/** @deprecated */
+				public onSeekProcessed(): void;
+				public onPlaybackStateChanged(state: number): void;
+				public onVideoSizeChanged(width: number, height: number, unappliedRotationDegrees: number, pixelWidthHeightRatio: number): void;
+				public onSurfaceSizeChanged(width: number, height: number): void;
+				/** @deprecated */
+				public onLoadingChanged(isLoading: boolean): void;
+				public onIsLoadingChanged(isLoading: boolean): void;
 				public onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
 			}
 		}
@@ -1247,51 +1272,63 @@ declare module kohii {
 			export class PlayerEventListeners extends java.util.concurrent.CopyOnWriteArraySet<kohii.v1.core.PlayerEventListener> implements kohii.v1.core.PlayerEventListener  {
 				public static class: java.lang.Class<kohii.v1.core.PlayerEventListeners>;
 				public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
-				/** @deprecated */
-				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
-				public parallelStream(): java.util.stream.Stream<any>;
-				public onSeekProcessed(): void;
-				public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 				public onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
-				public onIsPlayingChanged(isPlaying: boolean): void;
-				public removeAll(c: java.util.Collection<any>): boolean;
+				public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 				public constructor();
-				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 				public toArray(): native.Array<any>;
-				public onRenderedFirstFrame(): void;
-				public add(e: any): boolean;
-				public onPositionDiscontinuity(reason: number): void;
 				public getSize(): number;
 				public hashCode(): number;
-				public clear(): void;
-				public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
 				public onVolumeChanged(volume: number): void;
-				public constructor(c: java.util.Collection<any>);
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
+				public constructor(c: java.util.Collection<any>);
 				public addAll(c: java.util.Collection<any>): boolean;
-				public equals(o: any): boolean;
 				public isEmpty(): boolean;
 				public remove(playerEventListener0: kohii.v1.core.PlayerEventListener): boolean;
-				public contains(o: any): boolean;
-				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+				public onSkipSilenceEnabledChanged(skipSilenceEnabled: boolean): void;
 				public onRepeatModeChanged(repeatMode: number): void;
 				public spliterator(): java.util.Spliterator<any>;
-				public toArray(a: native.Array<any>): native.Array<any>;
-				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 				public stream(): java.util.stream.Stream<any>;
+				/** @deprecated */
+				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
 				public onAudioSessionId(audioSessionId: number): void;
-				public remove(o: any): boolean;
 				public iterator(): java.util.Iterator<any>;
 				public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 				public contains(playerEventListener0: kohii.v1.core.PlayerEventListener): boolean;
 				public containsAll(c: java.util.Collection<any>): boolean;
 				public size(): number;
 				public removeIf(filter: any /* any*/): boolean;
+				public onSurfaceSizeChanged(width: number, height: number): void;
+				/** @deprecated */
+				public onLoadingChanged(isLoading: boolean): void;
+				public retainAll(c: java.util.Collection<any>): boolean;
+				/** @deprecated */
+				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+				public parallelStream(): java.util.stream.Stream<any>;
+				public onSeekProcessed(): void;
+				public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+				public onIsPlayingChanged(isPlaying: boolean): void;
+				public removeAll(c: java.util.Collection<any>): boolean;
+				public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
+				public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
+				public onRenderedFirstFrame(): void;
+				public add(e: any): boolean;
+				public onPositionDiscontinuity(reason: number): void;
+				public clear(): void;
+				public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
+				public equals(o: any): boolean;
+				public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+				public contains(o: any): boolean;
+				public toArray(a: native.Array<any>): native.Array<any>;
+				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+				public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
+				public remove(o: any): boolean;
+				/** @deprecated */
+				public onSeekProcessed(): void;
+				public onPlaybackStateChanged(state: number): void;
 				public onLoadingChanged(isLoading: boolean): void;
 				public onVideoSizeChanged(width: number, height: number, unappliedRotationDegrees: number, pixelWidthHeightRatio: number): void;
-				public onSurfaceSizeChanged(width: number, height: number): void;
-				public retainAll(c: java.util.Collection<any>): boolean;
 				public onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
+				public onIsLoadingChanged(isLoading: boolean): void;
 			}
 		}
 	}
@@ -1303,21 +1340,21 @@ declare module kohii {
 			export class PlayerParameters extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.core.PlayerParameters>;
 				public static Companion: kohii.v1.core.PlayerParameters.Companion;
-				public component4(): number;
 				public getMaxVideoHeight(): number;
+				public component4(): number;
 				public component2(): number;
 				public component1(): number;
 				public copy(maxVideoWidth: number, maxVideoHeight: number, maxVideoBitrate: number, maxAudioBitrate: number): kohii.v1.core.PlayerParameters;
 				public toString(): string;
 				public getMaxAudioBitrate(): number;
 				public constructor();
-				public component3(): number;
 				public getMaxVideoBitrate(): number;
+				public component3(): number;
+				public getMaxVideoWidth(): number;
 				public constructor(maxVideoWidth: number, maxVideoHeight: number, maxVideoBitrate: number, maxAudioBitrate: number);
 				public equals(obj: any): boolean;
-				public getMaxVideoWidth(): number;
-				public hashCode(): number;
 				public playerShouldStart(): boolean;
+				public hashCode(): number;
 			}
 			export module PlayerParameters {
 				export class Companion extends java.lang.Object {
@@ -1338,10 +1375,10 @@ declare module kohii {
 				public destroyPlayer(object0: PLAYER): void;
 				public getPlayer(media: kohii.v1.media.Media): PLAYER;
 				public constructor(poolSize: number);
-				public createPlayer(media0: kohii.v1.media.Media): PLAYER;
 				public resetPlayer(player: PLAYER): void;
-				public clear(): void;
+				public createPlayer(media0: kohii.v1.media.Media): PLAYER;
 				public putPlayer(media: kohii.v1.media.Media, player: PLAYER): boolean;
+				public clear(): void;
 				public recyclePlayerForMedia(media: kohii.v1.media.Media): boolean;
 				public constructor();
 			}
@@ -1403,8 +1440,8 @@ declare module kohii {
 				}
 				export class Options extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.Rebinder.Options>;
-					public getArtworkHintListener(): kohii.v1.core.Playback.ArtworkHintListener;
 					public getPreload(): boolean;
+					public getArtworkHintListener(): kohii.v1.core.Playback.ArtworkHintListener;
 					public getRepeatMode(): number;
 					public setArtworkHintListener(param0: kohii.v1.core.Playback.ArtworkHintListener): void;
 					public getNetworkTypeChangeListener(): kohii.v1.core.Playback.NetworkTypeChangeListener;
@@ -1413,9 +1450,9 @@ declare module kohii {
 					public constructor();
 					public setTokenUpdateListener(param0: kohii.v1.core.Playback.TokenUpdateListener): void;
 					public setNetworkTypeChangeListener(param0: kohii.v1.core.Playback.NetworkTypeChangeListener): void;
-					public getCallbacks(): java.util.Set<kohii.v1.core.Playback.Callback>;
-					public getTokenUpdateListener(): kohii.v1.core.Playback.TokenUpdateListener;
 					public setRepeatMode(param0: number): void;
+					public getTokenUpdateListener(): kohii.v1.core.Playback.TokenUpdateListener;
+					public getCallbacks(): java.util.Set<kohii.v1.core.Playback.Callback>;
 					public setPreload(param0: boolean): void;
 					public getController(): kohii.v1.core.Playback.Controller;
 					public setController(param0: kohii.v1.core.Playback.Controller): void;
@@ -1440,8 +1477,8 @@ declare module kohii {
 				public createRenderer(playback0: kohii.v1.core.Playback, int1: number): any;
 				public onClear(renderer: any): void;
 				public clear(): void;
-				public onPause(owner: androidx.lifecycle.LifecycleOwner): void;
 				public onResume(owner: androidx.lifecycle.LifecycleOwner): void;
+				public onPause(owner: androidx.lifecycle.LifecycleOwner): void;
 				public onStop(owner: androidx.lifecycle.LifecycleOwner): void;
 				public onDestroy(owner: androidx.lifecycle.LifecycleOwner): void;
 			}
@@ -1495,13 +1532,13 @@ declare module kohii {
 		export module core {
 			export class Scope {
 				public static class: java.lang.Class<kohii.v1.core.Scope>;
-				public static BUCKET: kohii.v1.core.Scope;
 				public static GLOBAL: kohii.v1.core.Scope;
 				public static GROUP: kohii.v1.core.Scope;
 				public static MANAGER: kohii.v1.core.Scope;
+				public static BUCKET: kohii.v1.core.Scope;
 				public static PLAYBACK: kohii.v1.core.Scope;
-				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static values(): native.Array<kohii.v1.core.Scope>;
+				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(string0: string): kohii.v1.core.Scope;
 			}
 		}
@@ -1551,18 +1588,18 @@ declare module kohii {
 				public getMaxWidth(): number;
 				public component1(): number;
 				public toString(): string;
-				public constructor(maxWidth: number, maxHeight: number);
 				public getMaxHeight(): number;
+				public constructor(maxWidth: number, maxHeight: number);
 				public copy(maxWidth: number, maxHeight: number): kohii.v1.core.VideoSize;
 			}
 			export module VideoSize {
 				export class Companion extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.core.VideoSize.Companion>;
-					public getORIGINAL(): kohii.v1.core.VideoSize;
 					public getSD(): kohii.v1.core.VideoSize;
+					public getORIGINAL(): kohii.v1.core.VideoSize;
 					public getUHD(): kohii.v1.core.VideoSize;
-					public getFHD(): kohii.v1.core.VideoSize;
 					public getNONE(): kohii.v1.core.VideoSize;
+					public getFHD(): kohii.v1.core.VideoSize;
 					public getHD(): kohii.v1.core.VideoSize;
 				}
 			}
@@ -1674,7 +1711,7 @@ declare module kohii {
 				/** @deprecated */
 				public onNestedScrollAccepted(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, directTargetChild: globalAndroid.view.View, target: globalAndroid.view.View, axes: number): void;
 				public getScrimOpacity(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any): number;
-				public onDetach$kohii_core_release(): void;
+				public onDetach(): void;
 				public onNestedScrollAccepted(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, directTargetChild: globalAndroid.view.View, target: globalAndroid.view.View, axes: number): void;
 				/** @deprecated */
 				public onStopNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View): void;
@@ -1682,13 +1719,13 @@ declare module kohii {
 				public onRestoreInstanceState(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, state: globalAndroid.os.Parcelable): void;
 				public constructor();
 				public getInsetDodgeRect(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, rect: globalAndroid.graphics.Rect): boolean;
-				public onApplyWindowInsets(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, insets: androidx.core.view.WindowInsetsCompat): androidx.core.view.WindowInsetsCompat;
 				public onDependentViewRemoved(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, dependency: globalAndroid.view.View): void;
-				public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
+				public onApplyWindowInsets(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, insets: androidx.core.view.WindowInsetsCompat): androidx.core.view.WindowInsetsCompat;
 				public onNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number, type: number, consumed: native.Array<number>): void;
+				public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 				public onSaveInstanceState(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any): globalAndroid.os.Parcelable;
-				public getDelegate$kohii_core_release(): androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<any>;
 				public onNestedPreScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dx: number, dy: number, consumed: native.Array<number>, type: number): void;
+				public getDelegate(): androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<any>;
 				/** @deprecated */
 				public onNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number, type: number): void;
 				public onNestedPreFling(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, velocityX: number, velocityY: number): boolean;
@@ -1701,18 +1738,18 @@ declare module kohii {
 				public blocksInteractionBelow(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any): boolean;
 				public onStartNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, directTargetChild: globalAndroid.view.View, target: globalAndroid.view.View, axes: number): boolean;
 				public onInterceptTouchEvent(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, ev: globalAndroid.view.MotionEvent): boolean;
-				public onLayoutChild(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, layoutDirection: number): boolean;
 				/** @deprecated */
 				public onNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
+				public onLayoutChild(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, layoutDirection: number): boolean;
 				public onNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
 				/** @deprecated */
 				public onStartNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, directTargetChild: globalAndroid.view.View, target: globalAndroid.view.View, axes: number): boolean;
 				public getScrimColor(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any): number;
-				public onMeasureChild(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, parentWidthMeasureSpec: number, widthUsed: number, parentHeightMeasureSpec: number, heightUsed: number): boolean;
 				public onStopNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, type: number): void;
+				public onMeasureChild(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, parentWidthMeasureSpec: number, widthUsed: number, parentHeightMeasureSpec: number, heightUsed: number): boolean;
 				public onNestedScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number, type: number): void;
-				public onAttachedToLayoutParams(params: androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams): void;
 				public onDependentViewChanged(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, dependency: globalAndroid.view.View): boolean;
+				public onAttachedToLayoutParams(params: androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams): void;
 				public constructor(delegate: androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<any>, manager: kohii.v1.core.Manager);
 				/** @deprecated */
 				public onNestedPreScroll(coordinatorLayout: androidx.coordinatorlayout.widget.CoordinatorLayout, child: any, target: globalAndroid.view.View, dx: number, dy: number, consumed: native.Array<number>): void;
@@ -1734,15 +1771,15 @@ declare module kohii {
 				public static class: java.lang.Class<kohii.v1.internal.DynamicFragmentRendererPlayback>;
 				public onAttachRenderer(renderer: any): boolean;
 				public onAttachRenderer(object0: any): boolean;
-				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
 				public onDetachRenderer(object0: any): boolean;
-				public onPause$kohii_core_release(): void;
-				public onPlay$kohii_core_release(): void;
+				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
+				public onPause(): void;
+				public onPlay(): void;
 				public onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
-				public addViewToContainer$kohii_core_release(view: globalAndroid.view.View, container: globalAndroid.view.ViewGroup): void;
+				public addViewToContainer(view: globalAndroid.view.View, container: globalAndroid.view.ViewGroup): void;
 				public onError(error: java.lang.Exception): void;
-				public scheduleAttachFragment$kohii_core_release(container: globalAndroid.view.ViewGroup, fragment: androidx.fragment.app.Fragment): void;
+				public scheduleAttachFragment(container: globalAndroid.view.ViewGroup, fragment: androidx.fragment.app.Fragment): void;
 				public onDetachRenderer(renderer: any): boolean;
 			}
 		}
@@ -1756,10 +1793,10 @@ declare module kohii {
 				public static class: java.lang.Class<kohii.v1.internal.DynamicViewRendererPlayback>;
 				public onAttachRenderer(renderer: any): boolean;
 				public onAttachRenderer(object0: any): boolean;
-				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
 				public onDetachRenderer(object0: any): boolean;
-				public onPause$kohii_core_release(): void;
-				public onPlay$kohii_core_release(): void;
+				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
+				public onPause(): void;
+				public onPlay(): void;
 				public onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
 				public onError(error: java.lang.Exception): void;
@@ -1780,10 +1817,10 @@ declare module kohii {
 				public constructor(master: kohii.v1.core.Master);
 				public getMaster(): kohii.v1.core.Master;
 				public onUnavailable(): void;
-				public constructor();
 				public onBlockedStatusChanged(network: globalAndroid.net.Network, blocked: boolean): void;
-				public onLosing(network: globalAndroid.net.Network, maxMsToLive: number): void;
 				public onLost(network: globalAndroid.net.Network): void;
+				public onLosing(network: globalAndroid.net.Network, maxMsToLive: number): void;
+				public constructor();
 			}
 		}
 	}
@@ -1797,14 +1834,14 @@ declare module kohii {
 				public constructor(manager: kohii.v1.core.Manager, root: androidx.core.widget.NestedScrollView, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public onLayoutChange(v: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
 				public selectToPlay(candidates: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
-				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
 				public onScrollChange(v: androidx.core.widget.NestedScrollView, scrollX: number, scrollY: number, oldScrollX: number, oldScrollY: number): void;
-				public accepts(container: globalAndroid.view.ViewGroup): boolean;
+				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
 				public onRemoved(): void;
+				public accepts(container: globalAndroid.view.ViewGroup): boolean;
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public getRoot(): androidx.core.widget.NestedScrollView;
-				public getRoot(): globalAndroid.view.View;
 				public onAdded(): void;
+				public getRoot(): globalAndroid.view.View;
 				public selectToPlay(collection0: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
 			}
 		}
@@ -1817,13 +1854,13 @@ declare module kohii {
 			export class PlayableDispatcher extends java.lang.Object implements globalAndroid.os.Handler.Callback {
 				public static class: java.lang.Class<kohii.v1.internal.PlayableDispatcher>;
 				public static Companion: kohii.v1.internal.PlayableDispatcher.Companion;
-				public play$kohii_core_release(playable: kohii.v1.core.Playable): void;
+				public play(playable: kohii.v1.core.Playable): void;
 				public handleMessage(msg: globalAndroid.os.Message): boolean;
-				public onStop$kohii_core_release(): void;
-				public pause$kohii_core_release(playable: kohii.v1.core.Playable): void;
+				public onStop(): void;
+				public pause(playable: kohii.v1.core.Playable): void;
 				public constructor(master: kohii.v1.core.Master);
 				public getMaster(): kohii.v1.core.Master;
-				public onStart$kohii_core_release(): void;
+				public onStart(): void;
 			}
 			export module PlayableDispatcher {
 				export class Companion extends java.lang.Object {
@@ -1862,13 +1899,13 @@ declare module kohii {
 				public selectToPlay(candidates: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
 				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
 				public onChildViewDetachedFromWindow(view: globalAndroid.view.View): void;
-				public constructor(manager: kohii.v1.core.Manager, root: androidx.recyclerview.widget.RecyclerView, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public accepts(container: globalAndroid.view.ViewGroup): boolean;
 				public onRemoved(): void;
+				public accepts(container: globalAndroid.view.ViewGroup): boolean;
+				public constructor(manager: kohii.v1.core.Manager, root: androidx.recyclerview.widget.RecyclerView, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public onChildViewAttachedToWindow(view: globalAndroid.view.View): void;
-				public getRoot(): globalAndroid.view.View;
 				public onAdded(): void;
+				public getRoot(): globalAndroid.view.View;
 				public getRoot(): androidx.recyclerview.widget.RecyclerView;
 				public selectToPlay(collection0: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
 				public onAttached(): void;
@@ -1877,7 +1914,7 @@ declare module kohii {
 			export module RecyclerViewBucket {
 				export class Companion extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.internal.RecyclerViewBucket.Companion>;
-					public fetchOrientation$kohii_core_release(thisfetchOrientation: androidx.recyclerview.widget.RecyclerView): number;
+					public fetchOrientation(thisfetchOrientation: androidx.recyclerview.widget.RecyclerView): number;
 				}
 			}
 		}
@@ -1889,17 +1926,17 @@ declare module kohii {
 		export module internal {
 			export class StaticViewRendererPlayback extends kohii.v1.core.Playback {
 				public static class: java.lang.Class<kohii.v1.internal.StaticViewRendererPlayback>;
-				public onActive$kohii_core_release(): void;
+				public onActive(): void;
 				public onAttachRenderer(renderer: any): boolean;
 				public onAttachRenderer(object0: any): boolean;
-				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
 				public onDetachRenderer(object0: any): boolean;
+				public constructor(manager: kohii.v1.core.Manager, bucket: kohii.v1.core.Bucket, container: globalAndroid.view.ViewGroup, config: kohii.v1.core.Playback.Config);
 				public onMetadata(metadata: com.google.android.exoplayer2.metadata.Metadata): void;
-				public onInActive$kohii_core_release(): void;
-				public releaseRenderer$kohii_core_release(renderer: any): boolean;
+				public onInActive(): void;
+				public releaseRenderer(renderer: any): boolean;
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
 				public onError(error: java.lang.Exception): void;
-				public acquireRenderer$kohii_core_release(): any;
+				public acquireRenderer(): any;
 				public onDetachRenderer(renderer: any): boolean;
 			}
 		}
@@ -1913,17 +1950,17 @@ declare module kohii {
 				public static class: java.lang.Class<kohii.v1.internal.ViewGroupBucket>;
 				public onLayoutChange(v: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
 				public selectToPlay(candidates: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
-				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.ViewGroup, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
-				public accepts(container: globalAndroid.view.ViewGroup): boolean;
+				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.ViewGroup, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public onRemoved(): void;
+				public accepts(container: globalAndroid.view.ViewGroup): boolean;
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public getRoot(): globalAndroid.view.View;
 				public onAdded(): void;
+				public getRoot(): globalAndroid.view.View;
 				public selectToPlay(collection0: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
 				public getRoot(): globalAndroid.view.ViewGroup;
-				public onRemovedInternal$kohii_core_release(): void;
-				public onAddedInternal$kohii_core_release(): void;
+				public onRemovedInternal(): void;
+				public onAddedInternal(): void;
 			}
 		}
 	}
@@ -1937,9 +1974,9 @@ declare module kohii {
 				public onLayoutChange(v: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.ViewGroup, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public onRemovedInternal$kohii_core_release(): void;
+				public onRemovedInternal(): void;
 				public onScrollChange(v: globalAndroid.view.View, scrollX: number, scrollY: number, oldScrollX: number, oldScrollY: number): void;
-				public onAddedInternal$kohii_core_release(): void;
+				public onAddedInternal(): void;
 			}
 		}
 	}
@@ -1953,14 +1990,14 @@ declare module kohii {
 				public onLayoutChange(v: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
 				public selectToPlay(candidates: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
 				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
-				public accepts(container: globalAndroid.view.ViewGroup): boolean;
 				public onRemoved(): void;
+				public accepts(container: globalAndroid.view.ViewGroup): boolean;
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public constructor(manager: kohii.v1.core.Manager, root: androidx.viewpager2.widget.ViewPager2, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public getRoot(): globalAndroid.view.View;
 				public onAdded(): void;
-				public getRoot(): androidx.viewpager2.widget.ViewPager2;
+				public getRoot(): globalAndroid.view.View;
+				public constructor(manager: kohii.v1.core.Manager, root: androidx.viewpager2.widget.ViewPager2, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public selectToPlay(collection0: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
+				public getRoot(): androidx.viewpager2.widget.ViewPager2;
 			}
 			export module ViewPager2Bucket {
 				export class SimplePageChangeCallback extends androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback {
@@ -1985,14 +2022,14 @@ declare module kohii {
 				public onPageSelected(position: number): void;
 				public selectToPlay(candidates: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
 				public accepts(viewGroup0: globalAndroid.view.ViewGroup): boolean;
-				public constructor(manager: kohii.v1.core.Manager, root: androidx.viewpager.widget.ViewPager, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public accepts(container: globalAndroid.view.ViewGroup): boolean;
 				public onRemoved(): void;
+				public accepts(container: globalAndroid.view.ViewGroup): boolean;
+				public constructor(manager: kohii.v1.core.Manager, root: androidx.viewpager.widget.ViewPager, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
 				public constructor(manager: kohii.v1.core.Manager, root: globalAndroid.view.View, strategy: kohii.v1.core.Strategy, selector: kotlin.jvm.functions.Function1<any,any>);
-				public getRoot(): globalAndroid.view.View;
 				public onAdded(): void;
-				public getRoot(): androidx.viewpager.widget.ViewPager;
+				public getRoot(): globalAndroid.view.View;
 				public selectToPlay(collection0: java.util.Collection<any>): java.util.Collection<kohii.v1.core.Playback>;
+				public getRoot(): androidx.viewpager.widget.ViewPager;
 				public onPageScrollStateChanged(state: number): void;
 				public onPageScrolled(position: number, positionOffset: number, positionOffsetPixels: number): void;
 			}
@@ -2095,10 +2132,10 @@ declare module kohii {
 		export module media {
 			export class PlaybackInfo extends java.lang.Object implements globalAndroid.os.Parcelable {
 				public static class: java.lang.Class<kohii.v1.media.PlaybackInfo>;
-				public static CREATOR: globalAndroid.os.Parcelable.Creator<any>;
-				public static Companion: kohii.v1.media.PlaybackInfo.Companion;
-				public static INDEX_UNSET: number;
 				public static TIME_UNSET: number;
+				public static INDEX_UNSET: number;
+				public static Companion: kohii.v1.media.PlaybackInfo.Companion;
+				public static CREATOR: globalAndroid.os.Parcelable.Creator<any>;
 				public constructor(resumeWindow: number, resumePosition: number);
 				public setResumeWindow(param0: number): void;
 				public component2(): number;
@@ -2134,14 +2171,14 @@ declare module kohii {
 		export module media {
 			export class VolumeInfo extends java.lang.Object implements globalAndroid.os.Parcelable {
 				public static class: java.lang.Class<kohii.v1.media.VolumeInfo>;
-				public static CREATOR: globalAndroid.os.Parcelable.Creator<any>;
 				public static Companion: kohii.v1.media.VolumeInfo.Companion;
+				public static CREATOR: globalAndroid.os.Parcelable.Creator<any>;
 				public constructor(original: kohii.v1.media.VolumeInfo);
 				public component2(): number;
 				public component1(): boolean;
 				public toString(): string;
-				public constructor();
 				public getVolume(): number;
+				public constructor();
 				public writeToParcel(parcel: globalAndroid.os.Parcel, flags: number): void;
 				public constructor(mute: boolean, volume: number);
 				public copy(mute: boolean, volume: number): kohii.v1.media.VolumeInfo;
@@ -2173,8 +2210,8 @@ declare module kohii {
 			export class Capsule<T, A>  extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.utils.Capsule<any,any>>;
 				public getInstance(object0: A): T;
-				public constructor(creator: kotlin.jvm.functions.Function1<any,any>, onCreate: kotlin.jvm.functions.Function1<any,kotlin.Unit>);
 				public get(object0: A): T;
+				public constructor(creator: kotlin.jvm.functions.Function1<any,any>, onCreate: kotlin.jvm.functions.Function1<any,kotlin.Unit>);
 			}
 		}
 	}

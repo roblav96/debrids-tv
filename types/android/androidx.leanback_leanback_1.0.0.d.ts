@@ -59,21 +59,21 @@ declare module androidx {
 			export class BackgroundManager extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.app.BackgroundManager>;
 				public attachToView(sceneRoot: globalAndroid.view.View): void;
-				public getColor(): number;
 				public setAutoReleaseOnStop(autoReleaseOnStop: boolean): void;
+				public getColor(): number;
 				public release(): void;
 				public isAutoReleaseOnStop(): boolean;
 				public attach(window: globalAndroid.view.Window): void;
 				/** @deprecated */
 				public getDefaultDimLayer(): globalAndroid.graphics.drawable.Drawable;
 				public setThemeDrawableResourceId(resourceId: number): void;
-				public setBitmap(bitmap: globalAndroid.graphics.Bitmap): void;
 				public setDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
+				public setBitmap(bitmap: globalAndroid.graphics.Bitmap): void;
 				public static getInstance(activity: globalAndroid.app.Activity): androidx.leanback.app.BackgroundManager;
 				public clearDrawable(): void;
+				public isAttached(): boolean;
 				/** @deprecated */
 				public getDimLayer(): globalAndroid.graphics.drawable.Drawable;
-				public isAttached(): boolean;
 				/** @deprecated */
 				public setDimLayer(drawable: globalAndroid.graphics.drawable.Drawable): void;
 				public setColor(color: number): void;
@@ -138,9 +138,9 @@ declare module androidx {
 					public findWrapperIndexById(id: number): number;
 					public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
+					public updateDrawable(id: number, drawable: globalAndroid.graphics.drawable.Drawable): androidx.leanback.app.BackgroundManager.DrawableWrapper;
 					public clearDrawable(id: number, context: globalAndroid.content.Context): void;
 					public draw(canvas: globalAndroid.graphics.Canvas): void;
-					public updateDrawable(id: number, drawable: globalAndroid.graphics.drawable.Drawable): androidx.leanback.app.BackgroundManager.DrawableWrapper;
 					public invalidateDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 					public setAlpha(alpha: number): void;
 					public mutate(): globalAndroid.graphics.drawable.Drawable;
@@ -184,14 +184,14 @@ declare module androidx {
 		export module app {
 			export abstract class BaseRowFragment extends globalAndroid.app.Fragment {
 				public static class: java.lang.Class<androidx.leanback.app.BaseRowFragment>;
-				public onTransitionStart(): void;
 				/** @deprecated */
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
+				public onTransitionStart(): void;
 				public getVerticalGridView(): androidx.leanback.widget.VerticalGridView;
-				public onTransitionPrepare(): boolean;
 				public setSelectedPosition(position: number, smooth: boolean): void;
-				public onTransitionEnd(): void;
+				public onTransitionPrepare(): boolean;
 				public setAdapter(rowsAdapter: androidx.leanback.widget.ObjectAdapter): void;
+				public onTransitionEnd(): void;
 				public getPresenterSelector(): androidx.leanback.widget.PresenterSelector;
 				public onTrimMemory(level: number): void;
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
@@ -235,11 +235,11 @@ declare module androidx {
 				public onTransitionStart(): void;
 				public getVerticalGridView(): androidx.leanback.widget.VerticalGridView;
 				public getViewModelStore(): androidx.lifecycle.ViewModelStore;
-				public onTransitionPrepare(): boolean;
 				public setSelectedPosition(position: number, smooth: boolean): void;
+				public onTransitionPrepare(): boolean;
 				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
-				public onTransitionEnd(): void;
 				public setAdapter(rowsAdapter: androidx.leanback.widget.ObjectAdapter): void;
+				public onTransitionEnd(): void;
 				public onLowMemory(): void;
 				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
 				public getPresenterSelector(): androidx.leanback.widget.PresenterSelector;
@@ -324,9 +324,9 @@ declare module androidx {
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public setSearchAffordanceColor(color: number): void;
 				public onResume(): void;
+				public setTitleView(titleView: globalAndroid.view.View): void;
 				/** @deprecated */
 				public onDestroyView(): void;
-				public setTitleView(titleView: globalAndroid.view.View): void;
 				/** @deprecated */
 				public onTrimMemory(level: number): void;
 				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
@@ -336,12 +336,12 @@ declare module androidx {
 				/** @deprecated */
 				public constructor();
 				public getSearchAffordanceColors(): androidx.leanback.widget.SearchOrbView.Colors;
-				public onStart(): void;
 				public showTitle(flags: number): void;
+				public onStart(): void;
 				public setBadgeDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
 				public setSearchAffordanceColors(colors: androidx.leanback.widget.SearchOrbView.Colors): void;
-				public onDestroyView(): void;
 				public onInflateTitleView(inflater: globalAndroid.view.LayoutInflater, parent: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
+				public onDestroyView(): void;
 			}
 		}
 	}
@@ -376,13 +376,13 @@ declare module androidx {
 				public getTitleView(): globalAndroid.view.View;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public getSearchAffordanceColors(): androidx.leanback.widget.SearchOrbView.Colors;
-				public onStart(): void;
 				public showTitle(flags: number): void;
+				public onStart(): void;
 				public setBadgeDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
 				public setSearchAffordanceColors(colors: androidx.leanback.widget.SearchOrbView.Colors): void;
 				public constructor(contentLayoutId: number);
-				public onDestroyView(): void;
 				public onInflateTitleView(inflater: globalAndroid.view.LayoutInflater, parent: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
+				public onDestroyView(): void;
 			}
 		}
 	}
@@ -393,9 +393,9 @@ declare module androidx {
 		export module app {
 			export class BrowseFragment extends androidx.leanback.app.BaseFragment {
 				public static class: java.lang.Class<androidx.leanback.app.BrowseFragment>;
-				public static HEADERS_DISABLED: number;
 				public static HEADERS_ENABLED: number;
 				public static HEADERS_HIDDEN: number;
+				public static HEADERS_DISABLED: number;
 				/** @deprecated */
 				public enableRowScaling(enable: boolean): void;
 				public constructor();
@@ -406,13 +406,13 @@ declare module androidx {
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public setAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public setHeaderPresenterSelector(headerPresenterSelector: androidx.leanback.widget.PresenterSelector): void;
-				public isHeadersTransitionOnBackEnabled(): boolean;
 				public setOnItemViewSelectedListener(listener: androidx.leanback.widget.OnItemViewSelectedListener): void;
+				public isHeadersTransitionOnBackEnabled(): boolean;
 				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
 				public onEntranceTransitionStart(): void;
+				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
 				public onCreateHeadersFragment(): androidx.leanback.app.HeadersFragment;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
-				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
 				public isInHeadersTransition(): boolean;
 				public onStart(): void;
 				public setHeadersState(headersState: number): void;
@@ -478,7 +478,7 @@ declare module androidx {
 				export class FragmentHost extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.BrowseFragment.FragmentHost>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.BrowseFragment$FragmentHost interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.BrowseFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						notifyViewCreated(mainFragmentAdapter0: androidx.leanback.app.BrowseFragment.MainFragmentAdapter<any>): void;
@@ -511,8 +511,8 @@ declare module androidx {
 					public setScalingEnabled(scalingEnabled: boolean): void;
 					public setAlignment(windowAlignOffsetFromTop: number): void;
 					public onTransitionEnd(): void;
-					public getFragmentHost(): androidx.leanback.app.BrowseFragment.FragmentHost;
 					public isScalingEnabled(): boolean;
+					public getFragmentHost(): androidx.leanback.app.BrowseFragment.FragmentHost;
 					public onTransitionPrepare(): boolean;
 					public constructor(fragment: T);
 					public setExpand(expand: boolean): void;
@@ -520,7 +520,7 @@ declare module androidx {
 				export class MainFragmentAdapterProvider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.BrowseFragment.MainFragmentAdapterProvider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.BrowseFragment$MainFragmentAdapterProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.BrowseFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getMainFragmentAdapter(): androidx.leanback.app.BrowseFragment.MainFragmentAdapter<any>;
@@ -555,7 +555,7 @@ declare module androidx {
 				export class MainFragmentRowsAdapterProvider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.BrowseFragment.MainFragmentRowsAdapterProvider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.BrowseFragment$MainFragmentRowsAdapterProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.BrowseFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getMainFragmentRowsAdapter(): androidx.leanback.app.BrowseFragment.MainFragmentRowsAdapter<any>;
@@ -579,9 +579,9 @@ declare module androidx {
 		export module app {
 			export class BrowseSupportFragment extends androidx.leanback.app.BaseSupportFragment {
 				public static class: java.lang.Class<androidx.leanback.app.BrowseSupportFragment>;
-				public static HEADERS_DISABLED: number;
 				public static HEADERS_ENABLED: number;
 				public static HEADERS_HIDDEN: number;
+				public static HEADERS_DISABLED: number;
 				/** @deprecated */
 				public enableRowScaling(enable: boolean): void;
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
@@ -593,12 +593,12 @@ declare module androidx {
 				public setAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public setHeaderPresenterSelector(headerPresenterSelector: androidx.leanback.widget.PresenterSelector): void;
 				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
-				public isHeadersTransitionOnBackEnabled(): boolean;
 				public setOnItemViewSelectedListener(listener: androidx.leanback.widget.OnItemViewSelectedListener): void;
+				public isHeadersTransitionOnBackEnabled(): boolean;
 				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
 				public onEntranceTransitionStart(): void;
-				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
+				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public isInHeadersTransition(): boolean;
 				public onStart(): void;
 				public setHeadersState(headersState: number): void;
@@ -623,8 +623,8 @@ declare module androidx {
 				public onLowMemory(): void;
 				public setBrowseTransitionListener(listener: androidx.leanback.app.BrowseSupportFragment.BrowseTransitionListener): void;
 				public getBrandColor(): number;
-				public createEntranceTransition(): any;
 				public getMainFragmentRegistry(): androidx.leanback.app.BrowseSupportFragment.MainFragmentAdapterRegistry;
+				public createEntranceTransition(): any;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public getSelectedRowViewHolder(): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public getAdapter(): androidx.leanback.widget.ObjectAdapter;
@@ -657,7 +657,7 @@ declare module androidx {
 				export class FragmentHost extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.BrowseSupportFragment.FragmentHost>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.BrowseSupportFragment$FragmentHost interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.BrowseSupportFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						notifyViewCreated(mainFragmentAdapter0: androidx.leanback.app.BrowseSupportFragment.MainFragmentAdapter<any>): void;
@@ -693,13 +693,13 @@ declare module androidx {
 					public isScalingEnabled(): boolean;
 					public onTransitionPrepare(): boolean;
 					public constructor(fragment: T);
-					public getFragmentHost(): androidx.leanback.app.BrowseSupportFragment.FragmentHost;
 					public setExpand(expand: boolean): void;
+					public getFragmentHost(): androidx.leanback.app.BrowseSupportFragment.FragmentHost;
 				}
 				export class MainFragmentAdapterProvider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.BrowseSupportFragment.MainFragmentAdapterProvider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.BrowseSupportFragment$MainFragmentAdapterProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.BrowseSupportFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getMainFragmentAdapter(): androidx.leanback.app.BrowseSupportFragment.MainFragmentAdapter<any>;
@@ -734,7 +734,7 @@ declare module androidx {
 				export class MainFragmentRowsAdapterProvider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.BrowseSupportFragment.MainFragmentRowsAdapterProvider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.BrowseSupportFragment$MainFragmentRowsAdapterProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.BrowseSupportFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getMainFragmentRowsAdapter(): androidx.leanback.app.BrowseSupportFragment.MainFragmentRowsAdapter<any>;
@@ -778,8 +778,8 @@ declare module androidx {
 				public getOnItemViewClickedListener(): androidx.leanback.widget.BaseOnItemViewClickedListener<any>;
 				public onSetRowStatus(presenter: androidx.leanback.widget.RowPresenter, viewHolder: androidx.leanback.widget.RowPresenter.ViewHolder, adapterPosition: number, selectedPosition: number, selectedSubPosition: number): void;
 				public setOnItemViewSelectedListener(listener: androidx.leanback.widget.BaseOnItemViewSelectedListener<any>): void;
-				public getParallax(): androidx.leanback.widget.DetailsParallax;
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
+				public getParallax(): androidx.leanback.widget.DetailsParallax;
 				/** @deprecated */
 				public inflateTitle(inflater: globalAndroid.view.LayoutInflater, parent: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public constructor();
@@ -838,17 +838,17 @@ declare module androidx {
 				public getCoverBitmap(): globalAndroid.graphics.Bitmap;
 				public enableParallax(coverDrawable: globalAndroid.graphics.drawable.Drawable, bottomDrawable: globalAndroid.graphics.drawable.Drawable, coverDrawableParallaxTarget: androidx.leanback.widget.ParallaxTarget.PropertyValuesHolderTarget): void;
 				public onCreateVideoFragment(): globalAndroid.app.Fragment;
-				public setSolidColor(color: number): void;
 				public switchToRows(): void;
+				public setSolidColor(color: number): void;
 				public getPlaybackGlue(): androidx.leanback.media.PlaybackGlue;
 				public getBottomDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public setCoverBitmap(bitmap: globalAndroid.graphics.Bitmap): void;
 				public enableParallax(): void;
 				public getParallaxDrawableMaxOffset(): number;
 				public findOrCreateVideoFragment(): globalAndroid.app.Fragment;
+				public switchToVideo(): void;
 				public getCoverDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public onCreateGlueHost(): androidx.leanback.media.PlaybackGlueHost;
-				public switchToVideo(): void;
 			}
 		}
 	}
@@ -864,8 +864,8 @@ declare module androidx {
 				public getOnItemViewClickedListener(): androidx.leanback.widget.BaseOnItemViewClickedListener<any>;
 				public onSetRowStatus(presenter: androidx.leanback.widget.RowPresenter, viewHolder: androidx.leanback.widget.RowPresenter.ViewHolder, adapterPosition: number, selectedPosition: number, selectedSubPosition: number): void;
 				public setOnItemViewSelectedListener(listener: androidx.leanback.widget.BaseOnItemViewSelectedListener<any>): void;
-				public getParallax(): androidx.leanback.widget.DetailsParallax;
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
+				public getParallax(): androidx.leanback.widget.DetailsParallax;
 				/** @deprecated */
 				public inflateTitle(inflater: globalAndroid.view.LayoutInflater, parent: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
@@ -876,8 +876,8 @@ declare module androidx {
 				public onStop(): void;
 				public setSelectedPosition(position: number): void;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.BaseOnItemViewClickedListener<any>): void;
-				public getRowsSupportFragment(): androidx.leanback.app.RowsSupportFragment;
 				public setupDetailsOverviewRowPresenter(presenter: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter): void;
+				public getRowsSupportFragment(): androidx.leanback.app.RowsSupportFragment;
 				public onEntranceTransitionPrepare(): void;
 				public setAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
@@ -920,17 +920,17 @@ declare module androidx {
 				public constructor(fragment: androidx.leanback.app.DetailsSupportFragment);
 				public getCoverBitmap(): globalAndroid.graphics.Bitmap;
 				public enableParallax(coverDrawable: globalAndroid.graphics.drawable.Drawable, bottomDrawable: globalAndroid.graphics.drawable.Drawable, coverDrawableParallaxTarget: androidx.leanback.widget.ParallaxTarget.PropertyValuesHolderTarget): void;
+				public switchToRows(): void;
 				public findOrCreateVideoSupportFragment(): androidx.fragment.app.Fragment;
 				public setSolidColor(color: number): void;
-				public switchToRows(): void;
 				public getPlaybackGlue(): androidx.leanback.media.PlaybackGlue;
 				public getBottomDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public setCoverBitmap(bitmap: globalAndroid.graphics.Bitmap): void;
 				public enableParallax(): void;
 				public getParallaxDrawableMaxOffset(): number;
+				public switchToVideo(): void;
 				public getCoverDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public onCreateGlueHost(): androidx.leanback.media.PlaybackGlueHost;
-				public switchToVideo(): void;
 			}
 		}
 	}
@@ -960,8 +960,8 @@ declare module androidx {
 				public setButtonText(text: string): void;
 				public setButtonClickListener(clickListener: globalAndroid.view.View.OnClickListener): void;
 				public setImageDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
-				public getButtonText(): string;
 				public getMessage(): string;
+				public getButtonText(): string;
 				/** @deprecated */
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 			}
@@ -994,8 +994,8 @@ declare module androidx {
 				public setButtonClickListener(clickListener: globalAndroid.view.View.OnClickListener): void;
 				public constructor(contentLayoutId: number);
 				public setImageDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
-				public getButtonText(): string;
 				public getMessage(): string;
+				public getButtonText(): string;
 			}
 		}
 	}
@@ -1017,18 +1017,18 @@ declare module androidx {
 			export class GuidedStepFragment extends globalAndroid.app.Fragment implements androidx.leanback.widget.GuidedActionAdapter.FocusListener {
 				public static class: java.lang.Class<androidx.leanback.app.GuidedStepFragment>;
 				public static EXTRA_UI_STYLE: string;
-				public static SLIDE_FROM_BOTTOM: number;
-				public static SLIDE_FROM_SIDE: number;
-				public static UI_STYLE_ACTIVITY_ROOT: number;
+				public static UI_STYLE_REPLACE: number;
 				public static UI_STYLE_DEFAULT: number;
 				public static UI_STYLE_ENTRANCE: number;
-				public static UI_STYLE_REPLACE: number;
+				public static UI_STYLE_ACTIVITY_ROOT: number;
+				public static SLIDE_FROM_SIDE: number;
+				public static SLIDE_FROM_BOTTOM: number;
 				public expandAction(action: androidx.leanback.widget.GuidedAction, withTransition: boolean): void;
 				public static add(fragmentManager: globalAndroid.app.FragmentManager, fragment: androidx.leanback.app.GuidedStepFragment): number;
 				public getSelectedButtonActionPosition(): number;
 				public collapseSubActions(): void;
-				public findButtonActionById(id: number): androidx.leanback.widget.GuidedAction;
 				public onCreateActionsStylist(): androidx.leanback.widget.GuidedActionsStylist;
+				public findButtonActionById(id: number): androidx.leanback.widget.GuidedAction;
 				public onCreateGuidance(savedInstanceState: globalAndroid.os.Bundle): androidx.leanback.widget.GuidanceStylist.Guidance;
 				public onGuidedActionClicked(action: androidx.leanback.widget.GuidedAction): void;
 				public onGuidedActionEditedAndProceed(action: androidx.leanback.widget.GuidedAction): number;
@@ -1078,10 +1078,10 @@ declare module androidx {
 				public setSelectedActionPosition(position: number): void;
 				public onProvideTheme(): number;
 				public getButtonActionItemView(position: number): globalAndroid.view.View;
-				public finishGuidedStepFragments(): void;
 				public setButtonActions(actions: java.util.List<androidx.leanback.widget.GuidedAction>): void;
-				public onCreateBackgroundView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
+				public finishGuidedStepFragments(): void;
 				public onCreateButtonActionsStylist(): androidx.leanback.widget.GuidedActionsStylist;
+				public onCreateBackgroundView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public getGuidedActionsStylist(): androidx.leanback.widget.GuidedActionsStylist;
 				/** @deprecated */
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
@@ -1213,17 +1213,17 @@ declare module androidx {
 			export class GuidedStepSupportFragment extends androidx.fragment.app.Fragment implements androidx.leanback.widget.GuidedActionAdapter.FocusListener {
 				public static class: java.lang.Class<androidx.leanback.app.GuidedStepSupportFragment>;
 				public static EXTRA_UI_STYLE: string;
-				public static SLIDE_FROM_BOTTOM: number;
-				public static SLIDE_FROM_SIDE: number;
-				public static UI_STYLE_ACTIVITY_ROOT: number;
+				public static UI_STYLE_REPLACE: number;
 				public static UI_STYLE_DEFAULT: number;
 				public static UI_STYLE_ENTRANCE: number;
-				public static UI_STYLE_REPLACE: number;
+				public static UI_STYLE_ACTIVITY_ROOT: number;
+				public static SLIDE_FROM_SIDE: number;
+				public static SLIDE_FROM_BOTTOM: number;
 				public expandAction(action: androidx.leanback.widget.GuidedAction, withTransition: boolean): void;
 				public getSelectedButtonActionPosition(): number;
 				public collapseSubActions(): void;
-				public findButtonActionById(id: number): androidx.leanback.widget.GuidedAction;
 				public onCreateActionsStylist(): androidx.leanback.widget.GuidedActionsStylist;
+				public findButtonActionById(id: number): androidx.leanback.widget.GuidedAction;
 				public onCreateGuidance(savedInstanceState: globalAndroid.os.Bundle): androidx.leanback.widget.GuidanceStylist.Guidance;
 				public onGuidedActionClicked(action: androidx.leanback.widget.GuidedAction): void;
 				public onGuidedActionEditedAndProceed(action: androidx.leanback.widget.GuidedAction): number;
@@ -1232,8 +1232,8 @@ declare module androidx {
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
 				public constructor();
 				public findActionById(id: number): androidx.leanback.widget.GuidedAction;
-				public finishGuidedStepSupportFragments(): void;
 				public setActionsDiffCallback(diffCallback: androidx.leanback.widget.DiffCallback<androidx.leanback.widget.GuidedAction>): void;
+				public finishGuidedStepSupportFragments(): void;
 				public getSelectedActionPosition(): number;
 				public getGuidanceStylist(): androidx.leanback.widget.GuidanceStylist;
 				public isExpanded(): boolean;
@@ -1253,8 +1253,8 @@ declare module androidx {
 				public isFocusOutEndAllowed(): boolean;
 				public onDestroyView(): void;
 				public notifyActionChanged(position: number): void;
-				public static add(fragmentManager: androidx.fragment.app.FragmentManager, fragment: androidx.leanback.app.GuidedStepSupportFragment, id: number): number;
 				public onGuidedActionEditCanceled(action: androidx.leanback.widget.GuidedAction): void;
+				public static add(fragmentManager: androidx.fragment.app.FragmentManager, fragment: androidx.leanback.app.GuidedStepSupportFragment, id: number): number;
 				public openInEditMode(action: androidx.leanback.widget.GuidedAction): void;
 				public onProvideFragmentTransitions(): void;
 				public getViewModelStore(): androidx.lifecycle.ViewModelStore;
@@ -1269,15 +1269,15 @@ declare module androidx {
 				public onProvideTheme(): number;
 				public getButtonActionItemView(position: number): globalAndroid.view.View;
 				public setButtonActions(actions: java.util.List<androidx.leanback.widget.GuidedAction>): void;
-				public onCreateBackgroundView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public onCreateButtonActionsStylist(): androidx.leanback.widget.GuidedActionsStylist;
+				public onCreateBackgroundView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public getGuidedActionsStylist(): androidx.leanback.widget.GuidedActionsStylist;
 				public onSubGuidedActionClicked(action: androidx.leanback.widget.GuidedAction): boolean;
 				/** @deprecated */
 				public onGuidedActionEdited(action: androidx.leanback.widget.GuidedAction): void;
 				public static getCurrentGuidedStepSupportFragment(fm: androidx.fragment.app.FragmentManager): androidx.leanback.app.GuidedStepSupportFragment;
-				public findActionPositionById(id: number): number;
 				public onAddSharedElementTransition(ft: androidx.fragment.app.FragmentTransaction, disappearing: androidx.leanback.app.GuidedStepSupportFragment): void;
+				public findActionPositionById(id: number): number;
 				public onLowMemory(): void;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public setEntranceTransitionType(transitionType: number): void;
@@ -1406,7 +1406,7 @@ declare module androidx {
 				export class OnHeaderClickedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.HeadersFragment.OnHeaderClickedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.HeadersFragment$OnHeaderClickedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.HeadersFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onHeaderClicked(viewHolder0: androidx.leanback.widget.RowHeaderPresenter.ViewHolder, row1: androidx.leanback.widget.Row): void;
@@ -1417,7 +1417,7 @@ declare module androidx {
 				export class OnHeaderViewSelectedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.HeadersFragment.OnHeaderViewSelectedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.HeadersFragment$OnHeaderViewSelectedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.HeadersFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onHeaderSelected(viewHolder0: androidx.leanback.widget.RowHeaderPresenter.ViewHolder, row1: androidx.leanback.widget.Row): void;
@@ -1445,8 +1445,8 @@ declare module androidx {
 				public constructor();
 				public getSavedStateRegistry(): androidx.savedstate.SavedStateRegistry;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
-				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
 				public setOnHeaderViewSelectedListener(listener: androidx.leanback.app.HeadersSupportFragment.OnHeaderViewSelectedListener): void;
+				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
 				public constructor(contentLayoutId: number);
 				public isScrolling(): boolean;
 			}
@@ -1529,7 +1529,7 @@ declare module androidx {
 				export class OnHeaderClickedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.HeadersSupportFragment.OnHeaderClickedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.HeadersSupportFragment$OnHeaderClickedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.HeadersSupportFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onHeaderClicked(viewHolder0: androidx.leanback.widget.RowHeaderPresenter.ViewHolder, row1: androidx.leanback.widget.Row): void;
@@ -1540,7 +1540,7 @@ declare module androidx {
 				export class OnHeaderViewSelectedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.HeadersSupportFragment.OnHeaderViewSelectedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.HeadersSupportFragment$OnHeaderViewSelectedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.HeadersSupportFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onHeaderSelected(viewHolder0: androidx.leanback.widget.RowHeaderPresenter.ViewHolder, row1: androidx.leanback.widget.Row): void;
@@ -1558,17 +1558,17 @@ declare module androidx {
 		export module app {
 			export class ListRowDataAdapter extends androidx.leanback.widget.ObjectAdapter {
 				public static class: java.lang.Class<androidx.leanback.app.ListRowDataAdapter>;
-				public static ON_CHANGED: number;
 				public static ON_ITEM_RANGE_CHANGED: number;
 				public static ON_ITEM_RANGE_INSERTED: number;
 				public static ON_ITEM_RANGE_REMOVED: number;
+				public static ON_CHANGED: number;
 				public constructor(adapter: androidx.leanback.widget.ObjectAdapter);
 				public get(index: number): any;
 				public constructor(presenter: androidx.leanback.widget.Presenter);
 				public constructor(presenterSelector: androidx.leanback.widget.PresenterSelector);
 				public constructor();
-				public get(int0: number): any;
 				public size(): number;
+				public get(int0: number): any;
 			}
 			export module ListRowDataAdapter {
 				export class QueueBasedDataObserver extends androidx.leanback.widget.ObjectAdapter.DataObserver {
@@ -1594,9 +1594,9 @@ declare module androidx {
 		export module app {
 			export abstract class OnboardingFragment extends globalAndroid.app.Fragment {
 				public static class: java.lang.Class<androidx.leanback.app.OnboardingFragment>;
-				public getLogoResourceId(): number;
 				/** @deprecated */
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
+				public getLogoResourceId(): number;
 				public setIconResouceId(resourceId: number): void;
 				public setDescriptionViewTextColor(color: number): void;
 				public onCreateContentView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
@@ -1606,26 +1606,26 @@ declare module androidx {
 				public constructor();
 				public getArrowColor(): number;
 				public onTrimMemory(level: number): void;
-				public getArrowBackgroundColor(): number;
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
-				public getPageCount(): number;
+				public getArrowBackgroundColor(): number;
 				public onProvideTheme(): number;
+				public getPageCount(): number;
 				public onFinishFragment(): void;
 				public getDescriptionViewTextColor(): number;
-				public getPageTitle(int0: number): string;
 				public onCreateEnterAnimation(): globalAndroid.animation.Animator;
+				public getPageTitle(int0: number): string;
 				public moveToPreviousPage(): void;
-				public onLogoAnimationFinished(): void;
 				/** @deprecated */
 				public onSaveInstanceState(outState: globalAndroid.os.Bundle): void;
+				public onLogoAnimationFinished(): void;
 				public getDotBackgroundColor(): number;
 				/** @deprecated */
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public moveToNextPage(): void;
 				public setLogoResourceId(id: number): void;
-				public getTitleViewTextColor(): number;
 				/** @deprecated */
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
+				public getTitleViewTextColor(): number;
 				public setStartButtonText(text: string): void;
 				/** @deprecated */
 				public onTrimMemory(level: number): void;
@@ -1637,12 +1637,12 @@ declare module androidx {
 				/** @deprecated */
 				public constructor();
 				public onCreateDescriptionAnimator(): globalAndroid.animation.Animator;
+				public setDotBackgroundColor(color: number): void;
 				public getStartButtonText(): string;
 				public onPageChanged(newPage: number, previousPage: number): void;
-				public setDotBackgroundColor(color: number): void;
-				public getIconResourceId(): number;
-				public onCreateBackgroundView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
 				public startEnterAnimation(force: boolean): void;
+				public onCreateBackgroundView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
+				public getIconResourceId(): number;
 				public onCreateForegroundView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
 				public onCreateTitleAnimator(): globalAndroid.animation.Animator;
 				public isLogoAnimationFinished(): boolean;
@@ -1669,14 +1669,14 @@ declare module androidx {
 				public constructor();
 				public getArrowColor(): number;
 				public getSavedStateRegistry(): androidx.savedstate.SavedStateRegistry;
-				public getArrowBackgroundColor(): number;
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
-				public getPageCount(): number;
+				public getArrowBackgroundColor(): number;
 				public onProvideTheme(): number;
+				public getPageCount(): number;
 				public onFinishFragment(): void;
 				public getDescriptionViewTextColor(): number;
-				public getPageTitle(int0: number): string;
 				public onCreateEnterAnimation(): globalAndroid.animation.Animator;
+				public getPageTitle(int0: number): string;
 				public moveToPreviousPage(): void;
 				public onLogoAnimationFinished(): void;
 				public getDotBackgroundColor(): number;
@@ -1692,12 +1692,12 @@ declare module androidx {
 				public getCurrentPageIndex(): number;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public onCreateDescriptionAnimator(): globalAndroid.animation.Animator;
+				public setDotBackgroundColor(color: number): void;
 				public getStartButtonText(): string;
 				public onPageChanged(newPage: number, previousPage: number): void;
-				public setDotBackgroundColor(color: number): void;
-				public getIconResourceId(): number;
-				public onCreateBackgroundView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
 				public startEnterAnimation(force: boolean): void;
+				public onCreateBackgroundView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
+				public getIconResourceId(): number;
 				public constructor(contentLayoutId: number);
 				public onCreateForegroundView(layoutInflater0: globalAndroid.view.LayoutInflater, viewGroup1: globalAndroid.view.ViewGroup): globalAndroid.view.View;
 				public onCreateTitleAnimator(): globalAndroid.animation.Animator;
@@ -1724,12 +1724,12 @@ declare module androidx {
 		export module app {
 			export class PlaybackFragment extends globalAndroid.app.Fragment {
 				public static class: java.lang.Class<androidx.leanback.app.PlaybackFragment>;
+				public static BG_NONE: number;
 				public static BG_DARK: number;
 				public static BG_LIGHT: number;
-				public static BG_NONE: number;
-				public hideControlsOverlay(runAnimation: boolean): void;
 				/** @deprecated */
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
+				public hideControlsOverlay(runAnimation: boolean): void;
 				public onVideoSizeChanged(videoWidth: number, videoHeight: number): void;
 				public isControlsOverlayAutoHideEnabled(): boolean;
 				/** @deprecated */
@@ -1740,16 +1740,16 @@ declare module androidx {
 				public notifyPlaybackRowChanged(): void;
 				public resetFocus(): void;
 				public getProgressBarManager(): androidx.leanback.app.ProgressBarManager;
-				public setPlaybackRowPresenter(presenter: androidx.leanback.widget.PlaybackRowPresenter): void;
 				public setSelectedPosition(position: number): void;
+				public setPlaybackRowPresenter(presenter: androidx.leanback.widget.PlaybackRowPresenter): void;
 				/** @deprecated */
 				public setFadingEnabled(enabled: boolean): void;
 				/** @deprecated */
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public setAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public onResume(): void;
-				public getBackgroundType(): number;
 				public isControlsOverlayVisible(): boolean;
+				public getBackgroundType(): number;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				/** @deprecated */
 				public constructor();
@@ -1847,9 +1847,9 @@ declare module androidx {
 		export module app {
 			export class PlaybackSupportFragment extends androidx.fragment.app.Fragment {
 				public static class: java.lang.Class<androidx.leanback.app.PlaybackSupportFragment>;
+				public static BG_NONE: number;
 				public static BG_DARK: number;
 				public static BG_LIGHT: number;
-				public static BG_NONE: number;
 				public hideControlsOverlay(runAnimation: boolean): void;
 				public onVideoSizeChanged(videoWidth: number, videoHeight: number): void;
 				public getViewModelStore(): androidx.lifecycle.ViewModelStore;
@@ -1872,10 +1872,10 @@ declare module androidx {
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
 				public setOnKeyInterceptListener(handler: globalAndroid.view.View.OnKeyListener): void;
 				public resetFocus(): void;
-				public getProgressBarManager(): androidx.leanback.app.ProgressBarManager;
 				public onStop(): void;
-				public setPlaybackRowPresenter(presenter: androidx.leanback.widget.PlaybackRowPresenter): void;
+				public getProgressBarManager(): androidx.leanback.app.ProgressBarManager;
 				public setSelectedPosition(position: number): void;
+				public setPlaybackRowPresenter(presenter: androidx.leanback.widget.PlaybackRowPresenter): void;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.BaseOnItemViewClickedListener<any>): void;
 				/** @deprecated */
 				public setFadingEnabled(enabled: boolean): void;
@@ -1884,8 +1884,8 @@ declare module androidx {
 				public onResume(): void;
 				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
 				public onLowMemory(): void;
-				public getBackgroundType(): number;
 				public isControlsOverlayVisible(): boolean;
+				public getBackgroundType(): number;
 				public setFadeCompleteListener(listener: androidx.leanback.app.PlaybackSupportFragment.OnFadeCompleteListener): void;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
@@ -1953,8 +1953,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.app.ProgressBarManager>;
 				public enableProgressBar(): void;
 				public hide(): void;
-				public setInitialDelay(initialDelay: number): void;
 				public setProgressBarView(progressBarView: globalAndroid.view.View): void;
+				public setInitialDelay(initialDelay: number): void;
 				public getInitialDelay(): number;
 				public disableProgressBar(): void;
 				public setRootView(rootView: globalAndroid.view.ViewGroup): void;
@@ -1986,8 +1986,8 @@ declare module androidx {
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
 				/** @deprecated */
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
-				public isScrolling(): boolean;
 				public setSelectedPosition(position: number): void;
+				public isScrolling(): boolean;
 				public getMainFragmentRowsAdapter(): androidx.leanback.app.BrowseFragment.MainFragmentRowsAdapter<any>;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.BaseOnItemViewClickedListener<any>): void;
 				/** @deprecated */
@@ -2003,8 +2003,8 @@ declare module androidx {
 				public constructor();
 				public onDestroyView(): void;
 				public findRowViewHolderByPosition(position: number): androidx.leanback.widget.RowPresenter.ViewHolder;
-				public setAlignment(windowAlignOffsetTop: number): void;
 				public setExpand(expand: boolean): void;
+				public setAlignment(windowAlignOffsetTop: number): void;
 			}
 			export module RowsFragment {
 				export class MainFragmentAdapter extends androidx.leanback.app.BrowseFragment.MainFragmentAdapter<androidx.leanback.app.RowsFragment> {
@@ -2062,8 +2062,8 @@ declare module androidx {
 				public setSelectedPosition(rowPosition: number, smooth: boolean, rowHolderTask: androidx.leanback.widget.Presenter.ViewHolderTask): void;
 				public onViewCreated(view: globalAndroid.view.View, savedInstanceState: globalAndroid.os.Bundle): void;
 				public getMainFragmentRowsAdapter(): androidx.leanback.app.BrowseSupportFragment.MainFragmentRowsAdapter<any>;
-				public isScrolling(): boolean;
 				public setSelectedPosition(position: number): void;
+				public isScrolling(): boolean;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.BaseOnItemViewClickedListener<any>): void;
 				public getOnItemViewSelectedListener(): androidx.leanback.widget.BaseOnItemViewSelectedListener<any>;
 				public setEntranceTransitionState(afterTransition: boolean): void;
@@ -2075,8 +2075,8 @@ declare module androidx {
 				public constructor(contentLayoutId: number);
 				public onDestroyView(): void;
 				public findRowViewHolderByPosition(position: number): androidx.leanback.widget.RowPresenter.ViewHolder;
-				public setAlignment(windowAlignOffsetTop: number): void;
 				public setExpand(expand: boolean): void;
+				public setAlignment(windowAlignOffsetTop: number): void;
 			}
 			export module RowsSupportFragment {
 				export class MainFragmentAdapter extends androidx.leanback.app.BrowseSupportFragment.MainFragmentAdapter<androidx.leanback.app.RowsSupportFragment> {
@@ -2123,10 +2123,10 @@ declare module androidx {
 				/** @deprecated */
 				public onResume(): void;
 				public onPause(): void;
-				public displayCompletions(completions: java.util.List<string>): void;
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
 				/** @deprecated */
 				public onPause(): void;
+				public displayCompletions(completions: java.util.List<string>): void;
 				public constructor();
 				public onTrimMemory(level: number): void;
 				public onRequestPermissionsResult(requestCode: number, permissions: native.Array<string>, grantResults: native.Array<number>): void;
@@ -2134,14 +2134,14 @@ declare module androidx {
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
 				public setSearchAffordanceColorsInListening(colors: androidx.leanback.widget.SearchOrbView.Colors): void;
 				public setSearchQuery(intent: globalAndroid.content.Intent, submit: boolean): void;
-				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public setTitle(title: string): void;
+				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				/** @deprecated */
 				public setSpeechRecognitionCallback(callback: androidx.leanback.widget.SpeechRecognitionCallback): void;
 				/** @deprecated */
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
-				public getRecognizerIntent(): globalAndroid.content.Intent;
 				public static newInstance(query: string): androidx.leanback.app.SearchFragment;
+				public getRecognizerIntent(): globalAndroid.content.Intent;
 				/** @deprecated */
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public setSearchQuery(query: string, submit: boolean): void;
@@ -2155,9 +2155,9 @@ declare module androidx {
 				public static createArgs(bundle0: globalAndroid.os.Bundle, query: string, title: string): globalAndroid.os.Bundle;
 				public getTitle(): string;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
-				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
-				public setSearchResultProvider(searchResultProvider: androidx.leanback.app.SearchFragment.SearchResultProvider): void;
 				public startRecognition(): void;
+				public setSearchResultProvider(searchResultProvider: androidx.leanback.app.SearchFragment.SearchResultProvider): void;
+				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				/** @deprecated */
 				public constructor();
@@ -2176,7 +2176,7 @@ declare module androidx {
 				export class SearchResultProvider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.SearchFragment.SearchResultProvider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.SearchFragment$SearchResultProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.SearchFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getResultsAdapter(): androidx.leanback.widget.ObjectAdapter;
@@ -2201,21 +2201,21 @@ declare module androidx {
 				public getViewModelStore(): androidx.lifecycle.ViewModelStore;
 				public static createArgs(bundle0: globalAndroid.os.Bundle, query: string): globalAndroid.os.Bundle;
 				public onPause(): void;
-				public displayCompletions(completions: java.util.List<string>): void;
 				public onCreate(savedInstanceState: globalAndroid.os.Bundle): void;
 				public setSearchResultProvider(searchResultProvider: androidx.leanback.app.SearchSupportFragment.SearchResultProvider): void;
+				public displayCompletions(completions: java.util.List<string>): void;
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
 				public constructor();
 				public getSavedStateRegistry(): androidx.savedstate.SavedStateRegistry;
 				public onRequestPermissionsResult(requestCode: number, permissions: native.Array<string>, grantResults: native.Array<number>): void;
 				public setSearchAffordanceColorsInListening(colors: androidx.leanback.widget.SearchOrbView.Colors): void;
 				public setSearchQuery(intent: globalAndroid.content.Intent, submit: boolean): void;
-				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public setTitle(title: string): void;
+				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				/** @deprecated */
 				public setSpeechRecognitionCallback(callback: androidx.leanback.widget.SpeechRecognitionCallback): void;
-				public getRecognizerIntent(): globalAndroid.content.Intent;
 				public getRowsSupportFragment(): androidx.leanback.app.RowsSupportFragment;
+				public getRecognizerIntent(): globalAndroid.content.Intent;
 				public setSearchQuery(query: string, submit: boolean): void;
 				public onResume(): void;
 				public onConfigurationChanged(newConfig: globalAndroid.content.res.Configuration): void;
@@ -2225,8 +2225,8 @@ declare module androidx {
 				public static createArgs(bundle0: globalAndroid.os.Bundle, query: string, title: string): globalAndroid.os.Bundle;
 				public getTitle(): string;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
-				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
 				public startRecognition(): void;
+				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public displayCompletions(completions: native.Array<globalAndroid.view.inputmethod.CompletionInfo>): void;
 				public onStart(): void;
@@ -2242,7 +2242,7 @@ declare module androidx {
 				export class SearchResultProvider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.app.SearchSupportFragment.SearchResultProvider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.app.SearchSupportFragment$SearchResultProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.app.SearchSupportFragment() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getResultsAdapter(): androidx.leanback.widget.ObjectAdapter;
@@ -2271,11 +2271,11 @@ declare module androidx {
 				/** @deprecated */
 				public onTrimMemory(level: number): void;
 				public getGridPresenter(): androidx.leanback.widget.VerticalGridPresenter;
-				public createEntranceTransition(): any;
 				public setGridPresenter(gridPresenter: androidx.leanback.widget.VerticalGridPresenter): void;
+				public createEntranceTransition(): any;
 				public constructor();
-				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
+				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public onTrimMemory(level: number): void;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public onStart(): void;
@@ -2302,12 +2302,12 @@ declare module androidx {
 				public onLowMemory(): void;
 				public setOnItemViewSelectedListener(listener: androidx.leanback.widget.OnItemViewSelectedListener): void;
 				public getGridPresenter(): androidx.leanback.widget.VerticalGridPresenter;
-				public createEntranceTransition(): any;
 				public setGridPresenter(gridPresenter: androidx.leanback.widget.VerticalGridPresenter): void;
+				public createEntranceTransition(): any;
 				public getLifecycle(): androidx.lifecycle.Lifecycle;
 				public constructor();
-				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public setOnItemViewClickedListener(listener: androidx.leanback.widget.OnItemViewClickedListener): void;
+				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
 				public getSavedStateRegistry(): androidx.savedstate.SavedStateRegistry;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public onStart(): void;
@@ -2327,8 +2327,8 @@ declare module androidx {
 		export module app {
 			export class VideoFragment extends androidx.leanback.app.PlaybackFragment {
 				public static class: java.lang.Class<androidx.leanback.app.VideoFragment>;
-				public getSurfaceView(): globalAndroid.view.SurfaceView;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, savedInstanceState: globalAndroid.os.Bundle): globalAndroid.view.View;
+				public getSurfaceView(): globalAndroid.view.SurfaceView;
 				public onTrimMemory(level: number): void;
 				public onCreateContextMenu(menu: globalAndroid.view.ContextMenu, v: globalAndroid.view.View, menuInfo: globalAndroid.view.ContextMenu.ContextMenuInfo): void;
 				public onVideoSizeChanged(videoWidth: number, videoHeight: number): void;
@@ -2418,10 +2418,10 @@ declare module androidx {
 		export module graphics {
 			export class BoundsRule extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.graphics.BoundsRule>;
-				public bottom: androidx.leanback.graphics.BoundsRule.ValueRule;
 				public left: androidx.leanback.graphics.BoundsRule.ValueRule;
-				public right: androidx.leanback.graphics.BoundsRule.ValueRule;
 				public top: androidx.leanback.graphics.BoundsRule.ValueRule;
+				public right: androidx.leanback.graphics.BoundsRule.ValueRule;
+				public bottom: androidx.leanback.graphics.BoundsRule.ValueRule;
 				public calculateBounds(rect: globalAndroid.graphics.Rect, result: globalAndroid.graphics.Rect): void;
 				public constructor(boundsRule: androidx.leanback.graphics.BoundsRule);
 				public constructor();
@@ -2434,8 +2434,8 @@ declare module androidx {
 					public static inheritFromParent(fraction: number): androidx.leanback.graphics.BoundsRule.ValueRule;
 					public static absoluteValue(absoluteValue: number): androidx.leanback.graphics.BoundsRule.ValueRule;
 					public getAbsoluteValue(): number;
-					public getFraction(): number;
 					public setFraction(fraction: number): void;
+					public getFraction(): number;
 				}
 			}
 		}
@@ -2497,16 +2497,16 @@ declare module androidx {
 				/** @deprecated */
 				public getOpacity(): number;
 				public removeChild(index: number): void;
-				public draw(canvas: globalAndroid.graphics.Canvas): void;
 				public getChildCount(): number;
+				public draw(canvas: globalAndroid.graphics.Canvas): void;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
-				public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
 				public setAlpha(int0: number): void;
-				public invalidateDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
+				public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
 				public setColorFilter(colorFilter: globalAndroid.graphics.ColorFilter): void;
+				public invalidateDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 				public draw(canvas0: globalAndroid.graphics.Canvas): void;
-				public getAlpha(): number;
 				public setChildDrawableAt(index: number, drawable: globalAndroid.graphics.drawable.Drawable): void;
+				public getAlpha(): number;
 				public onBoundsChange(bounds: globalAndroid.graphics.Rect): void;
 				public constructor();
 				public getDrawable(index: number): globalAndroid.graphics.drawable.Drawable;
@@ -2524,14 +2524,14 @@ declare module androidx {
 			export module CompositeDrawable {
 				export class ChildDrawable extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.graphics.CompositeDrawable.ChildDrawable>;
-					public static BOTTOM_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
-					public static BOTTOM_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
-					public static LEFT_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
-					public static LEFT_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
-					public static RIGHT_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
-					public static RIGHT_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
 					public static TOP_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
+					public static BOTTOM_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
+					public static LEFT_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
+					public static RIGHT_ABSOLUTE: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Integer>;
 					public static TOP_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
+					public static BOTTOM_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
+					public static LEFT_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
+					public static RIGHT_FRACTION: globalAndroid.util.Property<androidx.leanback.graphics.CompositeDrawable.ChildDrawable,java.lang.Float>;
 					public recomputeBounds(): void;
 					public constructor(drawable: globalAndroid.graphics.drawable.Drawable, parent: androidx.leanback.graphics.CompositeDrawable);
 					public getBoundsRule(): androidx.leanback.graphics.BoundsRule;
@@ -2564,8 +2564,8 @@ declare module androidx {
 				public draw(canvas0: globalAndroid.graphics.Canvas): void;
 				public getAlpha(): number;
 				public getVerticalOffset(): number;
-				public getBitmap(): globalAndroid.graphics.Bitmap;
 				public setBitmap(bitmap: globalAndroid.graphics.Bitmap): void;
+				public getBitmap(): globalAndroid.graphics.Bitmap;
 				public constructor();
 				public getSource(): globalAndroid.graphics.Rect;
 				public getConstantState(): globalAndroid.graphics.drawable.Drawable.ConstantState;
@@ -2574,8 +2574,8 @@ declare module androidx {
 				public mutate(): globalAndroid.graphics.drawable.Drawable;
 				/** @deprecated */
 				public setColorFilter(color: number, mode: globalAndroid.graphics.PorterDuff.Mode): void;
-				public getOpacity(): number;
 				public setAlpha(alpha: number): void;
+				public getOpacity(): number;
 			}
 			export module FitWidthBitmapDrawable {
 				export class BitmapState extends globalAndroid.graphics.drawable.Drawable.ConstantState {
@@ -2597,11 +2597,11 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.media.MediaControllerAdapter>;
 				public setProgressUpdatingEnabled(enable: boolean): void;
 				public rewind(): void;
-				public getDuration(): number;
 				public play(): void;
+				public getDuration(): number;
+				public pause(): void;
 				public isPlaying(): boolean;
 				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
-				public pause(): void;
 				public getSupportedActions(): number;
 				public getMediaTitle(): string;
 				public getMediaArt(context: globalAndroid.content.Context): globalAndroid.graphics.drawable.Drawable;
@@ -2663,16 +2663,16 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.media.MediaPlayerAdapter>;
 				public setProgressUpdatingEnabled(enable: boolean): void;
 				public onInfo(what: number, extra: number): boolean;
-				public onError(what: number, extra: number): boolean;
 				public release(): void;
+				public onError(what: number, extra: number): boolean;
 				public seekTo(newPosition: number): void;
 				public constructor(context: globalAndroid.content.Context);
-				public getDuration(): number;
 				public getProgressUpdatingInterval(): number;
+				public getDuration(): number;
 				public play(): void;
 				public setDataSource(uri: globalAndroid.net.Uri): boolean;
-				public isPlaying(): boolean;
 				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
+				public isPlaying(): boolean;
 				public pause(): void;
 				public onSeekComplete(): void;
 				public seekTo(positionInMs: number): void;
@@ -2702,11 +2702,11 @@ declare module androidx {
 		export module media {
 			export class MediaPlayerGlue extends androidx.leanback.media.PlaybackControlGlue implements androidx.leanback.widget.OnItemViewSelectedListener {
 				public static class: java.lang.Class<androidx.leanback.media.MediaPlayerGlue>;
-				public static FAST_FORWARD_REWIND_REPEAT_DELAY: number;
-				public static FAST_FORWARD_REWIND_STEP: number;
 				public static NO_REPEAT: number;
-				public static REPEAT_ALL: number;
 				public static REPEAT_ONE: number;
+				public static REPEAT_ALL: number;
+				public static FAST_FORWARD_REWIND_STEP: number;
+				public static FAST_FORWARD_REWIND_REPEAT_DELAY: number;
 				public mThumbsDownAction: androidx.leanback.widget.PlaybackControlsRow.ThumbsDownAction;
 				public mThumbsUpAction: androidx.leanback.widget.PlaybackControlsRow.ThumbsUpAction;
 				public getCurrentSpeedId(): number;
@@ -2714,8 +2714,8 @@ declare module androidx {
 				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
 				public enableProgressUpdating(enable: boolean): void;
 				public play(speed: number): void;
-				public setMode(mode: number): void;
 				public setVideoUrl(videoUrl: string): void;
+				public setMode(mode: number): void;
 				public reset(): void;
 				public isPrepared(): boolean;
 				public getMediaArt(): globalAndroid.graphics.drawable.Drawable;
@@ -2743,9 +2743,9 @@ declare module androidx {
 				public onActionClicked(action: androidx.leanback.widget.Action): void;
 				public setDisplay(surfaceHolder: globalAndroid.view.SurfaceHolder): void;
 				public onDetachedFromHost(): void;
+				public setArtist(artist: string): void;
 				public hasValidMedia(): boolean;
 				public onItemSelected(itemViewHolder: androidx.leanback.widget.Presenter.ViewHolder, item: any, rowViewHolder: androidx.leanback.widget.RowPresenter.ViewHolder, row: androidx.leanback.widget.Row): void;
-				public setArtist(artist: string): void;
 			}
 			export module MediaPlayerGlue {
 				export class VideoPlayerSurfaceHolderCallback extends java.lang.Object implements globalAndroid.view.SurfaceHolder.Callback {
@@ -2765,44 +2765,44 @@ declare module androidx {
 			export class PlaybackBannerControlGlue<T>  extends androidx.leanback.media.PlaybackBaseControlGlue<any> {
 				public static class: java.lang.Class<androidx.leanback.media.PlaybackBannerControlGlue<any>>;
 				public static ACTION_CUSTOM_LEFT_FIRST: number;
-				public static ACTION_CUSTOM_RIGHT_FIRST: number;
-				public static ACTION_FAST_FORWARD: number;
-				public static ACTION_PLAY_PAUSE: number;
-				public static ACTION_REWIND: number;
-				public static ACTION_SKIP_TO_NEXT: number;
 				public static ACTION_SKIP_TO_PREVIOUS: number;
+				public static ACTION_REWIND: number;
+				public static ACTION_PLAY_PAUSE: number;
+				public static ACTION_FAST_FORWARD: number;
+				public static ACTION_SKIP_TO_NEXT: number;
+				public static ACTION_CUSTOM_RIGHT_FIRST: number;
+				public static PLAYBACK_SPEED_INVALID: number;
+				public static PLAYBACK_SPEED_PAUSED: number;
+				public static PLAYBACK_SPEED_NORMAL: number;
 				public static PLAYBACK_SPEED_FAST_L0: number;
 				public static PLAYBACK_SPEED_FAST_L1: number;
 				public static PLAYBACK_SPEED_FAST_L2: number;
 				public static PLAYBACK_SPEED_FAST_L3: number;
 				public static PLAYBACK_SPEED_FAST_L4: number;
-				public static PLAYBACK_SPEED_INVALID: number;
-				public static PLAYBACK_SPEED_NORMAL: number;
-				public static PLAYBACK_SPEED_PAUSED: number;
 				public getRewindSpeeds(): native.Array<number>;
-				public onPlayCompleted(): void;
 				public onPlayStateChanged(): void;
+				public onPlayCompleted(): void;
 				public constructor(context: globalAndroid.content.Context, fastForwardSpeeds: native.Array<number>, rewindSpeeds: native.Array<number>, impl: any);
 				public constructor(context: globalAndroid.content.Context);
 				public play(): void;
 				public pause(): void;
 				public setControlsRow(controlsRow: androidx.leanback.widget.PlaybackControlsRow): void;
-				public getCurrentPosition(): number;
 				public onCreateRowPresenter(): androidx.leanback.widget.PlaybackRowPresenter;
+				public getCurrentPosition(): number;
 				public constructor(context: globalAndroid.content.Context, seekSpeeds: native.Array<number>, impl: any);
 				public onActionClicked(action0: androidx.leanback.widget.Action): void;
 				public onKey(view0: globalAndroid.view.View, int1: number, keyEvent2: globalAndroid.view.KeyEvent): boolean;
 				public constructor(context: globalAndroid.content.Context, impl: any);
 				public onActionClicked(action: androidx.leanback.widget.Action): void;
 				public onCreatePrimaryActions(primaryActionsAdapter: androidx.leanback.widget.ArrayObjectAdapter): void;
-				public getFastForwardSpeeds(): native.Array<number>;
 				public onKey(v: globalAndroid.view.View, keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
+				public getFastForwardSpeeds(): native.Array<number>;
 			}
 			export module PlaybackBannerControlGlue {
 				export class ACTION_ extends java.lang.Object implements java.lang.annotation.Annotation {
 					public static class: java.lang.Class<androidx.leanback.media.PlaybackBannerControlGlue.ACTION_>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.media.PlaybackBannerControlGlue$ACTION_ interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.media.PlaybackBannerControlGlue() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						equals(object0: any): boolean;
@@ -2827,22 +2827,22 @@ declare module androidx {
 			export abstract class PlaybackBaseControlGlue<T>  extends androidx.leanback.media.PlaybackGlue {
 				public static class: java.lang.Class<androidx.leanback.media.PlaybackBaseControlGlue<any>>;
 				public static ACTION_CUSTOM_LEFT_FIRST: number;
-				public static ACTION_CUSTOM_RIGHT_FIRST: number;
-				public static ACTION_FAST_FORWARD: number;
-				public static ACTION_PLAY_PAUSE: number;
-				public static ACTION_REPEAT: number;
-				public static ACTION_REWIND: number;
-				public static ACTION_SHUFFLE: number;
-				public static ACTION_SKIP_TO_NEXT: number;
 				public static ACTION_SKIP_TO_PREVIOUS: number;
+				public static ACTION_REWIND: number;
+				public static ACTION_PLAY_PAUSE: number;
+				public static ACTION_FAST_FORWARD: number;
+				public static ACTION_SKIP_TO_NEXT: number;
+				public static ACTION_REPEAT: number;
+				public static ACTION_SHUFFLE: number;
+				public static ACTION_CUSTOM_RIGHT_FIRST: number;
 				public onPlayCompleted(): void;
+				public setControlsOverlayAutoHideEnabled(enable: boolean): void;
 				public getControlsRow(): androidx.leanback.widget.PlaybackControlsRow;
 				public onMetadataChanged(): void;
-				public setControlsOverlayAutoHideEnabled(enable: boolean): void;
 				public constructor(context: globalAndroid.content.Context);
 				public getDuration(): number;
-				public isControlsOverlayAutoHideEnabled(): boolean;
 				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
+				public isControlsOverlayAutoHideEnabled(): boolean;
 				public getArt(): globalAndroid.graphics.drawable.Drawable;
 				public onUpdateBufferedProgress(): void;
 				public onActionClicked(action0: androidx.leanback.widget.Action): void;
@@ -2850,8 +2850,8 @@ declare module androidx {
 				public onKey(view0: globalAndroid.view.View, int1: number, keyEvent2: globalAndroid.view.KeyEvent): boolean;
 				public onUpdateDuration(): void;
 				public constructor(context: globalAndroid.content.Context, impl: any);
-				public getBufferedPosition(): number;
 				public onCreateSecondaryActions(secondaryActionsAdapter: androidx.leanback.widget.ArrayObjectAdapter): void;
+				public getBufferedPosition(): number;
 				public next(): void;
 				public setPlaybackRowPresenter(presenter: androidx.leanback.widget.PlaybackRowPresenter): void;
 				public setTitle(title: string): void;
@@ -2863,19 +2863,19 @@ declare module androidx {
 				public isPlaying(): boolean;
 				public pause(): void;
 				public getSupportedActions(): number;
-				public static notifyItemChanged(adapter: androidx.leanback.widget.ArrayObjectAdapter, object: any): void;
 				public setControlsRow(controlsRow: androidx.leanback.widget.PlaybackControlsRow): void;
+				public static notifyItemChanged(adapter: androidx.leanback.widget.ArrayObjectAdapter, object: any): void;
 				public getPlaybackRowPresenter(): androidx.leanback.widget.PlaybackRowPresenter;
+				public onCreateRowPresenter(): androidx.leanback.widget.PlaybackRowPresenter;
 				public getCurrentPosition(): number;
 				public getTitle(): string;
-				public onCreateRowPresenter(): androidx.leanback.widget.PlaybackRowPresenter;
 				public setSubtitle(subtitle: string): void;
 				public seekTo(position: number): void;
 				public getPlayerAdapter(): any;
 				public getSubtitle(): string;
 				public onUpdateProgress(): void;
-				public onCreatePrimaryActions(primaryActionsAdapter: androidx.leanback.widget.ArrayObjectAdapter): void;
 				public onDetachedFromHost(): void;
+				public onCreatePrimaryActions(primaryActionsAdapter: androidx.leanback.widget.ArrayObjectAdapter): void;
 				public previous(): void;
 				public setArt(cover: globalAndroid.graphics.drawable.Drawable): void;
 			}
@@ -2889,20 +2889,20 @@ declare module androidx {
 			export abstract class PlaybackControlGlue extends androidx.leanback.media.PlaybackGlue implements androidx.leanback.widget.OnActionClickedListener, globalAndroid.view.View.OnKeyListener {
 				public static class: java.lang.Class<androidx.leanback.media.PlaybackControlGlue>;
 				public static ACTION_CUSTOM_LEFT_FIRST: number;
-				public static ACTION_CUSTOM_RIGHT_FIRST: number;
-				public static ACTION_FAST_FORWARD: number;
-				public static ACTION_PLAY_PAUSE: number;
-				public static ACTION_REWIND: number;
-				public static ACTION_SKIP_TO_NEXT: number;
 				public static ACTION_SKIP_TO_PREVIOUS: number;
+				public static ACTION_REWIND: number;
+				public static ACTION_PLAY_PAUSE: number;
+				public static ACTION_FAST_FORWARD: number;
+				public static ACTION_SKIP_TO_NEXT: number;
+				public static ACTION_CUSTOM_RIGHT_FIRST: number;
+				public static PLAYBACK_SPEED_INVALID: number;
+				public static PLAYBACK_SPEED_PAUSED: number;
+				public static PLAYBACK_SPEED_NORMAL: number;
 				public static PLAYBACK_SPEED_FAST_L0: number;
 				public static PLAYBACK_SPEED_FAST_L1: number;
 				public static PLAYBACK_SPEED_FAST_L2: number;
 				public static PLAYBACK_SPEED_FAST_L3: number;
 				public static PLAYBACK_SPEED_FAST_L4: number;
-				public static PLAYBACK_SPEED_INVALID: number;
-				public static PLAYBACK_SPEED_NORMAL: number;
-				public static PLAYBACK_SPEED_PAUSED: number;
 				public getRewindSpeeds(): native.Array<number>;
 				/** @deprecated */
 				public setControlsRowPresenter(presenter: androidx.leanback.widget.PlaybackControlsRowPresenter): void;
@@ -2967,10 +2967,10 @@ declare module androidx {
 				public getContext(): globalAndroid.content.Context;
 				public onHostStart(): void;
 				public play(): void;
-				public isPlaying(): boolean;
-				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
-				public pause(): void;
 				public removePlayerCallback(callback: androidx.leanback.media.PlaybackGlue.PlayerCallback): void;
+				public isPlaying(): boolean;
+				public pause(): void;
+				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
 				public getHost(): androidx.leanback.media.PlaybackGlueHost;
 				public addPlayerCallback(playerCallback: androidx.leanback.media.PlaybackGlue.PlayerCallback): void;
 				public getPlayerCallbacks(): java.util.List<androidx.leanback.media.PlaybackGlue.PlayerCallback>;
@@ -3045,8 +3045,8 @@ declare module androidx {
 		export module media {
 			export class PlaybackTransportControlGlue<T>  extends androidx.leanback.media.PlaybackBaseControlGlue<any> {
 				public static class: java.lang.Class<androidx.leanback.media.PlaybackTransportControlGlue<any>>;
-				public getSeekProvider(): androidx.leanback.widget.PlaybackSeekDataProvider;
 				public onPlayStateChanged(): void;
+				public getSeekProvider(): androidx.leanback.widget.PlaybackSeekDataProvider;
 				public constructor(context: globalAndroid.content.Context);
 				public isSeekEnabled(): boolean;
 				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
@@ -3068,8 +3068,8 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.leanback.media.PlaybackTransportControlGlue.SeekUiClient>;
 					public getPlaybackSeekDataProvider(): androidx.leanback.widget.PlaybackSeekDataProvider;
 					public isSeekEnabled(): boolean;
-					public onSeekPositionChanged(pos: number): void;
 					public onSeekStarted(): void;
+					public onSeekPositionChanged(pos: number): void;
 					public onSeekFinished(cancelled: boolean): void;
 				}
 				export class UpdatePlaybackStateHandler extends globalAndroid.os.Handler {
@@ -3089,11 +3089,11 @@ declare module androidx {
 				public setProgressUpdatingEnabled(enable: boolean): void;
 				public rewind(): void;
 				public getCallback(): androidx.leanback.media.PlayerAdapter.Callback;
-				public getDuration(): number;
 				public play(): void;
+				public getDuration(): number;
+				public pause(): void;
 				public isPlaying(): boolean;
 				public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
-				public pause(): void;
 				public getSupportedActions(): number;
 				public seekTo(positionInMs: number): void;
 				public getCurrentPosition(): number;
@@ -3151,8 +3151,8 @@ declare module androidx {
 		export module system {
 			export class Settings extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.system.Settings>;
-				public static OUTLINE_CLIPPING_DISABLED: string;
 				public static PREFER_STATIC_SHADOWS: string;
+				public static OUTLINE_CLIPPING_DISABLED: string;
 				public static getInstance(context: globalAndroid.content.Context): androidx.leanback.system.Settings;
 				public preferStaticShadows(): boolean;
 				public isOutlineClippingDisabled(): boolean;
@@ -3206,8 +3206,8 @@ declare module androidx {
 				public clone(): any;
 				public getDistance(): number;
 				public setEpicenterCallback(epicenterCallback: globalAndroid.transition.Transition.EpicenterCallback): void;
-				public clone(): globalAndroid.transition.Transition;
 				public onDisappear(sceneRoot: globalAndroid.view.ViewGroup, startValues: globalAndroid.transition.TransitionValues, startVisibility: number, endValues: globalAndroid.transition.TransitionValues, endVisibility: number): globalAndroid.animation.Animator;
+				public clone(): globalAndroid.transition.Transition;
 			}
 			export module FadeAndShortSlide {
 				export abstract class CalculateSlide extends java.lang.Object {
@@ -3281,7 +3281,7 @@ declare module androidx {
 				export class CalculateSlide extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.transition.SlideKitkat.CalculateSlide>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.transition.SlideKitkat$CalculateSlide interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.transition.SlideKitkat() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getGone(view0: globalAndroid.view.View): number;
@@ -3296,14 +3296,14 @@ declare module androidx {
 				export abstract class CalculateSlideHorizontal extends java.lang.Object implements androidx.leanback.transition.SlideKitkat.CalculateSlide {
 					public static class: java.lang.Class<androidx.leanback.transition.SlideKitkat.CalculateSlideHorizontal>;
 					public getHere(view: globalAndroid.view.View): number;
-					public getGone(view0: globalAndroid.view.View): number;
 					public getProperty(): globalAndroid.util.Property<globalAndroid.view.View,java.lang.Float>;
+					public getGone(view0: globalAndroid.view.View): number;
 				}
 				export abstract class CalculateSlideVertical extends java.lang.Object implements androidx.leanback.transition.SlideKitkat.CalculateSlide {
 					public static class: java.lang.Class<androidx.leanback.transition.SlideKitkat.CalculateSlideVertical>;
 					public getHere(view: globalAndroid.view.View): number;
-					public getGone(view0: globalAndroid.view.View): number;
 					public getProperty(): globalAndroid.util.Property<globalAndroid.view.View,java.lang.Float>;
+					public getGone(view0: globalAndroid.view.View): number;
 				}
 				export class SlideAnimatorListener extends globalAndroid.animation.AnimatorListenerAdapter {
 					public static class: java.lang.Class<androidx.leanback.transition.SlideKitkat.SlideAnimatorListener>;
@@ -3365,8 +3365,8 @@ declare module androidx {
 				public static getSharedElementExitTransition(window: globalAndroid.view.Window): any;
 				public static beginDelayedTransition(sceneRoot: globalAndroid.view.ViewGroup, transitionObject: any): void;
 				public static exclude(transition: any, targetId: number, exclude: boolean): void;
-				public static setSharedElementEnterTransition(fragment: globalAndroid.app.Fragment, transition: any): void;
 				public static systemSupportsEntranceTransitions(): boolean;
+				public static setSharedElementEnterTransition(fragment: globalAndroid.app.Fragment, transition: any): void;
 				public static createScene(sceneRoot: globalAndroid.view.ViewGroup, r: java.lang.Runnable): any;
 				public static addSharedElement(ft: globalAndroid.app.FragmentTransaction, view: globalAndroid.view.View, transitionName: string): void;
 				public static setEnterTransition(fragment: globalAndroid.app.Fragment, transition: any): void;
@@ -3484,8 +3484,8 @@ declare module androidx {
 		export module util {
 			export class StateMachine extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.util.StateMachine>;
-				public static STATUS_INVOKED: number;
 				public static STATUS_ZERO: number;
+				public static STATUS_INVOKED: number;
 				public reset(): void;
 				public start(): void;
 				public addState(state: androidx.leanback.util.StateMachine.State): void;
@@ -3569,9 +3569,9 @@ declare module androidx {
 				public getMediaPlayState(item: any): number;
 				public getActionPresenter(): androidx.leanback.widget.Presenter;
 				public setBackgroundColor(color: number): void;
-				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
-				public setActionPresenter(actionPresenter: androidx.leanback.widget.Presenter): void;
 				public setThemeId(themeId: number): void;
+				public setActionPresenter(actionPresenter: androidx.leanback.widget.Presenter): void;
+				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public onUnbindMediaDetails(vh: androidx.leanback.widget.AbstractMediaItemPresenter.ViewHolder): void;
 				public constructor();
 				public onUnbindMediaPlayState(vh: androidx.leanback.widget.AbstractMediaItemPresenter.ViewHolder): void;
@@ -3589,22 +3589,22 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.leanback.widget.AbstractMediaItemPresenter.ViewHolder>;
 					public getMediaItemRowActions(): native.Array<androidx.leanback.widget.MultiActionsProvider.MultiAction>;
 					public getMediaItemPlayingView(): globalAndroid.view.View;
-					public getMediaItemActionsContainer(): globalAndroid.view.ViewGroup;
 					public notifyDetailsChanged(): void;
+					public getMediaItemActionsContainer(): globalAndroid.view.ViewGroup;
 					public notifyActionChanged(action: androidx.leanback.widget.MultiActionsProvider.MultiAction): void;
 					public getMediaItemPausedView(): globalAndroid.view.View;
-					public getMediaItemRowSeparator(): globalAndroid.view.View;
 					public getSelectorView(): globalAndroid.view.View;
+					public getMediaItemRowSeparator(): globalAndroid.view.View;
 					public onBindRowActions(): void;
 					public getMediaItemDurationView(): globalAndroid.widget.TextView;
 					public getMediaItemNumberView(): globalAndroid.widget.TextView;
 					public constructor(view: globalAndroid.view.View);
 					public getFacet(facetClass: java.lang.Class<any>): any;
-					public getMediaItemNameView(): globalAndroid.widget.TextView;
 					public notifyPlayStateChanged(): void;
+					public getMediaItemNameView(): globalAndroid.widget.TextView;
 					public setSelectedMediaItemNumberView(position: number): void;
-					public getMediaItemDetailsView(): globalAndroid.view.View;
 					public getMediaItemNumberViewFlipper(): globalAndroid.widget.ViewFlipper;
+					public getMediaItemDetailsView(): globalAndroid.view.View;
 				}
 			}
 		}
@@ -3617,8 +3617,8 @@ declare module androidx {
 			export abstract class AbstractMediaListHeaderPresenter extends androidx.leanback.widget.RowPresenter {
 				public static class: java.lang.Class<androidx.leanback.widget.AbstractMediaListHeaderPresenter>;
 				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
-				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public isUsingDefaultSelectEffect(): boolean;
+				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public getFacet(facetClass: java.lang.Class<any>): any;
 				public setBackgroundColor(color: number): void;
 				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
@@ -3644,8 +3644,8 @@ declare module androidx {
 			export class Action extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.Action>;
 				public static NO_ID: number;
-				public respondsToKeyCode(keyCode: number): boolean;
 				public setLabel1(label: string): void;
+				public respondsToKeyCode(keyCode: number): boolean;
 				public addKeyCode(keyCode: number): void;
 				public constructor(id: number);
 				public removeKeyCode(keyCode: number): void;
@@ -3724,14 +3724,14 @@ declare module androidx {
 				public unmodifiableList(): java.util.List<any>;
 				public add(index: number, item: any): void;
 				public constructor();
-				public add(item: any): void;
-				public get(int0: number): any;
-				public replace(position: number, item: any): void;
 				public size(): number;
+				public get(int0: number): any;
+				public add(item: any): void;
+				public replace(position: number, item: any): void;
 				public indexOf(item: any): number;
 				public removeItems(position: number, count: number): number;
-				public clear(): void;
 				public move(fromPosition: number, toPosition: number): void;
+				public clear(): void;
 				public isImmediateNotifySupported(): boolean;
 				public remove(item: any): boolean;
 				public constructor(presenter: androidx.leanback.widget.Presenter);
@@ -3756,13 +3756,13 @@ declare module androidx {
 		export module widget {
 			export class BaseCardView extends globalAndroid.widget.FrameLayout {
 				public static class: java.lang.Class<androidx.leanback.widget.BaseCardView>;
-				public static CARD_REGION_VISIBLE_ACTIVATED: number;
-				public static CARD_REGION_VISIBLE_ALWAYS: number;
-				public static CARD_REGION_VISIBLE_SELECTED: number;
+				public static CARD_TYPE_MAIN_ONLY: number;
 				public static CARD_TYPE_INFO_OVER: number;
 				public static CARD_TYPE_INFO_UNDER: number;
 				public static CARD_TYPE_INFO_UNDER_WITH_EXTRA: number;
-				public static CARD_TYPE_MAIN_ONLY: number;
+				public static CARD_REGION_VISIBLE_ALWAYS: number;
+				public static CARD_REGION_VISIBLE_ACTIVATED: number;
+				public static CARD_REGION_VISIBLE_SELECTED: number;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
 				public generateLayoutParams(attrs: globalAndroid.util.AttributeSet): globalAndroid.widget.FrameLayout.LayoutParams;
@@ -3822,8 +3822,8 @@ declare module androidx {
 				public canResolveTextAlignment(): boolean;
 				public notifySubtreeAccessibilityStateChanged(child: globalAndroid.view.View, source: globalAndroid.view.View, changeType: number): void;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
-				public generateLayoutParams(lp: globalAndroid.view.ViewGroup.LayoutParams): androidx.leanback.widget.BaseCardView.LayoutParams;
 				public onCreateDrawableState(extraSpace: number): native.Array<number>;
+				public generateLayoutParams(lp: globalAndroid.view.ViewGroup.LayoutParams): androidx.leanback.widget.BaseCardView.LayoutParams;
 				public generateLayoutParams(attrs: globalAndroid.util.AttributeSet): androidx.leanback.widget.BaseCardView.LayoutParams;
 				public updateViewLayout(view: globalAndroid.view.View, params: globalAndroid.view.ViewGroup.LayoutParams): void;
 				public onNestedScroll(target: globalAndroid.view.View, dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number): void;
@@ -3846,9 +3846,9 @@ declare module androidx {
 				public setExtraVisibility(visibility: number): void;
 				public onKeyLongPress(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 				public invalidateDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
+				public setCardType(type: number): void;
 				/** @deprecated */
 				public getExtraVisibility(): number;
-				public setCardType(type: number): void;
 				public getChildVisibleRect(child: globalAndroid.view.View, r: globalAndroid.graphics.Rect, offset: globalAndroid.graphics.Point): boolean;
 				public requestChildFocus(child: globalAndroid.view.View, focused: globalAndroid.view.View): void;
 				public createContextMenu(menu: globalAndroid.view.ContextMenu): void;
@@ -3889,9 +3889,9 @@ declare module androidx {
 				}
 				export class LayoutParams extends globalAndroid.widget.FrameLayout.LayoutParams {
 					public static class: java.lang.Class<androidx.leanback.widget.BaseCardView.LayoutParams>;
-					public static VIEW_TYPE_EXTRA: number;
-					public static VIEW_TYPE_INFO: number;
 					public static VIEW_TYPE_MAIN: number;
+					public static VIEW_TYPE_INFO: number;
+					public static VIEW_TYPE_EXTRA: number;
 					public viewType: number;
 					public constructor(source: globalAndroid.view.ViewGroup.LayoutParams);
 					public constructor(c: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
@@ -3915,16 +3915,16 @@ declare module androidx {
 				public static FOCUS_SCROLL_ALIGNED: number;
 				public static FOCUS_SCROLL_ITEM: number;
 				public static FOCUS_SCROLL_PAGE: number;
-				public static ITEM_ALIGN_OFFSET_PERCENT_DISABLED: number;
-				public static SAVE_ALL_CHILD: number;
-				public static SAVE_LIMITED_CHILD: number;
-				public static SAVE_NO_CHILD: number;
-				public static SAVE_ON_SCREEN_CHILD: number;
-				public static WINDOW_ALIGN_BOTH_EDGE: number;
-				public static WINDOW_ALIGN_HIGH_EDGE: number;
 				public static WINDOW_ALIGN_LOW_EDGE: number;
+				public static WINDOW_ALIGN_HIGH_EDGE: number;
+				public static WINDOW_ALIGN_BOTH_EDGE: number;
 				public static WINDOW_ALIGN_NO_EDGE: number;
 				public static WINDOW_ALIGN_OFFSET_PERCENT_DISABLED: number;
+				public static ITEM_ALIGN_OFFSET_PERCENT_DISABLED: number;
+				public static SAVE_NO_CHILD: number;
+				public static SAVE_ON_SCREEN_CHILD: number;
+				public static SAVE_LIMITED_CHILD: number;
+				public static SAVE_ALL_CHILD: number;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
 				/** @deprecated */
@@ -3949,8 +3949,8 @@ declare module androidx {
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 				public startActionModeForChild(originalView: globalAndroid.view.View, callback: globalAndroid.view.ActionMode.Callback): globalAndroid.view.ActionMode;
 				public onKeyDown(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
-				public getExtraLayoutSpace(): number;
 				public setOnKeyInterceptListener(listener: androidx.leanback.widget.BaseGridView.OnKeyInterceptListener): void;
+				public getExtraLayoutSpace(): number;
 				public getFocusScrollStrategy(): number;
 				/** @deprecated */
 				public invalidateChildInParent(location: native.Array<number>, dirty: globalAndroid.graphics.Rect): globalAndroid.view.ViewParent;
@@ -3961,8 +3961,8 @@ declare module androidx {
 				/** @deprecated */
 				public setHorizontalMargin(margin: number): void;
 				public isTextDirectionResolved(): boolean;
-				public getHorizontalSpacing(): number;
 				public getItemAlignmentOffset(): number;
+				public getHorizontalSpacing(): number;
 				public requestDisallowInterceptTouchEvent(disallowIntercept: boolean): void;
 				public setOnChildSelectedListener(listener: androidx.leanback.widget.OnChildSelectedListener): void;
 				public computeVerticalScrollRange(): number;
@@ -4013,8 +4013,8 @@ declare module androidx {
 				public dispatchNestedScroll(dxConsumed: number, dyConsumed: number, dxUnconsumed: number, dyUnconsumed: number, offsetInWindow: native.Array<number>, type: number): boolean;
 				public getViewSelectedOffsets(view: globalAndroid.view.View, offsets: native.Array<number>): void;
 				public getParent(): globalAndroid.view.ViewParent;
-				public addOnChildViewHolderSelectedListener(listener: androidx.leanback.widget.OnChildViewHolderSelectedListener): void;
 				public setWindowAlignmentPreferKeyLineOverLowEdge(preferKeyLineOverLowEdge: boolean): void;
+				public addOnChildViewHolderSelectedListener(listener: androidx.leanback.widget.OnChildViewHolderSelectedListener): void;
 				public setSelectedPositionWithSub(position: number, subposition: number): void;
 				public setHorizontalSpacing(spacing: number): void;
 				public setGravity(gravity: number): void;
@@ -4023,8 +4023,8 @@ declare module androidx {
 				public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
 				public setItemSpacing(spacing: number): void;
 				public getWindowAlignmentOffsetPercent(): number;
-				public hasPreviousViewInSameRow(position: number): boolean;
 				public setSelectedPositionSmoothWithSub(position: number, subposition: number): void;
+				public hasPreviousViewInSameRow(position: number): boolean;
 				public getWindowAlignment(): number;
 				public sendAccessibilityEvent(eventType: number): void;
 				public setWindowAlignment(windowAlignment: number): void;
@@ -4068,14 +4068,14 @@ declare module androidx {
 				public isFocusDrawingOrderEnabled(): boolean;
 				public setItemAlignmentViewId(viewId: number): void;
 				public animateIn(): void;
-				public onFocusChanged(gainFocus: boolean, direction: number, previouslyFocusedRect: globalAndroid.graphics.Rect): void;
 				public setWindowAlignmentOffset(offset: number): void;
+				public onFocusChanged(gainFocus: boolean, direction: number, previouslyFocusedRect: globalAndroid.graphics.Rect): void;
 				public requestLayout(): void;
 				public getSaveChildrenPolicy(): number;
 				public requestTransparentRegion(child: globalAndroid.view.View): void;
 				public onStartNestedScroll(child: globalAndroid.view.View, target: globalAndroid.view.View, nestedScrollAxes: number): boolean;
-				public dispatchGenericFocusedEvent(event: globalAndroid.view.MotionEvent): boolean;
 				public setLayoutEnabled(layoutEnabled: boolean): void;
+				public dispatchGenericFocusedEvent(event: globalAndroid.view.MotionEvent): boolean;
 				public onNestedPreScroll(target: globalAndroid.view.View, dx: number, dy: number, consumed: native.Array<number>): void;
 				public getItemAlignmentViewId(): number;
 				public onDescendantInvalidated(child: globalAndroid.view.View, target: globalAndroid.view.View): void;
@@ -4100,14 +4100,14 @@ declare module androidx {
 				public setInitialPrefetchItemCount(itemCount: number): void;
 				public onNestedPreFling(target: globalAndroid.view.View, velocityX: number, velocityY: number): boolean;
 				public dispatchTouchEvent(ev: globalAndroid.view.MotionEvent): boolean;
-				public hasOverlappingRendering(): boolean;
 				public setSelectedPositionSmooth(position: number, task: androidx.leanback.widget.ViewHolderTask): void;
+				public hasOverlappingRendering(): boolean;
 			}
 			export module BaseGridView {
 				export class OnKeyInterceptListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.BaseGridView.OnKeyInterceptListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView$OnKeyInterceptListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onInterceptKeyEvent(keyEvent0: globalAndroid.view.KeyEvent): boolean;
@@ -4118,7 +4118,7 @@ declare module androidx {
 				export class OnMotionInterceptListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.BaseGridView.OnMotionInterceptListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView$OnMotionInterceptListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onInterceptMotionEvent(motionEvent0: globalAndroid.view.MotionEvent): boolean;
@@ -4129,7 +4129,7 @@ declare module androidx {
 				export class OnTouchInterceptListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.BaseGridView.OnTouchInterceptListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView$OnTouchInterceptListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onInterceptTouchEvent(motionEvent0: globalAndroid.view.MotionEvent): boolean;
@@ -4140,7 +4140,7 @@ declare module androidx {
 				export class OnUnhandledKeyListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.BaseGridView.OnUnhandledKeyListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView$OnUnhandledKeyListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.BaseGridView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onUnhandledKey(keyEvent0: globalAndroid.view.KeyEvent): boolean;
@@ -4196,8 +4196,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.BrowseFrameLayout>;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
-				public focusSearch(direction: number): globalAndroid.view.View;
 				public setOnFocusSearchListener(listener: androidx.leanback.widget.BrowseFrameLayout.OnFocusSearchListener): void;
+				public focusSearch(direction: number): globalAndroid.view.View;
 				public constructor(context: globalAndroid.content.Context);
 				public onNestedScrollAccepted(child: globalAndroid.view.View, target: globalAndroid.view.View, axes: number): void;
 				public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
@@ -4278,7 +4278,7 @@ declare module androidx {
 				export class OnChildFocusListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.BrowseFrameLayout.OnChildFocusListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.BrowseFrameLayout$OnChildFocusListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.BrowseFrameLayout() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onRequestFocusInDescendants(int0: number, rect1: globalAndroid.graphics.Rect): boolean;
@@ -4291,7 +4291,7 @@ declare module androidx {
 				export class OnFocusSearchListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.BrowseFrameLayout.OnFocusSearchListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.BrowseFrameLayout$OnFocusSearchListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.BrowseFrameLayout() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onFocusSearch(view0: globalAndroid.view.View, int1: number): globalAndroid.view.View;
@@ -4519,7 +4519,7 @@ declare module androidx {
 				export class OnChildFocusedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.ControlBar.OnChildFocusedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.ControlBar$OnChildFocusedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.ControlBar() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onChildFocusedListener(view0: globalAndroid.view.View, view1: globalAndroid.view.View): void;
@@ -4561,7 +4561,7 @@ declare module androidx {
 				export class OnControlClickedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.ControlBarPresenter.OnControlClickedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.ControlBarPresenter$OnControlClickedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.ControlBarPresenter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onControlClicked(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder, object1: any, boundData2: androidx.leanback.widget.ControlBarPresenter.BoundData): void;
@@ -4572,7 +4572,7 @@ declare module androidx {
 				export class OnControlSelectedListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.ControlBarPresenter.OnControlSelectedListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.ControlBarPresenter$OnControlSelectedListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.ControlBarPresenter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onControlSelected(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder, object1: any, boundData2: androidx.leanback.widget.ControlBarPresenter.BoundData): void;
@@ -4595,8 +4595,8 @@ declare module androidx {
 			export class ControlButtonPresenterSelector extends androidx.leanback.widget.PresenterSelector {
 				public static class: java.lang.Class<androidx.leanback.widget.ControlButtonPresenterSelector>;
 				public getPresenter(object0: any): androidx.leanback.widget.Presenter;
-				public getPresenters(): native.Array<androidx.leanback.widget.Presenter>;
 				public getPrimaryPresenter(): androidx.leanback.widget.Presenter;
+				public getPresenters(): native.Array<androidx.leanback.widget.Presenter>;
 				public getPresenter(item: any): androidx.leanback.widget.Presenter;
 				public constructor();
 				public getSecondaryPresenter(): androidx.leanback.widget.Presenter;
@@ -4639,8 +4639,8 @@ declare module androidx {
 				public constructor(presenterSelector: androidx.leanback.widget.PresenterSelector);
 				public swapCursor(cursor: globalAndroid.database.Cursor): globalAndroid.database.Cursor;
 				public constructor();
-				public get(int0: number): any;
 				public size(): number;
+				public get(int0: number): any;
 				public onCursorChanged(): void;
 				public invalidateCache(index: number): void;
 				public isImmediateNotifySupported(): boolean;
@@ -4699,9 +4699,9 @@ declare module androidx {
 				public isImageScaleUpAllowed(): boolean;
 				public setActionsAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public constructor(headerItem: androidx.leanback.widget.HeaderItem);
-				public getActionsAdapter(): androidx.leanback.widget.ObjectAdapter;
 				/** @deprecated */
 				public removeAction(action: androidx.leanback.widget.Action): boolean;
+				public getActionsAdapter(): androidx.leanback.widget.ObjectAdapter;
 				public getActionForKeyCode(keyCode: number): androidx.leanback.widget.Action;
 				public constructor();
 				public getImageDrawable(): globalAndroid.graphics.drawable.Drawable;
@@ -4712,9 +4712,9 @@ declare module androidx {
 				public constructor(id: number, headerItem: androidx.leanback.widget.HeaderItem);
 				/** @deprecated */
 				public addAction(action: androidx.leanback.widget.Action): void;
+				public setImageBitmap(context: globalAndroid.content.Context, bm: globalAndroid.graphics.Bitmap): void;
 				/** @deprecated */
 				public getActions(): java.util.List<androidx.leanback.widget.Action>;
-				public setImageBitmap(context: globalAndroid.content.Context, bm: globalAndroid.graphics.Bitmap): void;
 			}
 			export module DetailsOverviewRow {
 				export class Listener extends java.lang.Object {
@@ -4734,8 +4734,8 @@ declare module androidx {
 		export module widget {
 			export class DetailsOverviewRowPresenter extends androidx.leanback.widget.RowPresenter {
 				public static class: java.lang.Class<androidx.leanback.widget.DetailsOverviewRowPresenter>;
-				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public getOnActionClickedListener(): androidx.leanback.widget.OnActionClickedListener;
+				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public onBindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public constructor(detailsPresenter: androidx.leanback.widget.Presenter);
@@ -4743,8 +4743,8 @@ declare module androidx {
 				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onSelectLevelChanged(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setBackgroundColor(color: number): void;
-				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public setSharedElementEnterTransition(activity: globalAndroid.app.Activity, sharedElementName: string): void;
+				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public constructor();
 				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public getBackgroundColor(): number;
@@ -5034,11 +5034,11 @@ declare module androidx {
 		export module widget {
 			export class FullWidthDetailsOverviewRowPresenter extends androidx.leanback.widget.RowPresenter {
 				public static class: java.lang.Class<androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter>;
-				public static ALIGN_MODE_MIDDLE: number;
-				public static ALIGN_MODE_START: number;
-				public static STATE_FULL: number;
 				public static STATE_HALF: number;
+				public static STATE_FULL: number;
 				public static STATE_SMALL: number;
+				public static ALIGN_MODE_START: number;
+				public static ALIGN_MODE_MIDDLE: number;
 				public mInitialState: number;
 				public getOnActionClickedListener(): androidx.leanback.widget.OnActionClickedListener;
 				public setParticipatingEntranceTransition(participating: boolean): void;
@@ -5052,8 +5052,8 @@ declare module androidx {
 				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public notifyOnBindLogo(viewHolder: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter.ViewHolder): void;
 				public constructor();
-				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setInitialState(state: number): void;
+				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public getInitialState(): number;
 				public isClippingChildren(): boolean;
 				public onLayoutOverviewFrame(viewHolder: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter.ViewHolder, oldState: number, logoChanged: boolean): void;
@@ -5063,8 +5063,8 @@ declare module androidx {
 				public setListener(listener: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter.Listener): void;
 				public onStateChanged(viewHolder: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter.ViewHolder, oldState: number): void;
 				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
-				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public isParticipatingEntranceTransition(): boolean;
+				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public onBindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public constructor(detailsPresenter: androidx.leanback.widget.Presenter, logoPresenter: androidx.leanback.widget.DetailsOverviewLogoPresenter);
 				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
@@ -5129,8 +5129,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.FullWidthDetailsOverviewSharedElementHelper>;
 				public setAutoStartSharedElementTransition(enabled: boolean): void;
 				public getAutoStartSharedElementTransition(): boolean;
-				public onBindLogo(vh: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter.ViewHolder): void;
 				public setSharedElementEnterTransition(activity: globalAndroid.app.Activity, sharedElementName: string, timeoutMs: number): void;
+				public onBindLogo(vh: androidx.leanback.widget.FullWidthDetailsOverviewRowPresenter.ViewHolder): void;
 				public setSharedElementEnterTransition(activity: globalAndroid.app.Activity, sharedElementName: string): void;
 				public startPostponedEnterTransition(): void;
 				public constructor();
@@ -5151,14 +5151,14 @@ declare module androidx {
 			export abstract class Grid extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.Grid>;
 				public static START_DEFAULT: number;
-				public mFirstVisibleIndex: number;
-				public mLastVisibleIndex: number;
-				public mNumRows: number;
 				public mProvider: androidx.leanback.widget.Grid.Provider;
 				public mReversedFlow: boolean;
 				public mSpacing: number;
-				public mStartIndex: number;
+				public mNumRows: number;
+				public mFirstVisibleIndex: number;
+				public mLastVisibleIndex: number;
 				public mTmpItemPositionsInRows: native.Array<androidx.collection.CircularIntArray>;
+				public mStartIndex: number;
 				public fillDisappearingItems(positions: native.Array<number>, positionsLength: number, positionToRow: globalAndroid.util.SparseIntArray): void;
 				public prependOneColumnVisibleItems(): boolean;
 				public collectAdjacentPrefetchPositions(fromLimit: number, da: number, layoutPrefetchRegistry: androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry): void;
@@ -5174,18 +5174,18 @@ declare module androidx {
 				public getItemPositionsInRows(): native.Array<androidx.collection.CircularIntArray>;
 				public getItemPositionsInRows(int0: number, int1: number): native.Array<androidx.collection.CircularIntArray>;
 				public invalidateItemsAfter(index: number): void;
-				public appendOneColumnVisibleItems(): boolean;
 				public getFirstVisibleIndex(): number;
+				public appendOneColumnVisibleItems(): boolean;
 				public setStart(startIndex: number): void;
 				public appendVisibleItems(toLimit: number): void;
 				public appendVisibleItems(int0: number, boolean1: boolean): boolean;
 				public getLocation(int0: number): androidx.leanback.widget.Grid.Location;
 				public getLastVisibleIndex(): number;
-				public getRowIndex(index: number): number;
 				public resetVisibleIndex(): void;
+				public getRowIndex(index: number): number;
 				public removeInvisibleItemsAtEnd(aboveIndex: number, toLimit: number): void;
-				public setProvider(provider: androidx.leanback.widget.Grid.Provider): void;
 				public setSpacing(spacing: number): void;
+				public setProvider(provider: androidx.leanback.widget.Grid.Provider): void;
 				public checkAppendOverLimit(toLimit: number): boolean;
 				public removeInvisibleItemsAtFront(belowIndex: number, toLimit: number): void;
 				public setReversedFlow(reversedFlow: boolean): void;
@@ -5201,7 +5201,7 @@ declare module androidx {
 				export class Provider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.Grid.Provider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.Grid$Provider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.Grid() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getCount(): number;
@@ -5232,9 +5232,9 @@ declare module androidx {
 			export class GridLayoutManager extends androidx.recyclerview.widget.RecyclerView.LayoutManager {
 				public static class: java.lang.Class<androidx.leanback.widget.GridLayoutManager>;
 				public generateLayoutParams(lp: globalAndroid.view.ViewGroup.LayoutParams): androidx.recyclerview.widget.RecyclerView.LayoutParams;
-				public getRowCountForAccessibility(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State): number;
 				public setGravity(gravity: number): void;
 				public setSelectionSmoothWithSub(position: number, subposition: number): void;
+				public getRowCountForAccessibility(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State): number;
 				public getDecoratedLeft(child: globalAndroid.view.View): number;
 				public startSmoothScroll(smoothScroller: androidx.recyclerview.widget.RecyclerView.SmoothScroller): void;
 				public requestChildRectangleOnScreen(parent: androidx.recyclerview.widget.RecyclerView, child: globalAndroid.view.View, rect: globalAndroid.graphics.Rect, immediate: boolean): boolean;
@@ -5250,8 +5250,8 @@ declare module androidx {
 				public setWindowAlignment(windowAlignment: number): void;
 				public canScrollHorizontally(): boolean;
 				public onRequestChildFocus(parent: androidx.recyclerview.widget.RecyclerView, child: globalAndroid.view.View, focused: globalAndroid.view.View): boolean;
-				public getColumnCountForAccessibility(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State): number;
 				public getPruneChild(): boolean;
+				public getColumnCountForAccessibility(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State): number;
 				public generateDefaultLayoutParams(): androidx.recyclerview.widget.RecyclerView.LayoutParams;
 				public onRestoreInstanceState(state: globalAndroid.os.Parcelable): void;
 				public setHorizontalSpacing(space: number): void;
@@ -5266,14 +5266,14 @@ declare module androidx {
 				public onLayoutChildren(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State): void;
 				public getFocusScrollStrategy(): number;
 				public collectInitialPrefetchPositions(adapterItemCount: number, layoutPrefetchRegistry: androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry): void;
+				public setRowHeight(height: number): void;
 				public generateLayoutParams(c: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet): androidx.recyclerview.widget.RecyclerView.LayoutParams;
 				public onItemsMoved(recyclerView: androidx.recyclerview.widget.RecyclerView, fromPosition: number, toPosition: number, itemCount: number): void;
-				public setRowHeight(height: number): void;
 				public onAddFocusables(recyclerView: androidx.recyclerview.widget.RecyclerView, views: java.util.ArrayList<globalAndroid.view.View>, direction: number, focusableMode: number): boolean;
 				public performAccessibilityAction(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State, action: number, bundle3: globalAndroid.os.Bundle): boolean;
 				public setSelectionWithSub(position: number, subposition: number, primaryScrollExtra: number): void;
-				public getHorizontalSpacing(): number;
 				public getItemAlignmentOffset(): number;
+				public getHorizontalSpacing(): number;
 				public collectAdjacentPrefetchPositions(dx: number, dy: number, state: androidx.recyclerview.widget.RecyclerView.State, layoutPrefetchRegistry: androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry): void;
 				public generateLayoutParams(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet): androidx.recyclerview.widget.RecyclerView.LayoutParams;
 				public onItemsUpdated(recyclerView: androidx.recyclerview.widget.RecyclerView, positionStart: number, itemCount: number, payload: any): void;
@@ -5284,8 +5284,8 @@ declare module androidx {
 				public setItemAlignmentOffsetPercent(offsetPercent: number): void;
 				public isItemAlignmentOffsetWithPadding(): boolean;
 				public onLayoutCompleted(state: androidx.recyclerview.widget.RecyclerView.State): void;
-				public getSelection(): number;
 				public getViewForPosition(position: number): globalAndroid.view.View;
+				public getSelection(): number;
 				public setNumRows(numRows: number): void;
 				public removeOnChildViewHolderSelectedListener(listener: androidx.leanback.widget.OnChildViewHolderSelectedListener): void;
 				public onRtlPropertiesChanged(layoutDirection: number): void;
@@ -5297,28 +5297,28 @@ declare module androidx {
 				public isScrollEnabled(): boolean;
 				public setItemAlignmentViewId(viewId: number): void;
 				public setItemAlignmentOffset(alignmentOffset: number): void;
-				public getDecoratedBoundsWithMargins(view: globalAndroid.view.View, outBounds: globalAndroid.graphics.Rect): void;
 				public setOrientation(orientation: number): void;
+				public getDecoratedBoundsWithMargins(view: globalAndroid.view.View, outBounds: globalAndroid.graphics.Rect): void;
 				public getDecoratedBottom(child: globalAndroid.view.View): number;
 				public setSelection(position: number, primaryScrollExtra: number): void;
 				public setLayoutEnabled(layoutEnabled: boolean): void;
 				public getItemAlignmentViewId(): number;
 				public setWindowAlignmentOffsetPercent(offsetPercent: number): void;
-				public onSaveInstanceState(): globalAndroid.os.Parcelable;
-				public setOnChildViewHolderSelectedListener(listener: androidx.leanback.widget.OnChildViewHolderSelectedListener): void;
 				public setVerticalSpacing(space: number): void;
+				public setOnChildViewHolderSelectedListener(listener: androidx.leanback.widget.OnChildViewHolderSelectedListener): void;
+				public onSaveInstanceState(): globalAndroid.os.Parcelable;
 				public scrollHorizontallyBy(dx: number, recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State): number;
 				public smoothScrollToPosition(recyclerView: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State, position: number): void;
 				public getDecoratedRight(child: globalAndroid.view.View): number;
-				public onAdapterChanged(oldAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<any>, newAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<any>): void;
 				public setFocusOutSideAllowed(throughStart: boolean, throughEnd: boolean): void;
+				public onAdapterChanged(oldAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<any>, newAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<any>): void;
 				public getWindowAlignmentOffset(): number;
 				public onMeasure(recycler: androidx.recyclerview.widget.RecyclerView.Recycler, state: androidx.recyclerview.widget.RecyclerView.State, widthSpec: number, heightSpec: number): void;
 				public supportsPredictiveItemAnimations(): boolean;
 				public onItemsRemoved(recyclerView: androidx.recyclerview.widget.RecyclerView, positionStart: number, itemCount: number): void;
 				public setSelection(position: number, subposition: number, smooth: boolean, primaryScrollExtra: number): void;
-				public onItemsChanged(recyclerView: androidx.recyclerview.widget.RecyclerView): void;
 				public setItemAlignmentOffsetWithPadding(withPadding: boolean): void;
+				public onItemsChanged(recyclerView: androidx.recyclerview.widget.RecyclerView): void;
 				public setPruneChild(pruneChild: boolean): void;
 				public constructor(baseGridView: androidx.leanback.widget.BaseGridView);
 				public hasDoneFirstLayout(): boolean;
@@ -5458,11 +5458,11 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.GuidanceStylist>;
 				public onProvideLayoutId(): number;
 				public onImeAppearing(animators: java.util.List<globalAndroid.animation.Animator>): void;
-				public getDescriptionView(): globalAndroid.widget.TextView;
 				public getTitleView(): globalAndroid.widget.TextView;
+				public getDescriptionView(): globalAndroid.widget.TextView;
 				public getBreadcrumbView(): globalAndroid.widget.TextView;
-				public getIconView(): globalAndroid.widget.ImageView;
 				public onCreateView(inflater: globalAndroid.view.LayoutInflater, container: globalAndroid.view.ViewGroup, guidance: androidx.leanback.widget.GuidanceStylist.Guidance): globalAndroid.view.View;
+				public getIconView(): globalAndroid.widget.ImageView;
 				public onImeDisappearing(animators: java.util.List<globalAndroid.animation.Animator>): void;
 				public onDestroyView(): void;
 				public constructor();
@@ -5486,36 +5486,36 @@ declare module androidx {
 		export module widget {
 			export class GuidedAction extends androidx.leanback.widget.Action {
 				public static class: java.lang.Class<androidx.leanback.widget.GuidedAction>;
-				public static ACTION_ID_CANCEL: number;
-				public static ACTION_ID_CONTINUE: number;
-				public static ACTION_ID_CURRENT: number;
-				public static ACTION_ID_FINISH: number;
-				public static ACTION_ID_NEXT: number;
-				public static ACTION_ID_NO: number;
-				public static ACTION_ID_OK: number;
-				public static ACTION_ID_YES: number;
-				public static CHECKBOX_CHECK_SET_ID: number;
-				public static DEFAULT_CHECK_SET_ID: number;
 				public static NO_CHECK_SET: number;
-				public isChecked(): boolean;
-				public isEditTitleUsed(): boolean;
+				public static DEFAULT_CHECK_SET_ID: number;
+				public static CHECKBOX_CHECK_SET_ID: number;
+				public static ACTION_ID_NEXT: number;
+				public static ACTION_ID_CURRENT: number;
+				public static ACTION_ID_OK: number;
+				public static ACTION_ID_CANCEL: number;
+				public static ACTION_ID_FINISH: number;
+				public static ACTION_ID_CONTINUE: number;
+				public static ACTION_ID_YES: number;
+				public static ACTION_ID_NO: number;
 				public setEditDescription(editDescription: string): void;
+				public isEditTitleUsed(): boolean;
 				public setIntent(intent: globalAndroid.content.Intent): void;
+				public isChecked(): boolean;
 				public getIntent(): globalAndroid.content.Intent;
 				public getEditTitle(): string;
 				public getDescription(): string;
 				public getCheckSetId(): number;
 				public constructor();
-				public getSubActions(): java.util.List<androidx.leanback.widget.GuidedAction>;
 				public setChecked(checked: boolean): void;
+				public getSubActions(): java.util.List<androidx.leanback.widget.GuidedAction>;
 				public getInputType(): number;
 				public hasMultilineDescription(): boolean;
 				public setTitle(title: string): void;
 				public infoOnly(): boolean;
 				public getAutofillHints(): native.Array<string>;
 				public hasSubActions(): boolean;
-				public onRestoreInstanceState(bundle: globalAndroid.os.Bundle, key: string): void;
 				public setEditTitle(editTitle: string): void;
+				public onRestoreInstanceState(bundle: globalAndroid.os.Bundle, key: string): void;
 				public hasEditableActivatorView(): boolean;
 				public setSubActions(actions: java.util.List<androidx.leanback.widget.GuidedAction>): void;
 				public constructor(id: number);
@@ -5526,8 +5526,8 @@ declare module androidx {
 				public getDescriptionInputType(): number;
 				public constructor(id: number, label1: string, label2: string);
 				public getTitle(): string;
-				public isAutoSaveRestoreEnabled(): boolean;
 				public isEditable(): boolean;
+				public isAutoSaveRestoreEnabled(): boolean;
 				public hasTextEditable(): boolean;
 				public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 				public getEditDescription(): string;
@@ -5549,15 +5549,15 @@ declare module androidx {
 				}
 				export abstract class BuilderBase<B>  extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.GuidedAction.BuilderBase<any>>;
-					public descriptionEditInputType(inputType: number): B;
 					public editTitle(editTitleResourceId: number): B;
+					public descriptionEditInputType(inputType: number): B;
 					public infoOnly(infoOnly: boolean): B;
 					public autofillHints(hints: native.Array<string>): B;
 					public icon(iconResourceId: number): B;
 					public editTitle(editTitle: string): B;
 					public description(description: string): B;
-					public focusable(focusable: boolean): B;
 					public icon(icon: globalAndroid.graphics.drawable.Drawable): B;
+					public focusable(focusable: boolean): B;
 					public inputType(inputType: number): B;
 					public checked(checked: boolean): B;
 					public checkSetId(checkSetId: number): B;
@@ -5567,15 +5567,15 @@ declare module androidx {
 					public descriptionEditable(editable: boolean): B;
 					public editInputType(inputType: number): B;
 					public clickAction(id: number): B;
-					public editable(editable: boolean): B;
 					public title(titleResourceId: number): B;
+					public editable(editable: boolean): B;
 					public id(id: number): B;
 					public editDescription(descriptionResourceId: number): B;
 					public multilineDescription(multilineDescription: boolean): B;
 					public hasNext(hasNext: boolean): B;
 					public descriptionInputType(inputType: number): B;
-					public autoSaveRestoreEnabled(autoSaveRestoreEnabled: boolean): B;
 					public hasEditableActivatorView(editable: boolean): B;
+					public autoSaveRestoreEnabled(autoSaveRestoreEnabled: boolean): B;
 					public title(title: string): B;
 					public subActions(subActions: java.util.List<androidx.leanback.widget.GuidedAction>): B;
 					public description(descriptionResourceId: number): B;
@@ -5595,17 +5595,17 @@ declare module androidx {
 		export module widget {
 			export class GuidedActionAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<any> {
 				public static class: java.lang.Class<androidx.leanback.widget.GuidedActionAdapter>;
-				public getItemViewType(position: number): number;
 				public setClickListener(clickListener: androidx.leanback.widget.GuidedActionAdapter.ClickListener): void;
+				public getItemViewType(position: number): number;
 				public getItem(position: number): androidx.leanback.widget.GuidedAction;
 				public setFocusListener(focusListener: androidx.leanback.widget.GuidedActionAdapter.FocusListener): void;
 				public getCount(): number;
 				public onBindViewHolder(holder: any, position: number, payloads: java.util.List<any>): void;
 				public setActions(actions: java.util.List<androidx.leanback.widget.GuidedAction>): void;
 				public constructor();
-				public getItemCount(): number;
 				public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup, int1: number): any;
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): androidx.recyclerview.widget.RecyclerView.ViewHolder;
+				public getItemCount(): number;
 				public setDiffCallback(diffCallback: androidx.leanback.widget.DiffCallback<androidx.leanback.widget.GuidedAction>): void;
 				public onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: number): void;
 				public handleCheckedActions(avh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder): void;
@@ -5640,7 +5640,7 @@ declare module androidx {
 				export class ClickListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.GuidedActionAdapter.ClickListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAdapter$ClickListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAdapter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onGuidedActionClicked(guidedAction0: androidx.leanback.widget.GuidedAction): void;
@@ -5651,7 +5651,7 @@ declare module androidx {
 				export class EditListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.GuidedActionAdapter.EditListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAdapter$EditListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAdapter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onGuidedActionEditCanceled(guidedAction0: androidx.leanback.widget.GuidedAction): void;
@@ -5668,7 +5668,7 @@ declare module androidx {
 				export class FocusListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.GuidedActionAdapter.FocusListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAdapter$FocusListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAdapter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onGuidedActionFocused(guidedAction0: androidx.leanback.widget.GuidedAction): void;
@@ -5688,8 +5688,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.GuidedActionAdapterGroup>;
 				public getNextAdapter(adapter: androidx.leanback.widget.GuidedActionAdapter): androidx.leanback.widget.GuidedActionAdapter;
 				public openIme(adapter: androidx.leanback.widget.GuidedActionAdapter, avh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder): void;
-				public fillAndGoNext(adapter: androidx.leanback.widget.GuidedActionAdapter, v: globalAndroid.widget.TextView): void;
 				public setEditListener(listener: androidx.leanback.widget.GuidedActionAdapter.EditListener): void;
+				public fillAndGoNext(adapter: androidx.leanback.widget.GuidedActionAdapter, v: globalAndroid.widget.TextView): void;
 				public fillAndStay(adapter: androidx.leanback.widget.GuidedActionAdapter, v: globalAndroid.widget.TextView): void;
 				public addAdpter(adapter1: androidx.leanback.widget.GuidedActionAdapter, adapter2: androidx.leanback.widget.GuidedActionAdapter): void;
 				public closeIme(v: globalAndroid.view.View): void;
@@ -5717,7 +5717,7 @@ declare module androidx {
 				export class OnAutofillListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.GuidedActionAutofillSupport.OnAutofillListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAutofillSupport$OnAutofillListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionAutofillSupport() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onAutofill(view0: globalAndroid.view.View): void;
@@ -5737,8 +5737,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.GuidedActionDiffCallback>;
 				public areItemsTheSame(oldItem: androidx.leanback.widget.GuidedAction, newItem: androidx.leanback.widget.GuidedAction): boolean;
 				public areContentsTheSame(oldItem: androidx.leanback.widget.GuidedAction, newItem: androidx.leanback.widget.GuidedAction): boolean;
-				public areContentsTheSame(object0: any, object1: any): boolean;
 				public static getInstance(): androidx.leanback.widget.GuidedActionDiffCallback;
+				public areContentsTheSame(object0: any, object1: any): boolean;
 				public areItemsTheSame(object0: any, object1: any): boolean;
 				public constructor();
 			}
@@ -5788,13 +5788,13 @@ declare module androidx {
 					public getOpacity(): number;
 					public draw(canvas: globalAndroid.graphics.Canvas): void;
 					public setAlpha(alpha: number): void;
-					public draw(canvas0: globalAndroid.graphics.Canvas): void;
 					public getPadding(padding: globalAndroid.graphics.Rect): boolean;
+					public draw(canvas0: globalAndroid.graphics.Canvas): void;
 					/** @deprecated */
 					public setColorFilter(color: number, mode: globalAndroid.graphics.PorterDuff.Mode): void;
 					public setColorFilter(colorFilter: globalAndroid.graphics.ColorFilter): void;
-					public getOpacity(): number;
 					public setAlpha(int0: number): void;
+					public getOpacity(): number;
 				}
 			}
 		}
@@ -5969,7 +5969,7 @@ declare module androidx {
 				export class InterceptKeyEventListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.GuidedActionsRelativeLayout.InterceptKeyEventListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionsRelativeLayout$InterceptKeyEventListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.GuidedActionsRelativeLayout() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onInterceptKeyEvent(keyEvent0: globalAndroid.view.KeyEvent): boolean;
@@ -5987,33 +5987,33 @@ declare module androidx {
 		export module widget {
 			export class GuidedActionsStylist extends java.lang.Object implements androidx.leanback.widget.FragmentAnimationProvider {
 				public static class: java.lang.Class<androidx.leanback.widget.GuidedActionsStylist>;
-				public static VIEW_TYPE_DATE_PICKER: number;
 				public static VIEW_TYPE_DEFAULT: number;
-				public expandAction(action: androidx.leanback.widget.GuidedAction, withTransition: boolean): void;
+				public static VIEW_TYPE_DATE_PICKER: number;
 				/** @deprecated */
 				public setEditingMode(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction, editing: boolean): void;
+				public expandAction(action: androidx.leanback.widget.GuidedAction, withTransition: boolean): void;
 				public onEditingModeChange(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, editing: boolean, withTransition: boolean): void;
 				public onAnimateItemFocused(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, focused: boolean): void;
 				public onImeAppearing(animators: java.util.List<globalAndroid.animation.Animator>): void;
-				public collapseAction(withTransition: boolean): void;
 				public isInExpandTransition(): boolean;
+				public collapseAction(withTransition: boolean): void;
 				public onBindActivatorView(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction): void;
 				public onBindChevronView(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction): void;
 				public constructor();
-				public isBackKeyToCollapseActivatorView(): boolean;
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): androidx.leanback.widget.GuidedActionsStylist.ViewHolder;
+				public isBackKeyToCollapseActivatorView(): boolean;
 				public setBackKeyToCollapseSubActions(backToCollapse: boolean): void;
 				public onProvideItemLayoutId(viewType: number): number;
-				public isExpanded(): boolean;
 				public setupImeOptions(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction): void;
+				public isExpanded(): boolean;
 				public onBindCheckMarkView(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction): void;
 				/** @deprecated */
 				public startExpandedTransition(avh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder): void;
 				public getActionsGridView(): androidx.leanback.widget.VerticalGridView;
 				public setAsButtonActions(): void;
 				public getItemViewType(action: androidx.leanback.widget.GuidedAction): number;
-				public isExpandTransitionSupported(): boolean;
 				public onProvideItemLayoutId(): number;
+				public isExpandTransitionSupported(): boolean;
 				public getSubActionsGridView(): androidx.leanback.widget.VerticalGridView;
 				public setBackKeyToCollapseActivatorView(backToCollapse: boolean): void;
 				public onUpdateExpandedViewHolder(avh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder): void;
@@ -6024,8 +6024,8 @@ declare module androidx {
 				/** @deprecated */
 				public setExpandedViewHolder(avh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder): void;
 				public onAnimateItemChecked(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, checked: boolean): void;
-				public getExpandedAction(): androidx.leanback.widget.GuidedAction;
 				public onProvideLayoutId(): number;
+				public getExpandedAction(): androidx.leanback.widget.GuidedAction;
 				public isSubActionsExpanded(): boolean;
 				public onBindViewHolder(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction): void;
 				public onUpdateActivatorView(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, action: androidx.leanback.widget.GuidedAction): boolean;
@@ -6034,9 +6034,9 @@ declare module androidx {
 				public onImeDisappearing(animators: java.util.List<globalAndroid.animation.Animator>): void;
 				public onDestroyView(): void;
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.GuidedActionsStylist.ViewHolder;
+				public openInEditMode(action: androidx.leanback.widget.GuidedAction): void;
 				public onAnimateItemPressed(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder, pressed: boolean): void;
 				public onAnimateItemPressedCancelled(vh: androidx.leanback.widget.GuidedActionsStylist.ViewHolder): void;
-				public openInEditMode(action: androidx.leanback.widget.GuidedAction): void;
 			}
 			export module GuidedActionsStylist {
 				export class ViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements androidx.leanback.widget.FacetProvider {
@@ -6055,8 +6055,8 @@ declare module androidx {
 					public getFacet(facetClass: java.lang.Class<any>): any;
 					public isInEditingActivatorView(): boolean;
 					public getAction(): androidx.leanback.widget.GuidedAction;
-					public getEditingView(): globalAndroid.view.View;
 					public isInEditingDescription(): boolean;
+					public getEditingView(): globalAndroid.view.View;
 					public getEditableDescriptionView(): globalAndroid.widget.EditText;
 					public getEditableTitleView(): globalAndroid.widget.EditText;
 					public getChevronView(): globalAndroid.widget.ImageView;
@@ -6116,8 +6116,8 @@ declare module androidx {
 				public setDescription(description: string): void;
 				public getContentDescription(): string;
 				public getId(): number;
-				public getDescription(): string;
 				public getName(): string;
+				public getDescription(): string;
 			}
 		}
 	}
@@ -6260,11 +6260,11 @@ declare module androidx {
 		export module widget {
 			export class ImageCardView extends androidx.leanback.widget.BaseCardView {
 				public static class: java.lang.Class<androidx.leanback.widget.ImageCardView>;
-				public static CARD_TYPE_FLAG_CONTENT: number;
-				public static CARD_TYPE_FLAG_ICON_LEFT: number;
-				public static CARD_TYPE_FLAG_ICON_RIGHT: number;
 				public static CARD_TYPE_FLAG_IMAGE_ONLY: number;
 				public static CARD_TYPE_FLAG_TITLE: number;
+				public static CARD_TYPE_FLAG_CONTENT: number;
+				public static CARD_TYPE_FLAG_ICON_RIGHT: number;
+				public static CARD_TYPE_FLAG_ICON_LEFT: number;
 				public getMainImage(): globalAndroid.graphics.drawable.Drawable;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
@@ -6380,7 +6380,7 @@ declare module androidx {
 				export class ImeKeyListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.ImeKeyMonitor.ImeKeyListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.ImeKeyMonitor$ImeKeyListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.ImeKeyMonitor() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onKeyPreIme(editText0: globalAndroid.widget.EditText, int1: number, keyEvent2: globalAndroid.view.KeyEvent): boolean;
@@ -6412,8 +6412,8 @@ declare module androidx {
 		export module widget {
 			export class ItemAlignment extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.ItemAlignment>;
-				public horizontal: androidx.leanback.widget.ItemAlignment.Axis;
 				public vertical: androidx.leanback.widget.ItemAlignment.Axis;
+				public horizontal: androidx.leanback.widget.ItemAlignment.Axis;
 				public secondAxis(): androidx.leanback.widget.ItemAlignment.Axis;
 				public setOrientation(orientation: number): void;
 				public mainAxis(): androidx.leanback.widget.ItemAlignment.Axis;
@@ -6448,13 +6448,13 @@ declare module androidx {
 					public getItemAlignmentOffset(): number;
 					public isAlignedToTextViewBaseLine(): boolean;
 					public constructor();
-					public setAlignedToTextViewBaseline(alignToBaseline: boolean): void;
 					public setItemAlignmentOffsetWithPadding(withPadding: boolean): void;
+					public setAlignedToTextViewBaseline(alignToBaseline: boolean): void;
 					public setItemAlignmentOffsetPercent(percent: number): void;
-					public getItemAlignmentFocusViewId(): number;
 					public setItemAlignmentFocusViewId(viewId: number): void;
-					public isItemAlignmentOffsetWithPadding(): boolean;
+					public getItemAlignmentFocusViewId(): number;
 					public setItemAlignmentOffset(offset: number): void;
+					public isItemAlignmentOffsetWithPadding(): boolean;
 					public setItemAlignmentViewId(viewId: number): void;
 				}
 			}
@@ -6479,8 +6479,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.ItemBridgeAdapter>;
 				public getFacetProvider(type: number): androidx.leanback.widget.FacetProvider;
 				public onUnbind(viewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
-				public getItemViewType(position: number): number;
 				public getWrapper(): androidx.leanback.widget.ItemBridgeAdapter.Wrapper;
+				public getItemViewType(position: number): number;
 				public constructor(adapter: androidx.leanback.widget.ObjectAdapter, presenterSelector: androidx.leanback.widget.PresenterSelector);
 				public onBindViewHolder(holder: any, position: number, payloads: java.util.List<any>): void;
 				public constructor();
@@ -6493,19 +6493,19 @@ declare module androidx {
 				public clear(): void;
 				public onViewAttachedToWindow(holder: any): void;
 				public onFailedToRecycleView(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): boolean;
-				public onViewAttachedToWindow(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): void;
 				public setPresenter(presenterSelector: androidx.leanback.widget.PresenterSelector): void;
-				public onViewDetachedFromWindow(holder: any): void;
+				public onViewAttachedToWindow(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): void;
 				public setAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
+				public onViewDetachedFromWindow(holder: any): void;
 				public onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: number, payloads: java.util.List<any>): void;
 				public onCreate(viewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
 				public onViewDetachedFromWindow(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): void;
 				public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup, int1: number): any;
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): androidx.recyclerview.widget.RecyclerView.ViewHolder;
 				public getPresenterMapper(): java.util.ArrayList<androidx.leanback.widget.Presenter>;
-				public getItemId(position: number): number;
-				public onViewRecycled(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): void;
 				public setPresenterMapper(presenters: java.util.ArrayList<androidx.leanback.widget.Presenter>): void;
+				public onViewRecycled(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): void;
+				public getItemId(position: number): number;
 				public onBindViewHolder(viewHolder0: any, int1: number): void;
 				public onFailedToRecycleView(holder: any): boolean;
 				public constructor(adapter: androidx.leanback.widget.ObjectAdapter);
@@ -6534,8 +6534,8 @@ declare module androidx {
 					public setExtraObject(object: any): void;
 					public getItem(): any;
 					public getFacet(facetClass: java.lang.Class<any>): any;
-					public getExtraObject(): any;
 					public getPresenter(): androidx.leanback.widget.Presenter;
+					public getExtraObject(): any;
 					public getViewHolder(): androidx.leanback.widget.Presenter.ViewHolder;
 				}
 				export abstract class Wrapper extends java.lang.Object {
@@ -6676,9 +6676,9 @@ declare module androidx {
 			export class ListRowPresenter extends androidx.leanback.widget.RowPresenter {
 				public static class: java.lang.Class<androidx.leanback.widget.ListRowPresenter>;
 				public getHoverCardPresenterSelector(): androidx.leanback.widget.PresenterSelector;
+				public setExpandedRowHeight(rowHeight: number): void;
 				public getFocusZoomFactor(): number;
 				public getRecycledPoolSize(presenter: androidx.leanback.widget.Presenter): number;
-				public setExpandedRowHeight(rowHeight: number): void;
 				public setNumRows(numRows: number): void;
 				public isKeepChildForeground(): boolean;
 				public isFocusDimmerUsed(): boolean;
@@ -6705,11 +6705,11 @@ declare module androidx {
 				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public onBindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public setKeepChildForeground(keep: boolean): void;
-				public getShadowEnabled(): boolean;
 				/** @deprecated */
 				public getZoomFactor(): number;
 				public initializeRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onRowViewSelected(holder: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
+				public getShadowEnabled(): boolean;
 				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onSelectLevelChanged(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setEntranceTransitionState(holder: androidx.leanback.widget.RowPresenter.ViewHolder, afterEntrance: boolean): void;
@@ -6718,8 +6718,8 @@ declare module androidx {
 				public enableChildRoundedCorners(enable: boolean): void;
 				public getFacet(facetClass: java.lang.Class<any>): any;
 				public constructor(focusZoomFactor: number, useFocusDimmer: boolean);
-				public dispatchItemSelectedListener(vh: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
 				public initializeRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
+				public dispatchItemSelectedListener(vh: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
 				public onSelectLevelChanged(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public areChildRoundedCornersEnabled(): boolean;
 				public isUsingOutlineClipping(context: globalAndroid.content.Context): boolean;
@@ -6755,8 +6755,8 @@ declare module androidx {
 					public getFacet(facetClass: java.lang.Class<any>): any;
 					public getItemViewHolder(position: number): androidx.leanback.widget.Presenter.ViewHolder;
 					public getSelectedItem(): any;
-					public getBridgeAdapter(): androidx.leanback.widget.ItemBridgeAdapter;
 					public getGridView(): androidx.leanback.widget.HorizontalGridView;
+					public getBridgeAdapter(): androidx.leanback.widget.ItemBridgeAdapter;
 					public getSelectedPosition(): number;
 				}
 			}
@@ -7392,22 +7392,22 @@ declare module androidx {
 				public notifyItemMoved(fromPosition: number, toPosition: number): void;
 				public hasObserver(): boolean;
 				public notifyItemRangeInserted(positionStart: number, itemCount: number): void;
-				public onHasStableIdsChanged(): void;
 				public unregisterAllObservers(): void;
+				public onHasStableIdsChanged(): void;
 				public notifyItemRangeChanged(positionStart: number, itemCount: number): void;
 				public setHasStableIds(hasStableIds: boolean): void;
 				public notifyChanged(): void;
 				public constructor(presenterSelector: androidx.leanback.widget.PresenterSelector);
-				public notifyItemRangeRemoved(positionStart: number, itemCount: number): void;
 				public unregisterObserver(observer: androidx.leanback.widget.ObjectAdapter.DataObserver): void;
-				public getPresenter(item: any): androidx.leanback.widget.Presenter;
+				public notifyItemRangeRemoved(positionStart: number, itemCount: number): void;
 				public getPresenterSelector(): androidx.leanback.widget.PresenterSelector;
+				public getPresenter(item: any): androidx.leanback.widget.Presenter;
 				public constructor();
-				public get(int0: number): any;
 				public size(): number;
-				public getId(position: number): number;
-				public onPresenterSelectorChanged(): void;
+				public get(int0: number): any;
 				public setPresenterSelector(presenterSelector: androidx.leanback.widget.PresenterSelector): void;
+				public onPresenterSelectorChanged(): void;
+				public getId(position: number): number;
 				public hasStableIds(): boolean;
 				public registerObserver(observer: androidx.leanback.widget.ObjectAdapter.DataObserver): void;
 				public isImmediateNotifySupported(): boolean;
@@ -7419,9 +7419,9 @@ declare module androidx {
 					public static class: java.lang.Class<androidx.leanback.widget.ObjectAdapter.DataObservable>;
 					public notifyItemRangeInserted(positionStart: number, itemCount: number): void;
 					public notifyChanged(): void;
-					public notifyItemMoved(positionStart: number, toPosition: number): void;
 					public notifyItemRangeChanged(positionStart: number, itemCount: number): void;
 					public notifyItemRangeChanged(positionStart: number, itemCount: number, payload: any): void;
+					public notifyItemMoved(positionStart: number, toPosition: number): void;
 					public notifyItemRangeRemoved(positionStart: number, itemCount: number): void;
 				}
 				export abstract class DataObserver extends java.lang.Object {
@@ -7613,8 +7613,8 @@ declare module androidx {
 				public createProperty(string0: string, int1: number): PropertyT;
 				public removeAllEffects(): void;
 				public getProperties(): java.util.List<PropertyT>;
-				public addEffect(ranges: native.Array<androidx.leanback.widget.Parallax.PropertyMarkerValue<any>>): androidx.leanback.widget.ParallaxEffect;
 				public updateValues(): void;
+				public addEffect(ranges: native.Array<androidx.leanback.widget.Parallax.PropertyMarkerValue<any>>): androidx.leanback.widget.ParallaxEffect;
 				public addProperty(name: string): PropertyT;
 				public removeEffect(effect: androidx.leanback.widget.ParallaxEffect): void;
 				public getMaxValue(): number;
@@ -7623,16 +7623,16 @@ declare module androidx {
 			export module Parallax {
 				export class FloatProperty extends globalAndroid.util.Property<androidx.leanback.widget.Parallax<any>,java.lang.Float> {
 					public static class: java.lang.Class<androidx.leanback.widget.Parallax.FloatProperty>;
-					public static UNKNOWN_AFTER: number;
 					public static UNKNOWN_BEFORE: number;
+					public static UNKNOWN_AFTER: number;
 					public getIndex(): number;
 					public constructor(type: java.lang.Class<any>, name: string);
 					public at(offsetValue: number, fractionOfMaxParentVisibleSize: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
 					public getValue(object: androidx.leanback.widget.Parallax<any>): number;
 					public atMax(): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
-					public atAbsolute(markerValue: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
 					public get(object: androidx.leanback.widget.Parallax<any>): java.lang.Float;
 					public setValue(object: androidx.leanback.widget.Parallax<any>, value: number): void;
+					public atAbsolute(markerValue: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
 					public set(object: any, value: any): void;
 					public constructor(name: string, index: number);
 					public get(object0: any): any;
@@ -7645,8 +7645,8 @@ declare module androidx {
 				}
 				export class IntProperty extends globalAndroid.util.Property<androidx.leanback.widget.Parallax<any>,java.lang.Integer> {
 					public static class: java.lang.Class<androidx.leanback.widget.Parallax.IntProperty>;
-					public static UNKNOWN_AFTER: number;
 					public static UNKNOWN_BEFORE: number;
+					public static UNKNOWN_AFTER: number;
 					public getIndex(): number;
 					public constructor(type: java.lang.Class<any>, name: string);
 					public at(offsetValue: number, fractionOfMaxParentVisibleSize: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
@@ -7656,8 +7656,8 @@ declare module androidx {
 					public setValue(object: androidx.leanback.widget.Parallax<any>, value: number): void;
 					public set(object: any, value: any): void;
 					public constructor(name: string, index: number);
-					public atFraction(fractionOfMaxValue: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
 					public get(object0: any): any;
+					public atFraction(fractionOfMaxValue: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
 					public set(object: androidx.leanback.widget.Parallax<any>, value: java.lang.Integer): void;
 					public atMin(): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
 					public atAbsolute(absoluteValue: number): androidx.leanback.widget.Parallax.PropertyMarkerValue<any>;
@@ -7684,14 +7684,14 @@ declare module androidx {
 				public addTarget(target: androidx.leanback.widget.ParallaxTarget): void;
 				public getPropertyRanges(): java.util.List<androidx.leanback.widget.Parallax.PropertyMarkerValue<any>>;
 				public getWeights(): java.util.List<java.lang.Float>;
-				public performMapping(source: androidx.leanback.widget.Parallax<any>): void;
 				public weights(weights: native.Array<number>): androidx.leanback.widget.ParallaxEffect;
+				public performMapping(source: androidx.leanback.widget.Parallax<any>): void;
 				public getTargets(): java.util.List<androidx.leanback.widget.ParallaxTarget>;
 				public setPropertyRanges(markerValues: native.Array<androidx.leanback.widget.Parallax.PropertyMarkerValue<any>>): void;
 				public target(target: androidx.leanback.widget.ParallaxTarget): androidx.leanback.widget.ParallaxEffect;
 				public target(targetObject: any, targetProperty: globalAndroid.util.Property<any,any>): androidx.leanback.widget.ParallaxEffect;
-				public removeTarget(target: androidx.leanback.widget.ParallaxTarget): void;
 				public target(targetObject: any, values: globalAndroid.animation.PropertyValuesHolder): androidx.leanback.widget.ParallaxEffect;
+				public removeTarget(target: androidx.leanback.widget.ParallaxTarget): void;
 			}
 			export module ParallaxEffect {
 				export class FloatEffect extends androidx.leanback.widget.ParallaxEffect {
@@ -7711,8 +7711,8 @@ declare module androidx {
 			export abstract class ParallaxTarget extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.ParallaxTarget>;
 				public isDirectMapping(): boolean;
-				public directUpdate(value: java.lang.Number): void;
 				public update(fraction: number): void;
+				public directUpdate(value: java.lang.Number): void;
 				public constructor();
 			}
 			export module ParallaxTarget {
@@ -7845,8 +7845,8 @@ declare module androidx {
 				public setCurrentTimeLong(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, ms: number): void;
 				public areMoreActionsEnabled(): boolean;
 				public resetFocus(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder): void;
-				public getSecondaryProgress(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder): number;
 				public setSecondaryProgress(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, progressMs: number): void;
+				public getSecondaryProgress(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder): number;
 				public constructor();
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.Presenter.ViewHolder;
 				public enableTimeMargins(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, enable: boolean): void;
@@ -7856,11 +7856,11 @@ declare module androidx {
 				public getCurrentTime(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder): number;
 				public setProgressColor(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, color: number): void;
 				public enableSecondaryActions(enable: boolean): void;
-				public getSecondaryProgressLong(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder): number;
 				public setTotalTime(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, ms: number): void;
+				public getSecondaryProgressLong(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder): number;
 				public onBindViewHolder(holder: androidx.leanback.widget.Presenter.ViewHolder, item: any): void;
-				public setCurrentTime(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, ms: number): void;
 				public setTotalTimeLong(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, ms: number): void;
+				public setCurrentTime(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, ms: number): void;
 				public getFacet(facetClass: java.lang.Class<any>): any;
 				public setSecondaryProgressLong(vh: androidx.leanback.widget.PlaybackControlsPresenter.ViewHolder, progressMs: number): void;
 				public onBindViewHolder(viewHolder: androidx.leanback.widget.Presenter.ViewHolder, item: any, payloads: java.util.List<any>): void;
@@ -7887,9 +7887,9 @@ declare module androidx {
 				public constructor(item: any);
 				public setBufferedPosition(ms: number): void;
 				public constructor(headerItem: androidx.leanback.widget.HeaderItem);
+				public setSecondaryActionsAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				/** @deprecated */
 				public getTotalTime(): number;
-				public setSecondaryActionsAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public getDuration(): number;
 				public getActionForKeyCode(keyCode: number): androidx.leanback.widget.Action;
 				/** @deprecated */
@@ -7903,24 +7903,24 @@ declare module androidx {
 				public getBufferedPosition(): number;
 				public getActionForKeyCode(adapter: androidx.leanback.widget.ObjectAdapter, keyCode: number): androidx.leanback.widget.Action;
 				/** @deprecated */
-				public getBufferedProgress(): number;
-				/** @deprecated */
 				public setCurrentTimeLong(ms: number): void;
 				/** @deprecated */
+				public getBufferedProgress(): number;
+				/** @deprecated */
 				public getCurrentTime(): number;
-				public setCurrentPosition(ms: number): void;
 				public setImageBitmap(context: globalAndroid.content.Context, bm: globalAndroid.graphics.Bitmap): void;
+				public setCurrentPosition(ms: number): void;
 				/** @deprecated */
 				public setTotalTime(ms: number): void;
 				public getItem(): any;
+				public setPrimaryActionsAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				/** @deprecated */
 				public getTotalTimeLong(): number;
-				public setPrimaryActionsAdapter(adapter: androidx.leanback.widget.ObjectAdapter): void;
 				public setDuration(ms: number): void;
 				public getPrimaryActionsAdapter(): androidx.leanback.widget.ObjectAdapter;
-				public getCurrentPosition(): number;
 				/** @deprecated */
 				public setTotalTimeLong(ms: number): void;
+				public getCurrentPosition(): number;
 				public getImageDrawable(): globalAndroid.graphics.drawable.Drawable;
 				/** @deprecated */
 				public setBufferedProgress(ms: number): void;
@@ -7933,10 +7933,10 @@ declare module androidx {
 			export module PlaybackControlsRow {
 				export class ClosedCaptioningAction extends androidx.leanback.widget.PlaybackControlsRow.MultiAction {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRow.ClosedCaptioningAction>;
-					public static INDEX_OFF: number;
-					public static INDEX_ON: number;
 					public static OFF: number;
 					public static ON: number;
+					public static INDEX_OFF: number;
+					public static INDEX_ON: number;
 					public constructor(id: number, label: string);
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number, label1: string, label2: string);
@@ -7955,10 +7955,10 @@ declare module androidx {
 				}
 				export class HighQualityAction extends androidx.leanback.widget.PlaybackControlsRow.MultiAction {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRow.HighQualityAction>;
-					public static INDEX_OFF: number;
-					public static INDEX_ON: number;
 					public static OFF: number;
 					public static ON: number;
+					public static INDEX_OFF: number;
+					public static INDEX_ON: number;
 					public constructor(id: number, label: string);
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number, label1: string, label2: string);
@@ -7981,8 +7981,8 @@ declare module androidx {
 					public getIndex(): number;
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number);
-					public nextIndex(): void;
 					public setDrawables(drawables: native.Array<globalAndroid.graphics.drawable.Drawable>): void;
+					public nextIndex(): void;
 					public setLabels(labels: native.Array<string>): void;
 					public getActionCount(): number;
 					public setIndex(index: number): void;
@@ -8008,10 +8008,10 @@ declare module androidx {
 				}
 				export class PlayPauseAction extends androidx.leanback.widget.PlaybackControlsRow.MultiAction {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRow.PlayPauseAction>;
-					public static INDEX_PAUSE: number;
-					public static INDEX_PLAY: number;
-					public static PAUSE: number;
 					public static PLAY: number;
+					public static PAUSE: number;
+					public static INDEX_PLAY: number;
+					public static INDEX_PAUSE: number;
 					public constructor(id: number, label: string);
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number, label1: string, label2: string);
@@ -8020,12 +8020,12 @@ declare module androidx {
 				}
 				export class RepeatAction extends androidx.leanback.widget.PlaybackControlsRow.MultiAction {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRow.RepeatAction>;
-					public static ALL: number;
-					public static INDEX_ALL: number;
-					public static INDEX_NONE: number;
-					public static INDEX_ONE: number;
 					public static NONE: number;
+					public static ALL: number;
 					public static ONE: number;
+					public static INDEX_NONE: number;
+					public static INDEX_ALL: number;
+					public static INDEX_ONE: number;
 					public constructor(id: number, label: string);
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number, label1: string, label2: string);
@@ -8045,10 +8045,10 @@ declare module androidx {
 				}
 				export class ShuffleAction extends androidx.leanback.widget.PlaybackControlsRow.MultiAction {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRow.ShuffleAction>;
-					public static INDEX_OFF: number;
-					public static INDEX_ON: number;
 					public static OFF: number;
 					public static ON: number;
+					public static INDEX_OFF: number;
+					public static INDEX_ON: number;
 					public constructor(id: number, label: string);
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number, label1: string, label2: string);
@@ -8074,10 +8074,10 @@ declare module androidx {
 				}
 				export abstract class ThumbsAction extends androidx.leanback.widget.PlaybackControlsRow.MultiAction {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRow.ThumbsAction>;
-					public static INDEX_OUTLINE: number;
-					public static INDEX_SOLID: number;
-					public static OUTLINE: number;
 					public static SOLID: number;
+					public static OUTLINE: number;
+					public static INDEX_SOLID: number;
+					public static INDEX_OUTLINE: number;
 					public constructor(id: number, label: string);
 					public constructor(id: number, label1: string, label2: string, icon: globalAndroid.graphics.drawable.Drawable);
 					public constructor(id: number, label1: string, label2: string);
@@ -8112,21 +8112,21 @@ declare module androidx {
 		export module widget {
 			export class PlaybackControlsRowPresenter extends androidx.leanback.widget.PlaybackRowPresenter {
 				public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRowPresenter>;
-				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public getOnActionClickedListener(): androidx.leanback.widget.OnActionClickedListener;
+				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public onBindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public onRowViewDetachedFromWindow(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
-				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setSecondaryActionsHidden(hidden: boolean): void;
+				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setBackgroundColor(color: number): void;
 				public showPrimaryActions(vh: androidx.leanback.widget.PlaybackControlsRowPresenter.ViewHolder): void;
 				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public getProgressColor(): number;
 				public constructor();
+				public setProgressColor(color: number): void;
 				public areSecondaryActionsHidden(): boolean;
 				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
-				public setProgressColor(color: number): void;
 				public getBackgroundColor(): number;
 				public onRowViewSelected(vh: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
 				public setOnActionClickedListener(listener: androidx.leanback.widget.OnActionClickedListener): void;
@@ -8237,7 +8237,7 @@ declare module androidx {
 				export class OnUnhandledKeyListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackControlsRowView.OnUnhandledKeyListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.PlaybackControlsRowView$OnUnhandledKeyListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.PlaybackControlsRowView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onUnhandledKey(keyEvent0: globalAndroid.view.KeyEvent): boolean;
@@ -8311,8 +8311,8 @@ declare module androidx {
 					public constructor();
 					public getPlaybackSeekDataProvider(): androidx.leanback.widget.PlaybackSeekDataProvider;
 					public isSeekEnabled(): boolean;
-					public onSeekPositionChanged(pos: number): void;
 					public onSeekStarted(): void;
+					public onSeekPositionChanged(pos: number): void;
 					public onSeekFinished(cancelled: boolean): void;
 				}
 			}
@@ -8325,19 +8325,19 @@ declare module androidx {
 		export module widget {
 			export class PlaybackTransportRowPresenter extends androidx.leanback.widget.PlaybackRowPresenter {
 				public static class: java.lang.Class<androidx.leanback.widget.PlaybackTransportRowPresenter>;
-				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public getOnActionClickedListener(): androidx.leanback.widget.OnActionClickedListener;
+				public createRowViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public createRowViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.RowPresenter.ViewHolder;
 				public onBindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public onRowViewDetachedFromWindow(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
-				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setSecondaryProgressColor(color: number): void;
+				public onUnbindRowViewHolder(holder: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
 				public getProgressColor(): number;
 				public onProgressBarClicked(vh: androidx.leanback.widget.PlaybackTransportRowPresenter.ViewHolder): void;
 				public constructor();
-				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setProgressColor(color: number): void;
+				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onRowViewSelected(vh: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
 				public setOnActionClickedListener(listener: androidx.leanback.widget.OnActionClickedListener): void;
 				public setDefaultSeekIncrement(ratio: number): void;
@@ -8454,7 +8454,7 @@ declare module androidx {
 				export class OnUnhandledKeyListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.PlaybackTransportRowView.OnUnhandledKeyListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.PlaybackTransportRowView$OnUnhandledKeyListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.PlaybackTransportRowView() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onUnhandledKey(keyEvent0: globalAndroid.view.KeyEvent): boolean;
@@ -8474,8 +8474,8 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.Presenter>;
 				public setFacet(facetClass: java.lang.Class<any>, facetImpl: any): void;
 				public onViewAttachedToWindow(holder: androidx.leanback.widget.Presenter.ViewHolder): void;
-				public getFacet(facetClass: java.lang.Class<any>): any;
 				public onViewDetachedFromWindow(holder: androidx.leanback.widget.Presenter.ViewHolder): void;
+				public getFacet(facetClass: java.lang.Class<any>): any;
 				public onBindViewHolder(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder, object1: any): void;
 				public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.Presenter.ViewHolder;
 				public onUnbindViewHolder(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder): void;
@@ -8523,8 +8523,8 @@ declare module androidx {
 				public getParentViewGroup(): globalAndroid.view.ViewGroup;
 				public insertView(view0: globalAndroid.view.View): void;
 				public onViewSelected(view: globalAndroid.view.View): void;
-				public clear(): void;
 				public unselect(): void;
+				public clear(): void;
 				public showView(view: globalAndroid.view.View, visible: boolean): void;
 				public init(parent: globalAndroid.view.ViewGroup, presenterSelector: androidx.leanback.widget.PresenterSelector): void;
 				public select(object: any): void;
@@ -8551,11 +8551,11 @@ declare module androidx {
 				export class ChildPositionProperty extends androidx.leanback.widget.Parallax.IntProperty {
 					public static class: java.lang.Class<androidx.leanback.widget.RecyclerViewParallax.ChildPositionProperty>;
 					public adapterPosition(adapterPosition: number): androidx.leanback.widget.RecyclerViewParallax.ChildPositionProperty;
-					public getViewId(): number;
 					public viewId(viewId: number): androidx.leanback.widget.RecyclerViewParallax.ChildPositionProperty;
+					public getViewId(): number;
 					public getFraction(): number;
-					public getOffset(): number;
 					public offset(offset: number): androidx.leanback.widget.RecyclerViewParallax.ChildPositionProperty;
+					public getOffset(): number;
 					public fraction(fraction: number): androidx.leanback.widget.RecyclerViewParallax.ChildPositionProperty;
 					public getAdapterPosition(): number;
 				}
@@ -8599,8 +8599,8 @@ declare module androidx {
 				public sendAccessibilityEventUnchecked(event: globalAndroid.view.accessibility.AccessibilityEvent): void;
 				public constructor(ctx: globalAndroid.content.Context);
 				public setResizedPaddingAdjustmentBottom(adjustment: number): void;
-				public setMaintainLineSpacing(maintain: boolean): void;
 				public setTriggerConditions(conditions: number): void;
+				public setMaintainLineSpacing(maintain: boolean): void;
 			}
 		}
 	}
@@ -8643,8 +8643,8 @@ declare module androidx {
 				public getHeaderItem(): androidx.leanback.widget.HeaderItem;
 				public constructor(headerItem: androidx.leanback.widget.HeaderItem);
 				public isRenderedAsRowView(): boolean;
-				public getId(): number;
 				public setHeaderItem(headerItem: androidx.leanback.widget.HeaderItem): void;
+				public getId(): number;
 				public constructor(id: number, headerItem: androidx.leanback.widget.HeaderItem);
 				public constructor();
 			}
@@ -8752,9 +8752,9 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.RowHeaderPresenter>;
 				public constructor(layoutResourceId: number, animateSelect: boolean);
 				public setSelectLevel(holder: androidx.leanback.widget.RowHeaderPresenter.ViewHolder, selectLevel: number): void;
-				public static getFontDescent(textView: globalAndroid.widget.TextView, fontMeasurePaint: globalAndroid.graphics.Paint): number;
-				public onSelectLevelChanged(holder: androidx.leanback.widget.RowHeaderPresenter.ViewHolder): void;
 				public onUnbindViewHolder(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder): void;
+				public onSelectLevelChanged(holder: androidx.leanback.widget.RowHeaderPresenter.ViewHolder): void;
+				public static getFontDescent(textView: globalAndroid.widget.TextView, fontMeasurePaint: globalAndroid.graphics.Paint): number;
 				public constructor();
 				public getSpaceUnderBaseline(holder: androidx.leanback.widget.RowHeaderPresenter.ViewHolder): number;
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.Presenter.ViewHolder;
@@ -8815,16 +8815,16 @@ declare module androidx {
 				public static class: java.lang.Class<androidx.leanback.widget.RowPresenter>;
 				public static SYNC_ACTIVATED_CUSTOM: number;
 				public static SYNC_ACTIVATED_TO_EXPANDED: number;
-				public static SYNC_ACTIVATED_TO_EXPANDED_AND_SELECTED: number;
 				public static SYNC_ACTIVATED_TO_SELECTED: number;
+				public static SYNC_ACTIVATED_TO_EXPANDED_AND_SELECTED: number;
 				public onViewAttachedToWindow(holder: androidx.leanback.widget.Presenter.ViewHolder): void;
 				public onRowViewDetachedFromWindow(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public setSelectLevel(vh: androidx.leanback.widget.Presenter.ViewHolder, level: number): void;
-				public onUnbindViewHolder(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder): void;
 				public setRowViewExpanded(holder: androidx.leanback.widget.Presenter.ViewHolder, expanded: boolean): void;
+				public onUnbindViewHolder(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder): void;
 				public onBindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder, item: any): void;
-				public getSelectEffectEnabled(): boolean;
 				public setSyncActivatePolicy(syncActivatePolicy: number): void;
+				public getSelectEffectEnabled(): boolean;
 				public constructor();
 				public onUnbindRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onCreateViewHolder(parent: globalAndroid.view.ViewGroup): androidx.leanback.widget.Presenter.ViewHolder;
@@ -8849,8 +8849,8 @@ declare module androidx {
 				public onBindViewHolder(viewHolder0: androidx.leanback.widget.Presenter.ViewHolder, object1: any): void;
 				public onRowViewAttachedToWindow(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
 				public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup): androidx.leanback.widget.Presenter.ViewHolder;
-				public dispatchItemSelectedListener(vh: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
 				public initializeRowViewHolder(vh: androidx.leanback.widget.RowPresenter.ViewHolder): void;
+				public dispatchItemSelectedListener(vh: androidx.leanback.widget.RowPresenter.ViewHolder, selected: boolean): void;
 				public onBindViewHolder(viewHolder: androidx.leanback.widget.Presenter.ViewHolder, item: any, payloads: java.util.List<any>): void;
 				public getHeaderPresenter(): androidx.leanback.widget.RowHeaderPresenter;
 			}
@@ -8864,14 +8864,14 @@ declare module androidx {
 				export class ViewHolder extends androidx.leanback.widget.Presenter.ViewHolder {
 					public static class: java.lang.Class<androidx.leanback.widget.RowPresenter.ViewHolder>;
 					public mColorDimmer: androidx.leanback.graphics.ColorOverlayDimmer;
-					public getOnKeyListener(): globalAndroid.view.View.OnKeyListener;
 					public setOnKeyListener(keyListener: globalAndroid.view.View.OnKeyListener): void;
+					public getOnKeyListener(): globalAndroid.view.View.OnKeyListener;
 					public getOnItemViewSelectedListener(): androidx.leanback.widget.BaseOnItemViewSelectedListener<any>;
 					public isExpanded(): boolean;
-					public getSelectedItem(): any;
 					public setActivated(activated: boolean): void;
-					public getOnItemViewClickedListener(): androidx.leanback.widget.BaseOnItemViewClickedListener<any>;
+					public getSelectedItem(): any;
 					public getSelectLevel(): number;
+					public getOnItemViewClickedListener(): androidx.leanback.widget.BaseOnItemViewClickedListener<any>;
 					public getSelectedItemViewHolder(): androidx.leanback.widget.Presenter.ViewHolder;
 					public constructor(view: globalAndroid.view.View);
 					public getRowObject(): any;
@@ -9021,8 +9021,8 @@ declare module androidx {
 				public requestDisallowInterceptTouchEvent(disallowIntercept: boolean): void;
 				public childHasTransientStateChanged(child: globalAndroid.view.View, childHasTransientState: boolean): void;
 				public onDetachedFromWindow(): void;
-				public setBadgeDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
 				public setSearchAffordanceColors(colors: androidx.leanback.widget.SearchOrbView.Colors): void;
+				public setBadgeDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
 				public focusableViewAvailable(v: globalAndroid.view.View): void;
 				public showContextMenuForChild(originalView: globalAndroid.view.View): boolean;
 				public sendAccessibilityEventUnchecked(event: globalAndroid.view.accessibility.AccessibilityEvent): void;
@@ -9051,8 +9051,8 @@ declare module androidx {
 				/** @deprecated */
 				public requestFitSystemWindows(): void;
 				public setSearchAffordanceColorsInListening(colors: androidx.leanback.widget.SearchOrbView.Colors): void;
-				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public setTitle(title: string): void;
+				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public showContextMenuForChild(originalView: globalAndroid.view.View, x: number, y: number): boolean;
 				public bringChildToFront(child: globalAndroid.view.View): void;
 				public onNestedPreScroll(target: globalAndroid.view.View, dx: number, dy: number, consumed: native.Array<number>): void;
@@ -9084,7 +9084,7 @@ declare module androidx {
 				export class SearchBarListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.SearchBar.SearchBarListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.SearchBar$SearchBarListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.SearchBar() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onSearchQueryChange(string0: string): void;
@@ -9099,7 +9099,7 @@ declare module androidx {
 				export class SearchBarPermissionListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.SearchBar.SearchBarPermissionListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.SearchBar$SearchBarPermissionListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.SearchBar() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						requestAudioPermission(): void;
@@ -9139,7 +9139,7 @@ declare module androidx {
 				export class OnKeyboardDismissListener extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.SearchEditText.OnKeyboardDismissListener>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.SearchEditText$OnKeyboardDismissListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.SearchEditText() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onKeyboardDismiss(): void;
@@ -9246,8 +9246,8 @@ declare module androidx {
 			export module SearchOrbView {
 				export class Colors extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.SearchOrbView.Colors>;
-					public brightColor: number;
 					public color: number;
+					public brightColor: number;
 					public iconColor: number;
 					public constructor(color: number);
 					public constructor(color: number, brightColor: number);
@@ -9294,8 +9294,8 @@ declare module androidx {
 				public getSecondaryProgressColor(): number;
 				public getAccessibilityClassName(): string;
 				public setProgress(progress: number): void;
-				public setAccessibilitySeekListener(listener: androidx.leanback.widget.SeekBar.AccessibilitySeekListener): void;
 				public setActiveBarHeight(activeBarHeight: number): void;
+				public setAccessibilitySeekListener(listener: androidx.leanback.widget.SeekBar.AccessibilitySeekListener): void;
 				public performAccessibilityAction(action: number, bundle1: globalAndroid.os.Bundle): boolean;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 				public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
@@ -9357,9 +9357,9 @@ declare module androidx {
 		export module widget {
 			export class ShadowOverlayContainer extends globalAndroid.widget.FrameLayout {
 				public static class: java.lang.Class<androidx.leanback.widget.ShadowOverlayContainer>;
-				public static SHADOW_DYNAMIC: number;
 				public static SHADOW_NONE: number;
 				public static SHADOW_STATIC: number;
+				public static SHADOW_DYNAMIC: number;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
 				public focusSearch(direction: number): globalAndroid.view.View;
@@ -9446,8 +9446,8 @@ declare module androidx {
 				public canResolveLayoutDirection(): boolean;
 				public addView(child: globalAndroid.view.View, index: number, params: globalAndroid.view.ViewGroup.LayoutParams): void;
 				public onKeyUp(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
-				public static supportsDynamicShadow(): boolean;
 				public static supportsShadow(): boolean;
+				public static supportsDynamicShadow(): boolean;
 				public onNestedPreFling(target: globalAndroid.view.View, velocityX: number, velocityY: number): boolean;
 				public getParent(): globalAndroid.view.ViewParent;
 				public hasOverlappingRendering(): boolean;
@@ -9461,9 +9461,9 @@ declare module androidx {
 		export module widget {
 			export class ShadowOverlayHelper extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.ShadowOverlayHelper>;
-				public static SHADOW_DYNAMIC: number;
 				public static SHADOW_NONE: number;
 				public static SHADOW_STATIC: number;
+				public static SHADOW_DYNAMIC: number;
 				public setShadowFocusLevel(view: globalAndroid.view.View, level: number): void;
 				public static setNoneWrapperShadowFocusLevel(view: globalAndroid.view.View, level: number): void;
 				public static supportsForeground(): boolean;
@@ -9475,8 +9475,8 @@ declare module androidx {
 				public getShadowType(): number;
 				public onViewCreated(view: globalAndroid.view.View): void;
 				public prepareParentForShadow(parent: globalAndroid.view.ViewGroup): void;
-				public static supportsDynamicShadow(): boolean;
 				public static supportsShadow(): boolean;
+				public static supportsDynamicShadow(): boolean;
 				public needsWrapper(): boolean;
 				public needsRoundedCorner(): boolean;
 			}
@@ -9532,16 +9532,16 @@ declare module androidx {
 				public findRowMin(findLarge: boolean, indexLimit: number, indices: native.Array<number>): number;
 				public appendVisibleItems(toLimit: number): void;
 				public appendVisibleItems(int0: number, boolean1: boolean): boolean;
-				public collectAdjacentPrefetchPositions(fromLimit: number, da: number, layoutPrefetchRegistry: androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry): void;
 				public getLocation(int0: number): androidx.leanback.widget.Grid.Location;
+				public collectAdjacentPrefetchPositions(fromLimit: number, da: number, layoutPrefetchRegistry: androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry): void;
 				public debugPrint(pw: java.io.PrintWriter): void;
 				public findRowMin(boolean0: boolean, int1: number, ints2: native.Array<number>): number;
 				public getItemPositionsInRows(startPos: number, endPos: number): native.Array<androidx.collection.CircularIntArray>;
 				public findRowMax(boolean0: boolean, int1: number, ints2: native.Array<number>): number;
 				public prependVisibleItems(int0: number, boolean1: boolean): boolean;
 				public debugPrint(printWriter0: java.io.PrintWriter): void;
-				public findRowMin(findLarge: boolean, indices: native.Array<number>): number;
 				public prependVisibleItems(toLimit: number): void;
+				public findRowMin(findLarge: boolean, indices: native.Array<number>): number;
 				public findRowMax(findLarge: boolean, indices: native.Array<number>): number;
 				public appendVisibleItems(toLimit: number, oneColumnMode: boolean): boolean;
 				public findRowMax(findLarge: boolean, indexLimit: number, indices: native.Array<number>): number;
@@ -9557,15 +9557,15 @@ declare module androidx {
 		export module widget {
 			export class SparseArrayObjectAdapter extends androidx.leanback.widget.ObjectAdapter {
 				public static class: java.lang.Class<androidx.leanback.widget.SparseArrayObjectAdapter>;
-				public clear(key: number): void;
 				public set(key: number, item: any): void;
+				public clear(key: number): void;
 				public indexOf(key: number): number;
 				public constructor(presenterSelector: androidx.leanback.widget.PresenterSelector);
 				public notifyArrayItemRangeChanged(positionStart: number, itemCount: number): void;
 				public lookup(key: number): any;
 				public constructor();
-				public get(int0: number): any;
 				public size(): number;
+				public get(int0: number): any;
 				public indexOf(item: any): number;
 				public clear(): void;
 				public get(position: number): any;
@@ -9687,8 +9687,8 @@ declare module androidx {
 		export module widget {
 			export abstract class StaggeredGrid extends androidx.leanback.widget.Grid {
 				public static class: java.lang.Class<androidx.leanback.widget.StaggeredGrid>;
-				public mFirstIndex: number;
 				public mLocations: androidx.collection.CircularArray<androidx.leanback.widget.StaggeredGrid.Location>;
+				public mFirstIndex: number;
 				public mPendingItem: any;
 				public mPendingItemSize: number;
 				public appendVisbleItemsWithCache(toLimit: number, oneColumnMode: boolean): boolean;
@@ -9696,12 +9696,12 @@ declare module androidx {
 				public invalidateItemsAfter(index: number): void;
 				public prependVisibleItems(toLimit: number, oneColumnMode: boolean): boolean;
 				public appendVisibleItems(toLimit: number): void;
-				public appendVisibleItems(int0: number, boolean1: boolean): boolean;
 				public getLocation(index: number): androidx.leanback.widget.StaggeredGrid.Location;
+				public appendVisibleItems(int0: number, boolean1: boolean): boolean;
 				public getLocation(int0: number): androidx.leanback.widget.Grid.Location;
 				public prependVisibleItemsWithoutCache(int0: number, boolean1: boolean): boolean;
-				public debugPrint(pw: java.io.PrintWriter): void;
 				public getFirstIndex(): number;
+				public debugPrint(pw: java.io.PrintWriter): void;
 				public getLastIndex(): number;
 				public getItemPositionsInRows(startPos: number, endPos: number): native.Array<androidx.collection.CircularIntArray>;
 				public prependVisibleItemToRow(itemIndex: number, rowIndex: number, edge: number): number;
@@ -9712,8 +9712,8 @@ declare module androidx {
 				public appendVisibleItems(toLimit: number, oneColumnMode: boolean): boolean;
 				public appendVisibleItemsWithoutCache(int0: number, boolean1: boolean): boolean;
 				public getItemPositionsInRows(): native.Array<androidx.collection.CircularIntArray>;
-				public getItemPositionsInRows(int0: number, int1: number): native.Array<androidx.collection.CircularIntArray>;
 				public prependVisbleItemsWithCache(toLimit: number, oneColumnMode: boolean): boolean;
+				public getItemPositionsInRows(int0: number, int1: number): native.Array<androidx.collection.CircularIntArray>;
 			}
 			export module StaggeredGrid {
 				export class Location extends androidx.leanback.widget.Grid.Location {
@@ -9738,8 +9738,8 @@ declare module androidx {
 				public prependVisibleItemsWithoutCache(int0: number, boolean1: boolean): boolean;
 				public findRowMin(findLarge: boolean, indices: native.Array<number>): number;
 				public findRowMax(findLarge: boolean, indices: native.Array<number>): number;
-				public appendVisibleItemsWithoutCache(int0: number, boolean1: boolean): boolean;
 				public findRowMax(findLarge: boolean, indexLimit: number, indices: native.Array<number>): number;
+				public appendVisibleItemsWithoutCache(int0: number, boolean1: boolean): boolean;
 				public findRowMin(boolean0: boolean, int1: number, ints2: native.Array<number>): number;
 				public prependVisibleItemsWithoutCache(toLimit: number, oneColumnMode: boolean): boolean;
 				public appendVisibleItemsWithoutCache(toLimit: number, oneColumnMode: boolean): boolean;
@@ -9907,8 +9907,8 @@ declare module androidx {
 			export class TitleHelper extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.TitleHelper>;
 				public constructor(sceneRoot: globalAndroid.view.ViewGroup, titleView: globalAndroid.view.View);
-				public getSceneRoot(): globalAndroid.view.ViewGroup;
 				public showTitle(show: boolean): void;
+				public getSceneRoot(): globalAndroid.view.ViewGroup;
 				public getOnFocusSearchListener(): androidx.leanback.widget.BrowseFrameLayout.OnFocusSearchListener;
 				public getTitleView(): globalAndroid.view.View;
 			}
@@ -10014,8 +10014,8 @@ declare module androidx {
 			export abstract class TitleViewAdapter extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.TitleViewAdapter>;
 				public static BRANDING_VIEW_VISIBLE: number;
-				public static FULL_VIEW_VISIBLE: number;
 				public static SEARCH_VIEW_VISIBLE: number;
+				public static FULL_VIEW_VISIBLE: number;
 				public getSearchAffordanceColors(): androidx.leanback.widget.SearchOrbView.Colors;
 				public setOnSearchClickedListener(listener: globalAndroid.view.View.OnClickListener): void;
 				public setAnimationEnabled(enable: boolean): void;
@@ -10025,14 +10025,14 @@ declare module androidx {
 				public getBadgeDrawable(): globalAndroid.graphics.drawable.Drawable;
 				public getTitle(): string;
 				public constructor();
-				public getSearchAffordanceView(): globalAndroid.view.View;
 				public setTitle(titleText: string): void;
+				public getSearchAffordanceView(): globalAndroid.view.View;
 			}
 			export module TitleViewAdapter {
 				export class Provider extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.TitleViewAdapter.Provider>;
 					/**
-					 * Constructs a new instance of the androidx.leanback.widget.TitleViewAdapter$Provider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.leanback.widget.TitleViewAdapter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getTitleViewAdapter(): androidx.leanback.widget.TitleViewAdapter;
@@ -10072,12 +10072,12 @@ declare module androidx {
 				public createShadowOverlayOptions(): androidx.leanback.widget.ShadowOverlayHelper.Options;
 				public onUnbindViewHolder(viewHolder: androidx.leanback.widget.Presenter.ViewHolder): void;
 				public isUsingDefaultShadow(): boolean;
-				public getOnItemViewClickedListener(): androidx.leanback.widget.OnItemViewClickedListener;
 				public isUsingZOrder(context: globalAndroid.content.Context): boolean;
+				public getOnItemViewClickedListener(): androidx.leanback.widget.OnItemViewClickedListener;
 				public setShadowEnabled(enabled: boolean): void;
-				public getOnItemViewSelectedListener(): androidx.leanback.widget.OnItemViewSelectedListener;
 				public initializeGridViewHolder(vh: androidx.leanback.widget.VerticalGridPresenter.ViewHolder): void;
 				public setKeepChildForeground(keep: boolean): void;
+				public getOnItemViewSelectedListener(): androidx.leanback.widget.OnItemViewSelectedListener;
 				public getShadowEnabled(): boolean;
 				public setOnItemViewSelectedListener(listener: androidx.leanback.widget.OnItemViewSelectedListener): void;
 				public getKeepChildForeground(): boolean;
@@ -10097,8 +10097,8 @@ declare module androidx {
 				export class VerticalGridItemBridgeAdapter extends androidx.leanback.widget.ItemBridgeAdapter {
 					public static class: java.lang.Class<androidx.leanback.widget.VerticalGridPresenter.VerticalGridItemBridgeAdapter>;
 					public onBind(viewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
-					public onBind(itemViewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
 					public onCreate(viewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
+					public onBind(itemViewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
 					public onAttachedToWindow(viewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
 					public getFacetProvider(type: number): androidx.leanback.widget.FacetProvider;
 					public onUnbind(viewHolder: androidx.leanback.widget.ItemBridgeAdapter.ViewHolder): void;
@@ -10272,8 +10272,8 @@ declare module androidx {
 				public loadFromBundle(savedBundle: globalAndroid.os.Bundle): void;
 				public setLimitNumber(limitNumber: number): void;
 				public loadView(view: globalAndroid.view.View, id: number): void;
-				public getLimitNumber(): number;
 				public getSavePolicy(): number;
+				public getLimitNumber(): number;
 				public saveOffscreenView(view: globalAndroid.view.View, id: number): void;
 				public constructor();
 				public clear(): void;
@@ -10315,8 +10315,8 @@ declare module androidx {
 		export module widget {
 			export class WindowAlignment extends java.lang.Object {
 				public static class: java.lang.Class<androidx.leanback.widget.WindowAlignment>;
-				public horizontal: androidx.leanback.widget.WindowAlignment.Axis;
 				public vertical: androidx.leanback.widget.WindowAlignment.Axis;
+				public horizontal: androidx.leanback.widget.WindowAlignment.Axis;
 				public mainAxis(): androidx.leanback.widget.WindowAlignment.Axis;
 				public reset(): void;
 				public secondAxis(): androidx.leanback.widget.WindowAlignment.Axis;
@@ -10328,21 +10328,21 @@ declare module androidx {
 				export class Axis extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.WindowAlignment.Axis>;
 					public invalidateScrollMax(): void;
-					public getPaddingMax(): number;
 					public setWindowAlignmentOffset(offset: number): void;
+					public getPaddingMax(): number;
 					public getWindowAlignment(): number;
 					public setWindowAlignment(windowAlignment: number): void;
 					public getMinScroll(): number;
-					public isMinUnknown(): boolean;
 					public setWindowAlignmentOffsetPercent(percent: number): void;
+					public isMinUnknown(): boolean;
 					public setPadding(paddingMin: number, paddingMax: number): void;
 					public getSize(): number;
 					public getScroll(viewCenter: number): number;
 					public setSize(size: number): void;
 					public toString(): string;
 					public constructor(name: string);
-					public getClientSize(): number;
 					public isMaxUnknown(): boolean;
+					public getClientSize(): number;
 					public getWindowAlignmentOffset(): number;
 					public getWindowAlignmentOffsetPercent(): number;
 					public updateMinMax(minEdge: number, maxEdge: number, minChildViewCenter: number, maxChildViewCenter: number): void;
@@ -10568,7 +10568,7 @@ declare module androidx {
 					export class PickerValueListener extends java.lang.Object {
 						public static class: java.lang.Class<androidx.leanback.widget.picker.Picker.PickerValueListener>;
 						/**
-						 * Constructs a new instance of the androidx.leanback.widget.picker.Picker$PickerValueListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.leanback.widget.picker.Picker() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							onValueChanged(picker0: androidx.leanback.widget.picker.Picker, int1: number): void;
@@ -10616,25 +10616,25 @@ declare module androidx {
 			export module picker {
 				export class PickerUtility extends java.lang.Object {
 					public static class: java.lang.Class<androidx.leanback.widget.picker.PickerUtility>;
-					public static getCalendarForLocale(oldCalendar: java.util.Calendar, locale: java.util.Locale): java.util.Calendar;
 					public static getTimeConstantInstance(locale: java.util.Locale, resources: globalAndroid.content.res.Resources): androidx.leanback.widget.picker.PickerUtility.TimeConstant;
+					public static getCalendarForLocale(oldCalendar: java.util.Calendar, locale: java.util.Locale): java.util.Calendar;
 					public static createStringIntArrays(firstNumber: number, lastNumber: number, format: string): native.Array<string>;
 					public static getDateConstantInstance(locale: java.util.Locale, resources: globalAndroid.content.res.Resources): androidx.leanback.widget.picker.PickerUtility.DateConstant;
 				}
 				export module PickerUtility {
 					export class DateConstant extends java.lang.Object {
 						public static class: java.lang.Class<androidx.leanback.widget.picker.PickerUtility.DateConstant>;
-						public days: native.Array<string>;
 						public locale: java.util.Locale;
 						public months: native.Array<string>;
+						public days: native.Array<string>;
 					}
 					export class TimeConstant extends java.lang.Object {
 						public static class: java.lang.Class<androidx.leanback.widget.picker.PickerUtility.TimeConstant>;
-						public ampm: native.Array<string>;
+						public locale: java.util.Locale;
 						public hours12: native.Array<string>;
 						public hours24: native.Array<string>;
-						public locale: java.util.Locale;
 						public minutes: native.Array<string>;
+						public ampm: native.Array<string>;
 					}
 				}
 			}

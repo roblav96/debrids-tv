@@ -72,7 +72,7 @@ declare module com {
 					export class Context extends java.lang.Object {
 						public static class: java.lang.Class<com.sun.xml.bind.CycleRecoverable.Context>;
 						/**
-						 * Constructs a new instance of the com.sun.xml.bind.CycleRecoverable$Context interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the com.sun.xml.bind.CycleRecoverable() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							getMarshaller(): javax.xml.bind.Marshaller;
@@ -12912,7 +12912,7 @@ declare module com {
 								export class TextPredictor extends java.lang.Object {
 									public static class: java.lang.Class<com.sun.xml.bind.v2.runtime.unmarshaller.XmlVisitor.TextPredictor>;
 									/**
-									 * Constructs a new instance of the com.sun.xml.bind.v2.runtime.unmarshaller.XmlVisitor$TextPredictor interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the com.sun.xml.bind.v2.runtime.unmarshaller.XmlVisitor() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										expectText(): boolean;
@@ -18525,7 +18525,7 @@ declare module com {
 	}
 }
 
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 

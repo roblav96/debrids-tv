@@ -1123,7 +1123,7 @@ declare module com {
 	}
 }
 
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 

@@ -29,8 +29,8 @@ declare module okio {
 declare module okio {
 	export class Buffer extends java.lang.Object implements okio.BufferedSource, okio.BufferedSink, java.lang.Cloneable, java.nio.channels.ByteChannel {
 		public static class: java.lang.Class<okio.Buffer>;
-		public readUtf8(byteCount: number): string;
 		public require(byteCount: number): void;
+		public readUtf8(byteCount: number): string;
 		public write(bytes0: native.Array<number>, int1: number, int2: number): okio.BufferedSink;
 		public readIntLe(): number;
 		public writeString(string: string, beginIndex: number, endIndex: number, charset: java.nio.charset.Charset): okio.Buffer;
@@ -40,26 +40,26 @@ declare module okio {
 		public write(bytes0: native.Array<number>): okio.BufferedSink;
 		public writeTo(out: java.io.OutputStream, byteCount: number): okio.Buffer;
 		public readByte(): number;
-		public emitCompleteSegments(): okio.BufferedSink;
 		public readUnsafe(unsafeCursor: okio.Buffer.UnsafeCursor): okio.Buffer.UnsafeCursor;
+		public emitCompleteSegments(): okio.BufferedSink;
 		public readLong(): number;
 		public writeString(string0: string, charset1: java.nio.charset.Charset): okio.BufferedSink;
 		public readFrom(in0: java.io.InputStream, byteCount: number): okio.Buffer;
 		public writeString(string0: string, int1: number, int2: number, charset3: java.nio.charset.Charset): okio.BufferedSink;
-		public indexOfElement(targetBytes: okio.ByteString, fromIndex: number): number;
 		public writeTo(out: java.io.OutputStream): okio.Buffer;
+		public indexOfElement(targetBytes: okio.ByteString, fromIndex: number): number;
 		public getByte(pos: number): number;
 		public write(source: okio.Buffer, byteCount: number): void;
 		public read(sink: java.nio.ByteBuffer): number;
-		public sha1(): okio.ByteString;
 		public writeUtf8(string: string, beginIndex: number, endIndex: number): okio.Buffer;
+		public sha1(): okio.ByteString;
 		public copyTo(out: java.io.OutputStream, offset: number, byteCount: number): okio.Buffer;
 		public readString(charset: java.nio.charset.Charset): string;
 		public indexOf(bytes: okio.ByteString): number;
 		public rangeEquals(offset: number, bytes: okio.ByteString): boolean;
 		public writeLong(v: number): okio.Buffer;
-		public clear(): void;
 		public outputStream(): java.io.OutputStream;
+		public clear(): void;
 		public write(source: okio.Source, byteCount: number): okio.BufferedSink;
 		public writeLongLe(v: number): okio.Buffer;
 		public readUtf8LineStrict(): string;
@@ -84,35 +84,35 @@ declare module okio {
 		public write(source: java.nio.ByteBuffer): number;
 		public write(source: native.Array<number>): okio.Buffer;
 		public writeHexadecimalUnsignedLong(long0: number): okio.BufferedSink;
-		public equals(o: any): boolean;
 		public timeout(): okio.Timeout;
+		public equals(o: any): boolean;
 		public writeLongLe(long0: number): okio.BufferedSink;
-		public close(): void;
 		public indexOf(b: number, fromIndex: number, toIndex: number): number;
+		public close(): void;
 		public inputStream(): java.io.InputStream;
 		public writeDecimalLong(long0: number): okio.BufferedSink;
-		public hmacSha256(key: okio.ByteString): okio.ByteString;
 		public readUtf8CodePoint(): number;
+		public hmacSha256(key: okio.ByteString): okio.ByteString;
 		public read(sink: okio.Buffer, byteCount: number): number;
 		public readAndWriteUnsafe(): okio.Buffer.UnsafeCursor;
 		public writeInt(int0: number): okio.BufferedSink;
 		public rangeEquals(offset: number, bytes: okio.ByteString, bytesOffset: number, byteCount: number): boolean;
 		public read(sink: native.Array<number>, offset: number, byteCount: number): number;
-		public writeInt(i: number): okio.Buffer;
 		public writeString(string: string, charset: java.nio.charset.Charset): okio.Buffer;
-		public read(sink: native.Array<number>): number;
+		public writeInt(i: number): okio.Buffer;
 		public readHexadecimalUnsignedLong(): number;
+		public read(sink: native.Array<number>): number;
+		public select(options: okio.Options): number;
 		public indexOfElement(targetBytes: okio.ByteString): number;
 		public readAndWriteUnsafe(unsafeCursor: okio.Buffer.UnsafeCursor): okio.Buffer.UnsafeCursor;
-		public select(options: okio.Options): number;
 		public emit(): okio.BufferedSink;
 		public readUtf8LineStrict(limit: number): string;
 		public constructor();
 		public hmacSha1(key: okio.ByteString): okio.ByteString;
 		public readUtf8(): string;
+		public indexOf(b: number, fromIndex: number): number;
 		/** @deprecated */
 		public buffer(): okio.Buffer;
-		public indexOf(b: number, fromIndex: number): number;
 		public writeAll(source: okio.Source): number;
 		public writeShort(s: number): okio.Buffer;
 		public readUnsafe(): okio.Buffer.UnsafeCursor;
@@ -143,8 +143,8 @@ declare module okio {
 		public readDecimalLong(): number;
 		public sha256(): okio.ByteString;
 		public isOpen(): boolean;
-		public readByteArray(): native.Array<number>;
 		public readByteString(byteCount: number): okio.ByteString;
+		public readByteArray(): native.Array<number>;
 		public snapshot(byteCount: number): okio.ByteString;
 		public write(byteString0: okio.ByteString): okio.BufferedSink;
 		public readAll(sink: okio.Sink): number;
@@ -159,11 +159,11 @@ declare module okio {
 		export class UnsafeCursor extends java.lang.Object implements java.io.Closeable {
 			public static class: java.lang.Class<okio.Buffer.UnsafeCursor>;
 			public buffer: okio.Buffer;
-			public data: native.Array<number>;
-			public end: number;
-			public offset: number;
 			public readWrite: boolean;
+			public offset: number;
+			public data: native.Array<number>;
 			public start: number;
+			public end: number;
 			public next(): number;
 			public seek(offset: number): number;
 			public expandBuffer(minByteCount: number): number;
@@ -376,49 +376,49 @@ declare module okio {
 		public base64Url(): string;
 		public hmacSha256(key: okio.ByteString): okio.ByteString;
 		public asByteBuffer(): java.nio.ByteBuffer;
-		public static read(in0: java.io.InputStream, byteCount: number): okio.ByteString;
 		public sha512(): okio.ByteString;
+		public static read(in0: java.io.InputStream, byteCount: number): okio.ByteString;
 		public size(): number;
 		public static decodeHex(hex: string): okio.ByteString;
-		public hashCode(): number;
 		public hex(): string;
 		public indexOf(other: okio.ByteString, fromIndex: number): number;
-		public endsWith(suffix: okio.ByteString): boolean;
+		public hashCode(): number;
 		public static of(data: native.Array<number>, offset: number, byteCount: number): okio.ByteString;
 		public toAsciiUppercase(): okio.ByteString;
+		public endsWith(suffix: okio.ByteString): boolean;
 		public lastIndexOf(other: okio.ByteString): number;
 		public hmacSha1(key: okio.ByteString): okio.ByteString;
-		public indexOf(other: native.Array<number>, fromIndex: number): number;
 		public string(charset: java.nio.charset.Charset): string;
+		public indexOf(other: native.Array<number>, fromIndex: number): number;
 		public static encodeUtf8(s: string): okio.ByteString;
 		public indexOf(other: native.Array<number>): number;
 		public static of(data: native.Array<number>): okio.ByteString;
 		public static of(data: java.nio.ByteBuffer): okio.ByteString;
 		public sha256(): okio.ByteString;
-		public toString(): string;
 		public write(out: java.io.OutputStream): void;
+		public toString(): string;
+		public md5(): okio.ByteString;
 		public getByte(pos: number): number;
 		public lastIndexOf(other: okio.ByteString, fromIndex: number): number;
-		public md5(): okio.ByteString;
 		public startsWith(prefix: okio.ByteString): boolean;
-		public compareTo(byteString: okio.ByteString): number;
 		public substring(beginIndex: number, endIndex: number): okio.ByteString;
+		public compareTo(byteString: okio.ByteString): number;
 		public toAsciiLowercase(): okio.ByteString;
 		public sha1(): okio.ByteString;
-		public equals(obj: any): boolean;
 		public substring(beginIndex: number): okio.ByteString;
+		public equals(obj: any): boolean;
 		public rangeEquals(offset: number, other: native.Array<number>, otherOffset: number, byteCount: number): boolean;
-		public endsWith(suffix: native.Array<number>): boolean;
 		public startsWith(prefix: native.Array<number>): boolean;
-		public lastIndexOf(other: native.Array<number>): number;
+		public endsWith(suffix: native.Array<number>): boolean;
 		public utf8(): string;
+		public lastIndexOf(other: native.Array<number>): number;
 		public static encodeString(s: string, charset: java.nio.charset.Charset): okio.ByteString;
 		public toByteArray(): native.Array<number>;
 		public hmacSha512(key: okio.ByteString): okio.ByteString;
 		public indexOf(other: okio.ByteString): number;
 		public static decodeBase64(base64: string): okio.ByteString;
-		public equals(o: any): boolean;
 		public lastIndexOf(other: native.Array<number>, fromIndex: number): number;
+		public equals(o: any): boolean;
 	}
 }
 
@@ -438,8 +438,8 @@ declare module okio {
 	export abstract class ForwardingSink extends java.lang.Object implements okio.Sink {
 		public static class: java.lang.Class<okio.ForwardingSink>;
 		public constructor(delegate: okio.Sink);
-		public close(): void;
 		public delegate(): okio.Sink;
+		public close(): void;
 		public toString(): string;
 		public write(source: okio.Buffer, byteCount: number): void;
 		public flush(): void;
@@ -505,12 +505,12 @@ declare module okio {
 		public static md5(sink: okio.Sink): okio.HashingSink;
 		public close(): void;
 		public static sha1(sink: okio.Sink): okio.HashingSink;
-		public static hmacSha256(sink: okio.Sink, key: okio.ByteString): okio.HashingSink;
 		public static sha512(sink: okio.Sink): okio.HashingSink;
+		public static hmacSha256(sink: okio.Sink, key: okio.ByteString): okio.HashingSink;
 		public static hmacSha512(sink: okio.Sink, key: okio.ByteString): okio.HashingSink;
 		public static sha256(sink: okio.Sink): okio.HashingSink;
-		public hash(): okio.ByteString;
 		public write(source: okio.Buffer, byteCount: number): void;
+		public hash(): okio.ByteString;
 		public static hmacSha1(sink: okio.Sink, key: okio.ByteString): okio.HashingSink;
 		public flush(): void;
 		public timeout(): okio.Timeout;
@@ -526,8 +526,8 @@ declare module okio {
 		public static hmacSha1(source: okio.Source, key: okio.ByteString): okio.HashingSource;
 		public static hmacSha256(source: okio.Source, key: okio.ByteString): okio.HashingSource;
 		public static sha256(source: okio.Source): okio.HashingSource;
-		public hash(): okio.ByteString;
 		public static md5(source: okio.Source): okio.HashingSource;
+		public hash(): okio.ByteString;
 		public timeout(): okio.Timeout;
 	}
 }
@@ -645,8 +645,8 @@ declare module okio {
 		public static class: java.lang.Class<okio.RealBufferedSink>;
 		public sink: okio.Sink;
 		public writeString(string: string, charset: java.nio.charset.Charset): okio.BufferedSink;
-		public close(): void;
 		public writeUtf8(string: string): okio.BufferedSink;
+		public close(): void;
 		public writeHexadecimalUnsignedLong(v: number): okio.BufferedSink;
 		public writeInt(i: number): okio.BufferedSink;
 		public writeString(string: string, beginIndex: number, endIndex: number, charset: java.nio.charset.Charset): okio.BufferedSink;
@@ -655,8 +655,8 @@ declare module okio {
 		public writeShortLe(s: number): okio.BufferedSink;
 		public writeIntLe(i: number): okio.BufferedSink;
 		public writeLong(v: number): okio.BufferedSink;
-		public write(source: native.Array<number>): okio.BufferedSink;
 		public writeUtf8(string: string, beginIndex: number, endIndex: number): okio.BufferedSink;
+		public write(source: native.Array<number>): okio.BufferedSink;
 		public writeLongLe(v: number): okio.BufferedSink;
 		public writeAll(source: okio.Source): number;
 		public write(source: native.Array<number>, offset: number, byteCount: number): okio.BufferedSink;
@@ -681,10 +681,10 @@ declare module okio {
 	export class RealBufferedSource extends java.lang.Object implements okio.BufferedSource {
 		public static class: java.lang.Class<okio.RealBufferedSource>;
 		public source: okio.Source;
-		public readUtf8(byteCount: number): string;
 		public require(byteCount: number): void;
-		public close(): void;
+		public readUtf8(byteCount: number): string;
 		public indexOf(b: number, fromIndex: number, toIndex: number): number;
+		public close(): void;
 		public inputStream(): java.io.InputStream;
 		public readIntLe(): number;
 		public request(byteCount: number): boolean;
@@ -695,14 +695,14 @@ declare module okio {
 		public read(sink: native.Array<number>, offset: number, byteCount: number): number;
 		public read(sink: native.Array<number>): number;
 		public readHexadecimalUnsignedLong(): number;
-		public indexOfElement(targetBytes: okio.ByteString): number;
 		public select(options: okio.Options): number;
+		public indexOfElement(targetBytes: okio.ByteString): number;
 		public readUtf8LineStrict(limit: number): string;
 		public readLong(): number;
 		public readUtf8(): string;
+		public indexOf(b: number, fromIndex: number): number;
 		/** @deprecated */
 		public buffer(): okio.Buffer;
-		public indexOf(b: number, fromIndex: number): number;
 		public toString(): string;
 		public indexOfElement(targetBytes: okio.ByteString, fromIndex: number): number;
 		public read(sink: java.nio.ByteBuffer): number;
@@ -727,8 +727,8 @@ declare module okio {
 		public readDecimalLong(): number;
 		public readInt(): number;
 		public isOpen(): boolean;
-		public readByteArray(): native.Array<number>;
 		public readByteString(byteCount: number): okio.ByteString;
+		public readByteArray(): native.Array<number>;
 		public readAll(sink: okio.Sink): number;
 		public exhausted(): boolean;
 		public buffer(): okio.Buffer;
@@ -762,32 +762,32 @@ declare module okio {
 		public hmacSha256(key: okio.ByteString): okio.ByteString;
 		public asByteBuffer(): java.nio.ByteBuffer;
 		public size(): number;
-		public hashCode(): number;
 		public hex(): string;
 		public indexOf(other: okio.ByteString, fromIndex: number): number;
+		public hashCode(): number;
 		public toAsciiUppercase(): okio.ByteString;
 		public lastIndexOf(other: okio.ByteString): number;
 		public hmacSha1(key: okio.ByteString): okio.ByteString;
-		public indexOf(other: native.Array<number>, fromIndex: number): number;
 		public string(charset: java.nio.charset.Charset): string;
+		public indexOf(other: native.Array<number>, fromIndex: number): number;
 		public indexOf(other: native.Array<number>): number;
 		public sha256(): okio.ByteString;
-		public toString(): string;
 		public write(out: java.io.OutputStream): void;
+		public toString(): string;
+		public md5(): okio.ByteString;
 		public getByte(pos: number): number;
 		public lastIndexOf(other: okio.ByteString, fromIndex: number): number;
-		public md5(): okio.ByteString;
 		public substring(beginIndex: number, endIndex: number): okio.ByteString;
 		public toAsciiLowercase(): okio.ByteString;
 		public sha1(): okio.ByteString;
 		public substring(beginIndex: number): okio.ByteString;
 		public rangeEquals(offset: number, other: native.Array<number>, otherOffset: number, byteCount: number): boolean;
-		public lastIndexOf(other: native.Array<number>): number;
 		public utf8(): string;
+		public lastIndexOf(other: native.Array<number>): number;
 		public toByteArray(): native.Array<number>;
 		public indexOf(other: okio.ByteString): number;
-		public equals(o: any): boolean;
 		public lastIndexOf(other: native.Array<number>, fromIndex: number): number;
+		public equals(o: any): boolean;
 	}
 }
 

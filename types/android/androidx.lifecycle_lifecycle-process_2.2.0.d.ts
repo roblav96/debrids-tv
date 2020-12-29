@@ -12,8 +12,8 @@ declare module androidx {
 			public onActivityPostSaveInstanceState(activity: globalAndroid.app.Activity, outState: globalAndroid.os.Bundle): void;
 			public onActivityDestroyed(activity: globalAndroid.app.Activity): void;
 			public onActivityPostResumed(activity: globalAndroid.app.Activity): void;
-			public onActivityPostDestroyed(activity: globalAndroid.app.Activity): void;
 			public onActivityPreSaveInstanceState(activity: globalAndroid.app.Activity, outState: globalAndroid.os.Bundle): void;
+			public onActivityPostDestroyed(activity: globalAndroid.app.Activity): void;
 			public onActivityStarted(activity: globalAndroid.app.Activity): void;
 			public onActivityPreResumed(activity: globalAndroid.app.Activity): void;
 			public onActivityPreCreated(activity: globalAndroid.app.Activity, savedInstanceState: globalAndroid.os.Bundle): void;
@@ -83,13 +83,13 @@ declare module androidx {
 			public query(uri: globalAndroid.net.Uri, strings: native.Array<string>, s: string, strings1: native.Array<string>, s1: string): globalAndroid.database.Cursor;
 			public insert(uri: globalAndroid.net.Uri, contentValues: globalAndroid.content.ContentValues): globalAndroid.net.Uri;
 			public update(uri: globalAndroid.net.Uri, contentValues: globalAndroid.content.ContentValues, s: string, strings: native.Array<string>): number;
-			public getType(uri: globalAndroid.net.Uri): string;
 			public onCreate(): boolean;
 			public query(uri0: globalAndroid.net.Uri, strings1: native.Array<string>, string2: string, strings3: native.Array<string>, string4: string): globalAndroid.database.Cursor;
+			public getType(uri: globalAndroid.net.Uri): string;
 			public query(uri: globalAndroid.net.Uri, projection: native.Array<string>, queryArgs: globalAndroid.os.Bundle, cancellationSignal: globalAndroid.os.CancellationSignal): globalAndroid.database.Cursor;
 			public onTrimMemory(level: number): void;
-			public delete(uri0: globalAndroid.net.Uri, string1: string, strings2: native.Array<string>): number;
 			public insert(uri0: globalAndroid.net.Uri, contentValues1: globalAndroid.content.ContentValues): globalAndroid.net.Uri;
+			public delete(uri0: globalAndroid.net.Uri, string1: string, strings2: native.Array<string>): number;
 		}
 	}
 }

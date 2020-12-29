@@ -721,7 +721,7 @@ declare module com {
 						export class WordListener extends java.lang.Object {
 							public static class: java.lang.Class<com.sun.xml.fastinfoset.algorithm.BuiltInEncodingAlgorithm.WordListener>;
 							/**
-							 * Constructs a new instance of the com.sun.xml.fastinfoset.algorithm.BuiltInEncodingAlgorithm$WordListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.sun.xml.fastinfoset.algorithm.BuiltInEncodingAlgorithm() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								word(int0: number, int1: number): void;
@@ -3713,7 +3713,7 @@ declare module com {
 	}
 }
 
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 

@@ -6347,7 +6347,7 @@ declare module org {
 							export class Idle extends java.lang.Object {
 								public static class: java.lang.Class<org.apache.logging.log4j.core.async.JCToolsBlockingQueueFactory.Idle>;
 								/**
-								 * Constructs a new instance of the org.apache.logging.log4j.core.async.JCToolsBlockingQueueFactory$Idle interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the org.apache.logging.log4j.core.async.JCToolsBlockingQueueFactory() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									idle(int0: number): number;
@@ -10706,7 +10706,7 @@ declare module org {
 									export class Test extends java.lang.Object {
 										public static class: java.lang.Class<org.apache.logging.log4j.core.config.plugins.util.ResolverUtil.Test>;
 										/**
-										 * Constructs a new instance of the org.apache.logging.log4j.core.config.plugins.util.ResolverUtil$Test interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+										 * Constructs a new instance of the org.apache.logging.log4j.core.config.plugins.util.ResolverUtil() when extending the interface class.
 										 */
 										public constructor(implementation: {
 											matches(class0: java.lang.Class<any>): boolean;
@@ -14516,7 +14516,7 @@ declare module org {
 							export class Serializer extends java.lang.Object {
 								public static class: java.lang.Class<org.apache.logging.log4j.core.layout.AbstractStringLayout.Serializer>;
 								/**
-								 * Constructs a new instance of the org.apache.logging.log4j.core.layout.AbstractStringLayout$Serializer interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the org.apache.logging.log4j.core.layout.AbstractStringLayout() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									toSerializable(logEvent0: org.apache.logging.log4j.core.LogEvent): string;
@@ -14529,7 +14529,7 @@ declare module org {
 							export class Serializer2 extends java.lang.Object {
 								public static class: java.lang.Class<org.apache.logging.log4j.core.layout.AbstractStringLayout.Serializer2>;
 								/**
-								 * Constructs a new instance of the org.apache.logging.log4j.core.layout.AbstractStringLayout$Serializer2 interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the org.apache.logging.log4j.core.layout.AbstractStringLayout() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									toSerializable(logEvent0: org.apache.logging.log4j.core.LogEvent, stringBuilder1: java.lang.StringBuilder): java.lang.StringBuilder;
@@ -19258,7 +19258,7 @@ declare module org {
 							export class ScriptRunner extends java.lang.Object {
 								public static class: java.lang.Class<org.apache.logging.log4j.core.script.ScriptManager.ScriptRunner>;
 								/**
-								 * Constructs a new instance of the org.apache.logging.log4j.core.script.ScriptManager$ScriptRunner interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+								 * Constructs a new instance of the org.apache.logging.log4j.core.script.ScriptManager() when extending the interface class.
 								 */
 								public constructor(implementation: {
 									createBindings(): javax.script.Bindings;
@@ -19859,7 +19859,7 @@ declare module org {
 								export class Command extends java.lang.Object implements java.lang.annotation.Annotation {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Command>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Command interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										name(): string;
@@ -20009,7 +20009,7 @@ declare module org {
 										export class IStyle extends java.lang.Object {
 											public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.IStyle>;
 											/**
-											 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Help$Ansi$IStyle interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+											 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 											 */
 											public constructor(implementation: {
 												on(): string;
@@ -20138,7 +20138,7 @@ declare module org {
 									export class IOptionRenderer extends java.lang.Object {
 										public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.IOptionRenderer>;
 										/**
-										 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Help$IOptionRenderer interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+										 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 										 */
 										public constructor(implementation: {
 											render(option0: org.apache.logging.log4j.core.tools.picocli.CommandLine.Option, field1: java.lang.reflect.Field, iParamLabelRenderer2: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.IParamLabelRenderer, colorScheme3: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.ColorScheme): native.Array<native.Array<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.Text>>;
@@ -20149,7 +20149,7 @@ declare module org {
 									export class IParamLabelRenderer extends java.lang.Object {
 										public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.IParamLabelRenderer>;
 										/**
-										 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Help$IParamLabelRenderer interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+										 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 										 */
 										public constructor(implementation: {
 											renderParameterLabel(field0: java.lang.reflect.Field, ansi1: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi, list2: java.util.List<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.IStyle>): org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.Text;
@@ -20162,7 +20162,7 @@ declare module org {
 									export class IParameterRenderer extends java.lang.Object {
 										public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.IParameterRenderer>;
 										/**
-										 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Help$IParameterRenderer interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+										 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 										 */
 										public constructor(implementation: {
 											render(parameters0: org.apache.logging.log4j.core.tools.picocli.CommandLine.Parameters, field1: java.lang.reflect.Field, iParamLabelRenderer2: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.IParamLabelRenderer, colorScheme3: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.ColorScheme): native.Array<native.Array<org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.Text>>;
@@ -20292,7 +20292,7 @@ declare module org {
 								export class IExceptionHandler extends java.lang.Object {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.IExceptionHandler>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$IExceptionHandler interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										handleException(parameterException0: org.apache.logging.log4j.core.tools.picocli.CommandLine.ParameterException, printStream1: java.io.PrintStream, ansi2: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi, strings3: native.Array<string>): java.util.List<any>;
@@ -20303,7 +20303,7 @@ declare module org {
 								export class IParseResultHandler extends java.lang.Object {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.IParseResultHandler>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$IParseResultHandler interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										handleParseResult(list0: java.util.List<org.apache.logging.log4j.core.tools.picocli.CommandLine>, printStream1: java.io.PrintStream, ansi2: org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi): java.util.List<any>;
@@ -20314,7 +20314,7 @@ declare module org {
 								export class ITypeConverter<K>  extends java.lang.Object {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.ITypeConverter<any>>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$ITypeConverter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										convert(string0: string): K;
@@ -20370,7 +20370,7 @@ declare module org {
 								export class Option extends java.lang.Object implements java.lang.annotation.Annotation {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Option>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Option interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										names(): native.Array<string>;
@@ -20442,7 +20442,7 @@ declare module org {
 								export class Parameters extends java.lang.Object implements java.lang.annotation.Annotation {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.tools.picocli.CommandLine.Parameters>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine$Parameters interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.tools.picocli.CommandLine() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										index(): string;
@@ -22351,7 +22351,7 @@ declare module org {
 								export class NumberRule extends java.lang.Object implements org.apache.logging.log4j.core.util.datetime.FastDatePrinter.Rule {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.util.datetime.FastDatePrinter.NumberRule>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.util.datetime.FastDatePrinter$NumberRule interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.util.datetime.FastDatePrinter() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										appendTo(appendable0: java.lang.Appendable, int1: number): void;
@@ -22372,7 +22372,7 @@ declare module org {
 								export class Rule extends java.lang.Object {
 									public static class: java.lang.Class<org.apache.logging.log4j.core.util.datetime.FastDatePrinter.Rule>;
 									/**
-									 * Constructs a new instance of the org.apache.logging.log4j.core.util.datetime.FastDatePrinter$Rule interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+									 * Constructs a new instance of the org.apache.logging.log4j.core.util.datetime.FastDatePrinter() when extending the interface class.
 									 */
 									public constructor(implementation: {
 										estimateLength(): number;

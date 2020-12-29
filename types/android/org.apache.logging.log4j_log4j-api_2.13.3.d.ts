@@ -1,4 +1,4 @@
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 
@@ -1192,7 +1192,7 @@ declare module org {
 					export class ContextStack extends java.lang.Object {
 						public static class: java.lang.Class<org.apache.logging.log4j.ThreadContext.ContextStack>;
 						/**
-						 * Constructs a new instance of the org.apache.logging.log4j.ThreadContext$ContextStack interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the org.apache.logging.log4j.ThreadContext() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							pop(): string;
@@ -2727,7 +2727,7 @@ declare module org {
 						export class ThreadInfoFactory extends java.lang.Object {
 							public static class: java.lang.Class<org.apache.logging.log4j.message.ThreadDumpMessage.ThreadInfoFactory>;
 							/**
-							 * Constructs a new instance of the org.apache.logging.log4j.message.ThreadDumpMessage$ThreadInfoFactory interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the org.apache.logging.log4j.message.ThreadDumpMessage() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								createThreadInfo(): java.util.Map<org.apache.logging.log4j.message.ThreadInformation,native.Array<java.lang.StackTraceElement>>;
@@ -4771,7 +4771,7 @@ declare module org {
 						export class MapFactory<T>  extends java.lang.Object {
 							public static class: java.lang.Class<org.apache.logging.log4j.spi.LoggerRegistry.MapFactory<any>>;
 							/**
-							 * Constructs a new instance of the org.apache.logging.log4j.spi.LoggerRegistry$MapFactory interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the org.apache.logging.log4j.spi.LoggerRegistry() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								createInnerMap(): java.util.Map<string,T>;

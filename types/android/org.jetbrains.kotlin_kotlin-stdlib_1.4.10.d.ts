@@ -1,4 +1,4 @@
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 
@@ -32,7 +32,7 @@ declare module kotlin {
 	export class DeepRecursiveFunction<T, R>  extends java.lang.Object {
 		public static class: java.lang.Class<kotlin.DeepRecursiveFunction<any,any>>;
 		public constructor(block: kotlin.jvm.functions.Function3<any,any,any,any>);
-		public getBlock$kotlin_stdlib(): kotlin.jvm.functions.Function3<kotlin.DeepRecursiveScope<T,R>,T,kotlin.coroutines.Continuation<any>,any>;
+		public getBlock(): kotlin.jvm.functions.Function3<kotlin.DeepRecursiveScope<T,R>,T,kotlin.coroutines.Continuation<any>,any>;
 	}
 }
 
@@ -721,17 +721,17 @@ declare module kotlin {
 	export class Result<T>  extends java.io.Serializable {
 		public static class: java.lang.Class<kotlin.Result<any>>;
 		public static Companion: kotlin.Result.Companion;
-		public static isFailure-impl(this0: any): boolean;
-		public static toString-impl(this0: any): string;
+		public static exceptionOrNull(this0: any): java.lang.Throwable;
 		public equals(obj: any): boolean;
-		public static hashCode-impl(object0: any): number;
+		public static isSuccess(this0: any): boolean;
+		public static equals(p1: any, p2: any): boolean;
+		public static equals(object0: any, object1: any): boolean;
 		public hashCode(): number;
-		public static equals-impl0(p1: any, p2: any): boolean;
-		public static exceptionOrNull-impl(this0: any): java.lang.Throwable;
+		public static toString(this0: any): string;
+		public static hashCode(object0: any): number;
 		public toString(): string;
-		public static isSuccess-impl(this0: any): boolean;
-		public static constructor-impl(value: any): any;
-		public static equals-impl(object0: any, object1: any): boolean;
+		public static constructor(value: any): any;
+		public static isFailure(this0: any): boolean;
 	}
 	export module Result {
 		export class Companion extends java.lang.Object {
@@ -911,14 +911,14 @@ declare module kotlin {
 		public static SIZE_BYTES: number;
 		public static SIZE_BITS: number;
 		public static Companion: kotlin.UByte.Companion;
-		public static toString-impl(this0: number): string;
-		public static equals-impl(byte0: number, object1: any): boolean;
 		public equals(obj: any): boolean;
-		public static hashCode-impl(byte0: number): number;
+		public static equals(p1: number, p2: number): boolean;
+		public static constructor(data: number): number;
+		public static hashCode(byte0: number): number;
 		public hashCode(): number;
+		public static toString(this0: number): string;
 		public toString(): string;
-		public static constructor-impl(data: number): number;
-		public static equals-impl0(p1: number, p2: number): boolean;
+		public static equals(byte0: number, object1: any): boolean;
 	}
 	export module UByte {
 		export class Companion extends java.lang.Object {
@@ -931,50 +931,50 @@ declare module kotlin {
 	export class UByteArray extends java.lang.Object {
 		public static class: java.lang.Class<kotlin.UByteArray>;
 		public toArray(): native.Array<any>;
+		public add(byte0: number): boolean;
+		public static toString(bytes0: native.Array<number>): string;
 		public retainAll(collection0: java.util.Collection<any>): boolean;
-		public static isEmpty-impl(this0: native.Array<number>): boolean;
-		public static toString-impl(bytes0: native.Array<number>): string;
-		public static hashCode-impl(bytes0: native.Array<number>): number;
 		public iterator(): java.util.Iterator<any>;
 		public contains(object0: any): boolean;
-		public static getSize-impl(this0: native.Array<number>): number;
-		public static equals-impl(bytes0: native.Array<number>, object1: any): boolean;
+		public static contains(this0: native.Array<number>, element: number): boolean;
 		public remove(object0: any): boolean;
 		public containsAll(collection0: java.util.Collection<any>): boolean;
 		public stream(): java.util.stream.Stream<any>;
 		public size(): number;
 		public hashCode(): number;
 		public toArray(objects0: native.Array<any>): native.Array<any>;
-		public static equals-impl0(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(storage: native.Array<number>): native.Array<number>;
 		public isEmpty(): boolean;
-		public static iterator-impl(this0: native.Array<number>): kotlin.collections.UByteIterator;
+		public static get(this0: native.Array<number>, index: number): number;
 		public getSize(): number;
+		public static getSize(this0: native.Array<number>): number;
+		public static equals(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(size: number): native.Array<number>;
 		public iterator(): kotlin.collections.UByteIterator;
-		public static get-w2LRezQ(this0: native.Array<number>, index: number): number;
+		public static iterator(this0: native.Array<number>): kotlin.collections.UByteIterator;
 		public removeAll(collection0: java.util.Collection<any>): boolean;
-		public static contains-7apg3OU(this0: native.Array<number>, element: number): boolean;
-		public static containsAll-impl(this0: native.Array<number>, elements: java.util.Collection<kotlin.UByte>): boolean;
+		public contains(byte0: number): boolean;
 		public toString(): string;
+		public static equals(bytes0: native.Array<number>, object1: any): boolean;
 		public addAll(collection0: java.util.Collection<any>): boolean;
-		public contains-7apg3OU(byte0: number): boolean;
-		public static constructor-impl(size: number): native.Array<number>;
-		public static set-VurrAj0(this0: native.Array<number>, index: number, value: number): void;
+		public static hashCode(bytes0: native.Array<number>): number;
 		public equals(obj: any): boolean;
 		public add(object0: any): boolean;
 		public spliterator(): java.util.Spliterator<any>;
-		public add-7apg3OU(byte0: number): boolean;
 		public clear(): void;
-		public static constructor-impl(storage: native.Array<number>): native.Array<number>;
+		public static set(this0: native.Array<number>, index: number, value: number): void;
+		public static isEmpty(this0: native.Array<number>): boolean;
 		public parallelStream(): java.util.stream.Stream<any>;
 		public forEach(action: any /* any*/): void;
 		public removeIf(filter: any /* any*/): boolean;
+		public static containsAll(this0: native.Array<number>, elements: java.util.Collection<kotlin.UByte>): boolean;
 	}
 	export module UByteArray {
 		export class Iterator extends kotlin.collections.UByteIterator {
 			public static class: java.lang.Class<kotlin.UByteArray.Iterator>;
+			public nextUByte(): number;
 			public constructor();
 			public hasNext(): boolean;
-			public nextUByte-w2LRezQ(): number;
 			public constructor(array: native.Array<number>);
 		}
 	}
@@ -1000,14 +1000,14 @@ declare module kotlin {
 		public static SIZE_BYTES: number;
 		public static SIZE_BITS: number;
 		public static Companion: kotlin.UInt.Companion;
-		public static toString-impl(this0: number): string;
 		public equals(obj: any): boolean;
-		public static equals-impl(int0: number, object1: any): boolean;
+		public static equals(p1: number, p2: number): boolean;
+		public static constructor(data: number): number;
 		public hashCode(): number;
+		public static toString(this0: number): string;
+		public static equals(int0: number, object1: any): boolean;
 		public toString(): string;
-		public static constructor-impl(data: number): number;
-		public static hashCode-impl(int0: number): number;
-		public static equals-impl0(p1: number, p2: number): boolean;
+		public static hashCode(int0: number): number;
 	}
 	export module UInt {
 		export class Companion extends java.lang.Object {
@@ -1021,39 +1021,39 @@ declare module kotlin {
 		public static class: java.lang.Class<kotlin.UIntArray>;
 		public toArray(): native.Array<any>;
 		public retainAll(collection0: java.util.Collection<any>): boolean;
-		public add-WZ4Q5Ns(int0: number): boolean;
-		public static isEmpty-impl(this0: native.Array<number>): boolean;
-		public static hashCode-impl(ints0: native.Array<number>): number;
 		public iterator(): java.util.Iterator<any>;
 		public contains(object0: any): boolean;
-		public static getSize-impl(this0: native.Array<number>): number;
+		public static contains(this0: native.Array<number>, element: number): boolean;
 		public remove(object0: any): boolean;
+		public static containsAll(this0: native.Array<number>, elements: java.util.Collection<kotlin.UInt>): boolean;
 		public containsAll(collection0: java.util.Collection<any>): boolean;
 		public stream(): java.util.stream.Stream<any>;
-		public static equals-impl(ints0: native.Array<number>, object1: any): boolean;
 		public size(): number;
-		public contains-WZ4Q5Ns(int0: number): boolean;
-		public static get-pVg5ArA(this0: native.Array<number>, index: number): number;
-		public static containsAll-impl(this0: native.Array<number>, elements: java.util.Collection<kotlin.UInt>): boolean;
 		public hashCode(): number;
 		public toArray(objects0: native.Array<any>): native.Array<any>;
-		public static equals-impl0(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(storage: native.Array<number>): native.Array<number>;
+		public static hashCode(ints0: native.Array<number>): number;
 		public isEmpty(): boolean;
+		public static get(this0: native.Array<number>, index: number): number;
+		public static iterator(this0: native.Array<number>): kotlin.collections.UIntIterator;
 		public getSize(): number;
-		public static iterator-impl(this0: native.Array<number>): kotlin.collections.UIntIterator;
-		public static contains-WZ4Q5Ns(this0: native.Array<number>, element: number): boolean;
-		public static toString-impl(ints0: native.Array<number>): string;
+		public static getSize(this0: native.Array<number>): number;
+		public static equals(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(size: number): native.Array<number>;
+		public static toString(ints0: native.Array<number>): string;
 		public removeAll(collection0: java.util.Collection<any>): boolean;
+		public contains(int0: number): boolean;
 		public toString(): string;
 		public addAll(collection0: java.util.Collection<any>): boolean;
-		public static constructor-impl(size: number): native.Array<number>;
+		public static equals(ints0: native.Array<number>, object1: any): boolean;
 		public equals(obj: any): boolean;
-		public static set-VXSXFK8(this0: native.Array<number>, index: number, value: number): void;
 		public add(object0: any): boolean;
 		public spliterator(): java.util.Spliterator<any>;
 		public iterator(): kotlin.collections.UIntIterator;
+		public add(int0: number): boolean;
 		public clear(): void;
-		public static constructor-impl(storage: native.Array<number>): native.Array<number>;
+		public static set(this0: native.Array<number>, index: number, value: number): void;
+		public static isEmpty(this0: native.Array<number>): boolean;
 		public parallelStream(): java.util.stream.Stream<any>;
 		public forEach(action: any /* any*/): void;
 		public removeIf(filter: any /* any*/): boolean;
@@ -1061,7 +1061,7 @@ declare module kotlin {
 	export module UIntArray {
 		export class Iterator extends kotlin.collections.UIntIterator {
 			public static class: java.lang.Class<kotlin.UIntArray.Iterator>;
-			public nextUInt-pVg5ArA(): number;
+			public nextUInt(): number;
 			public constructor();
 			public hasNext(): boolean;
 			public constructor(array: native.Array<number>);
@@ -1089,14 +1089,14 @@ declare module kotlin {
 		public static SIZE_BYTES: number;
 		public static SIZE_BITS: number;
 		public static Companion: kotlin.ULong.Companion;
-		public static equals-impl(long0: number, object1: any): boolean;
-		public static toString-impl(this0: number): string;
 		public equals(obj: any): boolean;
-		public static hashCode-impl(long0: number): number;
+		public static equals(p1: number, p2: number): boolean;
+		public static constructor(data: number): number;
+		public static hashCode(long0: number): number;
 		public hashCode(): number;
+		public static toString(this0: number): string;
+		public static equals(long0: number, object1: any): boolean;
 		public toString(): string;
-		public static constructor-impl(data: number): number;
-		public static equals-impl0(p1: number, p2: number): boolean;
 	}
 	export module ULong {
 		export class Companion extends java.lang.Object {
@@ -1109,48 +1109,48 @@ declare module kotlin {
 	export class ULongArray extends java.lang.Object {
 		public static class: java.lang.Class<kotlin.ULongArray>;
 		public toArray(): native.Array<any>;
-		public static set-k8EXiF4(this0: native.Array<number>, index: number, value: number): void;
+		public static hashCode(longs0: native.Array<number>): number;
+		public static equals(longs0: native.Array<number>, object1: any): boolean;
 		public retainAll(collection0: java.util.Collection<any>): boolean;
-		public static contains-VKZWuLQ(this0: native.Array<number>, element: number): boolean;
-		public static isEmpty-impl(this0: native.Array<number>): boolean;
+		public add(long0: number): boolean;
 		public iterator(): java.util.Iterator<any>;
 		public contains(object0: any): boolean;
-		public static getSize-impl(this0: native.Array<number>): number;
+		public static contains(this0: native.Array<number>, element: number): boolean;
 		public remove(object0: any): boolean;
-		public contains-VKZWuLQ(long0: number): boolean;
 		public containsAll(collection0: java.util.Collection<any>): boolean;
 		public stream(): java.util.stream.Stream<any>;
-		public static iterator-impl(this0: native.Array<number>): kotlin.collections.ULongIterator;
 		public size(): number;
+		public static toString(longs0: native.Array<number>): string;
 		public hashCode(): number;
 		public toArray(objects0: native.Array<any>): native.Array<any>;
-		public static equals-impl0(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(storage: native.Array<number>): native.Array<number>;
 		public isEmpty(): boolean;
-		public static toString-impl(longs0: native.Array<number>): string;
+		public static get(this0: native.Array<number>, index: number): number;
 		public iterator(): kotlin.collections.ULongIterator;
-		public static equals-impl(longs0: native.Array<number>, object1: any): boolean;
 		public getSize(): number;
-		public add-VKZWuLQ(long0: number): boolean;
+		public static getSize(this0: native.Array<number>): number;
+		public static equals(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(size: number): native.Array<number>;
+		public static containsAll(this0: native.Array<number>, elements: java.util.Collection<kotlin.ULong>): boolean;
 		public removeAll(collection0: java.util.Collection<any>): boolean;
-		public static containsAll-impl(this0: native.Array<number>, elements: java.util.Collection<kotlin.ULong>): boolean;
-		public static get-s-VKNKU(this0: native.Array<number>, index: number): number;
 		public toString(): string;
 		public addAll(collection0: java.util.Collection<any>): boolean;
-		public static constructor-impl(size: number): native.Array<number>;
 		public equals(obj: any): boolean;
+		public contains(long0: number): boolean;
 		public add(object0: any): boolean;
 		public spliterator(): java.util.Spliterator<any>;
 		public clear(): void;
-		public static constructor-impl(storage: native.Array<number>): native.Array<number>;
-		public static hashCode-impl(longs0: native.Array<number>): number;
+		public static set(this0: native.Array<number>, index: number, value: number): void;
+		public static isEmpty(this0: native.Array<number>): boolean;
 		public parallelStream(): java.util.stream.Stream<any>;
 		public forEach(action: any /* any*/): void;
 		public removeIf(filter: any /* any*/): boolean;
+		public static iterator(this0: native.Array<number>): kotlin.collections.ULongIterator;
 	}
 	export module ULongArray {
 		export class Iterator extends kotlin.collections.ULongIterator {
 			public static class: java.lang.Class<kotlin.ULongArray.Iterator>;
-			public nextULong-s-VKNKU(): number;
+			public nextULong(): number;
 			public constructor();
 			public hasNext(): boolean;
 			public constructor(array: native.Array<number>);
@@ -1191,14 +1191,14 @@ declare module kotlin {
 		public static SIZE_BYTES: number;
 		public static SIZE_BITS: number;
 		public static Companion: kotlin.UShort.Companion;
-		public static toString-impl(this0: number): string;
 		public equals(obj: any): boolean;
+		public static equals(p1: number, p2: number): boolean;
+		public static constructor(data: number): number;
+		public static equals(short0: number, object1: any): boolean;
 		public hashCode(): number;
-		public static hashCode-impl(short0: number): number;
+		public static toString(this0: number): string;
 		public toString(): string;
-		public static constructor-impl(data: number): number;
-		public static equals-impl(short0: number, object1: any): boolean;
-		public static equals-impl0(p1: number, p2: number): boolean;
+		public static hashCode(short0: number): number;
 	}
 	export module UShort {
 		export class Companion extends java.lang.Object {
@@ -1211,48 +1211,48 @@ declare module kotlin {
 	export class UShortArray extends java.lang.Object {
 		public static class: java.lang.Class<kotlin.UShortArray>;
 		public toArray(): native.Array<any>;
-		public static contains-xj2QHRw(this0: native.Array<number>, element: number): boolean;
+		public static toString(shorts0: native.Array<number>): string;
 		public retainAll(collection0: java.util.Collection<any>): boolean;
-		public static hashCode-impl(shorts0: native.Array<number>): number;
-		public static isEmpty-impl(this0: native.Array<number>): boolean;
-		public static equals-impl(shorts0: native.Array<number>, object1: any): boolean;
 		public iterator(): java.util.Iterator<any>;
 		public contains(object0: any): boolean;
-		public static getSize-impl(this0: native.Array<number>): number;
+		public static contains(this0: native.Array<number>, element: number): boolean;
 		public remove(object0: any): boolean;
+		public static containsAll(this0: native.Array<number>, elements: java.util.Collection<kotlin.UShort>): boolean;
 		public containsAll(collection0: java.util.Collection<any>): boolean;
 		public stream(): java.util.stream.Stream<any>;
-		public static set-01HTLdE(this0: native.Array<number>, index: number, value: number): void;
 		public size(): number;
-		public static get-Mh2AYeg(this0: native.Array<number>, index: number): number;
 		public hashCode(): number;
 		public toArray(objects0: native.Array<any>): native.Array<any>;
-		public static equals-impl0(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static constructor(storage: native.Array<number>): native.Array<number>;
 		public isEmpty(): boolean;
+		public static get(this0: native.Array<number>, index: number): number;
 		public iterator(): kotlin.collections.UShortIterator;
 		public getSize(): number;
-		public contains-xj2QHRw(short0: number): boolean;
-		public static containsAll-impl(this0: native.Array<number>, elements: java.util.Collection<kotlin.UShort>): boolean;
-		public add-xj2QHRw(short0: number): boolean;
+		public static getSize(this0: native.Array<number>): number;
+		public static equals(p1: native.Array<number>, p2: native.Array<number>): boolean;
+		public static hashCode(shorts0: native.Array<number>): number;
+		public static constructor(size: number): native.Array<number>;
 		public removeAll(collection0: java.util.Collection<any>): boolean;
 		public toString(): string;
-		public static toString-impl(shorts0: native.Array<number>): string;
+		public static equals(shorts0: native.Array<number>, object1: any): boolean;
 		public addAll(collection0: java.util.Collection<any>): boolean;
-		public static constructor-impl(size: number): native.Array<number>;
-		public static iterator-impl(this0: native.Array<number>): kotlin.collections.UShortIterator;
+		public add(short0: number): boolean;
 		public equals(obj: any): boolean;
 		public add(object0: any): boolean;
 		public spliterator(): java.util.Spliterator<any>;
 		public clear(): void;
-		public static constructor-impl(storage: native.Array<number>): native.Array<number>;
+		public static set(this0: native.Array<number>, index: number, value: number): void;
+		public static isEmpty(this0: native.Array<number>): boolean;
 		public parallelStream(): java.util.stream.Stream<any>;
 		public forEach(action: any /* any*/): void;
+		public static iterator(this0: native.Array<number>): kotlin.collections.UShortIterator;
 		public removeIf(filter: any /* any*/): boolean;
+		public contains(short0: number): boolean;
 	}
 	export module UShortArray {
 		export class Iterator extends kotlin.collections.UShortIterator {
 			public static class: java.lang.Class<kotlin.UShortArray.Iterator>;
-			public nextUShort-Mh2AYeg(): number;
+			public nextUShort(): number;
 			public constructor();
 			public hasNext(): boolean;
 			public constructor(array: native.Array<number>);
@@ -1324,17 +1324,17 @@ declare module kotlin {
 declare module kotlin {
 	export class UnsignedKt extends java.lang.Object {
 		public static class: java.lang.Class<kotlin.UnsignedKt>;
-		public static ulongDivide-eb3DHEI(v1: number, v2: number): number;
 		public static doubleToUInt(v: number): number;
 		public static ulongToDouble(v: number): number;
 		public static doubleToULong(v: number): number;
 		public static ulongCompare(v1: number, v2: number): number;
 		public static uintCompare(v1: number, v2: number): number;
-		public static uintDivide-J1ME1BU(v1: number, v2: number): number;
-		public static uintRemainder-J1ME1BU(v1: number, v2: number): number;
+		public static ulongRemainder(v1: number, v2: number): number;
 		public static ulongToString(v: number, base: number): string;
+		public static uintDivide(v1: number, v2: number): number;
 		public static uintToDouble(v: number): number;
-		public static ulongRemainder-eb3DHEI(v1: number, v2: number): number;
+		public static uintRemainder(v1: number, v2: number): number;
+		public static ulongDivide(v1: number, v2: number): number;
 		public static ulongToString(v: number): string;
 	}
 }
@@ -1620,12 +1620,12 @@ declare module kotlin {
 		export module AbstractList {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.AbstractList.Companion>;
-				public checkElementIndex$kotlin_stdlib(index: number, size: number): void;
-				public orderedHashCode$kotlin_stdlib(c: java.util.Collection<any>): number;
-				public checkRangeIndexes$kotlin_stdlib(fromIndex: number, toIndex: number, size: number): void;
-				public orderedEquals$kotlin_stdlib(c: java.util.Collection<any>, other: java.util.Collection<any>): boolean;
-				public checkPositionIndex$kotlin_stdlib(index: number, size: number): void;
-				public checkBoundsIndexes$kotlin_stdlib(startIndex: number, endIndex: number, size: number): void;
+				public checkElementIndex(index: number, size: number): void;
+				public orderedHashCode(c: java.util.Collection<any>): number;
+				public checkRangeIndexes(fromIndex: number, toIndex: number, size: number): void;
+				public orderedEquals(c: java.util.Collection<any>, other: java.util.Collection<any>): boolean;
+				public checkPositionIndex(index: number, size: number): void;
+				public checkBoundsIndexes(startIndex: number, endIndex: number, size: number): void;
 			}
 			export class IteratorImpl extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.AbstractList.IteratorImpl>;
@@ -1703,7 +1703,7 @@ declare module kotlin {
 			public containsKey(key: any): boolean;
 			public getSize(): number;
 			public containsValue(value: any): boolean;
-			public containsEntry$kotlin_stdlib(entry: java.util.Map.Entry<any,any>): boolean;
+			public containsEntry(entry: java.util.Map.Entry<any,any>): boolean;
 			public forEach(action: any /* any<any,any>*/): void;
 			public equals(other: any): boolean;
 			public keySet(): java.util.Set<K>;
@@ -1734,9 +1734,9 @@ declare module kotlin {
 		export module AbstractMap {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.AbstractMap.Companion>;
-				public entryEquals$kotlin_stdlib(e: java.util.Map.Entry<any,any>, other: any): boolean;
-				public entryToString$kotlin_stdlib(e: java.util.Map.Entry<any,any>): string;
-				public entryHashCode$kotlin_stdlib(e: java.util.Map.Entry<any,any>): number;
+				public entryEquals(e: java.util.Map.Entry<any,any>, other: any): boolean;
+				public entryToString(e: java.util.Map.Entry<any,any>): string;
+				public entryHashCode(e: java.util.Map.Entry<any,any>): number;
 			}
 		}
 	}
@@ -1914,8 +1914,8 @@ declare module kotlin {
 		export module AbstractSet {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.AbstractSet.Companion>;
-				public unorderedHashCode$kotlin_stdlib(c: java.util.Collection<any>): number;
-				public setEquals$kotlin_stdlib(c: java.util.Set<any>, other: java.util.Set<any>): boolean;
+				public unorderedHashCode(c: java.util.Collection<any>): number;
+				public setEquals(c: java.util.Set<any>, other: java.util.Set<any>): boolean;
 			}
 		}
 	}
@@ -1999,7 +1999,7 @@ declare module kotlin {
 			public set(int0: number, object1: any): any;
 			public addAll(index: number, elements: java.util.Collection<any>): boolean;
 			public removeIf(filter: any /* any*/): boolean;
-			public internalStructure$kotlin_stdlib(structure: kotlin.jvm.functions.Function2<any,any,kotlin.Unit>): void;
+			public internalStructure(structure: kotlin.jvm.functions.Function2<any,any,kotlin.Unit>): void;
 			public last(): any;
 			public addAll(c: java.util.Collection<any>): boolean;
 			public toArray(a: native.Array<any>): native.Array<any>;
@@ -2025,7 +2025,7 @@ declare module kotlin {
 		export module ArrayDeque {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.ArrayDeque.Companion>;
-				public newCapacity$kotlin_stdlib(oldCapacity: number, minCapacity: number): number;
+				public newCapacity(oldCapacity: number, minCapacity: number): number;
 			}
 		}
 	}
@@ -4464,10 +4464,7 @@ declare module kotlin {
 	export module collections {
 		export class UArraySortingKt extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.collections.UArraySortingKt>;
-			public static sortArray-4UcCI2c(array: native.Array<number>, fromIndex: number, toIndex: number): void;
-			public static sortArray--nroSd4(array: native.Array<number>, fromIndex: number, toIndex: number): void;
-			public static sortArray-oBK06Vg(array: native.Array<number>, fromIndex: number, toIndex: number): void;
-			public static sortArray-Aa5vz7o(array: native.Array<number>, fromIndex: number, toIndex: number): void;
+			public static sortArray(array: native.Array<number>, fromIndex: number, toIndex: number): void;
 		}
 	}
 }
@@ -4476,9 +4473,9 @@ declare module kotlin {
 	export module collections {
 		export abstract class UByteIterator extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.collections.UByteIterator>;
+			public next(): number;
+			public nextUByte(): number;
 			public constructor();
-			public next-w2LRezQ(): number;
-			public nextUByte-w2LRezQ(): number;
 			public remove(): void;
 		}
 	}
@@ -4513,8 +4510,8 @@ declare module kotlin {
 	export module collections {
 		export abstract class UIntIterator extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.collections.UIntIterator>;
-			public next-pVg5ArA(): number;
-			public nextUInt-pVg5ArA(): number;
+			public next(): number;
+			public nextUInt(): number;
 			public constructor();
 			public remove(): void;
 		}
@@ -4525,8 +4522,8 @@ declare module kotlin {
 	export module collections {
 		export abstract class ULongIterator extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.collections.ULongIterator>;
-			public nextULong-s-VKNKU(): number;
-			public next-s-VKNKU(): number;
+			public next(): number;
+			public nextULong(): number;
 			public constructor();
 			public remove(): void;
 		}
@@ -4537,8 +4534,8 @@ declare module kotlin {
 	export module collections {
 		export abstract class UShortIterator extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.collections.UShortIterator>;
-			public nextUShort-Mh2AYeg(): number;
-			public next-Mh2AYeg(): number;
+			public next(): number;
+			public nextUShort(): number;
 			public constructor();
 			public remove(): void;
 		}
@@ -4641,7 +4638,7 @@ declare module kotlin {
 			export class MapBuilder<K, V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.builders.MapBuilder<any,any>>;
 				public getOrDefault(key: any, defaultValue: V): V;
-				public containsAllEntries$kotlin_stdlib(m: java.util.Collection<any>): boolean;
+				public containsAllEntries(m: java.util.Collection<any>): boolean;
 				public entrySet(): java.util.Set<java.util.Map.Entry<K,V>>;
 				public containsKey(key: any): boolean;
 				public remove(key: any): V;
@@ -4652,17 +4649,17 @@ declare module kotlin {
 				public replace(key: K, oldValue: V, newValue: V): boolean;
 				public constructor();
 				public computeIfAbsent(key: K, mappingFunction: any /* any<any,any>*/): V;
-				public containsEntry$kotlin_stdlib(entry: java.util.Map.Entry<any,any>): boolean;
+				public containsEntry(entry: java.util.Map.Entry<any,any>): boolean;
 				public build(): java.util.Map<K,V>;
 				public equals(other: any): boolean;
-				public checkIsMutable$kotlin_stdlib(): void;
+				public checkIsMutable(): void;
 				public forEach(action: any /* any<any,any>*/): void;
 				public getEntries(): java.util.Set<java.util.Map.Entry<K,V>>;
 				public getSize(): number;
 				public hashCode(): number;
-				public removeEntry$kotlin_stdlib(entry: java.util.Map.Entry<any,any>): boolean;
-				public valuesIterator$kotlin_stdlib(): kotlin.collections.builders.MapBuilder.ValuesItr<K,V>;
-				public entriesIterator$kotlin_stdlib(): kotlin.collections.builders.MapBuilder.EntriesItr<K,V>;
+				public removeEntry(entry: java.util.Map.Entry<any,any>): boolean;
+				public valuesIterator(): kotlin.collections.builders.MapBuilder.ValuesItr<K,V>;
+				public entriesIterator(): kotlin.collections.builders.MapBuilder.EntriesItr<K,V>;
 				public getValues(): java.util.Collection<V>;
 				public clear(): void;
 				public remove(key: any, value: any): boolean;
@@ -4672,17 +4669,17 @@ declare module kotlin {
 				public replace(key: K, value: V): V;
 				public putAll(from: java.util.Map<any,any>): void;
 				public toString(): string;
-				public removeKey$kotlin_stdlib(key: K): number;
+				public removeKey(key: K): number;
 				public values(): java.util.Collection<V>;
 				public size(): number;
 				public equals(obj: any): boolean;
 				public put(key: K, value: V): V;
-				public keysIterator$kotlin_stdlib(): kotlin.collections.builders.MapBuilder.KeysItr<K,V>;
+				public keysIterator(): kotlin.collections.builders.MapBuilder.KeysItr<K,V>;
 				public constructor(initialCapacity: number);
 				public replaceAll(function0: any /* any<any,any,any>*/): void;
 				public compute(key: K, remappingFunction: any /* any<any,any,any>*/): V;
-				public removeValue$kotlin_stdlib(element: V): boolean;
-				public addKey$kotlin_stdlib(key: K): number;
+				public removeValue(element: V): boolean;
+				public addKey(key: K): number;
 				public getKeys(): java.util.Set<K>;
 			}
 			export module MapBuilder {
@@ -4694,7 +4691,7 @@ declare module kotlin {
 					public nextAppendString(sb: java.lang.StringBuilder): void;
 					public constructor(map: kotlin.collections.builders.MapBuilder<any,any>);
 					public next(): kotlin.collections.builders.MapBuilder.EntryRef<any,any>;
-					public nextHashCode$kotlin_stdlib(): number;
+					public nextHashCode(): number;
 				}
 				export class EntryRef<K, V>  extends java.lang.Object {
 					public static class: java.lang.Class<kotlin.collections.builders.MapBuilder.EntryRef<any,any>>;
@@ -4713,13 +4710,13 @@ declare module kotlin {
 				}
 				export class Itr<K, V>  extends java.lang.Object {
 					public static class: java.lang.Class<kotlin.collections.builders.MapBuilder.Itr<any,any>>;
-					public setLastIndex$kotlin_stdlib(param0: number): void;
-					public getMap$kotlin_stdlib(): kotlin.collections.builders.MapBuilder<K,V>;
+					public setLastIndex(param0: number): void;
+					public getMap(): kotlin.collections.builders.MapBuilder<K,V>;
 					public constructor(map: kotlin.collections.builders.MapBuilder<K,V>);
-					public getIndex$kotlin_stdlib(): number;
-					public initNext$kotlin_stdlib(): void;
-					public setIndex$kotlin_stdlib(param0: number): void;
-					public getLastIndex$kotlin_stdlib(): number;
+					public getIndex(): number;
+					public initNext(): void;
+					public setIndex(param0: number): void;
+					public getLastIndex(): number;
 					public hasNext(): boolean;
 					public remove(): void;
 				}
@@ -4915,14 +4912,11 @@ declare module kotlin {
 		export module unsigned {
 			export class UArraysKt___UArraysJvmKt extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.collections.unsigned.UArraysKt___UArraysJvmKt>;
-				public static binarySearch-WpHrYlw(thisbinarySearch: native.Array<number>, element: number, fromIndex: number, toIndex: number): number;
-				public static binarySearch-K6DWlUc(thisbinarySearch: native.Array<number>, element: number, fromIndex: number, toIndex: number): number;
-				public static asList-QwZRm1k(thisasList: native.Array<number>): java.util.List<kotlin.ULong>;
-				public static asList-GBYM_sE(thisasList: native.Array<number>): java.util.List<kotlin.UByte>;
-				public static asList-rL5Bavg(thisasList: native.Array<number>): java.util.List<kotlin.UShort>;
-				public static asList--ajY-9A(thisasList: native.Array<number>): java.util.List<kotlin.UInt>;
-				public static binarySearch-EtDCXyQ(thisbinarySearch: native.Array<number>, element: number, fromIndex: number, toIndex: number): number;
-				public static binarySearch-2fe2U9s(thisbinarySearch: native.Array<number>, element: number, fromIndex: number, toIndex: number): number;
+				public static binarySearch(thisbinarySearch: native.Array<number>, element: number, fromIndex: number, toIndex: number): number;
+				public static asList(thisasList: native.Array<number>): java.util.List<kotlin.UShort>;
+				public static asList(thisasList: native.Array<number>): java.util.List<kotlin.UInt>;
+				public static asList(thisasList: native.Array<number>): java.util.List<kotlin.ULong>;
+				public static asList(thisasList: native.Array<number>): java.util.List<kotlin.UByte>;
 				public constructor();
 			}
 		}
@@ -4934,211 +4928,154 @@ declare module kotlin {
 		export module unsigned {
 			export class UArraysKt___UArraysKt extends kotlin.collections.unsigned.UArraysKt___UArraysJvmKt {
 				public static class: java.lang.Class<kotlin.collections.unsigned.UArraysKt___UArraysKt>;
-				public static withIndex-rL5Bavg(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.UShort>>;
-				public static take-qFRl0hI(thistake: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
-				public static contentEquals-FGO6Aew(thiscontentEquals: native.Array<number>, other: native.Array<number>): boolean;
-				public static slice-tAntMlw(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.UInt>;
-				public static minOrNull--ajY-9A(thisminOrNull: native.Array<number>): kotlin.UInt;
-				public static getIndices--ajY-9A(thisindices: native.Array<number>): kotlin.ranges.IntRange;
-				public static sliceArray-ojwP5H8(thissliceArray: native.Array<number>, indices: java.util.Collection<java.lang.Integer>): native.Array<number>;
-				public static sortDescending--ajY-9A(thissortDescending: native.Array<number>): void;
+				public static sorted(thissorted: native.Array<number>): java.util.List<kotlin.UByte>;
 				/** @deprecated */
-				public static max-GBYM_sE(thismax: native.Array<number>): kotlin.UByte;
+				public static max(thismax: native.Array<number>): kotlin.ULong;
+				/** @deprecated */
+				public static minWith(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
 				public static sumOfUShort(thissum: native.Array<kotlin.UShort>): number;
-				public static toTypedArray-rL5Bavg(thistoTypedArray: native.Array<number>): native.Array<kotlin.UShort>;
+				/** @deprecated */
+				public static maxWith(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
 				public static toUShortArray(thistoUShortArray: native.Array<kotlin.UShort>): native.Array<number>;
-				public static sort-oBK06Vg(thissort: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static fill-K6DWlUc(thisfill: native.Array<number>, element: number, fromIndex: number, toIndex: number): void;
-				public static randomOrNull-s5X_as8(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.UShort;
-				public static plus-kzHmqpY(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.ULong>): native.Array<number>;
-				public static contentHashCode-2csIQuQ(thiscontentHashCode: native.Array<number>): number;
-				public static contentEquals-kV0jMPg(thiscontentEquals: native.Array<number>, other: native.Array<number>): boolean;
-				public static randomOrNull-2D5oskM(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.UInt;
-				public static drop-r7IrZao(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
+				public static fill(thisfill: native.Array<number>, element: number, fromIndex: number, toIndex: number): void;
+				public static take(thistake: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
+				public static drop(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
+				public static maxOrNull(thismaxOrNull: native.Array<number>): kotlin.UByte;
+				public static sortedArray(thissortedArray: native.Array<number>): native.Array<number>;
 				public static sumOfULong(thissum: native.Array<kotlin.ULong>): number;
-				public static take-PpDY95g(thistake: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
-				public static random-2D5oskM(thisrandom: native.Array<number>, random: kotlin.random.Random): number;
+				public static takeLast(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
+				public static sortedArrayDescending(thissortedArrayDescending: native.Array<number>): native.Array<number>;
+				public static maxWithOrNull(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
+				public static zip(thiszip: native.Array<number>, other: java.lang.Iterable<any>): java.util.List<any>;
+				public static takeLast(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
+				public static getOrNull(thisgetOrNull: native.Array<number>, index: number): kotlin.ULong;
+				public static withIndex(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.UShort>>;
+				public static dropLast(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
+				public static slice(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.UShort>;
+				public static shuffle(thisshuffle: native.Array<number>, random: kotlin.random.Random): void;
+				public static getIndices(thisindices: native.Array<number>): kotlin.ranges.IntRange;
+				public static lastOrNull(thislastOrNull: native.Array<number>): kotlin.ULong;
 				/** @deprecated */
-				public static min-QwZRm1k(thismin: native.Array<number>): kotlin.ULong;
-				public static zip-uaTIQ5s(thiszip: native.Array<number>, other: native.Array<any>): java.util.List<any>;
-				public static getIndices-rL5Bavg(thisindices: native.Array<number>): kotlin.ranges.IntRange;
-				public static random-s5X_as8(thisrandom: native.Array<number>, random: kotlin.random.Random): number;
-				public static shuffle-QwZRm1k(thisshuffle: native.Array<number>): void;
-				public static sortDescending-Aa5vz7o(thissortDescending: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static shuffle-oSF2wD8(thisshuffle: native.Array<number>, random: kotlin.random.Random): void;
-				public static sliceArray-Q6IL4kU(thissliceArray: native.Array<number>, indices: kotlin.ranges.IntRange): native.Array<number>;
-				public static sort--nroSd4(thissort: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static firstOrNull-rL5Bavg(thisfirstOrNull: native.Array<number>): kotlin.UShort;
-				public static lastOrNull--ajY-9A(thislastOrNull: native.Array<number>): kotlin.UInt;
-				public static sortedArray-GBYM_sE(thissortedArray: native.Array<number>): native.Array<number>;
-				public static minOrNull-QwZRm1k(thisminOrNull: native.Array<number>): kotlin.ULong;
-				public static sortDescending-rL5Bavg(thissortDescending: native.Array<number>): void;
-				/** @deprecated */
-				public static maxWith-YmdZ_VM(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
-				public static zip-nl983wc(thiszip: native.Array<number>, other: native.Array<any>): java.util.List<any>;
-				/** @deprecated */
-				public static maxWith-zrEWJaI(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
-				public static sortedDescending-rL5Bavg(thissortedDescending: native.Array<number>): java.util.List<kotlin.UShort>;
-				public static minWithOrNull-zrEWJaI(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
-				/** @deprecated */
-				public static minWith-zrEWJaI(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
-				public static zip-JGPC0-M(thiszip: native.Array<number>, other: java.lang.Iterable<any>): java.util.List<any>;
-				public static drop-nggk6HY(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
-				public static sliceArray-ZRhS8yI(thissliceArray: native.Array<number>, indices: kotlin.ranges.IntRange): native.Array<number>;
-				public static getIndices-QwZRm1k(thisindices: native.Array<number>): kotlin.ranges.IntRange;
-				public static getOrNull-qFRl0hI(thisgetOrNull: native.Array<number>, index: number): kotlin.UInt;
-				public static firstOrNull-GBYM_sE(thisfirstOrNull: native.Array<number>): kotlin.UByte;
-				public static getLastIndex-QwZRm1k(thislastIndex: native.Array<number>): number;
+				public static minWith(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
+				public static maxWithOrNull(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
+				public static sliceArray(thissliceArray: native.Array<number>, indices: kotlin.ranges.IntRange): native.Array<number>;
+				public static sorted(thissorted: native.Array<number>): java.util.List<kotlin.ULong>;
+				public static takeLast(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
+				public static contentEquals(thiscontentEquals: native.Array<number>, other: native.Array<number>): boolean;
+				public static takeLast(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
+				public static plus(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.ULong>): native.Array<number>;
 				public static toULongArray(thistoULongArray: native.Array<kotlin.ULong>): native.Array<number>;
-				public static slice-JGPC0-M(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.UShort>;
-				public static contentHashCode-XUkPCBk(thiscontentHashCode: native.Array<number>): number;
-				public static takeLast-qFRl0hI(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
-				public static contentHashCode-uLth9ew(thiscontentHashCode: native.Array<number>): number;
-				public static fill-EtDCXyQ(thisfill: native.Array<number>, element: number, fromIndex: number, toIndex: number): void;
-				public static sort-QwZRm1k(thissort: native.Array<number>): void;
-				public static slice-c0bezYM(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.UByte>;
+				public static maxWithOrNull(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
+				public static slice(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.UShort>;
 				/** @deprecated */
-				public static min-rL5Bavg(thismin: native.Array<number>): kotlin.UShort;
-				public static sliceArray-xo_DsdI(thissliceArray: native.Array<number>, indices: java.util.Collection<java.lang.Integer>): native.Array<number>;
-				public static getLastIndex-GBYM_sE(thislastIndex: native.Array<number>): number;
+				public static maxWith(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
+				public static sort(thissort: native.Array<number>, fromIndex: number, toIndex: number): void;
+				public static randomOrNull(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.UByte;
+				public static firstOrNull(thisfirstOrNull: native.Array<number>): kotlin.UByte;
+				public static contentHashCode(thiscontentHashCode: native.Array<number>): number;
+				public static singleOrNull(thissingleOrNull: native.Array<number>): kotlin.ULong;
+				public static sorted(thissorted: native.Array<number>): java.util.List<kotlin.UInt>;
+				public static sortedDescending(thissortedDescending: native.Array<number>): java.util.List<kotlin.ULong>;
 				/** @deprecated */
-				public static min--ajY-9A(thismin: native.Array<number>): kotlin.UInt;
-				public static singleOrNull--ajY-9A(thissingleOrNull: native.Array<number>): kotlin.UInt;
-				public static sortedArrayDescending-rL5Bavg(thissortedArrayDescending: native.Array<number>): native.Array<number>;
-				public static minOrNull-GBYM_sE(thisminOrNull: native.Array<number>): kotlin.UByte;
-				public static takeLast-nggk6HY(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
-				public static lastOrNull-GBYM_sE(thislastOrNull: native.Array<number>): kotlin.UByte;
-				public static shuffle-GBYM_sE(thisshuffle: native.Array<number>): void;
+				public static max(thismax: native.Array<number>): kotlin.UInt;
+				public static lastOrNull(thislastOrNull: native.Array<number>): kotlin.UInt;
+				public static slice(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.ULong>;
+				public static withIndex(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.ULong>>;
+				public static drop(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
+				public static sortedDescending(thissortedDescending: native.Array<number>): java.util.List<kotlin.UByte>;
+				public static randomOrNull(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.UShort;
+				public static getOrNull(thisgetOrNull: native.Array<number>, index: number): kotlin.UShort;
+				public static minOrNull(thisminOrNull: native.Array<number>): kotlin.UInt;
+				public static minOrNull(thisminOrNull: native.Array<number>): kotlin.UShort;
+				public static withIndex(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.UInt>>;
+				public static lastOrNull(thislastOrNull: native.Array<number>): kotlin.UShort;
+				public static dropLast(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
+				public static plus(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.UShort>): native.Array<number>;
+				public static minOrNull(thisminOrNull: native.Array<number>): kotlin.UByte;
+				public static getLastIndex(thislastIndex: native.Array<number>): number;
+				public static sortedDescending(thissortedDescending: native.Array<number>): java.util.List<kotlin.UInt>;
 				/** @deprecated */
-				public static minWith-eOHTfZs(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
-				public static sortedArrayDescending-QwZRm1k(thissortedArrayDescending: native.Array<number>): native.Array<number>;
-				public static toTypedArray-QwZRm1k(thistoTypedArray: native.Array<number>): native.Array<kotlin.ULong>;
-				public static dropLast-qFRl0hI(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
-				public static plus-ojwP5H8(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.UShort>): native.Array<number>;
-				public static maxOrNull-QwZRm1k(thismaxOrNull: native.Array<number>): kotlin.ULong;
-				/** @deprecated */
-				public static maxWith-eOHTfZs(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
-				public static singleOrNull-rL5Bavg(thissingleOrNull: native.Array<number>): kotlin.UShort;
-				public static sortDescending-QwZRm1k(thissortDescending: native.Array<number>): void;
-				public static reversed-GBYM_sE(thisreversed: native.Array<number>): java.util.List<kotlin.UByte>;
-				/** @deprecated */
-				public static minWith-XMRcp5o(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
-				public static singleOrNull-GBYM_sE(thissingleOrNull: native.Array<number>): kotlin.UByte;
-				public static maxOrNull-rL5Bavg(thismaxOrNull: native.Array<number>): kotlin.UShort;
-				public static contentHashCode-d-6D3K8(thiscontentHashCode: native.Array<number>): number;
-				public static zip-f7H3mmw(thiszip: native.Array<number>, other: native.Array<any>): java.util.List<any>;
-				public static zip-F7u83W8(thiszip: native.Array<number>, other: java.lang.Iterable<any>): java.util.List<any>;
-				public static toTypedArray--ajY-9A(thistoTypedArray: native.Array<number>): native.Array<kotlin.UInt>;
-				/** @deprecated */
-				public static max--ajY-9A(thismax: native.Array<number>): kotlin.UInt;
-				public static sliceArray-kzHmqpY(thissliceArray: native.Array<number>, indices: java.util.Collection<java.lang.Integer>): native.Array<number>;
-				public static minWithOrNull-eOHTfZs(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
-				public static sorted-GBYM_sE(thissorted: native.Array<number>): java.util.List<kotlin.UByte>;
-				public static sortedArray-rL5Bavg(thissortedArray: native.Array<number>): native.Array<number>;
-				public static contentEquals-lec5QzE(thiscontentEquals: native.Array<number>, other: native.Array<number>): boolean;
-				public static contentToString-2csIQuQ(thiscontentToString: native.Array<number>): string;
-				public static sortedArrayDescending-GBYM_sE(thissortedArrayDescending: native.Array<number>): native.Array<number>;
-				public static sliceArray-c0bezYM(thissliceArray: native.Array<number>, indices: kotlin.ranges.IntRange): native.Array<number>;
-				/** @deprecated */
-				public static max-rL5Bavg(thismax: native.Array<number>): kotlin.UShort;
-				public static sliceArray-CFIt9YE(thissliceArray: native.Array<number>, indices: java.util.Collection<java.lang.Integer>): native.Array<number>;
-				public static zip-mazbYpA(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.UShort,kotlin.UShort>>;
-				public static sort--ajY-9A(thissort: native.Array<number>): void;
-				public static zip-ctEhBpI(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.UInt,kotlin.UInt>>;
-				public static sortedArray-QwZRm1k(thissortedArray: native.Array<number>): native.Array<number>;
-				public static sorted-QwZRm1k(thissorted: native.Array<number>): java.util.List<kotlin.ULong>;
-				public static getOrNull-PpDY95g(thisgetOrNull: native.Array<number>, index: number): kotlin.UByte;
-				public static shuffle-rL5Bavg(thisshuffle: native.Array<number>): void;
-				public static sortedArrayDescending--ajY-9A(thissortedArrayDescending: native.Array<number>): native.Array<number>;
-				public static random-oSF2wD8(thisrandom: native.Array<number>, random: kotlin.random.Random): number;
+				public static maxWith(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
 				public static sumOfUInt(thissum: native.Array<kotlin.UInt>): number;
-				public static sorted-rL5Bavg(thissorted: native.Array<number>): java.util.List<kotlin.UShort>;
-				public static zip-kdPth3s(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.UByte,kotlin.UByte>>;
-				public static contentEquals-KJPZfPQ(thiscontentEquals: native.Array<number>, other: native.Array<number>): boolean;
-				public static zip-HwE9HBo(thiszip: native.Array<number>, other: java.lang.Iterable<any>): java.util.List<any>;
-				public static getLastIndex--ajY-9A(thislastIndex: native.Array<number>): number;
+				public static firstOrNull(thisfirstOrNull: native.Array<number>): kotlin.UShort;
+				public static sliceArray(thissliceArray: native.Array<number>, indices: java.util.Collection<java.lang.Integer>): native.Array<number>;
+				public static reversed(thisreversed: native.Array<number>): java.util.List<kotlin.UByte>;
 				/** @deprecated */
-				public static min-GBYM_sE(thismin: native.Array<number>): kotlin.UByte;
-				public static minWithOrNull-XMRcp5o(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
-				public static zip-us8wMrg(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.ULong,kotlin.ULong>>;
-				public static sort-rL5Bavg(thissort: native.Array<number>): void;
-				public static sort-Aa5vz7o(thissort: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static withIndex-GBYM_sE(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.UByte>>;
-				public static sorted--ajY-9A(thissorted: native.Array<number>): java.util.List<kotlin.UInt>;
-				public static firstOrNull-QwZRm1k(thisfirstOrNull: native.Array<number>): kotlin.ULong;
-				public static contentToString-uLth9ew(thiscontentToString: native.Array<number>): string;
+				public static minWith(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
+				public static reversed(thisreversed: native.Array<number>): java.util.List<kotlin.UInt>;
+				public static slice(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.UByte>;
+				public static sortDescending(thissortDescending: native.Array<number>): void;
+				public static minOrNull(thisminOrNull: native.Array<number>): kotlin.ULong;
+				/** @deprecated */
+				public static minWith(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
 				public constructor();
-				public static lastOrNull-rL5Bavg(thislastOrNull: native.Array<number>): kotlin.UShort;
-				public static sortedDescending--ajY-9A(thissortedDescending: native.Array<number>): java.util.List<kotlin.UInt>;
+				public static maxWithOrNull(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
+				public static minWithOrNull(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
+				public static zip(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.UShort,kotlin.UShort>>;
+				public static slice(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.ULong>;
 				/** @deprecated */
-				public static maxWith-XMRcp5o(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
-				public static shuffle-s5X_as8(thisshuffle: native.Array<number>, random: kotlin.random.Random): void;
-				public static sort-GBYM_sE(thissort: native.Array<number>): void;
-				public static contentToString-d-6D3K8(thiscontentToString: native.Array<number>): string;
-				/** @deprecated */
-				public static minWith-YmdZ_VM(thisminWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
-				public static firstOrNull--ajY-9A(thisfirstOrNull: native.Array<number>): kotlin.UInt;
-				public static randomOrNull-oSF2wD8(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.UByte;
-				public static shuffle--ajY-9A(thisshuffle: native.Array<number>): void;
-				public static take-nggk6HY(thistake: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
-				public static slice-HwE9HBo(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.UInt>;
-				public static minOrNull-rL5Bavg(thisminOrNull: native.Array<number>): kotlin.UShort;
-				public static minWithOrNull-YmdZ_VM(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
-				public static zip-JQknh5Q(thiszip: native.Array<number>, other: java.lang.Iterable<any>): java.util.List<any>;
-				public static reversed-rL5Bavg(thisreversed: native.Array<number>): java.util.List<kotlin.UShort>;
-				public static maxWithOrNull-YmdZ_VM(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UInt;
-				public static reversed--ajY-9A(thisreversed: native.Array<number>): java.util.List<kotlin.UInt>;
-				public static dropLast-r7IrZao(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
-				public static slice-ZRhS8yI(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.ULong>;
-				public static reversed-QwZRm1k(thisreversed: native.Array<number>): java.util.List<kotlin.ULong>;
+				public static min(thismin: native.Array<number>): kotlin.ULong;
+				public static zip(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.UByte,kotlin.UByte>>;
+				public static sort(thissort: native.Array<number>): void;
+				public static reversed(thisreversed: native.Array<number>): java.util.List<kotlin.UShort>;
+				public static toTypedArray(thistoTypedArray: native.Array<number>): native.Array<kotlin.UInt>;
+				public static getOrNull(thisgetOrNull: native.Array<number>, index: number): kotlin.UByte;
+				public static slice(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.UByte>;
+				public static shuffle(thisshuffle: native.Array<number>): void;
+				public static plus(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.UInt>): native.Array<number>;
+				public static dropLast(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
+				public static take(thistake: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
 				public static toUIntArray(thistoUIntArray: native.Array<kotlin.UInt>): native.Array<number>;
-				public static maxWithOrNull-XMRcp5o(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
-				public static sortDescending--nroSd4(thissortDescending: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static contentToString-XUkPCBk(thiscontentToString: native.Array<number>): string;
-				public static drop-qFRl0hI(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.UInt>;
-				public static getOrNull-r7IrZao(thisgetOrNull: native.Array<number>, index: number): kotlin.ULong;
-				public static getOrNull-nggk6HY(thisgetOrNull: native.Array<number>, index: number): kotlin.UShort;
-				public static sortedArray--ajY-9A(thissortedArray: native.Array<number>): native.Array<number>;
-				public static takeLast-PpDY95g(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
-				public static slice-JQknh5Q(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.UByte>;
-				public static randomOrNull-JzugnMA(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.ULong;
-				public static take-r7IrZao(thistake: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
-				public static sortedDescending-QwZRm1k(thissortedDescending: native.Array<number>): java.util.List<kotlin.ULong>;
-				public static maxWithOrNull-zrEWJaI(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
-				public static sortDescending-GBYM_sE(thissortDescending: native.Array<number>): void;
-				public static random-JzugnMA(thisrandom: native.Array<number>, random: kotlin.random.Random): number;
-				public static sliceArray-tAntMlw(thissliceArray: native.Array<number>, indices: kotlin.ranges.IntRange): native.Array<number>;
-				public static slice-Q6IL4kU(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.UShort>;
-				public static drop-PpDY95g(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
-				public static shuffle-2D5oskM(thisshuffle: native.Array<number>, random: kotlin.random.Random): void;
-				public static lastOrNull-QwZRm1k(thislastOrNull: native.Array<number>): kotlin.ULong;
-				public static singleOrNull-QwZRm1k(thissingleOrNull: native.Array<number>): kotlin.ULong;
-				public static fill-2fe2U9s(thisfill: native.Array<number>, element: number, fromIndex: number, toIndex: number): void;
-				public static dropLast-nggk6HY(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
-				public static toUByteArray(thistoUByteArray: native.Array<kotlin.UByte>): native.Array<number>;
-				public static dropLast-PpDY95g(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
-				public static slice-F7u83W8(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.ULong>;
-				public static sortedDescending-GBYM_sE(thissortedDescending: native.Array<number>): java.util.List<kotlin.UByte>;
-				public static getLastIndex-rL5Bavg(thislastIndex: native.Array<number>): number;
-				public static plus-CFIt9YE(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.UInt>): native.Array<number>;
-				public static shuffle-JzugnMA(thisshuffle: native.Array<number>, random: kotlin.random.Random): void;
-				public static maxWithOrNull-eOHTfZs(thismaxWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
-				public static fill-WpHrYlw(thisfill: native.Array<number>, element: number, fromIndex: number, toIndex: number): void;
+				public static toTypedArray(thistoTypedArray: native.Array<number>): native.Array<kotlin.ULong>;
 				/** @deprecated */
-				public static max-QwZRm1k(thismax: native.Array<number>): kotlin.ULong;
-				public static maxOrNull--ajY-9A(thismaxOrNull: native.Array<number>): kotlin.UInt;
-				public static maxOrNull-GBYM_sE(thismaxOrNull: native.Array<number>): kotlin.UByte;
-				public static sort-4UcCI2c(thissort: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static getIndices-GBYM_sE(thisindices: native.Array<number>): kotlin.ranges.IntRange;
-				public static takeLast-r7IrZao(thistakeLast: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
-				public static plus-xo_DsdI(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.UByte>): native.Array<number>;
-				public static toTypedArray-GBYM_sE(thistoTypedArray: native.Array<number>): native.Array<kotlin.UByte>;
-				public static sortDescending-4UcCI2c(thissortDescending: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static sortDescending-oBK06Vg(thissortDescending: native.Array<number>, fromIndex: number, toIndex: number): void;
-				public static zip-C-E_24M(thiszip: native.Array<number>, other: native.Array<any>): java.util.List<any>;
+				public static min(thismin: native.Array<number>): kotlin.UShort;
+				public static withIndex(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.UByte>>;
+				public static sortedDescending(thissortedDescending: native.Array<number>): java.util.List<kotlin.UShort>;
+				public static singleOrNull(thissingleOrNull: native.Array<number>): kotlin.UByte;
+				public static maxOrNull(thismaxOrNull: native.Array<number>): kotlin.ULong;
+				public static minWithOrNull(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
+				public static zip(thiszip: native.Array<number>, other: native.Array<any>): java.util.List<any>;
+				public static sorted(thissorted: native.Array<number>): java.util.List<kotlin.UShort>;
+				/** @deprecated */
+				public static max(thismax: native.Array<number>): kotlin.UByte;
+				public static minWithOrNull(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UByte;
+				public static take(thistake: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
+				public static toTypedArray(thistoTypedArray: native.Array<number>): native.Array<kotlin.UShort>;
+				public static dropLast(thisdropLast: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
+				public static lastOrNull(thislastOrNull: native.Array<number>): kotlin.UByte;
+				public static firstOrNull(thisfirstOrNull: native.Array<number>): kotlin.ULong;
+				public static singleOrNull(thissingleOrNull: native.Array<number>): kotlin.UInt;
+				public static maxOrNull(thismaxOrNull: native.Array<number>): kotlin.UShort;
+				public static randomOrNull(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.ULong;
+				/** @deprecated */
+				public static max(thismax: native.Array<number>): kotlin.UShort;
+				public static plus(thisplus: native.Array<number>, elements: java.util.Collection<kotlin.UByte>): native.Array<number>;
+				public static maxOrNull(thismaxOrNull: native.Array<number>): kotlin.UInt;
+				public static minWithOrNull(thisminWithOrNull: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.ULong;
+				public static singleOrNull(thissingleOrNull: native.Array<number>): kotlin.UShort;
+				public static toUByteArray(thistoUByteArray: native.Array<kotlin.UByte>): native.Array<number>;
+				public static toTypedArray(thistoTypedArray: native.Array<number>): native.Array<kotlin.UByte>;
+				public static sortDescending(thissortDescending: native.Array<number>, fromIndex: number, toIndex: number): void;
+				public static zip(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.ULong,kotlin.ULong>>;
+				public static firstOrNull(thisfirstOrNull: native.Array<number>): kotlin.UInt;
+				public static randomOrNull(thisrandomOrNull: native.Array<number>, random: kotlin.random.Random): kotlin.UInt;
+				public static contentToString(thiscontentToString: native.Array<number>): string;
+				public static random(thisrandom: native.Array<number>, random: kotlin.random.Random): number;
+				public static slice(thisslice: native.Array<number>, indices: kotlin.ranges.IntRange): java.util.List<kotlin.UInt>;
+				public static take(thistake: native.Array<number>, n: number): java.util.List<kotlin.UShort>;
+				/** @deprecated */
+				public static min(thismin: native.Array<number>): kotlin.UByte;
+				/** @deprecated */
+				public static min(thismin: native.Array<number>): kotlin.UInt;
+				public static zip(thiszip: native.Array<number>, other: native.Array<number>): java.util.List<kotlin.Pair<kotlin.UInt,kotlin.UInt>>;
+				public static slice(thisslice: native.Array<number>, indices: java.lang.Iterable<java.lang.Integer>): java.util.List<kotlin.UInt>;
+				public static drop(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.UByte>;
+				public static reversed(thisreversed: native.Array<number>): java.util.List<kotlin.ULong>;
+				/** @deprecated */
+				public static maxWith(thismaxWith: native.Array<number>, comparator: java.util.Comparator<any>): kotlin.UShort;
+				public static getOrNull(thisgetOrNull: native.Array<number>, index: number): kotlin.UInt;
+				public static drop(thisdrop: native.Array<number>, n: number): java.util.List<kotlin.ULong>;
 				public static sumOfUByte(thissum: native.Array<kotlin.UByte>): number;
-				public static withIndex-QwZRm1k(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.ULong>>;
-				public static withIndex--ajY-9A(thiswithIndex: native.Array<number>): java.lang.Iterable<kotlin.collections.IndexedValue<kotlin.UInt>>;
 			}
 		}
 	}
@@ -5309,23 +5246,11 @@ declare module kotlin {
 	export module comparisons {
 		export class UComparisonsKt___UComparisonsKt extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.comparisons.UComparisonsKt___UComparisonsKt>;
-			public static minOf-5PvTz6A(a: number, b: number): number;
-			public static minOf-t1qELG4(a: number, other: native.Array<number>): number;
-			public static maxOf-Md2H83M(a: number, other: native.Array<number>): number;
-			public static minOf-Kr8caGY(a: number, b: number): number;
-			public static maxOf-Wr6uiD8(a: number, other: native.Array<number>): number;
-			public static minOf-Wr6uiD8(a: number, other: native.Array<number>): number;
-			public static minOf-Md2H83M(a: number, other: native.Array<number>): number;
+			public static minOf(a: number, other: native.Array<number>): number;
+			public static maxOf(a: number, other: native.Array<number>): number;
+			public static minOf(a: number, b: number): number;
 			public constructor();
-			public static maxOf-Kr8caGY(a: number, b: number): number;
-			public static maxOf-eb3DHEI(a: number, b: number): number;
-			public static minOf-R03FKyM(a: number, other: native.Array<number>): number;
-			public static minOf-J1ME1BU(a: number, b: number): number;
-			public static maxOf-t1qELG4(a: number, other: native.Array<number>): number;
-			public static maxOf-J1ME1BU(a: number, b: number): number;
-			public static minOf-eb3DHEI(a: number, b: number): number;
-			public static maxOf-R03FKyM(a: number, other: native.Array<number>): number;
-			public static maxOf-5PvTz6A(a: number, b: number): number;
+			public static maxOf(a: number, b: number): number;
 		}
 	}
 }
@@ -5537,8 +5462,8 @@ declare module kotlin {
 		export abstract class AbstractCoroutineContextKey<B>  extends kotlin.coroutines.CoroutineContext.Key<any> {
 			public static class: java.lang.Class<kotlin.coroutines.AbstractCoroutineContextKey<any>>;
 			public constructor(baseKey: kotlin.coroutines.CoroutineContext.Key<any>, safeCast: kotlin.jvm.functions.Function1<any,any>);
-			public tryCast$kotlin_stdlib(element: kotlin.coroutines.CoroutineContext.Element): any;
-			public isSubKey$kotlin_stdlib(key: kotlin.coroutines.CoroutineContext.Key<any>): boolean;
+			public tryCast(element: kotlin.coroutines.CoroutineContext.Element): any;
+			public isSubKey(key: kotlin.coroutines.CoroutineContext.Key<any>): boolean;
 		}
 	}
 }
@@ -5677,7 +5602,7 @@ declare module kotlin {
 			export class Element extends java.lang.Object implements kotlin.coroutines.CoroutineContext {
 				public static class: java.lang.Class<kotlin.coroutines.CoroutineContext.Element>;
 				/**
-				 * Constructs a new instance of the kotlin.coroutines.CoroutineContext$Element interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.coroutines.CoroutineContext() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					getKey(): kotlin.coroutines.CoroutineContext.Key<any>;
@@ -5708,7 +5633,7 @@ declare module kotlin {
 			export class Key<E>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.coroutines.CoroutineContext.Key<any>>;
 				/**
-				 * Constructs a new instance of the kotlin.coroutines.CoroutineContext$Key interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.coroutines.CoroutineContext() when extending the interface class.
 				 */
 				public constructor(implementation: {
 				});
@@ -6089,11 +6014,11 @@ declare module kotlin {
 				export class RunSuspend extends kotlin.coroutines.Continuation<kotlin.Unit> {
 					public static class: java.lang.Class<kotlin.coroutines.jvm.internal.RunSuspend>;
 					public getContext(): kotlin.coroutines.CoroutineContext;
-					public getResult-xLWZpok(): kotlin.Result<kotlin.Unit>;
 					public constructor();
 					public await(): void;
 					public setResult(param0: kotlin.Result<kotlin.Unit>): void;
 					public resumeWith(result: any): void;
+					public getResult(): kotlin.Result<kotlin.Unit>;
 				}
 			}
 		}
@@ -6515,8 +6440,7 @@ declare module kotlin {
 	export module internal {
 		export class UProgressionUtilKt extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.internal.UProgressionUtilKt>;
-			public static getProgressionLastElement-Nkh28Cs(start: number, end: number, step: number): number;
-			public static getProgressionLastElement-7ftBX0g(start: number, end: number, step: number): number;
+			public static getProgressionLastElement(start: number, end: number, step: number): number;
 		}
 	}
 }
@@ -9638,7 +9562,7 @@ declare module kotlin {
 					export class Entry extends java.lang.Object implements kotlin.jvm.internal.markers.KMappedMarker {
 						public static class: java.lang.Class<kotlin.jvm.internal.markers.KMutableMap.Entry>;
 						/**
-						 * Constructs a new instance of the kotlin.jvm.internal.markers.KMutableMap$Entry interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the kotlin.jvm.internal.markers.KMutableMap() when extending the interface class.
 						 */
 						public constructor(implementation: {
 						});
@@ -9971,19 +9895,19 @@ declare module kotlin {
 	export module random {
 		export class URandomKt extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.random.URandomKt>;
-			public static checkUIntRangeBounds-J1ME1BU(from: number, until: number): void;
-			public static checkULongRangeBounds-eb3DHEI(from: number, until: number): void;
+			public static checkUIntRangeBounds(from: number, until: number): void;
+			public static nextUInt(thisnextUInt: kotlin.random.Random, from: number, until: number): number;
+			public static nextUBytes(thisnextUBytes: kotlin.random.Random, array: native.Array<number>): native.Array<number>;
 			public static nextULong(thisnextULong: kotlin.random.Random): number;
-			public static nextUInt-a8DCA5k(thisnextUInt: kotlin.random.Random, from: number, until: number): number;
+			public static nextULong(thisnextULong: kotlin.random.Random, from: number, until: number): number;
+			public static nextUInt(thisnextUInt: kotlin.random.Random, until: number): number;
 			public static nextUInt(thisnextUInt: kotlin.random.Random, range: kotlin.ranges.UIntRange): number;
-			public static nextULong-jmpaW-c(thisnextULong: kotlin.random.Random, from: number, until: number): number;
 			public static nextULong(thisnextULong: kotlin.random.Random, range: kotlin.ranges.ULongRange): number;
-			public static nextUBytes-EVgfTAA(thisnextUBytes: kotlin.random.Random, array: native.Array<number>): native.Array<number>;
-			public static nextUInt-qCasIEU(thisnextUInt: kotlin.random.Random, until: number): number;
+			public static nextUBytes(thisnextUBytes: kotlin.random.Random, array: native.Array<number>, fromIndex: number, toIndex: number): native.Array<number>;
 			public static nextUBytes(thisnextUBytes: kotlin.random.Random, size: number): native.Array<number>;
-			public static nextUBytes-Wvrt4B4(thisnextUBytes: kotlin.random.Random, array: native.Array<number>, fromIndex: number, toIndex: number): native.Array<number>;
-			public static nextULong-V1Xi4fY(thisnextULong: kotlin.random.Random, until: number): number;
 			public static nextUInt(thisnextUInt: kotlin.random.Random): number;
+			public static checkULongRangeBounds(from: number, until: number): void;
+			public static nextULong(thisnextULong: kotlin.random.Random, until: number): number;
 		}
 	}
 }
@@ -10432,9 +10356,9 @@ declare module kotlin {
 			public toString(): string;
 			public isEmpty(): boolean;
 			public equals(obj: any): boolean;
-			public getLast-pVg5ArA(): number;
+			public getFirst(): number;
+			public getLast(): number;
 			public iterator(): kotlin.collections.UIntIterator;
-			public getFirst-pVg5ArA(): number;
 			public forEach(action: any /* any*/): void;
 			public spliterator(): java.util.Spliterator<any>;
 			public getStep(): number;
@@ -10444,7 +10368,7 @@ declare module kotlin {
 		export module UIntProgression {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.ranges.UIntProgression.Companion>;
-				public fromClosedRange-Nkh28Cs(rangeStart: number, rangeEnd: number, step: number): kotlin.ranges.UIntProgression;
+				public fromClosedRange(rangeStart: number, rangeEnd: number, step: number): kotlin.ranges.UIntProgression;
 			}
 		}
 	}
@@ -10454,7 +10378,7 @@ declare module kotlin {
 	export module ranges {
 		export class UIntProgressionIterator extends kotlin.collections.UIntIterator {
 			public static class: java.lang.Class<kotlin.ranges.UIntProgressionIterator>;
-			public nextUInt-pVg5ArA(): number;
+			public nextUInt(): number;
 			public hasNext(): boolean;
 		}
 	}
@@ -10469,14 +10393,14 @@ declare module kotlin {
 			public isEmpty(): boolean;
 			public contains(comparable0: any): boolean;
 			public iterator(): kotlin.collections.UIntIterator;
-			public contains-WZ4Q5Ns(value: number): boolean;
 			public forEach(action: any /* any*/): void;
+			public getStart(): number;
 			public equals(other: any): boolean;
 			public toString(): string;
 			public getStart(): any;
-			public getStart-pVg5ArA(): number;
+			public getEndInclusive(): number;
+			public contains(value: number): boolean;
 			public spliterator(): java.util.Spliterator<any>;
-			public getEndInclusive-pVg5ArA(): number;
 			public hashCode(): number;
 			public iterator(): java.util.Iterator<any>;
 		}
@@ -10498,11 +10422,11 @@ declare module kotlin {
 			public toString(): string;
 			public isEmpty(): boolean;
 			public equals(obj: any): boolean;
-			public getLast-s-VKNKU(): number;
+			public getFirst(): number;
+			public getLast(): number;
 			public iterator(): kotlin.collections.ULongIterator;
 			public forEach(action: any /* any*/): void;
 			public spliterator(): java.util.Spliterator<any>;
-			public getFirst-s-VKNKU(): number;
 			public getStep(): number;
 			public hashCode(): number;
 			public iterator(): java.util.Iterator<any>;
@@ -10510,7 +10434,7 @@ declare module kotlin {
 		export module ULongProgression {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.ranges.ULongProgression.Companion>;
-				public fromClosedRange-7ftBX0g(rangeStart: number, rangeEnd: number, step: number): kotlin.ranges.ULongProgression;
+				public fromClosedRange(rangeStart: number, rangeEnd: number, step: number): kotlin.ranges.ULongProgression;
 			}
 		}
 	}
@@ -10520,7 +10444,7 @@ declare module kotlin {
 	export module ranges {
 		export class ULongProgressionIterator extends kotlin.collections.ULongIterator {
 			public static class: java.lang.Class<kotlin.ranges.ULongProgressionIterator>;
-			public nextULong-s-VKNKU(): number;
+			public nextULong(): number;
 			public hasNext(): boolean;
 		}
 	}
@@ -10532,16 +10456,16 @@ declare module kotlin {
 			public static class: java.lang.Class<kotlin.ranges.ULongRange>;
 			public static Companion: kotlin.ranges.ULongRange.Companion;
 			public getEndInclusive(): any;
-			public getStart-s-VKNKU(): number;
-			public getEndInclusive-s-VKNKU(): number;
 			public isEmpty(): boolean;
 			public contains(comparable0: any): boolean;
-			public contains-VKZWuLQ(value: number): boolean;
 			public forEach(action: any /* any*/): void;
+			public getStart(): number;
 			public equals(other: any): boolean;
 			public toString(): string;
 			public getStart(): any;
+			public getEndInclusive(): number;
 			public iterator(): kotlin.collections.ULongIterator;
+			public contains(value: number): boolean;
 			public spliterator(): java.util.Spliterator<any>;
 			public hashCode(): number;
 			public iterator(): java.util.Iterator<any>;
@@ -10567,41 +10491,24 @@ declare module kotlin {
 	export module ranges {
 		export class URangesKt___URangesKt extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.ranges.URangesKt___URangesKt>;
-			public static contains-fz5IDCE(thiscontains: kotlin.ranges.UIntRange, value: number): boolean;
-			public static coerceAtLeast-5PvTz6A(thiscoerceAtLeast: number, minimumValue: number): number;
-			public static reversed(thisreversed: kotlin.ranges.ULongProgression): kotlin.ranges.ULongProgression;
-			public static coerceAtLeast-Kr8caGY(thiscoerceAtLeast: number, minimumValue: number): number;
-			public static downTo-eb3DHEI(thisdownTo: number, to: number): kotlin.ranges.ULongProgression;
-			public static coerceIn-sambcqE(thiscoerceIn: number, minimumValue: number, maximumValue: number): number;
-			public static until-J1ME1BU(thisuntil: number, to: number): kotlin.ranges.UIntRange;
-			public static step(thisstep: kotlin.ranges.UIntProgression, step: number): kotlin.ranges.UIntProgression;
-			public static downTo-Kr8caGY(thisdownTo: number, to: number): kotlin.ranges.UIntProgression;
-			public static downTo-5PvTz6A(thisdownTo: number, to: number): kotlin.ranges.UIntProgression;
-			public static coerceIn-VKSA0NQ(thiscoerceIn: number, minimumValue: number, maximumValue: number): number;
-			public static step(thisstep: kotlin.ranges.ULongProgression, step: number): kotlin.ranges.ULongProgression;
-			public static until-Kr8caGY(thisuntil: number, to: number): kotlin.ranges.UIntRange;
-			public static coerceAtMost-J1ME1BU(thiscoerceAtMost: number, maximumValue: number): number;
-			public static reversed(thisreversed: kotlin.ranges.UIntProgression): kotlin.ranges.UIntProgression;
-			public static downTo-J1ME1BU(thisdownTo: number, to: number): kotlin.ranges.UIntProgression;
-			public static contains-ULb-yJY(thiscontains: kotlin.ranges.ULongRange, value: number): boolean;
-			public static coerceAtLeast-eb3DHEI(thiscoerceAtLeast: number, minimumValue: number): number;
-			public static coerceIn-JPwROB0(thiscoerceIn: number, range: kotlin.ranges.ClosedRange<kotlin.ULong>): number;
+			public static contains(thiscontains: kotlin.ranges.ULongRange, value: number): boolean;
 			public static randomOrNull(thisrandomOrNull: kotlin.ranges.ULongRange, random: kotlin.random.Random): kotlin.ULong;
-			public static coerceAtMost-Kr8caGY(thiscoerceAtMost: number, maximumValue: number): number;
-			public static coerceAtMost-5PvTz6A(thiscoerceAtMost: number, maximumValue: number): number;
+			public static until(thisuntil: number, to: number): kotlin.ranges.ULongRange;
+			public static contains(thiscontains: kotlin.ranges.UIntRange, value: number): boolean;
+			public static coerceAtLeast(thiscoerceAtLeast: number, minimumValue: number): number;
+			public static reversed(thisreversed: kotlin.ranges.ULongProgression): kotlin.ranges.ULongProgression;
 			public constructor();
+			public static coerceIn(thiscoerceIn: number, minimumValue: number, maximumValue: number): number;
 			public static randomOrNull(thisrandomOrNull: kotlin.ranges.UIntRange, random: kotlin.random.Random): kotlin.UInt;
-			public static coerceIn-b33U2AM(thiscoerceIn: number, minimumValue: number, maximumValue: number): number;
-			public static contains-ZsK3CEQ(thiscontains: kotlin.ranges.UIntRange, value: number): boolean;
-			public static contains-Gab390E(thiscontains: kotlin.ranges.ULongRange, value: number): boolean;
-			public static contains-uhHAxoY(thiscontains: kotlin.ranges.ULongRange, value: number): boolean;
-			public static until-eb3DHEI(thisuntil: number, to: number): kotlin.ranges.ULongRange;
-			public static coerceAtLeast-J1ME1BU(thiscoerceAtLeast: number, minimumValue: number): number;
-			public static until-5PvTz6A(thisuntil: number, to: number): kotlin.ranges.UIntRange;
-			public static coerceIn-wuiCnnA(thiscoerceIn: number, range: kotlin.ranges.ClosedRange<kotlin.UInt>): number;
-			public static coerceIn-WZ9TVnA(thiscoerceIn: number, minimumValue: number, maximumValue: number): number;
-			public static contains-68kG9v0(thiscontains: kotlin.ranges.UIntRange, value: number): boolean;
-			public static coerceAtMost-eb3DHEI(thiscoerceAtMost: number, maximumValue: number): number;
+			public static step(thisstep: kotlin.ranges.UIntProgression, step: number): kotlin.ranges.UIntProgression;
+			public static coerceIn(thiscoerceIn: number, range: kotlin.ranges.ClosedRange<kotlin.ULong>): number;
+			public static step(thisstep: kotlin.ranges.ULongProgression, step: number): kotlin.ranges.ULongProgression;
+			public static coerceIn(thiscoerceIn: number, range: kotlin.ranges.ClosedRange<kotlin.UInt>): number;
+			public static downTo(thisdownTo: number, to: number): kotlin.ranges.UIntProgression;
+			public static reversed(thisreversed: kotlin.ranges.UIntProgression): kotlin.ranges.UIntProgression;
+			public static until(thisuntil: number, to: number): kotlin.ranges.UIntRange;
+			public static downTo(thisdownTo: number, to: number): kotlin.ranges.ULongProgression;
+			public static coerceAtMost(thiscoerceAtMost: number, maximumValue: number): number;
 			public static random(thisrandom: kotlin.ranges.ULongRange, random: kotlin.random.Random): number;
 			public static random(thisrandom: kotlin.ranges.UIntRange, random: kotlin.random.Random): number;
 		}
@@ -10894,7 +10801,7 @@ declare module kotlin {
 			export class Setter<V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KMutableProperty.Setter<any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KMutableProperty$Setter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KMutableProperty() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					getProperty(): kotlin.reflect.KProperty<V>;
@@ -11013,7 +10920,7 @@ declare module kotlin {
 			export class Setter<V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KMutableProperty0.Setter<any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KMutableProperty0$Setter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KMutableProperty0() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					invoke(object0: any): any;
@@ -11134,7 +11041,7 @@ declare module kotlin {
 			export class Setter<T, V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KMutableProperty1.Setter<any,any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KMutableProperty1$Setter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KMutableProperty1() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					invoke(object0: any, object1: any): any;
@@ -11255,7 +11162,7 @@ declare module kotlin {
 			export class Setter<D, E, V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KMutableProperty2.Setter<any,any,any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KMutableProperty2$Setter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KMutableProperty2() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					invoke(object0: any, object1: any, object2: any): any;
@@ -11389,7 +11296,7 @@ declare module kotlin {
 			export class Accessor<V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KProperty.Accessor<any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KProperty$Accessor interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KProperty() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					getProperty(): kotlin.reflect.KProperty<V>;
@@ -11403,7 +11310,7 @@ declare module kotlin {
 			export class Getter<V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KProperty.Getter<any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KProperty$Getter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KProperty() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					getProperty(): kotlin.reflect.KProperty<V>;
@@ -11501,7 +11408,7 @@ declare module kotlin {
 			export class Getter<V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KProperty0.Getter<any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KProperty0$Getter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KProperty0() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					invoke(): any;
@@ -11601,7 +11508,7 @@ declare module kotlin {
 			export class Getter<T, V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KProperty1.Getter<any,any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KProperty1$Getter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KProperty1() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					invoke(object0: any): any;
@@ -11701,7 +11608,7 @@ declare module kotlin {
 			export class Getter<D, E, V>  extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.reflect.KProperty2.Getter<any,any,any>>;
 				/**
-				 * Constructs a new instance of the kotlin.reflect.KProperty2$Getter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the kotlin.reflect.KProperty2() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					invoke(object0: any, object1: any): any;
@@ -12438,7 +12345,7 @@ declare module kotlin {
 		export class TransformingSequence<T, R>  extends kotlin.sequences.Sequence<any> {
 			public static class: java.lang.Class<kotlin.sequences.TransformingSequence<any,any>>;
 			public constructor(sequence: kotlin.sequences.Sequence<any>, transformer: kotlin.jvm.functions.Function1<any,any>);
-			public flatten$kotlin_stdlib(iterator: kotlin.jvm.functions.Function1<any,any>): kotlin.sequences.Sequence<any>;
+			public flatten(iterator: kotlin.jvm.functions.Function1<any,any>): kotlin.sequences.Sequence<any>;
 			public iterator(): java.util.Iterator<any>;
 		}
 	}
@@ -13367,11 +13274,9 @@ declare module kotlin {
 		export class UStringsKt extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.text.UStringsKt>;
 			public static toULongOrNull(thistoULongOrNull: string, radix: number): kotlin.ULong;
-			public static toString-LxnNnR4(thistoString: number, radix: number): string;
 			public static toUInt(thistoUInt: string): number;
 			public static toUByteOrNull(thistoUByteOrNull: string, radix: number): kotlin.UByte;
 			public static toUShort(thistoUShort: string, radix: number): number;
-			public static toString-V7xB4Y4(thistoString: number, radix: number): string;
 			public static toUInt(thistoUInt: string, radix: number): number;
 			public static toUIntOrNull(thistoUIntOrNull: string): kotlin.UInt;
 			public static toULong(thistoULong: string, radix: number): number;
@@ -13383,9 +13288,8 @@ declare module kotlin {
 			public static toUByteOrNull(thistoUByteOrNull: string): kotlin.UByte;
 			public static toULong(thistoULong: string): number;
 			public static toUShort(thistoUShort: string): number;
-			public static toString-olVBNx4(thistoString: number, radix: number): string;
 			public static toUShortOrNull(thistoUShortOrNull: string): kotlin.UShort;
-			public static toString-JSWoG40(thistoString: number, radix: number): string;
+			public static toString(thistoString: number, radix: number): string;
 		}
 	}
 }
@@ -13402,8 +13306,8 @@ declare module kotlin {
 		export module AbstractDoubleTimeSource {
 			export class DoubleTimeMark extends kotlin.time.TimeMark {
 				public static class: java.lang.Class<kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark>;
-				public plus-LRDsOJo(duration: number): kotlin.time.TimeMark;
-				public elapsedNow-UwyO8pc(): number;
+				public plus(duration: number): kotlin.time.TimeMark;
+				public elapsedNow(): number;
 			}
 		}
 	}
@@ -13421,8 +13325,8 @@ declare module kotlin {
 		export module AbstractLongTimeSource {
 			export class LongTimeMark extends kotlin.time.TimeMark {
 				public static class: java.lang.Class<kotlin.time.AbstractLongTimeSource.LongTimeMark>;
-				public plus-LRDsOJo(duration: number): kotlin.time.TimeMark;
-				public elapsedNow-UwyO8pc(): number;
+				public plus(duration: number): kotlin.time.TimeMark;
+				public elapsedNow(): number;
 			}
 		}
 	}
@@ -13432,9 +13336,9 @@ declare module kotlin {
 	export module time {
 		export class AdjustedTimeMark extends kotlin.time.TimeMark {
 			public static class: java.lang.Class<kotlin.time.AdjustedTimeMark>;
-			public elapsedNow-UwyO8pc(): number;
-			public plus-LRDsOJo(duration: number): kotlin.time.TimeMark;
-			public getAdjustment-UwyO8pc(): number;
+			public plus(duration: number): kotlin.time.TimeMark;
+			public getAdjustment(): number;
+			public elapsedNow(): number;
 			public getMark(): kotlin.time.TimeMark;
 		}
 	}
@@ -13445,55 +13349,55 @@ declare module kotlin {
 		export class Duration extends java.lang.Comparable<kotlin.time.Duration> {
 			public static class: java.lang.Class<kotlin.time.Duration>;
 			public static Companion: kotlin.time.Duration.Companion;
-			public static getInHours-impl(this0: number): number;
-			public static getInMilliseconds-impl(this0: number): number;
-			public static toIsoString-impl(this0: number): string;
-			public static getSecondsComponent-impl(this0: number): number;
-			public static times-UwyO8pc(this0: number, scale: number): number;
-			public static isPositive-impl(this0: number): boolean;
-			public static getInDays-impl(this0: number): number;
-			public static getHoursComponent-impl(this0: number): number;
-			public static plus-LRDsOJo(this0: number, other: number): number;
-			public static div-LRDsOJo(this0: number, other: number): number;
-			public static getNanosecondsComponent-impl(this0: number): number;
-			public static toDouble-impl(this0: number, unit: java.util.concurrent.TimeUnit): number;
-			public static constructor-impl(value: number): number;
-			public static unaryMinus-UwyO8pc(this0: number): number;
-			public static minus-LRDsOJo(this0: number, other: number): number;
-			public static getInNanoseconds-impl(this0: number): number;
-			public static getInMinutes-impl(this0: number): number;
-			public static compareTo-LRDsOJo(this0: number, other: number): number;
-			public static isInfinite-impl(this0: number): boolean;
-			public compareTo-LRDsOJo(double0: number): number;
-			public static getInSeconds-impl(this0: number): number;
-			public static toString-impl(this0: number): string;
-			public static isNegative-impl(this0: number): boolean;
-			public static getAbsoluteValue-UwyO8pc(this0: number): number;
-			public static toComponents-impl(this0: number, action: kotlin.jvm.functions.Function2<any,any,any>): any;
-			public static hashCode-impl(double0: number): number;
-			public static equals-impl0(p1: number, p2: number): boolean;
-			public static toLong-impl(this0: number, unit: java.util.concurrent.TimeUnit): number;
-			public static toInt-impl(this0: number, unit: java.util.concurrent.TimeUnit): number;
-			public static getInMicroseconds-impl(this0: number): number;
-			public static getMinutesComponent-impl(this0: number): number;
-			public static equals-impl(double0: number, object1: any): boolean;
-			public static toLongNanoseconds-impl(this0: number): number;
-			public static toLongMilliseconds-impl(this0: number): number;
+			public static unaryMinus(this0: number): number;
+			public static minus(this0: number, other: number): number;
+			public static getInNanoseconds(this0: number): number;
+			public static isInfinite(this0: number): boolean;
+			public static equals(p1: number, p2: number): boolean;
+			public static equals(double0: number, object1: any): boolean;
+			public static isNegative(this0: number): boolean;
+			public compareTo(double0: number): number;
+			public static compareTo(this0: number, other: number): number;
+			public static getInDays(this0: number): number;
+			public static getMinutesComponent(this0: number): number;
+			public static getSecondsComponent(this0: number): number;
+			public static toLong(this0: number, unit: java.util.concurrent.TimeUnit): number;
+			public static getAbsoluteValue(this0: number): number;
+			public static toString(this0: number, unit: java.util.concurrent.TimeUnit, decimals: number): string;
+			public static isFinite(this0: number): boolean;
+			public static getInMinutes(this0: number): number;
+			public static getNanosecondsComponent(this0: number): number;
+			public static toIsoString(this0: number): string;
+			public static toDouble(this0: number, unit: java.util.concurrent.TimeUnit): number;
+			public static getInSeconds(this0: number): number;
+			public static getInHours(this0: number): number;
+			public static isPositive(this0: number): boolean;
+			public static getInMilliseconds(this0: number): number;
+			public static toString(this0: number): string;
+			public static constructor(value: number): number;
+			public static toLongMilliseconds(this0: number): number;
+			public static getInMicroseconds(this0: number): number;
+			public static div(this0: number, scale: number): number;
+			public static toLongNanoseconds(this0: number): number;
+			public static hashCode(double0: number): number;
 			public toString(): string;
-			public static toComponents-impl(this0: number, action: kotlin.jvm.functions.Function5<any,any,any,any,any,any>): any;
-			public static toComponents-impl(this0: number, action: kotlin.jvm.functions.Function4<any,any,any,any,any>): any;
-			public static toComponents-impl(this0: number, action: kotlin.jvm.functions.Function3<any,any,any,any>): any;
+			public static getHoursComponent(this0: number): number;
 			public equals(obj: any): boolean;
-			public static div-UwyO8pc(this0: number, scale: number): number;
-			public static toString-impl(this0: number, unit: java.util.concurrent.TimeUnit, decimals: number): string;
-			public static isFinite-impl(this0: number): boolean;
+			public static times(this0: number, scale: number): number;
+			public static toInt(this0: number, unit: java.util.concurrent.TimeUnit): number;
+			public static plus(this0: number, other: number): number;
+			public static div(this0: number, other: number): number;
+			public static toComponents(this0: number, action: kotlin.jvm.functions.Function5<any,any,any,any,any,any>): any;
+			public static toComponents(this0: number, action: kotlin.jvm.functions.Function4<any,any,any,any,any>): any;
+			public static toComponents(this0: number, action: kotlin.jvm.functions.Function3<any,any,any,any>): any;
+			public static toComponents(this0: number, action: kotlin.jvm.functions.Function2<any,any,any>): any;
 			public hashCode(): number;
 		}
 		export module Duration {
 			export class Companion extends java.lang.Object {
 				public static class: java.lang.Class<kotlin.time.Duration.Companion>;
-				public getZERO-UwyO8pc(): number;
-				public getINFINITE-UwyO8pc(): number;
+				public getINFINITE(): number;
+				public getZERO(): number;
 				public convert(value: number, sourceUnit: java.util.concurrent.TimeUnit, targetUnit: java.util.concurrent.TimeUnit): number;
 			}
 		}
@@ -13611,8 +13515,8 @@ declare module kotlin {
 		export class TestTimeSource extends kotlin.time.AbstractLongTimeSource {
 			public static class: java.lang.Class<kotlin.time.TestTimeSource>;
 			public markNow(): kotlin.time.TimeMark;
+			public plusAssign(duration: number): void;
 			public constructor();
-			public plusAssign-LRDsOJo(duration: number): void;
 			public constructor(unit: java.util.concurrent.TimeUnit);
 			public read(): number;
 		}
@@ -13624,11 +13528,11 @@ declare module kotlin {
 		export abstract class TimeMark extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.time.TimeMark>;
 			public hasPassedNow(): boolean;
-			public minus-LRDsOJo(duration: number): kotlin.time.TimeMark;
-			public elapsedNow-UwyO8pc(): number;
-			public plus-LRDsOJo(duration: number): kotlin.time.TimeMark;
+			public minus(duration: number): kotlin.time.TimeMark;
+			public plus(duration: number): kotlin.time.TimeMark;
 			public hasNotPassedNow(): boolean;
 			public constructor();
+			public elapsedNow(): number;
 		}
 	}
 }
@@ -13681,13 +13585,13 @@ declare module kotlin {
 	export module time {
 		export class TimedValue<T>  extends java.lang.Object {
 			public static class: java.lang.Class<kotlin.time.TimedValue<any>>;
-			public component2-UwyO8pc(): number;
-			public getDuration-UwyO8pc(): number;
+			public component2(): number;
+			public copy(value: T, duration: number): kotlin.time.TimedValue<T>;
 			public toString(): string;
 			public equals(obj: any): boolean;
 			public component1(): T;
+			public getDuration(): number;
 			public getValue(): T;
-			public copy-RFiDyg4(value: T, duration: number): kotlin.time.TimedValue<T>;
 			public hashCode(): number;
 		}
 	}

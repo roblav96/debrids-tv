@@ -22,8 +22,8 @@ declare module androidx {
 	export module lifecycle {
 		export class ViewModelLazy<VM>  extends kotlin.Lazy<any> {
 			public static class: java.lang.Class<androidx.lifecycle.ViewModelLazy<any>>;
-			public constructor(viewModelClass: kotlin.reflect.KClass<any>, storeProducer: kotlin.jvm.functions.Function0<any>, factoryProducer: kotlin.jvm.functions.Function0<any>);
 			public getValue(): any;
+			public constructor(viewModelClass: kotlin.reflect.KClass<any>, storeProducer: kotlin.jvm.functions.Function0<any>, factoryProducer: kotlin.jvm.functions.Function0<any>);
 			public isInitialized(): boolean;
 		}
 	}

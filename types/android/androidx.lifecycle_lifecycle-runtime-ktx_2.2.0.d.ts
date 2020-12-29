@@ -26,11 +26,11 @@ declare module androidx {
 	export module lifecycle {
 		export abstract class LifecycleCoroutineScope extends java.lang.Object implements kotlinx.coroutines.CoroutineScope {
 			public static class: java.lang.Class<androidx.lifecycle.LifecycleCoroutineScope>;
-			public getLifecycle$lifecycle_runtime_ktx_release(): androidx.lifecycle.Lifecycle;
-			public getCoroutineContext(): kotlin.coroutines.CoroutineContext;
+			public getLifecycle(): androidx.lifecycle.Lifecycle;
 			public launchWhenResumed(block: kotlin.jvm.functions.Function2<any,any,any>): kotlinx.coroutines.Job;
-			public constructor();
+			public getCoroutineContext(): kotlin.coroutines.CoroutineContext;
 			public launchWhenCreated(block: kotlin.jvm.functions.Function2<any,any,any>): kotlinx.coroutines.Job;
+			public constructor();
 			public launchWhenStarted(block: kotlin.jvm.functions.Function2<any,any,any>): kotlinx.coroutines.Job;
 		}
 	}
@@ -40,8 +40,8 @@ declare module androidx {
 	export module lifecycle {
 		export class LifecycleCoroutineScopeImpl extends androidx.lifecycle.LifecycleCoroutineScope implements androidx.lifecycle.LifecycleEventObserver {
 			public static class: java.lang.Class<androidx.lifecycle.LifecycleCoroutineScopeImpl>;
+			public getLifecycle(): androidx.lifecycle.Lifecycle;
 			public constructor(lifecycle: androidx.lifecycle.Lifecycle, coroutineContext: kotlin.coroutines.CoroutineContext);
-			public getLifecycle$lifecycle_runtime_ktx_release(): androidx.lifecycle.Lifecycle;
 			public onStateChanged(source: androidx.lifecycle.LifecycleOwner, event: androidx.lifecycle.Lifecycle.Event): void;
 			public getCoroutineContext(): kotlin.coroutines.CoroutineContext;
 			public register(): void;

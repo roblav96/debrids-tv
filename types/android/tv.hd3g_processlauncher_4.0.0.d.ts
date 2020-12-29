@@ -538,7 +538,7 @@ declare module tv {
 						getExecutableName(): string;
 						beforeRun(processBuilder: tv.hd3g.processlauncher.ProcesslauncherBuilder): void;
 						filterOutErrorLines(): any /* any*/;
-						lambda$filterOutErrorLines$0(p: string): boolean;
+						lambda(p: string): boolean;
 					});
 					public constructor();
 					public getExecutableName(): string;

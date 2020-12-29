@@ -54,8 +54,8 @@ declare module androidx {
 			public static getSize(receiver: androidx.collection.SparseArrayCompat<any>): number;
 			public static getOrElse(receiver: androidx.collection.SparseArrayCompat<any>, key: number, defaultValue: kotlin.jvm.functions.Function0<any>): any;
 			public static plus(receiver: androidx.collection.SparseArrayCompat<any>, other: androidx.collection.SparseArrayCompat<any>): androidx.collection.SparseArrayCompat<any>;
-			public static getOrDefault(receiver: androidx.collection.SparseArrayCompat<any>, key: number, defaultValue: any): any;
 			public static set(receiver: androidx.collection.SparseArrayCompat<any>, key: number, value: any): void;
+			public static getOrDefault(receiver: androidx.collection.SparseArrayCompat<any>, key: number, defaultValue: any): any;
 			public static valueIterator(receiver: androidx.collection.SparseArrayCompat<any>): java.util.Iterator<any>;
 			public static contains(receiver: androidx.collection.SparseArrayCompat<any>, key: number): boolean;
 			public static keyIterator(receiver: androidx.collection.SparseArrayCompat<any>): kotlin.collections.IntIterator;

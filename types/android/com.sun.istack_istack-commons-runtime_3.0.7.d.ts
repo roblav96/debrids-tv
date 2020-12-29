@@ -340,7 +340,7 @@ declare module com {
 					export class ResourceBundleSupplier extends java.lang.Object {
 						public static class: java.lang.Class<com.sun.istack.localization.LocalizableMessageFactory.ResourceBundleSupplier>;
 						/**
-						 * Constructs a new instance of the com.sun.istack.localization.LocalizableMessageFactory$ResourceBundleSupplier interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the com.sun.istack.localization.LocalizableMessageFactory() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							getResourceBundle(locale0: java.util.Locale): java.util.ResourceBundle;
@@ -439,7 +439,7 @@ declare module com {
 	}
 }
 
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 

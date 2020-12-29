@@ -99,30 +99,30 @@ declare module androidx {
 			public static class: java.lang.Class<androidx.lifecycle.Lifecycle>;
 			public addObserver(lifecycleObserver0: androidx.lifecycle.LifecycleObserver): void;
 			public constructor();
-			public getCurrentState(): androidx.lifecycle.Lifecycle.State;
 			public removeObserver(lifecycleObserver0: androidx.lifecycle.LifecycleObserver): void;
+			public getCurrentState(): androidx.lifecycle.Lifecycle.State;
 		}
 		export module Lifecycle {
 			export class Event {
 				public static class: java.lang.Class<androidx.lifecycle.Lifecycle.Event>;
-				public static ON_ANY: androidx.lifecycle.Lifecycle.Event;
 				public static ON_CREATE: androidx.lifecycle.Lifecycle.Event;
-				public static ON_DESTROY: androidx.lifecycle.Lifecycle.Event;
-				public static ON_PAUSE: androidx.lifecycle.Lifecycle.Event;
-				public static ON_RESUME: androidx.lifecycle.Lifecycle.Event;
 				public static ON_START: androidx.lifecycle.Lifecycle.Event;
+				public static ON_RESUME: androidx.lifecycle.Lifecycle.Event;
+				public static ON_PAUSE: androidx.lifecycle.Lifecycle.Event;
 				public static ON_STOP: androidx.lifecycle.Lifecycle.Event;
-				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
+				public static ON_DESTROY: androidx.lifecycle.Lifecycle.Event;
+				public static ON_ANY: androidx.lifecycle.Lifecycle.Event;
 				public static values(): native.Array<androidx.lifecycle.Lifecycle.Event>;
+				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(name: string): androidx.lifecycle.Lifecycle.Event;
 			}
 			export class State {
 				public static class: java.lang.Class<androidx.lifecycle.Lifecycle.State>;
-				public static CREATED: androidx.lifecycle.Lifecycle.State;
 				public static DESTROYED: androidx.lifecycle.Lifecycle.State;
 				public static INITIALIZED: androidx.lifecycle.Lifecycle.State;
-				public static RESUMED: androidx.lifecycle.Lifecycle.State;
+				public static CREATED: androidx.lifecycle.Lifecycle.State;
 				public static STARTED: androidx.lifecycle.Lifecycle.State;
+				public static RESUMED: androidx.lifecycle.Lifecycle.State;
 				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(name: string): androidx.lifecycle.Lifecycle.State;
 				public isAtLeast(state: androidx.lifecycle.Lifecycle.State): boolean;

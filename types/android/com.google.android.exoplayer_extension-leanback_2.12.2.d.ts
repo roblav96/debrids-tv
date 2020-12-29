@@ -6,11 +6,11 @@ declare module com {
 					export module leanback {
 						export class BuildConfig extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.leanback.BuildConfig>;
+							public static DEBUG: boolean;
+							public static LIBRARY_PACKAGE_NAME: string;
 							public static APPLICATION_ID: string;
 							public static BUILD_TYPE: string;
-							public static DEBUG: boolean;
 							public static FLAVOR: string;
-							public static LIBRARY_PACKAGE_NAME: string;
 							public static VERSION_CODE: number;
 							public static VERSION_NAME: string;
 							public constructor();
@@ -37,8 +37,8 @@ declare module com {
 							public isPrepared(): boolean;
 							public setErrorMessageProvider(errorMessageProvider: com.google.android.exoplayer2.util.ErrorMessageProvider<any>): void;
 							public isPlaying(): boolean;
-							public getBufferedPosition(): number;
 							public setProgressUpdatingEnabled(enable: boolean): void;
+							public getBufferedPosition(): number;
 							public onAttachedToHost(host: androidx.leanback.media.PlaybackGlueHost): void;
 							public seekTo(positionInMs: number): void;
 							public getCurrentPosition(): number;
@@ -63,9 +63,9 @@ declare module com {
 								public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 								public onPlaybackStateChanged(playbackState: number): void;
 								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
+								public surfaceChanged(surfaceHolder: globalAndroid.view.SurfaceHolder, format: number, width: number, height: number): void;
 								/** @deprecated */
 								public onLoadingChanged(isLoading: boolean): void;
-								public surfaceChanged(surfaceHolder: globalAndroid.view.SurfaceHolder, format: number, width: number, height: number): void;
 								public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
 								public onIsLoadingChanged(isLoading: boolean): void;
 								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;

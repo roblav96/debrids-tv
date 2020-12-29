@@ -44,9 +44,9 @@ declare module com {
 		export module picasso {
 			export class BuildConfig extends java.lang.Object {
 				public static class: java.lang.Class<com.squareup.picasso.BuildConfig>;
+				public static DEBUG: boolean;
 				public static APPLICATION_ID: string;
 				public static BUILD_TYPE: string;
-				public static DEBUG: boolean;
 				public static FLAVOR: string;
 				public static VERSION_CODE: number;
 				public static VERSION_NAME: string;
@@ -255,8 +255,8 @@ declare module com {
 				public constructor(context: globalAndroid.content.Context);
 				public missCount(): number;
 				public clear(): void;
-				public putCount(): number;
 				public set(key: string, bitmap: globalAndroid.graphics.Bitmap): void;
+				public putCount(): number;
 				public hitCount(): number;
 				public get(key: string): globalAndroid.graphics.Bitmap;
 				public constructor(maxByteCount: number);
@@ -308,9 +308,9 @@ declare module com {
 			export module MediaStoreRequestHandler {
 				export class PicassoKind {
 					public static class: java.lang.Class<com.squareup.picasso.MediaStoreRequestHandler.PicassoKind>;
-					public static FULL: com.squareup.picasso.MediaStoreRequestHandler.PicassoKind;
 					public static MICRO: com.squareup.picasso.MediaStoreRequestHandler.PicassoKind;
 					public static MINI: com.squareup.picasso.MediaStoreRequestHandler.PicassoKind;
+					public static FULL: com.squareup.picasso.MediaStoreRequestHandler.PicassoKind;
 					public static valueOf(name: string): com.squareup.picasso.MediaStoreRequestHandler.PicassoKind;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static values(): native.Array<com.squareup.picasso.MediaStoreRequestHandler.PicassoKind>;
@@ -404,9 +404,9 @@ declare module com {
 				public load(path: string): com.squareup.picasso.RequestCreator;
 				public static setSingletonInstance(picasso: com.squareup.picasso.Picasso): void;
 				public cancelRequest(remoteViews: globalAndroid.widget.RemoteViews, viewId: number): void;
-				public getSnapshot(): com.squareup.picasso.StatsSnapshot;
 				public invalidate(uri: globalAndroid.net.Uri): void;
 				public setLoggingEnabled(enabled: boolean): void;
+				public getSnapshot(): com.squareup.picasso.StatsSnapshot;
 				public load(resourceId: number): com.squareup.picasso.RequestCreator;
 				public isLoggingEnabled(): boolean;
 				public cancelRequest(target: com.squareup.picasso.Target): void;
@@ -429,8 +429,8 @@ declare module com {
 					public indicatorsEnabled(enabled: boolean): com.squareup.picasso.Picasso.Builder;
 					public loggingEnabled(enabled: boolean): com.squareup.picasso.Picasso.Builder;
 					public defaultBitmapConfig(bitmapConfig: globalAndroid.graphics.Bitmap.Config): com.squareup.picasso.Picasso.Builder;
-					public addRequestHandler(requestHandler: com.squareup.picasso.RequestHandler): com.squareup.picasso.Picasso.Builder;
 					public listener(listener: com.squareup.picasso.Picasso.Listener): com.squareup.picasso.Picasso.Builder;
+					public addRequestHandler(requestHandler: com.squareup.picasso.RequestHandler): com.squareup.picasso.Picasso.Builder;
 					public constructor(context: globalAndroid.content.Context);
 					public requestTransformer(transformer: com.squareup.picasso.Picasso.RequestTransformer): com.squareup.picasso.Picasso.Builder;
 					public executor(executorService: java.util.concurrent.ExecutorService): com.squareup.picasso.Picasso.Builder;
@@ -443,7 +443,7 @@ declare module com {
 				export class Listener extends java.lang.Object {
 					public static class: java.lang.Class<com.squareup.picasso.Picasso.Listener>;
 					/**
-					 * Constructs a new instance of the com.squareup.picasso.Picasso$Listener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the com.squareup.picasso.Picasso() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						onImageLoadFailed(picasso0: com.squareup.picasso.Picasso, uri1: globalAndroid.net.Uri, exception2: java.lang.Exception): void;
@@ -453,8 +453,8 @@ declare module com {
 				}
 				export class LoadedFrom {
 					public static class: java.lang.Class<com.squareup.picasso.Picasso.LoadedFrom>;
-					public static DISK: com.squareup.picasso.Picasso.LoadedFrom;
 					public static MEMORY: com.squareup.picasso.Picasso.LoadedFrom;
+					public static DISK: com.squareup.picasso.Picasso.LoadedFrom;
 					public static NETWORK: com.squareup.picasso.Picasso.LoadedFrom;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static valueOf(name: string): com.squareup.picasso.Picasso.LoadedFrom;
@@ -462,9 +462,9 @@ declare module com {
 				}
 				export class Priority {
 					public static class: java.lang.Class<com.squareup.picasso.Picasso.Priority>;
-					public static HIGH: com.squareup.picasso.Picasso.Priority;
 					public static LOW: com.squareup.picasso.Picasso.Priority;
 					public static NORMAL: com.squareup.picasso.Picasso.Priority;
+					public static HIGH: com.squareup.picasso.Picasso.Priority;
 					public static valueOf(name: string): com.squareup.picasso.Picasso.Priority;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static values(): native.Array<com.squareup.picasso.Picasso.Priority>;
@@ -472,7 +472,7 @@ declare module com {
 				export class RequestTransformer extends java.lang.Object {
 					public static class: java.lang.Class<com.squareup.picasso.Picasso.RequestTransformer>;
 					/**
-					 * Constructs a new instance of the com.squareup.picasso.Picasso$RequestTransformer interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the com.squareup.picasso.Picasso() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						transformRequest(request0: com.squareup.picasso.Request): com.squareup.picasso.Request;
@@ -544,8 +544,8 @@ declare module com {
 				public onCreate(): boolean;
 				public constructor();
 				public onTrimMemory(level: number): void;
-				public delete(uri: globalAndroid.net.Uri, selection: string, selectionArgs: native.Array<string>): number;
 				public getType(uri0: globalAndroid.net.Uri): string;
+				public delete(uri: globalAndroid.net.Uri, selection: string, selectionArgs: native.Array<string>): number;
 				public update(uri0: globalAndroid.net.Uri, contentValues1: globalAndroid.content.ContentValues, string2: string, strings3: native.Array<string>): number;
 				public query(uri: globalAndroid.net.Uri, projection: native.Array<string>, queryArgs: globalAndroid.os.Bundle, cancellationSignal: globalAndroid.os.CancellationSignal): globalAndroid.database.Cursor;
 				public query(uri: globalAndroid.net.Uri, projection: native.Array<string>, selection: string, selectionArgs: native.Array<string>, sortOrder: string): globalAndroid.database.Cursor;
@@ -587,36 +587,36 @@ declare module com {
 		export module picasso {
 			export class Request extends java.lang.Object {
 				public static class: java.lang.Class<com.squareup.picasso.Request>;
+				public uri: globalAndroid.net.Uri;
+				public resourceId: number;
+				public stableKey: string;
+				public transformations: java.util.List<com.squareup.picasso.Transformation>;
+				public targetWidth: number;
+				public targetHeight: number;
 				public centerCrop: boolean;
 				public centerCropGravity: number;
 				public centerInside: boolean;
-				public config: globalAndroid.graphics.Bitmap.Config;
-				public hasRotationPivot: boolean;
 				public onlyScaleDown: boolean;
-				public priority: com.squareup.picasso.Picasso.Priority;
-				public purgeable: boolean;
-				public resourceId: number;
 				public rotationDegrees: number;
 				public rotationPivotX: number;
 				public rotationPivotY: number;
-				public stableKey: string;
-				public targetHeight: number;
-				public targetWidth: number;
-				public transformations: java.util.List<com.squareup.picasso.Transformation>;
-				public uri: globalAndroid.net.Uri;
+				public hasRotationPivot: boolean;
+				public purgeable: boolean;
+				public config: globalAndroid.graphics.Bitmap.Config;
+				public priority: com.squareup.picasso.Picasso.Priority;
 				public hasSize(): boolean;
-				public buildUpon(): com.squareup.picasso.Request.Builder;
 				public toString(): string;
+				public buildUpon(): com.squareup.picasso.Request.Builder;
 			}
 			export module Request {
 				export class Builder extends java.lang.Object {
 					public static class: java.lang.Class<com.squareup.picasso.Request.Builder>;
 					public transform(transformations: java.util.List<any>): com.squareup.picasso.Request.Builder;
 					public resize(targetWidth: number, targetHeight: number): com.squareup.picasso.Request.Builder;
-					public onlyScaleDown(): com.squareup.picasso.Request.Builder;
 					public setResourceId(resourceId: number): com.squareup.picasso.Request.Builder;
-					public build(): com.squareup.picasso.Request;
+					public onlyScaleDown(): com.squareup.picasso.Request.Builder;
 					public centerCrop(): com.squareup.picasso.Request.Builder;
+					public build(): com.squareup.picasso.Request;
 					public setUri(uri: globalAndroid.net.Uri): com.squareup.picasso.Request.Builder;
 					public centerCrop(alignGravity: number): com.squareup.picasso.Request.Builder;
 					public clearCenterCrop(): com.squareup.picasso.Request.Builder;
@@ -628,8 +628,8 @@ declare module com {
 					public clearRotation(): com.squareup.picasso.Request.Builder;
 					public constructor(resourceId: number);
 					public constructor(uri: globalAndroid.net.Uri);
-					public priority(priority: com.squareup.picasso.Picasso.Priority): com.squareup.picasso.Request.Builder;
 					public stableKey(stableKey: string): com.squareup.picasso.Request.Builder;
+					public priority(priority: com.squareup.picasso.Picasso.Priority): com.squareup.picasso.Request.Builder;
 					public clearCenterInside(): com.squareup.picasso.Request.Builder;
 					public rotate(degrees: number): com.squareup.picasso.Request.Builder;
 					public clearResize(): com.squareup.picasso.Request.Builder;
@@ -645,8 +645,8 @@ declare module com {
 		export module picasso {
 			export class RequestCreator extends java.lang.Object {
 				public static class: java.lang.Class<com.squareup.picasso.RequestCreator>;
-				public priority(priority: com.squareup.picasso.Picasso.Priority): com.squareup.picasso.RequestCreator;
 				public tag(tag: any): com.squareup.picasso.RequestCreator;
+				public priority(priority: com.squareup.picasso.Picasso.Priority): com.squareup.picasso.RequestCreator;
 				public resizeDimen(targetWidthResId: number, targetHeightResId: number): com.squareup.picasso.RequestCreator;
 				public memoryPolicy(policy: com.squareup.picasso.MemoryPolicy, additional: native.Array<com.squareup.picasso.MemoryPolicy>): com.squareup.picasso.RequestCreator;
 				public noPlaceholder(): com.squareup.picasso.RequestCreator;
@@ -654,10 +654,10 @@ declare module com {
 				public into(target: globalAndroid.widget.ImageView, callback: com.squareup.picasso.Callback): void;
 				public fit(): com.squareup.picasso.RequestCreator;
 				public centerCrop(alignGravity: number): com.squareup.picasso.RequestCreator;
-				public into(remoteViews: globalAndroid.widget.RemoteViews, viewId: number, appWidgetIds: native.Array<number>): void;
 				public purgeable(): com.squareup.picasso.RequestCreator;
-				public fetch(callback: com.squareup.picasso.Callback): void;
+				public into(remoteViews: globalAndroid.widget.RemoteViews, viewId: number, appWidgetIds: native.Array<number>): void;
 				public get(): globalAndroid.graphics.Bitmap;
+				public fetch(callback: com.squareup.picasso.Callback): void;
 				public placeholder(placeholderResId: number): com.squareup.picasso.RequestCreator;
 				public transform(transformations: java.util.List<any>): com.squareup.picasso.RequestCreator;
 				public error(errorResId: number): com.squareup.picasso.RequestCreator;
@@ -669,8 +669,8 @@ declare module com {
 				public centerCrop(): com.squareup.picasso.RequestCreator;
 				public noFade(): com.squareup.picasso.RequestCreator;
 				public rotate(degrees: number): com.squareup.picasso.RequestCreator;
-				public onlyScaleDown(): com.squareup.picasso.RequestCreator;
 				public placeholder(placeholderDrawable: globalAndroid.graphics.drawable.Drawable): com.squareup.picasso.RequestCreator;
+				public onlyScaleDown(): com.squareup.picasso.RequestCreator;
 				public rotate(degrees: number, pivotX: number, pivotY: number): com.squareup.picasso.RequestCreator;
 				public into(remoteViews: globalAndroid.widget.RemoteViews, viewId: number, appWidgetIds: native.Array<number>, callback: com.squareup.picasso.Callback): void;
 				public into(remoteViews: globalAndroid.widget.RemoteViews, viewId: number, notificationId: number, notification: globalAndroid.app.Notification, notificationTag: string): void;
@@ -743,20 +743,20 @@ declare module com {
 		export module picasso {
 			export class StatsSnapshot extends java.lang.Object {
 				public static class: java.lang.Class<com.squareup.picasso.StatsSnapshot>;
-				public averageDownloadSize: number;
-				public averageOriginalBitmapSize: number;
-				public averageTransformedBitmapSize: number;
+				public maxSize: number;
+				public size: number;
 				public cacheHits: number;
 				public cacheMisses: number;
-				public downloadCount: number;
-				public maxSize: number;
-				public originalBitmapCount: number;
-				public size: number;
-				public timeStamp: number;
 				public totalDownloadSize: number;
 				public totalOriginalBitmapSize: number;
 				public totalTransformedBitmapSize: number;
+				public averageDownloadSize: number;
+				public averageOriginalBitmapSize: number;
+				public averageTransformedBitmapSize: number;
+				public downloadCount: number;
+				public originalBitmapCount: number;
 				public transformedBitmapCount: number;
+				public timeStamp: number;
 				public dump(): void;
 				public constructor(maxSize: number, size: number, cacheHits: number, cacheMisses: number, totalDownloadSize: number, totalOriginalBitmapSize: number, totalTransformedBitmapSize: number, averageDownloadSize: number, averageOriginalBitmapSize: number, averageTransformedBitmapSize: number, downloadCount: number, originalBitmapCount: number, transformedBitmapCount: number, timeStamp: number);
 				public toString(): string;

@@ -6,11 +6,11 @@ declare module com {
 					export module okhttp {
 						export class BuildConfig extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.okhttp.BuildConfig>;
+							public static DEBUG: boolean;
+							public static LIBRARY_PACKAGE_NAME: string;
 							public static APPLICATION_ID: string;
 							public static BUILD_TYPE: string;
-							public static DEBUG: boolean;
 							public static FLAVOR: string;
-							public static LIBRARY_PACKAGE_NAME: string;
 							public static VERSION_CODE: number;
 							public static VERSION_NAME: string;
 							public constructor();
@@ -32,8 +32,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource>;
 							/** @deprecated */
 							public constructor(callFactory: okhttp3.Call.Factory, userAgent: string, contentTypePredicate: com.google.common.base.Predicate<string>);
-							public close(): void;
 							public getUri(): globalAndroid.net.Uri;
+							public close(): void;
 							public read(buffer: native.Array<number>, offset: number, readLength: number): number;
 							public constructor(isNetwork: boolean);
 							public constructor(callFactory: okhttp3.Call.Factory);
@@ -47,8 +47,8 @@ declare module com {
 							public getResponseCode(): number;
 							public bytesRemaining(): number;
 							public open(dataSpec: com.google.android.exoplayer2.upstream.DataSpec): number;
-							public addTransferListener(transferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
 							public setRequestProperty(name: string, value: string): void;
+							public addTransferListener(transferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
 							public constructor(callFactory: okhttp3.Call.Factory, userAgent: string, cacheControl: okhttp3.CacheControl, defaultRequestProperties: com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties);
 							public bytesSkipped(): number;
 							public setContentTypePredicate(contentTypePredicate: com.google.common.base.Predicate<string>): void;

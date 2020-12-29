@@ -56,7 +56,7 @@ declare module androidx {
 			export class Factory extends java.lang.Object {
 				public static class: java.lang.Class<androidx.lifecycle.ViewModelProvider.Factory>;
 				/**
-				 * Constructs a new instance of the androidx.lifecycle.ViewModelProvider$Factory interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+				 * Constructs a new instance of the androidx.lifecycle.ViewModelProvider() when extending the interface class.
 				 */
 				public constructor(implementation: {
 					create(class0: java.lang.Class<any>): androidx.lifecycle.ViewModel;

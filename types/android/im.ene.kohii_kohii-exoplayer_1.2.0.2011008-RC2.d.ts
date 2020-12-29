@@ -21,9 +21,9 @@ declare module kohii {
 		export module exoplayer {
 			export class BuildConfig extends java.lang.Object {
 				public static class: java.lang.Class<kohii.v1.exoplayer.BuildConfig>;
-				public static BUILD_TYPE: string;
 				public static DEBUG: boolean;
 				public static LIBRARY_PACKAGE_NAME: string;
+				public static BUILD_TYPE: string;
 				public static LIB_NAME: string;
 				public constructor();
 			}
@@ -120,60 +120,60 @@ declare module kohii {
 				public static class: java.lang.Class<kohii.v1.exoplayer.ExoPlayerConfig>;
 				public static Companion: kohii.v1.exoplayer.ExoPlayerConfig.Companion;
 				public createBandwidthMeter(context: globalAndroid.content.Context): com.google.android.exoplayer2.upstream.BandwidthMeter;
-				public getCache$kohii_exoplayer_release(): com.google.android.exoplayer2.upstream.cache.Cache;
-				public component10$kohii_exoplayer_release(): boolean;
-				public component13$kohii_exoplayer_release(): number;
-				public getMaxBufferMs$kohii_exoplayer_release(): number;
+				public getCache(): com.google.android.exoplayer2.upstream.cache.Cache;
+				public component10(): boolean;
+				public component13(): number;
+				public getMaxBufferMs(): number;
 				public createDefaultTrackSelector(context: globalAndroid.content.Context): com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-				public component8$kohii_exoplayer_release(): number;
+				public component8(): number;
 				public copy(clock: com.google.android.exoplayer2.util.Clock, trackSelectorParameters: com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters, trackSelectionFactory: com.google.android.exoplayer2.trackselection.TrackSelection.Factory, overrideInitialBitrateEstimate: number, resetOnNetworkTypeChange: boolean, slidingWindowMaxWeight: number, enableDecoderFallback: boolean, allowedVideoJoiningTimeMs: number, extensionRendererMode: number, playClearSamplesWithoutKeys: boolean, mediaCodecSelector: com.google.android.exoplayer2.mediacodec.MediaCodecSelector, allocator: com.google.android.exoplayer2.upstream.DefaultAllocator, minBufferMs: number, maxBufferMs: number, bufferForPlaybackMs: number, bufferForPlaybackAfterRebufferMs: number, prioritizeTimeOverSizeThresholds: boolean, targetBufferBytes: number, backBufferDurationMs: number, retainBackBufferFromKeyframe: boolean, cache: com.google.android.exoplayer2.upstream.cache.Cache, drmSessionManagerProvider: kohii.v1.exoplayer.DefaultDrmSessionManagerProvider): kohii.v1.exoplayer.ExoPlayerConfig;
+				public getMinBufferMs(): number;
 				public constructor();
-				public getMinBufferMs$kohii_exoplayer_release(): number;
-				public getBufferForPlaybackMs$kohii_exoplayer_release(): number;
-				public component1$kohii_exoplayer_release(): com.google.android.exoplayer2.util.Clock;
-				public component17$kohii_exoplayer_release(): boolean;
-				public getBackBufferDurationMs$kohii_exoplayer_release(): number;
+				public getBufferForPlaybackMs(): number;
+				public component1(): com.google.android.exoplayer2.util.Clock;
+				public component17(): boolean;
+				public getBackBufferDurationMs(): number;
 				public static getFAST_START(): kohii.v1.exoplayer.ExoPlayerConfig;
-				public component3$kohii_exoplayer_release(): com.google.android.exoplayer2.trackselection.TrackSelection.Factory;
+				public component3(): com.google.android.exoplayer2.trackselection.TrackSelection.Factory;
 				public hashCode(): number;
-				public getAllocator$kohii_exoplayer_release(): com.google.android.exoplayer2.upstream.DefaultAllocator;
-				public getAllowedVideoJoiningTimeMs$kohii_exoplayer_release(): number;
-				public getPlayClearSamplesWithoutKeys$kohii_exoplayer_release(): boolean;
-				public component14$kohii_exoplayer_release(): number;
-				public component18$kohii_exoplayer_release(): number;
-				public component7$kohii_exoplayer_release(): boolean;
-				public getExtensionRendererMode$kohii_exoplayer_release(): number;
+				public getAllowedVideoJoiningTimeMs(): number;
+				public getAllocator(): com.google.android.exoplayer2.upstream.DefaultAllocator;
+				public getPlayClearSamplesWithoutKeys(): boolean;
+				public component14(): number;
+				public component18(): number;
+				public getExtensionRendererMode(): number;
+				public component7(): boolean;
 				public toString(): string;
-				public getBufferForPlaybackAfterRebufferMs$kohii_exoplayer_release(): number;
-				public getDrmSessionManagerProvider$kohii_exoplayer_release(): kohii.v1.exoplayer.DefaultDrmSessionManagerProvider;
-				public component9$kohii_exoplayer_release(): number;
+				public getBufferForPlaybackAfterRebufferMs(): number;
+				public getDrmSessionManagerProvider(): kohii.v1.exoplayer.DefaultDrmSessionManagerProvider;
+				public component9(): number;
 				public createLoadControl(): com.google.android.exoplayer2.LoadControl;
-				public component12$kohii_exoplayer_release(): com.google.android.exoplayer2.upstream.DefaultAllocator;
-				public component4$kohii_exoplayer_release(): number;
-				public component20$kohii_exoplayer_release(): boolean;
-				public component22$kohii_exoplayer_release(): kohii.v1.exoplayer.DefaultDrmSessionManagerProvider;
-				public getOverrideInitialBitrateEstimate$kohii_exoplayer_release(): number;
-				public component15$kohii_exoplayer_release(): number;
-				public component19$kohii_exoplayer_release(): number;
-				public getEnableDecoderFallback$kohii_exoplayer_release(): boolean;
-				public getClock$kohii_exoplayer_release(): com.google.android.exoplayer2.util.Clock;
+				public component12(): com.google.android.exoplayer2.upstream.DefaultAllocator;
+				public component4(): number;
+				public component20(): boolean;
+				public component22(): kohii.v1.exoplayer.DefaultDrmSessionManagerProvider;
+				public getOverrideInitialBitrateEstimate(): number;
+				public component15(): number;
+				public component19(): number;
+				public getEnableDecoderFallback(): boolean;
+				public getClock(): com.google.android.exoplayer2.util.Clock;
 				public constructor(clock: com.google.android.exoplayer2.util.Clock, trackSelectorParameters: com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters, trackSelectionFactory: com.google.android.exoplayer2.trackselection.TrackSelection.Factory, overrideInitialBitrateEstimate: number, resetOnNetworkTypeChange: boolean, slidingWindowMaxWeight: number, enableDecoderFallback: boolean, allowedVideoJoiningTimeMs: number, extensionRendererMode: number, playClearSamplesWithoutKeys: boolean, mediaCodecSelector: com.google.android.exoplayer2.mediacodec.MediaCodecSelector, allocator: com.google.android.exoplayer2.upstream.DefaultAllocator, minBufferMs: number, maxBufferMs: number, bufferForPlaybackMs: number, bufferForPlaybackAfterRebufferMs: number, prioritizeTimeOverSizeThresholds: boolean, targetBufferBytes: number, backBufferDurationMs: number, retainBackBufferFromKeyframe: boolean, cache: com.google.android.exoplayer2.upstream.cache.Cache, drmSessionManagerProvider: kohii.v1.exoplayer.DefaultDrmSessionManagerProvider);
-				public getRetainBackBufferFromKeyframe$kohii_exoplayer_release(): boolean;
-				public component21$kohii_exoplayer_release(): com.google.android.exoplayer2.upstream.cache.Cache;
-				public getMediaCodecSelector$kohii_exoplayer_release(): com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
-				public component11$kohii_exoplayer_release(): com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
-				public getPrioritizeTimeOverSizeThresholds$kohii_exoplayer_release(): boolean;
-				public component16$kohii_exoplayer_release(): number;
-				public component2$kohii_exoplayer_release(): com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters;
-				public component5$kohii_exoplayer_release(): boolean;
+				public getRetainBackBufferFromKeyframe(): boolean;
+				public component21(): com.google.android.exoplayer2.upstream.cache.Cache;
+				public getMediaCodecSelector(): com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
+				public component11(): com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
+				public getPrioritizeTimeOverSizeThresholds(): boolean;
+				public component2(): com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters;
+				public component16(): number;
+				public component5(): boolean;
 				public static getDEFAULT(): kohii.v1.exoplayer.ExoPlayerConfig;
+				public getTrackSelectorParameters(): com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters;
+				public getResetOnNetworkTypeChange(): boolean;
 				public equals(obj: any): boolean;
-				public getResetOnNetworkTypeChange$kohii_exoplayer_release(): boolean;
-				public getTrackSelectorParameters$kohii_exoplayer_release(): com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters;
-				public component6$kohii_exoplayer_release(): number;
-				public getTrackSelectionFactory$kohii_exoplayer_release(): com.google.android.exoplayer2.trackselection.TrackSelection.Factory;
-				public getSlidingWindowMaxWeight$kohii_exoplayer_release(): number;
-				public getTargetBufferBytes$kohii_exoplayer_release(): number;
+				public component6(): number;
+				public getTrackSelectionFactory(): com.google.android.exoplayer2.trackselection.TrackSelection.Factory;
+				public getSlidingWindowMaxWeight(): number;
+				public getTargetBufferBytes(): number;
 			}
 			export module ExoPlayerConfig {
 				export class Companion extends java.lang.Object {
@@ -205,13 +205,13 @@ declare module kohii {
 				public static class: java.lang.Class<kohii.v1.exoplayer.ExoPlayerPool>;
 				public destroyPlayer(player: com.google.android.exoplayer2.Player): void;
 				public constructor(poolSize: number);
-				public constructor(poolSize: number, context: globalAndroid.content.Context, clock: com.google.android.exoplayer2.util.Clock, bandwidthMeterFactory: kohii.v1.exoplayer.BandwidthMeterFactory, trackSelectorFactory: kohii.v1.exoplayer.TrackSelectorFactory, loadControlFactory: kohii.v1.exoplayer.LoadControlFactory, renderersFactory: com.google.android.exoplayer2.RenderersFactory);
 				public resetPlayer(player: com.google.android.exoplayer2.Player): void;
+				public constructor(poolSize: number, context: globalAndroid.content.Context, clock: com.google.android.exoplayer2.util.Clock, bandwidthMeterFactory: kohii.v1.exoplayer.BandwidthMeterFactory, trackSelectorFactory: kohii.v1.exoplayer.TrackSelectorFactory, loadControlFactory: kohii.v1.exoplayer.LoadControlFactory, renderersFactory: com.google.android.exoplayer2.RenderersFactory);
 				public destroyPlayer(object0: any): void;
 				public createPlayer(media: kohii.v1.media.Media): com.google.android.exoplayer2.Player;
 				public createPlayer(media0: kohii.v1.media.Media): any;
-				public constructor();
 				public resetPlayer(player: any): void;
+				public constructor();
 			}
 		}
 	}
@@ -226,8 +226,8 @@ declare module kohii {
 				public constructor(media: kohii.v1.media.Media, mediaSource: com.google.android.exoplayer2.source.MediaSource);
 				public getType(): string;
 				public addDrmEventListener(handler0: globalAndroid.os.Handler, drmSessionEventListener1: com.google.android.exoplayer2.drm.DrmSessionEventListener): void;
-				public getInitialTimeline(): com.google.android.exoplayer2.Timeline;
 				public releaseSource(p0: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller): void;
+				public getInitialTimeline(): com.google.android.exoplayer2.Timeline;
 				public getMediaSource(): com.google.android.exoplayer2.source.MediaSource;
 				public addEventListener(p0: globalAndroid.os.Handler, p1: com.google.android.exoplayer2.source.MediaSourceEventListener): void;
 				public prepareSource(p0: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller, p1: com.google.android.exoplayer2.upstream.TransferListener): void;
@@ -241,9 +241,9 @@ declare module kohii {
 				public getMediaItem(): com.google.android.exoplayer2.MediaItem;
 				public releasePeriod(p0: com.google.android.exoplayer2.source.MediaPeriod): void;
 				public disable(p0: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller): void;
-				public createPeriod(p0: com.google.android.exoplayer2.source.MediaSource.MediaPeriodId, p1: com.google.android.exoplayer2.upstream.Allocator, p2: number): com.google.android.exoplayer2.source.MediaPeriod;
 				public getMedia(): kohii.v1.media.Media;
 				public getMediaDrm(): kohii.v1.media.MediaDrm;
+				public createPeriod(p0: com.google.android.exoplayer2.source.MediaSource.MediaPeriodId, p1: com.google.android.exoplayer2.upstream.Allocator, p2: number): com.google.android.exoplayer2.source.MediaPeriod;
 			}
 		}
 	}
@@ -260,8 +260,8 @@ declare module kohii {
 				public constructor(master: kohii.v1.core.Master, playableCreator: kohii.v1.core.PlayableCreator<any>);
 				public constructor(master: kohii.v1.core.Master, playableCreator: kohii.v1.core.PlayableCreator<com.google.android.exoplayer2.ui.PlayerView>, rendererProviderFactory: kotlin.jvm.functions.Function0<any>);
 				public static get(context: globalAndroid.content.Context): kohii.v1.exoplayer.Kohii;
-				public constructor(context: globalAndroid.content.Context, playableCreator: kohii.v1.core.PlayableCreator<any>);
 				public prepare(manager: kohii.v1.core.Manager): void;
+				public constructor(context: globalAndroid.content.Context, playableCreator: kohii.v1.core.PlayableCreator<any>);
 				public createControlDispatcher(playback: kohii.v1.core.Playback): com.google.android.exoplayer2.ControlDispatcher;
 			}
 			export module Kohii {
@@ -527,9 +527,9 @@ declare module kohii {
 				public onVolumeChanged(volume: number): void;
 				public onCues(cues: java.util.List<com.google.android.exoplayer2.text.Cue>): void;
 				public setPlayerParameters(param0: kohii.v1.core.PlayerParameters): void;
+				public setPlaybackInfo(value: kohii.v1.media.PlaybackInfo): void;
 				public getPlayerPool(): kohii.v1.core.PlayerPool<com.google.android.exoplayer2.Player>;
 				public onSkipSilenceEnabledChanged(skipSilenceEnabled: boolean): void;
-				public setPlaybackInfo(value: kohii.v1.media.PlaybackInfo): void;
 				public removeVolumeChangeListener(listener: kohii.v1.core.VolumeChangedListener): void;
 				public onRepeatModeChanged(repeatMode: number): void;
 				public getVolumeInfo(): kohii.v1.media.VolumeInfo;
@@ -559,8 +559,8 @@ declare module kohii {
 				public onRenderedFirstFrame(): void;
 				public removeEventListener(listener: kohii.v1.core.PlayerEventListener): void;
 				public ready(): void;
-				public onPositionDiscontinuity(reason: number): void;
 				public seekTo(positionMs: number): void;
+				public onPositionDiscontinuity(reason: number): void;
 				public getRenderer(): any;
 				public setVideoSize(param0: kohii.v1.core.VideoSize): void;
 				/** @deprecated */
@@ -574,11 +574,11 @@ declare module kohii {
 				public addEventListener(listener: kohii.v1.core.PlayerEventListener): void;
 				public release(): void;
 				public addErrorListener(errorListener: kohii.v1.core.ErrorListener): void;
-				public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
-				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 				public play(): void;
-				public isPlaying(): boolean;
+				public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+				public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
 				public pause(): void;
+				public isPlaying(): boolean;
 				public getRepeatMode(): number;
 				/** @deprecated */
 				public onSeekProcessed(): void;
@@ -586,13 +586,13 @@ declare module kohii {
 				public onPlaybackStateChanged(state: number): void;
 				public onVideoSizeChanged(width: number, height: number, unappliedRotationDegrees: number, pixelWidthHeightRatio: number): void;
 				public reset(resetPlayer: boolean): void;
-				public onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
 				public onIsLoadingChanged(isLoading: boolean): void;
+				public onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
 			}
 			export module PlayerViewBridge {
 				export class Companion extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.exoplayer.PlayerViewBridge.Companion>;
-					public isBehindLiveWindow$kohii_exoplayer_release(error: com.google.android.exoplayer2.ExoPlaybackException): boolean;
+					public isBehindLiveWindow(error: com.google.android.exoplayer2.ExoPlaybackException): boolean;
 				}
 			}
 		}
@@ -605,8 +605,8 @@ declare module kohii {
 			export class PlayerViewBridgeCreator extends kohii.v1.core.BridgeCreator<com.google.android.exoplayer2.ui.PlayerView> {
 				public static class: java.lang.Class<kohii.v1.exoplayer.PlayerViewBridgeCreator>;
 				public createBridge(context: globalAndroid.content.Context, media: kohii.v1.media.Media): kohii.v1.core.Bridge<any>;
-				public constructor(playerPool: kohii.v1.core.PlayerPool<com.google.android.exoplayer2.Player>, mediaSourceFactoryProvider: kohii.v1.exoplayer.MediaSourceFactoryProvider);
 				public cleanUp(): void;
+				public constructor(playerPool: kohii.v1.core.PlayerPool<com.google.android.exoplayer2.Player>, mediaSourceFactoryProvider: kohii.v1.exoplayer.MediaSourceFactoryProvider);
 				public createBridge(context: globalAndroid.content.Context, media: kohii.v1.media.Media): kohii.v1.core.Bridge<com.google.android.exoplayer2.ui.PlayerView>;
 			}
 		}
@@ -623,7 +623,7 @@ declare module kohii {
 				public constructor(master: kohii.v1.core.Master, media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config, bridge: kohii.v1.core.Bridge<com.google.android.exoplayer2.ui.PlayerView>);
 				public onInActive(playback: kohii.v1.core.Playback): void;
 				public constructor(master: kohii.v1.core.Master, media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config, bridge: kohii.v1.core.Bridge<any>);
-				public setRenderer$kohii_exoplayer_release(value: any): void;
+				public setRenderer(value: any): void;
 				public constructor(media: kohii.v1.media.Media, config: kohii.v1.core.Playable.Config);
 				public getRenderer(): any;
 				public onAdded(playback: kohii.v1.core.Playback): void;
@@ -645,8 +645,8 @@ declare module kohii {
 				public static Companion: kohii.v1.exoplayer.PlayerViewPlayableCreator.Companion;
 				public constructor(context: globalAndroid.content.Context);
 				public createPlayable(config0: kohii.v1.core.Playable.Config, media1: kohii.v1.media.Media): kohii.v1.core.Playable;
-				public constructor(master: kohii.v1.core.Master, bridgeCreatorFactory: kotlin.jvm.functions.Function1<any,any>);
 				public cleanUp(): void;
+				public constructor(master: kohii.v1.core.Master, bridgeCreatorFactory: kotlin.jvm.functions.Function1<any,any>);
 				public constructor(rendererType: java.lang.Class<any>);
 				public createPlayable(config: kohii.v1.core.Playable.Config, media: kohii.v1.media.Media): kohii.v1.core.Playable;
 			}
@@ -719,8 +719,8 @@ declare module kohii {
 				export class ExtensionsKt extends java.lang.Object {
 					public static class: java.lang.Class<kohii.v1.exoplayer.internal.ExtensionsKt>;
 					public static getVolumeInfo(thisgetVolumeInfo: com.google.android.exoplayer2.Player): kohii.v1.media.VolumeInfo;
-					public static removeEventListener(thisremoveEventListener: com.google.android.exoplayer2.Player, listener: kohii.v1.core.PlayerEventListener): void;
 					public static setVolumeInfo(thissetVolumeInfo: com.google.android.exoplayer2.Player, volume: kohii.v1.media.VolumeInfo): void;
+					public static removeEventListener(thisremoveEventListener: com.google.android.exoplayer2.Player, listener: kohii.v1.core.PlayerEventListener): void;
 					public static addEventListener(thisaddEventListener: com.google.android.exoplayer2.Player, listener: kohii.v1.core.PlayerEventListener): void;
 				}
 			}

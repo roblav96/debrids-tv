@@ -73,7 +73,7 @@ declare module androidx {
 				export class Resolver<T>  extends java.lang.Object {
 					public static class: java.lang.Class<androidx.concurrent.futures.CallbackToFutureAdapter.Resolver<any>>;
 					/**
-					 * Constructs a new instance of the androidx.concurrent.futures.CallbackToFutureAdapter$Resolver interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the androidx.concurrent.futures.CallbackToFutureAdapter() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						attachCompleter(completer0: androidx.concurrent.futures.CallbackToFutureAdapter.Completer<T>): any;

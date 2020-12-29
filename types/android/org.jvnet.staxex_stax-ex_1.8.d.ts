@@ -1,4 +1,4 @@
-export class ModuleInfo extends java.lang.Object {
+declare class ModuleInfo extends java.lang.Object {
 	public static class: java.lang.Class<ModuleInfo>;
 }
 
@@ -182,7 +182,7 @@ declare module org {
 				export class Binding extends java.lang.Object {
 					public static class: java.lang.Class<org.jvnet.staxex.NamespaceContextEx.Binding>;
 					/**
-					 * Constructs a new instance of the org.jvnet.staxex.NamespaceContextEx$Binding interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the org.jvnet.staxex.NamespaceContextEx() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getPrefix(): string;
@@ -219,7 +219,7 @@ declare module org {
 				export class Payload extends java.lang.Object {
 					public static class: java.lang.Class<org.jvnet.staxex.StAxSOAPBody.Payload>;
 					/**
-					 * Constructs a new instance of the org.jvnet.staxex.StAxSOAPBody$Payload interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 * Constructs a new instance of the org.jvnet.staxex.StAxSOAPBody() when extending the interface class.
 					 */
 					public constructor(implementation: {
 						getPayloadQName(): javax.xml.namespace.QName;

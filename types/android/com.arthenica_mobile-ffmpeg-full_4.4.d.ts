@@ -3,13 +3,13 @@ declare module com {
 		export module mobileffmpeg {
 			export class Abi {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.Abi>;
-				public static ABI_ARM: com.arthenica.mobileffmpeg.Abi;
-				public static ABI_ARM64_V8A: com.arthenica.mobileffmpeg.Abi;
-				public static ABI_ARMV7A: com.arthenica.mobileffmpeg.Abi;
 				public static ABI_ARMV7A_NEON: com.arthenica.mobileffmpeg.Abi;
-				public static ABI_UNKNOWN: com.arthenica.mobileffmpeg.Abi;
+				public static ABI_ARMV7A: com.arthenica.mobileffmpeg.Abi;
+				public static ABI_ARM: com.arthenica.mobileffmpeg.Abi;
 				public static ABI_X86: com.arthenica.mobileffmpeg.Abi;
 				public static ABI_X86_64: com.arthenica.mobileffmpeg.Abi;
+				public static ABI_ARM64_V8A: com.arthenica.mobileffmpeg.Abi;
+				public static ABI_UNKNOWN: com.arthenica.mobileffmpeg.Abi;
 				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(name: string): com.arthenica.mobileffmpeg.Abi;
 				public static values(): native.Array<com.arthenica.mobileffmpeg.Abi>;
@@ -90,11 +90,11 @@ declare module com {
 		export module mobileffmpeg {
 			export class BuildConfig extends java.lang.Object {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.BuildConfig>;
+				public static DEBUG: boolean;
+				public static LIBRARY_PACKAGE_NAME: string;
 				public static APPLICATION_ID: string;
 				public static BUILD_TYPE: string;
-				public static DEBUG: boolean;
 				public static FLAVOR: string;
-				public static LIBRARY_PACKAGE_NAME: string;
 				public static VERSION_CODE: number;
 				public static VERSION_NAME: string;
 				public constructor();
@@ -118,34 +118,34 @@ declare module com {
 		export module mobileffmpeg {
 			export class Config extends java.lang.Object {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.Config>;
-				public static MOBILE_FFMPEG_PIPE_PREFIX: string;
-				public static RETURN_CODE_CANCEL: number;
 				public static RETURN_CODE_SUCCESS: number;
+				public static RETURN_CODE_CANCEL: number;
 				public static TAG: string;
+				public static MOBILE_FFMPEG_PIPE_PREFIX: string;
 				public static enableStatisticsCallback(statisticsCallback: com.arthenica.mobileffmpeg.StatisticsCallback): void;
 				public static getPackageName(): string;
 				public static isLTSBuild(): boolean;
-				public static getBuildDate(): string;
 				public static setFontconfigConfigurationPath(path: string): number;
+				public static getBuildDate(): string;
 				public static enableRedirection(): void;
 				public static getSupportedCameraIds(context: globalAndroid.content.Context): java.util.List<string>;
 				public static getLastReceivedStatistics(): com.arthenica.mobileffmpeg.Statistics;
-				public static closeFFmpegPipe(ffmpegPipePath: string): void;
 				public static getLogLevel(): com.arthenica.mobileffmpeg.Level;
+				public static closeFFmpegPipe(ffmpegPipePath: string): void;
 				public static printLastCommandOutput(logPriority: number): void;
 				public static getExternalLibraries(): java.util.List<string>;
 				public static registerNewFFmpegPipe(context: globalAndroid.content.Context): string;
 				public static setLogLevel(level: com.arthenica.mobileffmpeg.Level): void;
-				public static getLastReturnCode(): number;
 				public static setFontDirectory(context: globalAndroid.content.Context, fontDirectoryPath: string, fontNameMapping: java.util.Map<string,string>): void;
+				public static getLastReturnCode(): number;
 				public static disableRedirection(): void;
 				public static ignoreSignal(signal: com.arthenica.mobileffmpeg.Signal): void;
 				public static getFFmpegVersion(): string;
 				public static setEnvironmentVariable(variableName: string, variableValue: string): number;
 				public static getVersion(): string;
 				public static enableLogCallback(newLogCallback: com.arthenica.mobileffmpeg.LogCallback): void;
-				public static getLastCommandOutput(): string;
 				public static resetStatistics(): void;
+				public static getLastCommandOutput(): string;
 			}
 		}
 	}
@@ -179,10 +179,10 @@ declare module com {
 				public static executeAsync(command: string, executeCallback: com.arthenica.mobileffmpeg.ExecuteCallback, executor: java.util.concurrent.Executor): number;
 				/** @deprecated */
 				public static execute(command: string, delimiter: string): number;
-				public static cancel(executionId: number): void;
 				public static execute(strings0: native.Array<string>): number;
-				public static execute(command: string): number;
 				public static executeAsync(strings0: native.Array<string>, executeCallback: com.arthenica.mobileffmpeg.ExecuteCallback, executor: java.util.concurrent.Executor): number;
+				public static execute(command: string): number;
+				public static cancel(executionId: number): void;
 				public static cancel(): void;
 				public static executeAsync(strings0: native.Array<string>, executeCallback: com.arthenica.mobileffmpeg.ExecuteCallback): number;
 			}
@@ -243,16 +243,16 @@ declare module com {
 		export module mobileffmpeg {
 			export class Level {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.Level>;
-				public static AV_LOG_DEBUG: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_ERROR: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_FATAL: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_INFO: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_PANIC: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_QUIET: com.arthenica.mobileffmpeg.Level;
 				public static AV_LOG_STDERR: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_TRACE: com.arthenica.mobileffmpeg.Level;
-				public static AV_LOG_VERBOSE: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_QUIET: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_PANIC: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_FATAL: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_ERROR: com.arthenica.mobileffmpeg.Level;
 				public static AV_LOG_WARNING: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_INFO: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_VERBOSE: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_DEBUG: com.arthenica.mobileffmpeg.Level;
+				public static AV_LOG_TRACE: com.arthenica.mobileffmpeg.Level;
 				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(name: string): com.arthenica.mobileffmpeg.Level;
 				public static values(): native.Array<com.arthenica.mobileffmpeg.Level>;
@@ -303,8 +303,8 @@ declare module com {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.MediaInformation>;
 				public getTags(): org.json.JSONObject;
 				public getMediaProperties(): org.json.JSONObject;
-				public getDuration(): string;
 				public getFormat(): string;
+				public getDuration(): string;
 				public getProperties(key: string): org.json.JSONObject;
 				public getLongFormat(): string;
 				public getStringProperty(key: string): string;
@@ -350,8 +350,8 @@ declare module com {
 			export class Signal {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.Signal>;
 				public static SIGINT: com.arthenica.mobileffmpeg.Signal;
-				public static SIGPIPE: com.arthenica.mobileffmpeg.Signal;
 				public static SIGQUIT: com.arthenica.mobileffmpeg.Signal;
+				public static SIGPIPE: com.arthenica.mobileffmpeg.Signal;
 				public static SIGTERM: com.arthenica.mobileffmpeg.Signal;
 				public static SIGXCPU: com.arthenica.mobileffmpeg.Signal;
 				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
@@ -372,8 +372,8 @@ declare module com {
 				public setSpeed(speed: number): void;
 				public setTime(time: number): void;
 				public setExecutionId(executionId: number): void;
-				public getVideoQuality(): number;
 				public setVideoFps(videoFps: number): void;
+				public getVideoQuality(): number;
 				public toString(): string;
 				public getTime(): number;
 				public getBitrate(): number;
@@ -385,9 +385,9 @@ declare module com {
 				public getExecutionId(): number;
 				public getSpeed(): number;
 				public update(newStatistics: com.arthenica.mobileffmpeg.Statistics): void;
-				public getVideoFps(): number;
 				public getVideoFrameNumber(): number;
 				public setVideoFrameNumber(videoFrameNumber: number): void;
+				public getVideoFps(): number;
 			}
 		}
 	}
@@ -416,12 +416,12 @@ declare module com {
 		export module mobileffmpeg {
 			export class StreamInformation extends java.lang.Object {
 				public static class: java.lang.Class<com.arthenica.mobileffmpeg.StreamInformation>;
-				public getTags(): org.json.JSONObject;
 				public getType(): string;
+				public getTags(): org.json.JSONObject;
 				public getFormat(): string;
 				public getRealFrameRate(): string;
-				public getDisplayAspectRatio(): string;
 				public getSampleFormat(): string;
+				public getDisplayAspectRatio(): string;
 				public getCodec(): string;
 				public getProperties(key: string): org.json.JSONObject;
 				public getCodecTimeBase(): string;
@@ -434,8 +434,8 @@ declare module com {
 				public getSampleAspectRatio(): string;
 				public getAverageFrameRate(): string;
 				public getFullCodec(): string;
-				public getTimeBase(): string;
 				public getWidth(): java.lang.Long;
+				public getTimeBase(): string;
 				public getAllProperties(): org.json.JSONObject;
 				public getIndex(): java.lang.Long;
 				public constructor(jsonObject: org.json.JSONObject);

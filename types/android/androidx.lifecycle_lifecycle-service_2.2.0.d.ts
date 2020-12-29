@@ -12,8 +12,8 @@ declare module androidx {
 			public onStart(intent: globalAndroid.content.Intent, startId: number): void;
 			public constructor();
 			public onDestroy(): void;
-			public getLifecycle(): androidx.lifecycle.Lifecycle;
 			public onBind(intent0: globalAndroid.content.Intent): globalAndroid.os.IBinder;
+			public getLifecycle(): androidx.lifecycle.Lifecycle;
 		}
 	}
 }

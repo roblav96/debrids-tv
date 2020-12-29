@@ -4,32 +4,32 @@ declare module androidx {
 			export module widget {
 				export class Flow extends androidx.constraintlayout.widget.VirtualLayout {
 					public static class: java.lang.Class<androidx.constraintlayout.helper.widget.Flow>;
-					public static CHAIN_PACKED: number;
+					public static HORIZONTAL: number;
+					public static VERTICAL: number;
+					public static WRAP_NONE: number;
+					public static WRAP_CHAIN: number;
+					public static WRAP_ALIGNED: number;
 					public static CHAIN_SPREAD: number;
 					public static CHAIN_SPREAD_INSIDE: number;
-					public static HORIZONTAL: number;
-					public static HORIZONTAL_ALIGN_CENTER: number;
-					public static HORIZONTAL_ALIGN_END: number;
+					public static CHAIN_PACKED: number;
 					public static HORIZONTAL_ALIGN_START: number;
-					public static VERTICAL: number;
-					public static VERTICAL_ALIGN_BASELINE: number;
+					public static HORIZONTAL_ALIGN_END: number;
+					public static HORIZONTAL_ALIGN_CENTER: number;
+					public static VERTICAL_ALIGN_TOP: number;
 					public static VERTICAL_ALIGN_BOTTOM: number;
 					public static VERTICAL_ALIGN_CENTER: number;
-					public static VERTICAL_ALIGN_TOP: number;
-					public static WRAP_ALIGNED: number;
-					public static WRAP_CHAIN: number;
-					public static WRAP_NONE: number;
+					public static VERTICAL_ALIGN_BASELINE: number;
 					public setHorizontalAlign(align: number): void;
 					public onKeyDown(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 					public setPadding(padding: number): void;
 					public setPaddingLeft(paddingLeft: number): void;
 					public sendAccessibilityEvent(eventType: number): void;
 					public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
-					public loadParameters(constraint: androidx.constraintlayout.widget.ConstraintSet.Constraint, child: androidx.constraintlayout.solver.widgets.HelperWidget, layoutParams: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams, mapIdToWidget: globalAndroid.util.SparseArray<androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
 					public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
+					public loadParameters(constraint: androidx.constraintlayout.widget.ConstraintSet.Constraint, child: androidx.constraintlayout.solver.widgets.HelperWidget, layoutParams: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams, mapIdToWidget: globalAndroid.util.SparseArray<androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
 					public setVerticalBias(bias: number): void;
-					public setHorizontalBias(bias: number): void;
 					public setWrapMode(mode: number): void;
+					public setHorizontalBias(bias: number): void;
 					public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
 					public setPaddingTop(paddingTop: number): void;
 					public setOrientation(orientation: number): void;
@@ -43,9 +43,9 @@ declare module androidx {
 					public init(attrs: globalAndroid.util.AttributeSet): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 					public setHorizontalStyle(style: number): void;
+					public setPaddingBottom(paddingBottom: number): void;
 					public setFirstVerticalStyle(style: number): void;
 					public setHorizontalGap(gap: number): void;
-					public setPaddingBottom(paddingBottom: number): void;
 					public setVerticalStyle(style: number): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 					public setPadding(left: number, top: number, right: number, bottom: number): void;
@@ -120,10 +120,10 @@ declare module androidx {
 			export module utils {
 				export class ArcCurveFit extends androidx.constraintlayout.motion.utils.CurveFit {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.utils.ArcCurveFit>;
-					public static ARC_START_FLIP: number;
-					public static ARC_START_HORIZONTAL: number;
-					public static ARC_START_LINEAR: number;
 					public static ARC_START_VERTICAL: number;
+					public static ARC_START_HORIZONTAL: number;
+					public static ARC_START_FLIP: number;
+					public static ARC_START_LINEAR: number;
 					public getSlope(double0: number, int1: number): number;
 					public constructor();
 					public getPos(t: number, v: native.Array<number>): void;
@@ -132,8 +132,8 @@ declare module androidx {
 					public getPos(double0: number, floats1: native.Array<number>): void;
 					public getSlope(t: number, v: native.Array<number>): void;
 					public getTimePoints(): native.Array<number>;
-					public constructor(arcModes: native.Array<number>, time: native.Array<number>, y: native.Array<native.Array<number>>);
 					public getSlope(t: number, j: number): number;
+					public constructor(arcModes: native.Array<number>, time: native.Array<number>, y: native.Array<native.Array<number>>);
 					public getPos(double0: number, int1: number): number;
 					public getSlope(double0: number, doubles1: native.Array<number>): void;
 				}
@@ -157,9 +157,9 @@ declare module androidx {
 			export module utils {
 				export abstract class CurveFit extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.utils.CurveFit>;
-					public static CONSTANT: number;
-					public static LINEAR: number;
 					public static SPLINE: number;
+					public static LINEAR: number;
+					public static CONSTANT: number;
 					public getSlope(double0: number, int1: number): number;
 					public constructor();
 					public static getArc(arcModes: native.Array<number>, time: native.Array<number>, y: native.Array<native.Array<number>>): androidx.constraintlayout.motion.utils.CurveFit;
@@ -234,8 +234,8 @@ declare module androidx {
 				export module HyperSpline {
 					export class Cubic extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.utils.HyperSpline.Cubic>;
-						public static HALF: number;
 						public static THIRD: number;
+						public static HALF: number;
 						public eval(u: number): number;
 						public vel(v: number): number;
 						public constructor(a: number, b: number, c: number, d: number);
@@ -300,14 +300,14 @@ declare module androidx {
 			export module utils {
 				export class Oscillator extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.utils.Oscillator>;
-					public static BOUNCE: number;
-					public static COS_WAVE: number;
-					public static REVERSE_SAW_WAVE: number;
-					public static SAW_WAVE: number;
+					public static TAG: string;
 					public static SIN_WAVE: number;
 					public static SQUARE_WAVE: number;
-					public static TAG: string;
 					public static TRIANGLE_WAVE: number;
+					public static SAW_WAVE: number;
+					public static REVERSE_SAW_WAVE: number;
+					public static COS_WAVE: number;
+					public static BOUNCE: number;
 					public getValue(time: number): number;
 					public toString(): string;
 					public setType(type: number): void;
@@ -414,20 +414,20 @@ declare module androidx {
 				export class Debug extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.Debug>;
 					public static dumpPoc(obj: any): void;
-					public static getState(layout: androidx.constraintlayout.motion.widget.MotionLayout, stateId: number): string;
 					public static printStack(msg: string, n: number): void;
+					public static getState(layout: androidx.constraintlayout.motion.widget.MotionLayout, stateId: number): string;
 					public static getName(context: globalAndroid.content.Context, id: number): string;
 					public static getName(context: globalAndroid.content.Context, id: native.Array<number>): string;
 					public static logStack(tag: string, msg: string, n: number): void;
-					public static getLocation2(): string;
 					public static getName(view: globalAndroid.view.View): string;
+					public static getLocation2(): string;
 					public constructor();
 					public static getCallFrom(n: number): string;
 					public static getLocation(): string;
 					public static getLoc(): string;
 					public static dumpLayoutParams(param: globalAndroid.view.ViewGroup.LayoutParams, str: string): void;
-					public static dumpLayoutParams(layout: globalAndroid.view.ViewGroup, str: string): void;
 					public static getActionType(event: globalAndroid.view.MotionEvent): string;
+					public static dumpLayoutParams(layout: globalAndroid.view.ViewGroup, str: string): void;
 				}
 			}
 		}
@@ -445,15 +445,15 @@ declare module androidx {
 					public getKeyframe(type: number, target: number, position: number): any;
 					public getKeyFramePosition(view: any, type: number, x: number, y: number): number;
 					public setState(id: string): void;
-					public getStartState(): string;
 					public setToolPosition(position: number): void;
+					public getStartState(): string;
 					public getAnimationRectangles(view: any, path: native.Array<number>): void;
 					public getTransitionTimeMs(): number;
-					public dumpConstraintSet(set: string): void;
 					public getEndState(): string;
+					public dumpConstraintSet(set: string): void;
 					public designAccess(cmd: number, type: string, viewObject: any, in3: native.Array<number>, inLength: number, out: native.Array<number>, outLength: number): number;
-					public getPositionKeyframe(keyFrame: any, view: any, x: number, y: number, attribute: native.Array<string>, value: native.Array<number>): java.lang.Boolean;
 					public setKeyFrame(view: any, position: number, name: string, value: any): void;
+					public getPositionKeyframe(keyFrame: any, view: any, x: number, y: number, attribute: native.Array<string>, value: native.Array<number>): java.lang.Boolean;
 					public getKeyframe(view: any, type: number, position: number): any;
 					public constructor(motionLayout: androidx.constraintlayout.motion.widget.MotionLayout);
 					public getKeyFrameInfo(view: any, type: number, info: native.Array<number>): number;
@@ -569,8 +569,8 @@ declare module androidx {
 					public mVariesBy: number;
 					public getSlope(position: number): number;
 					public setPoint(framePosition: number, shape: number, variesBy: number, period: number, offset: number, value: number): void;
-					public getCurveFit(): androidx.constraintlayout.motion.utils.CurveFit;
 					public toString(): string;
+					public getCurveFit(): androidx.constraintlayout.motion.utils.CurveFit;
 					public variesByPath(): boolean;
 					public setType(type: string): void;
 					public constructor();
@@ -693,9 +693,9 @@ declare module androidx {
 			export module widget {
 				export class KeyPosition extends androidx.constraintlayout.motion.widget.KeyPositionBase {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.KeyPosition>;
-					public static TYPE_CARTESIAN: number;
-					public static TYPE_PATH: number;
 					public static TYPE_SCREEN: number;
+					public static TYPE_PATH: number;
+					public static TYPE_CARTESIAN: number;
 					public setValue(string0: string, object1: any): void;
 					public constructor();
 					public intersects(layoutWidth: number, layoutHeight: number, start: globalAndroid.graphics.RectF, end: globalAndroid.graphics.RectF, x: number, y: number): boolean;
@@ -768,8 +768,8 @@ declare module androidx {
 					public setValue(string0: string, object1: any): void;
 					public constructor();
 					public addValues(splines: java.util.HashMap<string,androidx.constraintlayout.motion.widget.SplineSet>): void;
-					public conditionallyFire(pos: number, child: globalAndroid.view.View): void;
 					public load(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet): void;
+					public conditionallyFire(pos: number, child: globalAndroid.view.View): void;
 					public getAttributeNames(attributes: java.util.HashSet<string>): void;
 					public addValues(hashMap0: java.util.HashMap<string,androidx.constraintlayout.motion.widget.SplineSet>): void;
 					public setValue(tag: string, value: any): void;
@@ -791,8 +791,8 @@ declare module androidx {
 			export module widget {
 				export class MotionConstrainedPoint extends java.lang.Comparable<androidx.constraintlayout.motion.widget.MotionConstrainedPoint> {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionConstrainedPoint>;
-					public static DEBUG: boolean;
 					public static TAG: string;
+					public static DEBUG: boolean;
 					public rotationY: number;
 					public constructor();
 					public applyParameters(view: globalAndroid.view.View): void;
@@ -813,25 +813,25 @@ declare module androidx {
 			export module widget {
 				export class MotionController extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionController>;
-					public static DRAW_PATH_AS_CONFIGURED: number;
-					public static DRAW_PATH_BASIC: number;
-					public static DRAW_PATH_CARTESIAN: number;
-					public static DRAW_PATH_NONE: number;
-					public static DRAW_PATH_RECTANGLE: number;
-					public static DRAW_PATH_RELATIVE: number;
-					public static DRAW_PATH_SCREEN: number;
-					public static HORIZONTAL_PATH_X: number;
-					public static HORIZONTAL_PATH_Y: number;
 					public static PATH_PERCENT: number;
 					public static PATH_PERPENDICULAR: number;
+					public static HORIZONTAL_PATH_X: number;
+					public static HORIZONTAL_PATH_Y: number;
 					public static VERTICAL_PATH_X: number;
 					public static VERTICAL_PATH_Y: number;
+					public static DRAW_PATH_NONE: number;
+					public static DRAW_PATH_BASIC: number;
+					public static DRAW_PATH_RELATIVE: number;
+					public static DRAW_PATH_CARTESIAN: number;
+					public static DRAW_PATH_AS_CONFIGURED: number;
+					public static DRAW_PATH_RECTANGLE: number;
+					public static DRAW_PATH_SCREEN: number;
 					public toString(): string;
 					public setDrawPath(debugMode: number): void;
 					public setup(parentWidth: number, parentHeight: number, transitionDuration: number, currentTime: number): void;
-					public getkeyFramePositions(type: native.Array<number>, pos: native.Array<number>): number;
 					public setPathMotionArc(arc: number): void;
 					public setView(view: globalAndroid.view.View): void;
+					public getkeyFramePositions(type: native.Array<number>, pos: native.Array<number>): number;
 					public getKeyFrameInfo(type: number, info: native.Array<number>): number;
 					public getDrawPath(): number;
 				}
@@ -850,8 +850,8 @@ declare module androidx {
 					public setProgress(progress: number): void;
 					public onKeyDown(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 					public sendAccessibilityEvent(eventType: number): void;
-					public onTransitionCompleted(motionLayout: androidx.constraintlayout.motion.widget.MotionLayout, currentId: number): void;
 					public setProgress(view: globalAndroid.view.View, progress: number): void;
+					public onTransitionCompleted(motionLayout: androidx.constraintlayout.motion.widget.MotionLayout, currentId: number): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 					public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 					public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
@@ -898,20 +898,20 @@ declare module androidx {
 			export module widget {
 				export class MotionLayout extends androidx.constraintlayout.widget.ConstraintLayout implements androidx.core.view.NestedScrollingParent3 {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout>;
-					public static DEBUG_SHOW_NONE: number;
-					public static DEBUG_SHOW_PATH: number;
-					public static DEBUG_SHOW_PROGRESS: number;
-					public static IS_IN_EDIT_MODE: boolean;
 					public static TOUCH_UP_COMPLETE: number;
-					public static TOUCH_UP_COMPLETE_TO_END: number;
 					public static TOUCH_UP_COMPLETE_TO_START: number;
+					public static TOUCH_UP_COMPLETE_TO_END: number;
+					public static TOUCH_UP_STOP: number;
 					public static TOUCH_UP_DECELERATE: number;
 					public static TOUCH_UP_DECELERATE_AND_COMPLETE: number;
-					public static TOUCH_UP_STOP: number;
-					public static VELOCITY_LAYOUT: number;
+					public static IS_IN_EDIT_MODE: boolean;
+					public static DEBUG_SHOW_NONE: number;
+					public static DEBUG_SHOW_PROGRESS: number;
+					public static DEBUG_SHOW_PATH: number;
 					public static VELOCITY_POST_LAYOUT: number;
-					public static VELOCITY_STATIC_LAYOUT: number;
+					public static VELOCITY_LAYOUT: number;
 					public static VELOCITY_STATIC_POST_LAYOUT: number;
+					public static VELOCITY_STATIC_LAYOUT: number;
 					public mMeasureDuringTransition: boolean;
 					public setTransitionState(bundle: globalAndroid.os.Bundle): void;
 					public onNestedFling(target: globalAndroid.view.View, velocityX: number, velocityY: number, consumed: boolean): boolean;
@@ -925,8 +925,8 @@ declare module androidx {
 					public setInterpolatedProgress(pos: number): void;
 					public setOnShow(progress: number): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
-					public getTargetPosition(): number;
 					public parseLayoutDescription(id: number): void;
+					public getTargetPosition(): number;
 					public removeTransitionListener(listener: androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener): boolean;
 					public onStopNestedScroll(target: globalAndroid.view.View, type: number): void;
 					/** @deprecated */
@@ -945,8 +945,8 @@ declare module androidx {
 					public constructor(context: globalAndroid.content.Context);
 					public invalidateDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
 					public getViewVelocity(view: globalAndroid.view.View, posOnViewX: number, posOnViewY: number, returnVelocity: native.Array<number>, type: number): void;
-					public onLayout(changed: boolean, left: number, top: number, right: number, bottom: number): void;
 					public onNestedPreScroll(target: globalAndroid.view.View, dx: number, dy: number, consumed: native.Array<number>, type: number): void;
+					public onLayout(changed: boolean, left: number, top: number, right: number, bottom: number): void;
 					public getParent(): globalAndroid.view.ViewParent;
 					public isTextAlignmentResolved(): boolean;
 					public onInterceptTouchEvent(ev: globalAndroid.view.MotionEvent): boolean;
@@ -965,13 +965,13 @@ declare module androidx {
 					public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
 					public bringChildToFront(child: globalAndroid.view.View): void;
 					public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
-					public getDesignTool(): androidx.constraintlayout.motion.widget.DesignTool;
 					public getNanoTime(): number;
 					public requestLayout(): void;
+					public getDesignTool(): androidx.constraintlayout.motion.widget.DesignTool;
 					public loadLayoutDescription(layoutDescription: number): void;
 					public setTransitionDuration(milliseconds: number): void;
-					public dispatchDraw(canvas: globalAndroid.graphics.Canvas): void;
 					public onNestedScrollAccepted(child: globalAndroid.view.View, target: globalAndroid.view.View, axes: number): void;
+					public dispatchDraw(canvas: globalAndroid.graphics.Canvas): void;
 					public getTextAlignment(): number;
 					public onDescendantInvalidated(child: globalAndroid.view.View, target: globalAndroid.view.View): void;
 					public onNestedPrePerformAccessibilityAction(target: globalAndroid.view.View, action: number, bundle2: globalAndroid.os.Bundle): boolean;
@@ -992,8 +992,8 @@ declare module androidx {
 					public childDrawableStateChanged(child: globalAndroid.view.View): void;
 					public isLayoutRequested(): boolean;
 					public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
-					public addTransitionListener(listener: androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener): void;
 					public onAttachedToWindow(): void;
+					public addTransitionListener(listener: androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener): void;
 					/** @deprecated */
 					public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
 					public focusSearch(direction: number): globalAndroid.view.View;
@@ -1012,8 +1012,8 @@ declare module androidx {
 					public onStartNestedScroll(child: globalAndroid.view.View, target: globalAndroid.view.View, nestedScrollAxes: number): boolean;
 					/** @deprecated */
 					public invalidateChildInParent(location: native.Array<number>, dirty: globalAndroid.graphics.Rect): globalAndroid.view.ViewParent;
-					public getConstraintSet(id: number): androidx.constraintlayout.widget.ConstraintSet;
 					public onViewAdded(view: globalAndroid.view.View): void;
+					public getConstraintSet(id: number): androidx.constraintlayout.widget.ConstraintSet;
 					public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
 					public onKeyUp(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 					public getCurrentState(): number;
@@ -1049,8 +1049,8 @@ declare module androidx {
 					public onTouchEvent(event: globalAndroid.view.MotionEvent): boolean;
 					public fireTrigger(triggerId: number, positive: boolean, progress: number): void;
 					public setTransitionListener(listener: androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener): void;
-					public getNestedScrollAxes(): number;
 					public onStopNestedScroll(child: globalAndroid.view.View): void;
+					public getNestedScrollAxes(): number;
 					public requestChildFocus(child: globalAndroid.view.View, focused: globalAndroid.view.View): void;
 					public onNestedPreFling(target: globalAndroid.view.View, velocityX: number, velocityY: number): boolean;
 					public getTransition(id: number): androidx.constraintlayout.motion.widget.MotionScene.Transition;
@@ -1074,14 +1074,14 @@ declare module androidx {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout.Model>;
 						public measure(widthMeasureSpec: number, heightMeasureSpec: number): void;
 						public setMeasuredId(startId: number, endId: number): void;
-						public build(): void;
 						public reEvaluateState(): void;
+						public build(): void;
 						public isNotConfiguredWith(startId: number, endId: number): boolean;
 					}
 					export class MotionTracker extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker>;
 						/**
-						 * Constructs a new instance of the androidx.constraintlayout.motion.widget.MotionLayout$MotionTracker interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.constraintlayout.motion.widget.MotionLayout() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							recycle(): void;
@@ -1109,12 +1109,12 @@ declare module androidx {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout.MyTracker>;
 						public computeCurrentVelocity(units: number): void;
 						public addMovement(event: globalAndroid.view.MotionEvent): void;
+						public static obtain(): androidx.constraintlayout.motion.widget.MotionLayout.MyTracker;
 						public getXVelocity(): number;
 						public getYVelocity(): number;
-						public static obtain(): androidx.constraintlayout.motion.widget.MotionLayout.MyTracker;
+						public recycle(): void;
 						public clear(): void;
 						public getXVelocity(id: number): number;
-						public recycle(): void;
 						public computeCurrentVelocity(units: number, maxVelocity: number): void;
 						public getYVelocity(id: number): number;
 					}
@@ -1122,16 +1122,16 @@ declare module androidx {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout.StateCache>;
 						public getTransitionState(): globalAndroid.os.Bundle;
 						public setVelocity(mVelocity: number): void;
-						public setEndState(endState: number): void;
 						public setTransitionState(bundle: globalAndroid.os.Bundle): void;
+						public setEndState(endState: number): void;
 						public setProgress(progress: number): void;
-						public recordState(): void;
 						public setStartState(startState: number): void;
+						public recordState(): void;
 					}
 					export class TransitionListener extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener>;
 						/**
-						 * Constructs a new instance of the androidx.constraintlayout.motion.widget.MotionLayout$TransitionListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+						 * Constructs a new instance of the androidx.constraintlayout.motion.widget.MotionLayout() when extending the interface class.
 						 */
 						public constructor(implementation: {
 							onTransitionStarted(motionLayout0: androidx.constraintlayout.motion.widget.MotionLayout, int1: number, int2: number): void;
@@ -1147,10 +1147,10 @@ declare module androidx {
 					}
 					export class TransitionState {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionLayout.TransitionState>;
-						public static FINISHED: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
-						public static MOVING: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
-						public static SETUP: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
 						public static UNDEFINED: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
+						public static SETUP: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
+						public static MOVING: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
+						public static FINISHED: androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
 						public static valueOf(name: string): androidx.constraintlayout.motion.widget.MotionLayout.TransitionState;
 						public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 						public static values(): native.Array<androidx.constraintlayout.motion.widget.MotionLayout.TransitionState>;
@@ -1167,9 +1167,9 @@ declare module androidx {
 			export module widget {
 				export class MotionPaths extends java.lang.Comparable<androidx.constraintlayout.motion.widget.MotionPaths> {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionPaths>;
+					public static TAG: string;
 					public static DEBUG: boolean;
 					public static OLD_WAY: boolean;
-					public static TAG: string;
 					public constructor();
 					public compareTo(o: androidx.constraintlayout.motion.widget.MotionPaths): number;
 					public applyParameters(c: androidx.constraintlayout.widget.ConstraintSet.Constraint): void;
@@ -1186,10 +1186,10 @@ declare module androidx {
 			export module widget {
 				export class MotionScene extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionScene>;
-					public static LAYOUT_HONOR_REQUEST: number;
-					public static LAYOUT_IGNORE_REQUEST: number;
 					public static TAG: string;
 					public static UNSET: number;
+					public static LAYOUT_IGNORE_REQUEST: number;
+					public static LAYOUT_HONOR_REQUEST: number;
 					public getInterpolator(): globalAndroid.view.animation.Interpolator;
 					public onLayout(changed: boolean, left: number, top: number, right: number, bottom: number): void;
 					public constructor(layout: androidx.constraintlayout.motion.widget.MotionLayout);
@@ -1200,8 +1200,8 @@ declare module androidx {
 					public getKeyFrames(motionController: androidx.constraintlayout.motion.widget.MotionController): void;
 					public gatPathMotionArc(): number;
 					public bestTransitionFor(currentState: number, dx: number, dy: number, mLastTouchDown: globalAndroid.view.MotionEvent): androidx.constraintlayout.motion.widget.MotionScene.Transition;
-					public getConstraintSet(context: globalAndroid.content.Context, id: string): androidx.constraintlayout.widget.ConstraintSet;
 					public getConstraintSetIds(): native.Array<number>;
+					public getConstraintSet(context: globalAndroid.content.Context, id: string): androidx.constraintlayout.widget.ConstraintSet;
 					public getDuration(): number;
 					public getStaggered(): number;
 					public getTransitionsWithState(stateid: number): java.util.List<androidx.constraintlayout.motion.widget.MotionScene.Transition>;
@@ -1214,33 +1214,33 @@ declare module androidx {
 					public setTransition(transition: androidx.constraintlayout.motion.widget.MotionScene.Transition): void;
 					public setDuration(duration: number): void;
 					public removeTransition(transition: androidx.constraintlayout.motion.widget.MotionScene.Transition): void;
-					public disableAutoTransition(disable: boolean): void;
 					public getDefinedTransitions(): java.util.ArrayList<androidx.constraintlayout.motion.widget.MotionScene.Transition>;
+					public disableAutoTransition(disable: boolean): void;
 					public addOnClickListeners(motionLayout: androidx.constraintlayout.motion.widget.MotionLayout, currentState: number): void;
 				}
 				export module MotionScene {
 					export class Transition extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionScene.Transition>;
-						public static AUTO_ANIMATE_TO_END: number;
-						public static AUTO_ANIMATE_TO_START: number;
-						public static AUTO_JUMP_TO_END: number;
-						public static AUTO_JUMP_TO_START: number;
 						public static AUTO_NONE: number;
+						public static AUTO_JUMP_TO_START: number;
+						public static AUTO_JUMP_TO_END: number;
+						public static AUTO_ANIMATE_TO_START: number;
+						public static AUTO_ANIMATE_TO_END: number;
 						public getOnClickList(): java.util.List<androidx.constraintlayout.motion.widget.MotionScene.Transition.TransitionOnClick>;
 						public getTouchResponse(): androidx.constraintlayout.motion.widget.TouchResponse;
 						public setEnable(enable: boolean): void;
-						public getDuration(): number;
 						public setDuration(duration: number): void;
-						public debugString(context: globalAndroid.content.Context): string;
+						public getDuration(): number;
 						public setAutoTransition(type: number): void;
+						public debugString(context: globalAndroid.content.Context): string;
 						public setStagger(stagger: number): void;
 						public isEnabled(): boolean;
 						public isTransitionFlag(flag: number): boolean;
 						public getId(): number;
 						public getStagger(): number;
 						public getPathMotionArc(): number;
-						public getKeyFrameList(): java.util.List<androidx.constraintlayout.motion.widget.KeyFrames>;
 						public getStartConstraintSetId(): number;
+						public getKeyFrameList(): java.util.List<androidx.constraintlayout.motion.widget.KeyFrames>;
 						public getEndConstraintSetId(): number;
 						public addOnClick(context: globalAndroid.content.Context, parser: org.xmlpull.v1.XmlPullParser): void;
 						public setPathMotionArc(arcMode: number): void;
@@ -1251,8 +1251,8 @@ declare module androidx {
 					export module Transition {
 						export class TransitionOnClick extends java.lang.Object implements globalAndroid.view.View.OnClickListener {
 							public static class: java.lang.Class<androidx.constraintlayout.motion.widget.MotionScene.Transition.TransitionOnClick>;
-							public static ANIM_TOGGLE: number;
 							public static ANIM_TO_END: number;
+							public static ANIM_TOGGLE: number;
 							public static ANIM_TO_START: number;
 							public static JUMP_TO_END: number;
 							public static JUMP_TO_START: number;
@@ -1313,8 +1313,8 @@ declare module androidx {
 					public mCurveFit: androidx.constraintlayout.motion.utils.CurveFit;
 					public mTimePoints: native.Array<number>;
 					public mValues: native.Array<number>;
-					public getCurveFit(): androidx.constraintlayout.motion.utils.CurveFit;
 					public toString(): string;
+					public getCurveFit(): androidx.constraintlayout.motion.utils.CurveFit;
 					public setType(type: string): void;
 					public constructor();
 					public get(t: number): number;
@@ -1333,8 +1333,8 @@ declare module androidx {
 						public static class: java.lang.Class<androidx.constraintlayout.motion.widget.SplineSet.CustomSet>;
 						public constructor();
 						public setProperty(view0: globalAndroid.view.View, float1: number): void;
-						public setPoint(position: number, value: androidx.constraintlayout.widget.ConstraintAttribute): void;
 						public setup(curveType: number): void;
+						public setPoint(position: number, value: androidx.constraintlayout.widget.ConstraintAttribute): void;
 						public setProperty(view: globalAndroid.view.View, t: number): void;
 						public setPoint(position: number, value: number): void;
 						public constructor(attribute: string, attrList: globalAndroid.util.SparseArray<androidx.constraintlayout.widget.ConstraintAttribute>);
@@ -1420,17 +1420,17 @@ declare module androidx {
 			export module widget {
 				export abstract class TimeCycleSplineSet extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.motion.widget.TimeCycleSplineSet>;
-					public mContinue: boolean;
 					public mCurveFit: androidx.constraintlayout.motion.utils.CurveFit;
+					public mWaveShape: number;
 					public mTimePoints: native.Array<number>;
 					public mValues: native.Array<native.Array<number>>;
-					public mWaveShape: number;
-					public getCurveFit(): androidx.constraintlayout.motion.utils.CurveFit;
+					public mContinue: boolean;
 					public toString(): string;
-					public get(pos: number, time: number, view: globalAndroid.view.View, cache: androidx.constraintlayout.motion.widget.KeyCache): number;
+					public getCurveFit(): androidx.constraintlayout.motion.utils.CurveFit;
 					public setProperty(view0: globalAndroid.view.View, float1: number, long2: number, keyCache3: androidx.constraintlayout.motion.widget.KeyCache): boolean;
-					public setPoint(position: number, value: number, period: number, shape: number, offset: number): void;
+					public get(pos: number, time: number, view: globalAndroid.view.View, cache: androidx.constraintlayout.motion.widget.KeyCache): number;
 					public setType(type: string): void;
+					public setPoint(position: number, value: number, period: number, shape: number, offset: number): void;
 					public constructor();
 					public calcWave(period: number): number;
 					public setup(curveType: number): void;
@@ -1597,8 +1597,8 @@ declare module androidx {
 					public setWarmth(warmth: number): void;
 					public setSupportBackgroundTintMode(tintMode: globalAndroid.graphics.PorterDuff.Mode): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
-					public getCrossfade(): number;
 					public setCrossfade(crossfade: number): void;
+					public getCrossfade(): number;
 					public setRound(round: number): void;
 					public getSupportBackgroundTintList(): globalAndroid.content.res.ColorStateList;
 					public getContrast(): number;
@@ -1645,8 +1645,8 @@ declare module androidx {
 					public setWarmth(warmth: number): void;
 					public setSupportBackgroundTintMode(tintMode: globalAndroid.graphics.PorterDuff.Mode): void;
 					public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
-					public getCrossfade(): number;
 					public setCrossfade(crossfade: number): void;
+					public getCrossfade(): number;
 					public setRound(round: number): void;
 					public getSupportBackgroundTintList(): globalAndroid.content.res.ColorStateList;
 					public getContrast(): number;
@@ -1735,12 +1735,12 @@ declare module androidx {
 		export module widget {
 			export class Barrier extends androidx.constraintlayout.widget.ConstraintHelper {
 				public static class: java.lang.Class<androidx.constraintlayout.widget.Barrier>;
-				public static BOTTOM: number;
-				public static END: number;
 				public static LEFT: number;
-				public static RIGHT: number;
-				public static START: number;
 				public static TOP: number;
+				public static RIGHT: number;
+				public static BOTTOM: number;
+				public static START: number;
+				public static END: number;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable): void;
 				public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
 				public onKeyDown(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
@@ -1748,15 +1748,15 @@ declare module androidx {
 				public getType(): number;
 				public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
 				public onKeyMultiple(keyCode: number, repeatCount: number, event: globalAndroid.view.KeyEvent): boolean;
-				public init(attrs: globalAndroid.util.AttributeSet): void;
 				public resolveRtl(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, isRtl: boolean): void;
+				public init(attrs: globalAndroid.util.AttributeSet): void;
 				public onKeyLongPress(keyCode: number, event: globalAndroid.view.KeyEvent): boolean;
 				public invalidateDrawable(drawable: globalAndroid.graphics.drawable.Drawable): void;
-				public allowsGoneWidget(): boolean;
 				public setAllowsGoneWidget(supportGone: boolean): void;
+				public allowsGoneWidget(): boolean;
 				public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number);
-				public setDpMargin(margin: number): void;
 				public setType(type: number): void;
+				public setDpMargin(margin: number): void;
 				public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
 				public loadParameters(constraint: androidx.constraintlayout.widget.ConstraintSet.Constraint, child: androidx.constraintlayout.solver.widgets.HelperWidget, layoutParams: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams, mapIdToWidget: globalAndroid.util.SparseArray<androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
 				public sendAccessibilityEvent(eventType: number): void;
@@ -1783,9 +1783,9 @@ declare module androidx {
 				public noOfInterpValues(): number;
 				public setColorValue(value: number): void;
 				public getValuesToInterpolate(ret: native.Array<number>): void;
-				public constructor(name: string, attributeType: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType, value: any);
 				public setIntValue(value: number): void;
 				public setValue(value: native.Array<number>): void;
+				public constructor(name: string, attributeType: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType, value: any);
 				public setFloatValue(value: number): void;
 				public constructor(source: androidx.constraintlayout.widget.ConstraintAttribute, value: any);
 				public static setAttributes(view: globalAndroid.view.View, map: java.util.HashMap<string,androidx.constraintlayout.widget.ConstraintAttribute>): void;
@@ -1797,13 +1797,13 @@ declare module androidx {
 			export module ConstraintAttribute {
 				export class AttributeType {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintAttribute.AttributeType>;
-					public static BOOLEAN_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
-					public static COLOR_DRAWABLE_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
-					public static COLOR_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
-					public static DIMENSION_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
-					public static FLOAT_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
 					public static INT_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
+					public static FLOAT_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
+					public static COLOR_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
+					public static COLOR_DRAWABLE_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
 					public static STRING_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
+					public static BOOLEAN_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
+					public static DIMENSION_TYPE: androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
 					public static values(): native.Array<androidx.constraintlayout.widget.ConstraintAttribute.AttributeType>;
 					public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 					public static valueOf(name: string): androidx.constraintlayout.widget.ConstraintAttribute.AttributeType;
@@ -1818,13 +1818,13 @@ declare module androidx {
 		export module widget {
 			export abstract class ConstraintHelper extends globalAndroid.view.View {
 				public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintHelper>;
-				public mCount: number;
-				public mHelperWidget: androidx.constraintlayout.solver.widgets.Helper;
 				public mIds: native.Array<number>;
+				public mCount: number;
+				public myContext: globalAndroid.content.Context;
+				public mHelperWidget: androidx.constraintlayout.solver.widgets.Helper;
+				public mUseViewMeasure: boolean;
 				public mReferenceIds: string;
 				public mReferenceTags: string;
-				public mUseViewMeasure: boolean;
-				public myContext: globalAndroid.content.Context;
 				public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
 				public constructor(context: globalAndroid.content.Context);
 				public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
@@ -1873,11 +1873,11 @@ declare module androidx {
 		export module widget {
 			export class ConstraintLayout extends globalAndroid.view.ViewGroup {
 				public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintLayout>;
-				public static DESIGN_INFO_ID: number;
 				public static VERSION: string;
-				public mConstraintLayoutSpec: androidx.constraintlayout.widget.ConstraintLayoutStates;
-				public mDirtyHierarchy: boolean;
 				public mLayoutWidget: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer;
+				public mDirtyHierarchy: boolean;
+				public mConstraintLayoutSpec: androidx.constraintlayout.widget.ConstraintLayoutStates;
+				public static DESIGN_INFO_ID: number;
 				/** @deprecated */
 				public invalidateChild(child: globalAndroid.view.View, dirty: globalAndroid.graphics.Rect): void;
 				public focusSearch(direction: number): globalAndroid.view.View;
@@ -1954,10 +1954,10 @@ declare module androidx {
 				public focusableViewAvailable(v: globalAndroid.view.View): void;
 				public generateDefaultLayoutParams(): globalAndroid.view.ViewGroup.LayoutParams;
 				public addView(child: globalAndroid.view.View): void;
-				public getViewById(id: number): globalAndroid.view.View;
 				public setSelfDimensionBehaviour(layout: androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer, widthMode: number, widthSize: number, heightMode: number, heightSize: number): void;
-				public applyConstraintsFromLayoutParams(isInEditMode: boolean, child: globalAndroid.view.View, widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, layoutParams: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams, idToWidget: globalAndroid.util.SparseArray<androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
+				public getViewById(id: number): globalAndroid.view.View;
 				public onViewRemoved(view: globalAndroid.view.View): void;
+				public applyConstraintsFromLayoutParams(isInEditMode: boolean, child: globalAndroid.view.View, widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, layoutParams: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams, idToWidget: globalAndroid.util.SparseArray<androidx.constraintlayout.solver.widgets.ConstraintWidget>): void;
 				public requestSendAccessibilityEvent(child: globalAndroid.view.View, event: globalAndroid.view.accessibility.AccessibilityEvent): boolean;
 				public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
 				public isTextAlignmentResolved(): boolean;
@@ -1995,146 +1995,146 @@ declare module androidx {
 			export module ConstraintLayout {
 				export class LayoutParams extends globalAndroid.view.ViewGroup.MarginLayoutParams {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintLayout.LayoutParams>;
-					public static BASELINE: number;
+					public static MATCH_CONSTRAINT: number;
+					public static PARENT_ID: number;
+					public static UNSET: number;
+					public static HORIZONTAL: number;
+					public static VERTICAL: number;
+					public static LEFT: number;
+					public static RIGHT: number;
+					public static TOP: number;
 					public static BOTTOM: number;
-					public static CHAIN_PACKED: number;
+					public static BASELINE: number;
+					public static START: number;
+					public static END: number;
+					public static MATCH_CONSTRAINT_WRAP: number;
+					public static MATCH_CONSTRAINT_SPREAD: number;
+					public static MATCH_CONSTRAINT_PERCENT: number;
 					public static CHAIN_SPREAD: number;
 					public static CHAIN_SPREAD_INSIDE: number;
-					public static END: number;
-					public static HORIZONTAL: number;
-					public static LEFT: number;
-					public static MATCH_CONSTRAINT: number;
-					public static MATCH_CONSTRAINT_PERCENT: number;
-					public static MATCH_CONSTRAINT_SPREAD: number;
-					public static MATCH_CONSTRAINT_WRAP: number;
-					public static PARENT_ID: number;
-					public static RIGHT: number;
-					public static START: number;
-					public static TOP: number;
-					public static UNSET: number;
-					public static VERTICAL: number;
-					public baselineToBaseline: number;
-					public bottomToBottom: number;
-					public bottomToTop: number;
-					public circleAngle: number;
-					public circleConstraint: number;
-					public circleRadius: number;
-					public constrainedHeight: boolean;
-					public constrainedWidth: boolean;
-					public constraintTag: string;
-					public dimensionRatio: string;
-					public editorAbsoluteX: number;
-					public editorAbsoluteY: number;
-					public endToEnd: number;
-					public endToStart: number;
-					public goneBottomMargin: number;
-					public goneEndMargin: number;
-					public goneLeftMargin: number;
-					public goneRightMargin: number;
-					public goneStartMargin: number;
-					public goneTopMargin: number;
+					public static CHAIN_PACKED: number;
 					public guideBegin: number;
 					public guideEnd: number;
 					public guidePercent: number;
-					public helped: boolean;
-					public horizontalBias: number;
-					public horizontalChainStyle: number;
-					public horizontalWeight: number;
 					public leftToLeft: number;
 					public leftToRight: number;
-					public matchConstraintDefaultHeight: number;
-					public matchConstraintDefaultWidth: number;
-					public matchConstraintMaxHeight: number;
-					public matchConstraintMaxWidth: number;
-					public matchConstraintMinHeight: number;
-					public matchConstraintMinWidth: number;
-					public matchConstraintPercentHeight: number;
-					public matchConstraintPercentWidth: number;
-					public orientation: number;
 					public rightToLeft: number;
 					public rightToRight: number;
+					public topToTop: number;
+					public topToBottom: number;
+					public bottomToTop: number;
+					public bottomToBottom: number;
+					public baselineToBaseline: number;
+					public circleConstraint: number;
+					public circleRadius: number;
+					public circleAngle: number;
 					public startToEnd: number;
 					public startToStart: number;
-					public topToBottom: number;
-					public topToTop: number;
+					public endToStart: number;
+					public endToEnd: number;
+					public goneLeftMargin: number;
+					public goneTopMargin: number;
+					public goneRightMargin: number;
+					public goneBottomMargin: number;
+					public goneStartMargin: number;
+					public goneEndMargin: number;
+					public horizontalBias: number;
 					public verticalBias: number;
-					public verticalChainStyle: number;
+					public dimensionRatio: string;
+					public horizontalWeight: number;
 					public verticalWeight: number;
+					public horizontalChainStyle: number;
+					public verticalChainStyle: number;
+					public matchConstraintDefaultWidth: number;
+					public matchConstraintDefaultHeight: number;
+					public matchConstraintMinWidth: number;
+					public matchConstraintMinHeight: number;
+					public matchConstraintMaxWidth: number;
+					public matchConstraintMaxHeight: number;
+					public matchConstraintPercentWidth: number;
+					public matchConstraintPercentHeight: number;
+					public editorAbsoluteX: number;
+					public editorAbsoluteY: number;
+					public orientation: number;
+					public constrainedWidth: boolean;
+					public constrainedHeight: boolean;
+					public constraintTag: string;
+					public helped: boolean;
 					public getConstraintWidget(): androidx.constraintlayout.solver.widgets.ConstraintWidget;
 					public constructor(source: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams);
-					public constructor(source: globalAndroid.view.ViewGroup.LayoutParams);
 					public reset(): void;
+					public constructor(source: globalAndroid.view.ViewGroup.LayoutParams);
 					public constructor(c: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet);
 					public getConstraintTag(): string;
 					public validate(): void;
-					public resolveLayoutDirection(layoutDirection: number): void;
 					public setWidgetDebugName(text: string): void;
+					public resolveLayoutDirection(layoutDirection: number): void;
 					public constructor(width: number, height: number);
 					public constructor(source: globalAndroid.view.ViewGroup.MarginLayoutParams);
 				}
 				export module LayoutParams {
 					export class Table extends java.lang.Object {
 						public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.Table>;
+						public static UNUSED: number;
 						public static ANDROID_ORIENTATION: number;
-						public static LAYOUT_CONSTRAINED_HEIGHT: number;
-						public static LAYOUT_CONSTRAINED_WIDTH: number;
-						public static LAYOUT_CONSTRAINT_BASELINE_CREATOR: number;
-						public static LAYOUT_CONSTRAINT_BASELINE_TO_BASELINE_OF: number;
-						public static LAYOUT_CONSTRAINT_BOTTOM_CREATOR: number;
-						public static LAYOUT_CONSTRAINT_BOTTOM_TO_BOTTOM_OF: number;
-						public static LAYOUT_CONSTRAINT_BOTTOM_TO_TOP_OF: number;
 						public static LAYOUT_CONSTRAINT_CIRCLE: number;
-						public static LAYOUT_CONSTRAINT_CIRCLE_ANGLE: number;
 						public static LAYOUT_CONSTRAINT_CIRCLE_RADIUS: number;
-						public static LAYOUT_CONSTRAINT_DIMENSION_RATIO: number;
-						public static LAYOUT_CONSTRAINT_END_TO_END_OF: number;
-						public static LAYOUT_CONSTRAINT_END_TO_START_OF: number;
+						public static LAYOUT_CONSTRAINT_CIRCLE_ANGLE: number;
 						public static LAYOUT_CONSTRAINT_GUIDE_BEGIN: number;
 						public static LAYOUT_CONSTRAINT_GUIDE_END: number;
 						public static LAYOUT_CONSTRAINT_GUIDE_PERCENT: number;
-						public static LAYOUT_CONSTRAINT_HEIGHT_DEFAULT: number;
-						public static LAYOUT_CONSTRAINT_HEIGHT_MAX: number;
-						public static LAYOUT_CONSTRAINT_HEIGHT_MIN: number;
-						public static LAYOUT_CONSTRAINT_HEIGHT_PERCENT: number;
-						public static LAYOUT_CONSTRAINT_HORIZONTAL_BIAS: number;
-						public static LAYOUT_CONSTRAINT_HORIZONTAL_CHAINSTYLE: number;
-						public static LAYOUT_CONSTRAINT_HORIZONTAL_WEIGHT: number;
-						public static LAYOUT_CONSTRAINT_LEFT_CREATOR: number;
 						public static LAYOUT_CONSTRAINT_LEFT_TO_LEFT_OF: number;
 						public static LAYOUT_CONSTRAINT_LEFT_TO_RIGHT_OF: number;
-						public static LAYOUT_CONSTRAINT_RIGHT_CREATOR: number;
 						public static LAYOUT_CONSTRAINT_RIGHT_TO_LEFT_OF: number;
 						public static LAYOUT_CONSTRAINT_RIGHT_TO_RIGHT_OF: number;
+						public static LAYOUT_CONSTRAINT_TOP_TO_TOP_OF: number;
+						public static LAYOUT_CONSTRAINT_TOP_TO_BOTTOM_OF: number;
+						public static LAYOUT_CONSTRAINT_BOTTOM_TO_TOP_OF: number;
+						public static LAYOUT_CONSTRAINT_BOTTOM_TO_BOTTOM_OF: number;
+						public static LAYOUT_CONSTRAINT_BASELINE_TO_BASELINE_OF: number;
 						public static LAYOUT_CONSTRAINT_START_TO_END_OF: number;
 						public static LAYOUT_CONSTRAINT_START_TO_START_OF: number;
-						public static LAYOUT_CONSTRAINT_TAG: number;
-						public static LAYOUT_CONSTRAINT_TOP_CREATOR: number;
-						public static LAYOUT_CONSTRAINT_TOP_TO_BOTTOM_OF: number;
-						public static LAYOUT_CONSTRAINT_TOP_TO_TOP_OF: number;
+						public static LAYOUT_CONSTRAINT_END_TO_START_OF: number;
+						public static LAYOUT_CONSTRAINT_END_TO_END_OF: number;
+						public static LAYOUT_GONE_MARGIN_LEFT: number;
+						public static LAYOUT_GONE_MARGIN_TOP: number;
+						public static LAYOUT_GONE_MARGIN_RIGHT: number;
+						public static LAYOUT_GONE_MARGIN_BOTTOM: number;
+						public static LAYOUT_GONE_MARGIN_START: number;
+						public static LAYOUT_GONE_MARGIN_END: number;
+						public static LAYOUT_CONSTRAINED_WIDTH: number;
+						public static LAYOUT_CONSTRAINED_HEIGHT: number;
+						public static LAYOUT_CONSTRAINT_HORIZONTAL_BIAS: number;
 						public static LAYOUT_CONSTRAINT_VERTICAL_BIAS: number;
-						public static LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE: number;
-						public static LAYOUT_CONSTRAINT_VERTICAL_WEIGHT: number;
 						public static LAYOUT_CONSTRAINT_WIDTH_DEFAULT: number;
-						public static LAYOUT_CONSTRAINT_WIDTH_MAX: number;
+						public static LAYOUT_CONSTRAINT_HEIGHT_DEFAULT: number;
 						public static LAYOUT_CONSTRAINT_WIDTH_MIN: number;
+						public static LAYOUT_CONSTRAINT_WIDTH_MAX: number;
 						public static LAYOUT_CONSTRAINT_WIDTH_PERCENT: number;
+						public static LAYOUT_CONSTRAINT_HEIGHT_MIN: number;
+						public static LAYOUT_CONSTRAINT_HEIGHT_MAX: number;
+						public static LAYOUT_CONSTRAINT_HEIGHT_PERCENT: number;
+						public static LAYOUT_CONSTRAINT_LEFT_CREATOR: number;
+						public static LAYOUT_CONSTRAINT_TOP_CREATOR: number;
+						public static LAYOUT_CONSTRAINT_RIGHT_CREATOR: number;
+						public static LAYOUT_CONSTRAINT_BOTTOM_CREATOR: number;
+						public static LAYOUT_CONSTRAINT_BASELINE_CREATOR: number;
+						public static LAYOUT_CONSTRAINT_DIMENSION_RATIO: number;
+						public static LAYOUT_CONSTRAINT_HORIZONTAL_WEIGHT: number;
+						public static LAYOUT_CONSTRAINT_VERTICAL_WEIGHT: number;
+						public static LAYOUT_CONSTRAINT_HORIZONTAL_CHAINSTYLE: number;
+						public static LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE: number;
 						public static LAYOUT_EDITOR_ABSOLUTEX: number;
 						public static LAYOUT_EDITOR_ABSOLUTEY: number;
-						public static LAYOUT_GONE_MARGIN_BOTTOM: number;
-						public static LAYOUT_GONE_MARGIN_END: number;
-						public static LAYOUT_GONE_MARGIN_LEFT: number;
-						public static LAYOUT_GONE_MARGIN_RIGHT: number;
-						public static LAYOUT_GONE_MARGIN_START: number;
-						public static LAYOUT_GONE_MARGIN_TOP: number;
-						public static UNUSED: number;
+						public static LAYOUT_CONSTRAINT_TAG: number;
 						public static map: globalAndroid.util.SparseIntArray;
 					}
 				}
 				export class Measurer extends java.lang.Object implements androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintLayout.Measurer>;
 					public didMeasures(): void;
-					public constructor(this0: androidx.constraintlayout.widget.ConstraintLayout, l: androidx.constraintlayout.widget.ConstraintLayout);
 					public captureLayoutInfos(widthSpec: number, heightSpec: number, top: number, bottom: number, width: number, height: number): void;
+					public constructor(this0: androidx.constraintlayout.widget.ConstraintLayout, l: androidx.constraintlayout.widget.ConstraintLayout);
 					public measure(widget: androidx.constraintlayout.solver.widgets.ConstraintWidget, measure: androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measure): void;
 				}
 			}
@@ -2172,19 +2172,19 @@ declare module androidx {
 		export module widget {
 			export class ConstraintProperties extends java.lang.Object {
 				public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintProperties>;
-				public static BASELINE: number;
-				public static BOTTOM: number;
-				public static END: number;
 				public static LEFT: number;
-				public static MATCH_CONSTRAINT: number;
-				public static MATCH_CONSTRAINT_SPREAD: number;
-				public static MATCH_CONSTRAINT_WRAP: number;
-				public static PARENT_ID: number;
 				public static RIGHT: number;
-				public static START: number;
 				public static TOP: number;
+				public static BOTTOM: number;
+				public static BASELINE: number;
+				public static START: number;
+				public static END: number;
 				public static UNSET: number;
+				public static PARENT_ID: number;
+				public static MATCH_CONSTRAINT: number;
 				public static WRAP_CONTENT: number;
+				public static MATCH_CONSTRAINT_WRAP: number;
+				public static MATCH_CONSTRAINT_SPREAD: number;
 				public constrainDefaultHeight(height: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public horizontalWeight(weight: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public transformPivotX(transformPivotX: number): androidx.constraintlayout.widget.ConstraintProperties;
@@ -2195,23 +2195,23 @@ declare module androidx {
 				public margin(anchor: number, value: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public scaleY(scaleY: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public removeConstraints(anchor: number): androidx.constraintlayout.widget.ConstraintProperties;
-				public constrainWidth(width: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public scaleX(scaleX: number): androidx.constraintlayout.widget.ConstraintProperties;
-				public apply(): void;
+				public constrainWidth(width: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public constrainMinWidth(width: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public removeFromVerticalChain(): androidx.constraintlayout.widget.ConstraintProperties;
+				public apply(): void;
 				public centerVertically(toView: number): androidx.constraintlayout.widget.ConstraintProperties;
+				public translation(translationX: number, translationY: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public constrainHeight(height: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public constrainMaxHeight(height: number): androidx.constraintlayout.widget.ConstraintProperties;
-				public translation(translationX: number, translationY: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public horizontalBias(bias: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public transformPivot(transformPivotX: number, transformPivotY: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public addToHorizontalChain(leftId: number, rightId: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public verticalBias(bias: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public centerHorizontally(toView: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public constrainDefaultWidth(width: number): androidx.constraintlayout.widget.ConstraintProperties;
-				public constructor(view: globalAndroid.view.View);
 				public transformPivotY(transformPivotY: number): androidx.constraintlayout.widget.ConstraintProperties;
+				public constructor(view: globalAndroid.view.View);
 				public addToVerticalChain(topId: number, bottomId: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public centerVertically(topId: number, topSide: number, topMargin: number, bottomId: number, bottomSide: number, bottomMargin: number, bias: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public rotationX(rotationX: number): androidx.constraintlayout.widget.ConstraintProperties;
@@ -2223,8 +2223,8 @@ declare module androidx {
 				public alpha(alpha: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public constrainMaxWidth(width: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public translationX(translationX: number): androidx.constraintlayout.widget.ConstraintProperties;
-				public addToHorizontalChainRTL(leftId: number, rightId: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public center(firstID: number, firstSide: number, firstMargin: number, secondId: number, secondSide: number, secondMargin: number, bias: number): androidx.constraintlayout.widget.ConstraintProperties;
+				public addToHorizontalChainRTL(leftId: number, rightId: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public centerHorizontally(leftId: number, leftSide: number, leftMargin: number, rightId: number, rightSide: number, rightMargin: number, bias: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public connect(startSide: number, endID: number, endSide: number, margin: number): androidx.constraintlayout.widget.ConstraintProperties;
 				public centerHorizontallyRtl(startId: number, startSide: number, startMargin: number, endId: number, endSide: number, endMargin: number, bias: number): androidx.constraintlayout.widget.ConstraintProperties;
@@ -2243,31 +2243,31 @@ declare module androidx {
 		export module widget {
 			export class ConstraintSet extends java.lang.Object {
 				public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintSet>;
-				public static BASELINE: number;
+				public static UNSET: number;
+				public static MATCH_CONSTRAINT: number;
+				public static WRAP_CONTENT: number;
+				public static MATCH_CONSTRAINT_WRAP: number;
+				public static MATCH_CONSTRAINT_SPREAD: number;
+				public static PARENT_ID: number;
+				public static HORIZONTAL: number;
+				public static VERTICAL: number;
+				public static HORIZONTAL_GUIDELINE: number;
+				public static VERTICAL_GUIDELINE: number;
+				public static VISIBLE: number;
+				public static INVISIBLE: number;
+				public static GONE: number;
+				public static LEFT: number;
+				public static RIGHT: number;
+				public static TOP: number;
 				public static BOTTOM: number;
-				public static CHAIN_PACKED: number;
+				public static BASELINE: number;
+				public static START: number;
+				public static END: number;
 				public static CHAIN_SPREAD: number;
 				public static CHAIN_SPREAD_INSIDE: number;
-				public static END: number;
-				public static GONE: number;
-				public static HORIZONTAL: number;
-				public static HORIZONTAL_GUIDELINE: number;
-				public static INVISIBLE: number;
-				public static LEFT: number;
-				public static MATCH_CONSTRAINT: number;
-				public static MATCH_CONSTRAINT_SPREAD: number;
-				public static MATCH_CONSTRAINT_WRAP: number;
-				public static PARENT_ID: number;
-				public static RIGHT: number;
-				public static START: number;
-				public static TOP: number;
-				public static UNSET: number;
-				public static VERTICAL: number;
-				public static VERTICAL_GUIDELINE: number;
-				public static VISIBILITY_MODE_IGNORE: number;
 				public static VISIBILITY_MODE_NORMAL: number;
-				public static VISIBLE: number;
-				public static WRAP_CONTENT: number;
+				public static VISIBILITY_MODE_IGNORE: number;
+				public static CHAIN_PACKED: number;
 				public applyToWithoutCustom(constraintLayout: androidx.constraintlayout.widget.ConstraintLayout): void;
 				public setHorizontalBias(viewId: number, bias: number): void;
 				public clear(viewId: number): void;
@@ -2302,8 +2302,8 @@ declare module androidx {
 				public setTranslationY(viewId: number, translationY: number): void;
 				public setRotationY(viewId: number, rotationY: number): void;
 				public getWidth(viewId: number): number;
-				public dump(scene: androidx.constraintlayout.motion.widget.MotionScene, ids: native.Array<number>): void;
 				public setGuidelineBegin(guidelineID: number, margin: number): void;
+				public dump(scene: androidx.constraintlayout.motion.widget.MotionScene, ids: native.Array<number>): void;
 				public clear(viewId: number, anchor: number): void;
 				public setApplyElevation(viewId: number, apply: boolean): void;
 				public load(context: globalAndroid.content.Context, resourceId: number): void;
@@ -2312,8 +2312,8 @@ declare module androidx {
 				public center(centerID: number, firstID: number, firstSide: number, firstMargin: number, secondId: number, secondSide: number, secondMargin: number, bias: number): void;
 				public centerHorizontallyRtl(centerID: number, startId: number, startSide: number, startMargin: number, endId: number, endSide: number, endMargin: number, bias: number): void;
 				public clone(constraints: androidx.constraintlayout.widget.Constraints): void;
-				public getConstraint(id: number): androidx.constraintlayout.widget.ConstraintSet.Constraint;
 				public setGoneMargin(viewId: number, anchor: number, value: number): void;
+				public getConstraint(id: number): androidx.constraintlayout.widget.ConstraintSet.Constraint;
 				public addIntAttributes(attributeName: native.Array<string>): void;
 				public readFallback(constraintLayout: androidx.constraintlayout.widget.ConstraintLayout): void;
 				public addStringAttributes(attributeName: native.Array<string>): void;
@@ -2321,8 +2321,8 @@ declare module androidx {
 				public setScaleY(viewId: number, scaleY: number): void;
 				public centerVertically(centerID: number, topId: number, topSide: number, topMargin: number, bottomId: number, bottomSide: number, bottomMargin: number, bias: number): void;
 				public clone(constraintLayout: androidx.constraintlayout.widget.ConstraintLayout): void;
-				public connect(startID: number, startSide: number, endID: number, endSide: number): void;
 				public createVerticalChain(topId: number, topSide: number, bottomId: number, bottomSide: number, chainIds: native.Array<number>, weights: native.Array<number>, style: number): void;
+				public connect(startID: number, startSide: number, endID: number, endSide: number): void;
 				public centerHorizontally(viewId: number, toView: number): void;
 				public setValidateOnParse(validate: boolean): void;
 				public setStringValue(viewId: number, attributeName: string, value: string): void;
@@ -2331,8 +2331,8 @@ declare module androidx {
 				public constructor();
 				public constrainDefaultWidth(viewId: number, width: number): void;
 				public parseIntAttributes(set: androidx.constraintlayout.widget.ConstraintSet.Constraint, attributes: string): void;
-				public addToVerticalChain(viewId: number, topId: number, bottomId: number): void;
 				public setScaleX(viewId: number, scaleX: number): void;
+				public addToVerticalChain(viewId: number, topId: number, bottomId: number): void;
 				public setGuidelineEnd(guidelineID: number, margin: number): void;
 				public clone(): any;
 				public constrainCircle(viewId: number, id: number, radius: number, angle: number): void;
@@ -2340,8 +2340,8 @@ declare module androidx {
 				public parseColorAttributes(set: androidx.constraintlayout.widget.ConstraintSet.Constraint, attributes: string): void;
 				public getHeight(viewId: number): number;
 				public constrainMaxHeight(viewId: number, height: number): void;
-				public addToHorizontalChain(viewId: number, leftId: number, rightId: number): void;
 				public setRotation(viewId: number, rotation: number): void;
+				public addToHorizontalChain(viewId: number, leftId: number, rightId: number): void;
 				public constrainMaxWidth(viewId: number, width: number): void;
 				public setMargin(viewId: number, anchor: number, value: number): void;
 				public removeFromVerticalChain(viewId: number): void;
@@ -2371,21 +2371,21 @@ declare module androidx {
 				public create(guidelineID: number, orientation: number): void;
 				public setBarrierType(id: number, type: number): void;
 				public readFallback(set: androidx.constraintlayout.widget.ConstraintSet): void;
-				public parseFloatAttributes(set: androidx.constraintlayout.widget.ConstraintSet.Constraint, attributes: string): void;
 				public setIntValue(viewId: number, attributeName: string, value: number): void;
+				public parseFloatAttributes(set: androidx.constraintlayout.widget.ConstraintSet.Constraint, attributes: string): void;
 				public constrainedWidth(viewId: number, constrained: boolean): void;
 				public setTransformPivot(viewId: number, transformPivotX: number, transformPivotY: number): void;
-				public constrainPercentHeight(viewId: number, percent: number): void;
 				public setRotationX(viewId: number, rotationX: number): void;
+				public constrainPercentHeight(viewId: number, percent: number): void;
 			}
 			export module ConstraintSet {
 				export class Constraint extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintSet.Constraint>;
-					public layout: androidx.constraintlayout.widget.ConstraintSet.Layout;
-					public mCustomConstraints: java.util.HashMap<string,androidx.constraintlayout.widget.ConstraintAttribute>;
-					public motion: androidx.constraintlayout.widget.ConstraintSet.Motion;
 					public propertySet: androidx.constraintlayout.widget.ConstraintSet.PropertySet;
+					public motion: androidx.constraintlayout.widget.ConstraintSet.Motion;
+					public layout: androidx.constraintlayout.widget.ConstraintSet.Layout;
 					public transform: androidx.constraintlayout.widget.ConstraintSet.Transform;
+					public mCustomConstraints: java.util.HashMap<string,androidx.constraintlayout.widget.ConstraintAttribute>;
 					public clone(): any;
 					public constructor();
 					public applyTo(param: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams): void;
@@ -2393,99 +2393,97 @@ declare module androidx {
 				}
 				export class Layout extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintSet.Layout>;
+					public mIsGuideline: boolean;
+					public mApply: boolean;
+					public mWidth: number;
+					public mHeight: number;
 					public static UNSET: number;
-					public baselineToBaseline: number;
-					public bottomMargin: number;
-					public bottomToBottom: number;
-					public bottomToTop: number;
-					public circleAngle: number;
-					public circleConstraint: number;
-					public circleRadius: number;
-					public constrainedHeight: boolean;
-					public constrainedWidth: boolean;
-					public dimensionRatio: string;
-					public editorAbsoluteX: number;
-					public editorAbsoluteY: number;
-					public endMargin: number;
-					public endToEnd: number;
-					public endToStart: number;
-					public goneBottomMargin: number;
-					public goneEndMargin: number;
-					public goneLeftMargin: number;
-					public goneRightMargin: number;
-					public goneStartMargin: number;
-					public goneTopMargin: number;
 					public guideBegin: number;
 					public guideEnd: number;
 					public guidePercent: number;
-					public heightDefault: number;
-					public heightMax: number;
-					public heightMin: number;
-					public heightPercent: number;
-					public horizontalBias: number;
-					public horizontalChainStyle: number;
-					public horizontalWeight: number;
-					public leftMargin: number;
 					public leftToLeft: number;
 					public leftToRight: number;
-					public mApply: boolean;
-					public mBarrierAllowsGoneWidgets: boolean;
-					public mBarrierDirection: number;
-					public mBarrierMargin: number;
-					public mConstraintTag: string;
-					public mHeight: number;
-					public mHelperType: number;
-					public mIsGuideline: boolean;
-					public mReferenceIdString: string;
-					public mReferenceIds: native.Array<number>;
-					public mWidth: number;
-					public orientation: number;
-					public rightMargin: number;
 					public rightToLeft: number;
 					public rightToRight: number;
-					public startMargin: number;
+					public topToTop: number;
+					public topToBottom: number;
+					public bottomToTop: number;
+					public bottomToBottom: number;
+					public baselineToBaseline: number;
 					public startToEnd: number;
 					public startToStart: number;
-					public topMargin: number;
-					public topToBottom: number;
-					public topToTop: number;
+					public endToStart: number;
+					public endToEnd: number;
+					public horizontalBias: number;
 					public verticalBias: number;
-					public verticalChainStyle: number;
+					public dimensionRatio: string;
+					public circleConstraint: number;
+					public circleRadius: number;
+					public circleAngle: number;
+					public editorAbsoluteX: number;
+					public editorAbsoluteY: number;
+					public orientation: number;
+					public leftMargin: number;
+					public rightMargin: number;
+					public topMargin: number;
+					public bottomMargin: number;
+					public endMargin: number;
+					public startMargin: number;
+					public goneLeftMargin: number;
+					public goneTopMargin: number;
+					public goneRightMargin: number;
+					public goneBottomMargin: number;
+					public goneEndMargin: number;
+					public goneStartMargin: number;
 					public verticalWeight: number;
+					public horizontalWeight: number;
+					public horizontalChainStyle: number;
+					public verticalChainStyle: number;
 					public widthDefault: number;
+					public heightDefault: number;
 					public widthMax: number;
+					public heightMax: number;
 					public widthMin: number;
+					public heightMin: number;
 					public widthPercent: number;
+					public heightPercent: number;
+					public mBarrierDirection: number;
+					public mBarrierMargin: number;
+					public mHelperType: number;
+					public mReferenceIds: native.Array<number>;
+					public mReferenceIdString: string;
+					public mConstraintTag: string;
+					public constrainedWidth: boolean;
+					public constrainedHeight: boolean;
+					public mBarrierAllowsGoneWidgets: boolean;
 					public copyFrom(src: androidx.constraintlayout.widget.ConstraintSet.Layout): void;
 					public constructor();
 					public dump(scene: androidx.constraintlayout.motion.widget.MotionScene, stringBuilder: java.lang.StringBuilder): void;
 				}
 				export class Motion extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintSet.Motion>;
-					public mAnimateRelativeTo: number;
 					public mApply: boolean;
+					public mAnimateRelativeTo: number;
+					public mTransitionEasing: string;
+					public mPathMotionArc: number;
 					public mDrawPath: number;
 					public mMotionStagger: number;
-					public mPathMotionArc: number;
 					public mPathRotate: number;
-					public mTransitionEasing: string;
 					public constructor();
 					public copyFrom(src: androidx.constraintlayout.widget.ConstraintSet.Motion): void;
 				}
 				export class PropertySet extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintSet.PropertySet>;
-					public alpha: number;
 					public mApply: boolean;
-					public mProgress: number;
-					public mVisibilityMode: number;
 					public visibility: number;
+					public mVisibilityMode: number;
+					public alpha: number;
+					public mProgress: number;
 					public constructor();
 					public copyFrom(src: androidx.constraintlayout.widget.ConstraintSet.PropertySet): void;
 				}
 				export class Transform extends java.lang.Object {
 					public static class: java.lang.Class<androidx.constraintlayout.widget.ConstraintSet.Transform>;
-					public applyElevation: boolean;
-					public elevation: number;
 					public mApply: boolean;
 					public rotation: number;
 					public rotationX: number;
@@ -2497,6 +2495,8 @@ declare module androidx {
 					public translationX: number;
 					public translationY: number;
 					public translationZ: number;
+					public applyElevation: boolean;
+					public elevation: number;
 					public constructor();
 					public copyFrom(src: androidx.constraintlayout.widget.ConstraintSet.Transform): void;
 				}

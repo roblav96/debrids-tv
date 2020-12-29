@@ -988,7 +988,7 @@ declare module com {
 						export class OnEachListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.extension.ProducerGroup.OnEachListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.extension.ProducerGroup$OnEachListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.extension.ProducerGroup() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onEach(baseEventProducer0: com.kk.taurus.playerbase.extension.BaseEventProducer): void;
@@ -1356,7 +1356,7 @@ declare module com {
 						export class OnCounterUpdateListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.player.TimerCounterProxy.OnCounterUpdateListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.player.TimerCounterProxy$OnCounterUpdateListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.player.TimerCounterProxy() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onCounter(): void;
@@ -1425,7 +1425,7 @@ declare module com {
 						export class OnProviderListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.provider.IDataProvider.OnProviderListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.provider.IDataProvider$OnProviderListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.provider.IDataProvider() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onProviderDataStart(): void;
@@ -1881,7 +1881,7 @@ declare module com {
 						export class OnGroupValueUpdateListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.receiver.IReceiverGroup.OnGroupValueUpdateListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup$OnGroupValueUpdateListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								filterKeys(): native.Array<string>;
@@ -1894,7 +1894,7 @@ declare module com {
 						export class OnLoopListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.receiver.IReceiverGroup.OnLoopListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup$OnLoopListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onEach(iReceiver0: com.kk.taurus.playerbase.receiver.IReceiver): void;
@@ -1905,7 +1905,7 @@ declare module com {
 						export class OnReceiverFilter extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.receiver.IReceiverGroup.OnReceiverFilter>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup$OnReceiverFilter interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								filter(iReceiver0: com.kk.taurus.playerbase.receiver.IReceiver): boolean;
@@ -1916,7 +1916,7 @@ declare module com {
 						export class OnReceiverGroupChangeListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.receiver.IReceiverGroup.OnReceiverGroupChangeListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup$OnReceiverGroupChangeListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.receiver.IReceiverGroup() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onReceiverAdd(string0: string, iReceiver1: com.kk.taurus.playerbase.receiver.IReceiver): void;
@@ -2385,7 +2385,7 @@ declare module com {
 						export class IRenderCallback extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.render.IRender.IRenderCallback>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.render.IRender$IRenderCallback interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.render.IRender() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onSurfaceCreated(iRenderHolder0: com.kk.taurus.playerbase.render.IRender.IRenderHolder, int1: number, int2: number): void;
@@ -2400,7 +2400,7 @@ declare module com {
 						export class IRenderHolder extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.render.IRender.IRenderHolder>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.render.IRender$IRenderHolder interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.render.IRender() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								bindPlayer(iPlayer0: com.kk.taurus.playerbase.player.IPlayer): void;
@@ -3283,7 +3283,7 @@ declare module com {
 						export class OnWindowListener extends java.lang.Object {
 							public static class: java.lang.Class<com.kk.taurus.playerbase.window.IWindow.OnWindowListener>;
 							/**
-							 * Constructs a new instance of the com.kk.taurus.playerbase.window.IWindow$OnWindowListener interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+							 * Constructs a new instance of the com.kk.taurus.playerbase.window.IWindow() when extending the interface class.
 							 */
 							public constructor(implementation: {
 								onShow(): void;

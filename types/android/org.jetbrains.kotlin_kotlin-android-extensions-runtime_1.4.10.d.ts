@@ -3,10 +3,10 @@ declare module kotlinx {
 		export module extensions {
 			export class CacheImplementation {
 				public static class: java.lang.Class<kotlinx.android.extensions.CacheImplementation>;
-				public static Companion: kotlinx.android.extensions.CacheImplementation.Companion;
+				public static SPARSE_ARRAY: kotlinx.android.extensions.CacheImplementation;
 				public static HASH_MAP: kotlinx.android.extensions.CacheImplementation;
 				public static NO_CACHE: kotlinx.android.extensions.CacheImplementation;
-				public static SPARSE_ARRAY: kotlinx.android.extensions.CacheImplementation;
+				public static Companion: kotlinx.android.extensions.CacheImplementation.Companion;
 				public static valueOf(enumType: java.lang.Class<any>, name: string): java.lang.Enum<any>;
 				public static valueOf(string0: string): kotlinx.android.extensions.CacheImplementation;
 				public static values(): native.Array<kotlinx.android.extensions.CacheImplementation>;
