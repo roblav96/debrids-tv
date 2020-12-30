@@ -104,11 +104,17 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		return global.__native(this)
 	}
 
-	// configureCodec(codecInfo: com.google.android.exoplayer2.mediacodec.MediaCodecInfo, codecAdapter: com.google.android.exoplayer2.mediacodec.MediaCodecAdapter, format: com.google.android.exoplayer2.Format, crypto: globalAndroid.media.MediaCrypto, codecOperatingRate: number) {
-	// 	console.log('configureCodec ->', format)
-	// 	// @ts-ignore
-	// 	super.configureCodec(...arguments)
-	// }
+	configureCodec(
+		codecInfo: com.google.android.exoplayer2.mediacodec.MediaCodecInfo,
+		codecAdapter: com.google.android.exoplayer2.mediacodec.MediaCodecAdapter,
+		format: com.google.android.exoplayer2.Format,
+		crypto: globalAndroid.media.MediaCrypto,
+		codecOperatingRate: number,
+	) {
+		console.log('configureCodec ->', format)
+		// @ts-ignore
+		super.configureCodec(...arguments)
+	}
 
 	onInputFormatChanged(formatHolder: com.google.android.exoplayer2.FormatHolder) {
 		console.log('-> onInputFormatChanged ->')
@@ -150,5 +156,4 @@ class MatroskaExtractor extends com.google.android.exoplayer2.extractor.mkv.Matr
 		output.track
 		super.init(output)
 	}
-
 }

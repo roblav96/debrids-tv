@@ -1,5 +1,6 @@
 import * as Application from '@nativescript/core/application'
 import * as Frame from '@nativescript/core/ui/frame'
+import * as R from 'rambdax'
 
 Application.android.on('activityCreated', function activityCreated(args) {
 	android.os.StrictMode.setThreadPolicy(
@@ -21,11 +22,12 @@ import * as intents from '~/utils/intents'
 import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.vue'
 import Vue from 'nativescript-vue'
 
-Application.on('displayed', function displayed(args) {
+// const displayed = R.once()
+Application.on('displayed', function displayed(args: Application.ApplicationEventData) {
 	let activity = (args as any).activity as androidx.appcompat.app.AppCompatActivity
 	try {
 		let intent = new android.content.Intent(activity, app.debrids.tv.ExoPlayerActivity.class)
-		intents.setVideos(intent, [process.env.TEST_MKV])
+		intents.setVideos(intent, [process.env.TEST_MKV_3])
 		activity.startActivity(intent)
 	} catch (error) {
 		console.error('displayed ->', error)

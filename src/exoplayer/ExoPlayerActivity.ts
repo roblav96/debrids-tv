@@ -230,11 +230,15 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 			)
 			// let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -show_private_data -i ${this.videos[0]}`
 			// let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
-			let cmd = `-hide_banner -v error -print_format json -show_format -show_streams -i ${this.videos[0]}`
-			console.log('cmd ->', cmd)
+			let cmd = `-hide_banner -v error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
 			let rc = com.arthenica.mobileffmpeg.FFprobe.execute(cmd)
-			let output = com.arthenica.mobileffmpeg.Config.getLastCommandOutput()
-			console.log('output ->', output)
+			console.log('rc ->', rc)
+			let output = JSON.parse(
+				com.arthenica.mobileffmpeg.Config.getLastCommandOutput(),
+			) as FFprobe
+			console.log('output.format ->', output.format)
+			let audio = output.streams.find((v) => v.tags?.language == 'eng') || output.streams[0]
+			console.log('audio ->', audio)
 			// let info = com.arthenica.mobileffmpeg.FFprobe.getMediaInformation(this.videos[0])
 			// let streams = info.getStreams()
 			// for (let i = 0; i < streams.size(); i++) {

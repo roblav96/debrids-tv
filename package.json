@@ -12,8 +12,8 @@
 		"postinstall": "run-s prepostinstall:* postinstall:*",
 		"prepostinstall:android-platform": "del node_modules/@nativescript/types-android/lib/android/android-platform-*.d.ts",
 		"prepostinstall:androidx": "del node_modules/@nativescript/types-android/lib/android/androidx-*.d.ts",
-		"postinstall:android-platform-29": "cpy ../android-dts-generator/out/android-platform-29.d.ts node_modules/@nativescript/types-android/lib/android",
-		"postinstall:androidx-29": "cpy ../android-dts-generator/out/androidx-29.d.ts node_modules/@nativescript/types-android/lib/android",
+		"postinstall:android-platform-29": "cpy ../android-dts-generator/out/android-platform-29 node_modules/@nativescript/types-android/lib/android",
+		"postinstall:androidx-29": "cpy ../android-dts-generator/out/androidx-29 node_modules/@nativescript/types-android/lib/android",
 		"postinstall:update-ns-webpack": "update-ns-webpack --configs"
 	},
 	"dependencies": {
@@ -43,6 +43,7 @@
 		"del-cli": "^3.0.1",
 		"delay-cli": "^1.1.0",
 		"dotenv": "^8.2.0",
+		"dts-generate": "^1.5.0",
 		"nativescript-vue-template-compiler": "^2.8.3",
 		"npm-run-all": "^4.1.5",
 		"sass": "^1.30.0",
