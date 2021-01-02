@@ -18,13 +18,12 @@ module.exports = (env) => {
 	config.stats = 'errors-warnings'
 	config.optimization.noEmitOnErrors = false
 
-	let envfile = fs.readFileSync(path.join(__dirname, '.env'))
+	let envvars = dotenv.parse(fs.readFileSync(path.join(__dirname, '.env')))
 	config.plugins.push(
 		new webpack.DefinePlugin(
-			R.mapToObject(
-				([key, value]) => ({ [`process.env.${key}`]: `"${value}"` }),
-				Object.entries(dotenv.parse(envfile)),
-			),
+			Object.entries(envvars).reduce((target, [key, value], index) => {
+				return Object.assign(target, { [`process.env.${key}`]: `"${value}"` })
+			}, {}),
 		),
 	)
 
