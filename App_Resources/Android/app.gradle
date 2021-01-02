@@ -9,6 +9,7 @@ dependencies {
 	// ████  androidx.d.ts  ████
 
 	implementation 'androidx.legacy:legacy-support-v4:1.+'
+	implementation 'androidx.activity:activity:1.1.+'
 	implementation 'androidx.appcompat:appcompat:1.2.+'
 	implementation 'androidx.core:core:1.3.+'
 	implementation 'androidx.media:media:1.2.+'
@@ -43,12 +44,6 @@ dependencies {
 	implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:+'
 	implementation 'tv.danmaku.ijk.media:ijkplayer-x86:+'
 	implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:+'
-
-	implementation 'cn.jzvd:jiaozivideoplayer:+'
-
-	implementation 'im.ene.kohii:kohii-core:+'
-	implementation 'im.ene.kohii:kohii-exoplayer:+'
-	// implementation 'im.ene.kohii:kohii-androidx:+'
 
 	implementation 'com.kk.taurus.playerbase:playerbase:+'
 	implementation 'cn.jiajunhui:ijkplayer:+'
