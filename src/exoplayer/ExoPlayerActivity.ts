@@ -1,8 +1,9 @@
 import * as Application from '@nativescript/core/application'
 import * as Frame from '@nativescript/core/ui/frame'
-import * as intents from '~/utils/intents'
+import * as Intents from '~/utils/Intents'
 import * as R from 'rambdax'
 import * as Utils from '@nativescript/core/utils'
+import FFprobe from '~/exoplayer/FFprobe'
 import RenderersFactory from '~/exoplayer/RenderersFactory'
 
 @NativeClass()
@@ -20,6 +21,8 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		return this.playerView?.dispatchKeyEvent(event) || super.dispatchKeyEvent(event)
 	}
 
+	videos: string[]
+	audioSessionId: number
 	playerView: com.google.android.exoplayer2.ui.PlayerView
 	onCreate(savedInstanceState: android.os.Bundle) {
 		this.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
@@ -61,22 +64,26 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 
 		this.setContentView(this.playerView)
 		this.playerView.requestFocus()
+
+		this.audioSessionId = com.google.android.exoplayer2.C.generateAudioSessionIdV21(this)
+		this.videos = Intents.getVideos(this.getIntent())
+		this.initializePlayer().catch((error) => console.error('initializePlayer ->', error))
 	}
 
-	videos: string[]
 	onNewIntent(intent: android.content.Intent) {
-		super.onNewIntent(intent)
-		super.setIntent(intent)
-		this.videos = intents.getVideos(this.getIntent())
-		this.initializePlayer().catch((error) => console.error('initializePlayer ->', error))
-		// for (let video of this.videos) {
-		// 	let extractor = new android.media.MediaExtractor()
-		// 	extractor.setDataSource(video)
-		// 	for (let i = 0; i < extractor.getTrackCount(); i++) {
-		// 		let track = extractor.getTrackFormat(i)
-		// 		console.log('track ->', track)
-		// 	}
-		// }
+		this._callbacks.onNewIntent(this, intent, super.setIntent, super.onNewIntent)
+		// super.onNewIntent(intent)
+		// super.setIntent(intent)
+		// this.videos = Videos.getIntent(this.getIntent())
+		// this.initializePlayer().catch((error) => console.error('initializePlayer ->', error))
+		// // for (let video of this.videos) {
+		// // 	let extractor = new android.media.MediaExtractor()
+		// // 	extractor.setDataSource(video)
+		// // 	for (let i = 0; i < extractor.getTrackCount(); i++) {
+		// // 		let track = extractor.getTrackFormat(i)
+		// // 		console.log('track ->', track)
+		// // 	}
+		// // }
 	}
 
 	onSaveInstanceState(outState: android.os.Bundle) {
@@ -148,7 +155,6 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		return this._bandwidthMeter
 	}
 
-	audioSessionId: number
 	private _trackSelectorParameters: com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters
 	getTrackSelectorParameters() {
 		if (this._trackSelectorParameters) {
@@ -157,7 +163,6 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		let builder = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector.ParametersBuilder(
 			this,
 		)
-		this.audioSessionId = com.google.android.exoplayer2.C.generateAudioSessionIdV21(this)
 		builder.setTunnelingAudioSessionId(this.audioSessionId)
 		builder.setForceHighestSupportedBitrate(true)
 		builder.setPreferredAudioLanguage('eng')
@@ -187,11 +192,23 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 	}
 
 	private _mediaItems: java.util.ArrayList<com.google.android.exoplayer2.MediaItem>
-	getMediaItems() {
+	async getMediaItems() {
 		if (this._mediaItems) {
 			return this._mediaItems
 		}
 		let mediaItems = new java.util.ArrayList<com.google.android.exoplayer2.MediaItem>()
+
+		// let executions = com.arthenica.mobileffmpeg.FFmpeg.listExecutions()
+		// com.arthenica.mobileffmpeg.Config.enableLogCallback(
+		// 	new com.arthenica.mobileffmpeg.LogCallback({
+		// 		apply(message) {
+		// 			console.log('LogCallback message ->', message)
+		// 		},
+		// 	}),
+		// )
+
+		com.arthenica.mobileffmpeg.Config.setLogLevel(com.arthenica.mobileffmpeg.Level.AV_LOG_ERROR)
+		let ffprobes = await Promise.all(this.videos.map((v) => FFprobe(v)))
 		for (let i = 0; i < this.videos.length; i++) {
 			let video = this.videos[i]
 			let title = video.slice(video.lastIndexOf('/') + 1, video.lastIndexOf('.'))
@@ -206,78 +223,93 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 			builder.setMediaMetadata(
 				new com.google.android.exoplayer2.MediaMetadata.Builder().setTitle(title).build(),
 			)
-			mediaItems.add(builder.build())
-		}
-		this._mediaItems = mediaItems
-		return this._mediaItems
-	}
 
-	async getFFProbe() {
-		return new Promise((resolve, reject) => {
-			// for (let video of this.videos) {
-			// 	console.log('video ->', video)
-			// 	let extractor = new android.media.MediaExtractor()
-			// 	extractor.setDataSource(video)
-			// 	for (let i = 0; i < extractor.getTrackCount(); i++) {
-			// 		console.log('getTrackFormat ->', extractor.getTrackFormat(i))
-			// 		console.log('getAudioPresentations ->', extractor.getAudioPresentations(i))
-			// 	}
-			// }
-
-			// com.arthenica.mobileffmpeg.Config.disableRedirection()
-			com.arthenica.mobileffmpeg.Config.setLogLevel(
-				com.arthenica.mobileffmpeg.Level.AV_LOG_ERROR,
-			)
-			// let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -show_private_data -i ${this.videos[0]}`
-			// let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
-			let cmd = `-hide_banner -v error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
-			let rc = com.arthenica.mobileffmpeg.FFprobe.execute(cmd)
-			console.log('rc ->', rc)
-			let output = JSON.parse(
-				com.arthenica.mobileffmpeg.Config.getLastCommandOutput(),
-			) as FFprobe
-			console.log('output.format ->', output.format)
-			let audio = output.streams.find((v) => v.tags?.language == 'eng') || output.streams[0]
-			console.log('audio ->', audio)
-			// let info = com.arthenica.mobileffmpeg.FFprobe.getMediaInformation(this.videos[0])
-			// let streams = info.getStreams()
-			// for (let i = 0; i < streams.size(); i++) {
-			// 	let stream = streams.get(i) as com.arthenica.mobileffmpeg.StreamInformation
-			// 	if (stream.getType() == 'subtitle') {
-			// 		continue
-			// 	}
-			// 	console.log('stream.getType() ->', stream.getType())
-			// 	console.log('stream.getSampleFormat() ->', stream.getSampleFormat())
-			// 	console.log('stream.getSampleRate() ->', stream.getSampleRate())
-			// 	console.log('stream.getRealFrameRate() ->', stream.getRealFrameRate())
-			// 	console.log('stream.getAverageFrameRate() ->', stream.getAverageFrameRate())
-			// 	console.log('stream.getCodec() ->', stream.getCodec())
-			// 	console.log('stream.getFullCodec() ->', stream.getFullCodec())
-			// }
-			// let json = JSON.parse(info.getAllProperties().toString())
-			// console.log('json ->', JSON.stringify(json, null, 4))
 			// let task = new com.arthenica.mobileffmpeg.AsyncGetMediaInformationTask(
-			// 	this.videos[0],
+			// 	video,
 			// 	new com.arthenica.mobileffmpeg.GetMediaInformationCallback({
 			// 		apply(info) {
 			// 			console.log('info.getLongFormat() ->', info.getLongFormat())
 			// 		},
 			// 	}),
 			// )
-		})
+			// let hashset = new java.util.HashSet()
+			// hashset.add(new java.lang.String(''))
+			// task.executeOnExecutor(
+			// 	android.os.AsyncTask.THREAD_POOL_EXECUTOR,
+			// 	Utils.ad.collections.stringSetToStringArray(hashset),
+			// )
+
+			// let task = new com.arthenica.mobileffmpeg.AsyncFFprobeExecuteTask(
+			// 	`-hide_banner -v error -print_format json -show_format -show_streams -select_streams a -i ${video}`,
+			// 	new com.arthenica.mobileffmpeg.ExecuteCallback({
+			// 		apply(executionId, returnCode) {},
+			// 	}),
+			// )
+			// task.executeOnExecutor(android.os.AsyncTask.THREAD_POOL_EXECUTOR)
+
+			let tag = new java.util.HashMap<string, string>()
+			for (let ii = 0; ii < ffprobes[i].length; ii++) {
+				tag.put(ii.toString(), JSON.stringify(ffprobes[i][ii]))
+			}
+			builder.setTag(tag)
+
+			mediaItems.add(builder.build())
+		}
+		this._mediaItems = mediaItems
+		return this._mediaItems
 	}
+
+	// async getFFProbe() {
+	// 	return new Promise((resolve, reject) => {
+
+	// 		for (let video of this.videos) {
+	// 			console.log('video ->', video)
+	// 			let extractor = new android.media.MediaExtractor()
+	// 			extractor.setDataSource(video)
+	// 			for (let i = 0; i < extractor.getTrackCount(); i++) {
+	// 				console.log('getTrackFormat ->', extractor.getTrackFormat(i))
+	// 			}
+	// 		}
+
+	// 		// // com.arthenica.mobileffmpeg.Config.disableRedirection()
+	// 		// com.arthenica.mobileffmpeg.Config.setLogLevel(
+	// 		// 	com.arthenica.mobileffmpeg.Level.AV_LOG_ERROR,
+	// 		// )
+	// 		// // let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -show_private_data -i ${this.videos[0]}`
+	// 		// // let cmd = `-hide_banner -loglevel error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
+	// 		// let cmd = `-hide_banner -v error -print_format json -show_format -show_streams -select_streams a -i ${this.videos[0]}`
+	// 		// let rc = com.arthenica.mobileffmpeg.FFprobe.execute(cmd)
+	// 		// console.log('rc ->', rc)
+	// 		// let output = JSON.parse(
+	// 		// 	com.arthenica.mobileffmpeg.Config.getLastCommandOutput(),
+	// 		// ) as FFprobe.Output
+	// 		// console.log('output.format ->', output.format)
+	// 		// let audio = output.streams.find((v) => v.tags?.language == 'eng') || output.streams[0]
+	// 		// console.log('audio ->', audio)
+
+	// 		// let json = JSON.parse(info.getAllProperties().toString())
+	// 		// console.log('json ->', JSON.stringify(json, null, 4))
+	// 		// let task = new com.arthenica.mobileffmpeg.AsyncGetMediaInformationTask(
+	// 		// 	this.videos[0],
+	// 		// 	new com.arthenica.mobileffmpeg.GetMediaInformationCallback({
+	// 		// 		apply(info) {
+	// 		// 			console.log('info.getLongFormat() ->', info.getLongFormat())
+	// 		// 		},
+	// 		// 	}),
+	// 		// )
+	// 	})
+	// }
 
 	player: com.google.android.exoplayer2.SimpleExoPlayer
 	async initializePlayer() {
-		let ffprobe = await this.getFFProbe()
-		console.log('ffprobe ->', ffprobe)
+		// let mediaItems = await this.getMediaItems()
+		// console.log('mediaItems ->', mediaItems)
+		console.log('AudioAttributes ->', Object.keys(android.media.AudioAttributes))
+		console.log('AudioAttributesCompat ->', Object.keys(androidx.media.AudioAttributesCompat))
 		return
 
-		// let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
-		let renderersFactory = new RenderersFactory(
-			this.getApplicationContext(),
-			this.audioSessionId,
-		)
+		let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(Utils.ad.getApplicationContext())
+		// let renderersFactory = new RenderersFactory(this)
 		renderersFactory.setExtensionRendererMode(
 			com.google.android.exoplayer2.DefaultRenderersFactory.EXTENSION_RENDERER_MODE_OFF,
 		)
@@ -411,7 +443,6 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 					console.log('onAudioDecoderInitialized ->', decoderName)
 				},
 				onAudioInputFormatChanged(format) {
-					// console.log('onAudioInputFormatChanged ->', format)
 					console.log('onAudioInputFormatChanged ->', format)
 				},
 				onSkipSilenceEnabledChanged(skipSilenceEnabled) {
@@ -446,11 +477,11 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		)
 
 		this.playerView.setPlayer(this.player)
-		this.player.setMediaItems(this.getMediaItems())
+		this.player.setMediaItems(await this.getMediaItems())
 		this.player.prepare()
 		this.player.play()
 
-		// this.player.setAudioSessionId()
+		this.player.setAudioSessionId(this.audioSessionId)
 		// this.player.addMetadataOutput(new com.google.android.exoplayer2.metadata.MetadataOutput({
 		// 	onMetadata(metadata) {
 		// 		console.log('metadata ->', metadata)

@@ -11,6 +11,7 @@ declare namespace NodeJS {
 		REALDEBRID_SECRET: string
 		SIMKL_ID: string
 		SIMKL_SECRET: string
+		TEST_MKV: string
 		TEST_MKV_0: string
 		TEST_MKV_1: string
 		TEST_MKV_2: string
@@ -18,6 +19,7 @@ declare namespace NodeJS {
 		TEST_MKV_4: string
 		TEST_MKV_5: string
 		TEST_MKV_6: string
+		TEST_MKV_7: string
 		TMDB_KEY: string
 		TRAKT_CLIENT_ID: string
 		TRAKT_CLIENT_SECRET: string

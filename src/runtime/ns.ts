@@ -49,7 +49,7 @@ declare global {
 // 	},
 // }
 
-// import { DefineProperty } from '~/utils/decorators'
+// import { DefineProperty } from '~/utils/Decorators'
 // global.ns || Object.assign(global, { ns: {} })
 // global.ns.android || Object.assign(global.ns, { android: {} })
 // DefineProperty(global.ns.android, 'context', () => Application.android.context)

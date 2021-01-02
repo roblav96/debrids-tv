@@ -1,11 +1,13 @@
 import * as Application from '@nativescript/core/application'
 import * as R from 'rambdax'
 import * as Types from '@nativescript/core/utils/types'
+import * as Utils from '@nativescript/core/utils'
+import type ExoPlayerActivity from '~/exoplayer/ExoPlayerActivity'
 
 @NativeClass()
 class RenderersFactory extends com.google.android.exoplayer2.DefaultRenderersFactory {
-	constructor(public context: android.content.Context, public audioSessionId: number) {
-		super(context)
+	constructor(public activity: ExoPlayerActivity) {
+		super(Utils.ad.getApplicationContext())
 		return global.__native(this)
 	}
 
@@ -37,12 +39,13 @@ class RenderersFactory extends com.google.android.exoplayer2.DefaultRenderersFac
 	) {
 		// // @ts-ignore
 		// super.buildAudioRenderers(...arguments)
-		console.log('-> buildAudioRenderers ->')
-		console.log('mediaCodecSelector ->', mediaCodecSelector)
-		console.log('enableDecoderFallback ->', enableDecoderFallback)
-		console.log('audioSink ->', audioSink)
+		// console.log('-> RenderersFactory buildAudioRenderers ->')
+		// console.log('mediaCodecSelector ->', mediaCodecSelector)
+		// console.log('enableDecoderFallback ->', enableDecoderFallback)
+		// console.log('audioSink ->', audioSink)
 		out.add(
 			new MediaCodecAudioRenderer(
+				this.activity,
 				context,
 				mediaCodecSelector,
 				enableDecoderFallback,
@@ -86,6 +89,7 @@ export default RenderersFactory
 @NativeClass()
 class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaCodecAudioRenderer {
 	constructor(
+		public activity: ExoPlayerActivity,
 		context: android.content.Context,
 		mediaCodecSelector: com.google.android.exoplayer2.mediacodec.MediaCodecSelector,
 		enableDecoderFallback: boolean,
@@ -115,6 +119,27 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		// @ts-ignore
 		super.configureCodec(...arguments)
 	}
+
+	// getDecoderInfos(
+	// 	mediaCodecSelector: com.google.android.exoplayer2.mediacodec.MediaCodecSelector,
+	// 	format: com.google.android.exoplayer2.Format,
+	// 	requiresSecureDecoder: boolean,
+	// ) {
+	// 	console.log('getDecoderInfos ->')
+	// 	console.dir(format)
+	// 	let tag = this.activity.player.getCurrentMediaItem().playbackProperties
+	// 		.tag as java.util.HashMap<string, string>
+	// 	let ffstream = JSON.parse(
+	// 		tag.get((Number.parseInt(format.id) - 1).toString()),
+	// 	) as FFprobe.Stream
+	// 	if (ffstream.codec_name == 'dts' && ffstream.profile == '60') {
+	// 		let builder = format.buildUpon()
+	// 		builder.setSampleMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_DTS_HD)
+	// 	}
+	// 	console.log('format.id ->', format.id, ffstream)
+	// 	// @ts-ignore
+	// 	return super.getDecoderInfos(...arguments)
+	// }
 
 	onInputFormatChanged(formatHolder: com.google.android.exoplayer2.FormatHolder) {
 		console.log('-> onInputFormatChanged ->')
@@ -153,7 +178,7 @@ class MatroskaExtractor extends com.google.android.exoplayer2.extractor.mkv.Matr
 	}
 
 	init(output: com.google.android.exoplayer2.extractor.ExtractorOutput) {
-		output.track
+		console.log('output.track ->', output.track(1, 0))
 		super.init(output)
 	}
 }

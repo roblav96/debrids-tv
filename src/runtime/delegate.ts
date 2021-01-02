@@ -18,21 +18,35 @@ Application.android.on('activityNewIntent', function activityNewIntent(args) {
 })
 
 // import type { ExoPlayerActivity } from '~/exoplayer/ExoPlayerActivity'
-import * as intents from '~/utils/intents'
+import * as Intents from '~/utils/Intents'
 import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.vue'
 import Vue from 'nativescript-vue'
 
-// const displayed = R.once()
-Application.on('displayed', function displayed(args: Application.ApplicationEventData) {
-	let activity = (args as any).activity as androidx.appcompat.app.AppCompatActivity
-	try {
-		let intent = new android.content.Intent(activity, app.debrids.tv.ExoPlayerActivity.class)
-		intents.setVideos(intent, [process.env.TEST_MKV_3])
-		activity.startActivity(intent)
-	} catch (error) {
-		console.error('displayed ->', error)
-	}
-})
+Application.on(
+	'displayed',
+	R.once(function displayed(args: Application.AndroidActivityEventData) {
+		let activity = args.activity as androidx.appcompat.app.AppCompatActivity
+		try {
+			let intent = new android.content.Intent(
+				activity,
+				app.debrids.tv.ExoPlayerActivity.class,
+			)
+			Intents.setVideos(intent, [
+				// process.env.TEST_MKV,
+				// process.env.TEST_MKV_1,
+				// process.env.TEST_MKV_2,
+				// process.env.TEST_MKV_3,
+				// process.env.TEST_MKV_4,
+				// process.env.TEST_MKV_5,
+				// process.env.TEST_MKV_6,
+				process.env.TEST_MKV_7,
+			])
+			activity.startActivity(intent)
+		} catch (error) {
+			console.error('displayed ->', error)
+		}
+	}),
+)
 
 // import ExoPlayerDialog from '~/exoplayer/ExoPlayerDialog'
 // Application.on('displayed', function displayed(args) {
