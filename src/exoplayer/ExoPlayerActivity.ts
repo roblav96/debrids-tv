@@ -112,28 +112,14 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		this._callbacks.onBackPressed(this, super.onBackPressed)
 	}
 
-	onRequestPermissionsResult(
-		requestCode: number,
-		permissions: Array<string>,
-		grantResults: Array<number>,
-	) {
-		this._callbacks.onRequestPermissionsResult(
-			this,
-			requestCode,
-			permissions,
-			grantResults,
-			undefined,
-		)
+	// prettier-ignore
+	onRequestPermissionsResult(requestCode: number, permissions: Array<string>, grantResults: Array<number>) {
+		this._callbacks.onRequestPermissionsResult(this, requestCode, permissions, grantResults, undefined)
 	}
 
+	// prettier-ignore
 	onActivityResult(requestCode: number, resultCode: number, data: android.content.Intent) {
-		this._callbacks.onActivityResult(
-			this,
-			requestCode,
-			resultCode,
-			data,
-			super.onActivityResult,
-		)
+		this._callbacks.onActivityResult(this, requestCode, resultCode, data, super.onActivityResult)
 	}
 
 	private _bandwidthMeter: com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
@@ -304,12 +290,12 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 	async initializePlayer() {
 		// let mediaItems = await this.getMediaItems()
 		// console.log('mediaItems ->', mediaItems)
-		console.log('AudioAttributes ->', Object.keys(android.media.AudioAttributes))
-		console.log('AudioAttributesCompat ->', Object.keys(androidx.media.AudioAttributesCompat))
-		return
+		// return
 
-		let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(Utils.ad.getApplicationContext())
-		// let renderersFactory = new RenderersFactory(this)
+		// let renderersFactory = new com.google.android.exoplayer2.DefaultRenderersFactory(
+		// 	Utils.ad.getApplicationContext(),
+		// )
+		let renderersFactory = new RenderersFactory(this)
 		renderersFactory.setExtensionRendererMode(
 			com.google.android.exoplayer2.DefaultRenderersFactory.EXTENSION_RENDERER_MODE_OFF,
 		)

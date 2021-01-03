@@ -1,4 +1,5 @@
 import * as Application from '@nativescript/core/application'
+import * as ExoFormat from '~/exoplayer/ExoFormat'
 import * as R from 'rambdax'
 import * as Types from '@nativescript/core/utils/types'
 import * as Utils from '@nativescript/core/utils'
@@ -39,10 +40,10 @@ class RenderersFactory extends com.google.android.exoplayer2.DefaultRenderersFac
 	) {
 		// // @ts-ignore
 		// super.buildAudioRenderers(...arguments)
-		// console.log('-> RenderersFactory buildAudioRenderers ->')
-		// console.log('mediaCodecSelector ->', mediaCodecSelector)
-		// console.log('enableDecoderFallback ->', enableDecoderFallback)
-		// console.log('audioSink ->', audioSink)
+		console.log('-> RenderersFactory buildAudioRenderers ->')
+		console.log('mediaCodecSelector ->', mediaCodecSelector)
+		console.log('enableDecoderFallback ->', enableDecoderFallback)
+		console.log('audioSink ->', audioSink)
 		out.add(
 			new MediaCodecAudioRenderer(
 				this.activity,
@@ -97,14 +98,8 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		eventListener: com.google.android.exoplayer2.audio.AudioRendererEventListener,
 		audioSink: com.google.android.exoplayer2.audio.AudioSink,
 	) {
-		super(
-			context,
-			mediaCodecSelector,
-			enableDecoderFallback,
-			eventHandler,
-			eventListener,
-			audioSink,
-		)
+		// prettier-ignore
+		super(context, mediaCodecSelector, enableDecoderFallback, eventHandler, eventListener, audioSink)
 		return global.__native(this)
 	}
 
@@ -115,36 +110,37 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		crypto: globalAndroid.media.MediaCrypto,
 		codecOperatingRate: number,
 	) {
-		console.log('configureCodec ->', format)
+		console.log('configureCodec ->', ExoFormat.toLog(format))
+		// console.dir(format)
 		// @ts-ignore
 		super.configureCodec(...arguments)
 	}
 
-	// getDecoderInfos(
-	// 	mediaCodecSelector: com.google.android.exoplayer2.mediacodec.MediaCodecSelector,
-	// 	format: com.google.android.exoplayer2.Format,
-	// 	requiresSecureDecoder: boolean,
-	// ) {
-	// 	console.log('getDecoderInfos ->')
-	// 	console.dir(format)
-	// 	let tag = this.activity.player.getCurrentMediaItem().playbackProperties
-	// 		.tag as java.util.HashMap<string, string>
-	// 	let ffstream = JSON.parse(
-	// 		tag.get((Number.parseInt(format.id) - 1).toString()),
-	// 	) as FFprobe.Stream
-	// 	if (ffstream.codec_name == 'dts' && ffstream.profile == '60') {
-	// 		let builder = format.buildUpon()
-	// 		builder.setSampleMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_DTS_HD)
-	// 	}
-	// 	console.log('format.id ->', format.id, ffstream)
-	// 	// @ts-ignore
-	// 	return super.getDecoderInfos(...arguments)
-	// }
+	getDecoderInfos(
+		mediaCodecSelector: com.google.android.exoplayer2.mediacodec.MediaCodecSelector,
+		format: com.google.android.exoplayer2.Format,
+		requiresSecureDecoder: boolean,
+	) {
+		console.log('getDecoderInfos ->', ExoFormat.toLog(format))
+		// console.dir(format)
+		// let tag = this.activity.player.getCurrentMediaItem().playbackProperties
+		// 	.tag as java.util.HashMap<string, string>
+		// let ffstream = JSON.parse(
+		// 	tag.get((Number.parseInt(format.id) - 1).toString()),
+		// ) as FFprobe.Stream
+		// if (ffstream.codec_name == 'dts' && ffstream.profile == '60') {
+		// 	let builder = format.buildUpon()
+		// 	builder.setSampleMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_DTS_HD)
+		// }
+		// console.log('format.id ->', format.id, ffstream)
+		// @ts-ignore
+		return super.getDecoderInfos(...arguments)
+	}
 
 	onInputFormatChanged(formatHolder: com.google.android.exoplayer2.FormatHolder) {
 		console.log('-> onInputFormatChanged ->')
-		console.log('1 formatHolder.format ->')
-		console.dir(formatHolder.format)
+		console.log('1 formatHolder.format ->', ExoFormat.toLog(formatHolder.format))
+		// console.dir(formatHolder.format)
 		let builder = formatHolder.format.buildUpon()
 		builder.setSampleMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_DTS_HD)
 		builder.setContainerMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_MATROSKA)
@@ -152,11 +148,11 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		builder.setAverageBitrate(4035689)
 		builder.setPeakBitrate(4035689)
 		formatHolder.format = builder.build()
-		console.log('2 formatHolder.format ->')
-		console.dir(formatHolder.format)
+		console.log('2 formatHolder.format ->', ExoFormat.toLog(formatHolder.format))
+		// console.dir(formatHolder.format)
 		super.onInputFormatChanged(formatHolder)
-		console.log('3 formatHolder.format ->')
-		console.dir(formatHolder.format)
+		console.log('3 formatHolder.format ->', ExoFormat.toLog(formatHolder.format))
+		// console.dir(formatHolder.format)
 	}
 
 	// onOutputFormatChanged(
