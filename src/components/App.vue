@@ -15,7 +15,7 @@ import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.vue'
 // @ts-ignore
 @Component
 export default class App extends Vue {
-	msg = 'Hello World!'
+	msg = 'Show ExoPlayerModal'
 	mounted() {
 		// setTimeout(() => this.showModal(), 1000)
 	}

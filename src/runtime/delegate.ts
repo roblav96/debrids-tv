@@ -1,5 +1,6 @@
 import * as Application from '@nativescript/core/application'
 import * as Frame from '@nativescript/core/ui/frame'
+import * as Intents from '~/utils/Intents'
 import * as R from 'rambdax'
 
 Application.android.on('activityCreated', function activityCreated(args) {
@@ -16,11 +17,6 @@ Application.android.on('activityNewIntent', function activityNewIntent(args) {
 	let url = intent.getDataString()
 	console.log('activityNewIntent action.VIEW ->', url)
 })
-
-// import type { ExoPlayerActivity } from '~/exoplayer/ExoPlayerActivity'
-import * as Intents from '~/utils/Intents'
-import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.vue'
-import Vue from 'nativescript-vue'
 
 Application.on(
 	'displayed',
@@ -50,6 +46,9 @@ Application.on(
 	}),
 )
 
+// import type { ExoPlayerActivity } from '~/exoplayer/ExoPlayerActivity'
+// import ExoPlayerModal from '~/exoplayer/ExoPlayerModal.vue'
+// import Vue from 'nativescript-vue'
 // import ExoPlayerDialog from '~/exoplayer/ExoPlayerDialog'
 // Application.on('displayed', function displayed(args) {
 // 	// Application.getRootView()
