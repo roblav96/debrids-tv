@@ -6,7 +6,7 @@
 	"scripts": {
 		"rog": "rogcat --hide-timestamp --level trace --tag '!^JS$' --tag '!^Finsky$'",
 		"rogcat": "rogcat --hide-timestamp --level trace --tag '!LoadCastServiceInfoTask' --tag '!CastIdRetrievalTask' --tag '!Finsky'",
-		"a": "run-p delp au; env FORCE_COLOR=1 ns run android --no-hmr 2>&1 | sed -e 's/^JS: //'",
+		"a": "run-p delp au; env FORCE_COLOR=1 ns run android --no-hmr 2>&1 | sed -e 's/^JS: //' -e 's/^System.err: //' -e '/^Successfully synced application app.debrids.tv /d'",
 		"au": "adb uninstall app.debrids.tv 2>/dev/null || true",
 		"del": "del hooks node_modules platforms",
 		"delp": "del platforms",
@@ -22,7 +22,7 @@
 		"@nativescript/theme": "^3.0.1",
 		"@sindresorhus/is": "^4.0.0",
 		"ansi-colors": "^4.1.1",
-		"dayjs": "^1.9.8",
+		"dayjs": "^1.10.1",
 		"nativescript-vue": "^2.8.3",
 		"rambda": "^6.4.0",
 		"rambdax": "^7.1.0",

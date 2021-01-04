@@ -36,8 +36,9 @@
 		<activity
 			android:configChanges="keyboard|keyboardHidden|layoutDirection|navigation|orientation|screenLayout|screenSize|smallestScreenSize"
 			android:label="@string/title_activity_kimera"
+			android:launchMode="singleTask"
 			android:name="com.tns.NativeScriptActivity"
-			android:launchMode="singleTop"
+			android:resizeableActivity="true"
 			android:screenOrientation="landscape"
 			android:theme="@style/AppTheme"
 		>
@@ -51,8 +52,9 @@
 		<activity
 			android:configChanges="keyboard|keyboardHidden|layoutDirection|navigation|orientation|screenLayout|screenSize|smallestScreenSize"
 			android:label="ExoPlayerActivity"
-			android:launchMode="singleTop"
+			android:launchMode="singleTask"
 			android:name="app.debrids.tv.ExoPlayerActivity"
+			android:resizeableActivity="true"
 			android:screenOrientation="landscape"
 			android:theme="@style/AppTheme"
 		>

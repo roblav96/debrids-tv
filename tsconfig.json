@@ -1,7 +1,9 @@
 {
 	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"emitDecoratorMetadata": true,
+		"esModuleInterop": false,
 		"experimentalDecorators": true,
 		"importHelpers": true,
 		"lib": ["es2017"],

@@ -288,6 +288,7 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 
 	player: com.google.android.exoplayer2.SimpleExoPlayer
 	async initializePlayer() {
+		console.warn('initializePlayer ->', this.videos)
 		// let mediaItems = await this.getMediaItems()
 		// console.log('mediaItems ->', mediaItems)
 		// return
