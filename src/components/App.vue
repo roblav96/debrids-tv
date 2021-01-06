@@ -31,7 +31,5 @@ export default class App extends Vue {
 	}
 }
 
-console.log('App ->', App)
-
 //
 </script>

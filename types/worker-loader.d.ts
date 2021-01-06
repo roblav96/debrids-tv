@@ -26,3 +26,9 @@ declare module 'nativescript-worker-loader!*' {
 	import * as Worker from 'worker-loader'
 	export = Worker
 }
+
+declare namespace NodeJS {
+	interface Global {
+		postMessage(message: any): void
+	}
+}

@@ -15,6 +15,7 @@ module.exports = (env) => {
 	/** @type { webpack.Configuration } */
 	const config = require(path.join(__dirname, 'webpack.config.js'))(env)
 
+	// config.devtool = 'source-map'
 	config.stats = 'errors-warnings'
 	config.optimization.noEmitOnErrors = false
 

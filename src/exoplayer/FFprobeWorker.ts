@@ -1,18 +1,20 @@
-import '@nativescript/core'
-import type * as Worker from 'worker-loader'
+import 'globals'
 
-const context = (global as any).self as Worker
+declare const self: import('worker-loader')
+const context = self
+
+com.arthenica.mobileffmpeg.Config.setLogLevel(com.arthenica.mobileffmpeg.Level.AV_LOG_QUIET)
 
 context.onmessage = (message) => {
 	let video = message.data as string
 	let streams = [] as FFprobe.Stream[]
-	com.arthenica.mobileffmpeg.Config.setLogLevel(com.arthenica.mobileffmpeg.Level.AV_LOG_ERROR)
 	let ffstreams = com.arthenica.mobileffmpeg.FFprobe.getMediaInformation(video).getStreams()
 	for (let i = 0; i < ffstreams.size(); i++) {
 		let ffstream = ffstreams.get(i) as com.arthenica.mobileffmpeg.StreamInformation
-		streams.push(JSON.parse(ffstream.getAllProperties().toString()))
+		let stream = JSON.parse(ffstream.getAllProperties().toString())
+		streams.push(stream)
 	}
-	context.postMessage(streams)
+	global.postMessage(streams)
 }
 
 // context.onerror = (error) => {

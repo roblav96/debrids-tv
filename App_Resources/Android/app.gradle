@@ -53,11 +53,18 @@ dependencies {
 
 }
 
+allprojects {
+	tasks.withType(JavaCompile) {
+		options.compilerArgs << '-Xlint:unchecked'
+		// options.compilerArgs << '-Xlint:all' << '-Xlint:unchecked' << '-Xlint:deprecation' << '-Xlint:-options' << '-Werror'
+	}
+}
+
 android {
 	// buildToolsVersion '29.0.3'
 	// compileSdkVersion 29
 	defaultConfig {
-		minSdkVersion 28
+		minSdkVersion 26
 		// targetSdkVersion 29
 		// multiDexEnabled true
 		generatedDensities = []
@@ -69,6 +76,9 @@ android {
 	aaptOptions {
 		additionalParameters '--no-version-vectors'
 	}
+	// lintOptions {
+	// 	checkReleaseBuilds false
+	// }
 }
 
 // println '\n\n================'
