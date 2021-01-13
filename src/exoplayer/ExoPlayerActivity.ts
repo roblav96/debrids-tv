@@ -164,11 +164,6 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 			com.google.android.exoplayer2.C.generateAudioSessionIdV21(this),
 		)
 		builder.setViewportSizeToPhysicalDisplaySize(this, false)
-		builder.setAllowAudioMixedChannelCountAdaptiveness(true)
-		builder.setAllowAudioMixedMimeTypeAdaptiveness(true)
-		builder.setAllowAudioMixedSampleRateAdaptiveness(true)
-		builder.setAllowVideoMixedMimeTypeAdaptiveness(true)
-		builder.setAllowVideoNonSeamlessAdaptiveness(true)
 		builder.setForceHighestSupportedBitrate(true)
 		builder.setPreferredAudioLanguage('eng')
 		builder.setSelectUndeterminedTextLanguage(true)
@@ -176,7 +171,6 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 			com.google.android.exoplayer2.C.SELECTION_FLAG_AUTOSELECT |
 				com.google.android.exoplayer2.C.SELECTION_FLAG_DEFAULT,
 		)
-		// builder.setRendererDisabled(com.google.android.exoplayer2.C.TRACK_TYPE_UNKNOWN, true)
 		this._trackSelectorParameters = builder.build() as com.google.android.exoplayer2.trackselection.DefaultTrackSelector.Parameters
 		return this._trackSelectorParameters
 	}

@@ -1,6 +1,21 @@
 declare module com {
 	export module tananaev {
 		export module adblib {
+			export class AdbAuthenticationFailedException extends java.lang.RuntimeException {
+				public static class: java.lang.Class<com.tananaev.adblib.AdbAuthenticationFailedException>;
+				public constructor(cause: java.lang.Throwable);
+				public constructor(message: string, cause: java.lang.Throwable);
+				public constructor(message: string);
+				public constructor(message: string, cause: java.lang.Throwable, enableSuppression: boolean, writableStackTrace: boolean);
+				public constructor();
+			}
+		}
+	}
+}
+
+declare module com {
+	export module tananaev {
+		export module adblib {
 			export class AdbBase64 extends java.lang.Object {
 				public static class: java.lang.Class<com.tananaev.adblib.AdbBase64>;
 				/**
@@ -24,6 +39,7 @@ declare module com {
 				public getMaxData(): number;
 				public close(): void;
 				public connect(): void;
+				public connect(timeout: number, unit: java.util.concurrent.TimeUnit, throwOnUnauthorised: boolean): boolean;
 				public open(destination: string): com.tananaev.adblib.AdbStream;
 				public static create(socket: java.net.Socket, crypto: com.tananaev.adblib.AdbCrypto): com.tananaev.adblib.AdbConnection;
 			}
