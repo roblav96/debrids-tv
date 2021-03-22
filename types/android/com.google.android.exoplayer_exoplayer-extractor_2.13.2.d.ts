@@ -557,6 +557,37 @@ declare module com {
 		export module android {
 			export module exoplayer2 {
 				export module extractor {
+					export class ForwardingExtractorInput extends java.lang.Object implements com.google.android.exoplayer2.extractor.ExtractorInput {
+						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.ForwardingExtractorInput>;
+						public peek(target: native.Array<number>, offset: number, length: number): number;
+						public readFully(target: native.Array<number>, offset: number, length: number): void;
+						public advancePeekPosition(length: number, allowEndOfInput: boolean): boolean;
+						public read(target: native.Array<number>, offset: number, length: number): number;
+						public resetPeekPosition(): void;
+						public getPosition(): number;
+						public readFully(target: native.Array<number>, offset: number, length: number, allowEndOfInput: boolean): boolean;
+						public getLength(): number;
+						public skipFully(length: number): void;
+						public peekFully(target: native.Array<number>, offset: number, length: number): void;
+						public skipFully(length: number, allowEndOfInput: boolean): boolean;
+						public setRetryPosition(position: number, e: java.lang.Throwable): void;
+						public constructor(input: com.google.android.exoplayer2.extractor.ExtractorInput);
+						public advancePeekPosition(length: number): void;
+						public getPeekPosition(): number;
+						public skip(length: number): number;
+						public peekFully(target: native.Array<number>, offset: number, length: number, allowEndOfInput: boolean): boolean;
+					}
+				}
+			}
+		}
+	}
+}
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
 					export class GaplessInfoHolder extends java.lang.Object {
 						public static class: java.lang.Class<com.google.android.exoplayer2.extractor.GaplessInfoHolder>;
 						public encoderDelay: number;
@@ -1068,6 +1099,130 @@ declare module com {
 							public constructor(output: com.google.android.exoplayer2.extractor.TrackOutput);
 							public parsePayload(data: com.google.android.exoplayer2.util.ParsableByteArray, timeUs: number): boolean;
 							public parseHeader(data: com.google.android.exoplayer2.util.ParsableByteArray): boolean;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
+					export module jpeg {
+						export class JpegExtractor extends java.lang.Object implements com.google.android.exoplayer2.extractor.Extractor {
+							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.jpeg.JpegExtractor>;
+							public constructor();
+							public sniff(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
+							public seek(position: number, timeUs: number): void;
+							public release(): void;
+							public init(output: com.google.android.exoplayer2.extractor.ExtractorOutput): void;
+							public read(input: com.google.android.exoplayer2.extractor.ExtractorInput, seekPosition: com.google.android.exoplayer2.extractor.PositionHolder): number;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
+					export module jpeg {
+						export class MotionPhotoDescription extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.jpeg.MotionPhotoDescription>;
+							public photoPresentationTimestampUs: number;
+							public items: java.util.List<com.google.android.exoplayer2.extractor.jpeg.MotionPhotoDescription.ContainerItem>;
+							public constructor(photoPresentationTimestampUs: number, items: java.util.List<com.google.android.exoplayer2.extractor.jpeg.MotionPhotoDescription.ContainerItem>);
+							public getMotionPhotoMetadata(motionPhotoLength: number): com.google.android.exoplayer2.metadata.mp4.MotionPhotoMetadata;
+						}
+						export module MotionPhotoDescription {
+							export class ContainerItem extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.jpeg.MotionPhotoDescription.ContainerItem>;
+								public mime: string;
+								public semantic: string;
+								public length: number;
+								public padding: number;
+								public constructor(mime: string, semantic: string, length: number, padding: number);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
+					export module jpeg {
+						export class StartOffsetExtractorInput extends com.google.android.exoplayer2.extractor.ForwardingExtractorInput {
+							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.jpeg.StartOffsetExtractorInput>;
+							public advancePeekPosition(length: number, allowEndOfInput: boolean): boolean;
+							public getPosition(): number;
+							public readFully(target: native.Array<number>, offset: number, length: number, allowEndOfInput: boolean): boolean;
+							public skipFully(length: number): void;
+							public read(target: native.Array<number>, offset: number, length: number): number;
+							public constructor(input: com.google.android.exoplayer2.extractor.ExtractorInput, startOffset: number);
+							public peekFully(target: native.Array<number>, offset: number, length: number, allowEndOfInput: boolean): boolean;
+							public getLength(): number;
+							public resetPeekPosition(): void;
+							public setRetryPosition(position: number, e: java.lang.Throwable): void;
+							public skip(length: number): number;
+							public readFully(target: native.Array<number>, offset: number, length: number): void;
+							public constructor(input: com.google.android.exoplayer2.extractor.ExtractorInput);
+							public skipFully(length: number, allowEndOfInput: boolean): boolean;
+							public advancePeekPosition(length: number): void;
+							public peek(target: native.Array<number>, offset: number, length: number): number;
+							public getPeekPosition(): number;
+							public peekFully(target: native.Array<number>, offset: number, length: number): void;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
+					export module jpeg {
+						export class StartOffsetExtractorOutput extends java.lang.Object implements com.google.android.exoplayer2.extractor.ExtractorOutput {
+							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.jpeg.StartOffsetExtractorOutput>;
+							public track(id: number, type: number): com.google.android.exoplayer2.extractor.TrackOutput;
+							public constructor(startOffset: number, extractorOutput: com.google.android.exoplayer2.extractor.ExtractorOutput);
+							public endTracks(): void;
+							public seekMap(seekMap: com.google.android.exoplayer2.extractor.SeekMap): void;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
+					export module jpeg {
+						export class XmpMotionPhotoDescriptionParser extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.jpeg.XmpMotionPhotoDescriptionParser>;
+							public static parse(xmpString: string): com.google.android.exoplayer2.extractor.jpeg.MotionPhotoDescription;
 						}
 					}
 				}
@@ -1626,6 +1781,7 @@ declare module com {
 							public static TYPE_trun: number;
 							public static TYPE_sidx: number;
 							public static TYPE_moov: number;
+							public static TYPE_mpvd: number;
 							public static TYPE_mvhd: number;
 							public static TYPE_trak: number;
 							public static TYPE_mdia: number;
@@ -1676,6 +1832,8 @@ declare module com {
 							public static TYPE_sawb: number;
 							public static TYPE_udta: number;
 							public static TYPE_meta: number;
+							public static TYPE_smta: number;
+							public static TYPE_saut: number;
 							public static TYPE_keys: number;
 							public static TYPE_ilst: number;
 							public static TYPE_mean: number;
@@ -1739,9 +1897,10 @@ declare module com {
 					export module mp4 {
 						export class AtomParsers extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.AtomParsers>;
-							public static parseUdta(udtaAtom: com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom, isQuickTime: boolean): com.google.android.exoplayer2.metadata.Metadata;
+							public static parseUdta(udtaAtom: com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom): globalAndroid.util.Pair<com.google.android.exoplayer2.metadata.Metadata,com.google.android.exoplayer2.metadata.Metadata>;
 							public static parseMdtaFromMeta(meta: com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom): com.google.android.exoplayer2.metadata.Metadata;
 							public static parseTraks(moov: com.google.android.exoplayer2.extractor.mp4.Atom.ContainerAtom, gaplessInfoHolder: com.google.android.exoplayer2.extractor.GaplessInfoHolder, duration: number, drmInitData: com.google.android.exoplayer2.drm.DrmInitData, ignoreEditLists: boolean, isQuickTime: boolean, modifyTrackFunction: com.google.common.base.Function<com.google.android.exoplayer2.extractor.mp4.Track,com.google.android.exoplayer2.extractor.mp4.Track>): java.util.List<com.google.android.exoplayer2.extractor.mp4.TrackSampleTable>;
+							public static maybeSkipRemainingMetaAtomHeaderBytes(meta: com.google.android.exoplayer2.util.ParsableByteArray): void;
 						}
 						export module AtomParsers {
 							export class ChunkIterator extends java.lang.Object {
@@ -1780,8 +1939,8 @@ declare module com {
 							export class StszSampleSizeBox extends java.lang.Object implements com.google.android.exoplayer2.extractor.mp4.AtomParsers.SampleSizeBox {
 								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.AtomParsers.StszSampleSizeBox>;
 								public getSampleCount(): number;
-								public constructor(stszAtom: com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom);
 								public readNextSampleSize(): number;
+								public constructor(stszAtom: com.google.android.exoplayer2.extractor.mp4.Atom.LeafAtom, trackFormat: com.google.android.exoplayer2.Format);
 								public getFixedSampleSize(): number;
 							}
 							export class Stz2SampleSizeBox extends java.lang.Object implements com.google.android.exoplayer2.extractor.mp4.AtomParsers.SampleSizeBox {
@@ -1941,39 +2100,11 @@ declare module com {
 			export module exoplayer2 {
 				export module extractor {
 					export module mp4 {
-						export class MdtaMetadataEntry extends java.lang.Object implements com.google.android.exoplayer2.metadata.Metadata.Entry {
-							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.MdtaMetadataEntry>;
-							public key: string;
-							public value: native.Array<number>;
-							public localeIndicator: number;
-							public typeIndicator: number;
-							public static CREATOR: globalAndroid.os.Parcelable.Creator<com.google.android.exoplayer2.extractor.mp4.MdtaMetadataEntry>;
-							public getWrappedMetadataFormat(): com.google.android.exoplayer2.Format;
-							public constructor(key: string, value: native.Array<number>, localeIndicator: number, typeIndicator: number);
-							public hashCode(): number;
-							public writeToParcel(dest: globalAndroid.os.Parcel, flags: number): void;
-							public describeContents(): number;
-							public getWrappedMetadataBytes(): native.Array<number>;
-							public equals(obj: any): boolean;
-							public toString(): string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module android {
-			export module exoplayer2 {
-				export module extractor {
-					export module mp4 {
 						export class MetadataUtil extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.MetadataUtil>;
-							public static setFormatMetadata(trackType: number, udtaMetadata: com.google.android.exoplayer2.metadata.Metadata, mdtaMetadata: com.google.android.exoplayer2.metadata.Metadata, gaplessInfoHolder: com.google.android.exoplayer2.extractor.GaplessInfoHolder, formatBuilder: com.google.android.exoplayer2.Format.Builder): void;
-							public static parseMdtaMetadataEntryFromIlst(ilst: com.google.android.exoplayer2.util.ParsableByteArray, endPosition: number, key: string): com.google.android.exoplayer2.extractor.mp4.MdtaMetadataEntry;
+							public static setFormatGaplessInfo(trackType: number, gaplessInfoHolder: com.google.android.exoplayer2.extractor.GaplessInfoHolder, formatBuilder: com.google.android.exoplayer2.Format.Builder): void;
+							public static setFormatMetadata(trackType: number, udtaMetaMetadata: com.google.android.exoplayer2.metadata.Metadata, mdtaMetadata: com.google.android.exoplayer2.metadata.Metadata, formatBuilder: com.google.android.exoplayer2.Format.Builder, additionalMetadata: native.Array<com.google.android.exoplayer2.metadata.Metadata>): void;
+							public static parseMdtaMetadataEntryFromIlst(ilst: com.google.android.exoplayer2.util.ParsableByteArray, endPosition: number, key: string): com.google.android.exoplayer2.metadata.mp4.MdtaMetadataEntry;
 							public static parseIlstElement(ilst: com.google.android.exoplayer2.util.ParsableByteArray): com.google.android.exoplayer2.metadata.Metadata.Entry;
 						}
 					}
@@ -1993,6 +2124,8 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Mp4Extractor>;
 							public static FACTORY: com.google.android.exoplayer2.extractor.ExtractorsFactory;
 							public static FLAG_WORKAROUND_IGNORE_EDIT_LISTS: number;
+							public static FLAG_READ_MOTION_PHOTO_METADATA: number;
+							public static FLAG_READ_SEF_DATA: number;
 							public constructor();
 							public constructor(flags: number);
 							public sniff(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
@@ -2072,10 +2205,41 @@ declare module com {
 			export module exoplayer2 {
 				export module extractor {
 					export module mp4 {
+						export class SefReader extends java.lang.Object {
+							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.SefReader>;
+							public constructor();
+							public reset(): void;
+							public read(input: com.google.android.exoplayer2.extractor.ExtractorInput, seekPosition: com.google.android.exoplayer2.extractor.PositionHolder, slowMotionMetadataEntries: java.util.List<com.google.android.exoplayer2.metadata.Metadata.Entry>): number;
+						}
+						export module SefReader {
+							export class DataReference extends java.lang.Object {
+								public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.SefReader.DataReference>;
+								public dataType: number;
+								public startOffset: number;
+								public size: number;
+								public constructor(dataType: number, startOffset: number, size: number);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+declare module com {
+	export module google {
+		export module android {
+			export module exoplayer2 {
+				export module extractor {
+					export module mp4 {
 						export class Sniffer extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.extractor.mp4.Sniffer>;
+							public static BRAND_QUICKTIME: number;
+							public static BRAND_HEIC: number;
 							public static sniffUnfragmented(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
 							public static sniffFragmented(input: com.google.android.exoplayer2.extractor.ExtractorInput): boolean;
+							public static sniffUnfragmented(input: com.google.android.exoplayer2.extractor.ExtractorInput, acceptHeic: boolean): boolean;
 						}
 					}
 				}

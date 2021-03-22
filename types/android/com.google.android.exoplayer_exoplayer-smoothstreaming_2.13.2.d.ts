@@ -31,21 +31,21 @@ declare module com {
 						export class DefaultSsChunkSource extends java.lang.Object implements com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource {
 							public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.DefaultSsChunkSource>;
 							public getNextChunk(playbackPositionUs: number, loadPositionUs: number, queue: java.util.List<any>, out: com.google.android.exoplayer2.source.chunk.ChunkHolder): void;
+							public constructor(manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, streamElementIndex: number, trackSelection: com.google.android.exoplayer2.trackselection.ExoTrackSelection, dataSource: com.google.android.exoplayer2.upstream.DataSource);
 							public shouldCancelLoad(playbackPositionUs: number, loadingChunk: com.google.android.exoplayer2.source.chunk.Chunk, queue: java.util.List<any>): boolean;
 							public getPreferredQueueSize(playbackPositionUs: number, queue: java.util.List<any>): number;
 							public onChunkLoadError(chunk: com.google.android.exoplayer2.source.chunk.Chunk, cancelable: boolean, e: java.lang.Exception, exclusionDurationMs: number): boolean;
 							public onChunkLoadCompleted(chunk: com.google.android.exoplayer2.source.chunk.Chunk): void;
 							public updateManifest(newManifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest): void;
-							public updateTrackSelection(trackSelection: com.google.android.exoplayer2.trackselection.TrackSelection): void;
 							public getAdjustedSeekPositionUs(positionUs: number, seekParameters: com.google.android.exoplayer2.SeekParameters): number;
-							public constructor(manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, streamElementIndex: number, trackSelection: com.google.android.exoplayer2.trackselection.TrackSelection, dataSource: com.google.android.exoplayer2.upstream.DataSource);
+							public updateTrackSelection(trackSelection: com.google.android.exoplayer2.trackselection.ExoTrackSelection): void;
 							public release(): void;
 							public maybeThrowError(): void;
 						}
 						export module DefaultSsChunkSource {
 							export class Factory extends java.lang.Object implements com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory {
 								public static class: java.lang.Class<com.google.android.exoplayer2.source.smoothstreaming.DefaultSsChunkSource.Factory>;
-								public createChunkSource(manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, elementIndex: number, trackSelection: com.google.android.exoplayer2.trackselection.TrackSelection, transferListener: com.google.android.exoplayer2.upstream.TransferListener): com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource;
+								public createChunkSource(manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, elementIndex: number, trackSelection: com.google.android.exoplayer2.trackselection.ExoTrackSelection, transferListener: com.google.android.exoplayer2.upstream.TransferListener): com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource;
 								public constructor(dataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory);
 							}
 							export class StreamElementIterator extends com.google.android.exoplayer2.source.chunk.BaseMediaChunkIterator {
@@ -80,7 +80,7 @@ declare module com {
 							 */
 							public constructor(implementation: {
 								updateManifest(ssManifest0: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest): void;
-								updateTrackSelection(trackSelection0: com.google.android.exoplayer2.trackselection.TrackSelection): void;
+								updateTrackSelection(exoTrackSelection0: com.google.android.exoplayer2.trackselection.ExoTrackSelection): void;
 								getAdjustedSeekPositionUs(long0: number, seekParameters1: com.google.android.exoplayer2.SeekParameters): number;
 								maybeThrowError(): void;
 								getPreferredQueueSize(long0: number, list1: java.util.List<any>): number;
@@ -91,13 +91,13 @@ declare module com {
 								release(): void;
 							});
 							public constructor();
-							public updateTrackSelection(trackSelection0: com.google.android.exoplayer2.trackselection.TrackSelection): void;
 							public getAdjustedSeekPositionUs(long0: number, seekParameters1: com.google.android.exoplayer2.SeekParameters): number;
 							public updateManifest(ssManifest0: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest): void;
 							public getNextChunk(long0: number, long1: number, list2: java.util.List<any>, chunkHolder3: com.google.android.exoplayer2.source.chunk.ChunkHolder): void;
 							public onChunkLoadCompleted(chunk0: com.google.android.exoplayer2.source.chunk.Chunk): void;
 							public shouldCancelLoad(long0: number, chunk1: com.google.android.exoplayer2.source.chunk.Chunk, list2: java.util.List<any>): boolean;
 							public onChunkLoadError(chunk0: com.google.android.exoplayer2.source.chunk.Chunk, boolean1: boolean, exception2: java.lang.Exception, long3: number): boolean;
+							public updateTrackSelection(exoTrackSelection0: com.google.android.exoplayer2.trackselection.ExoTrackSelection): void;
 							public release(): void;
 							public maybeThrowError(): void;
 							public getPreferredQueueSize(long0: number, list1: java.util.List<any>): number;
@@ -109,10 +109,10 @@ declare module com {
 								 * Constructs a new instance of the com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource() when extending the interface class.
 								 */
 								public constructor(implementation: {
-									createChunkSource(loaderErrorThrower0: com.google.android.exoplayer2.upstream.LoaderErrorThrower, ssManifest1: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, int2: number, trackSelection3: com.google.android.exoplayer2.trackselection.TrackSelection, transferListener4: com.google.android.exoplayer2.upstream.TransferListener): com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource;
+									createChunkSource(loaderErrorThrower0: com.google.android.exoplayer2.upstream.LoaderErrorThrower, ssManifest1: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, int2: number, exoTrackSelection3: com.google.android.exoplayer2.trackselection.ExoTrackSelection, transferListener4: com.google.android.exoplayer2.upstream.TransferListener): com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource;
 								});
 								public constructor();
-								public createChunkSource(loaderErrorThrower0: com.google.android.exoplayer2.upstream.LoaderErrorThrower, ssManifest1: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, int2: number, trackSelection3: com.google.android.exoplayer2.trackselection.TrackSelection, transferListener4: com.google.android.exoplayer2.upstream.TransferListener): com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource;
+								public createChunkSource(loaderErrorThrower0: com.google.android.exoplayer2.upstream.LoaderErrorThrower, ssManifest1: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, int2: number, exoTrackSelection3: com.google.android.exoplayer2.trackselection.ExoTrackSelection, transferListener4: com.google.android.exoplayer2.upstream.TransferListener): com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource;
 							}
 						}
 					}
@@ -133,21 +133,21 @@ declare module com {
 							public getTrackGroups(): com.google.android.exoplayer2.source.TrackGroupArray;
 							public reevaluateBuffer(positionUs: number): void;
 							public onContinueLoadingRequested(sequenceableLoader0: any): void;
-							public getStreamKeys(trackSelections: java.util.List<com.google.android.exoplayer2.trackselection.TrackSelection>): java.util.List<com.google.android.exoplayer2.offline.StreamKey>;
 							public seekToUs(positionUs: number): number;
 							public constructor(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, transferListener: com.google.android.exoplayer2.upstream.TransferListener, compositeSequenceableLoaderFactory: com.google.android.exoplayer2.source.CompositeSequenceableLoaderFactory, drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager, drmEventDispatcher: com.google.android.exoplayer2.drm.DrmSessionEventListener.EventDispatcher, loadErrorHandlingPolicy: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy, mediaSourceEventDispatcher: com.google.android.exoplayer2.source.MediaSourceEventListener.EventDispatcher, manifestLoaderErrorThrower: com.google.android.exoplayer2.upstream.LoaderErrorThrower, allocator: com.google.android.exoplayer2.upstream.Allocator);
 							public isLoading(): boolean;
 							public release(): void;
-							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.TrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number): number;
 							public onContinueLoadingRequested(sampleStream: com.google.android.exoplayer2.source.chunk.ChunkSampleStream<com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource>): void;
 							public maybeThrowPrepareError(): void;
 							public getBufferedPositionUs(): number;
 							public discardBuffer(positionUs: number, toKeyframe: boolean): void;
 							public getNextLoadPositionUs(): number;
 							public continueLoading(positionUs: number): boolean;
+							public selectTracks(selections: native.Array<com.google.android.exoplayer2.trackselection.ExoTrackSelection>, mayRetainStreamFlags: native.Array<boolean>, streams: native.Array<com.google.android.exoplayer2.source.SampleStream>, streamResetFlags: native.Array<boolean>, positionUs: number): number;
 							public getAdjustedSeekPositionUs(positionUs: number, seekParameters: com.google.android.exoplayer2.SeekParameters): number;
 							public readDiscontinuity(): number;
 							public updateManifest(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest): void;
+							public getStreamKeys(trackSelections: java.util.List<com.google.android.exoplayer2.trackselection.ExoTrackSelection>): java.util.List<com.google.android.exoplayer2.offline.StreamKey>;
 							public prepare(callback: com.google.android.exoplayer2.source.MediaPeriod.Callback, positionUs: number): void;
 						}
 					}
@@ -168,38 +168,27 @@ declare module com {
 							public static DEFAULT_LIVE_PRESENTATION_DELAY_MS: number;
 							public addEventListener(handler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): void;
 							public getMediaItem(): com.google.android.exoplayer2.MediaItem;
-							/** @deprecated */
-							public constructor(manifestUri: globalAndroid.net.Uri, manifestDataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, minLoadableRetryCount: number, livePresentationDelayMs: number, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener);
 							public onLoadCompleted(loadable0: any, long1: number, long2: number): void;
-							public prepareSource(caller: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller, mediaTransferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
-							public onLoadError(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest>, elapsedRealtimeMs: number, loadDurationMs: number, error: java.io.IOException, errorCount: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
-							public getInitialTimeline(): com.google.android.exoplayer2.Timeline;
-							public addDrmEventListener(handler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.drm.DrmSessionEventListener): void;
-							public releasePeriod(period: com.google.android.exoplayer2.source.MediaPeriod): void;
-							/** @deprecated */
-							public constructor(manifestUri: globalAndroid.net.Uri, manifestDataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener);
-							public prepareSourceInternal(mediaTransferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
-							public constructor();
 							public enable(caller: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller): void;
-							/** @deprecated */
-							public constructor(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, minLoadableRetryCount: number, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener);
 							public releaseSourceInternal(): void;
 							public prepareSourceInternal(transferListener0: com.google.android.exoplayer2.upstream.TransferListener): void;
 							/** @deprecated */
 							public getTag(): any;
 							public maybeThrowSourceInfoRefreshError(): void;
+							public prepareSource(caller: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller, mediaTransferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
 							public onLoadCompleted(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest>, elapsedRealtimeMs: number, loadDurationMs: number): void;
+							public onLoadError(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest>, elapsedRealtimeMs: number, loadDurationMs: number, error: java.io.IOException, errorCount: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
 							public isSingleWindow(): boolean;
-							/** @deprecated */
-							public constructor(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener);
 							public releaseSource(caller: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller): void;
 							public onLoadCanceled(loadable: com.google.android.exoplayer2.upstream.ParsingLoadable<com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest>, elapsedRealtimeMs: number, loadDurationMs: number, released: boolean): void;
+							public getInitialTimeline(): com.google.android.exoplayer2.Timeline;
 							public disable(caller: com.google.android.exoplayer2.source.MediaSource.MediaSourceCaller): void;
-							/** @deprecated */
-							public constructor(manifestUri: globalAndroid.net.Uri, manifestDataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory, manifestParser: com.google.android.exoplayer2.upstream.ParsingLoadable.Parser<any>, chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, minLoadableRetryCount: number, livePresentationDelayMs: number, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener);
+							public addDrmEventListener(handler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.drm.DrmSessionEventListener): void;
+							public releasePeriod(period: com.google.android.exoplayer2.source.MediaPeriod): void;
 							public removeDrmEventListener(eventListener: com.google.android.exoplayer2.drm.DrmSessionEventListener): void;
 							public removeEventListener(eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): void;
 							public onLoadCanceled(loadable0: any, long1: number, long2: number, boolean3: boolean): void;
+							public prepareSourceInternal(mediaTransferListener: com.google.android.exoplayer2.upstream.TransferListener): void;
 							public createPeriod(id: com.google.android.exoplayer2.source.MediaSource.MediaPeriodId, allocator: com.google.android.exoplayer2.upstream.Allocator, startPositionUs: number): com.google.android.exoplayer2.source.MediaPeriod;
 							public onLoadError(loadable0: any, long1: number, long2: number, iOException3: java.io.IOException, int4: number): com.google.android.exoplayer2.upstream.Loader.LoadErrorAction;
 						}
@@ -216,30 +205,29 @@ declare module com {
 								public setCompositeSequenceableLoaderFactory(compositeSequenceableLoaderFactory: com.google.android.exoplayer2.source.CompositeSequenceableLoaderFactory): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public setTag(tag: any): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
-								public setManifestParser(manifestParser: com.google.android.exoplayer2.upstream.ParsingLoadable.Parser<any>): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
+								/** @deprecated */
 								public setDrmUserAgent(string0: string): com.google.android.exoplayer2.source.MediaSourceFactory;
+								public setManifestParser(manifestParser: com.google.android.exoplayer2.upstream.ParsingLoadable.Parser<any>): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.MediaSourceFactory;
+								public setDrmSessionManagerProvider(drmSessionManagerProvider: com.google.android.exoplayer2.drm.DrmSessionManagerProvider): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								public constructor(chunkSourceFactory: com.google.android.exoplayer2.source.smoothstreaming.SsChunkSource.Factory, manifestDataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory);
 								public setLoadErrorHandlingPolicy(loadErrorHandlingPolicy0: com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy): com.google.android.exoplayer2.source.MediaSourceFactory;
+								/** @deprecated */
+								public setDrmSessionManager(drmSessionManager0: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public setDrmHttpDataSourceFactory(drmHttpDataSourceFactory: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								public constructor(dataSourceFactory: com.google.android.exoplayer2.upstream.DataSource.Factory);
 								public setDrmSessionManager(drmSessionManager: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
-								/** @deprecated */
-								public createMediaSource(manifestUri: globalAndroid.net.Uri, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
-								/** @deprecated */
-								public createMediaSource(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest, eventHandler: globalAndroid.os.Handler, eventListener: com.google.android.exoplayer2.source.MediaSourceEventListener): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
-								public setDrmHttpDataSourceFactory(factory0: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public createMediaSource(mediaItem: com.google.android.exoplayer2.MediaItem): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
-								public setDrmSessionManager(drmSessionManager0: com.google.android.exoplayer2.drm.DrmSessionManager): com.google.android.exoplayer2.source.MediaSourceFactory;
 								public createMediaSource(manifest: com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
-								/** @deprecated */
-								public setMinLoadableRetryCount(minLoadableRetryCount: number): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public setStreamKeys(streamKeys: java.util.List<com.google.android.exoplayer2.offline.StreamKey>): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
 								/** @deprecated */
 								public createMediaSource(uri: globalAndroid.net.Uri): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 								public setDrmUserAgent(userAgent: string): com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource.Factory;
+								public setDrmSessionManagerProvider(drmSessionManagerProvider0: com.google.android.exoplayer2.drm.DrmSessionManagerProvider): com.google.android.exoplayer2.source.MediaSourceFactory;
+								/** @deprecated */
+								public setDrmHttpDataSourceFactory(factory0: com.google.android.exoplayer2.upstream.HttpDataSource.Factory): com.google.android.exoplayer2.source.MediaSourceFactory;
 							}
 						}
 					}

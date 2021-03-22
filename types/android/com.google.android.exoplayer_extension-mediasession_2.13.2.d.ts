@@ -30,6 +30,7 @@ declare module com {
 					export module mediasession {
 						export class MediaSessionConnector extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector>;
+							public static ACTION_SET_PLAYBACK_SPEED: number;
 							public static ALL_PLAYBACK_ACTIONS: number;
 							public static DEFAULT_PLAYBACK_ACTIONS: number;
 							public static EXTRAS_SPEED: string;
@@ -94,49 +95,52 @@ declare module com {
 								public onAddQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat): void;
 								public onRemoveQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat): void;
 								public onPlaybackStateChanged(state: number): void;
-								public onCommand(command: string, extras: globalAndroid.os.Bundle, cb: globalAndroid.os.ResultReceiver): void;
 								public onPrepareFromSearch(query: string, extras: globalAndroid.os.Bundle): void;
-								public onPrepare(): void;
 								public onPlayFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
-								/** @deprecated */
-								public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
-								public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+								public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 								public onSetRepeatMode(repeatMode: number): void;
 								public onAddQueueItem(description: globalAndroid.support.v4.media.MediaDescriptionCompat, index: number): void;
+								public onPlayFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): void;
+								public onIsLoadingChanged(isLoading: boolean): void;
+								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
+								public onSetShuffleMode(shuffleMode: number): void;
+								public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
+								public onSkipToNext(): void;
+								public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+								public onPositionDiscontinuity(reason: number): void;
+								public onSetCaptioningEnabled(enabled: boolean): void;
+								public onStop(): void;
+								/** @deprecated */
+								public onSeekProcessed(): void;
+								public onPlay(): void;
+								public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
+								public onCommand(command: string, extras: globalAndroid.os.Bundle, cb: globalAndroid.os.ResultReceiver): void;
+								public onPrepare(): void;
+								/** @deprecated */
+								public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
+								public onSetPlaybackSpeed(speed: number): void;
+								public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 								public onSeekTo(positionMs: number): void;
+								public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 								public onCustomAction(action: string, extras: globalAndroid.os.Bundle): void;
 								public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
-								public onPlaybackStateChanged(playbackState: number): void;
 								/** @deprecated */
 								public onLoadingChanged(isLoading: boolean): void;
 								public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
 								public onPrepareFromUri(uri: globalAndroid.net.Uri, extras: globalAndroid.os.Bundle): void;
-								public onPlayFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): void;
-								public onIsLoadingChanged(isLoading: boolean): void;
 								public onSetRepeatMode(mediaSessionRepeatMode: number): void;
-								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 								public onSeekTo(pos: number): void;
-								public onSetShuffleMode(shuffleMode: number): void;
-								public onSkipToNext(): void;
 								public onSkipToPrevious(): void;
 								public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 								public onRepeatModeChanged(repeatMode: number): void;
-								public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 								public onSkipToQueueItem(id: number): void;
 								public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
-								public onPositionDiscontinuity(reason: number): void;
-								public onSetCaptioningEnabled(enabled: boolean): void;
 								/** @deprecated */
 								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
-								public onStop(): void;
 								public onPlayFromSearch(query: string, extras: globalAndroid.os.Bundle): void;
-								/** @deprecated */
-								public onSeekProcessed(): void;
 								public onPause(): void;
 								public onFastForward(): void;
-								public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
-								public onPlay(): void;
 								public onPrepareFromMediaId(mediaId: string, extras: globalAndroid.os.Bundle): void;
 								public onSetRating(rating: globalAndroid.support.v4.media.RatingCompat, extras: globalAndroid.os.Bundle): void;
 								public onMediaButtonEvent(mediaButtonEvent: globalAndroid.content.Intent): boolean;

@@ -1,7 +1,9 @@
 repositories {
 	google()
+	maven { url "https://dl.bintray.com/videolan/Android" }
 	jcenter()
-	maven { url 'https://jitpack.io' }
+	mavenCentral()
+	maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -34,22 +36,26 @@ dependencies {
 	implementation 'com.squareup.okio:okio:1.+'
 	implementation 'com.squareup.picasso:picasso:+'
 
-	implementation 'com.arthenica:mobile-ffmpeg-full:+'
-	implementation 'com.tananaev:adblib:+'
+	implementation 'com.arthenica:ffmpeg-kit-full-gpl:+'
+	implementation 'org.videolan.android:libvlc-all:+'
+	// implementation 'org.videolan.android:medialibrary-all:+'
 
-	implementation 'tv.danmaku.ijk.media:ijkplayer-java:+'
-	// implementation 'tv.danmaku.ijk.media:ijkplayer-exo:+'
-	implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:+'
-	implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:+'
-	implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:+'
-	implementation 'tv.danmaku.ijk.media:ijkplayer-x86:+'
-	implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:+'
+	// implementation 'com.arthenica:mobile-ffmpeg-full:+'
+	// implementation 'com.tananaev:adblib:+'
 
-	implementation 'com.kk.taurus.playerbase:playerbase:+'
-	implementation 'cn.jiajunhui:ijkplayer:+'
-	// implementation 'cn.jiajunhui:exoplayer:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-java:+'
+	// // implementation 'tv.danmaku.ijk.media:ijkplayer-exo:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-x86:+'
+	// implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:+'
 
-	// implementation 'androidx.multidex:multidex:+'
+	// implementation 'com.kk.taurus.playerbase:playerbase:+'
+	// implementation 'cn.jiajunhui:ijkplayer:+'
+	// // implementation 'cn.jiajunhui:exoplayer:+'
+
+	// // implementation 'androidx.multidex:multidex:+'
 
 }
 

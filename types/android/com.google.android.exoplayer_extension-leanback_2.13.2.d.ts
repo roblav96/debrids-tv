@@ -57,9 +57,11 @@ declare module com {
 								public surfaceCreated(surfaceHolder: globalAndroid.view.SurfaceHolder): void;
 								public onPlaybackStateChanged(state: number): void;
 								public onRenderedFirstFrame(): void;
+								public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 								/** @deprecated */
 								public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
 								public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+								public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 								public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 								public onPlaybackStateChanged(playbackState: number): void;
 								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
@@ -70,6 +72,7 @@ declare module com {
 								public onIsLoadingChanged(isLoading: boolean): void;
 								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 								public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
+								public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
 								public onRepeatModeChanged(repeatMode: number): void;
 								public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 								public onPlayerError(exception: com.google.android.exoplayer2.ExoPlaybackException): void;

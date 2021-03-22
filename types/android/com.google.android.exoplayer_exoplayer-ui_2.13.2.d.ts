@@ -203,7 +203,9 @@ declare module com {
 						public onLoadingChanged(isLoading: boolean): void;
 						public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 						public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
+						public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 						public constructor(player: com.google.android.exoplayer2.SimpleExoPlayer, textView: globalAndroid.widget.TextView);
+						public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
 						public onIsPlayingChanged(isPlaying: boolean): void;
 						public updateAndPost(): void;
 						public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
@@ -211,6 +213,7 @@ declare module com {
 						/** @deprecated */
 						public onSeekProcessed(): void;
 						public stop(): void;
+						public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 						public onPlaybackStateChanged(playbackState: number): void;
 						public start(): void;
 						public run(): void;
@@ -248,7 +251,6 @@ declare module com {
 						public static DEFAULT_PLAYED_AD_MARKER_COLOR: number;
 						public static BAR_GRAVITY_CENTER: number;
 						public static BAR_GRAVITY_BOTTOM: number;
-						public static BAR_GRAVITY_TOP: number;
 						public setKeyCountIncrement(count: number): void;
 						public setPosition(position: number): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, defStyleRes: number);
@@ -284,8 +286,8 @@ declare module com {
 						public getPreferredUpdateDelay(): number;
 						public setPlayedAdMarkerColor(playedAdMarkerColor: number): void;
 						public onTouchEvent(event: globalAndroid.view.MotionEvent): boolean;
-						public hideScrubber(): void;
 						public unscheduleDrawable(who: globalAndroid.graphics.drawable.Drawable): void;
+						public hideScrubber(disableScrubberPadding: boolean): void;
 						public setScrubberColor(scrubberColor: number): void;
 						public scheduleDrawable(who: globalAndroid.graphics.drawable.Drawable, what: java.lang.Runnable, when: number): void;
 						public constructor(context: globalAndroid.content.Context, attrs: globalAndroid.util.AttributeSet, defStyleAttr: number, timebarAttrs: globalAndroid.util.AttributeSet);
@@ -495,31 +497,33 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.PlayerControlView.ComponentListener>;
 							public onIsPlayingChanged(isPlaying: boolean): void;
 							public onRepeatModeChanged(repeatMode: number): void;
-							public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
-							public onScrubStart(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
-							/** @deprecated */
-							public onSeekProcessed(): void;
-							public onPlaybackStateChanged(playbackState: number): void;
-							public onClick(view: globalAndroid.view.View): void;
-							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+							public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
+							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+							public onPlaybackStateChanged(state: number): void;
+							public onIsLoadingChanged(isLoading: boolean): void;
+							public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
+							public onPositionDiscontinuity(reason: number): void;
+							public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+							public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
+							public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
+							public onScrubStart(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
+							/** @deprecated */
+							public onSeekProcessed(): void;
+							public onClick(view: globalAndroid.view.View): void;
+							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 							public onScrubStop(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number, canceled: boolean): void;
-							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							public onScrubMove(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							/** @deprecated */
 							public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
-							public onPlaybackStateChanged(state: number): void;
-							public onIsLoadingChanged(isLoading: boolean): void;
-							public onPositionDiscontinuity(reason: number): void;
 							public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 							public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
-							public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
 						}
 						export class ProgressUpdateListener extends java.lang.Object {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.PlayerControlView.ProgressUpdateListener>;
@@ -681,23 +685,25 @@ declare module com {
 							public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
 							/** @deprecated */
 							public onSeekProcessed(): void;
-							public onPlaybackStateChanged(playbackState: number): void;
-							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
+							public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
+							public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							/** @deprecated */
 							public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
 							public onPlaybackStateChanged(state: number): void;
 							public onIsLoadingChanged(isLoading: boolean): void;
+							public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
 							public onPositionDiscontinuity(reason: number): void;
 							public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
 							public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
 							public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+							public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 						}
 						export class Priority extends java.lang.Object implements java.lang.annotation.Annotation {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.PlayerNotificationManager.Priority>;
@@ -752,8 +758,6 @@ declare module com {
 						public static SHOW_BUFFERING_ALWAYS: number;
 						public setErrorMessageProvider(errorMessageProvider: com.google.android.exoplayer2.util.ErrorMessageProvider<any>): void;
 						public isLayoutRequested(): boolean;
-						/** @deprecated */
-						public setDefaultArtwork(defaultArtwork: globalAndroid.graphics.Bitmap): void;
 						public bringChildToFront(child: globalAndroid.view.View): void;
 						public setShowRewindButton(showRewindButton: boolean): void;
 						public requestTransparentRegion(child: globalAndroid.view.View): void;
@@ -855,8 +859,6 @@ declare module com {
 						public getAdOverlayInfos(): java.util.List<com.google.android.exoplayer2.source.ads.AdsLoader.OverlayInfo>;
 						public setControllerAutoShow(controllerAutoShow: boolean): void;
 						/** @deprecated */
-						public setShowBuffering(showBuffering: boolean): void;
-						/** @deprecated */
 						public invalidateChildInParent(location: native.Array<number>, dirty: globalAndroid.graphics.Rect): globalAndroid.view.ViewParent;
 						public childDrawableStateChanged(child: globalAndroid.view.View): void;
 						public removeView(view: globalAndroid.view.View): void;
@@ -903,14 +905,17 @@ declare module com {
 							public onSurfaceSizeChanged(width: number, height: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+							public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							public onVisibilityChange(visibility: number): void;
 							public onPlaybackStateChanged(state: number): void;
 							public onIsLoadingChanged(isLoading: boolean): void;
+							public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
 							public onPositionDiscontinuity(reason: number): void;
 							public onSingleTapUp(e: globalAndroid.view.MotionEvent): boolean;
 							public onLayoutChange(view: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
 							public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+							public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 							public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
 							/** @deprecated */
 							public onSeekProcessed(): void;
@@ -1116,20 +1121,21 @@ declare module com {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView.ComponentListener>;
 							public onIsPlayingChanged(isPlaying: boolean): void;
 							public onRepeatModeChanged(repeatMode: number): void;
-							public onPlayWhenReadyChanged(playWhenReady: boolean, state: number): void;
 							public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
-							public onPlaybackStateChanged(playbackState: number): void;
 							/** @deprecated */
 							public onLoadingChanged(isLoading: boolean): void;
 							public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
 							public onDismiss(): void;
+							public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							public onPlaybackStateChanged(state: number): void;
 							public onIsLoadingChanged(isLoading: boolean): void;
+							public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
 							public onPositionDiscontinuity(reason: number): void;
 							public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+							public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 							public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
 							public onScrubStart(timeBar: com.google.android.exoplayer2.ui.TimeBar, position: number): void;
 							/** @deprecated */
@@ -1191,14 +1197,15 @@ declare module com {
 						}
 						export class SubSettingsAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingViewHolder> {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingsAdapter>;
+							public constructor();
+							public init(texts: native.Array<string>, selectedIndex: number): void;
 							public onCreateViewHolder(viewGroup0: globalAndroid.view.ViewGroup, int1: number): any;
+							public constructor(param0: com.google.android.exoplayer2.ui.StyledPlayerControlView);
 							public onBindViewHolder(holder: any, position: number, payloads: java.util.List<any>): void;
 							public getItemCount(): number;
 							public onCreateViewHolder(parent: globalAndroid.view.ViewGroup, viewType: number): com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingViewHolder;
 							public onBindViewHolder(viewHolder0: any, int1: number): void;
 							public onBindViewHolder(holder: com.google.android.exoplayer2.ui.StyledPlayerControlView.SubSettingViewHolder, position: number): void;
-							public setCheckPosition(checkPosition: number): void;
-							public setTexts(texts: java.util.List<string>): void;
 						}
 						export class TextTrackSelectionAdapter extends com.google.android.exoplayer2.ui.StyledPlayerControlView.TrackSelectionAdapter {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ui.StyledPlayerControlView.TextTrackSelectionAdapter>;
@@ -1447,14 +1454,17 @@ declare module com {
 							public onSurfaceSizeChanged(width: number, height: number): void;
 							/** @deprecated */
 							public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+							public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 							public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 							public onVisibilityChange(visibility: number): void;
 							public onPlaybackStateChanged(state: number): void;
 							public onIsLoadingChanged(isLoading: boolean): void;
+							public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
 							public onPositionDiscontinuity(reason: number): void;
 							public onSingleTapUp(e: globalAndroid.view.MotionEvent): boolean;
 							public onLayoutChange(view: globalAndroid.view.View, left: number, top: number, right: number, bottom: number, oldLeft: number, oldTop: number, oldRight: number, oldBottom: number): void;
 							public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
+							public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 							public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
 							/** @deprecated */
 							public onSeekProcessed(): void;

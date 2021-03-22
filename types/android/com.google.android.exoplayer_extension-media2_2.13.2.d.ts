@@ -74,23 +74,6 @@ declare module com {
 			export module exoplayer2 {
 				export module ext {
 					export module media2 {
-						export class MediaSessionUtil extends java.lang.Object {
-							public static class: java.lang.Class<com.google.android.exoplayer2.ext.media2.MediaSessionUtil>;
-							public static getSessionCompatToken(mediaSession: androidx.media2.session.MediaSession): globalAndroid.support.v4.media.session.MediaSessionCompat.Token;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module android {
-			export module exoplayer2 {
-				export module ext {
-					export module media2 {
 						export class PlayerCommandQueue extends java.lang.Object implements java.lang.AutoCloseable {
 							public static class: java.lang.Class<com.google.android.exoplayer2.ext.media2.PlayerCommandQueue>;
 							public static COMMAND_CODE_PLAYER_SET_AUDIO_ATTRIBUTES: number;
@@ -110,6 +93,7 @@ declare module com {
 							public static COMMAND_CODE_PLAYER_SET_PLAYLIST: number;
 							public static COMMAND_CODE_PLAYER_ADD_PLAYLIST_ITEM: number;
 							public static COMMAND_CODE_PLAYER_REMOVE_PLAYLIST_ITEM: number;
+							public static COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM: number;
 							public close(): void;
 							public notifyCommandCompleted(completedCommandCode: number): void;
 							public addCommand(commandCode: number, command: java.util.concurrent.Callable<java.lang.Boolean>, tag: any): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
@@ -211,6 +195,7 @@ declare module com {
 							public removePlaylistItem(index: number): boolean;
 							public replacePlaylistItem(index: number, media2MediaItem: androidx.media2.common.MediaItem): boolean;
 							public canSkipToPlaylistItem(): boolean;
+							public movePlaylistItem(fromIndex: number, toIndex: number): boolean;
 							public getCurrentMediaItemIndex(): number;
 							public getPreviousMediaItemIndex(): number;
 							public getRepeatMode(): number;
@@ -227,31 +212,34 @@ declare module com {
 						export module PlayerWrapper {
 							export class ComponentListener extends java.lang.Object implements com.google.android.exoplayer2.Player.EventListener, com.google.android.exoplayer2.audio.AudioListener {
 								public static class: java.lang.Class<com.google.android.exoplayer2.ext.media2.PlayerWrapper.ComponentListener>;
-								public onIsLoadingChanged(isLoading: boolean): void;
-								public onVolumeChanged(volume: number): void;
-								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
-								public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
-								public onRepeatModeChanged(repeatMode: number): void;
-								public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
 								public onPlaybackStateChanged(state: number): void;
-								public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
-								public onPositionDiscontinuity(reason: number): void;
-								/** @deprecated */
-								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+								public onExperimentalSleepingForOffloadChanged(sleepingForOffload: boolean): void;
 								/** @deprecated */
 								public onPlayerStateChanged(playWhenReady: boolean, playbackState: number): void;
-								/** @deprecated */
-								public onSeekProcessed(): void;
 								public onPlaybackParametersChanged(playbackParameters: com.google.android.exoplayer2.PlaybackParameters): void;
-								public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
+								public onStaticMetadataChanged(metadataList: java.util.List<com.google.android.exoplayer2.metadata.Metadata>): void;
 								public onPlaybackSuppressionReasonChanged(playbackSuppressionReason: number): void;
-								public onAudioSessionId(audioSessionId: number): void;
 								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, reason: number): void;
 								/** @deprecated */
 								public onLoadingChanged(isLoading: boolean): void;
 								public onSkipSilenceEnabledChanged(skipSilenceEnabled: boolean): void;
 								public onAudioAttributesChanged(audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes): void;
 								public onShuffleModeEnabledChanged(shuffleModeEnabled: boolean): void;
+								public onIsLoadingChanged(isLoading: boolean): void;
+								public onVolumeChanged(volume: number): void;
+								public onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException): void;
+								public onMediaItemTransition(mediaItem: com.google.android.exoplayer2.MediaItem, reason: number): void;
+								public onEvents(player: com.google.android.exoplayer2.Player, events: com.google.android.exoplayer2.Player.Events): void;
+								public onRepeatModeChanged(repeatMode: number): void;
+								public onTracksChanged(trackGroups: com.google.android.exoplayer2.source.TrackGroupArray, trackSelections: com.google.android.exoplayer2.trackselection.TrackSelectionArray): void;
+								public onExperimentalOffloadSchedulingEnabledChanged(offloadSchedulingEnabled: boolean): void;
+								public onPositionDiscontinuity(reason: number): void;
+								/** @deprecated */
+								public onTimelineChanged(timeline: com.google.android.exoplayer2.Timeline, manifest: any, reason: number): void;
+								/** @deprecated */
+								public onSeekProcessed(): void;
+								public onAudioSessionIdChanged(audioSessionId: number): void;
+								public onPlayWhenReadyChanged(playWhenReady: boolean, reason: number): void;
 								public onIsPlayingChanged(isPlaying: boolean): void;
 							}
 							export class Listener extends java.lang.Object {
@@ -506,6 +494,7 @@ declare module com {
 							public getBufferedPosition(): number;
 							public replacePlaylistItem(index: number, item: androidx.media2.common.MediaItem): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							public getNextMediaItemIndex(): number;
+							public movePlaylistItem(fromIndex: number, toIndex: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
 							public getPlaylistMetadata(): androidx.media2.common.MediaMetadata;
 							public getBufferingState(): number;
 							public removePlaylistItem(index: number): com.google.common.util.concurrent.ListenableFuture<androidx.media2.common.SessionPlayer.PlayerResult>;
