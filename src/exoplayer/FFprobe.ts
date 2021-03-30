@@ -1,13 +1,15 @@
 import * as FFprobeWorker from 'nativescript-worker-loader!~/exoplayer/FFprobeWorker'
 import * as R from 'rambdax'
 
-com.arthenica.mobileffmpeg.Config.setLogLevel(com.arthenica.mobileffmpeg.Level.AV_LOG_QUIET)
+com.arthenica.ffmpegkit.FFmpegKitConfig.setLogLevel(com.arthenica.ffmpegkit.Level.AV_LOG_QUIET)
 
 export function sync(video: string) {
 	let streams = [] as Stream[]
-	let ffstreams = com.arthenica.mobileffmpeg.FFprobe.getMediaInformation(video).getStreams()
+	let ffstreams = com.arthenica.ffmpegkit.FFprobeKit.getMediaInformation(video)
+		.getMediaInformation()
+		.getStreams()
 	for (let i = 0; i < ffstreams.size(); i++) {
-		let ffstream = ffstreams.get(i) as com.arthenica.mobileffmpeg.StreamInformation
+		let ffstream = ffstreams.get(i) as com.arthenica.ffmpegkit.StreamInformation
 		streams.push(JSON.parse(ffstream.getAllProperties().toString()))
 	}
 	return streams

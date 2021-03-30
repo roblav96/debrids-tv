@@ -14,21 +14,21 @@ class RenderersFactory extends com.google.android.exoplayer2.DefaultRenderersFac
 		return global.__native(this)
 	}
 
-	audioMediaCodecOperationMode: number
-	videoMediaCodecOperationMode: number
-	experimentalSetMediaCodecOperationMode(mode: number) {
-		this.audioMediaCodecOperationMode = mode
-		this.videoMediaCodecOperationMode = mode
-		return super.experimentalSetMediaCodecOperationMode(mode)
-	}
-	experimentalSetAudioMediaCodecOperationMode(mode: number) {
-		this.audioMediaCodecOperationMode = mode
-		return super.experimentalSetAudioMediaCodecOperationMode(mode)
-	}
-	experimentalSetVideoMediaCodecOperationMode(mode: number) {
-		this.videoMediaCodecOperationMode = mode
-		return super.experimentalSetVideoMediaCodecOperationMode(mode)
-	}
+	// audioMediaCodecOperationMode: number
+	// videoMediaCodecOperationMode: number
+	// experimentalSetMediaCodecOperationMode(mode: number) {
+	// 	this.audioMediaCodecOperationMode = mode
+	// 	this.videoMediaCodecOperationMode = mode
+	// 	return super.experimentalSetMediaCodecOperationMode(mode)
+	// }
+	// experimentalSetAudioMediaCodecOperationMode(mode: number) {
+	// 	this.audioMediaCodecOperationMode = mode
+	// 	return super.experimentalSetAudioMediaCodecOperationMode(mode)
+	// }
+	// experimentalSetVideoMediaCodecOperationMode(mode: number) {
+	// 	this.videoMediaCodecOperationMode = mode
+	// 	return super.experimentalSetVideoMediaCodecOperationMode(mode)
+	// }
 
 	// createRenderers(
 	// 	eventHandler: android.os.Handler,
@@ -58,9 +58,9 @@ class RenderersFactory extends com.google.android.exoplayer2.DefaultRenderersFac
 	) {
 		// prettier-ignore
 		let videoRenderer = new MediaCodecVideoRenderer(this.activity, context, mediaCodecSelector, allowedVideoJoiningTimeMs, enableDecoderFallback, eventHandler, eventListener, com.google.android.exoplayer2.DefaultRenderersFactory.MAX_DROPPED_VIDEO_FRAME_COUNT_TO_NOTIFY)
-		if (Number.isFinite(this.videoMediaCodecOperationMode)) {
-			videoRenderer.experimentalSetMediaCodecOperationMode(this.videoMediaCodecOperationMode)
-		}
+		// if (Number.isFinite(this.videoMediaCodecOperationMode)) {
+		// 	videoRenderer.experimentalSetMediaCodecOperationMode(this.videoMediaCodecOperationMode)
+		// }
 		out.add(videoRenderer)
 		// // @ts-ignore
 		// super.buildVideoRenderers(...arguments)
@@ -78,9 +78,9 @@ class RenderersFactory extends com.google.android.exoplayer2.DefaultRenderersFac
 	) {
 		// prettier-ignore
 		let audioRenderer = new MediaCodecAudioRenderer(this.activity, context, mediaCodecSelector, enableDecoderFallback, eventHandler, eventListener, audioSink)
-		if (Number.isFinite(this.audioMediaCodecOperationMode)) {
-			audioRenderer.experimentalSetMediaCodecOperationMode(this.audioMediaCodecOperationMode)
-		}
+		// if (Number.isFinite(this.audioMediaCodecOperationMode)) {
+		// 	audioRenderer.experimentalSetMediaCodecOperationMode(this.audioMediaCodecOperationMode)
+		// }
 		out.add(audioRenderer)
 		// // @ts-ignore
 		// super.buildAudioRenderers(...arguments)
@@ -184,6 +184,10 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 				}
 			}
 		}
+		if (stream.codec_name == 'eac3') {
+			builder.setCodecs('ec+3')
+			builder.setSampleMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_E_AC3_JOC)
+		}
 		if (Number.isFinite(stream.channels)) {
 			builder.setChannelCount(stream.channels)
 		}
@@ -197,11 +201,11 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 			}
 		})
 		formatHolder.format = builder.build()
+		console.log('formatHolder.format ->', ExoFormat.toLog(formatHolder.format))
 
 		// @ts-ignore
 		return super.onInputFormatChanged(...arguments)
 
-		// console.log('formatHolder.format ->', ExoFormat.toLog(formatHolder.format))
 		// // console.dir(formatHolder.format)
 		// let builder = formatHolder.format.buildUpon()
 		// builder.setSampleMimeType(com.google.android.exoplayer2.util.MimeTypes.AUDIO_DTS_HD)

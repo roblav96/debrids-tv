@@ -160,9 +160,7 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		let builder = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector.ParametersBuilder(
 			this,
 		)
-		builder.setTunnelingAudioSessionId(
-			com.google.android.exoplayer2.C.generateAudioSessionIdV21(this),
-		)
+		builder.setTunnelingEnabled(true)
 		builder.setViewportSizeToPhysicalDisplaySize(this, false)
 		builder.setForceHighestSupportedBitrate(true)
 		builder.setPreferredAudioLanguage('eng')
@@ -197,8 +195,9 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		}
 		let mediaItems = new java.util.ArrayList<com.google.android.exoplayer2.MediaItem>()
 
-		let ffprobes = await Promise.all(this.videos.map((v) => FFprobe.async(v)))
-		// let ffprobes = this.videos.map((v) => FFprobe.sync(v))
+		// let ffprobes = await Promise.all(this.videos.map((v) => FFprobe.async(v)))
+		let ffprobes = this.videos.map((v) => FFprobe.sync(v))
+		console.log('ffprobes ->', ffprobes)
 		for (let i = 0; i < this.videos.length; i++) {
 			let video = this.videos[i]
 			let title = video.slice(video.lastIndexOf('/') + 1, video.lastIndexOf('.'))
@@ -365,32 +364,34 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 			} as com.google.android.exoplayer2.video.VideoListener) as any),
 		)
 
-		this.player.addVideoDebugListener(
-			new com.google.android.exoplayer2.video.VideoRendererEventListener(({
-				onVideoInputFormatChanged(format) {
-					console.warn('onVideoInputFormat ->', ExoFormat.toLog(format))
-				},
-			} as com.google.android.exoplayer2.video.VideoRendererEventListener) as any),
-		)
+		// this.player.addVideoDebugListener(
+		// 	new com.google.android.exoplayer2.video.VideoRendererEventListener(({
+		// 		onVideoInputFormatChanged(format) {
+		// 			console.warn('onVideoInputFormat ->', ExoFormat.toLog(format))
+		// 		},
+		// 	} as com.google.android.exoplayer2.video.VideoRendererEventListener) as any),
+		// )
 
 		this.player.addAudioListener(
 			new com.google.android.exoplayer2.audio.AudioListener(({
-				onAudioSessionId(audioSessionId) {
-					console.log('onAudioSessionId ->', audioSessionId)
+				onAudioSessionIdChanged(audioSessionId: number) {
+					console.log('onAudioSessionIdChanged ->', audioSessionId)
 				},
-				onAudioAttributesChanged(audioAttributes) {
-					console.log('onAudioAttributes ->', audioAttributes)
+				onAudioAttributesChanged(
+					audioAttributes: com.google.android.exoplayer2.audio.AudioAttributes,
+				) {
+					console.log('onAudioAttributesChanged ->', audioAttributes)
 				},
 			} as com.google.android.exoplayer2.audio.AudioListener) as any),
 		)
 
-		this.player.addAudioDebugListener(
-			new com.google.android.exoplayer2.audio.AudioRendererEventListener(({
-				onAudioInputFormatChanged(format) {
-					console.warn('onAudioInputFormat ->', ExoFormat.toLog(format))
-				},
-			} as com.google.android.exoplayer2.audio.AudioRendererEventListener) as any),
-		)
+		// this.player.addAudioDebugListener(
+		// 	new com.google.android.exoplayer2.audio.AudioRendererEventListener(({
+		// 		onAudioInputFormatChanged(format) {
+		// 			console.warn('onAudioInputFormat ->', ExoFormat.toLog(format))
+		// 		},
+		// 	} as com.google.android.exoplayer2.audio.AudioRendererEventListener) as any),
+		// )
 
 		const randomSeekTo = R.once((player: com.google.android.exoplayer2.SimpleExoPlayer) => {
 			console.warn('player.getVideoFormat() ->', ExoFormat.toLog(player.getVideoFormat()))

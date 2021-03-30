@@ -1,18 +1,20 @@
 import 'globals'
+import type { Stream } from './FFprobe'
 
 declare const self: import('worker-loader')
 const context = self
 
-com.arthenica.mobileffmpeg.Config.setLogLevel(com.arthenica.mobileffmpeg.Level.AV_LOG_QUIET)
+com.arthenica.ffmpegkit.FFmpegKitConfig.setLogLevel(com.arthenica.ffmpegkit.Level.AV_LOG_QUIET)
 
 context.onmessage = (message) => {
 	let video = message.data as string
-	let streams = [] as FFprobe.Stream[]
-	let ffstreams = com.arthenica.mobileffmpeg.FFprobe.getMediaInformation(video).getStreams()
+	let streams = [] as Stream[]
+	let ffstreams = com.arthenica.ffmpegkit.FFprobeKit.getMediaInformation(video)
+		.getMediaInformation()
+		.getStreams()
 	for (let i = 0; i < ffstreams.size(); i++) {
-		let ffstream = ffstreams.get(i) as com.arthenica.mobileffmpeg.StreamInformation
-		let stream = JSON.parse(ffstream.getAllProperties().toString())
-		streams.push(stream)
+		let ffstream = ffstreams.get(i) as com.arthenica.ffmpegkit.StreamInformation
+		streams.push(JSON.parse(ffstream.getAllProperties().toString()))
 	}
 	global.postMessage(streams)
 }

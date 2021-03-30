@@ -116,11 +116,7 @@ class ExoPlayerDialog extends androidx.appcompat.app.AppCompatDialog {
 		let builder = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector.ParametersBuilder(
 			Application.android.foregroundActivity,
 		)
-		builder.setTunnelingAudioSessionId(
-			com.google.android.exoplayer2.C.generateAudioSessionIdV21(
-				Application.android.foregroundActivity,
-			),
-		)
+		builder.setTunnelingEnabled(true)
 		builder.setForceHighestSupportedBitrate(true)
 		builder.setPreferredAudioLanguage('eng')
 		builder.setSelectUndeterminedTextLanguage(true)
