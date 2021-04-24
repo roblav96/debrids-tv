@@ -160,7 +160,7 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		let builder = new com.google.android.exoplayer2.trackselection.DefaultTrackSelector.ParametersBuilder(
 			this,
 		)
-		builder.setTunnelingEnabled(true)
+		// builder.setTunnelingEnabled(true)
 		builder.setViewportSizeToPhysicalDisplaySize(this, false)
 		builder.setForceHighestSupportedBitrate(true)
 		builder.setPreferredAudioLanguage('eng')
@@ -197,7 +197,7 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 
 		// let ffprobes = await Promise.all(this.videos.map((v) => FFprobe.async(v)))
 		let ffprobes = this.videos.map((v) => FFprobe.sync(v))
-		console.log('ffprobes ->', ffprobes)
+		// console.log('ffprobes ->', ffprobes)
 		for (let i = 0; i < this.videos.length; i++) {
 			let video = this.videos[i]
 			let title = video.slice(video.lastIndexOf('/') + 1, video.lastIndexOf('.'))
@@ -239,9 +239,9 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		renderersFactory.setExtensionRendererMode(
 			com.google.android.exoplayer2.DefaultRenderersFactory.EXTENSION_RENDERER_MODE_OFF,
 		)
-		renderersFactory.setEnableAudioFloatOutput(true)
-		renderersFactory.setEnableAudioTrackPlaybackParams(false)
-		renderersFactory.setEnableDecoderFallback(false)
+		// renderersFactory.setEnableAudioFloatOutput(true)
+		// renderersFactory.setEnableAudioTrackPlaybackParams(false)
+		// renderersFactory.setEnableDecoderFallback(false)
 		// renderersFactory.experimentalSetMediaCodecOperationMode(
 		// 	com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
 		// 		.OPERATION_MODE_ASYNCHRONOUS_DEDICATED_THREAD_ASYNCHRONOUS_QUEUEING,
@@ -396,6 +396,10 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		const randomSeekTo = R.once((player: com.google.android.exoplayer2.SimpleExoPlayer) => {
 			console.warn('player.getVideoFormat() ->', ExoFormat.toLog(player.getVideoFormat()))
 			console.warn('player.getAudioFormat() ->', ExoFormat.toLog(player.getAudioFormat()))
+			console.log('player.getAudioSessionId() ->', player.getAudioSessionId())
+			console.log('player.getAudioComponent() ->', player.getAudioComponent())
+			let audio = player.getAudioComponent() as com.google.android.exoplayer2.SimpleExoPlayer
+			console.log('audio.getDeviceComponent().getDeviceInfo() ->', audio.getDeviceComponent().getDeviceInfo())
 			player.seekTo(R.random(0.1, player.getDuration() * 0.9))
 			// setTimeout(() => player.pause(), 3000)
 		})
