@@ -170,6 +170,7 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		let builder = formatHolder.format.buildUpon()
 		let mediaItem = this.activity.player.getCurrentMediaItem()
 		let stream = FFprobe.getMediaItemStream(mediaItem, Number(formatHolder.format.id) - 1)
+		console.log('onInputFormatChanged stream ->', stream)
 		if (Number.isFinite(stream.bits)) {
 			builder.setPcmEncoding(com.google.android.exoplayer2.util.Util.getPcmEncoding(stream.bits))
 		}
@@ -194,12 +195,12 @@ class MediaCodecAudioRenderer extends com.google.android.exoplayer2.audio.MediaC
 		if (stream.sample_rate) {
 			builder.setSampleRate(Number(stream.sample_rate))
 		}
-		Object.keys(stream.tags).forEach((key) => {
-			if (key.startsWith('BPS')) {
-				builder.setAverageBitrate(Number(stream.tags[key]))
-				builder.setPeakBitrate(Number(stream.tags[key]))
-			}
-		})
+		// Object.keys(stream.tags).forEach((key) => {
+		// 	if (key.startsWith('BPS')) {
+		// 		builder.setAverageBitrate(Number(stream.tags[key]))
+		// 		builder.setPeakBitrate(Number(stream.tags[key]))
+		// 	}
+		// })
 		formatHolder.format = builder.build()
 		console.log('formatHolder.format ->', ExoFormat.toLog(formatHolder.format))
 
