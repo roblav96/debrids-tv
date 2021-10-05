@@ -1,5 +1,6 @@
-import * as FFprobeWorker from 'nativescript-worker-loader!~/exoplayer/FFprobeWorker'
+// import * as FFprobeWorker from 'nativescript-worker-loader!./FFprobe.worker'
 import * as R from 'rambdax'
+import * as Utilities from '~/utils/Utilities'
 
 com.arthenica.ffmpegkit.FFmpegKitConfig.setLogLevel(com.arthenica.ffmpegkit.Level.AV_LOG_QUIET)
 
@@ -16,8 +17,12 @@ export function sync(video: string) {
 }
 
 export function async(video: string) {
+	// const FFprobeWorker = require('nativescript-worker-loader!./FFprobe.worker')
+	// console.log('FFprobeWorker ->', Utilities.allEntries(FFprobeWorker))
 	return new Promise<Stream[]>((resolve, reject) => {
-		let worker = new FFprobeWorker()
+		// let worker = new FFprobeWorker()
+		let worker = new Worker('./FFprobe.worker')
+		console.log('worker ->', Utilities.allKeys(worker))
 		worker.postMessage(video)
 		worker.onmessage = (message) => {
 			worker.terminate()

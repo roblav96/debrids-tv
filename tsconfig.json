@@ -3,7 +3,7 @@
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"emitDecoratorMetadata": true,
-		"esModuleInterop": false,
+		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"importHelpers": true,
 		"lib": ["es2017"],
@@ -11,7 +11,7 @@
 		"moduleResolution": "node",
 		"noEmitHelpers": true,
 		"noEmitOnError": false,
-		"paths": { "@/*": ["app/*"], "~/*": ["src/*"] },
+		"paths": { "@/*": ["src/*"], "~/*": ["src/*"] },
 		"plugins": [{ "name": "ts-vue-plugin" }],
 		"skipLibCheck": true,
 		"sourceMap": true,
@@ -19,11 +19,5 @@
 		"target": "es2017"
 	},
 	"exclude": ["platforms"],
-	"include": [
-		"node_modules/@nativescript/types-android/lib/android/*.d.ts",
-		"types/**/*.d.ts",
-		"src/**/*.d.ts",
-		"src/**/*.ts",
-		"src/**/*.vue"
-	]
+	"include": ["node_modules/@nativescript/types-android/lib/android", "types", "src"]
 }

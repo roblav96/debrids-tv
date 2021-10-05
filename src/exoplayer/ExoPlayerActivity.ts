@@ -195,9 +195,9 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		}
 		let mediaItems = new java.util.ArrayList<com.google.android.exoplayer2.MediaItem>()
 
-		// let ffprobes = await Promise.all(this.videos.map((v) => FFprobe.async(v)))
-		let ffprobes = this.videos.map((v) => FFprobe.sync(v))
-		// console.log('ffprobes ->', ffprobes)
+		let ffprobes = await Promise.all(this.videos.map((v) => FFprobe.async(v)))
+		// let ffprobes = this.videos.map((v) => FFprobe.sync(v))
+		console.log('ffprobes ->', ffprobes)
 		for (let i = 0; i < this.videos.length; i++) {
 			let video = this.videos[i]
 			let title = video.slice(video.lastIndexOf('/') + 1, video.lastIndexOf('.'))
@@ -469,7 +469,7 @@ class ExoPlayerActivity extends androidx.appcompat.app.AppCompatActivity {
 		console.warn('playMediaItem ->')
 		let stream = FFprobe.getMediaItemStream(mediaItem, 0)
 		if (Number.isFinite(stream.fps)) {
-			await new ExoDisplay(stream.width, stream.height, stream.fps).setBestDisplayMode()
+			// await new ExoDisplay(stream.width, stream.height, stream.fps).setBestDisplayMode()
 		}
 		console.warn('this.player.play ->')
 		this.player.play()

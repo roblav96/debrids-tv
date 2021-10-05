@@ -4,7 +4,6 @@ export default {
 	appPath: 'src',
 	appResourcesPath: 'App_Resources',
 	id: 'app.debrids.tv',
-	webpackConfigPath: 'custom.webpack.config.js',
 	android: {
 		discardUncaughtJsExceptions: false,
 		markingMode: 'none',

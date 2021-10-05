@@ -11,6 +11,7 @@ declare module 'worker-loader' {
 	}
 
 	class Worker {
+		constructor(script?: string)
 		close(): void
 		onclose(): void
 		onerror(error: Worker.Error): void | boolean
@@ -21,6 +22,8 @@ declare module 'worker-loader' {
 
 	export = Worker
 }
+
+declare var Worker: typeof import('worker-loader')
 
 declare module 'nativescript-worker-loader!*' {
 	import * as Worker from 'worker-loader'
